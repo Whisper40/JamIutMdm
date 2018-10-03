@@ -9,7 +9,7 @@
 * Ajax + Javascript used.
 
 
-# Script d'installation
+# Auteurs et Contributeurs
 
 ![logo](http://munier.perso.univ-pau.fr/img/logo_rt_mdm.png)
 
@@ -19,6 +19,22 @@
 **Auteurs :** Paul et Kévin ( Students in Networks And Telecommunications)
 
 **Encadré par :**  Jamal El Hachem ( Teaching and Research Assistant in Software Engineering and Security )
+
+
+### Projet
+[FR] L'objectif de ce projet est de mettre en place un site web pour l'association montoise de l'IUT.
+
+En s'inspirant de différents sites web d'associations, le but est de réaliser une interface permettant aux étudiants de s'intéresser à la vie étudiante de leur IUT.
+
+Cette interface à aussi pour but de permettre la réservation de voyages, sorties que proposerait l'IUT.
+
+
+[ENG] The objective of this project is to set up a website for the Montpellier association of the IUT.
+
+Drawing inspiration from various association websites, the aim is to create an interface that allows students to take an interest in the student life of their IUT.
+
+This interface also aims to allow the booking of trips, outings that the IUT would propose.
+
 
 ## Installation:
 Il est nécessaire d'avoir configurer correctement et de manière sécurisé votre serveur Web.
