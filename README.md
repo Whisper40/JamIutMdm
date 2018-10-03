@@ -16,10 +16,13 @@
 
 
 
-**Auteur : ** Paul et Kévin ( Students ).
+**Auteur :** Paul et Kévin ( Students in Networks And Telecommunications)
+
 **Encadré par :**  Jamal El Hachem ( Teaching and Research Assistant in Software Engineering and Security )
 
 ## Installation:
+Il est nécessaire d'avoir configurer correctement et de manière sécurisé votre serveur Web.
+Nous utilisons dans notre cas Nginx avec la version 7.2 de PHP.
 
 ```
 apt-get update && apt-get upgrade -y
