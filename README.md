@@ -52,7 +52,7 @@ chown -R www-data:www-data /YourWebHome/jamiutmdm
 ```
 
 
-![logo](http://munier.perso.univ-pau.fr/img/logo_uppa.png =250x250)
+<img align="center" width="100" height="100" src="http://munier.perso.univ-pau.fr/img/logo_uppa.png">
 ### Disclaimer
 [FR] Ce script est proposé à des fins d'expérimentation **uniquement**, le code source est disponible uniquement dans un but pédagogique.
 Aucune maintenance ne sera garantie sur ce projet.
