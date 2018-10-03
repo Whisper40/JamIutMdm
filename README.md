@@ -1,7 +1,8 @@
-# JamIutMdm
+# JamIutMdm ( Association Montoise IUT MDM )
 
 
-* Association Montoise IUT
+# Fonctionnalitées
+
 * User Account, Admin Account
 * Paiement Process ( Paypal + Stripe )
 * Account secured in Password Default
