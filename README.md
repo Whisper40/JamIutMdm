@@ -22,6 +22,7 @@
 
 ## Installation:
 Il est nécessaire d'avoir configurer correctement et de manière sécurisé votre serveur Web.
+
 Nous utilisons dans notre cas Nginx avec la version 7.2 de PHP.
 
 ```
@@ -35,12 +36,12 @@ chown -R www-data:www-data /YourWebHome/jamiutmdm
 ```
 
 ### Disclaimer
-Ce script est proposé à des fins d'expérimentation **uniquement**, le code source est disponible uniquement dans un but pédagogique.
+[FR] Ce script est proposé à des fins d'expérimentation **uniquement**, le code source est disponible uniquement dans un but pédagogique.
 Aucune maintenance ne sera garantie sur ce projet.
 
 Merci de faire bon usage de ce code.
 
-This script is offered for experimental purposes **only**, the source code is available only for educational purposes. No maintenance will be guaranteed on this project.
+[ENG] This script is offered for experimental purposes **only**, the source code is available only for educational purposes. No maintenance will be guaranteed on this project.
 
 Thank you for making good use of this code.
 
