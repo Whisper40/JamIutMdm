@@ -29,7 +29,7 @@ En s'inspirant de différents sites web d'associations, le but est de réaliser 
 Cette interface à aussi pour but de permettre la réservation de voyages, sorties que proposerait l'IUT.
 
 
-[ENG] The objective of this project is to set up a website for the Montpellier association of the IUT.
+[ENG] The objective of this project is to set up a website for the Montoise association of the IUT.
 
 Drawing inspiration from various association websites, the aim is to create an interface that allows students to take an interest in the student life of their IUT.
 
