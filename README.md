@@ -16,7 +16,7 @@
 
 
 
-**Auteur :** Paul et Kévin ( Students in Networks And Telecommunications)
+**Auteurs :** Paul et Kévin ( Students in Networks And Telecommunications)
 
 **Encadré par :**  Jamal El Hachem ( Teaching and Research Assistant in Software Engineering and Security )
 
@@ -35,10 +35,15 @@ chown -R www-data:www-data /YourWebHome/jamiutmdm
 ```
 
 ### Disclaimer
-Ce script est proposé à des fins d'expérimentation uniquement, le code source est disponible uniquement dans un but pédagogique.
+Ce script est proposé à des fins d'expérimentation **uniquement**, le code source est disponible uniquement dans un but pédagogique.
 Aucune maintenance ne sera garantie sur ce projet.
 
 Merci de faire bon usage de ce code.
 
+This script is offered for experimental purposes **only**, the source code is available only for educational purposes. No maintenance will be guaranteed on this project.
+
+Thank you for making good use of this code.
+
 ### License
 Actuellement aucune licence.
+Actually without licence
