@@ -51,6 +51,8 @@ cd jamiutmdm
 chown -R www-data:www-data /YourWebHome/jamiutmdm
 ```
 
+
+![logo](http://munier.perso.univ-pau.fr/img/logo_uppa.png)
 ### Disclaimer
 [FR] Ce script est proposé à des fins d'expérimentation **uniquement**, le code source est disponible uniquement dans un but pédagogique.
 Aucune maintenance ne sera garantie sur ce projet.
