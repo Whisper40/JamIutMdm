@@ -1,5 +1,5 @@
 # JamIutMdm
- < --  Site Association Montoise  -- >
+
 
 * Association Montoise IUT
 * User Account, Admin Account
@@ -16,7 +16,7 @@
 
 
 
-**Auteur : ** Paul et Kévin ( Students )
+**Auteur : ** Paul et Kévin ( Students ).
 **Encadré par :**  Jamal El Hachem ( Teaching and Research Assistant in Software Engineering and Security )
 
 ## Installation:
