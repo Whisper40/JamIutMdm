@@ -8,7 +8,11 @@
 * Account secured in Password Default
 * Session and cookies used.
 * Ajax + Javascript used.
+
 Je suis la V1
+
+Je suis KEVIN
+
 
 # Auteurs et Contributeurs
 
@@ -21,7 +25,7 @@ Je suis la V1
 
 **Encadré par :**  Jamal El Hachem ( Teaching and Research Assistant in Software Engineering and Security )
 
-
+bqbsbbdbbsbfbdbfbdbfb
 ### Projet
 [FR] L'objectif de ce projet est de mettre en place un site web pour l'association montoise de l'IUT.
 
