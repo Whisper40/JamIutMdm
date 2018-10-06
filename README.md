@@ -10,17 +10,8 @@
 * Ajax + Javascript used.
 
 
-Je suis la V1
-
-Je suis KEVIN
-
-
-Je suis PAUL
-
-
 # Auteurs et Contributeurs
 
-lldlfldlflfddlfll
 ![logo](http://munier.perso.univ-pau.fr/img/logo_rt_mdm.png)
 
 
@@ -30,7 +21,7 @@ lldlfldlflfddlfll
 
 **Encadré par :**  Jamal El Hachem ( Teaching and Research Assistant in Software Engineering and Security )
 
-bqbsbbdbbsbfbdbfbdbfb
+
 ### Projet
 [FR] L'objectif de ce projet est de mettre en place un site web pour l'association montoise de l'IUT.
 
