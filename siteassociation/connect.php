@@ -74,7 +74,7 @@ require_once('includes/header.php');
 ?>
 
 <div class="page-header clear-filter">
-  <div class="page-header-image" style="background-image:url(assets/img/IUTmdm.jpg)"></div>
+  <div class="page-header-image" style="background-image:url(assets/img/IUTmdm.JPG)"></div>
   <div class="content">
     <div class="container">
       <div class="col-md-4 ml-auto mr-auto">
