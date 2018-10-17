@@ -30,8 +30,8 @@
 
 <?php
     require_once('includes/head.php');
-    $secret = "LE CAPTCHA";
-$sitekey = "LE CAPTCHA";
+    $secret = "LESECRET";
+$sitekey = "LESITELEY";
 
 
 ?>
@@ -246,8 +246,11 @@ if(!isset($_SESSION['user_id'])){
                              <input type="password" name="repeatpassword" placeholder="Confirmer mot de passe" class="form-control"/>
                           </div>
 
-
-
+                          <!-- A garder 17/10/2018 -->
+                          <div class="footer text-center">
+                          <div class="g-recaptcha" data-sitekey="<?= $sitekey; ?>"></div>
+                          </div>
+                          <!-- Fin -->
 
                           <div class="checkbox">
                              <label>
