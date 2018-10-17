@@ -63,6 +63,7 @@ if(!isset($_SESSION['user_id'])){
           if($selectetudiant->rowCount()==1){
 
       if (preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{10,}$#', $password)){
+        $responseData = json_decode(file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$_POST['g-recaptcha-response']));
          if($responseData->success){
             if($password==$repeatpassword){
                 date_default_timezone_set('Europe/Paris');
