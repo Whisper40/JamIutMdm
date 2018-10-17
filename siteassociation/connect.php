@@ -74,7 +74,7 @@ require_once('includes/header.php');
 ?>
 
 <div class="page-header clear-filter">
-  <div class="page-header-image" style="background-image:url(./assets/img/IUTmdm.jpg)"></div>
+  <div class="page-header-image" style="background-image:url(assets/img/IUTmdm.jpg)"></div>
   <div class="content">
     <div class="container">
       <div class="col-md-4 ml-auto mr-auto">
@@ -82,7 +82,7 @@ require_once('includes/header.php');
           <form class="form" action="" method="POST">
             <div class="card-header text-center">
               <div class="logo-container">
-                <img src="./assets/img/now-logo.png" alt="">
+                <img src="assets/img/now-logo.png" alt="">
               </div>
             </div>
 
