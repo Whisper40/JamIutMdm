@@ -62,8 +62,8 @@ if(!isset($_SESSION['user_id'])){
           );
           if($selectetudiant->rowCount()==1){
 
-            if (preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{10,}$#', $password)){
-
+      if (preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{10,}$#', $password)){
+         if($responseData->success){
             if($password==$repeatpassword){
                 date_default_timezone_set('Europe/Paris');
                 setlocale(LC_TIME, 'fr_FR.utf8','fra');
@@ -119,7 +119,25 @@ if(!isset($_SESSION['user_id'])){
             }
 
 
-
+          }else{
+          ?>
+                  <div class="container">
+                      <div class="row">
+                          <div class="alert alert-warning">
+                              <div class="alert-icon">
+                                  <i class="material-icons">warning</i>
+                              </div>
+                              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                  <span aria-hidden="true"><i class="material-icons">clear</i></span>
+                              </button>
+                              <center>
+                                  <b>Attention :</b> Votre inscription n'a pas pu aboutir. Merci de cocher la captcha.
+                              </center>
+                          </div>
+                      </div>
+                  </div>
+          <?php
+                      }
 
 
 
