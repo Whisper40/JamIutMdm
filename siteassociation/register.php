@@ -31,7 +31,7 @@
 <?php
     require_once('includes/head.php');
     $secret = "LESECRET";
-$sitekey = "LESITELEY";
+$sitekey = "LESITEKEY";
 
 
 ?>
