@@ -57,6 +57,7 @@ $sitekey = "LESITEKEY";
               <div class="logo-container">
                 <img src="assets/img/now-logo.png" alt="">
               </div>
+              <h4 class="card-title">Inscrivez-vous</h4>
             </div>
 <?php
 if(!isset($_SESSION['user_id'])){
@@ -105,10 +106,10 @@ if(!isset($_SESSION['user_id'])){
             <div class="row">
                 <div class="alert alert-success">
                     <div class="alert-icon">
-                        <i class="material-icons">check</i>
+                      <i class="now-ui-icons ui-1_bell-53"></i>
                     </div>
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true"><i class="material-icons">clear</i></span>
+                        <span aria-hidden="true"><i class="now-ui-icons ui-1_simple-remove"></i></span>
                     </button>
                     <center>
                         <b>Succès :</b> Merci pour votre inscription, vous pouvez désormais vous <a href="connect.php">connecter</a>
@@ -124,10 +125,10 @@ if(!isset($_SESSION['user_id'])){
             <div class="row">
                 <div class="alert alert-warning">
                     <div class="alert-icon">
-                        <i class="material-icons">warning</i>
+                      <i class="now-ui-icons ui-1_bell-53"></i>
                     </div>
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true"><i class="material-icons">clear</i></span>
+                        <span aria-hidden="true"><i class="now-ui-icons ui-1_simple-remove"></i></span>
                     </button>
                     <center>
                         <b>Attention :</b> Votre inscription n'a pas pu aboutir. Merci de verifier la saisie des champs
@@ -145,10 +146,10 @@ if(!isset($_SESSION['user_id'])){
                       <div class="row">
                           <div class="alert alert-warning">
                               <div class="alert-icon">
-                                  <i class="material-icons">warning</i>
+                                <i class="now-ui-icons ui-1_bell-53"></i>
                               </div>
                               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                  <span aria-hidden="true"><i class="material-icons">clear</i></span>
+                                  <span aria-hidden="true"><i class="now-ui-icons ui-1_simple-remove"></i></span>
                               </button>
                               <center>
                                   <b>Attention :</b> Votre inscription n'a pas pu aboutir. Merci de cocher la captcha.
@@ -168,10 +169,10 @@ if(!isset($_SESSION['user_id'])){
               <div class="row">
                   <div class="alert alert-warning">
                       <div class="alert-icon">
-                          <i class="material-icons">warning</i>
+                        <i class="now-ui-icons ui-1_bell-53"></i>
                       </div>
                       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                          <span aria-hidden="true"><i class="material-icons">clear</i></span>
+                          <span aria-hidden="true"><i class="now-ui-icons ui-1_simple-remove"></i></span>
                       </button>
                       <center>
                           <b>Attention :</b> Votre mot de passe n'est pas sécurisé ! <br/> Il doit contenir au minimum une minuscule, une majuscule, un chiffre et un symbole( ! @ ).
@@ -181,27 +182,16 @@ if(!isset($_SESSION['user_id'])){
           </div>
           <?php
               }
-
-
-
-
-
-
-
-
-
-
-
         }else{
 ?>
         <div class="container">
             <div class="row">
                 <div class="alert alert-warning">
                     <div class="alert-icon">
-                        <i class="material-icons">warning</i>
+                      <i class="now-ui-icons ui-1_bell-53"></i>
                     </div>
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true"><i class="material-icons">clear</i></span>
+                        <span aria-hidden="true"><i class="now-ui-icons ui-1_simple-remove"></i></span>
                     </button>
                     <center>
                         <b>Attention :</b> Votre inscription n'a pas pu aboutir. Vous n'êtes pas membre de l'IUT MDM.
@@ -218,10 +208,10 @@ if(!isset($_SESSION['user_id'])){
             <div class="row">
                 <div class="alert alert-warning">
                     <div class="alert-icon">
-                        <i class="material-icons">warning</i>
+                      <i class="now-ui-icons ui-1_bell-53"></i>
                     </div>
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true"><i class="material-icons">clear</i></span>
+                        <span aria-hidden="true"><i class="now-ui-icons ui-1_simple-remove"></i></span>
                     </button>
                     <center>
                         <b>Attention Alert :</b> Votre inscription n'a pas pu aboutir. Merci de verifier la saisie de tous les champs
@@ -238,10 +228,34 @@ if(!isset($_SESSION['user_id'])){
             <div class="input-group no-border input-lg">
               <div class="input-group-prepend">
                 <span class="input-group-text">
+                  <i class="now-ui-icons users_single-02"></i>
+                </span>
+              </div>
+              <input type="text" name="nom" class="form-control" placeholder="Nom"/>
+            </div>
+            <div class="input-group no-border input-lg">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="now-ui-icons users_single-02"></i>
+                </span>
+              </div>
+              <input type="text" name="prenom" class="form-control" placeholder="Prénom"/>
+            </div>
+            <div class="input-group no-border input-lg">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="now-ui-icons travel_info"></i>
+                </span>
+              </div>
+              <input type="text" name="ine" class="form-control" placeholder="Code UPPA"/>
+            </div>
+            <div class="input-group no-border input-lg">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
                   <i class="now-ui-icons ui-1_email-85"></i>
                 </span>
               </div>
-              <input  type="email" name="email" class="form-control" placeholder="Email"/>
+              <input type="email" name="email" class="form-control" placeholder="Email"/>
             </div>
             <div class="input-group no-border input-lg">
               <div class="input-group-prepend">
@@ -251,19 +265,25 @@ if(!isset($_SESSION['user_id'])){
               </div>
               <input type="password" name="password" placeholder="Mot de passe" class="form-control"/>
             </div>
+            <div class="input-group no-border input-lg">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="now-ui-icons ui-1_lock-circle-open"></i>
+                </span>
+              </div>
+              <input type="password" name="repeatpassword" placeholder="Confirmer mot de passe" class="form-control"/>
+            </div>
+            <div class="footer text-center">
+            <div class="g-recaptcha" data-sitekey="<?= $sitekey; ?>"></div>
+            </div>
           </div>
           <div class="card-footer text-center">
           <button type="submit" class="btn btn-primary btn-round btn-lg btn-block" name="submit">
-            Connexion
+            S'inscrire
           </button>
-            <div class="pull-left">
+            <div class="pull-center">
               <h6>
-                <a href="https://jam-mdm.fr/register.php" class="link">Inscrivez vous</a>
-              </h6>
-            </div>
-            <div class="pull-right">
-              <h6>
-                <a href="https://jam-mdm.fr/recuperation.php" class="link">Mot de passe oublié</a>
+                <a href="connect.php" class="link">J'ai déja un compte</a>
               </h6>
             </div>
           </form>
@@ -279,5 +299,7 @@ if(!isset($_SESSION['user_id'])){
     header('Location:my_account.php');
 }
 
-require_once('includes/javascriptwithoutdashboard.php');
+require_once('includes/footer.php');
+
+require_once('includes/javascript.php');
 ?>
