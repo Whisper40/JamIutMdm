@@ -19,12 +19,12 @@
   <title>Jam - Inscription</title>
 
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-<!-- Les CSS utilisés -->
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+  <!-- Les CSS utilisés -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" />
 
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="assets/css/material-kit.css?v=1.1.0" rel="stylesheet"/>
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/css/now-ui-kit.css?v=1.2.0" rel="stylesheet" />
 </head>
 
 
@@ -40,12 +40,24 @@ $sitekey = "LESITEKEY";
 
 ?>
   <script src='https://www.google.com/recaptcha/api.js'></script>
-<body class="login-page">
+
+  <body class="login-page sidebar-collapse">
+
 <?php
     require_once('includes/header.php');
 ?>
-    <div class="page-header header-filter" style="background-image: url('https://images-assets.nasa.gov/image/PIA04921/PIA04921~large.jpg'); background-size: cover; background-position: top center;">
-    <br>
+<div class="page-header clear-filter">
+  <div class="page-header-image" style="background-image:url(assets/img/IUTmdm.JPG)"></div>
+  <div class="content">
+    <div class="container">
+      <div class="col-md-4 ml-auto mr-auto">
+        <div class="card card-login card-plain">
+          <form class="form" action="" method="POST">
+            <div class="card-header text-center">
+              <div class="logo-container">
+                <img src="assets/img/now-logo.png" alt="">
+              </div>
+            </div>
 <?php
 if(!isset($_SESSION['user_id'])){
     if(isset($_POST['submit'])){
@@ -222,108 +234,45 @@ if(!isset($_SESSION['user_id'])){
     }
 ?>
 
-        <div class="container">
-           <div class="row">
-              <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
-                 <div class="card card-signup">
-                    <form class="form" method="POST" action="">
-                       <div class="header header-primary text-center">
-                          <h4 class="card-title">Inscrivez-vous</h4>
-                       </div>
-                       <p class="description text-center">Merci de completer les champs ci-dessous.</p>
-                       <div class="card-content">
-                          <div class="input-group">
-                             <span class="input-group-addon">
-                             <i class="material-icons">face</i>
-                             </span>
-                             <input type="text" name="nom" class="form-control" placeholder="Nom"/>
-                          </div>
-                          <div class="input-group">
-                             <span class="input-group-addon">
-                             <i class="material-icons">face</i>
-                             </span>
-                             <input type="text" name="prenom" class="form-control" placeholder="Prénom"/>
-                          </div>
-
-                          <div class="input-group">
-                             <span class="input-group-addon">
-                             <i class="material-icons">touch_app</i>
-                             </span>
-                             <input type="text" name="ine" class="form-control" placeholder="Code UPPA"/>
-                          </div>
-
-                          <div class="input-group">
-                             <span class="input-group-addon">
-                             <i class="material-icons">email</i>
-                             </span>
-                             <input type="email" name="email" class="form-control" placeholder="Email"/>
-                          </div>
-                          <div class="input-group">
-                             <span class="input-group-addon">
-                             <i class="material-icons">lock_outline</i>
-                             </span>
-
-                             <input type="password" name="password" placeholder="Mot de passe" class="form-control"/>
-                          </div>
-                          <div class="input-group">
-                             <span class="input-group-addon">
-                             <i class="material-icons">lock_outline</i>
-                             </span>
-                             <input type="password" name="repeatpassword" placeholder="Confirmer mot de passe" class="form-control"/>
-                          </div>
-
-                          <!-- A garder 17/10/2018 -->
-                          <div class="footer text-center">
-                          <div class="g-recaptcha" data-sitekey="<?= $sitekey; ?>"></div>
-                          </div>
-                          <!-- Fin -->
-
-                          <div class="checkbox">
-                             <label>
-                             <input type="checkbox" id="myCheck"  onclick="CheckMyBox()">
-                             J'accepte les <a href="conditions_generales_de_vente.php">conditions d'utilisations</a>.
-                             </label>
-                          </div>
-                          <div class="footer text-center">
-
-
-          <a href="https://jam-mdm.fr/connect.php" class="btn btn-primary btn-round">
-            <i class="material-icons">account_box</i> Déja un compte ?
-          </a>
-
-
-                                  </div>
-                          <div class="footer text-center" id="text" style="display:none">
-
-                            <div class="footer text-center">
-
-
-                           <button type="submit" class="btn btn-primary btn-round" name="submit">
-                  <i class="material-icons">toggle_on</i> S'inscrire
-       </button>
-                         </div>
-
-
-                          </div>
-                          <script>
-                          // Checkbox de lecture des conditions générales
-                          function CheckMyBox() {
-                            var checkBox = document.getElementById("myCheck");
-                            var text = document.getElementById("text");
-                            if (checkBox.checked == true){
-                                text.style.display = "block";
-                            } else {
-                               text.style.display = "none";
-                            }
-                        }
-                        </script>
-                    </form>
-                    </div>
-                 </div>
+          <div class="card-body">
+            <div class="input-group no-border input-lg">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="now-ui-icons ui-1_email-85"></i>
+                </span>
               </div>
-           </div>
+              <input  type="email" name="email" class="form-control" placeholder="Email"/>
+            </div>
+            <div class="input-group no-border input-lg">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="now-ui-icons ui-1_lock-circle-open"></i>
+                </span>
+              </div>
+              <input type="password" name="password" placeholder="Mot de passe" class="form-control"/>
+            </div>
+          </div>
+          <div class="card-footer text-center">
+          <button type="submit" class="btn btn-primary btn-round btn-lg btn-block" name="submit">
+            Connexion
+          </button>
+            <div class="pull-left">
+              <h6>
+                <a href="https://jam-mdm.fr/register.php" class="link">Inscrivez vous</a>
+              </h6>
+            </div>
+            <div class="pull-right">
+              <h6>
+                <a href="https://jam-mdm.fr/recuperation.php" class="link">Mot de passe oublié</a>
+              </h6>
+            </div>
+          </form>
         </div>
+      </div>
     </div>
+  </div>
+</div>
+
 <?php
 
 }else{
