@@ -35,7 +35,34 @@
 					</li>
 						<?php
 						  }
+						if(!isset($_SESSION['user_id'])){
 						?>
+						<li class="nav-item">
+	            <a class="nav-link" href="register.php">
+	              <i class="now-ui-icons files_single-copy-04"></i>
+	              <p>Inscription</p>
+	            </a>
+	          </li>
+						<li class="nav-item">
+	            <a class="nav-link" href="connect.php">
+	              <i class="now-ui-icons users_single-02"></i>
+	              <p>Se connecter</p>
+	            </a>
+	          </li>
+						<?php }else{ ?>
+						<li class="nav-item">
+							<a class="nav-link" href="my_account.php">
+								<i class="now-ui-icons user_circle-08"></i>
+								<p>Mon Compte</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="disconnect.php">
+								<i class="now-ui-icons arrows-1_share-66"></i>
+								<p>Deconnexion</p>
+							</a>
+						</li>
+						<?php } ?>
 					</div>
 
 			</ul>
