@@ -19,7 +19,7 @@
   <title>Jam - Inscription</title>
 
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-
+<!-- Les CSS utilisés -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
 
@@ -29,8 +29,12 @@
 
 
 <?php
+//Connexion à la BDD
     require_once('includes/head.php');
-    $secret = "LESECRET";
+
+//Code secret pour vérification auprès de Google anti-robots
+//Ils sont complétés automatiquement par le script "updatesite"
+$secret = "LESECRET";
 $sitekey = "LESITEKEY";
 
 
@@ -45,6 +49,7 @@ $sitekey = "LESITEKEY";
 <?php
 if(!isset($_SESSION['user_id'])){
     if(isset($_POST['submit'])){
+      //Conversion des minuscules en majuscule et vérification des caractères spéciaux
         $username = strtoupper(htmlspecialchars($_POST['nom']));
         $prenom = strtoupper(htmlspecialchars($_POST['prenom']));
         $ine = strtoupper(htmlspecialchars($_POST['ine']));
@@ -61,6 +66,7 @@ if(!isset($_SESSION['user_id'])){
               )
           );
           if($selectetudiant->rowCount()==1){
+            //Le mot de passe est vérifié afin qu'il contienne une minuscule, majuscule, nombre et symbole
 
       if (preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{10,}$#', $password)){
         $responseData = json_decode(file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$_POST['g-recaptcha-response']));
@@ -72,6 +78,7 @@ if(!isset($_SESSION['user_id'])){
 
                 $register= $db->prepare("INSERT INTO users (username, email, password, last_connect) VALUES(:username, :email, :param_password, :date)");
                 $register->execute(array(
+                  //On insert la date à laquelle s'est connecté l'utilisateur afin d'avoir un suivi d'activitée du site.
 
                     "username"=>$username,
                     "email"=>$email,
@@ -79,7 +86,7 @@ if(!isset($_SESSION['user_id'])){
                     "date"=>$date
                     )
                 );
-                //add secure htmlspecialchars strip_tags
+
 
                 ?>
         <div class="container">
@@ -299,6 +306,7 @@ if(!isset($_SESSION['user_id'])){
 
                           </div>
                           <script>
+                          // Checkbox de lecture des conditions générales
                           function CheckMyBox() {
                             var checkBox = document.getElementById("myCheck");
                             var text = document.getElementById("text");
