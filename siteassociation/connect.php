@@ -2,6 +2,7 @@
 <html lang="fr">
 
 <?php
+  // Connexion à la BDD
    require_once('includes/head.php');
    ?>
 
@@ -11,7 +12,7 @@
   <meta name="Description" content="Association JAM ( Jeunesse Associative Montoise ) - Mont de Marsan">
   <meta name="Keywords" content="jam, association mont de marsan, iut mont de marsan, iut mdm, uppa">
   <meta name="Identifier-Url" content="https://jam-mdm.fr">
-  <meta name="Reply-To" content="postmaster@jam-mdm.fr">
+  <meta name="Reply-To" content="postmaster@jam-mdm.fr"> <!-- Mail Admin -->
 
 
   <meta name="Rating" content="general">
@@ -24,7 +25,7 @@
   <title>Jam - Connexion</title>
 
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-
+  <!-- Les CSS utilisés -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
   <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" />
 
@@ -33,7 +34,7 @@
 </head>
 
 <?php
-
+                      // START - Récupération de l'ip de connexion de l'utilisateur, même à travers de proxy !
                       function get_ip() {
                       // IP si internet partagé
                       if (isset($_SERVER['HTTP_CLIENT_IP'])) {
@@ -48,9 +49,9 @@
                         return (isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '');
                       }
                     }
+                    // Fin - Récupération IP
 
-
-                      //CODE
+                   // START - Récupération du navigateur utilisé :
                     if(strpos($_SERVER["HTTP_USER_AGENT"], 'Firefox') !== false)
                         $user_agent_name = 'Mozilla Firefox';
                     elseif(strpos($_SERVER["HTTP_USER_AGENT"], 'Opera') !== false)
@@ -65,6 +66,7 @@
                         $user_agent_name = 'Google Chrome';
                     else
                         $user_agent_name = '(navigateur inconnu)';
+                    // FIN - Récupération du navigateur utilisé :
 ?>
 
 <body class="login-page sidebar-collapse">
@@ -102,11 +104,12 @@ require_once('includes/header.php');
                                 if($select->rowCount()==1){
                                     $data = $select->fetch();
                                     if(password_verify($password, $data['password'])){
+                                      //Variables sessions définies
                                         $_SESSION['user_id'] = $data['id'];
                                         $_SESSION['user_name'] = $data['username'];
                                         $_SESSION['user_email'] = $data['email'];
 
-                    // FIN - Process de connexion :
+                    // FIN - Process de connexion
 
 
                     // START - Historique de connexion au site :
@@ -126,7 +129,7 @@ require_once('includes/header.php');
                                     )
                                 );
 
-                    // STOP - Historique de connexion au site :
+                    // STOP - Historique de connexion au site
 
                     // START - Update last_connexion :
 
@@ -141,7 +144,7 @@ require_once('includes/header.php');
                             )
                         );
 
-                   // STOP - Update last_connexion :
+                   // STOP - Update last_connexion
                         header('Location: https://dashboard.jam-mdm.fr/');
                     }else{
 ?>
@@ -174,7 +177,7 @@ require_once('includes/header.php');
                    <span aria-hidden="true"><i class="now-ui-icons ui-1_simple-remove"></i></span>
                  </button>
                  <center>
-                    <b>Erreur :</b> Aucun compte n'est lié a cette email !
+                    <b>Erreur :</b> Aucun compte n'est lié a cet email !
                  </center>
               </div>
            </div>
