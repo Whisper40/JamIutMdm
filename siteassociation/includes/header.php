@@ -8,7 +8,7 @@
 							<span class="icon-bar"></span>
 					</button>
 					<a href="index.php" class="btn btn-rose btn-round">
-							<i class="material-icons">polymer</i> SDEDIKOOL 
+							<i class="material-icons">polymer</i> SDEDIKOOL
 						</a>
 
 				</div>
@@ -22,18 +22,36 @@
 						</a>
 					</li>
 
+					<?php
+													$sql = "SELECT DISTINCT name FROM category";
+													$req = $db->query($sql);
+													$req->setFetchMode(PDO::FETCH_ASSOC);
+
+													foreach($req as $row)
+													{
+														?>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-								<i class="material-icons">video_label</i> Seedbox
+								<i class="material-icons">video_label</i> <?php
+												echo $row['name'];
+												$name = echo $row['name'];
+										?>
 								<b class="caret"></b>
 							</a>
 							<ul class="dropdown-menu dropdown-with-icons">
+
+
+
+
+
+
+
 								<?php
-								$select8 = $db->query("SELECT * FROM category WHERE name LIKE 'Seedbox%'");
+								$select8 = $db->query("SELECT surname,slug FROM category WHERE name=$name");
 								while($s8 = $select8->fetch(PDO::FETCH_OBJ)){
 									?>
 									<?php
-									$test8 = substr($s8->name, 7);
+									$test8 = $s8->name;
 							?>
 							<li>
 								<a href="boutique.php?category=<?php echo $s8->slug;?>">
