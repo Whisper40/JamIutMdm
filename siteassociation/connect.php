@@ -71,9 +71,9 @@
 
 <body class="login-page sidebar-collapse">
 
-<?php
-//require_once('includes/header.php');
-?>
+  <?php
+     require_once('includes/header.php');
+  ?>
 
 <div class="page-header clear-filter">
   <div class="page-header-image" style="background-image:url(assets/img/IUTmdm.JPG)"></div>
