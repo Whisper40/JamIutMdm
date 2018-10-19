@@ -151,11 +151,11 @@ if(isset($_POST['submit'])){
   $owner_mail = $_POST['optionsRadios'];
   $priority = $_POST['optionsRadios2'];
   $nom = $_POST['nom'];
-    $email = $_POST['email'];
+  $email = $_POST['email'];
 
     $message = $_POST['message'];
     $subject = '['.$nom.']'.'[Contact]';
-  if($subject&&$email&&$message&&$id&&$nom){
+  if($subject&&$email&&$message&&$nom){
     $responseData = json_decode(file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$_POST['g-recaptcha-response']));
     if($responseData->success){
       if(!isset($_FILES['attachment'])){
