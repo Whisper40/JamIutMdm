@@ -3,7 +3,7 @@
     <nav>
       <ul>
         <li>
-          <a href="index.php">
+          <a href="https://jam-mdm.fr/">
             Accueil
           </a>
         </li>
@@ -13,7 +13,7 @@
       &copy;
       <script>
         document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
-      </script>, Codé par Jeunesse associtive montoise JAM
+      </script>, Jam - Jeunesse Associative Montoise
     </div>
   </div>
 </footer>
