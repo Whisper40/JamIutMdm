@@ -223,7 +223,7 @@ require_once('includes/header.php');
              <span aria-hidden="true"><i class="now-ui-icons ui-1_simple-remove"></i></span>
            </button>
            <center>
-              Un code vous à été envoyé par mail à l'adresse email : <?= $_SESSION['recup_mail'] ?> Vérifier vos spams !
+              Un code vous à été envoyé par mail à l'adresse email : <?= $_SESSION['recup_mail'] ?><br> Vérifier vos spams !
            </center>
         </div>
      </div>
@@ -325,7 +325,7 @@ require_once('includes/header.php');
       </div>
       <div class="card-footer text-center">
       <button type="submit" class="btn btn-primary btn-round btn-lg btn-block" name="recup_submit">
-        Connexion
+        Valider
       </button>
         <div class="pull-left">
           <h6>
