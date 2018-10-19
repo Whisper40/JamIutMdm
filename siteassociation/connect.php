@@ -83,8 +83,8 @@
         <div class="card card-login card-plain">
           <form class="form" action="" method="POST">
             <div class="card-header text-center">
-              <div class="logo-container">
-                <img src="assets/img/now-logo.png" alt="">
+              <div class="container">
+                <img src="assets/img/jam3.png" alt="">
               </div>
             </div>
 
@@ -230,12 +230,12 @@
             </button>
               <div class="pull-left">
                 <h6>
-                  <a href="https://jam-mdm.fr/register.php" class="link">Inscrivez vous</a>
+                  <a href="register.php" class="link">Inscrivez vous</a>
                 </h6>
               </div>
               <div class="pull-right">
                 <h6>
-                  <a href="https://jam-mdm.fr/recuperation.php" class="link">Mot de passe oublié</a>
+                  <a href="recuperation.php" class="link">Mot de passe oublié</a>
                 </h6>
               </div>
             </form>

@@ -188,8 +188,8 @@ require_once('includes/header.php');
         <div class="card card-login card-plain">
           <form class="form" action="" method="POST">
             <div class="card-header text-center">
-              <div class="logo-container">
-                <img src="assets/img/now-logo.png" alt="">
+              <div class="container">
+                <img src="assets/img/jam3.png" alt="">
               </div>
             </div>
 

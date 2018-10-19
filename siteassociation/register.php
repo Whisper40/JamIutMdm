@@ -54,8 +54,8 @@ $sitekey = "LESITEKEY";
         <div class="card card-login card-plain">
           <form class="form" action="" method="POST">
             <div class="card-header text-center">
-              <div class="logo-container">
-                <img src="assets/img/now-logo.png" alt="">
+              <div class="container">
+                <img src="assets/img/jam3.png" alt="">
               </div>
               <h4 class="card-title">Inscrivez-vous</h4>
             </div>
