@@ -3,7 +3,7 @@
 // Ajouter le code à l'endroit souhaité dans l'index.php !
 
 
-
+// Dire à Kévin ou le code est implanté pour ajouter les règles de changement des accès juste en dessous !
 $secret = "LESECRET";
 $sitekey = "LESITEKEY";
 
