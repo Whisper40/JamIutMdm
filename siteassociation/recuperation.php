@@ -176,120 +176,179 @@ if(isset($_POST['change_submit'])) {
 
 
 
-<body class="login-page">
+<body class="login-page sidebar-collapse">
 <?php
 require_once('includes/header.php');
 ?>
-    <div class="page-header header-filter" style="background-image: url('unfond'); background-size: cover; background-position: top center;">
-        <br>
-        <br>
-        <div class="container">
-            <div class="row">
-               <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
-                  <div class="card card-signup">
+<div class="page-header clear-filter">
+  <div class="page-header-image" style="background-image:url(assets/img/IUTmdm.JPG)"></div>
+  <div class="content">
+    <div class="container">
+      <div class="col-md-4 ml-auto mr-auto">
+        <div class="card card-login card-plain">
+          <form class="form" action="" method="POST">
+            <div class="card-header text-center">
+              <div class="logo-container">
+                <img src="assets/img/now-logo.png" alt="">
+              </div>
+            </div>
+
+                    <?php if(isset($error)) { echo '<div class="container">
+                       <div class="row">
+                          <div class="alert alert-warning">
+                             <div class="alert-icon">
+                               <i class="now-ui-icons ui-1_bell-53"></i>
+                             </div>
+                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                               <span aria-hidden="true"><i class="now-ui-icons ui-1_simple-remove"></i></span>
+                             </button>
+                             <center>'.$error.'</center>
+                          </div>
+                       </div>
+                    </div>'; }
+
+                    ?>
 
 <?php if($_GET['section'] == 'code') { ?>
 
 
 
-<div class="alert alert-success">
-
-
-
-              <div class="col-md-6 col-md-offset-3">
-                  <div class="alert-icon">
-                    <i class="material-icons">check</i>
-                  </div>
-                  <u><b>Yuhuuu!</b></u>
-              </div>
-              <br/>  <br/>
-               Un code vous à été envoyé par mail à l'adresse email :
-                <div class="col-md-6 col-md-offset-3">
-               <?= $_SESSION['recup_mail'] ?>
-               </div><br/><br/>
-               <div class="col-md-6 col-md-offset-3">
-          <u>  Vérifier vos spams ! </u>
-          </div>
-
-             </div>
-
-
-<br/>
-
+  <div class="container">
+     <div class="row">
+        <div class="alert alert-warning">
+           <div class="alert-icon">
+             <i class="now-ui-icons ui-1_bell-53"></i>
+           </div>
+           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+             <span aria-hidden="true"><i class="now-ui-icons ui-1_simple-remove"></i></span>
+           </button>
+           <center>
+              Un code vous à été envoyé par mail à l'adresse email : <?= $_SESSION['recup_mail'] ?> Vérifier vos spams !
+           </center>
+        </div>
+     </div>
+  </div>
 
 <form method="post" class="form">
-    <div class="header header-primary text-center">
-        <h4 class="card-title">Restauration du mot de passe</h4>
+  <div class="header header-primary text-center">
+    <h4 class="card-title">Restauration du mot de passe</h4>
+  </div>
+  <div class="card-body">
+    <div class="input-group no-border input-lg">
+      <div class="input-group-prepend">
+        <span class="input-group-text">
+          <i class="now-ui-icons ui-1_email-85"></i>
+        </span>
+      </div>
+      <input type="text" placeholder="Code de vérification" class="form-control" name="verif_code"/>
     </div>
-    <div class="card-content">
-        <div class="input-group">
-              <span class="input-group-addon">
-                 <i class="material-icons">email</i>
-              </span>
-              <input type="text" placeholder="Code de vérification" class="form-control" name="verif_code"/><br/>
-        </div>
+    <div class="footer text-center">
+    <div class="g-recaptcha" data-sitekey="<?= $sitekey; ?>"></div>
     </div>
-     <div class="footer text-center">
- <div class="g-recaptcha" data-sitekey="<?= $sitekey; ?>"></div>
-
-           <input type="submit" value="Valider" class="btn btn-primary btn-simple btn-wd btn-lg" name="verif_submit"/>
-     </div>
-</form>
+  </div>
+  <div class="card-footer text-center">
+  <button type="submit" class="btn btn-primary btn-round btn-lg btn-block" name="verif_submit">
+    Valider
+  </button>
+    <div class="pull-left">
+      <h6>
+        <a href="register.php" class="link">Inscrivez vous</a>
+      </h6>
+    </div>
+    <div class="pull-right">
+      <h6>
+        <a href="connect.php" class="link">Connexion</a>
+      </h6>
+    </div>
+  </div>
+  </form>
 
 <?php } elseif($_GET['section'] == "changemdp") { ?>
 
 
 
-<form method="post" class="form">
+  <form method="post" class="form">
     <div class="header header-primary text-center">
-        <h4 class="card-title">Nouveau mot de passe</h4>
+      <h4 class="card-title">Nouveau mot de passe</h4>
     </div>
-    <div class="card-content">
-        <div class="input-group">
-              <span class="input-group-addon">
-                 <i class="material-icons">email</i>
-              </span>
-              <input type="password" placeholder="Nouveau mot de passe" class="form-control" name="change_mdp"/><br/>
+    <div class="card-body">
+      <div class="input-group no-border input-lg">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="now-ui-icons ui-1_email-85"></i>
+          </span>
         </div>
-        <div class="input-group">
-              <span class="input-group-addon">
-                 <i class="material-icons">email</i>
-              </span>
-              <input type="password" placeholder="Nouveau mot de passe" class="form-control" name="change_mdpc"/><br/>
+        <input type="password" placeholder="Nouveau mot de passe" class="form-control" name="change_mdp"/>
+      </div>
+      <div class="input-group no-border input-lg">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="now-ui-icons ui-1_email-85"></i>
+          </span>
         </div>
+        <input type="password" placeholder="Nouveau mot de passe" class="form-control" name="change_mdpc"/>
+      </div>
     </div>
-     <div class="footer text-center">
-           <input type="submit" value="Valider" class="btn btn-primary btn-simple btn-wd btn-lg" name="change_submit"/>
-     </div>
-</form>
+    <div class="card-footer text-center">
+    <button type="submit" class="btn btn-primary btn-round btn-lg btn-block" name="change_submit">
+      Valider
+    </button>
+      <div class="pull-left">
+        <h6>
+          <a href="register.php" class="link">Inscrivez vous</a>
+        </h6>
+      </div>
+      <div class="pull-right">
+        <h6>
+          <a href="connect.php" class="link">Connexion</a>
+        </h6>
+      </div>
+    </div>
+    </form>
 
 
 
 <?php } else { ?>
     <form method="post" class="form">
-        <div class="header header-primary text-center">
-            <h4 class="card-title">Restauration du mot de passe</h4>
+      <div class="header header-primary text-center">
+          <h4 class="card-title">Restauration du mot de passe</h4>
+      </div>
+      <div class="card-body">
+        <div class="input-group no-border input-lg">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="now-ui-icons ui-1_email-85"></i>
+            </span>
+          </div>
+          <input type="email" placeholder="Votre adresse mail" class="form-control" name="recup_mail"/>
         </div>
-        <div class="card-content">
-            <div class="input-group">
-                  <span class="input-group-addon">
-                     <i class="material-icons">email</i>
-                  </span>
-                  <input type="email" placeholder="Votre adresse mail" class="form-control" name="recup_mail"/><br/>
-            </div>
+      </div>
+      <div class="card-footer text-center">
+      <button type="submit" class="btn btn-primary btn-round btn-lg btn-block" name="recup_submit">
+        Connexion
+      </button>
+        <div class="pull-left">
+          <h6>
+            <a href="register.php" class="link">Inscrivez vous</a>
+          </h6>
         </div>
-         <div class="footer text-center">
-               <input type="submit" value="Valider" class="btn btn-primary btn-simple btn-wd btn-lg" name="recup_submit"/>
-         </div>
-    </form>
+        <div class="pull-right">
+          <h6>
+            <a href="connect.php" class="link">Connexion</a>
+          </h6>
+        </div>
+      </div>
+      </form>
 <?php } ?>
-<?php if(isset($error)) { echo '<span style="color:red">'.$error.'</span>'; } else { echo ""; }
 
-?>
 </div>
 </div>
 </div>
 </div>
+</div>
+
 <?php
+require_once('includes/footer.php');
+
 require_once('includes/javascript.php');
 ?>
