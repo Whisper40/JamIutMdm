@@ -220,7 +220,9 @@ require_once('includes/header.php');
 
   <div class="container">
      <div class="row">
-<div class="col-md-10 col-md-offset-1"> <!-- Ajout afin d'avoir une belle barre de notif bien centrée-->
+<div class="col-md-14"> <!-- Ajout afin d'avoir une belle barre de notif bien centrée
+La barre s'affiche parfaitement sur mobile, sur pc lèger décalage de l'email
+-->
         <div class="alert alert-success">
            <div class="alert-icon">
              <i class="now-ui-icons ui-1_bell-53"></i>
@@ -229,7 +231,7 @@ require_once('includes/header.php');
              <span aria-hidden="true"><i class="now-ui-icons ui-1_simple-remove"></i></span>
            </button>
 <div align="center">
-              Un code vous a été envoyé à : <?= $_SESSION['recup_mail'] ?>
+              Un code vous a été envoyé à : <?= $_SESSION['recup_mail']?>
               <!-- L'ajout d'un text supplémentaire ne le centre plus !!! -->
 </div>
         </div>
