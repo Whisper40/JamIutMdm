@@ -151,13 +151,18 @@ if(isset($_POST['change_submit'])) {
          $mdpc = htmlspecialchars($_POST['change_mdpc']);
          if(!empty($mdp) AND !empty($mdpc)) {
             if($mdp == $mdpc) {
+              if (preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{10,}$#', $mdp)){
 
                $mdp = password_hash($mdp, PASSWORD_DEFAULT);
                $ins_mdp = $db->prepare('UPDATE users SET password = ? WHERE email = ?');
                $ins_mdp->execute(array($mdp,$_SESSION['recup_mail']));
               $del_req = $db->prepare('DELETE FROM recuperation WHERE email = ?');
               $del_req->execute(array($_SESSION['recup_mail']));
+
                header('Location:https://jam-mdm.fr/connect.php');
+             } else {
+               $error = " Votre mot de passe doit contenir une majuscule, une minuscule, un chiffre et un symbole";
+             }
             } else {
                $error = "Vos mots de passes ne correspondent pas";
             }
