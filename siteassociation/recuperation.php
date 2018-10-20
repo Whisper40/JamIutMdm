@@ -228,7 +228,7 @@ require_once('includes/header.php');
              <span aria-hidden="true"><i class="now-ui-icons ui-1_simple-remove"></i></span>
            </button>
            <center>
-              Un code vous à été envoyé par mail à l'adresse email : <?= $_SESSION['recup_mail'] ?><br> Vérifier vos spams !
+              Un code vous à été envoyé à <br/> : <?= $_SESSION['recup_mail'] ?><br> Vérifier vos spams !
            </center>
         </div>
      </div>
@@ -350,10 +350,11 @@ require_once('includes/header.php');
 </div>
 </div>
 </div>
-</div>
+
 
 <?php
 require_once('includes/footer.php');
 
 require_once('includes/javascript.php');
 ?>
+
