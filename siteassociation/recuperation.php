@@ -220,6 +220,7 @@ require_once('includes/header.php');
 
   <div class="container">
      <div class="row">
+<div class="col-md-10 col-md-offset-1"> <!-- Ajout afin d'avoir une belle barre de notif bien centrée-->
         <div class="alert alert-success">
            <div class="alert-icon">
              <i class="now-ui-icons ui-1_bell-53"></i>
@@ -227,13 +228,14 @@ require_once('includes/header.php');
            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
              <span aria-hidden="true"><i class="now-ui-icons ui-1_simple-remove"></i></span>
            </button>
-           <center>
-              Un code vous à été envoyé à <br/> : <?= $_SESSION['recup_mail'] ?><br> Vérifier vos spams !
-           </center>
+<div align="center">
+              Un code vous a été envoyé à : <?= $_SESSION['recup_mail'] ?>
+              <!-- L'ajout d'un text supplémentaire ne le centre plus !!! -->
+</div>
         </div>
      </div>
   </div>
-
+</div>
 <form method="post" class="form">
   <div class="header header-primary text-center">
     <h4 class="card-title">Restauration du mot de passe</h4>
@@ -357,4 +359,3 @@ require_once('includes/footer.php');
 
 require_once('includes/javascript.php');
 ?>
-
