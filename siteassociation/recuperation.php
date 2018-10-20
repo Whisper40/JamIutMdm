@@ -159,8 +159,9 @@ if(isset($_POST['change_submit'])) {
               $del_req = $db->prepare('DELETE FROM recuperation WHERE email = ?');
               $del_req->execute(array($_SESSION['recup_mail']));
                header('Location:https://jam-mdm.fr/connect.php');
+
              }else{
-               $error = "Votre mot de passe doit contenir une minuscule, majuscule, un chiffre et un symbole."
+               $error = "Votre mot de passe doit contenir une minuscule, majuscule, un chiffre et un symbole.";
              }
             } else {
                $error = "Vos mots de passes ne correspondent pas";
