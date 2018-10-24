@@ -48,15 +48,12 @@ $sitekey = "LESITEKEY";
 ?>
 <div class="page-header clear-filter">
   <div class="page-header-image" style="background-image:url(assets/img/IUTmdm.JPG)"></div>
-  <div class="content">
+  <div class="content2">
     <div class="container">
       <div class="col-md-4 ml-auto mr-auto">
         <div class="card card-login card-plain">
           <form class="form" action="" method="POST">
             <div class="card-header text-center">
-              <div class="container">
-                <img src="assets/img/jam3.png" alt="">
-              </div>
               <h4 class="card-title">Inscrivez-vous</h4>
             </div>
 <?php

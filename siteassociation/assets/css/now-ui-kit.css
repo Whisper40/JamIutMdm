@@ -5488,6 +5488,10 @@ img {
   top: 37%;
 }
 
+.index-page .page-header .container>.content2-center {
+  top: 37%;
+}
+
 .index-page .page-header .category-absolute {
   position: absolute;
   top: 100vh;
@@ -5592,6 +5596,11 @@ img {
   margin: 0 auto;
 }
 
+.content2 {
+  max-width: 450px;
+  margin: 0 auto;
+}
+
 .profile-page .content .social-description {
   display: inline-block;
   max-width: 150px;
@@ -5600,7 +5609,22 @@ img {
   margin: 15px 0 0px;
 }
 
+
+.content2 {
+  display: inline-block;
+  max-width: 150px;
+  width: 145px;
+  text-align: center;
+  margin: 15px 0 0px;
+}
+
+
+
 .profile-page .content .social-description h2 {
+  margin-bottom: 15px;
+}
+
+.content2 h2 {
   margin-bottom: 15px;
 }
 
@@ -5658,7 +5682,18 @@ img {
   z-index: 4;
 }
 
+
+.section-full-page>.content2,
+.section-full-page>.footer {
+  position: relative;
+  z-index: 4;
+}
+
 .section-full-page>.content {
+  min-height: calc(100vh - 80px);
+}
+
+.section-full-page>.content2 {
   min-height: calc(100vh - 80px);
 }
 
@@ -5872,6 +5907,12 @@ img {
   margin-bottom: 50px;
 }
 
+.page-header>.content2 {
+  margin-top: 8%;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
 .page-header.page-header-small {
   min-height: 60vh;
   max-height: 440px;
@@ -5910,6 +5951,27 @@ img {
   width: 100%;
   max-width: 880px;
 }
+
+
+.content2-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #FFFFFF;
+  padding: 0 15px;
+  width: 100%;
+  max-width: 880px;
+}
+
+
+
+
+
 
 .page-header footer {
   position: absolute;
