@@ -48,7 +48,7 @@ $sitekey = "LESITEKEY";
 ?>
 <style>
 .page-header>.content {
-  margin-top: 8%;
+  margin-top: 7%;
   text-align: center;
   margin-bottom: 50px;
 }
