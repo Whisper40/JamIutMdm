@@ -133,11 +133,13 @@ if(isset($_POST['verif_submit'],$_POST['verif_code'])) {
          $up_req->execute(array($_SESSION['recup_mail']));
 
          header('Location:https://jam-mdm.fr/recuperation.php?section=changemdp');
-      }}}}else{
+      }else {
          $error = "Code invalide ou captcha non coché";
       }
-
-
+   } else {
+      $error = "Veuillez entrer votre code de confirmation";
+   }
+}
 if(isset($_POST['change_submit'])) {
    if(isset($_POST['change_mdp'],$_POST['change_mdpc'])) {
       $verif_confirme = $db->prepare('SELECT confirme FROM recuperation WHERE email = ?');
