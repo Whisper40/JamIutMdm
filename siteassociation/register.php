@@ -46,6 +46,13 @@ $sitekey = "LESITEKEY";
 <?php
     require_once('includes/header.php');
 ?>
+
+.page-header>.content {
+  margin-top: 8%;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
 <div class="page-header clear-filter">
   <div class="page-header-image" style="background-image:url(assets/img/IUTmdm.JPG)"></div>
   <div class="content">
