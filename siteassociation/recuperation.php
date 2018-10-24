@@ -133,7 +133,7 @@ if(isset($_POST['verif_submit'],$_POST['verif_code'])) {
          $up_req->execute(array($_SESSION['recup_mail']));
 
          header('Location:https://jam-mdm.fr/recuperation.php?section=changemdp');
-      }else {
+      }}else{
          $error = "Code invalide ou captcha non coché";
       }
    } else {
