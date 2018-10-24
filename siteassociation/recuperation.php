@@ -185,6 +185,13 @@ if(isset($_POST['change_submit'])) {
 <?php
 require_once('includes/header.php');
 ?>
+<style>
+.page-header>.content {
+  margin-top: 8%;
+  text-align: center;
+  margin-bottom: 20px;
+}
+</style>
 <div class="page-header clear-filter">
   <div class="page-header-image" style="background-image:url(assets/img/IUTmdm.JPG)"></div>
   <div class="content">
@@ -193,10 +200,7 @@ require_once('includes/header.php');
         <div class="card card-login card-plain">
           <form class="form" action="" method="POST">
             <div class="card-header text-center">
-              <div class="container">
-                <img src="assets/img/jam3.png" alt="">
               </div>
-            </div>
 
                     <?php if(isset($error)) { echo '<div class="container">
                        <div class="row">
