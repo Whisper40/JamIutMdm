@@ -204,7 +204,6 @@ require_once('includes/header.php');
 
                     <?php if(isset($error)) { echo '<div class="container">
                        <div class="row">
-                  <div class="col-md-14">
                           <div class="alert alert-warning">
                              <div class="alert-icon">
                                <i class="now-ui-icons ui-1_bell-53"></i>
@@ -212,13 +211,10 @@ require_once('includes/header.php');
                              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                <span aria-hidden="true"><i class="now-ui-icons ui-1_simple-remove"></i></span>
                              </button>
-                  <div align="center">
-                              <?php $error; ?>
-                  </div>
+                             <center>'.$error.'</center>
                           </div>
                        </div>
-                    </div>
-                  </div>'; }
+                    </div>'; }
 
                     ?>
 
