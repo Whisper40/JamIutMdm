@@ -128,7 +128,7 @@ if(isset($_POST['verif_submit'],$_POST['verif_code'])) {
       $verif_req = $verif_req->rowCount();
       $responseData = json_decode(file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$_POST['g-recaptcha-response']));
       if($responseData->success){
-      if($verif_req == 1){
+      if($verif_req == 1) {
          $up_req = $db->prepare('UPDATE recuperation SET confirme = 1 WHERE email = ?');
          $up_req->execute(array($_SESSION['recup_mail']));
 
@@ -197,7 +197,6 @@ require_once('includes/header.php');
   <div class="content">
     <div class="container">
       <div class="col-md-4 ml-auto mr-auto">
-        <div class="col-md-14">
         <div class="card card-login card-plain">
           <form class="form" action="" method="POST">
             <div class="card-header text-center">
@@ -205,6 +204,7 @@ require_once('includes/header.php');
 
                     <?php if(isset($error)) { echo '<div class="container">
                        <div class="row">
+                       <div class="col-md-14">
                           <div class="alert alert-warning">
                              <div class="alert-icon">
                                <i class="now-ui-icons ui-1_bell-53"></i>
@@ -214,7 +214,7 @@ require_once('includes/header.php');
                              </button>
                              <center>'.$error.'</center>
                           </div>
-                       </div>
+                          </div>
                        </div>
                     </div>'; }
 
