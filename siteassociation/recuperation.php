@@ -187,7 +187,7 @@ require_once('includes/header.php');
 ?>
 <style>
 .page-header>.content {
-  margin-top: 14%;
+  margin-top: 13%;
   text-align: center;
   margin-bottom: 20px;
 }
