@@ -185,6 +185,10 @@ if(isset($_POST['change_submit'])) {
 <?php
 require_once('includes/header.php');
 ?>
+<!-- Ajout d'un CSS interne dans le but de le prioriser et ainsi appllquer ces propriétées en premier
+Le but étant du final d'afficher cette page avec un margin-top spécial afin de ne pas avoir de bug de footer encastré ou de bug de notif qui se mélangent
+Autre solution : Créer d'autres classes, mais cela utilise beaucoup + de lignes de code ou faire un autre css mais cela est toalement ilogique et apportera un chargement encore plus long ! 
+-->
 <style>
 .page-header>.content {
   margin-top: 13%;
