@@ -208,7 +208,6 @@ Autre solution : Créer d'autres classes, mais cela utilise beaucoup + de lignes
 
                     <?php if(isset($error)) { echo '<div class="container">
                        <div class="row">
-                       <div class="col-md-14">
                           <div class="alert alert-warning">
                              <div class="alert-icon">
                                <i class="now-ui-icons ui-1_bell-53"></i>
@@ -216,8 +215,7 @@ Autre solution : Créer d'autres classes, mais cela utilise beaucoup + de lignes
                              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                <span aria-hidden="true"><i class="now-ui-icons ui-1_simple-remove"></i></span>
                              </button>
-                             <div align="center">'.$error.'</div>
-                          </div>
+                             <center>'.$error.'</center>
                           </div>
                        </div>
                     </div>'; }
