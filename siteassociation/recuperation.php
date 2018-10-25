@@ -187,7 +187,7 @@ require_once('includes/header.php');
 ?>
 <!-- Ajout d'un CSS interne dans le but de le prioriser et ainsi appllquer ces propriétées en premier
 Le but étant du final d'afficher cette page avec un margin-top spécial afin de ne pas avoir de bug de footer encastré ou de bug de notif qui se mélangent
-Autre solution : Créer d'autres classes, mais cela utilise beaucoup + de lignes de code ou faire un autre css mais cela est toalement ilogique et apportera un chargement encore plus long ! 
+Autre solution : Créer d'autres classes, mais cela utilise beaucoup + de lignes de code ou faire un autre css mais cela est toalement ilogique et apportera un chargement encore plus long !
 -->
 <style>
 .page-header>.content {
@@ -208,6 +208,7 @@ Autre solution : Créer d'autres classes, mais cela utilise beaucoup + de lignes
 
                     <?php if(isset($error)) { echo '<div class="container">
                        <div class="row">
+                       <div class="col-md-14">
                           <div class="alert alert-warning">
                              <div class="alert-icon">
                                <i class="now-ui-icons ui-1_bell-53"></i>
@@ -216,6 +217,7 @@ Autre solution : Créer d'autres classes, mais cela utilise beaucoup + de lignes
                                <span aria-hidden="true"><i class="now-ui-icons ui-1_simple-remove"></i></span>
                              </button>
                              <center>'.$error.'</center>
+                          </div>
                           </div>
                        </div>
                     </div>'; }
