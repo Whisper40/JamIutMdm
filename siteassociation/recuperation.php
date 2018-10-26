@@ -133,8 +133,11 @@ if(isset($_POST['verif_submit'],$_POST['verif_code'])) {
          $up_req->execute(array($_SESSION['recup_mail']));
 
          header('Location:https://jam-mdm.fr/recuperation.php?section=changemdp');
-      }}else{
-         $error = "Code invalide ou captcha non coché";
+      }else{
+        $error = "Code invalide";
+        }
+      }else{
+         $error = "Captcha ou code invalide";
       }
    } else {
       $error = "Veuillez entrer votre code de confirmation";
@@ -206,17 +209,20 @@ Autre solution : Créer d'autres classes, mais cela utilise beaucoup + de lignes
             <div class="card-header text-center">
               </div>
 
-                    <?php if(isset($error)) { echo '<div class="container">
-                       <div class="row">
-                          <div class="alert alert-warning">
-                             <div class="alert-icon">
-                               <i class="now-ui-icons ui-1_bell-53"></i>
-                             </div>
-                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                               <span aria-hidden="true"><i class="now-ui-icons ui-1_simple-remove"></i></span>
-                             </button>
-                             <center>'.$error.'</center>
-                          </div>
+                    <?php if(isset($error)) { echo '
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-sm-12 ml-auto mr-auto">
+                            <div class="alert alert-warning">
+                              <div class="alert-icon">
+                                <i class="now-ui-icons ui-1_bell-53"></i>
+                              </div>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true"><i class="now-ui-icons ui-1_simple-remove"></i></span>
+                                </button>
+                                '.$error.'
+                            </div>
+                         </div>
                        </div>
                     </div>'; }
 
