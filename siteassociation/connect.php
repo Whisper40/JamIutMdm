@@ -83,9 +83,7 @@
         <div class="card card-login card-plain">
           <form class="form" action="" method="POST">
             <div class="card-header text-center">
-              <div class="container">
-                <img src="assets/img/jam3.png" alt="">
-              </div>
+              <h4 class="card-title">Connection</h4>
             </div>
 
 <?php
@@ -110,7 +108,6 @@
                                         $_SESSION['user_email'] = $data['email'];
 
                     // FIN - Process de connexion
-
 
                     // START - Historique de connexion au site :
 
@@ -150,6 +147,7 @@
 ?>
         <div class="container">
            <div class="row">
+             <div class="col-sm-18 ml-auto mr-auto">
               <div class="alert alert-danger">
                  <div class="alert-icon">
                    <i class="now-ui-icons ui-1_bell-53"></i>
@@ -157,10 +155,9 @@
                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                    <span aria-hidden="true"><i class="now-ui-icons ui-1_simple-remove"></i></span>
                  </button>
-                 <center>
-                    <b>Erreur :</b> Identifiant ou Mot de passe incorrect !
-                 </center>
+                    <b>Erreur :</b> Identifiant ou mot de passe incorrect !
               </div>
+            </div>
            </div>
         </div>
 <?php           }
@@ -169,6 +166,7 @@
 ?>
         <div class="container">
            <div class="row">
+             <div class="col-sm-12 ml-auto mr-auto">
               <div class="alert alert-danger">
                  <div class="alert-icon">
                     <i class="now-ui-icons ui-1_bell-53"></i>
@@ -176,10 +174,9 @@
                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                    <span aria-hidden="true"><i class="now-ui-icons ui-1_simple-remove"></i></span>
                  </button>
-                 <center>
                     <b>Erreur :</b> Aucun compte n'est lié a cet email !
-                 </center>
               </div>
+            </div>
            </div>
         </div>
 <?php
@@ -189,6 +186,7 @@
                 ?>
         <div class="container">
            <div class="row">
+             <div class="col-sm-14 ml-auto mr-auto">
               <div class="alert alert-warning">
                  <div class="alert-icon">
                    <i class="now-ui-icons ui-1_bell-53"></i>
@@ -196,10 +194,9 @@
                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                    <span aria-hidden="true"><i class="now-ui-icons ui-1_simple-remove"></i></span>
                  </button>
-                 <center>
                     <b>Attention:</b> Merci de remplir tous les champs !
-                 </center>
               </div>
+            </div>
            </div>
         </div>
 <?php
