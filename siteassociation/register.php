@@ -62,7 +62,11 @@ $sitekey = "LESITEKEY";
         <div class="card card-login card-plain">
           <form class="form" action="" method="POST">
             <div class="card-header text-center">
-              <h4 class="card-title">Inscrivez-vous</h4>
+              <div class="typography-line">
+                <h2>
+                  Inscrivez-vous
+                </h2>
+              </div>
             </div>
 <?php
 if(!isset($_SESSION['user_id'])){
@@ -252,7 +256,7 @@ if(!isset($_SESSION['user_id'])){
                   <i class="now-ui-icons travel_info"></i>
                 </span>
               </div>
-              <input type="text" name="ine" class="form-control" placeholder="Code UPPA"/>
+              <input type="text" name="ine" class="form-control" placeholder="Code UPPA" data-toggle="tooltip" data-placement="right" title="Ce code se trouve sur votre carte étudiante IZLY" data-container="body" data-animation="true"/>
             </div>
             <div class="input-group no-border input-lg">
               <div class="input-group-prepend">
@@ -268,7 +272,7 @@ if(!isset($_SESSION['user_id'])){
                   <i class="now-ui-icons ui-1_lock-circle-open"></i>
                 </span>
               </div>
-              <input type="password" name="password" placeholder="Mot de passe" class="form-control"/>
+              <input type="password" name="password" placeholder="Mot de passe" class="form-control" data-toggle="tooltip" data-placement="right" title="Votre mot de passe doit au minimum contenir une lettre majuscule, une minuscule, un chiffre et un caractères" data-container="body" data-animation="true"/>
             </div>
             <div class="input-group no-border input-lg">
               <div class="input-group-prepend">

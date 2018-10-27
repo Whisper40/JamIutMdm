@@ -254,13 +254,17 @@ La barre s'affiche parfaitement sur mobile, sur pc lèger décalage de l'email
 </div>
 <form method="post" class="form">
   <div class="header header-primary text-center">
-    <h4 class="card-title">Restauration du mot de passe</h4>
+    <div class="typography-line">
+      <h2>
+        Restauration du mot de passe
+      </h2>
+    </div>
   </div>
   <div class="card-body">
     <div class="input-group no-border input-lg">
       <div class="input-group-prepend">
         <span class="input-group-text">
-          <i class="now-ui-icons ui-1_email-85"></i>
+          <i class="now-ui-icons travel_info"></i>
         </span>
       </div>
       <input type="text" placeholder="Code de vérification" class="form-control" name="verif_code"/>
@@ -292,21 +296,25 @@ La barre s'affiche parfaitement sur mobile, sur pc lèger décalage de l'email
 
   <form method="post" class="form">
     <div class="header header-primary text-center">
-      <h4 class="card-title">Nouveau mot de passe</h4>
+      <div class="typography-line">
+        <h2>
+          Nouveau mot de passe
+        </h2>
+      </div>
     </div>
     <div class="card-body">
       <div class="input-group no-border input-lg">
         <div class="input-group-prepend">
           <span class="input-group-text">
-            <i class="now-ui-icons ui-1_email-85"></i>
+              <i class="now-ui-icons ui-1_lock-circle-open"></i>
           </span>
         </div>
-        <input type="password" placeholder="Nouveau mot de passe" class="form-control" name="change_mdp"/>
+        <input type="password" placeholder="Nouveau mot de passe" class="form-control" name="change_mdp" data-toggle="tooltip" data-placement="right" title="Votre mot de passe doit au minimum contenir une lettre majuscule, une minuscule, un chiffre et un caractères" data-container="body" data-animation="true"/>
       </div>
       <div class="input-group no-border input-lg">
         <div class="input-group-prepend">
           <span class="input-group-text">
-            <i class="now-ui-icons ui-1_email-85"></i>
+              <i class="now-ui-icons ui-1_lock-circle-open"></i>
           </span>
         </div>
         <input type="password" placeholder="Nouveau mot de passe" class="form-control" name="change_mdpc"/>
@@ -334,7 +342,11 @@ La barre s'affiche parfaitement sur mobile, sur pc lèger décalage de l'email
 <?php } else { ?>
     <form method="post" class="form">
       <div class="header header-primary text-center">
-          <h4 class="card-title">Restauration du mot de passe</h4>
+        <div class="typography-line">
+          <h2>
+            Restauration du mot de passe
+          </h2>
+        </div>
       </div>
       <div class="card-body">
         <div class="input-group no-border input-lg">
@@ -362,11 +374,12 @@ La barre s'affiche parfaitement sur mobile, sur pc lèger décalage de l'email
         </div>
       </div>
       </form>
+      
 <?php } ?>
 
-</div>
-</div>
-</div>
+      </div>
+    </div>
+  </div>
 </div>
 
 

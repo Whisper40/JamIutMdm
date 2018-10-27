@@ -83,7 +83,11 @@
         <div class="card card-login card-plain">
           <form class="form" action="" method="POST">
             <div class="card-header text-center">
-              <h4 class="card-title">Connection</h4>
+              <div class="typography-line">
+                <h2>
+                  Connexion
+                </h2>
+              </div>
             </div>
 
 <?php
