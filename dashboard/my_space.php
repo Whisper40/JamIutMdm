@@ -32,7 +32,7 @@
 
 require_once('includes/head.php');
 require_once('includes/checkconnection.php');
-error_reporting(0); // Disable all errors.
+//error_reporting(0); // Disable all errors.
 
 
 function slugify($text){
