@@ -42,12 +42,12 @@ require_once('includes/checkconnection.php');
     <div class="wrapper">
         <div class="sidebar" data-active-color="blue" data-background-color="black" data-image="https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/thumbnails/image/worldfires-08232018.jpg">
             <div class="logo">
-                <a href="https://jam-mdm.fr/" class="simple-text">
-                    JAM          </a>
+                <a href="https://sdedikool.me/" class="simple-text">
+                    SdediKool             </a>
             </div>
             <div class="logo logo-mini">
-                <a href="https://jam-mdm.fr" class="simple-text">
-                    JAM
+                <a href="https://sdedikool.me/" class="simple-text">
+                    SK
                 </a>
             </div>
             <div class="sidebar-wrapper">
@@ -79,46 +79,57 @@ foreach($req as $row)
                 </div>
                 <ul class="nav">
                     <li class="active">
-                        <a href="https://dashboard.jam-mdm.fr/">
+                        <a href="https://dashboard.sdedikool.me/">
                             <i class="material-icons">home</i>
-                            <p>TAB 1</p>
+                            <p>Tableau de bord</p>
                         </a>
                     </li>
                     <li >
-                        <a href="TAB 1.php">
+                        <a href="my_seedbox.php">
                             <i class="material-icons">dns</i>
-                          <p>TAB 1</p>
+                            <p>Mes seedbox</p>
                         </a>
                     </li>
                     <li>
-                        <a href="TAB 1.php">
+                        <a href="my_vpn.php">
                             <i class="material-icons">dns</i>
-                            <p>TAB 1</p>
+                            <p>Mes VPN</p>
                         </a>
                     </li>
                                         <li >
-                        <a href="TAB 1.php">
+                        <a href="my_bank.php">
                             <i class="material-icons">account_balance</i>
-                            <p>TAB 1</p>
+                            <p>Banque</p>
                         </a>
                     </li>
                     <li >
-                        <a href="TAB 1.php">
+                        <a href="my_space.php">
                             <i class="material-icons">home</i>
-                            <p>TAB 1</p>
+                            <p>Mon compte</p>
                         </a>
                     </li>
                     <li>
-                        <a href="TAB 1.php">
+                        <a href="my_stream.php">
                             <i class="material-icons">play_arrow</i>
-                            <p>TAB 1</p>
+                            <p>Streaming</p>
                         </a>
                     </li>
-
+                    <li >
+                        <a href="my_help.php">
+                            <i class="material-icons">help</i>
+                            <p>Assistance</p>
+                        </a>
+                    </li>
+                    <li >
+                        <a href="settings.php">
+                            <i class="material-icons">settings</i>
+                            <p>Paramètres</p>
+                        </a>
+                    </li>
                     <li class="active" >
-                        <a href="autre.php">
+                        <a href="https://sdedikool.me/panier.php">
                             <i class="material-icons">store</i>
-                            <p>Autre</p>
+                            <p>Retour Panier</p>
                         </a>
                     </li>
                     <li>
@@ -146,7 +157,7 @@ foreach($req as $row)
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="https://dashboard.jam-mdm.fr/"> Dashboard </a>                    </div>
+                        <a class="navbar-brand" href="https://dashboard.sdedikool.me/my_seedbox.php"> Mes seedbox </a>                    </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">
                             <li class="dropdown">
