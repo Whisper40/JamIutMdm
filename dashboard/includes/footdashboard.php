@@ -48,8 +48,8 @@
                     <nav class="pull-left">
                         <ul>
                             <li>
-                                <a href="https://jam-mdm.fre">
-                                    SdediKool
+                                <a href="https://jam-mdm.fr">
+                                  JAM
                                 </a>
                             </li>
                             <li>
