@@ -31,6 +31,8 @@
 <?php
 //Connexion à la BDD
     require_once('includes/head.php');
+    require_once('includes/refusebypassconnection.php');
+
 
 //Code secret pour vérification auprès de Google anti-robots
 //Ils sont complétés automatiquement par le script "updatesite"

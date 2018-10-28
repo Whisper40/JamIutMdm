@@ -4,6 +4,7 @@
 <?php
   // Connexion à la BDD
    require_once('includes/head.php');
+   require_once('includes/refusebypassconnection.php');
    ?>
 
 <head>
