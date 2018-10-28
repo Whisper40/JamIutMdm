@@ -248,7 +248,7 @@
 
 <?php
     }else{
-        header('Location:https://dashboard.jam-mdm.fr/');
+        header('Location: https://dashboard.jam-mdm.fr/');
     }
 
 require_once('includes/footer.php');
