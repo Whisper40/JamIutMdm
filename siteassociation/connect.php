@@ -146,7 +146,7 @@
                         );
 
                    // STOP - Update last_connexion
-                        header('Location: https://dashboard.jam-mdm.fr/my_space.php');
+                        header('Location: https://dashboard.jam-mdm.fr/');
                     }else{
 ?>
         <div class="container">
