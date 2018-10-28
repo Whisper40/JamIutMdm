@@ -51,7 +51,7 @@
 	          </li>
 						<?php }else{ ?>
 						<li class="nav-item">
-							<a class="nav-link" href="my_account.php">
+							<a class="nav-link" href="https://dashboard.jam-mdm.fr/">
 								<i class="now-ui-icons user_circle-08"></i>
 								<p>Mon Compte</p>
 							</a>
