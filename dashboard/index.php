@@ -85,31 +85,31 @@ foreach($req as $row)
                         </a>
                     </li>
                     <li >
-                        <a href="TAB 1.php">
+                        <a href="TAB1.php">
                             <i class="material-icons">dns</i>
                           <p>TAB 1</p>
                         </a>
                     </li>
                     <li>
-                        <a href="TAB 1.php">
+                        <a href="TAB1.php">
                             <i class="material-icons">dns</i>
                             <p>TAB 1</p>
                         </a>
                     </li>
                                         <li >
-                        <a href="TAB 1.php">
+                        <a href="TAB1.php">
                             <i class="material-icons">account_balance</i>
                             <p>TAB 1</p>
                         </a>
                     </li>
                     <li >
-                        <a href="TAB 1.php">
+                        <a href="TAB1.php">
                             <i class="material-icons">home</i>
                             <p>TAB 1</p>
                         </a>
                     </li>
                     <li>
-                        <a href="TAB 1.php">
+                        <a href="TAB1.php">
                             <i class="material-icons">play_arrow</i>
                             <p>TAB 1</p>
                         </a>
