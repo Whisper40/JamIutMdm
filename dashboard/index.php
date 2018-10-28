@@ -16,7 +16,8 @@
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-  <title>Jam - index</title>
+  <title>Jam - Dashboard</title>
+
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 
@@ -28,61 +29,45 @@
     <link href="assets/css/material-dashboard.css" rel="stylesheet"/>
 </head>
 
+
 <?php
 
 require_once('includes/head.php');
+
 require_once('includes/checkconnection.php');
-//error_reporting(0); // Disable all errors.
 
-
-function slugify($text){
-        $text = preg_replace('~[^\pL\d]+~u', '-', $text);
-
-        $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
-
-        $text = preg_replace('~[^-\w]+~', '', $text);
-
-        $text = trim($text, '-');
-
-        $text = preg_replace('~-+~', '-', $text);
-
-        $text = strtolower($text);
-
-        if (empty($text)) {
-          return 'n-a';
-        }
-
-        return $text;
-    }
 ?>
 
 <body>
     <div class="wrapper">
         <div class="sidebar" data-active-color="blue" data-background-color="black" data-image="https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/thumbnails/image/worldfires-08232018.jpg">
             <div class="logo">
-                <a href="https://jam-mdm.fr/" class="simple-text">
-                    JAM            </a>
+                <a href="https://sdedikool.me/" class="simple-text">
+                    SdediKool             </a>
             </div>
             <div class="logo logo-mini">
-                <a href="https://jam-mdm.fr/" class="simple-text">
-                    JAM
+                <a href="https://sdedikool.me/" class="simple-text">
+                    SK
                 </a>
             </div>
             <div class="sidebar-wrapper">
                 <div class="user">
                     <div class="info">
                         <a>
-                            <?php
+
+
+
+<?php
+
 $user_id = $_SESSION['user_id'];
-$select = $db->query("SELECT * FROM users WHERE id = '$user_id'");
+$sql = "SELECT * FROM users WHERE id = '$user_id'";
+$req = $db->query($sql);
+$req->setFetchMode(PDO::FETCH_ASSOC);
 
-while($s = $select->fetch(PDO::FETCH_OBJ)){
-    ?>
-   #<?php echo $s->id; ?> <br/>
-    Pseudo : <?php echo $s->username; ?>
-
-
-    <?php
+foreach($req as $row)
+{ ?>
+   #<?php echo $row['id'];?><br/>
+   Pseudo : <?php echo $row['username'];
 }
 
 ?>
@@ -93,46 +78,58 @@ while($s = $select->fetch(PDO::FETCH_OBJ)){
                     </div>
                 </div>
                 <ul class="nav">
-                    <li>
-                        <a href="https://dashboard.jam-mdm.fr/">
+                    <li class="active">
+                        <a href="https://dashboard.sdedikool.me/">
                             <i class="material-icons">home</i>
                             <p>Tableau de bord</p>
                         </a>
                     </li>
-                    <li>
-                        <a href="page.php">
+                    <li >
+                        <a href="my_seedbox.php">
                             <i class="material-icons">dns</i>
-                            <p>Page1</p>
+                            <p>Mes seedbox</p>
                         </a>
                     </li>
                     <li>
-                        <a href="page2.php">
+                        <a href="my_vpn.php">
                             <i class="material-icons">dns</i>
-                            <p>Pge2</p>
+                            <p>Mes VPN</p>
                         </a>
                     </li>
                                         <li >
-                        <a href="page3.php">
+                        <a href="my_bank.php">
                             <i class="material-icons">account_balance</i>
-                            <p>Page3</p>
-                        </a>
-                    </li>
-                    <li class="active">
-                        <a href="my_space">
-                            <i class="material-icons">home</i>
-                            <p>Page4</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="page5.php">
-                            <i class="material-icons">play_arrow</i>
-                            <p>Page5</p>
+                            <p>Banque</p>
                         </a>
                     </li>
                     <li >
-                        <a href="page6.php">
+                        <a href="my_space.php">
+                            <i class="material-icons">home</i>
+                            <p>Mon compte</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="my_stream.php">
+                            <i class="material-icons">play_arrow</i>
+                            <p>Streaming</p>
+                        </a>
+                    </li>
+                    <li >
+                        <a href="my_help.php">
                             <i class="material-icons">help</i>
-                            <p>Page6</p>
+                            <p>Assistance</p>
+                        </a>
+                    </li>
+                    <li >
+                        <a href="settings.php">
+                            <i class="material-icons">settings</i>
+                            <p>Paramètres</p>
+                        </a>
+                    </li>
+                    <li class="active" >
+                        <a href="https://sdedikool.me/panier.php">
+                            <i class="material-icons">store</i>
+                            <p>Retour Panier</p>
                         </a>
                     </li>
                     <li>
@@ -160,7 +157,7 @@ while($s = $select->fetch(PDO::FETCH_OBJ)){
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="https://dashboard.jam-mdm.fr/"> Tableau de bord </a>                  </div>
+                        <a class="navbar-brand" href="https://dashboard.sdedikool.me/my_seedbox.php"> Mes seedbox </a>                    </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">
                             <li class="dropdown">
@@ -182,183 +179,136 @@ while($s = $select->fetch(PDO::FETCH_OBJ)){
                 </div>
             </nav>
 
-          <div class="content">
+
+
+            <div class="content">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-8 col-md-offset-2">
-                            <h3 class="title text-center">Espace Abonné</h3>
-                            <br />
-                            <div class="card">
-                                <div class="card-content table-responsive">
-                                    <style type="text/css">
-                                        .text_align_right { text-align: right; }
-                                        .text_align_left  { text-align: left; }
-                                        .td1              { width: 50%; }
-                                        .first-half       { text-align: right; float: left; width: 50%; }
-                                        .second-half      { float: right; width: 50%; }
-                                    </style>
-                                                                        <table class="table table-hover">
-                                        <tbody>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="card card-stats">
+                                <div class="card-header" data-background-color="orange">
+                                    <i class="material-icons">dns</i>
+                                </div>
+                                <div class="card-content">
+                                    <p class="category">Nombre de services</p>
+                                                                        <h3 class="card-title">
 
-                                                                <div class="alert alert-info ">
-                                                                    <div class="container-fluid "><center>
-                                                                        <b>Votre username :
+<?php
+            $req = $db->query("SELECT  COUNT(*) as id FROM products_transactions WHERE user_id = '$user_id'");
 
-<!-- HTML A REFAIRE TOTALEMENT -->
+            $donnees = $req->fetch();
+            $req->closeCursor();
+            echo $donnees['id'];?>
+
+
+                                                                        </h3>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="stats">
+                                       <i class="material-icons text-danger">shopping_cart</i>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="card card-stats">
+                                <div class="card-header" data-background-color="green">
+                                    <i class="material-icons">euro_symbole</i>
+                                </div>
+                                <div class="card-content">
+                                    <p class="category">Solde</p>
+                                    <h3 class="card-title">
 
 <?php
 $user_id = $_SESSION['user_id'];
-$sql = "SELECT * FROM users WHERE id = '$user_id'";
+$select = $db->query("SELECT * FROM users WHERE id = '$user_id'");
+
+while($s = $select->fetch(PDO::FETCH_OBJ)){
+    ?>
+    <?php echo $s->solde.€; ?>
+
+
+
+
+    <?php
+}
+
+?>
+
+                                    </h3>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="stats">
+                                        <i class="material-icons">add</i>Dernier ajout le :
+
+
+
+<?php
+$user_id = $_SESSION['user_id'];
+$sql = "SELECT DISTINCT date FROM transactions WHERE date= (SELECT MAX(date) FROM transactions where user_id='$user_id') AND user_id = '$user_id'";
 $req = $db->query($sql);
 $req->setFetchMode(PDO::FETCH_ASSOC);
 
 foreach($req as $row)
 {
-    echo $row['username'];
+    echo $row['date'];
 }
 
-?>               </b>                                                       </div>
+?>
 
-                                                                </div>
+                                                                       </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="card card-stats">
+                                <div class="card-header" data-background-color="red">
+                                    <i class="material-icons">assignment_late</i>
+                                </div>
+                                <div class="card-content">
+                                    <p class="category">Factures</p>
+                                <h3 class="card-title">
+
+            <?php
+            $req = $db->query("SELECT  COUNT(*) as id FROM transactions WHERE user_id = '$user_id'");
+
+            $donnees = $req->fetch();
+            $req->closeCursor();
+            echo $donnees['id'];?>
 
 
-                                                                 <div class="alert alert-info">
-                                                                    <div class="container-fluid"><center>
-                                                                        <b>Votre Email :
+                                                                        </h3>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="stats">
+                                        <i class="material-icons">date_range</i> Dernière facture :
+
 
 
 
 <?php
 $user_id = $_SESSION['user_id'];
-$sql = "SELECT * FROM users WHERE id = '$user_id'";
+$sql = "SELECT DISTINCT transaction_id FROM transactions WHERE date= (SELECT MAX(date) FROM transactions where user_id='$user_id') AND user_id = '$user_id'";
 $req = $db->query($sql);
 $req->setFetchMode(PDO::FETCH_ASSOC);
 
 foreach($req as $row)
 {
-    echo $row['email'];
+    echo $row['transaction_id'];
+
 }
 
-?>               </b>                                                       </div>
-
-                                                                </div>
-                                                                <h2 class="card-title" style="margin-left: 10px">Modifier mes informations</h2>
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-<script>
-   function SubmitFormData() {
-    var email = $("#email").val();
-    var password = $("#password").val();
-    var repeatpassword = $("#repeatpassword").val();
-
-    $.post("modifypasswordpanel.php", { email: email, password: password, repeatpassword: repeatpassword},
-    function(data) {
-     $('#results').html(data);
-     $('#myForm')[0].reset();
-    });
-}
- function SubmitFormDataEmail() {
-    var email2 = $("#email2").val();
-    var newemail = $("#newemail").val();
-    var repeatnewemail = $("#repeatnewemail").val();
-
-    $.post("modifyemailpanel.php", { email2: email2, newemail: newemail, repeatnewemail: repeatnewemail},
-    function(data) {
-     $('#results2').html(data);
-     $('#myForm2')[0].reset();
-    });
-}
-</script>
-
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-header card-header-icon" data-background-color="rose">
-                                    <i class="material-icons">security</i>
-                                </div>
-                                <div class="card-content">
-                                    <h4 class="card-title">Modifier mon mot de passe</h4>
-                                    <form action="" method="post" id="myForm" class="contact-form">
-                                        <div class="form-group label-floating">
-                                            <label class="control-label">Email </label>
-                                            <input type="email" name="email" id="email" class="form-control">
-                                        </div>
-                                        <div class="form-group label-floating">
-                                            <label class="control-label">Mot de passe</label>
-                                            <input type="password" name="password" id="password" class="form-control">
-                                        </div>
-                                        <div class="form-group label-floating">
-                                            <label class="control-label">Répeter le mot de passe</label>
-                                            <input type="password" name="repeatpassword" id="repeatpassword" class="form-control">
-                                        </div>
-                                        <center>
-                                       <input type="button" id="submitFormData" onclick="SubmitFormData();"  value="Modifier" class="btn btn-primary btn-round"/>
-                                        </center>
-                                        </form>
-                                </div>
+?>
 
 
-                                </div>
-                            </div>
-<div id="results"> <!-- TRES IMPORTANT -->
-</div>
-
-
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-header card-header-icon" data-background-color="rose">
-                                    <i class="material-icons">mail_outline</i>
-                                </div>
-                                <div class="card-content">
-                                    <h4 class="card-title">Modifier mon email</h4>
-                                    <form action="" method="post" id="myForm2" class="contact-form">
-                                        <div class="form-group label-floating">
-                                            <label class="control-label">Email actuel</label>
-                                            <input type="email" name="email2" id="email2" class="form-control">
-                                        </div>
-                                        <div class="form-group label-floating">
-                                            <label class="control-label">Nouvel email</label>
-                                            <input type="email" name="newemail" id="newemail" class="form-control">
-                                        </div>
-                                        <div class="form-group label-floating">
-                                            <label class="control-label">Répéter Nouvel email</label>
-                                            <input type="email" name="repeatnewemail" id="repeatnewemail" class="form-control">
-                                        </div>
-                                        <center>
-                                       <input type="button" id="submitFormDataEmail" onclick="SubmitFormDataEmail();"  value="Modifier" class="btn btn-primary btn-round"/>
-                                        </center>
-                                        </form>
-                                </div>
-
-                        </div>
-        </div>
-
-        <div id="results2"> <!-- TRES IMPORTANT -->
-</div>
-
-
-</div></div></div></div></center></div></div></center></div></div></tbody></table></div></div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                                                        <center><a href="https://dashboard.jam-mdm.fr"><button class="btn btn-info"><i class="material-icons">play_arrow</i> Retour Dashboard</button></a></center>
+                                                                     </div>
                                 </div>
                             </div>
                         </div>
+
+
                     </div>
 
 
@@ -366,15 +316,87 @@ foreach($req as $row)
 
 
 
+                <?php
+                    $user_id = $_SESSION['user_id'];
+                    $select = $db->query("SELECT * FROM products_transactions WHERE user_id = '$user_id'");
+
+                    while($s = $select->fetch(PDO::FETCH_OBJ)){
+
+                        ?>
+                        <div class="media-footer">
+                     <a href="my_seedbox.php" class="btn btn-primary btn-wd pull-right">Commande
+                        <?php echo $s->product; ?>
+                        <?php echo $s->status; ?>
+
+
+                          </a>
+                        </div>
 
 
 
+                        <?php
+                    }
 
-</body>
+                ?>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header card-header-icon" data-background-color="blue">
+                                    <i class="material-icons">new_releases</i>
+                                </div>
+                                <div class="card-content">
+                                    <h4 class="card-title">Actualités</h4>
+                                                                            <div class="row">
+                                            <blockquote>
+                                                <p>
+
+
+                           <?php
+                            $user_id = $_SESSION['user_id'];
+                            $select = $db->query("SELECT DISTINCT * FROM actus WHERE date= (SELECT MAX(date) FROM actus)");
+
+                            while($s = $select->fetch(PDO::FETCH_OBJ)){
+                                ?>
+                                <?php echo $s->description; ?>
+                                 <?php
+                            }
+
+                            ?>
+                              </p>
+                               <small>
+                               Publié par <?php
+                               $select = $db->query("SELECT * FROM actus WHERE date= (SELECT MAX(date) FROM actus)");
+
+                               while($s = $select->fetch(PDO::FETCH_OBJ)){
+                                ?>
+                            <?php echo $s->auteur; ?>
+
+                              -    <?php echo $s->date; ?>    </small>
+                              </blockquote>
+                            </div>
+                          </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
 
 <?php
+}
 
-require_once('footdashboard.php');
-   require_once('tawketautre.php');
-   require_once('includes/javascriptdashboard.php');
+?>
+
+
+<?php
+require_once('includes/footdashboard.php');
+
    ?>
+</body>
+<?php
+
+
+    require_once('includes/javascriptdashboard.php');
+?>
