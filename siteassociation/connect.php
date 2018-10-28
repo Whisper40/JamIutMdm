@@ -146,7 +146,7 @@ echo "JE SUIS 1";
                         );
 echo "JE SUIS 2";
                    // STOP - Update last_connexion
-                        header('Location: https://dashboard.jam-mdm.fr/');
+                      <script>window.location="https://dashboard.jam-mdm.fr/";</script>
                         echo "JE SUIS 3";
                     }else{
 ?>
