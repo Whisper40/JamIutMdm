@@ -42,12 +42,12 @@ require_once('includes/checkconnection.php');
     <div class="wrapper">
         <div class="sidebar" data-active-color="blue" data-background-color="black" data-image="https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/thumbnails/image/worldfires-08232018.jpg">
             <div class="logo">
-                <a href="https://sdedikool.me/" class="simple-text">
-                    SdediKool             </a>
+                <a href="https://jam-mdm.fr/" class="simple-text">
+                    JAM             </a>
             </div>
             <div class="logo logo-mini">
-                <a href="https://sdedikool.me/" class="simple-text">
-                    SK
+                <a href="https://jam-mdm.fr/" class="simple-text">
+                    JAM
                 </a>
             </div>
             <div class="sidebar-wrapper">
