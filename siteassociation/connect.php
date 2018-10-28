@@ -114,7 +114,7 @@
                     // FIN - Process de connexion
 
                     // START - Historique de connexion au site :
-                    echo "JE SUIS 0";
+
                                 $ip = get_ip();
                                 date_default_timezone_set('Europe/Paris');
                                 setlocale(LC_TIME, 'fr_FR.utf8','fra');
@@ -131,7 +131,7 @@
                                 );
 
                     // STOP - Historique de connexion au site
-echo "JE SUIS 1";
+
                     // START - Update last_connexion :
 
                         date_default_timezone_set('Europe/Paris');
@@ -144,11 +144,13 @@ echo "JE SUIS 1";
                             "id"=>$user_id
                             )
                         );
-echo "JE SUIS 2";
+
                    // STOP - Update last_connexion
+                   // Redirection en javascript car le header location pose problème dans ce cas :(
                    ?>
+
                       <script>window.location="https://dashboard.jam-mdm.fr/";</script><?php
-                        echo "JE SUIS 3";
+
                     }else{
 ?>
         <div class="container">
