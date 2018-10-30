@@ -38,6 +38,24 @@ require_once('includes/head.php');
 
 require_once('includes/checkconnection.php');
 
+// START - Récupération de l'ip de connexion de l'utilisateur, même à travers de proxy !
+function get_ip() {
+// IP si internet partagé
+if (isset($_SERVER['HTTP_CLIENT_IP'])) {
+  return $_SERVER['HTTP_CLIENT_IP'];
+}
+// IP derrière un proxy
+elseif (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+  return $_SERVER['HTTP_X_FORWARDED_FOR'];
+}
+// Sinon : IP normale
+else {
+  return (isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '');
+}
+}
+$ip = get_ip();
+// Fin - Récupération IP
+
 ?>
 
 <?php
@@ -116,9 +134,9 @@ if(isset($_POST['submit'])){
     $message = $_POST['message'];
     $responseData = json_decode(file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$_POST['g-recaptcha-response']));
     if($responseData->success){
-
       $user_id = $_SESSION['user_id'];
       $target_dir = "uploads/";
+
       if (file_exists($target_dir/$user_id)) {
         $target_dirnew = "$target_dir/$user_id/";
       }else{
@@ -126,26 +144,23 @@ if(isset($_POST['submit'])){
         $target_dirnew = "$target_dir/$user_id/";
       }
 
-
-
 $target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-
 // Check if file already exists
 if (file_exists($target_file)) {
     echo "Sorry, file already exists.";
     $uploadOk = 0;
 }
-// Check file size < 2m
+// Check file size < 2mo
 if ($_FILES["fileToUpload"]["size"] > 2000000) {
     echo "Sorry, your file is too large.";
     $uploadOk = 0;
 }
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-&& $imageFileType != "gif" && $imageFileType != "pdf" && $imageFileType != "zip") {
-    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+&& $imageFileType != "gif" && $imageFileType != "pdf" && $imageFileType != "zip" && $imageFileType != "rar") {
+    echo "Sorry, only JPG, JPEG, PNG & GIF, ZIP and RAR files are allowed.";
     $uploadOk = 0;
 }
 // Check if $uploadOk is set to 0 by an error
@@ -159,6 +174,20 @@ if ($uploadOk == 0) {
   $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"]);
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file2)) {
         echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+
+        $insertinfos = $db->prepare("INSERT INTO validationfichiers (user_id, filename, ip, date, status) VALUES(:user_id, :filename, :ip, :date, :status)");
+        $insertinfos->execute(array(
+
+            "user_id"=>$_SESSION['user_id'],
+            "filename"=>$target_file,
+            "ip"=>$ip,
+            "date"=>$date,
+            "status"=>"EN ATTENTE DE VALIDATION"
+            )
+        )
+
+
+
     } else {
         echo "Sorry, there was an error uploading your file.";
     }
