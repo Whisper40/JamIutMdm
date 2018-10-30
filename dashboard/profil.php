@@ -71,7 +71,7 @@ function slugify($text){
               <div class="card">
                   <form method="get" action="/" class="form-horizontal">
                       <div class="card-header card-header-text" data-background-color="rose">
-                          <h4 class="card-title">Vos Informations</h4>
+                          <h4 class="card-title">Mes Informations</h4>
                       </div>
                       <div class="card-content">
                           <div class="row">
@@ -174,7 +174,7 @@ foreach($req as $row)
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header card-header-icon" data-background-color="rose">
-                        <i class="material-icons">mail_outline</i>
+                        <i class="material-icons">lock</i>
                     </div>
                     <div class="card-content">
                         <h4 class="card-title">Modifier mon mot de passe</h4>
