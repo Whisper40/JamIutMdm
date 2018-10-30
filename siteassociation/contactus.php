@@ -63,25 +63,6 @@ $sitekey = "LESITEKEY";
                                               </div>
                                           </div>
 
-
-                                          <div class="row">
-                                              <label class="col-sm-2 label-on-left">Service concerné :</label>
-                                              <div class="col-sm-10 checkbox-radios ">
-                                                <div class="radio">
-                                                    <label>
-                                                        <input type="radio" name="optionsRadios" value="tresorier@jam-mdm.fr"> Le Trésorier
-                                                    </label>
-                                                </div>
-                                                  <div class="radio">
-                                                      <label>
-                                                          <input type="radio" name="optionsRadios" checked="true" value="contact@jam-mdm.fr"> L'association
-                                                      </label>
-                                                  </div>
-                                                  <!-- Et d'autres................. -->
-                                              </div>
-                                          </div>
-
-
                                           <div class="row">
                                               <label class="col-sm-2 label-on-left">Prioritée :</label>
                                               <div class="col-sm-10">
@@ -148,7 +129,7 @@ $sitekey = "LESITEKEY";
 
 <?php
 if(isset($_POST['submit'])){
-  $owner_mail = $_POST['optionsRadios'];
+  $owner_mail = "contact@jam-mdm.fr";
   $priority = $_POST['optionsRadios2'];
   $nom = $_POST['nom'];
   $email = $_POST['email'];
