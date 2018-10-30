@@ -26,7 +26,7 @@
 						$souscat = $db->query("SELECT * FROM sitecat WHERE name = '$nom'");
 						while($unesouscat = $souscat->fetch(PDO::FETCH_OBJ)){
 						  ?>
-						<a class="dropdown-item" href="<?php echo $unesouscat->page ?>">
+						<a class="dropdown-item" href="<?php echo $unesouscat->page;?>">
 						  <?php echo $unesouscat->surname ?>
 						</a>
 						<?php
