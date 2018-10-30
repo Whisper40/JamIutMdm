@@ -13,7 +13,7 @@
 		<div class="collapse navbar-collapse justify-content-end" id="navigation" data-nav-image="./assets/img/blurred-image-1.jpg">
 			<ul class="navbar-nav">
 				<?php
-				$cat = $db->query("SELECT DISTINCT name FROM category");
+				$cat = $db->query("SELECT DISTINCT name FROM sitecat");
 				while($unecat = $cat->fetch(PDO::FETCH_OBJ)){
 					$nom = $unecat->name
 					?>
@@ -23,10 +23,10 @@
 					</a>
 					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink1">
 						<?php
-						$souscat = $db->query("SELECT * FROM category WHERE name = '$nom'");
+						$souscat = $db->query("SELECT * FROM sitecat WHERE name = '$nom'");
 						while($unesouscat = $souscat->fetch(PDO::FETCH_OBJ)){
 						  ?>
-						<a class="dropdown-item" href="boutique?category=<?php echo $unesouscat->slug;?>">
+						<a class="dropdown-item" href="<?php echo $unesouscat->page ?>">
 						  <?php echo $unesouscat->surname ?>
 						</a>
 						<?php
