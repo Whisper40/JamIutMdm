@@ -1,18 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!doctype html>
 <html lang="fr">
 <head>
@@ -31,7 +16,7 @@
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-  <title>Jam - Dashboard</title>
+  <title>Jam - Documents</title>
 
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -201,25 +186,10 @@ foreach($req as $row)
                                                               </div>
                                                             </div>
 
-
-
-
-
-            <!-- FIN DU CADRE -->
-
-
-
-
-
-
-
 <?php
 require_once('includes/footdashboard.php');
-
    ?>
 </body>
 <?php
-
-
     require_once('includes/javascriptdashboard.php');
 ?>
