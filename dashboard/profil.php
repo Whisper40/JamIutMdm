@@ -167,7 +167,7 @@ function slugify($text){
                                 <input type="email" name="repeatnewemail" id="repeatnewemail" class="form-control">
                             </div>
                             <center>
-                            <button id="submitFormDataEmail" onclick="SubmitFormDataEmail();" type="submit" class="btn btn-fill btn-rose">Modifier</button>
+                            <button id="submitFormDataEmail" onclick="SubmitFormDataEmail();" type="button" class="btn btn-fill btn-rose">Modifier</button>
                             </center>
                         </form>
                     </div>
@@ -191,7 +191,7 @@ function slugify($text){
                                 <input type="password" name="repeatpassword" id="repeatpassword" class="form-control">
                             </div>
                             <center>
-                            <button id="submitFormData" onclick="SubmitFormData();" type="submit" class="btn btn-fill btn-rose">Modifier</button>
+                            <button id="submitFormData" onclick="SubmitFormData();" type="button" class="btn btn-fill btn-rose">Modifier</button>
                             </center>
                         </form>
                     </div>
