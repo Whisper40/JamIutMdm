@@ -36,7 +36,7 @@ Pseudo : <?php echo $row['username'];
 </div>
 <ul class="nav">
 <?php
-$cat = $db->query("SELECT name FROM dashboardcat");
+$cat = $db->query("SELECT * FROM dashboardcat");
 while($unecat = $cat->fetch(PDO::FETCH_OBJ)){
   ?>
   <li
@@ -48,7 +48,7 @@ while($unecat = $cat->fetch(PDO::FETCH_OBJ)){
   >
   <?php } ?>
       <a href="<?php echo $unecat->page;?>">
-          <i class="material-icons"><?php echo $unecat->icons;?></i>
+          <i class="material-icons"><?php echo $unecat->icon;?></i>
           <p><?php echo $unecat->name;?></p>
       </a>
   </li>
