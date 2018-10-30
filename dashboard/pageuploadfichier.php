@@ -156,9 +156,10 @@ if ($uploadOk == 0) {
   date_default_timezone_set('Europe/Paris');
   setlocale(LC_TIME, 'fr_FR.utf8','fra');
   $date = strftime('%d/%m/%Y %H:%M:%S');
-  $target_filefinal = $target_dirnew . basename($_FILES["fileToUpload"]["name"]) . $date;
-    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_filefinal)) {
-        echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+      $name = basename( $_FILES["fileToUpload"]["name"]);
+      $name2 = $name."".$date;
+        echo "The file ".$name2. " has been uploaded.";
     } else {
         echo "Sorry, there was an error uploading your file.";
     }
