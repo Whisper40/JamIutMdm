@@ -126,12 +126,11 @@ if(isset($_POST['submit'])){
         $target_dirnew = "$target_dir/$user_id/";
       }
 
-
       date_default_timezone_set('Europe/Paris');
       setlocale(LC_TIME, 'fr_FR.utf8','fra');
       $date = strftime('%d/%m/%Y %H:%M:%S');
-$target_file_temp = $target_dirnew . basename($_FILES["fileToUpload"]["name"]);
-$target_file = $target_file_temp.''.$date;
+
+$target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
@@ -151,6 +150,8 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
     echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
     $uploadOk = 0;
 }
+$target_file2 = $target_file."".$date;
+$imageFileType = strtolower(pathinfo($target_file2,PATHINFO_EXTENSION));
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
     echo "Sorry, your file was not uploaded.";
