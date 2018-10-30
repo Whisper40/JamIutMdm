@@ -193,9 +193,9 @@ foreach($req as $row)
             <div class="content">
                   <div class="container-fluid">
                       <div class="row">
-                      <h3 class="title text-center">Mes VPN</h3>
+                      <h3 class="title text-center">Mes documents</h3>
                       <center><a href="./download.php?dl=thisfilecontainsyourdocumentsforjam" class="btn btn-rose btn-round">
-                                                                      <i class="material-icons">vertical_align_bottom</i> Télécharger mes VPN
+                                                                      <i class="material-icons">vertical_align_bottom</i> Télécharger les documents
                                                                   </a></center>
                                                                 </div>
                                                               </div>
