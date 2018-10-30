@@ -116,23 +116,10 @@ if(isset($_POST['submit'])){
     $message = $_POST['message'];
     $responseData = json_decode(file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$_POST['g-recaptcha-response']));
     if($responseData->success){
-    if(empty($_FILES['attachment'])){
+    if(isset($_FILES['attachment'])){
         //
         //Si aucun fichier n'est mis on affiche une erreur !
-        ?>
-        <div class="alert alert-danger">
-                <div class="container">
-            <div class="alert-icon">
-              <i class="material-icons">info_outline</i>
-            </div>
-
-
-                  <b>Erreur</b> Aucun fichier n'a été uploadé
-                </div>
-            </div>
-            <?php
-        //
-      }else{
+        echo '1';
         $filename = $_FILES['attachment']['name'];
         $file = $_FILES['attachment']['tmp_name'];
         $content = file_get_contents( $file);
@@ -140,24 +127,9 @@ if(isset($_POST['submit'])){
         $uid = md5(uniqid(time()));
         $name = basename($file);
         // On met le filename dans la BDD !
-      ?>
 
-      <div class="content">
-                  <div class="container-fluid">
-                      <div class="row">
-                          <div class="col-md-6 col-md-offset-3">
-      <div class="alert alert-success">
-              <div class="container">
-          <div class="alert-icon">
-            <i class="material-icons">info_outline</i>
-          </div>
-
-
-                <b>Succès :</b> Le fichier à été uploadé !
-              </div>
-          </div>
-        </div></div></div></div>
-        <?php
+      }else{
+        echo '0';
       }
     }else{
       ?>
