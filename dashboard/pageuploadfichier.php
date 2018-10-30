@@ -82,7 +82,7 @@ $sitekey = "LESITEKEY";
 
 
                                                       <div class="form-group form-file-upload">
-                <input type="file" id="attachment" name="attachment" multiple="">
+                <input type="file" id="fichier" name="fichier" multiple="">
                 <div class="input-group">
                   <input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
                   <span class="input-group-btn input-group-s">
@@ -116,16 +116,26 @@ if(isset($_POST['submit'])){
     $message = $_POST['message'];
     $responseData = json_decode(file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$_POST['g-recaptcha-response']));
     if($responseData->success){
-    if(isset($_FILES['attachment'])){
-        //
-        //Si aucun fichier n'est mis on affiche une erreur !
+    if(!empty($_FILES)){
+
         echo '1';
-        $filename = $_FILES['attachment']['name'];
-        $file = $_FILES['attachment']['tmp_name'];
-        $content = file_get_contents( $file);
-        $content = chunk_split(base64_encode($content));
-        $uid = md5(uniqid(time()));
-        $name = basename($file);
+        $file_name = $_FILES['fichier']['name'];
+        $file_extension = strrchr($file_name, ".");
+
+        $file_tmp_name = $_FILES['fichier']['tmp_name'];
+        $file_dest = 'uploads/'.$file_name;
+
+        $extensions_autorisees = array('.pdf', '.PDF');
+        if(in_array($file_extension,$extensions_autorisees)){
+          if(move_uploaded_file($file_tmp_name, $file_dest)){
+            echo 'Fichier envoyé';
+          }else{
+            echo 'Une erreur est survenue';
+          }
+        }else{
+          echo 'Format Incorrect';
+        }
+
         // On met le filename dans la BDD !
 
       }else{
