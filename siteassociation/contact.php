@@ -45,7 +45,7 @@ $sitekey = "LESITEKEY";
 
 //
 ?>
-
+<script src='https://www.google.com/recaptcha/api.js'></script>
 <body class="landing-page sidebar-collapse">
 
   <?php
@@ -87,19 +87,27 @@ $sitekey = "LESITEKEY";
               </div>
               <input type="email" class="form-control" placeholder="Email" name="email">
             </div>
+            <div class="input-group input-lg">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="now-ui-icons ui-1_email-85"></i>
+                </span>
+              </div>
+              <input type="file" class="form-control" id="attachment" name="attachment" multiple="">
+            </div>
             <div class="textarea-container">
               <textarea class="form-control" name="message" rows="10" cols="80" placeholder="Votre message :"></textarea>
             </div>
-            <p class="category">Radios</p>
+            <p class="category">Prioritée</p>
             <center><table>
               <tr>
-                <td><div class="col-sm-9 col-lg-4 mb-4"></div></td><td>
+                <td>
             <div class="col-sm-8 col-lg-3 mb-4">
               <div class="form-check form-check-radio">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+                  <input class="form-check-input" type="radio" name="optionsRadios2" value="1">
                   <span class="form-check-sign"></span>
-                  Radio is off
+                  Urgent
                 </label>
               </div>
             </div></td>
@@ -107,9 +115,9 @@ $sitekey = "LESITEKEY";
             <div class="col-sm-8 col-lg-3 mb-4">
               <div class="form-check form-check-radio">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option2" checked>
+                  <input class="form-check-input" type="radio" name="optionsRadios2" checked="true" value="3">
                   <span class="form-check-sign"></span>
-                  Radio is on
+                  Modéré
                 </label>
               </div>
             </div></td>
@@ -117,12 +125,15 @@ $sitekey = "LESITEKEY";
             <div class="col-sm-8 col-lg-3 mb-4">
               <div class="form-check form-check-radio">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option2" checked>
+                  <input class="form-check-input" type="radio" name="optionsRadios2" value="5">
                   <span class="form-check-sign"></span>
-                  Radio is on
+                  Faible
                 </label>
               </div>
             </div></td></tr></table></center>
+            <center>
+            <div class="g-recaptcha" data-sitekey="<?= $sitekey; ?>"></div>
+          </center><br>
             <div class="send-button">
               <button type="submit" class="btn btn-primary btn-round btn-block btn-lg" name="submit" >Envoyer Message</button>
             </div>
