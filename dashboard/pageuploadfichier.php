@@ -114,7 +114,7 @@ $sitekey = "LESITEKEY";
 <?php
 if(isset($_POST['submit'])){
     $message = $_POST['message'];
-  if($message&&$_FILES['attachment']){
+  if(isset($message)&&isset($_FILES['attachment'])){
     $responseData = json_decode(file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$_POST['g-recaptcha-response']));
     if($responseData->success){
       if(!isset($_FILES['attachment'])){
@@ -159,7 +159,7 @@ if(isset($_POST['submit'])){
           </div>
 
 
-                <b>Succès :</b> Le mail à été envoyé à son destinataire !
+                <b>Succès :</b> Le fichier à été uploadé !
               </div>
           </div>
         </div></div></div></div>
@@ -180,7 +180,7 @@ if(isset($_POST['submit'])){
           </div>
 
 
-                <b>Erreur Captcha:</b> BipBoup BoupBip BIPPPP ! Robot détecté !
+                <b>Erreur Captcha:</b> BipBoup BoupBip ! Robot détecté !
               </div>
           </div>
         </div></div></div></div>
