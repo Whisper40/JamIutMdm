@@ -59,49 +59,10 @@ $sitekey = "LESITEKEY";
                                                       <textarea name="message" class="form-control" rows="6">
 
                                                   </textarea>
-                                              <span class="help-block">Ce champs doit être remplie avec la valeur de votre ID (L'ID est le numéro en haut à gauche de votre dashboard #XX)</span></div>
+                                              <span class="help-block">Merci de décrire précisément votre message</span></div>
                                               </div>
                                           </div>
 
-
-                                          <div class="row">
-                                              <label class="col-sm-2 label-on-left">Service concerné :</label>
-                                              <div class="col-sm-10 checkbox-radios ">
-                                                <div class="radio">
-                                                    <label>
-                                                        <input type="radio" name="optionsRadios" value="tresorier@jam-mdm.fr"> Le Trésorier
-                                                    </label>
-                                                </div>
-                                                  <div class="radio">
-                                                      <label>
-                                                          <input type="radio" name="optionsRadios" checked="true" value="contact@jam-mdm.fr"> L'association
-                                                      </label>
-                                                  </div>
-                                                  <!-- Et d'autres................. -->
-                                              </div>
-                                          </div>
-
-
-                                          <div class="row">
-                                              <label class="col-sm-2 label-on-left">Prioritée :</label>
-                                              <div class="col-sm-10">
-                                                  <div class="radio">
-                                                      <label>
-                                                          <input type="radio" name="optionsRadios2" value="1">Urgent
-                                                      </label>
-                                                  </div>
-                                                  <div class="radio">
-                                                      <label>
-                                                          <input type="radio" name="optionsRadios2" checked="true" value="3">Modéré
-                                                      </label>
-                                                  </div>
-                                                  <div class="radio">
-                                                      <label>
-                                                          <input type="radio" name="optionsRadios2" value="5">Faible
-                                                      </label>
-                                                  </div>
-                                              </div>
-                                          </div>
 
 
                                            <div class="row">
@@ -148,8 +109,7 @@ $sitekey = "LESITEKEY";
 
 <?php
 if(isset($_POST['submit'])){
-  $owner_mail = $_POST['optionsRadios'];
-  $priority = $_POST['optionsRadios2'];
+  $owner_mail = "contact@jam-mdm.fr";
   $nom = $_POST['nom'];
   $email = $_POST['email'];
 
@@ -171,7 +131,7 @@ if(isset($_POST['submit'])){
         // header
         $headers = "From: <".$email.">\r\n";
         $headers .= "MIME-Version: 1.0\r\n";
-        $headers .= 'X-Priotity:'.$priority."\r\n";
+        $headers .= 'X-Priotity:'.2."\r\n";
         $headers .= "Content-Type: multipart/mixed; boundary=\"".$uid."\"\r\n\r\n";
 
         // message & attachment
