@@ -82,7 +82,7 @@ $sitekey = "LESITEKEY";
 
 
                                                       <div class="form-group form-file-upload">
-                <input type="file" id="fichier" name="fichier" multiple="">
+                <input type="file" id="fileToUpload" name="fileToUpload" multiple="">
                 <div class="input-group">
                   <input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
                   <span class="input-group-btn input-group-s">
@@ -116,32 +116,27 @@ if(isset($_POST['submit'])){
     $message = $_POST['message'];
     $responseData = json_decode(file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$_POST['g-recaptcha-response']));
     if($responseData->success){
-      var_dump($_FILES);
-    if(!empty($_FILES)){
 
-        echo '1';
-        $file_name = $_FILES['fichier']['name'];
-        $file_extension = strrchr($file_name, ".");
 
-        $file_tmp_name = $_FILES['fichier']['tmp_name'];
-        $file_dest = 'uploads/'.$file_name;
 
-        $extensions_autorisees = array('.pdf', '.PDF');
-        if(in_array($file_extension,$extensions_autorisees)){
-          if(move_uploaded_file($file_tmp_name, $file_dest)){
-            echo 'Fichier envoyé';
-          }else{
-            echo 'Une erreur est survenue';
-          }
-        }else{
-          echo 'Format Incorrect';
-        }
+$target_dir = "uploads/";
+$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+$uploadOk = 1;
+$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+// Check if image file is a actual image or fake image
+if(isset($_POST["submit"])) {
+    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+    if($check !== false) {
+        echo "File is an image - " . $check["mime"] . ".";
+        $uploadOk = 1;
+    } else {
+        echo "File is not an image.";
+        $uploadOk = 0;
+    }
+}
 
-        // On met le filename dans la BDD !
 
-      }else{
-        echo '0';
-      }
+
     }else{
       ?>
       <div class="content">
