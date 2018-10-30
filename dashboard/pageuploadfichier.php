@@ -120,15 +120,15 @@ if(isset($_POST['submit'])){
       $user_id = $_SESSION['user_id'];
       $target_dir = "uploads/";
       if (file_exists($target_dir/$user_id)) {
-        $target_dir = "$target_dir/$user_id";
+        $target_dirnew = "$target_dir/$user_id/";
       }else{
         mkdir("$target_dir/$user_id", 0700);
-        $target_dir = "$target_dir/$user_id";
+        $target_dirnew = "$target_dir/$user_id/";
       }
 
 
 
-$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+$target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
