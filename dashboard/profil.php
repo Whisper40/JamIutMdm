@@ -80,7 +80,6 @@ function slugify($text){
                                   <div class="form-group label-floating is-empty">
                                       <label class="control-label"></label>
                                       <input type="text" class="form-control" value="
-
                                       <?php
                                       $user_id = $_SESSION['user_id'];
                                       $sql = "SELECT * FROM users WHERE id = '$user_id'";
@@ -92,7 +91,7 @@ function slugify($text){
                                           echo $row['username'];
                                       }
 
-                                      ?>     ">
+                                      ?>">
 
                                   </div>
                               </div>
@@ -103,7 +102,6 @@ function slugify($text){
                                   <div class="form-group label-floating is-empty">
                                       <label class="control-label"></label>
                                       <input type="text" class="form-control" value="
-
                                       <?php
                                       $user_id = $_SESSION['user_id'];
                                       $sql = "SELECT * FROM users WHERE id = '$user_id'";
@@ -111,11 +109,10 @@ function slugify($text){
                                       $req->setFetchMode(PDO::FETCH_ASSOC);
 
                                       foreach($req as $row)
-                                      {
-                                          echo $row['email'];
+                                      {echo $row['email'];
                                       }
 
-                                      ?>  ">
+                                      ?>">
 
                                   </div>
                               </div>
