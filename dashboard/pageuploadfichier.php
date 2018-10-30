@@ -174,7 +174,7 @@ if ($uploadOk == 0) {
   $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"]);
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file2)) {
         echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-
+        $status = "EN ATTENTE DE VALIDATION";
         $insertinfos = $db->prepare("INSERT INTO validationfichiers (user_id, filename, ip, date, status) VALUES(:user_id, :filename, :ip, :date, :status)");
         $insertinfos->execute(array(
 
@@ -182,7 +182,7 @@ if ($uploadOk == 0) {
             "filename"=>$target_file,
             "ip"=>$ip,
             "date"=>$date,
-            "status"=>"EN ATTENTE DE VALIDATION"
+            "status"=>"$status
             )
         )
 
