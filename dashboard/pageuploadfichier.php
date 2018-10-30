@@ -127,11 +127,13 @@ if(isset($_POST['submit'])){
       }
 
 
-      $name = basename( $_FILES["fileToUpload"]["name"]);
-      $name2 = $name."".$date;
-$target_file = $target_dirnew."".$name2;
+
+$target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
-$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+date_default_timezone_set('Europe/Paris');
+setlocale(LC_TIME, 'fr_FR.utf8','fra');
+$date = strftime('%d/%m/%Y %H:%M:%S');
+$imageFileType = strtolower(pathinfo($target_file."".$date,PATHINFO_EXTENSION));
 
 // Check if file already exists
 if (file_exists($target_file)) {
@@ -154,12 +156,8 @@ if ($uploadOk == 0) {
     echo "Sorry, your file was not uploaded.";
 // if everything is ok, try to upload file
 } else {
-  date_default_timezone_set('Europe/Paris');
-  setlocale(LC_TIME, 'fr_FR.utf8','fra');
-  $date = strftime('%d/%m/%Y %H:%M:%S');
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-
-        echo "The file ".$name2. " has been uploaded.";
+        echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
     } else {
         echo "Sorry, there was an error uploading your file.";
     }
