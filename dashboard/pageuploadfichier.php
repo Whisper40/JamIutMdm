@@ -127,8 +127,6 @@ $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 if(isset($_POST["submit"])) {
 
 
-
-  <?php
   $target_dir = "uploads/";
   $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
   $uploadOk = 1;
@@ -171,15 +169,7 @@ if(isset($_POST["submit"])) {
           echo "Sorry, there was an error uploading your file.";
       }
   }
-  
-
-
-
-}
-
-
-
-    }else{
+}else{
       ?>
       <div class="content">
                   <div class="container-fluid">
