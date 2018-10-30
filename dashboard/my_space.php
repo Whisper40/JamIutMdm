@@ -29,12 +29,12 @@
 </head>
 
 <?php
-
+//Connexion à la BDD et vérification du démarrage de la session de l'utilisateur
 require_once('includes/head.php');
 require_once('includes/checkconnection.php');
 //error_reporting(0); // Disable all errors.
 
-
+//Fonction de vérification des données entrées
 function slugify($text){
         $text = preg_replace('~[^\pL\d]+~u', '-', $text);
 
@@ -245,6 +245,7 @@ foreach($req as $row)
                                                                 <h2 class="card-title" style="margin-left: 10px">Modifier mes informations</h2>
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
+              <!-- 2 fonctions ajax afin de ne pas reload la page + avoir une notif en javascript ! -->
 <script>
    function SubmitFormData() {
     var email = $("#email").val();
@@ -367,14 +368,15 @@ foreach($req as $row)
 
 
 
-
+<?php
+require_once('includes/footdashboard.php');
+ ?>
 
 
 </body>
 
 <?php
 
-require_once('footdashboard.php');
-   require_once('tawketautre.php');
+// Récupération du javascript pour le dashboard y compris les notifs "demo.."
    require_once('includes/javascriptdashboard.php');
    ?>
