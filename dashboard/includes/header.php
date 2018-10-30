@@ -48,7 +48,7 @@ while($unecat = $cat->fetch(PDO::FETCH_OBJ)){
   >
   <?php } ?>
       <a href="<?php echo $unecat->page;?>">
-          <i class="material-icons">dns</i>
+          <i class="material-icons">person</i>
           <p><?php echo $unecat->name;?></p>
       </a>
   </li>
