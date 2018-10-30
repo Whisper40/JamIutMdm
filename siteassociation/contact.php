@@ -33,6 +33,19 @@
   <link href="assets/css/now-ui-kit.css?v=1.2.0" rel="stylesheet" />
 </head>
 
+<?php
+
+// Ajouter le code à l'endroit souhaité dans l'index.php !
+
+
+// Dire à Kévin ou le code est implanté pour ajouter les règles de changement des accès juste en dessous !
+$secret = "LESECRET";
+$sitekey = "LESITEKEY";
+
+
+//
+?>
+
 <body class="landing-page sidebar-collapse">
 
   <?php
@@ -57,13 +70,14 @@
         <p class="description">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
         <div class="row">
           <div class="col-lg-6 text-center col-md-8 ml-auto mr-auto">
+            <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
             <div class="input-group input-lg">
               <div class="input-group-prepend">
                 <span class="input-group-text">
                   <i class="now-ui-icons users_circle-08"></i>
                 </span>
               </div>
-              <input type="text" class="form-control" placeholder="First Name...">
+              <input type="text" class="form-control" placeholder="Nom et Prénom"  name="nom">
             </div>
             <div class="input-group input-lg">
               <div class="input-group-prepend">
@@ -71,14 +85,48 @@
                   <i class="now-ui-icons ui-1_email-85"></i>
                 </span>
               </div>
-              <input type="text" class="form-control" placeholder="Email...">
+              <input type="email" class="form-control" placeholder="Email" name="email">
             </div>
             <div class="textarea-container">
-              <textarea class="form-control" name="name" rows="4" cols="80" placeholder="Type a message..."></textarea>
+              <textarea class="form-control" name="message" rows="10" cols="80" placeholder="Votre message :"></textarea>
             </div>
+            <p class="category">Radios</p>
+            <table>
+              <tr>
+                <td><div class="col-sm-9 col-lg-4 mb-4"></div></td><td>
+            <div class="col-sm-8 col-lg-3 mb-4">
+              <div class="form-check form-check-radio">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+                  <span class="form-check-sign"></span>
+                  Radio is off
+                </label>
+              </div>
+            </div></td>
+            <td>
+            <div class="col-sm-8 col-lg-3 mb-4">
+              <div class="form-check form-check-radio">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option2" checked>
+                  <span class="form-check-sign"></span>
+                  Radio is on
+                </label>
+              </div>
+            </div></td>
+            <td>
+            <div class="col-sm-8 col-lg-3 mb-4">
+              <div class="form-check form-check-radio">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option2" checked>
+                  <span class="form-check-sign"></span>
+                  Radio is on
+                </label>
+              </div>
+            </div></td></tr></table>
             <div class="send-button">
-              <a href="#pablo" class="btn btn-primary btn-round btn-block btn-lg">Send Message</a>
+              <button type="submit" class="btn btn-primary btn-round btn-block btn-lg" name="submit" >Envoyer Message</button>
             </div>
+          </form>
           </div>
         </div>
       </div>
