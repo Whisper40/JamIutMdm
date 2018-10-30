@@ -182,9 +182,9 @@ if ($uploadOk == 0) {
             "filename"=>$target_file,
             "ip"=>$ip,
             "date"=>$date,
-            "status"=>"$status
+            "status"=>$status
             )
-        )
+        );
 
 
 
