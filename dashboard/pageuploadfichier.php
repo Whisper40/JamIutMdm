@@ -117,10 +117,17 @@ if(isset($_POST['submit'])){
     $responseData = json_decode(file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$_POST['g-recaptcha-response']));
     if($responseData->success){
 
+      $user_id = $_SESSION['user_id'];
+      $target_dir = "uploads/";
+      if (file_exists($target_dir/$user_id)) {
+        $target_dir = "$target_dir/$user_id";
+      }else{
+        mkdir("$target_dir/$user_id", 0700);
+        $target_dir = "$target_dir/$user_id";
+      }
 
 
 
-$target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -130,8 +137,8 @@ if (file_exists($target_file)) {
     echo "Sorry, file already exists.";
     $uploadOk = 0;
 }
-// Check file size
-if ($_FILES["fileToUpload"]["size"] > 500000) {
+// Check file size < 2m
+if ($_FILES["fileToUpload"]["size"] > 2000000) {
     echo "Sorry, your file is too large.";
     $uploadOk = 0;
 }
