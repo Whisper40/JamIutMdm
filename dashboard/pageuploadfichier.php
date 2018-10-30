@@ -140,18 +140,13 @@ if(isset($_POST['submit'])){
         $content = chunk_split(base64_encode($content));
         $uid = md5(uniqid(time()));
         $name = basename($file);
-
         // On met le filename dans la BDD !
-      }
       ?>
 
       <div class="content">
                   <div class="container-fluid">
                       <div class="row">
                           <div class="col-md-6 col-md-offset-3">
-
-
-
       <div class="alert alert-success">
               <div class="container">
           <div class="alert-icon">
@@ -164,6 +159,7 @@ if(isset($_POST['submit'])){
           </div>
         </div></div></div></div>
         <?php
+      }
     }else{
       ?>
       <div class="content">
