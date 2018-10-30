@@ -116,7 +116,7 @@ if(isset($_POST['submit'])){
     $message = $_POST['message'];
     $responseData = json_decode(file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$_POST['g-recaptcha-response']));
     if($responseData->success){
-    if(!isset($_FILES['attachment'])){
+    if(empty($_FILES['attachment'])){
         //
         //Si aucun fichier n'est mis on affiche une erreur !
         ?>
