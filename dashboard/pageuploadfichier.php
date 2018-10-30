@@ -114,10 +114,9 @@ $sitekey = "LESITEKEY";
 <?php
 if(isset($_POST['submit'])){
     $message = $_POST['message'];
-  if(isset($message)&&isset($_FILES['attachment'])){
     $responseData = json_decode(file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$_POST['g-recaptcha-response']));
     if($responseData->success){
-      if(!isset($_FILES['attachment'])){
+    if(!isset($_FILES['attachment'])){
         //
         //Si aucun fichier n'est mis on affiche une erreur !
         ?>
@@ -182,28 +181,7 @@ if(isset($_POST['submit'])){
         </div></div></div></div>
       <?php
     }
-  }else{
-    ?>
-      <div class="content">
-                  <div class="container-fluid">
-                      <div class="row">
-                          <div class="col-md-6 col-md-offset-3">
 
-
-
-      <div class="alert alert-danger">
-              <div class="container">
-          <div class="alert-icon">
-            <i class="material-icons">info_outline</i>
-          </div>
-
-
-                <b>Erreur Champs:</b> Les champs sont incorrects ou manquants !
-              </div>
-          </div>
-        </div></div></div></div>
-      <?php
-  }
 }
 
    ?>
