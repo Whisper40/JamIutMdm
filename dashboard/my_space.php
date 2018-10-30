@@ -374,7 +374,7 @@ foreach($req as $row)
 
 <?php
 
-require_once('footdashboard.php');
+require_once('includes/footdashboard.php');
    require_once('tawketautre.php');
    require_once('includes/javascriptdashboard.php');
    ?>
