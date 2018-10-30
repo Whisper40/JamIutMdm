@@ -91,7 +91,7 @@ $sitekey = "LESITEKEY";
               <textarea class="form-control" name="message" rows="10" cols="80" placeholder="Votre message :"></textarea>
             </div>
             <p class="category">Radios</p>
-            <table>
+            <center><table>
               <tr>
                 <td><div class="col-sm-9 col-lg-4 mb-4"></div></td><td>
             <div class="col-sm-8 col-lg-3 mb-4">
@@ -122,7 +122,7 @@ $sitekey = "LESITEKEY";
                   Radio is on
                 </label>
               </div>
-            </div></td></tr></table>
+            </div></td></tr></table></center>
             <div class="send-button">
               <button type="submit" class="btn btn-primary btn-round btn-block btn-lg" name="submit" >Envoyer Message</button>
             </div>

@@ -15,6 +15,11 @@ $sitekey = "LESITEKEY";
 
 
 
+
+
+
+
+
                               <div class="col-md-12">
                                                   <div class="card">
                                                       <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
@@ -54,11 +59,33 @@ $sitekey = "LESITEKEY";
                                                       <textarea name="message" class="form-control" rows="6">
 
                                                   </textarea>
-                                              <span class="help-block">Merci de décrire précisément votre message</span></div>
+                                              <span class="help-block">Ce champs doit être remplie avec la valeur de votre ID (L'ID est le numéro en haut à gauche de votre dashboard #XX)</span></div>
                                               </div>
                                           </div>
 
-                                             <div class="row">
+                                          <div class="row">
+                                              <label class="col-sm-2 label-on-left">Prioritée :</label>
+                                              <div class="col-sm-10">
+                                                  <div class="radio">
+                                                      <label>
+                                                          <input type="radio" name="optionsRadios2" value="1">Urgent
+                                                      </label>
+                                                  </div>
+                                                  <div class="radio">
+                                                      <label>
+                                                          <input type="radio" name="optionsRadios2" checked="true" value="3">Modéré
+                                                      </label>
+                                                  </div>
+                                                  <div class="radio">
+                                                      <label>
+                                                          <input type="radio" name="optionsRadios2" value="5">Faible
+                                                      </label>
+                                                  </div>
+                                              </div>
+                                          </div>
+
+
+                                           <div class="row">
                                               <label class="col-sm-2 label-on-left"> </label>
                                               <div class="col-sm-10">
                                                   <div class="form-group label-floating is-empty">
@@ -103,6 +130,7 @@ $sitekey = "LESITEKEY";
 <?php
 if(isset($_POST['submit'])){
   $owner_mail = "contact@jam-mdm.fr";
+  $priority = $_POST['optionsRadios2'];
   $nom = $_POST['nom'];
   $email = $_POST['email'];
 
@@ -124,7 +152,7 @@ if(isset($_POST['submit'])){
         // header
         $headers = "From: <".$email.">\r\n";
         $headers .= "MIME-Version: 1.0\r\n";
-        $headers .= 'X-Priotity:'.2."\r\n";
+        $headers .= 'X-Priotity:'.$priority."\r\n";
         $headers .= "Content-Type: multipart/mixed; boundary=\"".$uid."\"\r\n\r\n";
 
         // message & attachment
