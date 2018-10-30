@@ -127,8 +127,9 @@ if(isset($_POST['submit'])){
       }
 
 
-
-$target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"]);
+      $name = basename( $_FILES["fileToUpload"]["name"]);
+      $name2 = $name."".$date;
+$target_file = $target_dirnew."".$name2;
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
@@ -157,8 +158,7 @@ if ($uploadOk == 0) {
   setlocale(LC_TIME, 'fr_FR.utf8','fra');
   $date = strftime('%d/%m/%Y %H:%M:%S');
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-      $name = basename( $_FILES["fileToUpload"]["name"]);
-      $name2 = $name."".$date;
+
         echo "The file ".$name2. " has been uploaded.";
     } else {
         echo "Sorry, there was an error uploading your file.";
