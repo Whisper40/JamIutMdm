@@ -3424,7 +3424,7 @@ h2.title {
 }
 .card .header-rose,
 .card .content-rose {
-  background: linear-gradient(60deg, #ec407a, #c2185b);
+  background: linear-gradient(60deg, #35bfb1, #c2185b);
 }
 .card .header-primary {
   box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2), 0 13px 24px -11px rgba(120, 181, 219,0.5);
