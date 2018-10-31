@@ -164,10 +164,7 @@ foreach($req as $row)
                                 <div class="card-content">
                                     <h4 class="card-title">Modifier mon mot de passe</h4>
                                     <form action="" method="post" id="myForm" class="contact-form">
-                                        <div class="form-group label-floating">
-                                            <label class="control-label">Email </label>
-                                            <input type="email" name="email" id="email" class="form-control">
-                                        </div>
+
                                         <div class="form-group label-floating">
                                             <label class="control-label">Mot de passe</label>
                                             <input type="password" name="password" id="password" class="form-control">
@@ -197,10 +194,7 @@ foreach($req as $row)
                                 <div class="card-content">
                                     <h4 class="card-title">Modifier mon email</h4>
                                     <form action="" method="post" id="myForm2" class="contact-form">
-                                        <div class="form-group label-floating">
-                                            <label class="control-label">Email actuel</label>
-                                            <input type="email" name="email2" id="email2" class="form-control">
-                                        </div>
+                                        
                                         <div class="form-group label-floating">
                                             <label class="control-label">Nouvel email</label>
                                             <input type="email" name="newemail" id="newemail" class="form-control">
