@@ -207,6 +207,13 @@ Autre solution : Créer d'autres classes, mais cela utilise beaucoup + de lignes
         <div class="card card-login card-plain">
           <form class="form" action="" method="POST">
             <div class="card-header text-center">
+              <div class="header header-primary text-center">
+                <div class="typography-line">
+                  <h2>
+                    Restauration du mot de passe
+                  </h2>
+                </div>
+              </div>
               </div>
 
                     <?php if(isset($error)) { echo '
@@ -253,13 +260,6 @@ La barre s'affiche parfaitement sur mobile, sur pc lèger décalage de l'email
   </div>
 </div>
 <form method="post" class="form">
-  <div class="header header-primary text-center">
-    <div class="typography-line">
-      <h2>
-        Restauration du mot de passe
-      </h2>
-    </div>
-  </div>
   <div class="card-body">
     <div class="input-group no-border input-lg">
       <div class="input-group-prepend">
@@ -295,13 +295,6 @@ La barre s'affiche parfaitement sur mobile, sur pc lèger décalage de l'email
 
 
   <form method="post" class="form">
-    <div class="header header-primary text-center">
-      <div class="typography-line">
-        <h2>
-          Nouveau mot de passe
-        </h2>
-      </div>
-    </div>
     <div class="card-body">
       <div class="input-group no-border input-lg">
         <div class="input-group-prepend">
@@ -341,13 +334,6 @@ La barre s'affiche parfaitement sur mobile, sur pc lèger décalage de l'email
 
 <?php } else { ?>
     <form method="post" class="form">
-      <div class="header header-primary text-center">
-        <div class="typography-line">
-          <h2>
-            Restauration du mot de passe
-          </h2>
-        </div>
-      </div>
       <div class="card-body">
         <div class="input-group no-border input-lg">
           <div class="input-group-prepend">
@@ -374,7 +360,7 @@ La barre s'affiche parfaitement sur mobile, sur pc lèger décalage de l'email
         </div>
       </div>
       </form>
-      
+
 <?php } ?>
 
       </div>
