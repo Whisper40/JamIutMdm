@@ -131,7 +131,7 @@ foreach($req as $row)
               <!-- 2 fonctions ajax afin de ne pas reload la page + avoir une notif en javascript ! -->
 <script>
    function SubmitFormData() {
-    var email = $emailid.val();
+    var email = <?php json_encode($emailid); ?>
     var password = $("#password").val();
     var repeatpassword = $("#repeatpassword").val();
 
@@ -194,7 +194,7 @@ foreach($req as $row)
                                 <div class="card-content">
                                     <h4 class="card-title">Modifier mon email</h4>
                                     <form action="" method="post" id="myForm2" class="contact-form">
-                                        
+
                                         <div class="form-group label-floating">
                                             <label class="control-label">Nouvel email</label>
                                             <input type="email" name="newemail" id="newemail" class="form-control">
