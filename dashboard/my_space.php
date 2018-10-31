@@ -121,7 +121,7 @@ foreach($req as $row)
     echo $row['email'];
     $emailid = $row['email'];
 }
-echo $emailid;
+
 
 ?>               </b>                                                       </div>
 
@@ -143,7 +143,7 @@ echo $emailid;
     });
 }
  function SubmitFormDataEmail() {
-    var email2 = $emailid.val();
+    var email2 = "<?php echo $emailid; ?>";
     var newemail = $("#newemail").val();
     var repeatnewemail = $("#repeatnewemail").val();
 
