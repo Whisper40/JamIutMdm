@@ -119,6 +119,7 @@ $req->setFetchMode(PDO::FETCH_ASSOC);
 foreach($req as $row)
 {
     echo $row['email'];
+    $emailid = $row['email'];
 }
 
 ?>               </b>                                                       </div>
@@ -130,7 +131,7 @@ foreach($req as $row)
               <!-- 2 fonctions ajax afin de ne pas reload la page + avoir une notif en javascript ! -->
 <script>
    function SubmitFormData() {
-    var email = $("#email").val();
+    var email = $emailid.val();
     var password = $("#password").val();
     var repeatpassword = $("#repeatpassword").val();
 
@@ -141,7 +142,7 @@ foreach($req as $row)
     });
 }
  function SubmitFormDataEmail() {
-    var email2 = $("#email2").val();
+    var email2 = $emailid.val();
     var newemail = $("#newemail").val();
     var repeatnewemail = $("#repeatnewemail").val();
 
