@@ -121,6 +121,7 @@ foreach($req as $row)
     echo $row['email'];
     $emailid = $row['email'];
 }
+echo $emailid;
 
 ?>               </b>                                                       </div>
 
@@ -131,7 +132,7 @@ foreach($req as $row)
               <!-- 2 fonctions ajax afin de ne pas reload la page + avoir une notif en javascript ! -->
 <script>
    function SubmitFormData() {
-    var email = <?php json_encode($emailid); ?>
+    var email = "<?php echo $emailid; ?>";
     var password = $("#password").val();
     var repeatpassword = $("#repeatpassword").val();
 
