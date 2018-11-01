@@ -61,7 +61,6 @@ require_once('includes/header.php');
 			<br/><br/>
 
 			<?php
-
 		}
 	?>
 
