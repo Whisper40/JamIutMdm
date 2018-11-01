@@ -32,10 +32,10 @@ require_once('includes/header.php');
 
 <?php
 $images = $db->query("SELECT * FROM images WHERE status = 1 ORDER BY uploaded_on DESC");
-while($uneimage = $image->fetch(PDO::FETCH_OBJ)){
+while($uneimage = $images->fetch(PDO::FETCH_OBJ)){
 
-            $imageURL = 'assets/images/'.echo $uneimage->file_name;
-            $imageThumbURL = 'assets/images/thumb/'.echo $uneimage->file_name;
+            $imageURL = 'assets/images/' echo $uneimage->file_name;
+            $imageThumbURL = 'assets/images/thumb/' echo $uneimage->file_name;
             echo $imageURL;
 
     ?>
