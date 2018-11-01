@@ -95,7 +95,7 @@ require_once('includes/header.php');
 
 // Si la page n'a aucun paramètre alors on affiche celle-ci , ou alors on renvoie vers la page d'accueil..
 
-}else{ /*
+}else{
 
 		?>
 		<br/><h1>Catégories :</h1>
@@ -112,8 +112,8 @@ require_once('includes/header.php');
 
 	}
 
-} */
-header('Location: https://jam-mdm.fr/');
+}
+
 
 }
 	require_once('includes/footer.php');
