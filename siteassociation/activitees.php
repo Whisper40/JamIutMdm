@@ -4,23 +4,12 @@ require_once('includes/header.php');
 
 
 	if(isset($_GET['show'])){
-		$product = htmlentities($_GET['show']);
+		$product = htmlentities($_GET['showmethisactivity']);
 		$select = $db->prepare("SELECT * FROM activitesvoyages WHERE slug='$product'");
 		$select->execute();
 		$s = $select->fetch(PDO::FETCH_OBJ);
 
-		$containsProduct = false;
-		/*
-		if(isset($_SESSION['panier'])){
-			for($i = 0; $i < count($_SESSION['panier']['slugProduit']); $i++){
-	     		if($_SESSION['panier']['slugProduit'][$i] == $s->slug){
-	     			$containsProduct = true;
-	     			break;
-	     		}
-	   		}
-	   	}
-			*/
-
+	
 		$description = $s->description;
 		$description_finale=wordwrap($description,100,'<br />', false); // False sert a dire si on découpe le mot ou non
 		?>
@@ -30,7 +19,7 @@ require_once('includes/header.php');
 		<h1><?php echo $s->title; ?></h1>
 		<h5><?php echo $description_finale; ?></h5>
 		<h5>Stock : <?php echo $s->stock; ?></h5>
-		<?php if(!$containsProduct){ if ($s->stock>0){ ?><a href="panier.php?action=ajout&amp;l=<?php echo $s->slug; ?>&amp;q=1&amp;p=<?php echo $s->price; ?>">Je Participe !</a><?php }else{echo'<h5 style="color:red;">Stock épuisé !</h5>';} } else{ ?><p style="color:green;">Produit déjà ajouté</p><?php }
+		<?php if ($s->stock>0){ ?><a href="panier.php?action=ajout&amp;l=<?php echo $s->slug; ?>&amp;q=1&amp;p=<?php echo $s->price; ?>">Je Participe !</a><?php }else{echo'<h5 style="color:red;">Stock épuisé !</h5>';}
    		?>
 		</div><br/>
 
@@ -54,17 +43,7 @@ require_once('includes/header.php');
 			$new_description=substr($description,0,$lenght)."...";
 			$description_finale=wordwrap($new_description,50,'<br />', false);
 
-			$containsProduct = false;
-			/*
-			if(isset($_SESSION['panier'])){
-				for($i = 0; $i < count($_SESSION['panier']['slugProduit']); $i++){
-	     			if($_SESSION['panier']['slugProduit'][$i] == $s->slug){
-	     				$containsProduct = true;
-	     				break;
-	     			}
-	   			}
-	   		}
-				*/
+
 
 			?>
 			<br/>
@@ -73,8 +52,8 @@ require_once('includes/header.php');
 			<h5><?php echo $description_finale; ?></h5>
 			<h4><?php echo $s->final_price; ?> €</h4>
 			<h5>Places restantes : <?php echo $s->stock; ?></h5>
-			<!-- Fonction contains à gercler une fois finis-->
-			<?php if(!$containsProduct){ if ($s->stock>0){ ?><a href="?show=<?php echo $s->slug; ?>&amp;p=<?php echo $s->price; ?>">Voir l'activité</a><?php }else{echo'<h5 style="color:red;">Stock épuisé !</h5>';} } else{ ?><p style="color:green;">Produit déjà ajouté</p><?php }
+
+			<?php if ($s->stock>0){ ?><a href="?showmethisactivity=<?php echo $s->slug; ?>&amp;p=<?php echo $s->price; ?>">Voir l'activité</a><?php }else{echo'<h5 style="color:red;">Stock épuisé !</h5>';}
    		?>
 
 			<br/><br/>
