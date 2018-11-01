@@ -17,7 +17,7 @@ require_once('includes/header.php');
 		<img src="assets/img/<?php echo $s->slug; ?>.jpg"/>
 		<h1><?php echo $s->title; ?></h1>
 		<h5><?php echo $description_finale; ?></h5>
-		<h5>Stock : <?php echo $s->stock; ?></h5>
+		<h5>Places restantes : <?php echo $s->stock; ?></h5>
 		<?php if ($s->stock>0){ ?><a href="panier.php?action=ajout&amp;l=<?php echo $s->slug; ?>&amp;q=1&amp;p=<?php echo $s->price; ?>">Je Participe !</a><?php }else{echo'<h5 style="color:red;">Aucune place n\'est disponible !</h5>';}
    		?>
 		</div><br/>
