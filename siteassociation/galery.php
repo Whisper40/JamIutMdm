@@ -22,43 +22,21 @@ require_once('includes/header.php');
  <link rel="stylesheet" href="includes/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
  <script type="text/javascript" src="includes/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
 
-
-<ul class="list">
-	<li>
-		<a class="various fancybox.ajax" href="/demo/ajax.php">Ajax</a>
-	</li>
-	<li>
-		<a class="various" data-fancybox-type="iframe" href="/demo/iframe.html">Iframe</a>
-	</li>
-	<li>
-		<a class="various" href="#inline">Inline</a>
-	</li>
-	<li>
-		<a class="various" href="http://www.adobe.com/jp/events/cs3_web_edition_tour/swfs/perform.swf">SWF</a>
-	</li>
-</ul>
-
-<ul class="list">
-	<li>
-		<a class="various fancybox.iframe" href="http://www.youtube.com/embed/L9szn1QQfas?autoplay=1">Youtube (iframe)</a>
-	</li>
-	<li>
-		<a class="various fancybox.iframe" href="http://maps.google.com/?output=embed&f=q&source=s_q&hl=en&geocode=&q=London+Eye,+County+Hall,+Westminster+Bridge+Road,+London,+United+Kingdom&hl=lv&ll=51.504155,-0.117749&spn=0.00571,0.016512&sll=56.879635,24.603189&sspn=10.280244,33.815918&vpsrc=6&hq=London+Eye&radius=15000&t=h&z=17">Google maps (iframe)</a>
-	</li>
-	<li>
-		<a class="various" href="/data/non_existing_image.jpg">Non-existing url</a>
-	</li>
-</ul>
+ <a class="fancybox" rel="gallery1" href="http://farm2.staticflickr.com/1669/23976340262_a5ca3859f6_b.jpg" title="Twilight Memories (doraartem)">
+ 	<img src="http://farm2.staticflickr.com/1669/23976340262_a5ca3859f6_m.jpg" alt="" />
+ </a>
+ <a class="fancybox" rel="gallery1" href="http://farm2.staticflickr.com/1459/23610702803_83655c7c56_b.jpg" title="Electrical Power Lines and Pylons disappear over t.. (pautliubomir)">
+ 	<img src="http://farm2.staticflickr.com/1459/23610702803_83655c7c56_m.jpg" alt="" />
+ </a>
+ <a class="fancybox" rel="gallery1" href="http://farm2.staticflickr.com/1617/24108587812_6c9825d0da_b.jpg" title="Morning Godafoss (Brads5)">
+ 	<img src="http://farm2.staticflickr.com/1617/24108587812_6c9825d0da_m.jpg" alt="" />
+ </a>
+ <a class="fancybox" rel="gallery1" href="http://farm4.staticflickr.com/3691/10185053775_701272da37_b.jpg" title="Vertical - Special Edition! (cedarsphoto)">
+ 	<img src="http://farm4.staticflickr.com/3691/10185053775_701272da37_m.jpg" alt="" />
+ </a>
 <script>
 $(document).ready(function() {
-	$(".various").fancybox({
-		maxWidth	: 800,
-		maxHeight	: 600,
-		fitToView	: false,
-		width		: '70%',
-		height		: '70%',
-		autoSize	: false,
-		closeClick	: false,
+	$(".fancybox").fancybox({
 		openEffect	: 'none',
 		closeEffect	: 'none'
 	});
