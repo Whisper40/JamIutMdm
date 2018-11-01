@@ -98,15 +98,15 @@ require_once('includes/header.php');
 }else{
 
 		?>
-		<br/><h1>Catégories :</h1>
+		<br/><h1>Sous Catégories :</h1>
 		<?php
-	$select = $db->query("SELECT * FROM category");
+	$select = $db->query("SELECT * FROM sitecat");
 
 	while($s = $select->fetch(PDO::FETCH_OBJ)){
 
 		?>
 
-		<a href="?category=<?php echo $s->slug;?>"><h3><?php echo $s->name ?></h3></a>
+		<a href="?category=<?php echo $s->slug;?>"><h3><?php echo $s->surname ?></h3></a>
 
 		<?php
 
