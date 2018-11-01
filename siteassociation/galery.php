@@ -33,15 +33,15 @@ require_once('includes/header.php');
 <?php
 $images = $db->query("SELECT * FROM images WHERE status = 1 ORDER BY uploaded_on DESC");
 while($uneimage = $images->fetch(PDO::FETCH_OBJ)){
-$a = echo $unesouscat->page;
-$b = echo $unesouscat->page;
+$a = echo $uneimage->file_name;
+
             $imageURL = 'assets/images/'.$a;
-            $imageThumbURL = 'assets/images/thumb/'.$b;
+            $imageThumbURL = 'assets/images/thumb/'.$a;
             echo $imageURL;
 
     ?>
 
-        <a class="fancybox-thumb" rel="fancybox-thumb" href="<?php echo $imageURL; ?>" title="<?php echo $uneimage->title; ?>">
+        <a class="fancybox-thumb" rel="fancybox-thumb" href="<?php echo $imageURL; ?>" title="ab">
         	<img src="<?php echo $imageThumbURL; ?>" alt="" />
         </a>
 
