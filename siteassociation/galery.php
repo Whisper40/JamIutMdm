@@ -5,40 +5,49 @@ require_once('includes/header.php');
 
 
 
-<!-- Fancybox CSS library -->
-<link rel="stylesheet" type="text/css" href="includes/fancybox/jquery.fancybox.css">
+ <!-- Add jQuery library -->
+ <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <!-- Add mousewheel plugin (this is optional) -->
+ <script type="text/javascript" src="/fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
 
-<!-- Fancybox JS library -->
-<script src="includes/fancybox/jquery.fancybox.js"></script>
+ <!-- Add fancyBox -->
+ <link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?v=2.1.7" type="text/css" media="screen" />
+ <script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?v=2.1.7"></script>
 
-<a class="fancybox-thumb" rel="fancybox-thumb" href="http://farm9.staticflickr.com/8507/8454547519_f8116520e1_b.jpg" title="Ayvalık, Turkey (Nejdet Düzen)">
-	<img src="http://farm9.staticflickr.com/8507/8454547519_f8116520e1_m.jpg" alt="" />
-</a>
-<a class="fancybox-thumb" rel="fancybox-thumb" href="http://farm8.staticflickr.com/7152/6394238505_c94fdd1d89_b.jpg" title="Sicilian Scratches   erice (italianoadoravel on/off coming back)">
-	<img src="http://farm8.staticflickr.com/7152/6394238505_c94fdd1d89_m.jpg" alt="" />
-</a>
-<a class="fancybox-thumb" rel="fancybox-thumb" href="http://farm9.staticflickr.com/8481/8215602321_69d9939b8b_b.jpg" title="The Trail (Msjunior-Check out my galleries)">
-	<img src="http://farm9.staticflickr.com/8481/8215602321_69d9939b8b_m.jpg" alt="" />
-</a>
-<a class="fancybox-thumb" rel="fancybox-thumb" href="http://farm9.staticflickr.com/8200/8220393833_e52cabfe80_b.jpg" title="Trees (Joerg Marx)">
-	<img src="http://farm9.staticflickr.com/8200/8220393833_e52cabfe80_m.jpg" alt="" />
-</a>
+ <!-- Optionally add helpers - button, thumbnail and/or media -->
+ <link rel="stylesheet" href="/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" media="screen" />
+ <script type="text/javascript" src="/fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+ <script type="text/javascript" src="/fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+
+ <link rel="stylesheet" href="/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
+ <script type="text/javascript" src="/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+
+
+
+ <a class="fancybox-button" rel="fancybox-button" href="http://farm4.staticflickr.com/3826/18875570170_e20cf27a4d_b.jpg" title="Colorful Feldberg II (STEFFEN EGLY)">
+ 	<img src="http://farm4.staticflickr.com/3826/18875570170_e20cf27a4d_m.jpg" alt="" />
+ </a>
+ <a class="fancybox-button" rel="fancybox-button" href="http://farm1.staticflickr.com/471/19102574835_d5a7837217_b.jpg" title="Cannon Needles (JustinPoe)">
+ 	<img src="http://farm1.staticflickr.com/471/19102574835_d5a7837217_m.jpg" alt="" />
+ </a>
+ <a class="fancybox-button" rel="fancybox-button" href="http://farm1.staticflickr.com/288/19353466834_6be3600330_b.jpg" title="Making a summer # 3 :) ((Nikon woman))">
+ 	<img src="http://farm1.staticflickr.com/288/19353466834_6be3600330_m.jpg" alt="" />
+ </a>
+ <a class="fancybox-button" rel="fancybox-button" href="http://farm1.staticflickr.com/313/19831416459_5ddd26103e_b.jpg" title="Sgwd Ddwli Uchaf, Brecon Waterfalls (technodean2000)">
+ 	<img src="http://farm1.staticflickr.com/313/19831416459_5ddd26103e_m.jpg" alt="" />
+ </a>
+
+
 <script>
 $(document).ready(function() {
-	$(".fancybox-thumb").fancybox({
-		prevEffect	: 'none',
-		nextEffect	: 'none',
-		helpers	: {
-			title	: {
-				type: 'outside'
-			},
-			thumbs	: {
-				width	: 50,
-				height	: 50
-			}
+	$(".fancybox-button").fancybox({
+		prevEffect		: 'none',
+		nextEffect		: 'none',
+		closeBtn		: false,
+		helpers		: {
+			title	: { type : 'inside' },
+			buttons	: {}
 		}
 	});
 });
