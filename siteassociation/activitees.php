@@ -2,7 +2,6 @@
 require_once('includes/head.php');
 require_once('includes/header.php');
 
-
 	if(isset($_GET['showmethisactivity'])){
 		$product = htmlentities($_GET['showmethisactivity']);
 		$select = $db->prepare("SELECT * FROM activitesvoyages WHERE slug='$product'");
