@@ -38,7 +38,7 @@ $a = "1";
 
 
 
-        while($row = $query->fetch_assoc()){
+        while($row = $query->fetch(PDO::FETCH_OBJ)){
           echo $a;
             $imageURL = 'assets/images/'.$row["file_name"];
             $imageThumbURL = 'assets/images/thumb/'.$row["file_name"];
