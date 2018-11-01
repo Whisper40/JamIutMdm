@@ -9,7 +9,7 @@ require_once('includes/header.php');
 		$select->execute();
 		$s = $select->fetch(PDO::FETCH_OBJ);
 
-		
+	
 
 		$description = $s->description;
 		$description_finale=wordwrap($description,100,'<br />', false); // False sert a dire si on découpe le mot ou non
@@ -44,7 +44,17 @@ require_once('includes/header.php');
 			$new_description=substr($description,0,$lenght)."...";
 			$description_finale=wordwrap($new_description,50,'<br />', false);
 
-
+			$containsProduct = false;
+			/*
+			if(isset($_SESSION['panier'])){
+				for($i = 0; $i < count($_SESSION['panier']['slugProduit']); $i++){
+	     			if($_SESSION['panier']['slugProduit'][$i] == $s->slug){
+	     				$containsProduct = true;
+	     				break;
+	     			}
+	   			}
+	   		}
+				*/
 
 			?>
 			<br/>
@@ -54,7 +64,7 @@ require_once('includes/header.php');
 			<h4><?php echo $s->final_price; ?> €</h4>
 			<h5>Places restantes : <?php echo $s->stock; ?></h5>
 			<!-- Fonction contains à gercler une fois finis-->
-			<?php if ($s->stock>0){ ?><a href="?showmethisactivity=<?php echo $s->slug; ?>&amp;p=<?php echo $s->price; ?>">Voir l'activité</a><?php }else{echo'<h5 style="color:red;">Stock épuisé !</h5>';} }
+			<?php if ($s->stock>0){ ?><a href="?showmethisactivity=<?php echo $s->slug; ?>&amp;p=<?php echo $s->price; ?>">Voir l'activité</a><?php }else{echo'<h5 style="color:red;">Stock épuisé !</h5>';}
    		?>
 
 			<br/><br/>
