@@ -76,10 +76,10 @@ require_once('includes/header.php');
 			<a href="?show=<?php echo $s->slug; ?>"><img src="imgs/<?php echo $s->slug; ?>.jpg"/></a>
 			<a href="?show=<?php echo $s->slug; ?>"><h2><?php echo $s->title;?></h2></a>
 			<h5><?php echo $description_finale; ?></h5>
-			<h4><?php echo $s->final_price; ?> Euros</h4>
-			<h5>Places disponibles : <?php echo $s->stock; ?></h5>
+			<h4><?php echo $s->final_price; ?> €</h4>
+			<h5>Places restantes : <?php echo $s->stock; ?></h5>
 			<!-- Fonction contains à gercler une fois finis-->
-			<?php if(!$containsProduct){ if ($s->stock>0){ ?><a href="panier.php?action=ajout&amp;l=<?php echo $s->slug; ?>&amp;q=1&amp;p=<?php echo $s->price; ?>">Je souhaite participer</a><?php }else{echo'<h5 style="color:red;">Stock épuisé !</h5>';} } else{ ?><p style="color:green;">Produit déjà ajouté</p><?php }
+			<?php if(!$containsProduct){ if ($s->stock>0){ ?><a href="panier.php?action=ajout&amp;l=<?php echo $s->slug; ?>&amp;q=1&amp;p=<?php echo $s->price; ?>">Voir l'activité</a><?php }else{echo'<h5 style="color:red;">Stock épuisé !</h5>';} } else{ ?><p style="color:green;">Produit déjà ajouté</p><?php }
    		?>
 
 			<br/><br/>
@@ -96,21 +96,7 @@ require_once('includes/header.php');
 // Si la page n'a aucun paramètre alors on affiche celle-ci , ou alors on renvoie vers la page d'accueil..
 
 }else{
-
-		?>
-		<br/><h1>Sous Catégories :</h1>
-		<?php
-	$select = $db->query("SELECT * FROM sitecat");
-
-	while($s = $select->fetch(PDO::FETCH_OBJ)){
-
-		?>
-
-		<a href="?category=<?php echo $s->slug;?>"><h3><?php echo $s->surname ?></h3></a>
-
-		<?php
-
-	}
+	header('Location: https://jam-mdm.fr/');
 
 }
 
