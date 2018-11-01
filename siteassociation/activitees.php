@@ -74,7 +74,7 @@ require_once('includes/header.php');
 			<h4><?php echo $s->final_price; ?> €</h4>
 			<h5>Places restantes : <?php echo $s->stock; ?></h5>
 			<!-- Fonction contains à gercler une fois finis-->
-			<?php if(!$containsProduct){ if ($s->stock>0){ ?><a href="panier.php?action=ajout&amp;l=<?php echo $s->slug; ?>&amp;q=1&amp;p=<?php echo $s->price; ?>">Voir l'activité</a><?php }else{echo'<h5 style="color:red;">Stock épuisé !</h5>';} } else{ ?><p style="color:green;">Produit déjà ajouté</p><?php }
+			<?php if(!$containsProduct){ if ($s->stock>0){ ?><a href="?show=<?php echo $s->slug; ?>&amp;p=<?php echo $s->price; ?>">Voir l'activité</a><?php }else{echo'<h5 style="color:red;">Stock épuisé !</h5>';} } else{ ?><p style="color:green;">Produit déjà ajouté</p><?php }
    		?>
 
 			<br/><br/>
