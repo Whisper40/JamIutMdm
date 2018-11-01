@@ -36,7 +36,6 @@ require_once('includes/header.php');
 
 		while($s=$select->fetch(PDO::FETCH_OBJ)){
 
-
 			$lenght=75;
 			$description = $s->description;
 			$new_description=substr($description,0,$lenght)."...";
