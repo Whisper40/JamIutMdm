@@ -25,7 +25,9 @@ require_once('includes/header.php');
  <a class="fancybox-thumb" rel="fancybox-thumb" href="http://farm6.staticflickr.com/5444/17679973232_568353a624_b.jpg" title="Golden Manarola (Sanjeev Deo)">
  	<img src="http://farm6.staticflickr.com/5444/17679973232_568353a624_m.jpg" alt="" />
  </a>
-
+ <a class="fancybox-thumb" rel="fancybox-thumb" href="http://farm6.staticflickr.com/5444/17679973232_568353a624_b.jpg" title="Golden Manarola (Sanjeev Deo)">
+ 	<img src="http://farm6.staticflickr.com/5444/17679973232_568353a624_m.jpg" alt="" />
+ </a>
 
 
 <?php
@@ -36,7 +38,8 @@ require_once('includes/header.php');
         while($row = $query->fetch_assoc()){
             $imageURL = 'assets/images/'.$row["file_name"];
             $imageThumbURL = 'assets/images/thumb/'.$row["file_name"];
-          
+            echo $imageURL;
+
     ?>
 
         <a class="fancybox-thumb" rel="fancybox-thumb" href="<?php echo $imageURL; ?>" title="<?php echo $row["title"]; ?>">
@@ -49,19 +52,6 @@ require_once('includes/header.php');
 
 
 <script>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 $(document).ready(function() {
 	$(".fancybox-thumb").fancybox({
