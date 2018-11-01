@@ -46,7 +46,7 @@ require_once('includes/header.php');
 		$category_slug=$_GET['category'];
 		$select = $db->query("SELECT surname FROM sitecat WHERE slug='$category_slug'");
 		$results = $select->fetch(PDO::FETCH_OBJ);
-		$category = addslashes($results->name);
+		$category = addslashes($results->surname);
 		$select = $db->prepare("SELECT * FROM activitesvoyages WHERE surname='$category'");
 		$select->execute();
 
