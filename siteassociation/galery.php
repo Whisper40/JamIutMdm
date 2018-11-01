@@ -32,16 +32,17 @@ require_once('includes/header.php');
 
 <?php
 $a = "1";
-echo $a;
+
 // Retrieve images from the database
     $query = $db->query("SELECT * FROM images WHERE status = 1 ORDER BY uploaded_on DESC");
-    echo $a;
-    if($query->num_rows > 0){
-      echo $a;
+
+
+
         while($row = $query->fetch_assoc()){
           echo $a;
             $imageURL = 'assets/images/'.$row["file_name"];
             $imageThumbURL = 'assets/images/thumb/'.$row["file_name"];
+            echo $imageURL;
 
 
     ?>
@@ -52,7 +53,7 @@ echo $a;
 
 
     <?php }
-    } ?>
+     ?>
 
 
 <script>
