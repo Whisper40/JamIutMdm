@@ -14,7 +14,7 @@ require_once('includes/header.php');
 		?>
 
 		<br/><div style="text-align:center;">
-		<img src="assets/img/<?php echo $s->slug; ?>.jpg"/>
+		<img src="assets/img/<?php echo $s->slug; ?>.<?php echo $s->formatimg; ?>"/>
 		<h1><?php echo $s->title; ?></h1>
 		<h5><?php echo $description_finale; ?></h5>
 		<h5>Places restantes : <?php echo $s->stock; ?></h5>
@@ -45,7 +45,7 @@ require_once('includes/header.php');
 
 			?>
 			<br/>
-			<a href="?show=<?php echo $s->slug; ?>"><img src="assets/img/<?php echo $s->slug; ?>.jpg"/></a>
+			<a href="?show=<?php echo $s->slug; ?>"><img src="assets/img/<?php echo $s->slug; ?>.<?php echo $s->formatimg; ?>"/></a>
 			<a href="?show=<?php echo $s->slug; ?>"><h2><?php echo $s->title;?></h2></a>
 			<h5><?php echo $description_finale; ?></h5>
 			<h4><?php echo $s->final_price; ?> €</h4>
