@@ -34,9 +34,10 @@ require_once('includes/header.php');
  $video = $db->query("SELECT * FROM videos WHERE status = 1 ORDER BY uploaded_on DESC");
  while($unevideo = $video->fetch(PDO::FETCH_OBJ)){
    ?>
-<div class="fancybox-video">
-  <a href="https://www.html5rocks.com/en/tutorials/video/basics/Chrome_ImF.mp4"><img src="assets/videos/thumb/<?php echo $unevideo->file_name;?>.jpg" alt="" /></a>
-</div>
+
+<li>
+		<a class="various fancybox.iframe" href="http://www.youtube.com/embed/L9szn1QQfas?autoplay=1"><img src="assets/videos/thumb/<?php echo $unevideo->file_name;?>.jpg" alt="" /></a>
+	</li>
 <?php } ?>
 
 
@@ -57,13 +58,18 @@ $(document).ready(function() {
 	});
 });
 </script>
-
-<script type="text/javascript">
-      $(document).ready(function() {
-            $(".fancybox-video").fancybox({
-                width: 640,
-                height: 400,
-                type: 'iframe'
-            });
-        });
-    </script>
+<script>
+$(document).ready(function() {
+	$(".various").fancybox({
+		maxWidth	: 800,
+		maxHeight	: 600,
+		fitToView	: false,
+		width		: '70%',
+		height		: '70%',
+		autoSize	: false,
+		closeClick	: false,
+		openEffect	: 'none',
+		closeEffect	: 'none'
+	});
+});
+</script>
