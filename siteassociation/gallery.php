@@ -69,5 +69,11 @@ $('[data-fancybox]').fancybox({
     vimeo : {
         color : 'f00'
     }
+    prevEffect	: 'none',
+		nextEffect	: 'none',
+    helpers	: {
+			title	: {
+				type: 'outside'
+			},
 });
 </script>
