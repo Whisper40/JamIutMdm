@@ -59,7 +59,7 @@ $(document).ready(function() {
 </script>
 
 <script type="text/javascript">
-        $(function () {
+      $(document).ready(function() {
             $(".fancybox-video").fancybox({
                 width: 640,
                 height: 400,
