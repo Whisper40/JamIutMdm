@@ -3,7 +3,7 @@ require_once('includes/head.php');
 require_once('includes/header.php');
  ?>
 
-
+<!-- Tous les JSS sont nécessaires -->
  <!-- Add jQuery library -->
  <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
  <!-- Add mousewheel plugin (this is optional) -->
@@ -19,6 +19,7 @@ require_once('includes/header.php');
  <link rel="stylesheet" href="includes/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
  <script type="text/javascript" src="includes/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
 
+<!-- Code pour les images -->
 <h1> Les images </h1>
 <?php
 
@@ -29,18 +30,18 @@ require_once('includes/header.php');
  	<img src="assets/images/thumb/<?php echo $uneimage->file_name;?>" alt="<?php echo $uneimage->title;?>" />
  </a>
 <?php } ?>
+
+<!-- Code pour les vidéos -->
 <h1> Les vidéos </h1>
 <?php
  $video = $db->query("SELECT * FROM videos WHERE status = 1 ORDER BY uploaded_on DESC");
  while($unevideo = $video->fetch(PDO::FETCH_OBJ)){
    ?>
+		<a class="various fancybox.iframe" href="<?php echo $unevideo->file_namevideo;?>"><img src="assets/videos/thumb/<?php echo $unevideo->file_nameimage;?>" alt="" /></a>
 
-<li>
-		<a class="various fancybox.iframe" href="http://www.youtube.com/embed/L9szn1QQfas?autoplay=1"><img src="assets/videos/thumb/<?php echo $unevideo->file_name;?>.jpg" alt="" /></a>
-	</li>
 <?php } ?>
 
-
+<!-- AJAX pour images -->
 <script>
 $(document).ready(function() {
 	$(".fancybox-thumb").fancybox({
@@ -58,6 +59,9 @@ $(document).ready(function() {
 	});
 });
 </script>
+
+
+<!-- AJAX vidéos -->
 <script>
 $(document).ready(function() {
 	$(".various").fancybox({
