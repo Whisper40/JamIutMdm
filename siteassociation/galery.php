@@ -22,6 +22,18 @@ require_once('includes/header.php');
  <link rel="stylesheet" href="includes/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
  <script type="text/javascript" src="includes/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
 
+<?php
+ $souscat = $db->query("SELECT * FROM images WHERE status = 1 ORDER BY uploaded_on DESC");
+ while($unesouscat = $souscat->fetch(PDO::FETCH_OBJ)){
+   ?>
+
+ <a class="fancybox-thumb" rel="fancybox-thumb" href="'assets/images/'.<?php echo $unesouscat->file_name;?>" title="Golden Manarola (Sanjeev Deo)">
+ 	<img src="'assets/images/thumb/'.<?php echo $unesouscat->file_name;?>" alt="" />
+ </a>
+
+<?php } ?>
+
+
 
 
  <a class="fancybox-thumb" rel="fancybox-thumb" href="http://farm6.staticflickr.com/5444/17679973232_568353a624_b.jpg" title="Golden Manarola (Sanjeev Deo)">
@@ -30,12 +42,7 @@ require_once('includes/header.php');
  <a class="fancybox-thumb" rel="fancybox-thumb" href="http://farm8.staticflickr.com/7367/16426879675_e32ac817a8_b.jpg" title="Codirosso spazzacamino (Massimo Greco _Foligno)">
  	<img src="http://farm8.staticflickr.com/7367/16426879675_e32ac817a8_m.jpg" alt="" />
  </a>
- <a class="fancybox-thumb" rel="fancybox-thumb" href="http://farm6.staticflickr.com/5612/15344856989_449794889d_b.jpg" title="Morning Twilight (Jose Hamra Images)">
- 	<img src="http://farm6.staticflickr.com/5612/15344856989_449794889d_m.jpg" alt="" />
- </a>
- <a class="fancybox-thumb" rel="fancybox-thumb" href="http://farm8.staticflickr.com/7289/16207238089_0124105172_b.jpg" title="(Eric Goncalves (cathing up again!))">
- 	<img src="http://farm8.staticflickr.com/7289/16207238089_0124105172_m.jpg" alt="" />
- </a>
+ 
 
 <script>
 $(document).ready(function() {
