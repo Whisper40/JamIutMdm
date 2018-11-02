@@ -27,8 +27,7 @@ require_once('includes/header.php');
  while($uneimage = $image->fetch(PDO::FETCH_OBJ)){
    ?>
  <a class="fancybox-thumb" rel="fancybox-thumb" href="assets/images/<?php echo $uneimage->file_name;?>" title="<?php echo $uneimage->title;?>">
- 	<img src="assets/images/thumb/<?php echo $uneimage->file_name;?>" alt="<?php echo $uneimage->title;?>" />
- </a>
+ 	<img src="assets/images/thumb/<?php echo $uneimage->file_name;?>" alt="<?php echo $uneimage->title;?>" /></a>
 <?php } ?>
 
 <!-- Code pour les vidéos -->
