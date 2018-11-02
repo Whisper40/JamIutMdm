@@ -27,8 +27,8 @@ require_once('includes/header.php');
  while($unesouscat = $souscat->fetch(PDO::FETCH_OBJ)){
    ?>
 
- <a class="fancybox-thumb" rel="fancybox-thumb" href="'assets/images/'.<?php echo $unesouscat->file_name;?>" title="Golden Manarola (Sanjeev Deo)">
- 	<img src="'assets/images/thumb/'.<?php echo $unesouscat->file_name;?>" alt="" />
+ <a class="fancybox-thumb" rel="fancybox-thumb" href="assets/images/<?php echo $unesouscat->file_name;?>" title="Golden Manarola (Sanjeev Deo)">
+ 	<img src="assets/images/thumb/<?php echo $unesouscat->file_name;?>" alt="" />
  </a>
 
 <?php } ?>
@@ -42,7 +42,7 @@ require_once('includes/header.php');
  <a class="fancybox-thumb" rel="fancybox-thumb" href="http://farm8.staticflickr.com/7367/16426879675_e32ac817a8_b.jpg" title="Codirosso spazzacamino (Massimo Greco _Foligno)">
  	<img src="http://farm8.staticflickr.com/7367/16426879675_e32ac817a8_m.jpg" alt="" />
  </a>
- 
+
 
 <script>
 $(document).ready(function() {
