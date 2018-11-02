@@ -19,7 +19,9 @@ require_once('includes/header.php');
  <link rel="stylesheet" href="includes/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
  <script type="text/javascript" src="includes/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
 
+<h1> Les images </h1>
 <?php
+
  $image = $db->query("SELECT * FROM images WHERE status = 1 ORDER BY uploaded_on DESC");
  while($uneimage = $image->fetch(PDO::FETCH_OBJ)){
    ?>
@@ -27,13 +29,13 @@ require_once('includes/header.php');
  	<img src="assets/images/thumb/<?php echo $uneimage->file_name;?>" alt="<?php echo $uneimage->title;?>" />
  </a>
 <?php } ?>
-
+<h1> Les vidéos </h1>
 <?php
  $video = $db->query("SELECT * FROM videos WHERE status = 1 ORDER BY uploaded_on DESC");
  while($unevideo = $video->fetch(PDO::FETCH_OBJ)){
    ?>
 <div id="video">
-  <a href="https://www.html5rocks.com/en/tutorials/video/basics/Chrome_ImF.mp4"><img src="assets/images/thumb/<?php echo $unevideo->file_name;?>.jpg" alt="" /></a>
+  <a href="https://www.html5rocks.com/en/tutorials/video/basics/Chrome_ImF.mp4"><img src="assets/videos/thumb/<?php echo $unevideo->file_name;?>.jpg" alt="" /></a>
 </div>
 <?php } ?>
 
