@@ -34,7 +34,7 @@ require_once('includes/header.php');
  $video = $db->query("SELECT * FROM videos WHERE status = 1 ORDER BY uploaded_on DESC");
  while($unevideo = $video->fetch(PDO::FETCH_OBJ)){
    ?>
-<div id="video">
+<div id="<?php echo $unevideo->file_name;?>">
   <a href="https://www.html5rocks.com/en/tutorials/video/basics/Chrome_ImF.mp4"><img src="assets/videos/thumb/<?php echo $unevideo->file_name;?>.jpg" alt="" /></a>
 </div>
 <?php } ?>
