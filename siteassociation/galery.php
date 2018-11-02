@@ -49,9 +49,7 @@ $(document).ready(function() {
 	$(".fancybox-thumb").fancybox({
 		prevEffect	: 'none',
 		nextEffect	: 'none',
-    width	: 400,
-    height	: 400,
-		helpers	: {
+    helpers	: {
 			title	: {
 				type: 'outside'
 			},
