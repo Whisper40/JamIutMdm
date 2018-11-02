@@ -29,16 +29,9 @@ require_once('includes/header.php');
 <?php } ?>
 
 
-<a data-fancybox href="#myVideo">
-    HTML5 video element
-</a>
-
-<video width="640" height="320" controls id="myVideo" style="display:none;">
-    <source src="https://www.html5rocks.com/en/tutorials/video/basics/Chrome_ImF.mp4" type="video/mp4">
-    <source src="https://www.html5rocks.com/en/tutorials/video/basics/Chrome_ImF.webm" type="video/webm">
-    <source src="https://www.html5rocks.com/en/tutorials/video/basics/Chrome_ImF.ogv" type="video/ogg">
-    Your browser doesn't support HTML5 video tag.
-</video>
+<div id="video">
+  <a href="https://www.youtube.com/watch?v=npG_UUUnwjI&list=UU_aEa8K-EOJ3D6gOs7HcyNg&index=40"><img src="assets/images/thumb/bg1.jpg" alt="" /></a>
+</div>
 
 <script>
 $(document).ready(function() {
@@ -58,22 +51,12 @@ $(document).ready(function() {
 });
 </script>
 
-<script>
-
-
-$('[data-fancybox]').fancybox({
-    youtube : {
-        controls : 0,
-        showinfo : 0
-    },
-    vimeo : {
-        color : 'f00'
-    }
-    prevEffect	: 'none',
-		nextEffect	: 'none',
-    helpers	: {
-			title	: {
-				type: 'outside'
-			},
-});
-</script>
+<script type="text/javascript">
+        $(function () {
+            $('#video a').fancybox({
+                width: 640,
+                height: 400,
+                type: 'iframe'
+            });
+        });
+    </script>
