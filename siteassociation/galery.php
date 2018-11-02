@@ -5,7 +5,7 @@ require_once('includes/header.php');
 
 
  <!-- Add jQuery library -->
- <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+ <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
 
  <!-- Add mousewheel plugin (this is optional) -->
  <script type="text/javascript" src="includes/fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
@@ -22,11 +22,11 @@ require_once('includes/header.php');
  <link rel="stylesheet" href="includes/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
  <script type="text/javascript" src="includes/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
 
- <a class="fancybox-thumb" rel="fancybox-thumb" href="http://farm6.staticflickr.com/5444/17679973232_568353a624_b.jpg" title="Golden Manarola (Sanjeev Deo)">
- 	<img src="http://farm6.staticflickr.com/5444/17679973232_568353a624_m.jpg" alt="" />
+ <a class="fancybox-thumb" rel="fancybox-thumb" href="https://farm6.staticflickr.com/5444/17679973232_568353a624_b.jpg" title="Golden Manarola (Sanjeev Deo)">
+ 	<img src="https://farm6.staticflickr.com/5444/17679973232_568353a624_m.jpg" alt="" />
  </a>
- <a class="fancybox-thumb" rel="fancybox-thumb" href="http://farm6.staticflickr.com/5444/17679973232_568353a624_b.jpg" title="Golden Manarola (Sanjeev Deo)">
- 	<img src="http://farm6.staticflickr.com/5444/17679973232_568353a624_m.jpg" alt="" />
+ <a class="fancybox-thumb" rel="fancybox-thumb" href="https://farm6.staticflickr.com/5444/17679973232_568353a624_b.jpg" title="Golden Manarola (Sanjeev Deo)">
+ 	<img src="https://farm6.staticflickr.com/5444/17679973232_568353a624_m.jpg" alt="" />
  </a>
 
 
