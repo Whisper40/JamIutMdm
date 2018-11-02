@@ -30,7 +30,7 @@ require_once('includes/header.php');
 
 
 <div id="video">
-  <a href="https://www.youtube.com/watch?v=npG_UUUnwjI&list=UU_aEa8K-EOJ3D6gOs7HcyNg&index=40"><img src="assets/images/thumb/bg1.jpg" alt="" /></a>
+  <a href="https://www.html5rocks.com/en/tutorials/video/basics/Chrome_ImF.mp4"><img src="assets/images/thumb/bg1.jpg" alt="" /></a>
 </div>
 
 <script>
