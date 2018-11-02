@@ -28,7 +28,17 @@ require_once('includes/header.php');
  </a>
 <?php } ?>
 
-<a class="fancybox" data-fancybox-type="iframe" data-fancybox-group="group1" title="the video" href="https://www.youtube.com/watch?v=Pww31vN_1QY">NCS vidéo</a>
+
+<a data-fancybox href="#myVideo">
+    HTML5 video element
+</a>
+
+<video width="640" height="320" controls id="myVideo" style="display:none;">
+    <source src="https://www.html5rocks.com/en/tutorials/video/basics/Chrome_ImF.mp4" type="video/mp4">
+    <source src="https://www.html5rocks.com/en/tutorials/video/basics/Chrome_ImF.webm" type="video/webm">
+    <source src="https://www.html5rocks.com/en/tutorials/video/basics/Chrome_ImF.ogv" type="video/ogg">
+    Your browser doesn't support HTML5 video tag.
+</video>
 
 <script>
 $(document).ready(function() {
@@ -49,14 +59,15 @@ $(document).ready(function() {
 </script>
 
 <script>
-$(document).ready(function () {
-  $(".fancybox").fancybox({
-    openEffect: 'none',
-    closeEffect: 'none',
-    nextEffect: 'none',
-    prevEffect: 'none',
-    padding: 0,
-    margin: [20, 0, 20, 0]
-  });
+
+
+$('[data-fancybox]').fancybox({
+    youtube : {
+        controls : 0,
+        showinfo : 0
+    },
+    vimeo : {
+        color : 'f00'
+    }
 });
 </script>
