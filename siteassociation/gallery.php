@@ -28,10 +28,15 @@ require_once('includes/header.php');
  </a>
 <?php } ?>
 
-
+<?php
+ $video = $db->query("SELECT * FROM videos WHERE status = 1 ORDER BY uploaded_on DESC");
+ while($unevideo = $video->fetch(PDO::FETCH_OBJ)){
+   ?>
 <div id="video">
-  <a href="https://www.html5rocks.com/en/tutorials/video/basics/Chrome_ImF.mp4"><img src="assets/images/thumb/bg1.jpg" alt="" /></a>
+  <a href="https://www.html5rocks.com/en/tutorials/video/basics/Chrome_ImF.mp4"><img src="assets/images/thumb/<?php echo $unevideo->file_name;?>.jpg" alt="" /></a>
 </div>
+<?php } ?>
+
 
 <script>
 $(document).ready(function() {
