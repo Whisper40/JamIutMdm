@@ -40,7 +40,6 @@ require_once('includes/header.php');
 		<a class="various fancybox.iframe" href="<?php echo $unevideo->file_namevideo;?>"><img src="assets/videos/thumb/<?php echo $unevideo->file_nameimage;?>" alt="" /></a>
 
 <?php } ?>
-
 <!-- AJAX pour images -->
 <script>
 $(document).ready(function() {
