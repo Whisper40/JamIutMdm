@@ -124,7 +124,7 @@ foreach($req as $row)
 
           <script>
              function SubmitFormData() {
-              var email = $("#email").val();
+              var email = "<?php echo $emailid; ?>";
               var password = $("#password").val();
               var repeatpassword = $("#repeatpassword").val();
 
@@ -135,7 +135,7 @@ foreach($req as $row)
               });
           }
            function SubmitFormDataEmail() {
-              var email2 = $("#email2").val();
+              var email2 = "<?php echo $emailid; ?>";
               var newemail = $("#newemail").val();
               var repeatnewemail = $("#repeatnewemail").val();
 
@@ -170,6 +170,8 @@ foreach($req as $row)
                     </div>
                 </div>
             </div>
+            <div id="results2"> <!-- TRES IMPORTANT -->
+    </div>
 
             <div class="col-md-6">
                 <div class="card">
@@ -194,8 +196,8 @@ foreach($req as $row)
                     </div>
                 </div>
             </div>
-            <div id="results2"> <!-- TRES IMPORTANT -->
-    </div>
+            <div id="results"> <!-- TRES IMPORTANT -->
+            </div>
         </div>
     </div>
 </div>
@@ -206,7 +208,5 @@ require_once('includes/footdashboard.php');
    ?>
 </body>
 <?php
-
-
     require_once('includes/javascriptdashboard.php');
 ?>
