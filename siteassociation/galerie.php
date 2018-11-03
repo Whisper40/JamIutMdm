@@ -45,18 +45,29 @@
                    while($uneimage = $image->fetch(PDO::FETCH_OBJ)){
                    ?>
                      <div class="col-md-4">
-                       <a class="fancybox-thumb" rel="fancybox-thumb" href="assets/images/<?php echo $uneimage->file_name;?>" title="<?php echo $uneimage->title;?>">
-                       <img class="img-raised" src="assets/images/thumb/<?php echo $uneimage->file_name;?>" alt="<?php echo $uneimage->title;?>" /></a>
+                       <center>
+                         <a class="fancybox-thumb" rel="fancybox-thumb" href="assets/images/<?php echo $uneimage->file_name;?>" title="<?php echo $uneimage->title;?>">
+                         <img class="img-raised" src="assets/images/thumb/<?php echo $uneimage->file_name;?>" alt="<?php echo $uneimage->title;?>" /></a>
+                       </center>
                      </div>
-                  <?php } ?>
+                  <?php }
 
+                   $video = $db->query("SELECT * FROM videos WHERE status = 1 ORDER BY uploaded_on DESC");
+                   while($unevideo = $video->fetch(PDO::FETCH_OBJ)){
+                   ?>
+                   <div class="col-md-4">
+                     <center>
+                       <a class="various fancybox.iframe" href="<?php echo $unevideo->file_namevideo;?>">
+                       <img class="img-raised" src="assets/videos/thumb/<?php echo $unevideo->file_nameimage;?>" alt="" /></a>
+                     </center>
+                   </div>
+                 <?php } ?>
                    </div>
                  </div>
                </div>
              </div>
            </div>
          </div>
-
       </div>
 
 <?php
@@ -78,6 +89,44 @@
 
 <link rel="stylesheet" href="includes/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
 <script type="text/javascript" src="includes/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+
+<!-- AJAX pour images -->
+<script>
+$(document).ready(function() {
+	$(".fancybox-thumb").fancybox({
+		prevEffect	: 'none',
+		nextEffect	: 'none',
+    helpers	: {
+			title	: {
+				type: 'outside'
+			},
+			thumbs	: {
+				width	: 50,
+				height	: 50
+			}
+		}
+	});
+});
+</script>
+
+
+<!-- AJAX vidéos -->
+<script>
+$(document).ready(function() {
+	$(".various").fancybox({
+		maxWidth	: 800,
+		maxHeight	: 600,
+		fitToView	: false,
+		width		: '70%',
+		height		: '70%',
+		autoSize	: false,
+		closeClick	: false,
+		openEffect	: 'none',
+		closeEffect	: 'none'
+	});
+});
+</script>
+
 
 <?php
     require_once('includes/javascript.php');
