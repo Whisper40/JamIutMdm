@@ -109,10 +109,11 @@ $req = $db->query($sql);
 $req->setFetchMode(PDO::FETCH_ASSOC);
 
 foreach($req as $row)
-{echo $row['email'];
+{
+    echo $row['email'];
+    $emailid = $row['email'];
 }
-
-?>">
+?> ">
 
                                   </div>
                               </div>
