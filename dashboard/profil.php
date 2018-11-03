@@ -203,10 +203,7 @@ foreach($req as $row)
     </div>
 </div>
 </div>
-<?php
-require_once('includes/footdashboard.php');
 
-   ?>
 </body>
 <?php
     require_once('includes/javascriptdashboard.php');

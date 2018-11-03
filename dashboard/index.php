@@ -265,13 +265,6 @@ require_once('includes/checkconnection.php');
 
 
 
-
-
-
-<?php
-require_once('includes/footdashboard.php');
-
-   ?>
 </body>
 <?php
 
