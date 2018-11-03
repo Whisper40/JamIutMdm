@@ -54,6 +54,7 @@
              <!-- Tab panes -->
              <div class="tab-content gallery">
                <div class="tab-pane active" id="home" role="tabpanel">
+                 <h3 class="title">Les images</h3>
                  <div class="col-md-16 ml-auto mr-auto">
                    <div class="row collections">
                    <?php
@@ -66,7 +67,15 @@
                          <img class="img-raised" src="assets/images/thumb/<?php echo $uneimage->file_name;?>" alt="<?php echo $uneimage->title;?>" /></a>
                        </center>
                      </div>
-                  <?php }
+                  <?php } ?>
+
+                </div>
+              </div>
+              <h3 class="title">Les Vidéos</h3>
+              <div class="col-md-16 ml-auto mr-auto">
+                <div class="row collections">
+
+              <?php
 
                    $video = $db->query("SELECT * FROM videos WHERE status = 1 ORDER BY uploaded_on DESC");
                    while($unevideo = $video->fetch(PDO::FETCH_OBJ)){
