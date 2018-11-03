@@ -100,7 +100,7 @@ $sitekey = "LESITEKEY";
 
 
                                                       <div class="form-group form-file-upload">
-                <input type="file" id="fileToUpload" name="fileToUpload" multiple="">
+                <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
                 <div class="input-group">
                   <input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
                   <span class="input-group-btn input-group-s">
@@ -144,7 +144,9 @@ if(isset($_POST['submit'])){
         $target_dirnew = "$target_dir/$user_id/";
       }
 
-$target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"]);
+$total = count($_FILES['fileToUpload']['name']);
+for( $i=0 ; $i < $total ; $i++ ) {
+$target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 // Check if file already exists
@@ -153,7 +155,7 @@ if (file_exists($target_file)) {
     $uploadOk = 0;
 }
 // Check file size < 2mo
-if ($_FILES["fileToUpload"]["size"] > 2000000) {
+if ($_FILES["fileToUpload"]["size"][$i] > 2000000) {
     echo "Sorry, your file is too large.";
     $uploadOk = 0;
 }
@@ -171,9 +173,9 @@ if ($uploadOk == 0) {
   date_default_timezone_set('Europe/Paris');
   setlocale(LC_TIME, 'fr_FR.utf8','fra');
   $date = strftime('%d:%m:%Y %H:%M:%S');
-  $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"]);
-    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file2)) {
-        echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+  $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
+    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file2)) {
+        echo "The file ". basename( $_FILES["fileToUpload"]["name"][$i]). " has been uploaded.";
         $status = "EN ATTENTE DE VALIDATION";
         $insertinfos = $db->prepare("INSERT INTO validationfichiers (user_id, filename, ip, date, status) VALUES(:user_id, :filename, :ip, :date, :status)");
         $insertinfos->execute(array(
@@ -195,7 +197,7 @@ if ($uploadOk == 0) {
 
 
 
-    }else{
+}}else{
       ?>
       <div class="content">
                   <div class="container-fluid">
