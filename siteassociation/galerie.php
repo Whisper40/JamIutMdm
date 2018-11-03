@@ -21,19 +21,7 @@
          </div>
        </div>
 
-       <div class="section">
          <div class="container">
-           <div class="button-container">
-             <a href="#button" class="btn btn-primary btn-round btn-lg">Follow</a>
-             <a href="#button" class="btn btn-default btn-round btn-lg btn-icon" rel="tooltip" title="Follow me on Twitter">
-               <i class="fab fa-twitter"></i>
-             </a>
-             <a href="#button" class="btn btn-default btn-round btn-lg btn-icon" rel="tooltip" title="Follow me on Instagram">
-               <i class="fab fa-instagram"></i>
-             </a>
-           </div>
-           <h3 class="title">About me</h3>
-           <h5 class="description">An artist of considerable range, Ryan — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. An artist of considerable range.</h5>
            <div class="row">
              <div class="col-md-6 ml-auto mr-auto">
                <h4 class="title text-center">My Portfolio</h4>
@@ -44,16 +32,6 @@
                        <i class="now-ui-icons design_image"></i>
                      </a>
                    </li>
-                   <li class="nav-item">
-                     <a class="nav-link" data-toggle="tab" href="#home" role="tablist">
-                       <i class="now-ui-icons location_world"></i>
-                     </a>
-                   </li>
-                   <li class="nav-item">
-                     <a class="nav-link" data-toggle="tab" href="#messages" role="tablist">
-                       <i class="now-ui-icons sport_user-run"></i>
-                     </a>
-                   </li>
                  </ul>
                </div>
              </div>
@@ -62,53 +40,21 @@
                <div class="tab-pane active" id="home" role="tabpanel">
                  <div class="col-md-16 ml-auto mr-auto">
                    <div class="row collections">
+                   <?php
+                   $image = $db->query("SELECT * FROM images WHERE status = 1 ORDER BY uploaded_on DESC");
+                   while($uneimage = $image->fetch(PDO::FETCH_OBJ)){
+                   ?>
                      <div class="col-md-4">
                        <img src="../assets/img/bg1.jpg" alt="" class="img-raised">
-                       <img src="../assets/img/bg3.jpg" alt="" class="img-raised">
                      </div>
-                     <div class="col-md-4">
-                       <img src="../assets/img/bg8.jpg" alt="" class="img-raised">
-                       <img src="../assets/img/bg7.jpg" alt="" class="img-raised">
-                     </div>
-                     <div class="col-md-4">
-                       <img src="../assets/img/bg8.jpg" alt="" class="img-raised">
-                       <img src="../assets/img/bg7.jpg" alt="" class="img-raised">
-                     </div>
-                   </div>
-                 </div>
-               </div>
-               <div class="tab-pane" id="profile" role="tabpanel">
-                 <div class="col-md-10 ml-auto mr-auto">
-                   <div class="row collections">
-                     <div class="col-md-6">
-                       <img src="../assets/img/bg6.jpg" class="img-raised">
-                       <img src="../assets/img/bg11.jpg" alt="" class="img-raised">
-                     </div>
-                     <div class="col-md-6">
-                       <img src="../assets/img/bg7.jpg" alt="" class="img-raised">
-                       <img src="../assets/img/bg8.jpg" alt="" class="img-raised">
-                     </div>
-                   </div>
-                 </div>
-               </div>
-               <div class="tab-pane" id="messages" role="tabpanel">
-                 <div class="col-md-10 ml-auto mr-auto">
-                   <div class="row collections">
-                     <div class="col-md-6">
-                       <img src="../assets/img/bg3.jpg" alt="" class="img-raised">
-                       <img src="../assets/img/bg8.jpg" alt="" class="img-raised">
-                     </div>
-                     <div class="col-md-6">
-                       <img src="../assets/img/bg7.jpg" alt="" class="img-raised">
-                       <img src="../assets/img/bg6.jpg" class="img-raised">
-                     </div>
+                  <?php } ?>
+
                    </div>
                  </div>
                </div>
              </div>
            </div>
          </div>
-       </div>
 
       </div>
 
