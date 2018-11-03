@@ -1,7 +1,7 @@
 <?php
     require_once('includes/connectBDD.php');
     require_once('includes/checkconnection.php');
-    $nompage = "Téléchargement Fichier"
+    $nompage = "Téléchargement Fichier";
     require_once('includes/head.php');
 
 // START - Récupération de l'ip de connexion de l'utilisateur, même à travers de proxy !

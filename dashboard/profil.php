@@ -1,7 +1,7 @@
 <?php
     require_once('includes/connectBDD.php');
     require_once('includes/checkconnection.php');
-    $nompage = "Mon Profil"
+    $nompage = "Mon Profil";
     require_once('includes/head.php');
 
 
