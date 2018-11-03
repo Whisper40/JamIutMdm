@@ -3,12 +3,28 @@
     $nompage = "Galerie";
     require_once('includes/head.php');
 ?>
+<!-- Tous les JSS sont nécessaires -->
+ <!-- Add jQuery library -->
+ <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+ <!-- Add mousewheel plugin (this is optional) -->
+ <script type="text/javascript" src="includes/fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
+ <!-- Add fancyBox -->
+ <link rel="stylesheet" href="includes/fancybox/source/jquery.fancybox.css?v=2.1.7" type="text/css" media="screen" />
+ <script type="text/javascript" src="includes/fancybox/source/jquery.fancybox.pack.js?v=2.1.7"></script>
+ <!-- Optionally add helpers - button, thumbnail and/or media -->
+ <link rel="stylesheet" href="includes/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" media="screen" />
+ <script type="text/javascript" src="includes/fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+ <script type="text/javascript" src="includes/fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+
+ <link rel="stylesheet" href="includes/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
+ <script type="text/javascript" src="includes/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
 
    <body class="profile-page sidebar-collapse">
 
 <?php
     require_once('includes/navbar.php');
 ?>
+
 
      <div class="wrapper">
        <div class="page-header page-header-small">
@@ -62,6 +78,43 @@
                      </center>
                    </div>
                  <?php } ?>
+
+                 <script>
+                 $(document).ready(function() {
+                 	$(".fancybox-thumb").fancybox({
+                 		prevEffect	: 'none',
+                 		nextEffect	: 'none',
+                     helpers	: {
+                 			title	: {
+                 				type: 'outside'
+                 			},
+                 			thumbs	: {
+                 				width	: 50,
+                 				height	: 50
+                 			}
+                 		}
+                 	});
+                 });
+                 </script>
+
+
+                 <!-- AJAX vidéos -->
+                 <script>
+                 $(document).ready(function() {
+                 	$(".various").fancybox({
+                 		maxWidth	: 800,
+                 		maxHeight	: 600,
+                 		fitToView	: false,
+                 		width		: '70%',
+                 		height		: '70%',
+                 		autoSize	: false,
+                 		closeClick	: false,
+                 		openEffect	: 'none',
+                 		closeEffect	: 'none'
+                 	});
+                 });
+                 </script>
+
                    </div>
                  </div>
                </div>
@@ -74,60 +127,30 @@
     require_once('includes/footer.php');
 ?>
 
-<!-- Tous les JSS sont nécessaires -->
- <!-- Add jQuery library -->
-<script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
-<!-- Add mousewheel plugin (this is optional) -->
-<script type="text/javascript" src="includes/fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
-<!-- Add fancyBox -->
-<link rel="stylesheet" href="includes/fancybox/source/jquery.fancybox.css?v=2.1.7" type="text/css" media="screen" />
-<script type="text/javascript" src="includes/fancybox/source/jquery.fancybox.pack.js?v=2.1.7"></script>
-<!-- Optionally add helpers - button, thumbnail and/or media -->
-<link rel="stylesheet" href="includes/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" media="screen" />
-<script type="text/javascript" src="includes/fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
-<script type="text/javascript" src="includes/fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
-
-<link rel="stylesheet" href="includes/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
-<script type="text/javascript" src="includes/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
-
-<!-- AJAX pour images -->
+<script src="assets/js/core/popper.min.js" type="text/javascript"></script>
+<script src="assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
+<script src="assets/js/plugins/bootstrap-switch.js"></script>
+<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+<script src="assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
+<!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
+<script src="assets/js/plugins/bootstrap-datepicker.js" type="text/javascript"></script>
+<!--  Google Maps Plugin    -->
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+<!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
+<script src="assets/js/now-ui-kit.js?v=1.2.0" type="text/javascript"></script>
 <script>
-$(document).ready(function() {
-	$(".fancybox-thumb").fancybox({
-		prevEffect	: 'none',
-		nextEffect	: 'none',
-    helpers	: {
-			title	: {
-				type: 'outside'
-			},
-			thumbs	: {
-				width	: 50,
-				height	: 50
-			}
-		}
-	});
-});
+  $(document).ready(function() {
+    // the body of this function is in assets/js/now-ui-kit.js
+    nowuiKit.initSliders();
+  });
+
+  function scrollToDownload() {
+
+    if ($('.section-download').length != 0) {
+      $("html, body").animate({
+        scrollTop: $('.section-download').offset().top
+      }, 1000);
+    }
+  }
 </script>
-
-
-<!-- AJAX vidéos -->
-<script>
-$(document).ready(function() {
-	$(".various").fancybox({
-		maxWidth	: 800,
-		maxHeight	: 600,
-		fitToView	: false,
-		width		: '70%',
-		height		: '70%',
-		autoSize	: false,
-		closeClick	: false,
-		openEffect	: 'none',
-		closeEffect	: 'none'
-	});
-});
-</script>
-
-
-<?php
-    require_once('includes/javascript.php');
-?>
