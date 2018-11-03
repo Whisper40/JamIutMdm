@@ -4,7 +4,7 @@
     require_once('includes/head.php');
 ?>
 
-   <body class="landing-page sidebar-collapse">
+   <body class="profile-page sidebar-collapse">
 
 <?php
     require_once('includes/navbar.php');
