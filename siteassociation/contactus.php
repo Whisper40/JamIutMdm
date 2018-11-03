@@ -1,4 +1,5 @@
 <?php
+$nompage = "ContatctUS";
 
 // Ajouter le code à l'endroit souhaité dans l'index.php !
 

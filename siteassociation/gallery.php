@@ -1,7 +1,9 @@
 <?php
-require_once('includes/head.php');
-require_once('includes/header.php');
- ?>
+    require_once('includes/connectBDD.php');
+    $nompage = "Gallery";
+    require_once('includes/head.php');
+?>
+
 
 <!-- Tous les JSS sont nécessaires -->
  <!-- Add jQuery library -->

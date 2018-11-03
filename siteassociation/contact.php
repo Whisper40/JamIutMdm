@@ -1,56 +1,21 @@
-<!DOCTYPE html>
-<html lang="fr">
-
 <?php
-  // Connexion à la BDD
-   require_once('includes/head.php');
-   ?>
-
-<head>
-  <meta charset="utf-8" />
-
-  <meta name="Description" content="Association JAM ( Jeunesse Associative Montoise ) - Mont de Marsan">
-  <meta name="Keywords" content="jam, association mont de marsan, iut mont de marsan, iut mdm, uppa">
-  <meta name="Identifier-Url" content="https://jam-mdm.fr">
-  <meta name="Reply-To" content="postmaster@jam-mdm.fr"> <!-- Mail Admin -->
+    require_once('includes/connectBDD.php');
+    $nompage = "Nous Contacter";
+    require_once('includes/head.php');
 
 
-  <meta name="Rating" content="general">
-  <meta name="Distribution" content="global">
-  <meta name="Category" content="internet">
-  <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="assets/img/favicon.png">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
-  <title>Jam - Contact</title>
-
-  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-  <!-- Les CSS utilisés -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" />
-
-  <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="assets/css/now-ui-kit.css?v=1.2.0" rel="stylesheet" />
-</head>
-
-<?php
-
-// Ajouter le code à l'endroit souhaité dans l'index.php !
-
-
-// Dire à Kévin ou le code est implanté pour ajouter les règles de changement des accès juste en dessous !
+//Code de génératon du captcha fournie par GOOGLE
 $secret = "LESECRET";
 $sitekey = "LESITEKEY";
-
-
-//
 ?>
 <script src='https://www.google.com/recaptcha/api.js'></script>
+
+
 <body class="landing-page sidebar-collapse">
 
-  <?php
-     require_once('includes/header.php');
-  ?>
+<?php
+    require_once('includes/navbar.php');
+?>
 
   <div class="wrapper">
     <div class="page-header page-header-small">

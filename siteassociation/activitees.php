@@ -1,6 +1,10 @@
 <?php
-require_once('includes/head.php');
-require_once('includes/header.php');
+    require_once('includes/connectBDD.php');
+    $nompage = "Activité / Voyage";
+    require_once('includes/head.php');
+
+    require_once('includes/navbar.php');
+
 
 	if(isset($_GET['showmethisactivity'])){
 		$product = htmlentities($_GET['showmethisactivity']);

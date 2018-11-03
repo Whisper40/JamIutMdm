@@ -1,37 +1,17 @@
-<!doctype html>
-<html lang="fr">
-<head>
-  <meta charset="utf-8" />
-
-  <meta name="Description" content="Association JAM ( Jeunesse Associative Montoise ) - Mont de Marsan">
-  <meta name="Keywords" content="jam, association mont de marsan, iut mont de marsan, iut mdm, uppa">
-  <meta name="Identifier-Url" content="https://jam-mdm.fr">
-  <meta name="Reply-To" content="postmaster@jam-mdm.fr">
-
-  <meta name="robots" content="index, follow">
-  <meta name="Rating" content="general">
-  <meta name="Distribution" content="global">
-  <meta name="Category" content="internet">
-  <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="assets/img/favicon.png">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
-	<title>JAM - Recupération du mot de passe</title>
-
-	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-  <!-- Les CSS utilisés -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" />
-
-  <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="assets/css/now-ui-kit.css?v=1.2.0" rel="stylesheet" />
-     <script src='https://www.google.com/recaptcha/api.js'></script>
-</head>
-
 <?php
+    require_once('includes/connectBDD.php');
+    $nompage = "Récupération mot de passe";
+    require_once('includes/head.php');
+
+
+//Code de génératon du captcha fournie par GOOGLE
 $secret = "LESECRET";
 $sitekey = "LESITEKEY";
-require_once('includes/head.php');
+?>
+
+<script src='https://www.google.com/recaptcha/api.js'></script>
+
+<?php
 
 if(isset($_POST['recup_submit'],$_POST['recup_mail'])) {
    if(!empty($_POST['recup_mail'])) {
@@ -184,10 +164,12 @@ if(isset($_POST['change_submit'])) {
 
 
 
-<body class="login-page sidebar-collapse">
+  <body class="login-page sidebar-collapse">
+
 <?php
-require_once('includes/header.php');
+    require_once('includes/navbar.php');
 ?>
+
 <!-- Ajout d'un CSS interne dans le but de le prioriser et ainsi appllquer ces propriétées en premier
 Le but étant du final d'afficher cette page avec un margin-top spécial afin de ne pas avoir de bug de footer encastré ou de bug de notif qui se mélangent
 Autre solution : Créer d'autres classes, mais cela utilise beaucoup + de lignes de code ou faire un autre css mais cela est toalement ilogique et apportera un chargement encore plus long !
