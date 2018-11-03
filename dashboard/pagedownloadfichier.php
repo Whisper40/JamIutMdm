@@ -8,7 +8,7 @@
 
 <body>
     <div class="wrapper">
-      
+
 <?php
   require_once('includes/navbar.php');
 ?>
@@ -24,9 +24,7 @@
                                                               </div>
                                                             </div>
 
-<?php
-require_once('includes/footdashboard.php');
-   ?>
+
 </body>
 <?php
     require_once('includes/javascriptdashboard.php');
