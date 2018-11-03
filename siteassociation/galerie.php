@@ -45,8 +45,10 @@
                    while($uneimage = $image->fetch(PDO::FETCH_OBJ)){
                    ?>
                      <div class="col-md-4">
-                       <a class="fancybox-thumb" rel="fancybox-thumb" href="assets/images/<?php echo $uneimage->file_name;?>" title="<?php echo $uneimage->title;?>">
-                       <img class="img-raised" src="assets/images/thumb/<?php echo $uneimage->file_name;?>" alt="<?php echo $uneimage->title;?>" /></a>
+                       <center>
+                         <a class="fancybox-thumb" rel="fancybox-thumb" href="assets/images/<?php echo $uneimage->file_name;?>" title="<?php echo $uneimage->title;?>">
+                         <img class="img-raised" src="assets/images/thumb/<?php echo $uneimage->file_name;?>" alt="<?php echo $uneimage->title;?>" /></a>
+                       </center> 
                      </div>
                   <?php } ?>
 
