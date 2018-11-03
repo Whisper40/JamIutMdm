@@ -9,7 +9,7 @@
     <div class="wrapper">
 
 <?php
-    equire_once('includes/navbar.php');
+    require_once('includes/navbar.php');
 ?>
 
 <!-- DEBUT DU CADRE -->
