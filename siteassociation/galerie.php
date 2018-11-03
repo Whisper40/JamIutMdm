@@ -16,7 +16,7 @@
          </div>
          <div class="content-center">
            <div class="container">
-             <h1 class="title">Présentation de l'Association</h1>
+             <h1 class="title">Galerie Photo</h1>
            </div>
          </div>
        </div>
@@ -45,23 +45,24 @@
                </ul>
              </div>
            </div>
+
            <!-- Tab panes -->
            <div class="tab-content gallery">
              <div class="tab-pane active" id="home" role="tabpanel">
                <div class="col-md-16 ml-auto mr-auto">
                  <div class="row collections">
+
+                  <?php
+                   $image = $db->query("SELECT * FROM images WHERE status = 1 ORDER BY uploaded_on DESC");
+                   while($uneimage = $image->fetch(PDO::FETCH_OBJ)){
+                     ?>
                    <div class="col-md-4">
-                     <img src="assets/img/bg1.jpg" alt="" class="img-raised">
-                     <img src="assets/img/bg3.jpg" alt="" class="img-raised">
+                     <a class="fancybox-thumb" rel="fancybox-thumb" href="assets/images/<?php echo $uneimage->file_name;?>" title="<?php echo $uneimage->title;?>">
+                     <img class="img-raised" src="assets/images/thumb/<?php echo $uneimage->file_name;?>" alt="<?php echo $uneimage->title;?>" /></a>>
                    </div>
-                   <div class="col-md-4">
-                     <img src="assets/img/bg8.jpg" alt="" class="img-raised">
-                     <img src="assets/img/bg7.jpg" alt="" class="img-raised">
-                   </div>
-                   <div class="col-md-4">
-                     <img src="assets/img/bg8.jpg" alt="" class="img-raised">
-                     <img src="assets/img/bg7.jpg" alt="" class="img-raised">
-                   </div>
+                   <?php } ?>
+
+
                  </div>
                </div>
              </div>
