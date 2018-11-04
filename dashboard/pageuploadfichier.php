@@ -128,6 +128,9 @@ if ($uploadOk == 0) {
     echo "Sorry, your file was not uploaded.";
 // if everything is ok, try to upload file
 } else {
+  date_default_timezone_set('Europe/Paris');
+  setlocale(LC_TIME, 'fr_FR.utf8','fra');
+  $date = strftime('%d:%m:%y %H:%M:%S');
 
   $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
   $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
