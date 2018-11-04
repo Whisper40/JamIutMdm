@@ -155,7 +155,7 @@ echo $row['id'];
 <?php
 if(isset($_POST['submit'])){
   if(isset($_POST['message'])){
-    $messsage = $_POST['message'];
+    $message = $_POST['message'];
   }else{
     $message = "Aucun message";
   }
