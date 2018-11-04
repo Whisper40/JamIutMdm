@@ -33,15 +33,13 @@ $sitekey = "LESITEKEY";
 <?php
 $user_id = $_SESSION['user_id'];
 $selectstatus = $db->query("SELECT status FROM users WHERE id='$user_id'");
-
 $s = $selectstatus->fetch(PDO::FETCH_OBJ);
-
 $status = $s->status;
 
 ?>
 <h1> Le status actuel de votre compte est <?php echo $status ?></h1>
 <h3> Voici l'état actuel de la validation des documents transmis </h3>
-<div class="tab-pane" id="invoices-1">
+<div class="tab-pane">
     <div class="card">
         <div class="card-header">
             <h4 class="card-title">Mes documents</h4>
@@ -156,7 +154,7 @@ echo $row['id'];
 
 <?php
 if(isset($_POST['submit'])){
-  if(isset($_POST['message'];)){
+  if(isset($_POST['message'])){
     $messsage = $_POST['message'];
   }else{
     $message = "Aucun message";
