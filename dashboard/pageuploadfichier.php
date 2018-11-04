@@ -130,7 +130,7 @@ if ($uploadOk == 0) {
 } else {
   date_default_timezone_set('Europe/Paris');
   setlocale(LC_TIME, 'fr_FR.utf8','fra');
-  $date = strftime('%d/%m/%Y %H:%M:%S');
+  $date = strftime('%Y/%m/%d %H:%M:%S');
   $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
   $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file2)) {
