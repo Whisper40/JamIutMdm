@@ -30,6 +30,73 @@ $sitekey = "LESITEKEY";
 ?>
 <script src='https://www.google.com/recaptcha/api.js'></script>
 
+<?php
+$user_id = $_SESSION['user_id'];
+$selectstatus = $db->query("SELECT status FROM users WHERE id='$user_id'");
+
+$s = $selectstatus->fetch(PDO::FETCH_OBJ);
+
+$status = $s->status;
+
+?>
+<h1> Le status actuel de votre compte est <?php echo $status ?></h1>
+<h3> Voici l'état actuel de la validation des documents transmis </h3>
+<div class="tab-pane" id="invoices-1">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title">Mes documents</h4>
+        </div>
+        <div class="card-content table-responsive">
+                                                        <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <td>Numéro du Document</td>
+                        <td>Nom</td>
+                        <td>Date de création</td>
+                        <td>Status</td>
+
+                    </tr>
+                </thead>
+                <tbody>
+                                                                        <tr>
+
+
+
+<?php
+$user_id = $_SESSION['user_id'];
+$sql = "SELECT * FROM validationfichiers WHERE user_id='$user_id' ORDER BY date ASC";
+$req = $db->query($sql);
+$req->setFetchMode(PDO::FETCH_ASSOC);
+
+foreach($req as $row)
+{
+?><td>Document n°<?php
+echo $row['id'];
+?></td>
+
+
+
+<td>
+                            <?php echo $row['filename']; ?>                                                      </td>
+
+<td>
+                            <?php echo $row['date']; ?>                                                      </td>
+                        <td>
+                           <?php echo $row['status']; ?>                                                       </td>
+                    </tr>
+                    <?php
+}
+?>
+                    </tr>
+                                                                    </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
 
 <!-- CODE HTML A FAIRE -->
                               <div class="col-md-12">
@@ -89,7 +156,11 @@ $sitekey = "LESITEKEY";
 
 <?php
 if(isset($_POST['submit'])){
-    $message = $_POST['message'];
+  if(isset($_POST['message'];)){
+    $messsage = $_POST['message'];
+  }else{
+    $message = "Aucun message";
+  }
     $responseData = json_decode(file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$_POST['g-recaptcha-response']));
     if($responseData->success){
       $user_id = $_SESSION['user_id'];
@@ -140,11 +211,12 @@ if ($uploadOk == 0) {
         date_default_timezone_set('Europe/Paris');
         setlocale(LC_TIME, 'fr_FR.utf8','fra');
         $date = strftime('%d/%m/%y %H:%M:%S');
-        $insertinfos = $db->prepare("INSERT INTO validationfichiers (user_id, filename, ip, date, status) VALUES(:user_id, :filename, :ip, :date, :status)");
+        $insertinfos = $db->prepare("INSERT INTO validationfichiers (user_id, filename, message, ip, date, status) VALUES(:user_id, :filename, :message, :ip, :date, :status)");
         $insertinfos->execute(array(
 
             "user_id"=>$_SESSION['user_id'],
             "filename"=>$target_filefile,
+            "message"=>$message,
             "ip"=>$ip,
             "date"=>$date,
             "status"=>$status
