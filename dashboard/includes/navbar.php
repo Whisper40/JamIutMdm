@@ -54,7 +54,33 @@ while($unecat = $cat->fetch(PDO::FETCH_OBJ)){
   </li>
     <?php
       }
-    ?>
+
+
+
+
+
+    $catparticipe = $db->query("SELECT * FROM catparticipe WHERE user_id=$user_id");
+    while($uneparticipation = $catparticipe->fetch(PDO::FETCH_OBJ)){
+      ?>
+      <li
+      <?php
+      if($uneparticipation->name == $nompage){
+      ?>
+      class="active">
+      <?php }else{ ?>
+      >
+      <?php } ?>
+          <a href="<?php echo $uneparticipation->page;?>">
+              <i class="material-icons"><?php echo $uneparticipation->icon;?></i>
+              <p><?php echo $uneparticipation->name;?></p>
+          </a>
+      </li>
+        <?php
+          }
+        ?>
+
+
+
 
             <li>
                 <a href="disconnect.php">

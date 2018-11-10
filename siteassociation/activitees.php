@@ -63,7 +63,7 @@
 			<a href="?showmethisactivity=<?php echo $s->slug; ?>&amp;p=<?php echo $s->price; ?>"><img src="assets/img/<?php echo $s->slug; ?>.<?php echo $s->formatimg; ?>"/></a>
 			<a href="?showmethisactivity=<?php echo $s->slug; ?>&amp;p=<?php echo $s->price; ?>"><h2><?php echo $s->title;?></h2></a>
 			<h5><?php echo $description_finale; ?></h5>
-			<h4><?php echo $s->final_price; ?> €</h4>
+			<h4><?php echo $s->price; ?> €</h4>
 			<h5>Places restantes : <?php echo $s->stock; ?></h5>
 			<!-- Fonction contains à gercler une fois finis-->
 			<?php if ($s->stock>0){ ?><a href="?showmethisactivity=<?php echo $s->slug; ?>&amp;p=<?php echo $s->price; ?>">Voir l'activité</a><?php }else{echo'<h5 style="color:red;">Aucune place n\'est disponible !</h5>';}
