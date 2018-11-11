@@ -4,6 +4,7 @@
     $nompage = "Connexion";
     require_once('includes/head.php');
 
+
                       // START - Récupération de l'ip de connexion de l'utilisateur, même à travers de proxy !
                       function get_ip() {
                       // IP si internet partagé
@@ -65,8 +66,19 @@
 
                 if(!isset($_SESSION['user_id'])){
                     if(isset($_POST['submit'])){
+                      // On demande l'utilisateur avec cet email qui n'est pas bannis et qui n'a pas de tentative de connexion frauduleuses
                         $email = htmlspecialchars($_POST['email']);
                         $password = htmlspecialchars($_POST['password']);
+                        $ban = '0';
+                        $attempts = 5;
+                        $selectban = $db->prepare("SELECT * FROM users WHERE email=:email and ban=:ban and numberofattempts<:attempts");
+                        $selectban->execute(array(
+                            "email" => $email,
+                            "ban" => $ban,
+                            "attempts" => $attempts
+                            )
+                        );
+                        if($selectban->rowCount()==1){ // On selectionne les personnes non bannis, sinon on affiche quelles sont bannis
                             if($email&&$password){
                                 $select = $db->prepare("SELECT * FROM users WHERE email=:email");
                                 $select->execute(array(
@@ -74,9 +86,11 @@
                                     )
                                 );
                                 if($select->rowCount()==1){
+
                                     $data = $select->fetch();
                                     if(password_verify($password, $data['password'])){
-                                      //Variables sessions définies
+                                      //Si le mot de passe correspond à l'email utilisé par la personne alors on définis les variables de sessions
+
                                         $_SESSION['user_id'] = $data['id'];
                                         $_SESSION['user_name'] = $data['username'];
                                         $_SESSION['user_email'] = $data['email'];
@@ -89,7 +103,7 @@
                                 date_default_timezone_set('Europe/Paris');
                                 setlocale(LC_TIME, 'fr_FR.utf8','fra');
                                 $date = strftime('%d/%m/%Y %H:%M:%S');
-
+                                // On ajoute dans la BDD l'ensemble des informations de l'utilisateur qui se connecte, son IP, son navigateur ainsi que la date de connexion de la personne.
                                 $insertinfos = $db->prepare("INSERT INTO histconnexion (user_id, ip, navigateur, date) VALUES(:user_id, :ip, :navigateur, :date)");
                                 $insertinfos->execute(array(
 
@@ -108,6 +122,9 @@
                         setlocale(LC_TIME, 'fr_FR.utf8','fra');
                         $date = strftime('%Y/%m/%d %H:%M:%S');
                         $user_id = $_SESSION['user_id'];
+                        //On réinitialise le nombre de tentatives avec echec.
+                        $attempts = 0;
+                        $db->query("UPDATE users SET numberofattempts='$attempts' WHERE id='$user_id'");
                         $update = $db->prepare("UPDATE users SET last_connect=:date WHERE id=:id");
                         $update->execute(array(
                             "date"=>$date,
@@ -138,7 +155,16 @@
             </div>
            </div>
         </div>
-<?php           }
+<?php
+// Ajout de tentative avec erreurs de mdp.
+$email = htmlspecialchars($_POST['email']);
+$numberofattempts = $db->query("SELECT numberofattempts from users WHERE email='$email'");
+$rattempts = $numberofattempts->fetch(PDO::FETCH_OBJ);
+$recupnumberofattempts = $rattempts->numberofattempts;
+$newattempts = $recupnumberofattempts + '1';
+$db->query("UPDATE users SET numberofattempts='$newattempts' WHERE email='$email'");
+
+       }
                }
                 else{
 ?>
@@ -179,6 +205,24 @@
         </div>
 <?php
             }
+          }else {
+            ?>
+                    <div class="container">
+                       <div class="row">
+                         <div class="col-sm-12 ml-auto mr-auto">
+                          <div class="alert alert-danger">
+                             <div class="alert-icon">
+                                <i class="now-ui-icons ui-1_bell-53"></i>
+                             </div>
+                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                               <span aria-hidden="true"><i class="now-ui-icons ui-1_simple-remove"></i></span>
+                             </button>
+                                <b>Erreur :</b> Votre compte à été bannis ou désactivé !
+                          </div>
+                        </div>
+                       </div>
+                    </div>
+            <?php          }
         }
 ?>
             <div class="card-body">
