@@ -33,7 +33,6 @@
     </div>
   </div>
 
-  <div class="image-container"  src="assets/img/voyage-ski-2018.jpg"></div>
 
 
 <div class="section section-tabs">
@@ -44,14 +43,40 @@
         <!-- Nav tabs -->
         <div class="card">
           <div class="card-header">
+            <center>
             <div class="image-container" style="background-image: url('assets/img/assets/img/voyage-ski-2018.jpg')"></div>
-
+            <img src="./assets/img/jam-logo.png" alt="">
+          </center>
           </div>
           <div class="card-body">
 
 
           </div>
         </div>
+      </div>
+      <div class="col-md-10 ml-auto col-xl-6 mr-auto">
+        <p class="category">Tabs with Background on Card</p>
+        <!-- Tabs with Background on Card -->
+        <div class="card">
+          <div class="card-header">
+            <ul class="nav nav-tabs nav-tabs-neutral justify-content-center" role="tablist" data-background-color="orange">
+              <li class="nav-item">
+                <a href="#"><h2>Coucou</h2></a>
+              </li>
+            </ul>
+          </div>
+          <div class="card-body">
+            <center>
+            <img src="assets/img/voyage-ski-2018.jpg" alt="">
+            </br></br></br>
+            <h5>ffffffffffffffffffffffffffffffffffff</h5>
+
+          </center>
+
+
+          </div>
+        </div>
+        <!-- End Tabs on plain Card -->
       </div>
     </div>
   </div>
