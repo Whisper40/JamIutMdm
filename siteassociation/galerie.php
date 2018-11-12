@@ -56,7 +56,6 @@
                  </ul>
                </div>
              </div>
-             <br><br><br><br>
              <!-- Tab panes -->
              <div class="tab-content gallery">
                <?php
