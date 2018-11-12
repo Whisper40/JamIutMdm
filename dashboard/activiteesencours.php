@@ -338,13 +338,10 @@ if(!empty($_POST['jeneparticipeplusnettoyage'])){
   $stock = $r->stock;
   $newstock = $stock + '1';
   $db->query("DELETE FROM participe WHERE user_id='$user_id' AND activity_name='$activity_name'");
-  echo'1';
   $db->query("DELETE FROM catparticipe WHERE user_id='$user_id' AND name='$realname'");
-echo '2';
   $db->query("INSERT INTO formulairenettoyage (user_id) VALUES('$user_id')");
-echo '3';
   $db->query("UPDATE activitesvoyages SET stock='$newstock' WHERE slug='$activity_name'");
-echo '4';
+
 ?>
 <script>
     window.location = 'https://dashboard.jam-mdm.fr/activiteesencours.php';
