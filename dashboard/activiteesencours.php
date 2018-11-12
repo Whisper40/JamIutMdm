@@ -339,7 +339,7 @@ if(!empty($_POST['jeneparticipeplusnettoyage'])){
   $newstock = $stock + '1';
   $db->query("DELETE FROM participe WHERE user_id='$user_id' AND activity_name='$activity_name'");
   echo'1';
-  $db->query("DELETE FROM catparticipe WHERE user_id='$user_id' AND activity_name='$realname'");
+  $db->query("DELETE FROM catparticipe WHERE user_id='$user_id' AND name='$realname'");
 echo '2';
   $db->query("INSERT INTO formulairenettoyage (user_id) VALUES('$user_id')");
 echo '3';
