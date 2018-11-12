@@ -48,7 +48,7 @@
                    while($unalbum = $albums->fetch(PDO::FETCH_OBJ)){
                      ?>
                    <li class="nav-item">
-                     <a class="nav-link" data-toggle="tab" href="#<?php echo $unalbum->title;?>" role="tablist">
+                     <a class="nav-link" data-toggle="tab" href="#prof" role="tablist">
                        <i class="now-ui-icons <?php echo $unalbum->icon;?>"></i>
                      </a>
                    </li>
@@ -62,7 +62,7 @@
                $albums = $db->query("SELECT DISTINCT title FROM images WHERE status = 1");
                while($unalbum = $albums->fetch(PDO::FETCH_OBJ)){
                  ?>
-               <div class="tab-pane active" id="<?php echo $unalbum->title;?>" role="tabpanel">
+               <div class="tab-pane active" id="prof" role="tabpanel">
                  <h3 class="title">Les images</h3>
                  <div class="col-md-16 ml-auto mr-auto">
                    <div class="row collections">
