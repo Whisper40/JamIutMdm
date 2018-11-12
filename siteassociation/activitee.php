@@ -77,6 +77,9 @@
           </div>
         </div>
       </div>
+      <div class="section section-tabs">
+        <div class="container">
+          <div class="row">
       <?php
 
       while($s=$select->fetch(PDO::FETCH_OBJ)){
@@ -89,9 +92,7 @@
 
 
   			?>
-<div class="section section-tabs">
-  <div class="container">
-    <div class="row">
+
       <div class="col-md-10 ml-auto col-xl-6 mr-auto">
         <div class="card">
           <div class="card-header">
@@ -108,13 +109,17 @@
               <p class="card-description">
                 <?php echo $description_finale; ?>
               </p>
-            </center>
+              <br>
               <div class="pull-left">
                 <h5>
                   <b>Prix : <?php echo $s->price; ?> €</b>
+                </h5>
+                <h5>
                   <b>Place disponible : <?php echo $s->stock; ?></b>
                 </h5>
               </div>
+            </center>
+
               <div class="pull-right">
                 <h6>
                   <?php if ($s->stock>0){ ?>
@@ -128,12 +133,16 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
+
 
 <?php
 }
+?>
+</div>
+</div>
+</div>
+
+<?php
 }else{
 	header('Location: https://jam-mdm.fr/');
 }
