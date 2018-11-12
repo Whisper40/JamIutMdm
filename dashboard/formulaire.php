@@ -237,7 +237,7 @@ if ($type == 'ski'){
                           <h3> Si dessous apparaitront des notes concernant cette activité. </h3>
 <?php
 
-$selectformulaireremplis = $db->query("SELECT * from formulairecinema WHERE user_id='8'");
+$selectformulaireremplis = $db->query("SELECT * from communicationactivite WHERE slug LIKE '%$type%'");
 $r2 = $selectformulaireremplis->fetch(PDO::FETCH_OBJ);
 $infoscomplementaires = $r2->infoscomplementaires;
 $infoscomplementaires2 = $r2->infoscomplementaires2;
@@ -289,7 +289,7 @@ if(!empty($infoscomplementaires3)){
                           <h3> Si dessous apparaitront des notes concernant cette activité. </h3>
 <?php
 
-$selectformulaireremplis = $db->query("SELECT * from formulairenettoyage WHERE user_id='8'");
+$selectformulaireremplis = $db->query("SELECT * from communicationactivite WHERE slug LIKE '%$type%'");
 $r2 = $selectformulaireremplis->fetch(PDO::FETCH_OBJ);
 $infoscomplementaires = $r2->infoscomplementaires;
 $infoscomplementaires2 = $r2->infoscomplementaires2;
