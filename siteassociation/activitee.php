@@ -21,68 +21,125 @@
     </div>
   </div>
 
+  <?php
 
-  <div class="section section-about-us">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 ml-auto mr-auto text-center">
-          <h2 class="title">Who we are?</h2>
-          <h5 class="description">According to the National Oceanic and Atmospheric Administration, Ted, Scambos, NSIDClead scentist, puts the potentially record low maximum sea ice extent tihs year down to low ice extent in the Pacific and a late drop in ice extent in the Barents Sea.</h5>
+  if(isset($_GET['showmethisactivity'])){
+		$product = htmlentities($_GET['showmethisactivity']);
+		$select = $db->prepare("SELECT * FROM activitesvoyages WHERE slug='$product'");
+		$select->execute();
+		$s = $select->fetch(PDO::FETCH_OBJ);
+
+		$description = $s->description;
+		$description2 = $s->description2;
+		$description3 = $s->description3;
+		$description_finale=wordwrap($description,100,'<br />', false); // False sert a dire si on découpe le mot ou non
+		$description_finale2=wordwrap($description2,100,'<br />', false); // Le 100 sert au retour a la ligne
+		$description_finale3=wordwrap($description3,100,'<br />', false);
+		?>
+
+		<br/><div style="text-align:center;">
+		<img src="assets/img/<?php echo $s->slug; ?>.<?php echo $s->formatimg; ?>"/>
+		<h1><?php echo $s->title; ?></h1>
+		<h5><?php echo $description_finale; ?></h5>
+
+		<h1><?php echo $s->title2; ?></h1>
+		<h5><?php echo $description_finale2; ?></h5>
+
+		<h1><?php echo $s->title3; ?></h1>
+		<h5><?php echo $description_finale3; ?></h5>
+
+
+		<h5>Places restantes : <?php echo $s->stock; ?></h5>
+		<?php if ($s->stock>0){ ?><a href="panier.php?action=ajout&amp;l=<?php echo $s->slug; ?>&amp;q=1&amp;p=<?php echo $s->price; ?>">Je Participe !</a><?php }else{echo'<h5 style="color:red;">Aucune place n\'est disponible !</h5>';}
+   		?>
+		</div><br/>
+
+		<?php
+
+	}else{
+
+	if(isset($_GET['category'])){
+		$category_slug=$_GET['category'];
+		$select = $db->query("SELECT surname FROM sitecat WHERE slug='$category_slug'");
+		$results = $select->fetch(PDO::FETCH_OBJ);
+		$category = addslashes($results->surname);
+		$select = $db->prepare("SELECT * FROM activitesvoyages WHERE surname='$category' AND status='ACTIVE'");
+		$select->execute();
+
+      ?>
+      <div class="section section-about-us">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 ml-auto mr-auto text-center">
+              <h2 class="title">Who we are?</h2>
+              <h5 class="description">According to the National Oceanic and Atmospheric Administration, Ted, Scambos, NSIDClead scentist, puts the potentially record low maximum sea ice extent tihs year down to low ice extent in the Pacific and a late drop in ice extent in the Barents Sea.</h5>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
+      <?php
+
+      while($s=$select->fetch(PDO::FETCH_OBJ)){
+
+        $lenght=75;
+        $description = $s->description;
+        $new_description=substr($description,0,$lenght)."...";
+        $description_finale=wordwrap($new_description,50,'<br />', false);
 
 
 
+  			?>
 <div class="section section-tabs">
   <div class="container">
     <div class="row">
       <div class="col-md-10 ml-auto col-xl-6 mr-auto">
-        <p class="category">Tabs with Icons on Card</p>
-        <!-- Nav tabs -->
         <div class="card">
           <div class="card-header">
-            <center>
-            <div class="image-container" style="background-image: url('assets/img/assets/img/voyage-ski-2018.jpg')"></div>
-            <img src="./assets/img/jam-logo.png" alt="">
-          </center>
+            <a href="?showmethisactivity=<?php echo $s->slug; ?>&amp;p=<?php echo $s->price; ?>">
+              <img src="assets/img/<?php echo $s->slug; ?>.<?php echo $s->formatimg; ?>">
+            </a>
           </div>
           <div class="card-body">
-
-
+            <div class="card-content">
+              <center>
+              <a href="?showmethisactivity=<?php echo $s->slug; ?>&amp;p=<?php echo $s->price; ?>">
+                <h2 class="card-title"><?php echo $s->title;?></h2>
+              </a>
+              <p class="card-description">
+                <?php echo $description_finale; ?>
+              </p>
+            </center>
+              <div class="pull-left">
+                <h5>
+                  <b>Prix : <?php echo $s->price; ?> €</b>
+                  <b>Place disponible : <?php echo $s->stock; ?></b>
+                </h5>
+              </div>
+              <div class="pull-right">
+                <h6>
+                  <?php if ($s->stock>0){ ?>
+                  <div class="button-container">
+                    <a href="?showmethisactivity=<?php echo $s->slug; ?>&amp;p=<?php echo $s->price; ?>" class="btn btn-primary btn-round btn-lg">Voir l'activité</a>
+                  <?php }else{echo'<h5 style="color:red;">Aucune place n\'est disponible !</h5>';} ?>
+                  </div>
+                </h6>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-10 ml-auto col-xl-6 mr-auto">
-        <p class="category">Tabs with Background on Card</p>
-        <!-- Tabs with Background on Card -->
-        <div class="card">
-          <div class="card-header">
-            <ul class="nav nav-tabs nav-tabs-neutral justify-content-center" role="tablist" data-background-color="orange">
-              <li class="nav-item">
-                <a href="#"><h2>Coucou</h2></a>
-              </li>
-            </ul>
-          </div>
-          <div class="card-body">
-            <center>
-            <img src="assets/img/voyage-ski-2018.jpg" alt="">
-            </br></br></br>
-            <h5>ffffffffffffffffffffffffffffffffffff</h5>
-
-          </center>
-
-
-          </div>
-        </div>
-        <!-- End Tabs on plain Card -->
       </div>
     </div>
   </div>
 </div>
 
 <?php
+}
+}else{
+	header('Location: https://jam-mdm.fr/');
+}
+}
+
+
 require_once('includes/footer.php');
 
 require_once('includes/javascript.php');
