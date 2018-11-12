@@ -40,14 +40,19 @@
          <div class="container">
            <div class="row">
              <div class="col-md-6 ml-auto mr-auto">
-               <h4 class="title text-center">My Portfolio</h4>
+               <h3 class="title text-center">Mon Album Photos</h3>
                <div class="nav-align-center">
                  <ul class="nav nav-pills nav-pills-primary nav-pills-just-icons" role="tablist">
+                   <?php
+                   $albums = $db->query("SELECT DISTINCT title, icon FROM images WHERE status = 1");
+                   while($unalbum = $albums->fetch(PDO::FETCH_OBJ)){
+                     ?>
                    <li class="nav-item">
-                     <a class="nav-link" data-toggle="tab" href="#profile" role="tablist">
-                       <i class="now-ui-icons design_image"></i>
+                     <a class="nav-link" data-toggle="tab" href="#<?php echo $unalbum->title;?>" role="tablist">
+                       <i class="now-ui-icons <?php echo $unalbum->icon;?>"></i>
                      </a>
                    </li>
+                 <?php } ?>
                  </ul>
                </div>
              </div>
