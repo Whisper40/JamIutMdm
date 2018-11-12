@@ -59,15 +59,15 @@
              <!-- Tab panes -->
              <div class="tab-content gallery">
                <?php
-               $albums = $db->query("SELECT DISTINCT title FROM images WHERE status = 1");
-               while($unalbum = $albums->fetch(PDO::FETCH_OBJ)){
+               $folio = $db->query("SELECT DISTINCT title FROM images WHERE status = 1");
+               while($unfolio = $folio->fetch(PDO::FETCH_OBJ)){
                  ?>
-               <div class="tab-pane" id="<?php echo $unalbum->title;?>" role="tabpanel">
+               <div class="tab-pane" id="<?php echo $unfolio->title;?>" role="tabpanel">
                  <h3 class="title">Les images</h3>
                  <div class="col-md-16 ml-auto mr-auto">
                    <div class="row collections">
                    <?php
-                   $image = $db->query("SELECT * FROM images WHERE status = 1, title = '<?php echo $unalbum->title;?>' ORDER BY uploaded_on DESC");
+                   $image = $db->query("SELECT * FROM images WHERE status = 1, title = '<?php echo $unfolio->title;?>' ORDER BY uploaded_on DESC");
                    while($uneimage = $image->fetch(PDO::FETCH_OBJ)){
                    ?>
                      <div class="col-md-4">
@@ -85,7 +85,7 @@
                 <div class="row collections">
 
               <?php
-                   $video = $db->query("SELECT * FROM videos WHERE status = 1, title = '<?php echo $unalbum->title;?>' ORDER BY uploaded_on DESC");
+                   $video = $db->query("SELECT * FROM videos WHERE status = 1, title = '<?php echo $unfolio->title;?>' ORDER BY uploaded_on DESC");
                    while($unevideo = $video->fetch(PDO::FETCH_OBJ)){
                    ?>
                    <div class="col-md-4">
