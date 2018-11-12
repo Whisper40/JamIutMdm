@@ -322,7 +322,7 @@ if(!empty($_POST['jeparticipenettoyage'])){
   $db->query("INSERT INTO participe (user_id, activity_name, date) VALUES('$user_id' ,'$activity_name' ,'$date')");
   $db->query("UPDATE activitesvoyages SET stock='$newstock' WHERE slug='$activity_name'");
   $db->query("INSERT INTO catparticipe (user_id, name, page, icon) VALUES('$user_id', '$realname', '$pageformulaire', '$icon')");
-  $db->query("INSERT INTO formulairenettoyage (user_id) VALUES('$user_id')");
+
 
   ?>
   <script>
@@ -339,7 +339,6 @@ if(!empty($_POST['jeneparticipeplusnettoyage'])){
   $newstock = $stock + '1';
   $db->query("DELETE FROM participe WHERE user_id='$user_id' AND activity_name='$activity_name'");
   $db->query("DELETE FROM catparticipe WHERE user_id='$user_id' AND name='$realname'");
-  $db->query("INSERT INTO formulairenettoyage (user_id) VALUES('$user_id')");
   $db->query("UPDATE activitesvoyages SET stock='$newstock' WHERE slug='$activity_name'");
 
 ?>
