@@ -90,37 +90,46 @@
         <div class="card">
           <div class="card-header">
             <a href="?showmethisnews=<?php echo $s->slug; ?>">
-              <img src="assets/img/<?php echo $s->slug; ?>.<?php echo $s->formatimg; ?>"/>
+              <img src="assets/img/<?php echo $s->slug; ?>.<?php echo $s->formatimg; ?>">
             </a>
           </div>
           <div class="card-body">
+            <div class="card-content">
+              <center>
+              <a href="?showmethisnews=<?php echo $s->slug; ?>">
+                <h2 class="card-title"><?php echo $s->title;?></h2>
+              </a>
+              <p class="card-description">
+                <?php echo $description_finale; ?>
+              </p>
+              <div class="pull-center">
                 <h6>
-                  <?php if ($s->stock>0){ ?>
-                  <div class="button-container">
                     <a href="?showmethisnews=<?php echo $s->slug; ?>" class="btn btn-primary btn-round btn-lg">Voir cette actualité</a>
-                  </div>
                 </h6>
+              </div>
+            </center>
+            </div>
+          </div>
+
             </div>
           </div>
         </div>
       </div>
 
-			<?php
-		}
-	?>
+			<?php	} ?>
 
 </div>
 </div>
 </div>
 
-	<?php
-
-// Si la page n'a aucun paramètre alors on renvoie vers la page d'accueil..
-
+<?php
 }else{
 	header('Location: https://jam-mdm.fr/');
 }
 }
-	require_once('includes/footer.php');
 
+
+require_once('includes/footer.php');
+
+require_once('includes/javascript.php');
 ?>
