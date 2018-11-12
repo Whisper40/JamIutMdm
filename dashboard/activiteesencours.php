@@ -322,7 +322,7 @@ if(!empty($_POST['jeparticipenettoyage'])){
   $db->query("INSERT INTO participe (user_id, activity_name, date) VALUES('$user_id' ,'$activity_name' ,'$date')");
   $db->query("UPDATE activitesvoyages SET stock='$newstock' WHERE slug='$activity_name'");
   $db->query("INSERT INTO catparticipe (user_id, name, page, icon) VALUES('$user_id', '$realname', '$pageformulaire', '$icon')");
-  $db->query("INSERT INTO formulaireorientation (user_id) VALUES('$user_id')");
+  $db->query("INSERT INTO formulairenettoyage (user_id) VALUES('$user_id')");
 
   ?>
   <script>
@@ -338,10 +338,13 @@ if(!empty($_POST['jeneparticipeplusnettoyage'])){
   $stock = $r->stock;
   $newstock = $stock + '1';
   $db->query("DELETE FROM participe WHERE user_id='$user_id' AND activity_name='$activity_name'");
+  echo'1';
   $db->query("DELETE FROM catparticipe WHERE user_id='$user_id' AND activity_name='$activity_name'");
-  $db->query("DELETE FROM formulaireorientation WHERE user_id='$user_id' AND activity_name='$activity_name'");
+echo '2';
+  $db->query("DELETE FROM formulairenettoyage WHERE user_id='$user_id' AND activity_name='$activity_name'");
+echo '3';
   $db->query("UPDATE activitesvoyages SET stock='$newstock' WHERE slug='$activity_name'");
-
+echo '4';
 ?>
 <script>
     window.location = 'https://dashboard.jam-mdm.fr/activiteesencours.php';
