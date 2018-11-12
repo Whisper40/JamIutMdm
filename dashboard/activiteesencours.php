@@ -326,7 +326,7 @@ if(!empty($_POST['jeparticipenettoyage'])){
 
   ?>
   <script>
-      window.location = 'http://127.0.0.1/dashboard/';
+      window.location = 'https://dashboard.jam-mdm.fr/';
   </script>
   <?php
 }
@@ -339,9 +339,9 @@ if(!empty($_POST['jeneparticipeplusnettoyage'])){
   $newstock = $stock + '1';
   $db->query("DELETE FROM participe WHERE user_id='$user_id' AND activity_name='$activity_name'");
   echo'1';
-  $db->query("DELETE FROM catparticipe WHERE user_id='$user_id' AND activity_name='$activity_name'");
+  $db->query("DELETE FROM catparticipe WHERE user_id='$user_id' AND activity_name='$realname'");
 echo '2';
-  $db->query("DELETE FROM formulairenettoyage WHERE user_id='$user_id' AND activity_name='$activity_name'");
+  $db->query("INSERT INTO formulairenettoyage (user_id) VALUES('$user_id')");
 echo '3';
   $db->query("UPDATE activitesvoyages SET stock='$newstock' WHERE slug='$activity_name'");
 echo '4';
