@@ -58,12 +58,16 @@
              </div>
              <!-- Tab panes -->
              <div class="tab-content gallery">
-               <div class="tab-pane active" id="home" role="tabpanel">
+               <?php
+               $albums = $db->query("SELECT DISTINCT title FROM images WHERE status = 1");
+               while($unalbum = $albums->fetch(PDO::FETCH_OBJ)){
+                 ?>
+               <div class="tab-pane active" id="<?php echo $unalbum->title;?>" role="tabpanel">
                  <h3 class="title">Les images</h3>
                  <div class="col-md-16 ml-auto mr-auto">
                    <div class="row collections">
                    <?php
-                   $image = $db->query("SELECT * FROM images WHERE status = 1 ORDER BY uploaded_on DESC");
+                   $image = $db->query("SELECT * FROM images WHERE status = 1, title = '<?php echo $unalbum->title;?>' ORDER BY uploaded_on DESC");
                    while($uneimage = $image->fetch(PDO::FETCH_OBJ)){
                    ?>
                      <div class="col-md-4">
@@ -81,8 +85,7 @@
                 <div class="row collections">
 
               <?php
-
-                   $video = $db->query("SELECT * FROM videos WHERE status = 1 ORDER BY uploaded_on DESC");
+                   $video = $db->query("SELECT * FROM videos WHERE status = 1, title = '<?php echo $unalbum->title;?>' ORDER BY uploaded_on DESC");
                    while($unevideo = $video->fetch(PDO::FETCH_OBJ)){
                    ?>
                    <div class="col-md-4">
@@ -92,6 +95,7 @@
                      </center>
                    </div>
                  <?php } ?>
+                <?php } ?>
 
                  <script>
                  $(document).ready(function() {
