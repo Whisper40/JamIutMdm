@@ -39,7 +39,7 @@
 
          <div class="container">
            <div class="row">
-             <div class="col-md-6 ml-auto mr-auto">
+             <div class="col-md-auto ml-auto mr-auto">
                <h3 class="title text-center">Mon Album Photos</h3>
                <div class="nav-align-center">
                  <ul class="nav nav-pills nav-pills-primary nav-pills-just-icons" role="tablist">
@@ -56,18 +56,20 @@
                  </ul>
                </div>
              </div>
+             <br><br><br><br>
              <!-- Tab panes -->
              <div class="tab-content gallery">
                <?php
                $folio = $db->query("SELECT DISTINCT title FROM images WHERE status = 1");
                while($unfolio = $folio->fetch(PDO::FETCH_OBJ)){
+                 $title = $unfolio->title;
                  ?>
                <div class="tab-pane" id="<?php echo $unfolio->title;?>" role="tabpanel">
                  <h3 class="title">Les images</h3>
                  <div class="col-md-16 ml-auto mr-auto">
                    <div class="row collections">
                    <?php
-                   $image = $db->query("SELECT * FROM images WHERE status = 1, title = '<?php echo $unfolio->title;?>' ORDER BY uploaded_on DESC");
+                   $image = $db->query("SELECT * FROM images WHERE title = '$title' ORDER BY uploaded_on DESC");
                    while($uneimage = $image->fetch(PDO::FETCH_OBJ)){
                    ?>
                      <div class="col-md-4">
@@ -85,7 +87,7 @@
                 <div class="row collections">
 
               <?php
-                   $video = $db->query("SELECT * FROM videos WHERE status = 1, title = '<?php echo $unfolio->title;?>' ORDER BY uploaded_on DESC");
+                   $video = $db->query("SELECT * FROM videos WHERE title = '$title' ORDER BY uploaded_on DESC");
                    while($unevideo = $video->fetch(PDO::FETCH_OBJ)){
                    ?>
                    <div class="col-md-4">
@@ -95,47 +97,47 @@
                      </center>
                    </div>
                  <?php } ?>
-                <?php } ?>
-
-                 <script>
-                 $(document).ready(function() {
-                 	$(".fancybox-thumb").fancybox({
-                 		prevEffect	: 'none',
-                 		nextEffect	: 'none',
-                     helpers	: {
-                 			title	: {
-                 				type: 'outside'
-                 			},
-                 			thumbs	: {
-                 				width	: 50,
-                 				height	: 50
-                 			}
-                 		}
-                 	});
-                 });
-                 </script>
-
-
-                 <!-- AJAX vidéos -->
-                 <script>
-                 $(document).ready(function() {
-                 	$(".various").fancybox({
-                 		maxWidth	: 800,
-                 		maxHeight	: 600,
-                 		fitToView	: false,
-                 		width		: '70%',
-                 		height		: '70%',
-                 		autoSize	: false,
-                 		closeClick	: false,
-                 		openEffect	: 'none',
-                 		closeEffect	: 'none'
-                 	});
-                 });
-                 </script>
-
                    </div>
                  </div>
                </div>
+             <?php } ?>
+
+             <script>
+             $(document).ready(function() {
+              $(".fancybox-thumb").fancybox({
+                prevEffect	: 'none',
+                nextEffect	: 'none',
+                 helpers	: {
+                  title	: {
+                    type: 'outside'
+                  },
+                  thumbs	: {
+                    width	: 50,
+                    height	: 50
+                  }
+                }
+              });
+             });
+             </script>
+
+
+             <!-- AJAX vidéos -->
+             <script>
+             $(document).ready(function() {
+              $(".various").fancybox({
+                maxWidth	: 800,
+                maxHeight	: 600,
+                fitToView	: false,
+                width		: '70%',
+                height		: '70%',
+                autoSize	: false,
+                closeClick	: false,
+                openEffect	: 'none',
+                closeEffect	: 'none'
+              });
+             });
+             </script>
+
              </div>
            </div>
          </div>
