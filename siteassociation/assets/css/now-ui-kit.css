@@ -5680,6 +5680,7 @@ img {
   color: #FFFFFF;
 }
 
+/*
 .login-page .page-header:before,
 .profile-page .page-header:before {
   position: absolute;
@@ -5692,6 +5693,7 @@ img {
   content: "";
   background-color: rgba(0, 0, 0, 0.5);
 }
+*/
 
 .login-page .card-login {
   border-radius: 0.25rem;
