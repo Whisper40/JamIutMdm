@@ -9,7 +9,7 @@
 <?php
     require_once('includes/navbar.php');
 
-    $ind = $db->query("SELECT * FROM index");
+    $ind = $db->query("SELECT * FROM pageindex");
     $index = $ind->fetch(PDO::FETCH_OBJ);
 
     ?>
