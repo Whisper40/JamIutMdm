@@ -162,7 +162,7 @@ if(isset($_POST['submit'])){
     $responseData = json_decode(file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$_POST['g-recaptcha-response']));
     if($responseData->success){
       $user_id = $_SESSION['user_id'];
-      $target_dir = "../administration/Uploads";
+      $target_dir = "../../../JamFichiers/Uploads";
 
       if (file_exists($target_dir/$user_id)) {
         $target_dirnew = "$target_dir/$user_id/";
