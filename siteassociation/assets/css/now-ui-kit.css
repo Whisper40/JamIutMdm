@@ -5928,7 +5928,7 @@ img {
 .page-header .description {
   color: rgba(255, 255, 255, 0.8);
 }
-
+/*
 .page-header:after,
 .page-header:before {
   position: absolute;
@@ -5940,7 +5940,7 @@ img {
   top: 0;
   content: "";
 }
-
+*/
 .clear-filter:after,
 .clear-filter:before {
   display: none;
