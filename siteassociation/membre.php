@@ -33,7 +33,7 @@
               ?>
             <div class="col-md-4">
               <div class="team-player">
-                <img src="./assets/img/membres/<?php echo $unmembre->image ?>" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
+                <img src="assets/img/membres/<?php echo $unmembre->image ?>" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
                 <h4 class="title"><?php echo $unmembre->nom ?></h4>
                 <p class="category text-primary"><?php echo $unmembre->fonction ?></p>
                 <p class="description"><?php echo $unmembre->description ?></p><br>
