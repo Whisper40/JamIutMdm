@@ -15,7 +15,7 @@
 
 .page-header .content-center {
   position: absolute;
-  top: 40%;
+  top: 38%;
   left: 50%;
   z-index: 2;
   -ms-transform: translate(-50%, -50%);

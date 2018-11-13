@@ -3,6 +3,36 @@
     $nompage = "Galerie";
     require_once('includes/head.php');
 ?>
+<style>
+.page-header .page-header-image {
+  position: absolute;
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 80%;
+  z-index: -1;
+}
+
+.page-header .content-center {
+  position: absolute;
+  top: 38%;
+  left: 50%;
+  z-index: 2;
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #FFFFFF;
+  padding: 0 15px;
+  width: 100%;
+  max-width: 880px;
+}
+.section {
+  padding: 0px 0;
+  position: relative;
+  background: #FFFFFF;
+}
+</style>
 <!-- Tous les JSS sont nécessaires -->
  <!-- Add jQuery library -->
  <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
