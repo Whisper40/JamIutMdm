@@ -10,15 +10,16 @@
     require_once('includes/navbar.php');
 
     $index = $db->query("SELECT * FROM index");
+    while($lindex = $index->fetch(PDO::FETCH_OBJ)){
     ?>
 
   <div class="wrapper">
     <div class="page-header clear-filter">
-      <div class="page-header-image" data-parallax="true" style="background-image: url('assets/img/<?php echo $index->img1 ?>');">
+      <div class="page-header-image" data-parallax="true" style="background-image: url('assets/img/<?php echo $lindex->img1 ?>');">
       </div>
       <div class="container">
         <div class="content-center brand">
-          <img class="n-logo" src="assets/img/<?php echo $index->logo1 ?>" alt="">
+          <img class="n-logo" src="assets/img/<?php echo $lindex->logo1 ?>" alt="">
         </div>
       </div>
     </div>
@@ -28,17 +29,17 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-6 col-md-12">
-              <h2 class="title"><?php echo $index->titre1 ?></h2>
+              <h2 class="title"><?php echo $lindex->titre1 ?></h2>
               <h5 class="description">
-                <?php echo $index->description1 ?>
+                <?php echo $lindex->description1 ?>
               </h5>
-              <a href="<?php echo $index->lienbt1 ?>" class="btn btn-primary btn-round btn-lg"><?php echo $index->bouton1 ?></a>
-              <a href="<?php echo $index->lienbt2 ?>" class="btn btn-primary btn-simple btn-round btn-lg"><?php echo $index->bouton2 ?></a>
+              <a href="<?php echo $lindex->lienbt1 ?>" class="btn btn-primary btn-round btn-lg"><?php echo $lindex->bouton1 ?></a>
+              <a href="<?php echo $lindex->lienbt2 ?>" class="btn btn-primary btn-simple btn-round btn-lg"><?php echo $lindex->bouton2 ?></a>
             </div>
             <div class="col-lg-6 col-md-12">
               <div class="container text-center">
                 <br><br><br><br>
-                <img src="assets/img/<?php echo $index->logo2 ?>" alt="">
+                <img src="assets/img/<?php echo $lindex->logo2 ?>" alt="">
               </div>
             </div>
           </div>
@@ -50,8 +51,8 @@
         <div class="container">
           <div class="row justify-content-md-center">
             <div class="text-center col-md-12 col-lg-8">
-              <h3 class="title"><?php echo $index->titre2 ?></h3>
-              <h5 class="description"><?php echo $index->description2 ?></h5>
+              <h3 class="title"><?php echo $lindex->titre2 ?></h3>
+              <h5 class="description"><?php echo $lindex->description2 ?></h5>
             </div>
           </div>
           <div class="row justify-content-md-center sharing-area text-center">
@@ -72,6 +73,7 @@
     </div>
 
   <?php
+}
   require_once('includes/footer.php');
 
   require_once('includes/javascript.php');
