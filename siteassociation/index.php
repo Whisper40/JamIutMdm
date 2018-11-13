@@ -9,18 +9,18 @@
 <?php
     require_once('includes/navbar.php');
 
-    $select = $db->query("SELECT * FROM toto");
-
+    $ind = $db->query("SELECT * FROM index");
+    $index = $ind->fetch(PDO::FETCH_OBJ);
 
     ?>
 
   <div class="wrapper">
     <div class="page-header clear-filter">
-      <div class="page-header-image" data-parallax="true" style="background-image: url('assets/img/<?php echo $select->img1 ?>');">
+      <div class="page-header-image" data-parallax="true" style="background-image: url('assets/img/<?php echo $index->img1 ?>');">
       </div>
       <div class="container">
         <div class="content-center brand">
-          <img class="n-logo" src="assets/img/<?php echo $select->logo1 ?>" alt="">
+          <img class="n-logo" src="assets/img/<?php echo $index->logo1 ?>" alt="">
         </div>
       </div>
     </div>
@@ -30,17 +30,17 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-6 col-md-12">
-              <h2 class="title"><?php echo $select->titre1 ?></h2>
+              <h2 class="title"><?php echo $index->titre1 ?></h2>
               <h5 class="description">
-                <?php echo $select->description1 ?>
+                <?php echo $index->description1 ?>
               </h5>
-              <a href="<?php echo $select->lienbt1 ?>" class="btn btn-primary btn-round btn-lg"><?php echo $select->bouton1 ?></a>
-              <a href="<?php echo $select->lienbt2 ?>" class="btn btn-primary btn-simple btn-round btn-lg"><?php echo $select->bouton2 ?></a>
+              <a href="<?php echo $index->lienbt1 ?>" class="btn btn-primary btn-round btn-lg"><?php echo $index->bouton1 ?></a>
+              <a href="<?php echo $index->lienbt2 ?>" class="btn btn-primary btn-simple btn-round btn-lg"><?php echo $index->bouton2 ?></a>
             </div>
             <div class="col-lg-6 col-md-12">
               <div class="container text-center">
                 <br><br><br><br>
-                <img src="assets/img/<?php echo $select->logo2 ?>" alt="">
+                <img src="assets/img/<?php echo $index->logo2 ?>" alt="">
               </div>
             </div>
           </div>
@@ -52,8 +52,8 @@
         <div class="container">
           <div class="row justify-content-md-center">
             <div class="text-center col-md-12 col-lg-8">
-              <h3 class="title"><?php echo $select->titre2 ?></h3>
-              <h5 class="description"><?php echo $select->description2 ?></h5>
+              <h3 class="title"><?php echo $index->titre2 ?></h3>
+              <h5 class="description"><?php echo $index->description2 ?></h5>
             </div>
           </div>
           <div class="row justify-content-md-center sharing-area text-center">
