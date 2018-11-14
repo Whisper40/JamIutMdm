@@ -2,8 +2,37 @@
     require_once('includes/connectBDD.php');
     $nompage = "Statuts";
     require_once('includes/head.php');
-    require_once('includes/quantcast.php');
 ?>
+<style>
+.page-header .page-header-image {
+  position: absolute;
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 80%;
+  z-index: -1;
+}
+
+.page-header .content-center {
+  position: absolute;
+  top: 38%;
+  left: 50%;
+  z-index: 2;
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #FFFFFF;
+  padding: 0 15px;
+  width: 100%;
+  max-width: 880px;
+}
+.section {
+  padding: 0px 0;
+  position: relative;
+  background: #FFFFFF;
+}
+</style>
 
 <body class="landing-page sidebar-collapse">
 
