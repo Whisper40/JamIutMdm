@@ -90,13 +90,14 @@
 		'Vendor Screen Purposes Link Text': 'Revenir aux Objectifs',
 		'Vendor Screen Cancel Button Text': 'Annuler',
 		'Vendor Screen Save and Exit Button Text': 'Enregistrer et quitter',
-		'Initial Screen Body Text': 'Nos partenaires et nous-mêmes utilisent différentes technologies, telles que les cookies, pour personnaliser les contenus, proposer des fonctionnalités sur les réseaux sociaux et analyser le trafic. Merci de cliquer sur le bouton ci-dessous pour donner votre accord. Vous pouvez changer d’avis et modifier vos choix à tout moment',
+		'Initial Screen Body Text': 'Nos partenaires et nous-mêmes utilisent différentes technologies, telles que les cookies, pour personnaliser les contenus et les publicités, proposer des fonctionnalités sur les réseaux sociaux et analyser le trafic. Merci de cliquer sur le bouton ci-dessous pour donner votre accord. Vous pouvez changer d’avis et modifier vos choix à tout moment',
 		'Initial Screen Body Text Option': 1,
 		'Publisher Name': 'Jam',
 		'Display UI': 'always',
 		'Publisher Purpose IDs': [1,5],
 		'Post Consent Page': 'http://iutpa.univ-pau.fr/fr/index.html',
 		'Consent Scope': 'service',
+		'Publisher Purpose Legitimate Interest IDs': [1,5],
     });
 </script>
 <!-- End Quantcast Choice. Consent Manager Tag -->
@@ -112,6 +113,12 @@
         .qc-cmp-alt-action,
         .qc-cmp-link {
           color: #35bfb1 !important;
+        }
+        .qc-cmp-button.qc-cmp-secondary-button {
+          color: #35bfb1 !important;
+        }
+        .qc-cmp-button.qc-cmp-button.qc-cmp-secondary-button:hover {
+          color:#ffffff !important;
         }
         .qc-cmp-button.qc-cmp-secondary-button {
           border-color: #35bfb1 !important;
@@ -132,5 +139,14 @@
         .qc-cmp-ui .qc-cmp-vendor-list,
         .qc-cmp-ui .qc-cmp-vendor-list-title {
             color: #fffffff !important;
+        }
+        .qc-cmp-ui a,
+        .qc-cmp-ui .qc-cmp-alt-action {
+          color: #35bfb1 !important;
+        }
+        .qc-cmp-small-toggle.qc-cmp-toggle-on,
+        .qc-cmp-toggle.qc-cmp-toggle-on {
+            background-color: #35bfb1 !important;
+            border-color: #35bfb1 !important;
         }
     </style>
