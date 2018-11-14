@@ -32,7 +32,7 @@ require_once('includes/head.php');
 
                       ?>
 
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="card card-product">
                                 <div class="card-image" data-header-animation="true">
                                     <a href="#pablo">
