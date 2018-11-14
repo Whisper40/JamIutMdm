@@ -20,6 +20,18 @@ require_once('includes/head.php');
             <h3>Manage Listings</h3>
                     <br>
                     <div class="row">
+
+                      <?php
+                      $user_id = $_SESSION['user_id'];
+                      $sql = "SELECT * FROM activitesvoyages WHERE status='ACTIVE' ORDER BY date ASC";
+                      $req = $db->query($sql);
+                      $req->setFetchMode(PDO::FETCH_ASSOC);
+
+                      foreach($req as $row){
+
+
+                      ?>
+
                         <div class="col-md-6">
                             <div class="card card-product">
                                 <div class="card-image" data-header-animation="true">
@@ -43,23 +55,25 @@ require_once('includes/head.php');
                                         </button>
                                     </div>
                                     <h4 class="card-title">
-                                        <a href="#pablo">Cozy 5 Stars Apartment</a>
+                                        <a href="#pablo"><?php echo $row['title']; ?></a>
                                     </h4>
                                     <div class="card-description">
-                                        The place is close to Barceloneta Beach and bus stop just 2 min by walk and near to "Naviglio" where you can enjoy the main night life in Barcelona.
+                                      <?php echo $row['datesejour']; ?>
                                     </div>
                                 </div>
                                 <div class="card-footer">
                                     <div class="price">
-                                        <h4>$899/night</h4>
+                                        <h4><?php echo $row['price']; ?>€                                                       </td>
+                                     <?php $price = $row['price']; ?></h4>
                                     </div>
                                     <div class="stats pull-right">
-                                        <p class="category"><i class="material-icons">place</i> Barcelona, Spain</p>
+                                      <button class="btn btn-primary btn-round">round</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
+                      <?php  } ?>
 
 
                     </div>
