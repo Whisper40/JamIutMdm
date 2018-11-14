@@ -8,6 +8,9 @@
 
 <?php
     require_once('includes/navbar.php');
+
+    $asso = $db->query("SELECT * FROM pageasso");
+    $association = $asso->fetch(PDO::FETCH_OBJ);
 ?>
 
 
@@ -22,16 +25,11 @@
       </div>
     </div>
 
-    <?php
-    $asso = $db->query("SELECT * FROM descriptionasso");
-    while($association = $asso->fetch(PDO::FETCH_OBJ)){
-      ?>
-
     <div class="section section-about-us">
       <div class="container">
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto text-center">
-            <h2 class="title">Qui sommes nous ?</h2>
+            <h2 class="title"><?php echo $association->titre1 ?></h2>
             <h5 class="description"><?php echo $association->description1 ?></h5>
           </div>
         </div>
@@ -49,21 +47,21 @@
               </ol>
               <div class="carousel-inner" role="listbox">
                 <div class="carousel-item active">
-                  <img class="d-block" src="assets/img/bg1.jpg" alt="First slide">
+                  <img class="d-block" src="assets/img/<?php echo $association->img1 ?>" alt="First slide">
                   <div class="carousel-caption d-none d-md-block">
-                    <h5>Nature, United States</h5>
+                    <h5><?php echo $association->titreimg1 ?></h5>
                   </div>
                 </div>
                 <div class="carousel-item">
-                  <img class="d-block" src="assets/img/bg3.jpg" alt="Second slide">
+                  <img class="d-block" src="assets/img/<?php echo $association->img2 ?>" alt="Second slide">
                   <div class="carousel-caption d-none d-md-block">
-                    <h5>Somewhere Beyond, United States</h5>
+                    <h5><?php echo $association->titreimg2 ?></h5>
                   </div>
                 </div>
                 <div class="carousel-item">
-                  <img class="d-block" src="assets/img/bg4.jpg" alt="Third slide">
+                  <img class="d-block" src="assets/img/<?php echo $association->img3 ?>" alt="Third slide">
                   <div class="carousel-caption d-none d-md-block">
-                    <h5>Yellowstone National Park, United States</h5>
+                    <h5><?php echo $association->titreimg3 ?></h5>
                   </div>
                 </div>
               </div>
@@ -86,9 +84,6 @@
           </div>
         </div>
       </div>
-      <?php
-          }
-          ?>
   </div>
 
   <?php
