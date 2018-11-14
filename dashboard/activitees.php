@@ -66,9 +66,12 @@ require_once('includes/head.php');
                                         <h4><?php echo $row['price']; ?>€                                                       </td>
                                      <?php $price = $row['price']; ?></h4>
                                     </div>
-                                    <div class="stats pull-right">
-                                      <button class="btn btn-primary btn-round">round</button>
-                                    </div>
+                                    <div class="dropdown pull-left">
+                                                <button type="button" class="btn btn-round btn-info dropdown-toggle" data-toggle="dropdown">
+                                                    <i class="material-icons">build</i>
+                                                    <span class="caret"></span>
+                                                </button>
+                                            </div>
                                 </div>
                             </div>
                         </div>
