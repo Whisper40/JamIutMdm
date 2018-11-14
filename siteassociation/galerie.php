@@ -67,6 +67,7 @@
          </div>
        </div>
 
+       <div class="section">
          <div class="container">
            <div class="row">
              <div class="col-md-auto ml-auto mr-auto">
@@ -171,6 +172,7 @@
            </div>
          </div>
       </div>
+
 
 <?php
     require_once('includes/footer.php');
