@@ -66,7 +66,9 @@ require_once('includes/head.php');
                                         <h4><?php echo $row['price']; ?>€                                                       </td>
                                      <?php $price = $row['price']; ?></h4>
                                     </div>
-                                      <button type="submit" class="btn btn-rose btn-fill">Register</button>
+                                    <div class="stats pull-right">
+                                        <a href="activiteesencours.php?activityname=<?php echo $row['slug'];?>"<i class="material-icons" title="Commander l'activité">add_shopping_cart</i></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
