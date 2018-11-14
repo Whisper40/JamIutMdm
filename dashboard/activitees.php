@@ -15,9 +15,8 @@ require_once('includes/head.php');
       <?php
           require_once('includes/navbar.php');
       ?>
-        <div class="main-panel">
-            <div class="content">
-                <div class="container-fluid">
+      <div class="content">
+          <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card">
@@ -401,43 +400,7 @@ require_once('includes/head.php');
                     </div>
                 </div>
             </div>
-            <footer class="footer">
-                <div class="container-fluid">
-                    <nav class="pull-left">
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    Home
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Company
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Portfolio
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Blog
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <p class="copyright pull-right">
-                        &copy;
-                        <script>
-                            document.write(new Date().getFullYear())
-                        </script>
-                        <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
-                    </p>
-                </div>
-            </footer>
         </div>
-    </div>
 </body>
 
 <?php
