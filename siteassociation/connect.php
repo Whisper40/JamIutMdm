@@ -236,7 +236,7 @@ $db->query("UPDATE users SET numberofattempts='$newattempts' WHERE email='$email
                     <i class="now-ui-icons ui-1_email-85"></i>
                   </span>
                 </div>
-                <input  type="email" name="email" class="form-control" placeholder="Email"/>
+                <input type="email" name="email" class="form-control" placeholder="Email" value="<?php echo $_POST['email'];?>"/>
               </div>
               <div class="input-group no-border input-lg">
                 <div class="input-group-prepend">
