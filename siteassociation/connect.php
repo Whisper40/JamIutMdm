@@ -3,6 +3,7 @@
     require_once('includes/refusebypassconnection.php');
     $nompage = "Connexion";
     require_once('includes/head.php');
+    require_once('includes/quantcast.php');
 
 
 

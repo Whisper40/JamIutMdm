@@ -2,6 +2,7 @@
     require_once('includes/connectBDD.php');
     $nompage = "Galerie";
     require_once('includes/head.php');
+    require_once('includes/quantcast.php');
 ?>
 <style>
 .page-header .page-header-image {

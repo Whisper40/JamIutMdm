@@ -2,6 +2,7 @@
     require_once('includes/connectBDD.php');
     $nompage = "Index";
     require_once('includes/head.php');
+    require_once('includes/quantcast.php');
 ?>
 
 <body class="index-page sidebar-collapse">

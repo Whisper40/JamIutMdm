@@ -2,6 +2,7 @@
     require_once('includes/connectBDD.php');
     $nompage = "Récupération mot de passe";
     require_once('includes/head.php');
+    require_once('includes/quantcast.php');
 
 
 //Code de génératon du captcha fournie par GOOGLE
