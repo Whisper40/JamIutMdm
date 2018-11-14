@@ -24,7 +24,7 @@ require_once('includes/head.php');
                             <div class="card card-product">
                                 <div class="card-image" data-header-animation="true">
                                     <a href="#pablo">
-                                        <img class="img" src="../assets/img/card-2.jpeg">
+                                        <img class="img" src="assets/img/bg1.jpg">
                                     </a>
                                 </div>
                                 <div class="card-content">
@@ -63,7 +63,7 @@ require_once('includes/head.php');
                             <div class="card card-product">
                                 <div class="card-image" data-header-animation="true">
                                     <a href="#pablo">
-                                        <img class="img" src="../assets/img/card-3.jpeg">
+                                      <img class="img" src="assets/img/bg1.jpg">
                                     </a>
                                 </div>
                                 <div class="card-content">
@@ -102,7 +102,7 @@ require_once('includes/head.php');
                             <div class="card card-product">
                                 <div class="card-image" data-header-animation="true">
                                     <a href="#pablo">
-                                        <img class="img" src="../assets/img/card-1.jpeg">
+                                      <img class="img" src="assets/img/bg1.jpg">
                                     </a>
                                 </div>
                                 <div class="card-content">
