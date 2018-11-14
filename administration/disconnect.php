@@ -3,6 +3,6 @@ session_start();
 session_unset();
 session_destroy();
 
-header('Location: https://sdedikool.me/');
+header('Location: https://jam-mdm.fr/');
 
 ?>
