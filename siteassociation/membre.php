@@ -26,6 +26,7 @@
         <h2 class="title">Voici notre équipe</h2>
         <div class="team">
 
+
           <?php
           $cat = $db->query("SELECT DISTINCT categorie FROM membres");
           while($unecat = $cat->fetch(PDO::FETCH_OBJ)){
@@ -43,7 +44,7 @@
           </div>
         <br><br><br>        <br><br>
 
-          <div class="row">
+        <div class="row">
 
 
             <?php
@@ -63,6 +64,9 @@
                 ?>
 
           </div>
+          <?php
+              }
+              ?>
         </div>
       </div>
     </div>
