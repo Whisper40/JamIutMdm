@@ -25,10 +25,29 @@
       <div class="container">
         <h2 class="title">Voici notre équipe</h2>
         <div class="team">
+
+          <?php
+          $cat = $db->query("SELECT DISTINCT categorie FROM membres");
+          while($unecat = $cat->fetch(PDO::FETCH_OBJ)){
+          $lacat = $unecat->categorie
+            ?>
+
+          <div class="pull-left">
+            <h3 class="title">
+              <ul>
+                <li>
+                  <?php echo $lacat ?>
+                </li>
+              </ul>
+            </h3>
+          </div>
+        <br><br><br>        <br><br>
+
           <div class="row">
 
+
             <?php
-            $membres = $db->query("SELECT * FROM membres");
+            $membres = $db->query("SELECT * FROM membres WHERE categorie = '$lacat'");
             while($unmembre = $membres->fetch(PDO::FETCH_OBJ)){
               ?>
             <div class="col-md-4">
