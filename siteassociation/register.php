@@ -210,7 +210,7 @@ if(!isset($_SESSION['user_id'])){
                   <i class="now-ui-icons users_single-02"></i>
                 </span>
               </div>
-              <input type="text" name="nom" class="form-control" placeholder="Nom"/>
+              <input type="text" name="nom" class="form-control" placeholder="Nom" value="<?php $_POST['nom'];?>"/>
             </div>
             <div class="input-group no-border input-lg">
               <div class="input-group-prepend">
@@ -218,7 +218,7 @@ if(!isset($_SESSION['user_id'])){
                   <i class="now-ui-icons users_single-02"></i>
                 </span>
               </div>
-              <input type="text" name="prenom" class="form-control" placeholder="Prénom"/>
+              <input type="text" name="prenom" class="form-control" placeholder="Prénom" value="<?php $_POST['prenom'];?>"/>
             </div>
             <div class="input-group no-border input-lg">
               <div class="input-group-prepend">
@@ -226,7 +226,7 @@ if(!isset($_SESSION['user_id'])){
                   <i class="now-ui-icons travel_info"></i>
                 </span>
               </div>
-              <input type="text" name="ine" class="form-control" placeholder="Code UPPA" data-toggle="tooltip" data-placement="right" title="Ce code se trouve sur votre carte étudiante IZLY" data-container="body" data-animation="true"/>
+              <input type="text" name="ine" class="form-control" placeholder="Code UPPA" data-toggle="tooltip" data-placement="right" title="Ce code se trouve sur votre carte étudiante IZLY" data-container="body" data-animation="true" value="<?php $_POST['ine'];?>"/>
             </div>
             <div class="input-group no-border input-lg">
               <div class="input-group-prepend">
@@ -234,7 +234,7 @@ if(!isset($_SESSION['user_id'])){
                   <i class="now-ui-icons ui-1_email-85"></i>
                 </span>
               </div>
-              <input type="email" name="email" class="form-control" placeholder="Email"/>
+              <input type="email" name="email" class="form-control" placeholder="Email" value="<?php $_POST['email'];?>"/>
             </div>
             <div class="input-group no-border input-lg">
               <div class="input-group-prepend">
