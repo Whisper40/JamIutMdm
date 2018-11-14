@@ -67,7 +67,6 @@
          </div>
        </div>
 
-       <div class="section">
          <div class="container">
            <div class="row">
              <div class="col-md-auto ml-auto mr-auto">
@@ -87,6 +86,7 @@
                  </ul>
                </div>
              </div>
+           </div>
              <!-- Tab panes -->
              <div class="tab-content gallery">
                <?php
@@ -172,7 +172,6 @@
            </div>
          </div>
       </div>
-
 
 <?php
     require_once('includes/footer.php');
