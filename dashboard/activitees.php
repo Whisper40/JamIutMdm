@@ -20,7 +20,7 @@ require_once('includes/head.php');
             <h3>Manage Listings</h3>
                     <br>
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="card card-product">
                                 <div class="card-image" data-header-animation="true">
                                     <a href="#pablo">
@@ -59,7 +59,7 @@ require_once('includes/head.php');
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="card card-product">
                                 <div class="card-image" data-header-animation="true">
                                     <a href="#pablo">
@@ -98,7 +98,7 @@ require_once('includes/head.php');
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="card card-product">
                                 <div class="card-image" data-header-animation="true">
                                     <a href="#pablo">
