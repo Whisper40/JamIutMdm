@@ -2,6 +2,7 @@
     require_once('includes/connectBDD.php');
     $nompage = "Présentation association";
     require_once('includes/head.php');
+    require_once('includes/quantcast.php');
 ?>
 
 <body class="landing-page sidebar-collapse">
