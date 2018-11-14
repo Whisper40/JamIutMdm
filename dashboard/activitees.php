@@ -66,8 +66,8 @@ require_once('includes/head.php');
                                         <h4><?php echo $row['price']; ?>€                                                       </td>
                                      <?php $price = $row['price']; ?></h4>
                                     </div>
-                                    <div class="pull-right">
-                                      dddd
+                                    <div class="stats pull-right">
+                                        <p class="category"><i class="material-icons">place</i> Milan, Italy</p>
                                     </div>
                                 </div>
                             </div>
