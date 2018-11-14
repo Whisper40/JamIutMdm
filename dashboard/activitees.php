@@ -62,8 +62,11 @@ require_once('includes/head.php');
                                     </div>
                                 </div>
                                 <div class="card-footer">
+                                    <div class="price">
                                         <h4><?php echo $row['price']; ?>€                                                       </td>
                                      <?php $price = $row['price']; ?></h4>
+                                    </div>
+                                    <div class="price pull-right">
                                         <a href="activiteesencours.php?activityname=<?php echo $row['slug'];?>"<i class="material-icons" title="Commander l'activité">add_shopping_cart</i></a>
                                     </div>
                                 </div>
