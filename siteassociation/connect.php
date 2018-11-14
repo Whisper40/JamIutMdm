@@ -5,6 +5,8 @@
     require_once('includes/head.php');
 
 
+
+
                       // START - Récupération de l'ip de connexion de l'utilisateur, même à travers de proxy !
                       function get_ip() {
                       // IP si internet partagé
@@ -69,23 +71,24 @@
                       // On demande l'utilisateur avec cet email qui n'est pas bannis et qui n'a pas de tentative de connexion frauduleuses
                         $email = htmlspecialchars($_POST['email']);
                         $password = htmlspecialchars($_POST['password']);
-                        $ban = '0';
-                        $attempts = 5;
-                        $selectban = $db->prepare("SELECT * FROM users WHERE email=:email and ban=:ban and numberofattempts<:attempts");
-                        $selectban->execute(array(
-                            "email" => $email,
-                            "ban" => $ban,
-                            "attempts" => $attempts
-                            )
-                        );
-                        if($selectban->rowCount()==1){ // On selectionne les personnes non bannis, sinon on affiche quelles sont bannis
-                            if($email&&$password){
+                        if($email&&$password){
                                 $select = $db->prepare("SELECT * FROM users WHERE email=:email");
                                 $select->execute(array(
                                     "email" => $email
                                     )
                                 );
                                 if($select->rowCount()==1){
+                                  $ban = '0';
+                                  $attempts = 5;
+                                  $selectban = $db->prepare("SELECT * FROM users WHERE email=:email and ban=:ban and numberofattempts<:attempts");
+                                  $selectban->execute(array(
+                                      "email" => $email,
+                                      "ban" => $ban,
+                                      "attempts" => $attempts
+                                      )
+                                  );
+                                  if($selectban->rowCount()==1){ // On selectionne les personnes non bannis, sinon on affiche quelles sont bannis
+
 
                                     $data = $select->fetch();
                                     if(password_verify($password, $data['password'])){
@@ -164,7 +167,25 @@ $recupnumberofattempts = $rattempts->numberofattempts;
 $newattempts = $recupnumberofattempts + '1';
 $db->query("UPDATE users SET numberofattempts='$newattempts' WHERE email='$email'");
 
-       }
+}}else{
+  ?>
+          <div class="container">
+             <div class="row">
+               <div class="col-sm-12 ml-auto mr-auto">
+                <div class="alert alert-danger">
+                   <div class="alert-icon">
+                      <i class="now-ui-icons ui-1_bell-53"></i>
+                   </div>
+                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                     <span aria-hidden="true"><i class="now-ui-icons ui-1_simple-remove"></i></span>
+                   </button>
+                      <b>Erreur :</b> Votre compte est bannis ou désactivé !
+                </div>
+              </div>
+             </div>
+          </div>
+  <?php
+}
                }
                 else{
 ?>
@@ -205,24 +226,7 @@ $db->query("UPDATE users SET numberofattempts='$newattempts' WHERE email='$email
         </div>
 <?php
             }
-          }else {
-            ?>
-                    <div class="container">
-                       <div class="row">
-                         <div class="col-sm-12 ml-auto mr-auto">
-                          <div class="alert alert-danger">
-                             <div class="alert-icon">
-                                <i class="now-ui-icons ui-1_bell-53"></i>
-                             </div>
-                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                               <span aria-hidden="true"><i class="now-ui-icons ui-1_simple-remove"></i></span>
-                             </button>
-                                <b>Erreur :</b> Votre compte à été bannis ou désactivé !
-                          </div>
-                        </div>
-                       </div>
-                    </div>
-            <?php          }
+
         }
 ?>
             <div class="card-body">
