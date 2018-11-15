@@ -39,20 +39,7 @@
 
 <?php
     require_once('includes/navbar.php');
-?>
 
-<div class="wrapper">
-  <div class="page-header page-header-small">
-    <div class="page-header-image" data-parallax="true" style="background-image: url('./assets/img/bg1.jpg');">
-    </div>
-    <div class="content-center">
-      <div class="container">
-        <h1 class="title">Activitées et Voyages</h1>
-      </div>
-    </div>
-  </div>
-
-  <?php
 
   if(isset($_GET['showmethisactivity'])){
 		$product = htmlentities($_GET['showmethisactivity']);
@@ -68,17 +55,66 @@
 		$description_finale3=wordwrap($description3,100,'<br />', false);
 		?>
 
-		<br/><div style="text-align:center;">
-		<img src="assets/img/<?php echo $s->slug; ?>.<?php echo $s->formatimg; ?>"/>
-		<h1><?php echo $s->title; ?></h1>
-		<h5><?php echo $description_finale; ?></h5>
+    <div class="wrapper">
+      <div class="page-header page-header-small">
+        <div class="page-header-image" data-parallax="true" style="background-image: url('./assets/img/<?php echo $s->slug; ?>.<?php echo $s->formatimg; ?>');">
+        </div>
+        <div class="content-center">
+          <div class="container">
+            <h1 class="title"><?php echo $s->title; ?></h1>
+          </div>
+        </div>
+      </div>
 
-		<h1><?php echo $s->title2; ?></h1>
-		<h5><?php echo $description_finale2; ?></h5>
+      <div class="section section-about-us">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 ml-auto mr-auto text-center">
+              <h5 class="description"><?php echo $description_finale; ?></h5>
+            </div>
+          </div>
+        </div>
+      </div>
 
-		<h1><?php echo $s->title3; ?></h1>
-		<h5><?php echo $description_finale3; ?></h5>
+      <div class="pull-left">
+        <h3 class="title">
+          <ul>
+            <li>
+              <?php echo $s->title2; ?>
+            </li>
+          </ul>
+        </h3>
+      </div>
 
+      <div class="section section-about-us">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 ml-auto mr-auto text-center">
+              <h5 class="description"><?php echo $description_finale2; ?></h5>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pull-left">
+        <h3 class="title">
+          <ul>
+            <li>
+              <?php echo $s->title3; ?>
+            </li>
+          </ul>
+        </h3>
+      </div>
+
+      <div class="section section-about-us">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 ml-auto mr-auto text-center">
+              <h5 class="description"><?php echo $description_finale3; ?></h5>
+            </div>
+          </div>
+        </div>
+      </div>
 
 		<h5>Places restantes : <?php echo $s->stock; ?></h5>
 		<?php if ($s->stock>0){ ?><a href="panier.php?action=ajout&amp;l=<?php echo $s->slug; ?>&amp;q=1&amp;p=<?php echo $s->price; ?>">Je Participe !</a><?php }else{echo'<h5 style="color:red;">Aucune place n\'est disponible !</h5>';}
@@ -98,6 +134,18 @@
 		$select->execute();
 
       ?>
+
+      <div class="wrapper">
+        <div class="page-header page-header-small">
+          <div class="page-header-image" data-parallax="true" style="background-image: url('./assets/img/bg1.jpg');">
+          </div>
+          <div class="content-center">
+            <div class="container">
+              <h1 class="title">Activitées et Voyages</h1>
+            </div>
+          </div>
+        </div>
+
       <div class="section section-about-us">
         <div class="container">
           <div class="row">
