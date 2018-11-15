@@ -555,7 +555,7 @@ if (stripos($activity_slug, 'ski') !== FALSE){
 // Si la page n'a aucun paramètre alors on affiche celle-ci , ou alors on renvoie vers la page d'accueil..
 
 }else{
-  require_once('includes/checkmembrejam.php');
+  require_once('includes/checkmemberjam.php');
   if ($access = '1'){
 
 
