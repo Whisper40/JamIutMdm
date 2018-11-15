@@ -50,6 +50,7 @@ require_once('includes/head.php');
                                     </div>
                                     <center>
                                     <button class="btn btn-primary btn-round btn-sm">Je participe</button>
+                                    <button class="btn btn-primary btn-round btn-sm">Voir l'activitée</button>
                                     </center>
                                 </div>
                             </div>
