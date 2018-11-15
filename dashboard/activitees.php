@@ -40,31 +40,13 @@ require_once('includes/head.php');
                                     </a>
                                 </div>
                                 <div class="card-content">
-                                    <div class="card-actions">
-                                        <button type="button" class="btn btn-danger btn-simple fix-broken-card">
-                                            <i class="material-icons">build</i> Fix Header!
-                                        </button>
-                                        <button type="button" class="btn btn-default btn-simple" rel="tooltip" data-placement="bottom" title="View">
-                                            <i class="material-icons">art_track</i>
-                                        </button>
-                                        <button type="button" class="btn btn-success btn-simple" rel="tooltip" data-placement="bottom" title="Edit">
-                                            <i class="material-icons">edit</i>
-                                        </button>
-                                        <button type="button" class="btn btn-danger btn-simple" rel="tooltip" data-placement="bottom" title="Remove">
-                                            <i class="material-icons">close</i>
-                                        </button>
-                                    </div>
                                     <h4 class="card-title">
                                         <a href="#pablo"><?php echo $row['title']; ?></a>
                                     </h4>
                                     <div class="card-description">
                                       <?php echo $row['datesejour']; ?>
                                     </div>
-                                    <div class="price">
-                                        <h4><?php echo $row['price']; ?>€                                                       </td>
-                                     <?php $price = $row['price']; ?></h4>
-                                    </div>
-                                    <div class="price pull-right">
+                                    <div class="pull-center">
                                         <a href="activiteesencours.php?activityname=<?php echo $row['slug'];?>"<i class="material-icons" title="Commander l'activité">add_shopping_cart</i></a>
                                     </div>
                                 </div>
