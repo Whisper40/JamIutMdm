@@ -46,9 +46,7 @@ require_once('includes/head.php');
                                     <div class="card-description">
                                       <?php echo $row['datesejour']; ?>
                                     </div>
-                                    <div class="pull-center">
-                                        <a href="activiteesencours.php?activityname=<?php echo $row['slug'];?>"<i class="material-icons" title="Commander l'activité">add_shopping_cart</i></a>
-                                    </div>
+                                    <button class="btn btn-primary btn-round">round</button>
                                 </div>
                             </div>
                         </div>
