@@ -95,7 +95,7 @@
 		'Publisher Name': 'Jam',
 		'Display UI': 'always',
 		'Publisher Purpose IDs': [1,5],
-		'Post Consent Page': 'http://iutpa.univ-pau.fr/fr/index.html',
+		'Post Consent Page': 'http://google.fr/',
 		'Consent Scope': 'service',
 		'Publisher Purpose Legitimate Interest IDs': [1,5],
     });
