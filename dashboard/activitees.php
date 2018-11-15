@@ -46,6 +46,10 @@ require_once('includes/head.php');
                                     <div class="card-description">
                                       <?php echo $row['datesejour']; ?>
                                     </div>
+                                    <div class="price">
+                                      <?php echo $row['price']; ?>€
+                                   <?php $price = $row['price']; ?>
+                                    </div>
                                     <center>
                                     <button class="btn btn-primary btn-round btn-xs">round</button>
                                   </center>
