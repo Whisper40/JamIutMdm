@@ -36,7 +36,7 @@ require_once('includes/head.php');
                             <div class="card card-product">
                                 <div class="card-image" data-header-animation="false">
                                     <a href="#pablo">
-                                        <img class="img" src="assets/img/bg1.jpg">
+                                        <img class="img" src="assets/img/<?php echo $row['slug']; ?>.<?php echo $row['formatimg']; ?>">
                                     </a>
                                 </div>
                                 <div class="card-content">
@@ -49,7 +49,8 @@ require_once('includes/head.php');
                                         <?php $price = $row['price']; ?>
                                     </div>
                                     <center>
-                                    <button class="btn btn-primary btn-round btn-sm">Je participe</button>
+                                      <a href="activiteesencours.php?activityname=<?php echo $row['slug'];?>">
+                                    <button class="btn btn-primary btn-round btn-sm">Je participe</button></a>
                                     </center>
                                 </div>
                             </div>
