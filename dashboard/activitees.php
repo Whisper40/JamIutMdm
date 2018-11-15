@@ -48,10 +48,9 @@ require_once('includes/head.php');
                                       <p>Prix : <b><?php echo $row['price']; ?>€</b></p>
                                         <?php $price = $row['price']; ?>
                                     </div>
-                                    <div class="pull-center">
-                                      <button class="btn btn-primary btn-round btn-sm">Je participe</button>
-                                      <button class="btn btn-primary btn-round btn-xs">round</button>
-                                    </div>
+                                    <center>
+                                    <button class="btn btn-primary btn-round btn-sm">Je participe</button>
+                                    </center>
                                 </div>
                             </div>
                         </div>
