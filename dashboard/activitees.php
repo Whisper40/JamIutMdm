@@ -51,6 +51,7 @@ require_once('includes/head.php');
                                      <?php $price = $row['price']; ?></h4>
                                     </div>
                                     <div class="pull-right">
+                                      <button class="btn btn-primary btn-round">Je participe</button>
                                       <button class="btn btn-primary btn-round btn-xs">round</button>
                                     </div>
                                 </div>
