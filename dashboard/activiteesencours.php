@@ -555,6 +555,9 @@ if (stripos($activity_slug, 'ski') !== FALSE){
 // Si la page n'a aucun paramètre alors on affiche celle-ci , ou alors on renvoie vers la page d'accueil..
 
 }else{
+  require_once('includes/checkmembrejam.php');
+  if ($access = '1'){
+
 
 ?>
 
@@ -624,6 +627,11 @@ if (stripos($activity_slug, 'ski') !== FALSE){
       </div>
   </div>
   <?php
+
+}else{
+  echo ' Je suis le bandeau qui interdit la visibilité des activitées aux non inscrits ';
+}
+
 
 }
 
