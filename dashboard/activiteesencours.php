@@ -4,6 +4,7 @@ require_once('includes/connectBDD.php');
 require_once('includes/checkconnection.php');
 $nompage = "Les activitées en cours";
 require_once('includes/head.php');
+ini_set('display_errors', 1);
 
 ?>
 <script src="https://www.paypalobjects.com/api/checkout.js"></script>
@@ -556,7 +557,7 @@ if (stripos($activity_slug, 'ski') !== FALSE){
 
 }else{
   require_once('includes/checkmemberjam.php');
-  if ($access = '1'){
+  if ($access = 1){
 
 
 ?>
