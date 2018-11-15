@@ -4,7 +4,6 @@ require_once('includes/connectBDD.php');
 require_once('includes/checkconnection.php');
 $nompage = "Les activitées en cours";
 require_once('includes/head.php');
-ini_set('display_errors', 1);
 
 ?>
 <script src="https://www.paypalobjects.com/api/checkout.js"></script>
@@ -556,9 +555,6 @@ if (stripos($activity_slug, 'ski') !== FALSE){
 // Si la page n'a aucun paramètre alors on affiche celle-ci , ou alors on renvoie vers la page d'accueil..
 
 }else{
-  require_once('includes/checkmemberjam.php');
-  if ($access = 1){
-
 
 ?>
 
@@ -628,11 +624,6 @@ if (stripos($activity_slug, 'ski') !== FALSE){
       </div>
   </div>
   <?php
-
-}else{
-  echo ' Je suis le bandeau qui interdit la visibilité des activitées aux non inscrits ';
-}
-
 
 }
 
