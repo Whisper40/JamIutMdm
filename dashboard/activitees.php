@@ -60,8 +60,6 @@ require_once('includes/head.php');
                                     <div class="card-description">
                                       <?php echo $row['datesejour']; ?>
                                     </div>
-                                </div>
-                                <div class="card-footer">
                                     <div class="price">
                                         <h4><?php echo $row['price']; ?>€                                                       </td>
                                      <?php $price = $row['price']; ?></h4>
