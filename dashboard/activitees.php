@@ -46,13 +46,15 @@ require_once('includes/head.php');
                                     <div class="card-description">
                                       <?php echo $row['datesejour']; ?>
                                     </div>
-                                    <div class="price">
-                                      <?php echo $row['price']; ?>€
-                                   <?php $price = $row['price']; ?>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="price pull-left">
+                                        <h4><?php echo $row['price']; ?>€
+                                     <?php $price = $row['price']; ?></h4>
                                     </div>
-                                    <center>
-                                    <button class="btn btn-primary btn-round btn-xs">round</button>
-                                  </center>
+                                    <div class="pull-right">
+                                      <button class="btn btn-primary btn-round btn-xs">round</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
