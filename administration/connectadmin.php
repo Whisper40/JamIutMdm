@@ -1,7 +1,7 @@
 <?php
     require_once('includes/connectBDD.php');
 
-    $nompage = "Connexion";
+    $nompage = "Admin Connexion";
     require_once('includes/head.php');
 
 
@@ -67,24 +67,23 @@
 <?php
                   // START - Process de connexion :
 
-                if(!isset($_SESSION['user_id'])){
+                if(!isset($_SESSION['user_idadmin'])){
                     if(isset($_POST['submit'])){
                       // On demande l'utilisateur avec cet email qui n'est pas bannis et qui n'a pas de tentative de connexion frauduleuses
                         $email = htmlspecialchars($_POST['email']);
                         $password = htmlspecialchars($_POST['password']);
                         if($email&&$password){
-                                $select = $db->prepare("SELECT * FROM users WHERE email=:email");
+                                $select = $db->prepare("SELECT * FROM admin WHERE email=:email");
                                 $select->execute(array(
                                     "email" => $email
                                     )
                                 );
                                 if($select->rowCount()==1){
-                                  $ban = '0';
+
                                   $attempts = 5;
-                                  $selectban = $db->prepare("SELECT * FROM users WHERE email=:email and ban=:ban and numberofattempts<:attempts");
+                                  $selectban = $db->prepare("SELECT * FROM users WHERE email=:email and numberofattempts<:attempts");
                                   $selectban->execute(array(
                                       "email" => $email,
-                                      "ban" => $ban,
                                       "attempts" => $attempts
                                       )
                                   );
@@ -95,9 +94,9 @@
                                     if(password_verify($password, $data['password'])){
                                       //Si le mot de passe correspond à l'email utilisé par la personne alors on définis les variables de sessions
 
-                                        $_SESSION['user_id'] = $data['id'];
-                                        $_SESSION['user_name'] = $data['username'];
-                                        $_SESSION['user_email'] = $data['email'];
+                                        $_SESSION['user_idadmin'] = $data['id'];
+                                        $_SESSION['user_nameadmin'] = $data['username'];
+                                        $_SESSION['user_emailadmin'] = $data['email'];
 
                     // FIN - Process de connexion
 
@@ -108,10 +107,10 @@
                                 setlocale(LC_TIME, 'fr_FR.utf8','fra');
                                 $date = strftime('%d/%m/%Y %H:%M:%S');
                                 // On ajoute dans la BDD l'ensemble des informations de l'utilisateur qui se connecte, son IP, son navigateur ainsi que la date de connexion de la personne.
-                                $insertinfos = $db->prepare("INSERT INTO histconnexion (user_id, ip, navigateur, date) VALUES(:user_id, :ip, :navigateur, :date)");
+                                $insertinfos = $db->prepare("INSERT INTO histconnexionadmin (user_id, ip, navigateur, date) VALUES(:user_id, :ip, :navigateur, :date)");
                                 $insertinfos->execute(array(
 
-                                    "user_id"=>$_SESSION['user_id'],
+                                    "user_id"=>$_SESSION['user_idadmin'],
                                     "ip"=>$ip,
                                     "navigateur"=>$user_agent_name,
                                     "date"=>$date
@@ -125,11 +124,11 @@
                         date_default_timezone_set('Europe/Paris');
                         setlocale(LC_TIME, 'fr_FR.utf8','fra');
                         $date = strftime('%Y/%m/%d %H:%M:%S');
-                        $user_id = $_SESSION['user_id'];
+                        $user_id = $_SESSION['user_idadmin'];
                         //On réinitialise le nombre de tentatives avec echec.
                         $attempts = 0;
-                        $db->query("UPDATE users SET numberofattempts='$attempts' WHERE id='$user_id'");
-                        $update = $db->prepare("UPDATE users SET last_connect=:date WHERE id=:id");
+                        $db->query("UPDATE admin SET numberofattempts='$attempts' WHERE id='$user_id'");
+                        $update = $db->prepare("UPDATE admin SET last_connect=:date WHERE id=:id");
                         $update->execute(array(
                             "date"=>$date,
                             "id"=>$user_id
@@ -140,7 +139,7 @@
                    // Redirection en javascript car le header location pose problème dans ce cas :(
                    ?>
 
-                      <script>window.location="https://dashboard.jam-mdm.fr/";</script><?php
+                      <script>window.location="https://administration.jam-mdm.fr/";</script><?php
 
                     }else{
 ?>
@@ -162,11 +161,11 @@
 <?php
 // Ajout de tentative avec erreurs de mdp.
 $email = htmlspecialchars($_POST['email']);
-$numberofattempts = $db->query("SELECT numberofattempts from users WHERE email='$email'");
+$numberofattempts = $db->query("SELECT numberofattempts from admin WHERE email='$email'");
 $rattempts = $numberofattempts->fetch(PDO::FETCH_OBJ);
 $recupnumberofattempts = $rattempts->numberofattempts;
 $newattempts = $recupnumberofattempts + '1';
-$db->query("UPDATE users SET numberofattempts='$newattempts' WHERE email='$email'");
+$db->query("UPDATE admin SET numberofattempts='$newattempts' WHERE email='$email'");
 
 }}else{
   ?>
