@@ -44,8 +44,8 @@ require_once('includes/head.php');
                                         <a href="#pablo"><?php echo $row['title']; ?></a>
                                     </h3>
                                     <div class="card-description">
-                                      <p><?php echo $row['datesejour']; ?></p>
-                                      <p>Prix : <b><?php echo $row['price']; ?>€</b></p>
+                                      <h4><p><?php echo $row['datesejour']; ?>
+                                      Prix : <b><?php echo $row['price']; ?>€</b></p></h4>
                                         <?php $price = $row['price']; ?>
                                     </div>
                                     <center>
