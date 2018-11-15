@@ -40,12 +40,12 @@ require_once('includes/head.php');
                                     </a>
                                 </div>
                                 <div class="card-content">
-                                    <h4 class="card-title">
+                                    <h3 class="card-title">
                                         <a href="#pablo"><?php echo $row['title']; ?></a>
-                                    </h4>
+                                    </h3>
                                     <div class="card-description">
-                                      <p><?php echo $row['datesejour']; ?></p>
-                                      <p>Prix : <b><?php echo $row['price']; ?>€</b></p>
+                                      <h6><p><?php echo $row['datesejour']; ?></p>
+                                      <p>Prix : <b><?php echo $row['price']; ?>€</b></p></h6>
                                         <?php $price = $row['price']; ?>
                                     </div>
                                     <center>
