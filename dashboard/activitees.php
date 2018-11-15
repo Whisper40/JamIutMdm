@@ -46,8 +46,9 @@ require_once('includes/head.php');
                                     <div class="card-description">
                                       <?php echo $row['datesejour']; ?>
                                     </div>
-                                    <button class="btn btn-primary btn-round">round</button>
-                                    <button class="btn btn-primary btn-xs">x-Small</button>
+                                    <center>
+                                    <button class="btn btn-primary btn-round btn-xs">round</button>
+                                  </center>
                                 </div>
                             </div>
                         </div>
