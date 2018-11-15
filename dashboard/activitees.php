@@ -44,13 +44,12 @@ require_once('includes/head.php');
                                         <a href="#pablo"><?php echo $row['title']; ?></a>
                                     </h3>
                                     <div class="card-description">
-                                      <h5><p><?php echo $row['datesejour']; ?></p>
-                                      <p>Prix : <b><?php echo $row['price']; ?>€</b></p></h5>
+                                      <p><?php echo $row['datesejour']; ?></p>
+                                      <p>Prix : <b><?php echo $row['price']; ?>€</b></p>
                                         <?php $price = $row['price']; ?>
                                     </div>
                                     <center>
                                     <button class="btn btn-primary btn-round btn-sm">Je participe</button>
-                                    <button class="btn btn-primary btn-round btn-sm">Voir l'activitée</button>
                                     </center>
                                 </div>
                             </div>
