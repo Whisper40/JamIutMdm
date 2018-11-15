@@ -48,7 +48,7 @@ require_once('includes/head.php');
                                     </div>
                                 </div>
                                 <div class="card-footer">
-                                    <div class="price pull-left">
+                                    <div class="pull-left">
                                         <h4><?php echo $row['price']; ?>€
                                      <?php $price = $row['price']; ?></h4>
                                     </div>
