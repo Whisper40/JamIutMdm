@@ -54,23 +54,38 @@
     </div>
 
     <?php
-    $asso = $db->query("SELECT * FROM ########");
+    $asso = $db->query("SELECT * FROM status");
     while($association = $asso->fetch(PDO::FETCH_OBJ)){
       ?>
 
-    <div class="section section-about-us">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 ml-auto mr-auto text-center">
-            <h2 class="title">Qui sommes nous ?</h2>
-            <h5 class="description"><?php echo $association->description1 ?></h5>
+      <div class="section section-team text-center">
+        <div class="container">
+          <div class="team">
+            <div class="pull-left">
+              <h3 class="title">
+                <ul>
+                  <li>
+                    ARTICLE <?php echo $association->article; ?> - <?php echo $association->titre; ?>
+                  </li>
+                </ul>
+              </h3>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-      <?php
-          }
-          ?>
+      <br><br><br><br><br>
+      <div class="section section-about-us">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 ml-auto mr-auto text-center">
+              <h5 class="description"><?php echo $association->description; ?></h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    <?php
+        }
+    ?>
   </div>
 
   <?php
