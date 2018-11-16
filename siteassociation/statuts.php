@@ -61,7 +61,6 @@
         </div>
       </div>
     </div>
-    <br><br>
 
     <?php
     $asso = $db->query("SELECT * FROM status");
@@ -83,7 +82,7 @@
           </div>
         </div>
       </div>
-      <br><br><br><br><br>
+      <br><br><br>
       <div class="section section-about-us">
         <div class="container">
           <div class="row">
