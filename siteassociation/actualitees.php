@@ -41,6 +41,8 @@
 <?php
     require_once('includes/navbar.php');
 
+    $head = $db->query("SELECT * FROM photopage WHERE nompage = '$nompage'");
+    $pagehead = $head->fetch(PDO::FETCH_OBJ);
 ?>
 
       <div class="page-header page-header-small">

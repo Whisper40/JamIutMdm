@@ -4,6 +4,7 @@
     require_once('includes/head.php');
     require_once('includes/quantcast.php');
 ?>
+
 <style>
 .page-header .page-header-image {
   position: absolute;
@@ -50,28 +51,31 @@
  <link rel="stylesheet" href="includes/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
  <script type="text/javascript" src="includes/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
 
-   <body class="profile-page sidebar-collapse">
+<body class="profile-page sidebar-collapse">
+  <div class="wrapper">
 
 <?php
     require_once('includes/navbar.php');
+
+    $head = $db->query("SELECT * FROM photopage WHERE nompage = '$nompage'");
+    $pagehead = $head->fetch(PDO::FETCH_OBJ);
 ?>
 
 
-     <div class="wrapper">
-       <div class="page-header page-header-small">
-         <div class="page-header-image" data-parallax="true" style="background-image: url('./assets/img/bg1.jpg');">
-         </div>
-         <div class="content-center">
-           <div class="container">
-             <h1 class="title">Galerie Photo</h1>
-           </div>
-         </div>
-       </div>
+        <div class="page-header page-header-small">
+          <div class="page-header-image" data-parallax="true" style="background-image: url('./assets/img/<?php echo $pagehead->image; ?>');">
+          </div>
+          <div class="content-center">
+            <div class="container">
+              <h1 class="title"><?php echo $pagehead->pagetitre; ?></h1>
+            </div>
+          </div>
+        </div>
 
          <div class="container">
            <div class="row">
              <div class="col-md-auto ml-auto mr-auto">
-               <h3 class="title text-center">Mon Album Photos</h3>
+               <h2 class="title text-center"><?php echo $pagehead->pagetitre; ?></h2>
                <div class="nav-align-center">
                  <ul class="nav nav-pills nav-pills-primary nav-pills-just-icons" role="tablist">
                    <?php

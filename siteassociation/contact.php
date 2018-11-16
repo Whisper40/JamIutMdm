@@ -8,6 +8,7 @@
 $secret = "LESECRET";
 $sitekey = "LESITEKEY";
 ?>
+
 <style>
 .page-header .page-header-image {
   position: absolute;
@@ -40,29 +41,30 @@ $sitekey = "LESITEKEY";
 </style>
 <script src='https://www.google.com/recaptcha/api.js'></script>
 
-
 <body class="landing-page sidebar-collapse">
+  <div class="wrapper">
 
 <?php
     require_once('includes/navbar.php');
+
+    $head = $db->query("SELECT * FROM photopage WHERE nompage = '$nompage'");
+    $pagehead = $head->fetch(PDO::FETCH_OBJ);
 ?>
 
-  <div class="wrapper">
     <div class="page-header page-header-small">
-      <div class="page-header-image" data-parallax="true" style="background-image: url('./assets/img/bg1.jpg');">
+      <div class="page-header-image" data-parallax="true" style="background-image: url('./assets/img/<?php echo $pagehead->image; ?>');">
       </div>
       <div class="content-center">
         <div class="container">
-          <h1 class="title">Nous contacter</h1>
-          <div class="text-center">
-          </div>
+          <h1 class="title"><?php echo $pagehead->pagetitre; ?></h1>
         </div>
       </div>
     </div>
+
     <div class="section section-contact-us text-center">
       <div class="container">
-        <h2 class="title">Vous avez une question ?</h2>
-        <p class="description">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <h2 class="title"><?php echo $pagehead->titre; ?></h2>
+        <p class="description"><?php echo $pagehead->description; ?></p>
         <div class="row">
           <div class="col-lg-6 text-center col-md-8 ml-auto mr-auto">
             <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">

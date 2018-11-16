@@ -4,6 +4,7 @@
     require_once('includes/head.php');
     require_once('includes/quantcast.php');
 ?>
+
 <style>
 .page-header .page-header-image {
   position: absolute;
@@ -36,19 +37,22 @@
 </style>
 
 <body class="landing-page sidebar-collapse">
+  <div class="wrapper">
 
 <?php
     require_once('includes/navbar.php');
+
+    $head = $db->query("SELECT * FROM photopage WHERE nompage = '$nompage'");
+    $pagehead = $head->fetch(PDO::FETCH_OBJ);
 ?>
 
 
-  <div class="wrapper">
     <div class="page-header page-header-small">
-      <div class="page-header-image" data-parallax="true" style="background-image: url('./assets/img/bg1.jpg');">
+      <div class="page-header-image" data-parallax="true" style="background-image: url('./assets/img/<?php echo $pagehead->image; ?>');">
       </div>
       <div class="content-center">
         <div class="container">
-          <h1 class="title">Présentation de l'Association</h1>
+          <h1 class="title"><?php echo $pagehead->pagetitre; ?></h1>
         </div>
       </div>
     </div>
@@ -56,7 +60,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto text-center">
-            <h2 class="title">Status de jeunesse associative montoise</h2>
+            <h2 class="title"><?php echo $pagehead->titre; ?></h2>
           </div>
         </div>
       </div>
