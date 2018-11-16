@@ -30,11 +30,11 @@ require_once('includes/head.php');
 
               <div class="container">
                   <div class="row">
-                      <div class="col-md-10 col-md-offset-1">
+                      <div class="col-md-12 col-md-offset-1">
                           <div class="card card-signup">
                               <h2 class="card-title text-center"><?php echo $s->title; ?></h2>
                               <div class="row">
-                                  <div class="col-md-5 col-md-offset-1">
+                                  <div class="col-md-4 col-md-offset-1">
                                       <div class="card-content">
                                           <div class="info info-horizontal">
                                               <div class="icon icon-rose">
@@ -77,7 +77,7 @@ require_once('includes/head.php');
                               $stock = $s->stock;
                                    ?>
 
-                                  <div class="col-md-5">
+                                  <div class="col-md-4">
 
                                     <?php
                                   }if (stripos($activity_slug, 'ski') != FALSE){
@@ -131,34 +131,46 @@ require_once('includes/head.php');
                                           </div>
                                       </form>
                                   </div>
+                                  <div class="col-md-4 col-md-offset-1">
+                                      <div class="card-content">
+                                          <div class="info info-horizontal">
+                                              <div class="icon icon-rose">
+                                                  <i class="material-icons">timeline</i>
+                                              </div>
+                                              <div class="description">
+                                                  <h4 class="info-title">Description</h4>
+                                                  <?php
+                                                  $optionmaterielform = $_POST['optionmateriel'];
+                                                  $optionrepasform = $_POST['optionrepas'];
+                                                  $selectpricemateriel = $db->query("SELECT price FROM activityradio WHERE packname='$optionmaterielform'");
+                                                  $r = $selectpricemateriel->fetch(PDO::FETCH_OBJ);
+                                                  $prixmateriel = $r->price;
+
+                                                  $selectpricerepas= $db->query("SELECT price FROM activityradio WHERE packname='$optionrepasform'");
+                                                  $r2 = $selectpricerepas->fetch(PDO::FETCH_OBJ);
+                                                  $prixrepas = $r2->price;
+
+                                                  if(isset($prixmateriel) && isset($prixrepas)){
+                                                  $total = $prixactivite + $prixmateriel + $prixrepas;
+                                                  ?><h2> Total = <?php echo $total;?>€
+                                                    <?php
+                                                  if($stock>0){
+                                                     ?>
+                                                    <div align="center" id="paypal-button"></div>
+                                                    <?php
+                                                  }else{
+                                                    ?>
+                                                    <button type="button">Aucune place disponible</button>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
                               </div>
                           </div>
                       </div>
                   </div>
               </div>
 
-          <?php
-          $optionmaterielform = $_POST['optionmateriel'];
-          $optionrepasform = $_POST['optionrepas'];
-          $selectpricemateriel = $db->query("SELECT price FROM activityradio WHERE packname='$optionmaterielform'");
-          $r = $selectpricemateriel->fetch(PDO::FETCH_OBJ);
-          $prixmateriel = $r->price;
-
-          $selectpricerepas= $db->query("SELECT price FROM activityradio WHERE packname='$optionrepasform'");
-          $r2 = $selectpricerepas->fetch(PDO::FETCH_OBJ);
-          $prixrepas = $r2->price;
-
-          if(isset($prixmateriel) && isset($prixrepas)){
-          $total = $prixactivite + $prixmateriel + $prixrepas;
-          ?><h2> Total = <?php echo $total;?>€
-            <?php
-          if($stock>0){
-             ?>
-            <div align="center" id="paypal-button"></div>
-            <?php
-          }else{
-            ?>
-            <button type="button">Aucune place disponible</button>
           <?php }  }
 
                                   //Si ce n'est pas du ski alors on passe à :
