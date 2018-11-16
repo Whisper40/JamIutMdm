@@ -30,11 +30,11 @@ require_once('includes/head.php');
 
               <div class="content">
                   <div class="container-fluid">
-                      <div class="col-md-12 col-md-offset-1">
+                      <div class="col-md-9 col-md-offset-1">
                           <div class="card card-signup">
                               <h2 class="card-title text-center"><?php echo $s->title; ?></h2>
                               <div class="row">
-                                  <div class="col-md-4 col-md-offset-1">
+                                  <div class="col-md-3 col-md-offset-1">
                                       <div class="card-content">
                                           <div class="info info-horizontal">
                                               <div class="icon icon-rose">
@@ -77,7 +77,7 @@ require_once('includes/head.php');
                               $stock = $s->stock;
                                    ?>
 
-                                  <div class="col-md-4">
+                                  <div class="col-md-3 col-md-offset-1">
 
                                     <?php
                                   }if (stripos($activity_slug, 'ski') != FALSE){
@@ -131,7 +131,7 @@ require_once('includes/head.php');
                                           </div>
                                       </form>
                                   </div>
-                                  <div class="col-md-4 col-md-offset-1">
+                                  <div class="col-md-3">
                                       <div class="card-content">
                                           <div class="info info-horizontal">
                                               <div class="icon icon-rose">
