@@ -75,7 +75,7 @@
          <div class="container">
            <div class="row">
              <div class="col-md-auto ml-auto mr-auto">
-               <h2 class="title text-center"><?php echo $pagehead->pagetitre; ?></h2>
+               <h2 class="title text-center"><?php echo $pagehead->titre; ?></h2>
                <div class="nav-align-center">
                  <ul class="nav nav-pills nav-pills-primary nav-pills-just-icons" role="tablist">
                    <?php
