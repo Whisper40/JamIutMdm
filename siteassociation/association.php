@@ -65,6 +65,7 @@
         </div>
       </div>
     </div>
+    <br>
 
       <div class="container">
         <div class="row justify-content-center">
@@ -105,6 +106,7 @@
           </div>
         </div>
       </div>
+      <br><br>
       <div class="section section-about-us">
         <div class="container">
           <div class="row">
