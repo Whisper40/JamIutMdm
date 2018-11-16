@@ -30,8 +30,7 @@ require_once('includes/head.php');
 
               <div class="card">
                   <div class="card-content">
-                      <div class="col-md-9 col-md-offset-1">
-                          <div class="card card-signup">
+
                               <h2 class="card-title text-center"><?php echo $s->title; ?></h2>
                               <div class="row">
                                   <div class="col-md-3 col-md-offset-1">
@@ -166,8 +165,7 @@ require_once('includes/head.php');
                                       </div>
                                   </div>
                               </div>
-                          </div>
-                      </div>
+                          
                   </div>
               </div>
 
