@@ -326,7 +326,9 @@
                   <?php if ($s->stock>0){ ?>
                   <div class="button-container">
                     <a href="?showmethisactivity=<?php echo $s->slug; ?>&amp;p=<?php echo $s->price; ?>" class="btn btn-primary btn-round btn-lg">Voir l'activité</a>
-                  <?php }else{echo'<h5 style="color:red;">Aucune place n\'est disponible !</h5>';} ?>
+                  <?php }else{ ?>
+                    <h5 style="color:red;">Aucune place n'est disponible !</h5>
+                  <?php } ?>
                   </div>
                 </h6>
               </div>
