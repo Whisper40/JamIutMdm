@@ -326,7 +326,7 @@
                   <a href="?showmethisactivity=<?php echo $s->slug; ?>&amp;p=<?php echo $s->price; ?>" class="btn btn-primary btn-round btn-lg">Voir l'activité</a>
                 </div>
                 <?php }else{ ?>
-                  <h5 style="color:red;">Aucune place <br> n'est disponible !</h5>
+                  <h5 style="color:red;">Aucune place n'est disponible !</h5>
                 <?php } ?>
               </div>
 
