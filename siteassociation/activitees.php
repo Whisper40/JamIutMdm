@@ -219,20 +219,20 @@
           </div>
         </div>
       </div>
-      <br>
+      <br><br>
       <div class="section section-about-us">
         <div class="container">
           <div class="row">
             <div class="col-md-6 ml-auto mr-auto text-center">
               <div class="pull-left">
-                <h4>
+                <h3>
                   Places restantes : <?php echo $s->stock; ?>
-                </h4>
+                </h3>
               </div>
               <div class="pull-right">
-                <h4>
+                <h3>
                   Prix : <?php echo $s->price; ?> €
-                </h4>
+                </h3>
               </div>
             </div>
           </div>
@@ -339,9 +339,9 @@
 <?php
 }
 ?>
-</div>
-</div>
-</div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <?php
