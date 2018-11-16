@@ -559,7 +559,7 @@ require_once('includes/head.php');
       }else{
 
       ?>
-    
+
       <div class="content">
           <div class="container-fluid">
             <h3>Manage Listings</h3>
@@ -608,9 +608,10 @@ require_once('includes/head.php');
                 </div>
             </div>
         </div>
-</body>
 
 <?php
+}
 
     require_once('includes/javascriptdashboard.php');
 ?>
+</body>
