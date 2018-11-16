@@ -52,6 +52,16 @@
         </div>
       </div>
     </div>
+    <div class="section section-about-us">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 ml-auto mr-auto text-center">
+            <h2 class="title">Status de jeunesse associative montoise</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br><br>
 
     <?php
     $asso = $db->query("SELECT * FROM status");
@@ -65,7 +75,7 @@
               <h3 class="title">
                 <ul>
                   <li>
-                    ARTICLE <?php echo $association->article; ?> - <?php echo $association->titre; ?>
+                    Article <?php echo $association->article; ?> - <?php echo $association->titre; ?>
                   </li>
                 </ul>
               </h3>
