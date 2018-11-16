@@ -28,8 +28,8 @@ require_once('includes/head.php');
               $description_finale=wordwrap($new_description,50,'<br />', false);
               ?>
 
-              <div class="container">
-                  <div class="row">
+              <div class="content">
+                  <div class="container-fluid">
                       <div class="col-md-9 col-md-offset-1">
                           <div class="card card-signup">
                               <h2 class="card-title text-center"><?php echo $s->title; ?></h2>
