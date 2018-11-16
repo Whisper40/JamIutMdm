@@ -36,6 +36,17 @@
 </style>
 
 <body class="landing-page sidebar-collapse">
+  <div class="wrapper">
+    <div class="wrapper">
+      <div class="page-header page-header-small">
+        <div class="page-header-image" data-parallax="true" style="background-image: url('./assets/img/bg1.jpg');">
+        </div>
+        <div class="content-center">
+          <div class="container">
+            <h1 class="title">Activitées et Voyages</h1>
+          </div>
+        </div>
+      </div>
 
 <?php
     require_once('includes/navbar.php');
@@ -55,73 +66,193 @@
 		$description_finale3=wordwrap($description3,100,'<br />', false);
 		?>
 
-    <div class="wrapper">
-      <div class="page-header page-header-small">
-        <div class="page-header-image" data-parallax="true" style="background-image: url('./assets/img/<?php echo $s->slug; ?>.<?php echo $s->formatimg; ?>');">
-        </div>
-        <div class="content-center">
-          <div class="container">
-            <h1 class="title"><?php echo $s->title; ?></h1>
-          </div>
-        </div>
-      </div>
-
       <div class="section section-about-us">
         <div class="container">
           <div class="row">
             <div class="col-md-8 ml-auto mr-auto text-center">
+              <h1 class="title"><?php echo $s->title; ?></h1>
               <h5 class="description"><?php echo $description_finale; ?></h5>
             </div>
           </div>
         </div>
       </div>
-
-      <div class="pull-left">
-        <h3 class="title">
-          <ul>
-            <li>
-              <?php echo $s->title2; ?>
-            </li>
-          </ul>
-        </h3>
+      <div class="section" id="carousel">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-12">
+              <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                  <div class="carousel-item active">
+                    <img class="d-block" src="assets/img/bg1.jpg" alt="First slide">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Nature, United States</h5>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img class="d-block" src="assets/img/bg3.jpg" alt="Second slide">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Somewhere Beyond, United States</h5>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img class="d-block" src="assets/img/bg4.jpg" alt="Third slide">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Yellowstone National Park, United States</h5>
+                    </div>
+                  </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                  <i class="now-ui-icons arrows-1_minimal-left"></i>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                  <i class="now-ui-icons arrows-1_minimal-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <br><br><br>        <br><br>
-
-
       <div class="section section-about-us">
         <div class="container">
           <div class="row">
             <div class="col-md-8 ml-auto mr-auto text-center">
+              <h3 class="title"><?php echo $s->title2; ?></h3>
               <h5 class="description"><?php echo $description_finale2; ?></h5>
             </div>
           </div>
         </div>
       </div>
-
-      <div class="pull-left">
-        <h3 class="title">
-          <ul>
-            <li>
-              <?php echo $s->title3; ?>
-            </li>
-          </ul>
-        </h3>
+      <div class="section" id="carousel">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-12">
+              <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                  <div class="carousel-item active">
+                    <img class="d-block" src="assets/img/bg1.jpg" alt="First slide">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Nature, United States</h5>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img class="d-block" src="assets/img/bg3.jpg" alt="Second slide">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Somewhere Beyond, United States</h5>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img class="d-block" src="assets/img/bg4.jpg" alt="Third slide">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Yellowstone National Park, United States</h5>
+                    </div>
+                  </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                  <i class="now-ui-icons arrows-1_minimal-left"></i>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                  <i class="now-ui-icons arrows-1_minimal-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-
       <div class="section section-about-us">
         <div class="container">
           <div class="row">
             <div class="col-md-8 ml-auto mr-auto text-center">
+              <h3 class="title"><?php echo $s->title3; ?></h3>
               <h5 class="description"><?php echo $description_finale3; ?></h5>
             </div>
           </div>
         </div>
       </div>
-
-		<h5>Places restantes : <?php echo $s->stock; ?></h5>
-		<?php if ($s->stock>0){ ?><a href="panier.php?action=ajout&amp;l=<?php echo $s->slug; ?>&amp;q=1&amp;p=<?php echo $s->price; ?>">Je Participe !</a><?php }else{echo'<h5 style="color:red;">Aucune place n\'est disponible !</h5>';}
-   		?>
-		</div><br/>
+      <div class="section" id="carousel">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-12">
+              <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                  <div class="carousel-item active">
+                    <img class="d-block" src="assets/img/bg1.jpg" alt="First slide">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Nature, United States</h5>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img class="d-block" src="assets/img/bg3.jpg" alt="Second slide">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Somewhere Beyond, United States</h5>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img class="d-block" src="assets/img/bg4.jpg" alt="Third slide">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Yellowstone National Park, United States</h5>
+                    </div>
+                  </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                  <i class="now-ui-icons arrows-1_minimal-left"></i>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                  <i class="now-ui-icons arrows-1_minimal-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="section section-about-us">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 ml-auto mr-auto text-center">
+              <div class="pull-left">
+                <h4>
+                  Places restantes : <?php echo $s->stock; ?>
+                </h4>
+              </div>
+              <div class="pull-right">
+                <h4>
+                  Prix : <?php echo $s->price; ?> €
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section section-contact-us text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 text-center col-md-8 ml-auto mr-auto">
+                  <?php if ($s->stock>0){ ?>
+                  <div class="send-button">
+                    <a href="panier.php?action=ajout&amp;l=<?php echo $s->slug; ?>&amp;q=1&amp;p=<?php echo $s->price; ?>" class="btn btn-primary btn-round btn-block btn-lg">Je Participe à l'évenement</a>
+                  </div>
+                  <?php }else{ ?>
+                    <h5 style="color:red;">Aucune place n\'est disponible !</h5>
+                  <?php } ?>
+                </div>
+            </div>
+        </div>
+    </div>
 
 		<?php
 
@@ -136,17 +267,6 @@
 		$select->execute();
 
       ?>
-
-      <div class="wrapper">
-        <div class="page-header page-header-small">
-          <div class="page-header-image" data-parallax="true" style="background-image: url('./assets/img/bg1.jpg');">
-          </div>
-          <div class="content-center">
-            <div class="container">
-              <h1 class="title">Activitées et Voyages</h1>
-            </div>
-          </div>
-        </div>
 
       <div class="section section-about-us">
         <div class="container">
@@ -219,6 +339,7 @@
 <?php
 }
 ?>
+</div>
 </div>
 </div>
 </div>
