@@ -322,15 +322,16 @@
             </center>
 
               <div class="pull-right">
-                <h6>
+                
                   <?php if ($s->stock>0){ ?>
                   <div class="button-container">
                     <a href="?showmethisactivity=<?php echo $s->slug; ?>&amp;p=<?php echo $s->price; ?>" class="btn btn-primary btn-round btn-lg">Voir l'activité</a>
+                  </div>
                   <?php }else{ ?>
                     <h5 style="color:red;">Aucune place <br> n'est disponible !</h5>
                   <?php } ?>
-                  </div>
-                </h6>
+              </div>
+
               </div>
             </div>
           </div>
