@@ -108,6 +108,7 @@ require_once('includes/head.php');
 
                                             <form name="repas" method="POST">
                                               <div class="card-content">
+                                                <div class="col-md-3">
                                                 <div class="info info-horizontal">
                                                     <div class="icon icon-rose">
                                                         <i class="material-icons">timeline</i>
@@ -138,6 +139,8 @@ require_once('includes/head.php');
                                                         </p>
                                                     </div>
                                                 </div>
+                                              </div>
+                                              <div class="col-md-6">
                                                 <div class="info info-horizontal">
                                                     <div class="icon icon-info">
                                                         <i class="material-icons">group</i>
@@ -169,6 +172,7 @@ require_once('includes/head.php');
                                                   </div>
 
                                               </div>
+                                            </div>
                                           <div class="footer text-center">
                                              <button type="submit" class="btn btn-primary btn-round"> Valider mes choix</button>
                                         </div>
