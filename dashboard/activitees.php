@@ -203,7 +203,7 @@ require_once('includes/head.php');
                                     <div class="card-content">
                                       <center>
                                         <h3 class="card-title">Validation et Paiement</h3>
-                                      </center
+                                      </center>
                                           <div class="card-content">
                                               <div class="info info-horizontal">
                                                   <div class="description">
@@ -309,7 +309,7 @@ require_once('includes/head.php');
                             <div class="card-content">
                               <center>
                                 <h3 class="card-title">Validation et Paiement</h3>
-                              </center
+                              </center>
                                   <div class="card-content">
                                       <div class="info info-horizontal">
                                           <div class="description">
