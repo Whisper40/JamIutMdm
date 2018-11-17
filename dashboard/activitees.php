@@ -80,9 +80,11 @@ require_once('includes/head.php');
                                           </div>
                                       </div>
                                   </div>
-                                </div>
-                            </div>
-
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
                                   <?php
                               $prixactivite = $s->price;
                               $stock = $s->stock;
