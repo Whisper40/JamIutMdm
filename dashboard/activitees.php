@@ -340,7 +340,9 @@ require_once('includes/head.php');
 <?php
 
                                   //Debut cinema
-                                  }else if (stripos($activity_slug, 'cinema') != FALSE){ ?>
+                                  }else if (stripos($activity_slug, 'cinema') != FALSE){
+                                    $total = $prixactivite;
+                                    ?>
 
                                     <div class="container-fluid">
                                         <div class="row">
