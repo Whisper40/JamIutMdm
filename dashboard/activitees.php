@@ -336,38 +336,49 @@ require_once('includes/head.php');
                   <?php }  ?>
                 </div>
             </div>
-                </div>
 
 <?php
 
                                   //Debut cinema
                                   }else if (stripos($activity_slug, 'cinema') != FALSE){ ?>
-                                    <form name="accompagnement" method="POST">
-                                      <div class="card-content">
 
-                                        <?php
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                          <div class="col-md-6">
+                                              <div class="card">
+                                                  <div class="card-content">
+                                                    <center>
+                                                      <h3 class="card-title">Validation et Paiement</h3>
+                                                    </center>
+                                                    <form name="accompagnement" method="POST">
+                                                        <div class="card-content">
+                                                            <div class="info info-horizontal">
+                                                                <div class="description">
 
-                                        $total = $prixactivite;
-                                        ?><h2> Total = <?php echo $total;?>€
-                                          <?php
-                                        if($stock>0){
-                                           ?>
-                                          <div align="center" id="paypal-button"></div>
+                                                                    <center>
+                                                                    <h4 class="info-title">Prix Total : <?php echo $total;?>€</h4>
+
+                                                                      <?php
+                                                                    if($stock>0){
+                                                                       ?>
+                                                                      <div align="center" id="paypal-button"></div>
+                                                                      <?php
+                                                                    }else{
+                                                                      ?>
+                                                                      Aucune place disponible
+                                                                    <?php } ?>
+                                                                    </center>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                        <?php }  ?>
                                       </div>
+                                  </div>
 
-                                        <?php }else{ ?>
-                                      <div class="footer text-center">
-                                          <button type="button" class="btn btn-primary btn-round">Aucune place disponible</button>
-                                      </div>
-                                    <?php } ?>
-                                  </form>
-                              </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
+                </div>
           <?php
 
                                   }else if (stripos($activity_slug, 'sportive') != FALSE){
