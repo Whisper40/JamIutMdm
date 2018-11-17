@@ -186,14 +186,12 @@ require_once('includes/head.php');
                             <div class="col-md-6">
                                 <div class="card">
                                     <div class="card-content">
-                                        <h4 class="card-title">Stacked Form</h4>
+                                      <center>
+                                        <h3 class="card-title">Paiement</h3>
+                                      </center
                                           <div class="card-content">
                                               <div class="info info-horizontal">
-                                                  <div class="icon icon-rose">
-                                                      <i class="material-icons">timeline</i>
-                                                  </div>
                                                   <div class="description">
-                                                      <h4 class="info-title">Description</h4>
                                                       <?php
                                                       $optionmaterielform = $_POST['optionmateriel'];
                                                       $optionrepasform = $_POST['optionrepas'];
@@ -207,7 +205,9 @@ require_once('includes/head.php');
 
                                                       if(isset($prixmateriel) && isset($prixrepas)){
                                                       $total = $prixactivite + $prixmateriel + $prixrepas;
-                                                      ?><h2> Total = <?php echo $total;?>€</h2>
+                                                      ?>
+                                                      <center>
+                                                      <h4 class="info-title">Prix Total : <?php echo $total;?>€</h4>
                                                         <?php
                                                       if($stock>0){
                                                          ?>
@@ -216,6 +216,7 @@ require_once('includes/head.php');
                                                       }else{
                                                         ?>
                                                         Aucune place disponible
+                                                      </center>
                                                   </div>
                                               </div>
                                           </div>
