@@ -86,6 +86,7 @@ require_once('includes/head.php');
                   </div>
                   <div class="container-fluid">
                       <div class="row">
+                        <center>
                           <div class="col-md-6">
                               <div class="card">
                                   <div class="card-content">
@@ -177,6 +178,7 @@ require_once('includes/head.php');
                                   </div>
                               </div>
                           </div>
+                        </center>
                             <div class="col-md-6">
                                 <div class="card">
                                     <div class="card-content">
@@ -727,7 +729,7 @@ require_once('includes/head.php');
                                 </div>
                                 <div class="card-content">
                                     <h3 class="card-title">
-                                        <a href="#pablo"><?php echo $row['title']; ?></a>
+                                        <?php echo $row['title']; ?>
                                     </h3>
                                     <div class="card-description">
                                       <h4><p><?php echo $row['datesejour']; ?><br>
