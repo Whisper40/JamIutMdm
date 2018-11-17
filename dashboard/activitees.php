@@ -87,7 +87,15 @@ require_once('includes/head.php');
 
                                         <form name="repas" method="POST">
                                           <div class="card-content">
-                                            <h3> Le matériel : </h3>
+                                            <div class="info info-horizontal">
+                                                <div class="icon icon-rose">
+                                                    <i class="material-icons">timeline</i>
+                                                </div>
+                                                <div class="description">
+                                                    <h4 class="info-title">Le matériel</h4>
+                                                    <p class="description">
+
+
 
                                         <?php
                                           $select0 = $db->prepare("SELECT * FROM activityradio WHERE slug='$activity_slug' and type='materiel'");
@@ -106,8 +114,18 @@ require_once('includes/head.php');
                                             </div>
 
                                             <?php } ?>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="info info-horizontal">
+                                                <div class="icon icon-info">
+                                                    <i class="material-icons">group</i>
+                                                </div>
+                                                <div class="description">
+                                                    <h4 class="info-title">Le repas</h4>
+                                                    <p class="description">
 
-                                            <h3> Le repas </h3>
+
 
                                               <?php
                                                 $select1 = $db->prepare("SELECT * FROM activityradio WHERE slug='$activity_slug' and type='repas'");
@@ -125,6 +143,9 @@ require_once('includes/head.php');
                                                     </label>
                                                   </div>
                                                   <?php } ?>
+                                                      </p>
+                                                  </div>
+                                              </div>
 
                                           </div>
                                           <div class="footer text-center">
@@ -675,9 +696,7 @@ require_once('includes/head.php');
                         <div class="col-md-4">
                             <div class="card card-product">
                                 <div class="card-image" data-header-animation="false">
-                                    <a href="#pablo">
                                         <img class="img" src="../../siteassociation/assets/img/<?php echo $row['slug']; ?>.<?php echo $row['formatimg']; ?>">
-                                    </a>
                                 </div>
                                 <div class="card-content">
                                     <h3 class="card-title">
