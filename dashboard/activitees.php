@@ -88,9 +88,6 @@ require_once('includes/head.php');
                       <div class="row">
                           <div class="col-md-6">
                               <div class="card">
-                                  <div class="card-header card-header-icon" data-background-color="rose">
-                                      <i class="material-icons">mail_outline</i>
-                                  </div>
                                   <div class="card-content">
                                       <h4 class="card-title">Choisir une formule</h4>
 
@@ -182,9 +179,6 @@ require_once('includes/head.php');
                           </div>
                             <div class="col-md-6">
                                 <div class="card">
-                                    <div class="card-header card-header-icon" data-background-color="rose">
-                                        <i class="material-icons">mail_outline</i>
-                                    </div>
                                     <div class="card-content">
                                         <h4 class="card-title">Stacked Form</h4>
                                           <div class="card-content">
