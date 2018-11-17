@@ -247,13 +247,13 @@ require_once('includes/head.php');
                                                                         <form name="accompagnement" method="POST">
                                                                           <div class="card-content">
                                                                             <div class="row">
+                                                                            <div class="col-md-6">
                                                                             <div class="info info-horizontal">
-                                                                              <center>
-
                                                                                 <div class="icon icon-rose">
                                                                                     <i class="material-icons">timeline</i>
                                                                                 </div>
                                                                                 <div class="description">
+                                                                                  <center>
                                                                                     <h4 class="info-title">Le match</h4>
                                                                                   </center>
                                                                                     <p class="description">
@@ -277,11 +277,16 @@ require_once('includes/head.php');
                                                           </p>
                                                       </div>
                                                   </div>
+
+                                              </div>
+                                              <div class="col-md-6">
+                                                <div class="text-center">
+                                                   <button type="submit" class="btn btn-primary btn-round"> Valider mes choix</button>
+                                              </div>
+                                              </div>
                                             </div>
                                       </div>
-                                      <div class="footer text-center">
-                                         <button type="submit" class="btn btn-primary btn-round"> Valider mes choix</button>
-                                    </div>
+
                                       </form>
                                   </div>
                               </div>
