@@ -32,7 +32,6 @@ require_once('includes/head.php');
                   <div class="container-fluid">
                       <div class="card">
                           <div class="card-content">
-
                               <h2 class="card-title text-center"><?php echo $s->title; ?></h2>
                               <div class="row">
                                   <div class="col-sm-4">
@@ -84,6 +83,17 @@ require_once('includes/head.php');
                           </div>
                       </div>
                   </div>
+
+                  <?php
+                  $prixactivite = $s->price;
+                  $stock = $s->stock;
+                  ?>
+
+                  <?php
+                  }if (stripos($activity_slug, 'ski') != FALSE){
+                    // Si l'activité est du ski alors on affiche ce type de formulaire
+                  ?>
+
                   <div class="container-fluid">
                       <div class="row">
                           <div class="col-md-6">
@@ -92,17 +102,6 @@ require_once('includes/head.php');
                                     <center>
                                       <h3 class="card-title">Choisir une formule</h3>
                                     </center>
-
-                                      <?php
-                                      $prixactivite = $s->price;
-                                      $stock = $s->stock;
-                                      ?>
-
-                                      <?php
-                                      }if (stripos($activity_slug, 'ski') != FALSE){
-                                        // Si l'activité est du ski alors on affiche ce type de formulaire
-                                      ?>
-
                                             <form name="repas" method="POST">
                                               <div class="card-content">
                                                 <div class="row">
@@ -229,67 +228,112 @@ require_once('includes/head.php');
                                 </div>
                             </div>
                           <?php }  ?>
-
                         </div>
                     </div>
-                </div>
 
-          <?php
+                    <?php
 
-                                  //Si ce n'est pas du ski alors on passe à :
-                                  }else if (stripos($activity_slug, 'rugby') != FALSE){ ?>
+                                            //Si ce n'est pas du ski alors on passe à :
+                                            }else if (stripos($activity_slug, 'rugby') != FALSE){ ?>
 
-                                    <form name="accompagnement" method="POST">
-                                      <div class="card-content">
-                                        <h3> Le match : </h3>
-                                        <?php
-                                          $select4 = $db->prepare("SELECT * FROM activityradio WHERE slug='$activity_slug' and type='accompagnement'");
-                                          $select4->execute();
+                                              <div class="container-fluid">
+                                                  <div class="row">
+                                                      <div class="col-md-6">
+                                                          <div class="card">
+                                                              <div class="card-content">
+                                                                <center>
+                                                                  <h3 class="card-title">Choisir une formule</h3>
+                                                                </center>
+                                                                        <form name="accompagnement" method="POST">
+                                                                          <div class="card-content">
+                                                                            <div class="row">
+                                                                            <div class="col-md-6">
+                                                                            <div class="info info-horizontal">
+                                                                                <div class="icon icon-rose">
+                                                                                    <i class="material-icons">timeline</i>
+                                                                                </div>
+                                                                                <div class="description">
+                                                                                  <center>
+                                                                                    <h4 class="info-title">Le match</h4>
+                                                                                  </center>
+                                                                                    <p class="description">
 
-                                          while($s4=$select4->fetch(PDO::FETCH_OBJ)){
-                                            $type4 = $s4->type;
-                                            $price4 = $s4->price;
-                                            $packname4 = $s4->packname;
-                                            ?>
-                                            <div class="radio">
-                                              <label>
-                                                <input type="radio" name="option<?php echo $type4;?>" value="<?php echo $packname4; ?>"> <?php echo $packname4; ?> (<?php echo $price4; ?>€)
-                                              </label>
+                                                  <?php
+                                                    $select4 = $db->prepare("SELECT * FROM activityradio WHERE slug='$activity_slug' and type='accompagnement'");
+                                                    $select4->execute();
+
+                                                    while($s4=$select4->fetch(PDO::FETCH_OBJ)){
+                                                      $type4 = $s4->type;
+                                                      $price4 = $s4->price;
+                                                      $packname4 = $s4->packname;
+
+                                                      ?>
+                                                      <div class="radio">
+                                                        <label>
+                                                          <input type="radio" name="option<?php echo $type4;?>" value="<?php echo $packname4; ?>"> <?php echo $packname4; ?> (<?php echo $price4; ?>€)
+                                                        </label>
+                                                      </div>
+                                                      <<?php } ?>
+                                                          </p>
+                                                      </div>
+                                                  </div>
+
+                                              </div>
                                             </div>
-                                            <?php
-                                          }
-                                          ?>
                                       </div>
                                       <div class="footer text-center">
-                                          <button type="submit" class="btn btn-primary btn-round"> Valider mes choix</button>
-                                      </div>
-                                  </form>
+                                         <button type="submit" class="btn btn-primary btn-round"> Valider mes choix</button>
+                                    </div>
+                                      </form>
+                                  </div>
                               </div>
                           </div>
+
+
+                    <?php
+                    $optionaccompagnementform = $_POST['optionaccompagnement'];
+                    $selectpriceaccompagnement = $db->query("SELECT price FROM activityradio WHERE packname='$optionaccompagnementform'");
+                    $r = $selectpriceaccompagnement->fetch(PDO::FETCH_OBJ);
+                    $prixaccompagnement = $r->price;
+
+
+                    if(isset($prixaccompagnement)){
+                    $total = $prixactivite + $prixaccompagnement; ?>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-content">
+                              <center>
+                                <h3 class="card-title">Validation et Paiement</h3>
+                              </center
+                                  <div class="card-content">
+                                      <div class="info info-horizontal">
+                                          <div class="description">
+
+                                              <center>
+                                              <h4 class="info-title">Prix Total : <?php echo $total;?>€</h4>
+                                              <br>
+                                                <?php
+                                              if($stock>0){
+                                                 ?>
+                                                <div align="center" id="paypal-button"></div>
+                                                <?php
+                                              }else{
+                                                ?>
+                                                Aucune place disponible
+                                              <?php } ?>
+                                              </center>
+                                          </div>
+                                      </div>
+                                  </div>
+                            </div>
                         </div>
-                      </div>
                     </div>
-                  </div>
+                  <?php }  ?>
+                </div>
+            </div>
+                </div>
 
-          <?php
-          $optionaccompagnementform = $_POST['optionaccompagnement'];
-          $selectpriceaccompagnement = $db->query("SELECT price FROM activityradio WHERE packname='$optionaccompagnementform'");
-          $r = $selectpriceaccompagnement->fetch(PDO::FETCH_OBJ);
-          $prixaccompagnement = $r->price;
-
-
-          if(isset($prixaccompagnement)){
-          $total = $prixactivite + $prixaccompagnement;
-          ?><h2> Total = <?php echo $total;?>€
-            <?php
-          if($stock>0){
-             ?>
-            <div align="center" id="paypal-button"></div>
-            <?php
-          }else{
-            ?>
-            <button type="button">Aucune place disponible</button>
-          <?php  } }
+<?php
 
                                   //Debut cinema
                                   }else if (stripos($activity_slug, 'cinema') != FALSE){ ?>
