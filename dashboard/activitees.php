@@ -211,7 +211,7 @@ require_once('includes/head.php');
 
                                                       <center>
                                                       <h4 class="info-title">Prix Total : <?php echo $total;?>€</h4>
-                                                      <br><br>
+                                                      <br>
                                                         <?php
                                                       if($stock>0){
                                                          ?>
