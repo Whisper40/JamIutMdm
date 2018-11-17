@@ -180,49 +180,55 @@ require_once('includes/head.php');
                                   </div>
                               </div>
                           </div>
+                      </div>
+                    </div>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header card-header-icon" data-background-color="rose">
+                                        <i class="material-icons">mail_outline</i>
+                                    </div>
+                                    <div class="card-content">
+                                        <h4 class="card-title">Stacked Form</h4>
+                                          <div class="card-content">
+                                              <div class="info info-horizontal">
+                                                  <div class="icon icon-rose">
+                                                      <i class="material-icons">timeline</i>
+                                                  </div>
+                                                  <div class="description">
+                                                      <h4 class="info-title">Description</h4>
+                                                      <?php
+                                                      $optionmaterielform = $_POST['optionmateriel'];
+                                                      $optionrepasform = $_POST['optionrepas'];
+                                                      $selectpricemateriel = $db->query("SELECT price FROM activityradio WHERE packname='$optionmaterielform'");
+                                                      $r = $selectpricemateriel->fetch(PDO::FETCH_OBJ);
+                                                      $prixmateriel = $r->price;
 
+                                                      $selectpricerepas= $db->query("SELECT price FROM activityradio WHERE packname='$optionrepasform'");
+                                                      $r2 = $selectpricerepas->fetch(PDO::FETCH_OBJ);
+                                                      $prixrepas = $r2->price;
 
-
-                                      </form>
-                                  </div>
-                                      <div class="card-content">
-                                          <div class="info info-horizontal">
-                                              <div class="icon icon-rose">
-                                                  <i class="material-icons">timeline</i>
-                                              </div>
-                                              <div class="description">
-                                                  <h4 class="info-title">Description</h4>
-                                                  <?php
-                                                  $optionmaterielform = $_POST['optionmateriel'];
-                                                  $optionrepasform = $_POST['optionrepas'];
-                                                  $selectpricemateriel = $db->query("SELECT price FROM activityradio WHERE packname='$optionmaterielform'");
-                                                  $r = $selectpricemateriel->fetch(PDO::FETCH_OBJ);
-                                                  $prixmateriel = $r->price;
-
-                                                  $selectpricerepas= $db->query("SELECT price FROM activityradio WHERE packname='$optionrepasform'");
-                                                  $r2 = $selectpricerepas->fetch(PDO::FETCH_OBJ);
-                                                  $prixrepas = $r2->price;
-
-                                                  if(isset($prixmateriel) && isset($prixrepas)){
-                                                  $total = $prixactivite + $prixmateriel + $prixrepas;
-                                                  ?><h2> Total = <?php echo $total;?>€
-                                                    <?php
-                                                  if($stock>0){
-                                                     ?>
-                                                    <div align="center" id="paypal-button"></div>
-                                                    <?php
-                                                  }else{
-                                                    ?>
-                                                    <button type="button">Aucune place disponible</button>
+                                                      if(isset($prixmateriel) && isset($prixrepas)){
+                                                      $total = $prixactivite + $prixmateriel + $prixrepas;
+                                                      ?><h2> Total = <?php echo $total;?>€
+                                                        <?php
+                                                      if($stock>0){
+                                                         ?>
+                                                        <div align="center" id="paypal-button"></div>
+                                                        <?php
+                                                      }else{
+                                                        ?>
+                                                        <button type="button">Aucune place disponible</button>
+                                                  </div>
                                               </div>
                                           </div>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
           <?php }  }
 
