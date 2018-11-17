@@ -287,7 +287,7 @@ require_once('includes/head.php');
                                               </div>
                                             </div>
                                       </div>
-                                      <br>
+                                      <br><br>
 
                                       </form>
                                   </div>
