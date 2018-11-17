@@ -86,11 +86,12 @@ require_once('includes/head.php');
                   </div>
                   <div class="container-fluid">
                       <div class="row">
-                        <center>
                           <div class="col-md-6">
                               <div class="card">
                                   <div class="card-content">
-                                      <h4 class="card-title">Choisir une formule</h4>
+                                    <center>
+                                      <h3 class="card-title">Choisir une formule</h3>
+                                    </center>
 
                                       <?php
                                       $prixactivite = $s->price;
@@ -111,7 +112,9 @@ require_once('includes/head.php');
                                                         <i class="material-icons">timeline</i>
                                                     </div>
                                                     <div class="description">
+                                                      <center>
                                                         <h4 class="info-title">Le matériel</h4>
+                                                      </center>
                                                         <p class="description">
 
 
@@ -143,7 +146,9 @@ require_once('includes/head.php');
                                                         <i class="material-icons">group</i>
                                                     </div>
                                                     <div class="description">
+                                                      <center>
                                                         <h4 class="info-title">Le repas</h4>
+                                                      </center>
                                                         <p class="description">
 
 
@@ -178,7 +183,6 @@ require_once('includes/head.php');
                                   </div>
                               </div>
                           </div>
-                        </center>
                             <div class="col-md-6">
                                 <div class="card">
                                     <div class="card-content">
