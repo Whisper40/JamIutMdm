@@ -345,7 +345,7 @@ require_once('includes/head.php');
 
                                     <div class="container-fluid">
                                         <div class="row">
-                                          <div class="col-md-6 col-md-offset-2">
+                                          <div class="col-md-6 col-md-offset-3">
                                               <div class="card">
                                                   <div class="card-content">
                                                     <center>
