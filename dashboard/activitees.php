@@ -48,6 +48,10 @@ require_once('includes/head.php');
                                                   </p>
                                               </div>
                                           </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="card-content">
                                           <div class="info info-horizontal">
                                               <div class="icon icon-primary">
                                                   <i class="material-icons">code</i>
@@ -59,6 +63,10 @@ require_once('includes/head.php');
                                                   </p>
                                               </div>
                                           </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="card-content">
                                           <div class="info info-horizontal">
                                               <div class="icon icon-info">
                                                   <i class="material-icons">group</i>
@@ -72,13 +80,13 @@ require_once('includes/head.php');
                                           </div>
                                       </div>
                                   </div>
+                                </div>
+                            </div>
 
                                   <?php
                               $prixactivite = $s->price;
                               $stock = $s->stock;
                                    ?>
-
-                                  <div class="col-sm-4">
 
                                     <?php
                                   }if (stripos($activity_slug, 'ski') != FALSE){
@@ -153,7 +161,6 @@ require_once('includes/head.php');
                                           </div>
                                       </form>
                                   </div>
-                                  <div class="col-sm-4">
                                       <div class="card-content">
                                           <div class="info info-horizontal">
                                               <div class="icon icon-rose">
