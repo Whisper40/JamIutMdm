@@ -183,29 +183,32 @@ require_once('includes/head.php');
                                   </div>
                               </div>
                           </div>
+
+                          <?php
+                          $optionmaterielform = $_POST['optionmateriel'];
+                          $optionrepasform = $_POST['optionrepas'];
+                          $selectpricemateriel = $db->query("SELECT price FROM activityradio WHERE packname='$optionmaterielform'");
+                          $r = $selectpricemateriel->fetch(PDO::FETCH_OBJ);
+                          $prixmateriel = $r->price;
+
+                          $selectpricerepas= $db->query("SELECT price FROM activityradio WHERE packname='$optionrepasform'");
+                          $r2 = $selectpricerepas->fetch(PDO::FETCH_OBJ);
+                          $prixrepas = $r2->price;
+
+                          if(isset($prixmateriel) && isset($prixrepas)){
+                          $total = $prixactivite + $prixmateriel + $prixrepas;
+                          ?>
+
                             <div class="col-md-6">
                                 <div class="card">
                                     <div class="card-content">
                                       <center>
-                                        <h3 class="card-title">Paiement</h3>
+                                        <h3 class="card-title">Validation et Paiement</h3>
                                       </center
                                           <div class="card-content">
                                               <div class="info info-horizontal">
                                                   <div class="description">
-                                                      <?php
-                                                      $optionmaterielform = $_POST['optionmateriel'];
-                                                      $optionrepasform = $_POST['optionrepas'];
-                                                      $selectpricemateriel = $db->query("SELECT price FROM activityradio WHERE packname='$optionmaterielform'");
-                                                      $r = $selectpricemateriel->fetch(PDO::FETCH_OBJ);
-                                                      $prixmateriel = $r->price;
 
-                                                      $selectpricerepas= $db->query("SELECT price FROM activityradio WHERE packname='$optionrepasform'");
-                                                      $r2 = $selectpricerepas->fetch(PDO::FETCH_OBJ);
-                                                      $prixrepas = $r2->price;
-
-                                                      if(isset($prixmateriel) && isset($prixrepas)){
-                                                      $total = $prixactivite + $prixmateriel + $prixrepas;
-                                                      ?>
                                                       <center>
                                                       <h4 class="info-title">Prix Total : <?php echo $total;?>€</h4>
                                                         <?php
@@ -216,6 +219,7 @@ require_once('includes/head.php');
                                                       }else{
                                                         ?>
                                                         Aucune place disponible
+                                                      <?php } ?>
                                                       </center>
                                                   </div>
                                               </div>
@@ -223,11 +227,13 @@ require_once('includes/head.php');
                                     </div>
                                 </div>
                             </div>
+                          <?php }  ?>
+
                         </div>
                     </div>
                 </div>
 
-          <?php }  }
+          <?php
 
                                   //Si ce n'est pas du ski alors on passe à :
                                   }else if (stripos($activity_slug, 'rugby') != FALSE){ ?>
