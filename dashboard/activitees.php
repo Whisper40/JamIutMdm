@@ -180,10 +180,6 @@ require_once('includes/head.php');
                                   </div>
                               </div>
                           </div>
-                      </div>
-                    </div>
-                    <div class="container-fluid">
-                        <div class="row">
                             <div class="col-md-6">
                                 <div class="card">
                                     <div class="card-header card-header-icon" data-background-color="rose">
