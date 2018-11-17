@@ -247,6 +247,8 @@ require_once('includes/head.php');
                                                                         <form name="accompagnement" method="POST">
                                                                           <div class="card-content">
                                                                             <div class="row">
+                                                                              <center>
+
                                                                             <div class="info info-horizontal">
                                                                                 <div class="icon icon-rose">
                                                                                     <i class="material-icons">timeline</i>
@@ -272,6 +274,8 @@ require_once('includes/head.php');
                                                       </div>
                                                       <?php } ?>
                                                           </p>
+                                                        </center>
+
                                                       </div>
                                                   </div>
                                             </div>
