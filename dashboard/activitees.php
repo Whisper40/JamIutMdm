@@ -337,7 +337,47 @@ require_once('includes/head.php');
                 </div>
             </div>
 
+<?php
 
+                                  //Debut cinema
+                                  }else if (stripos($activity_slug, 'cinema') != FALSE){
+                                    ?>
+
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                          <div class="col-md-6">
+                                              <div class="card">
+                                                  <div class="card-content">
+                                                    <center>
+                                                      <h3 class="card-title">Validation et Paiement</h3>
+                                                    </center>
+                                                    <form name="accompagnement" method="POST">
+                                                        <div class="card-content">
+                                                            <div class="info info-horizontal">
+                                                                <div class="description">
+                                                                  <?php $total = $prixactivite; ?>
+                                                                    <center>
+                                                                    <h4 class="info-title">Prix Total : <?php echo $total;?>€</h4>
+
+                                                                      <?php
+                                                                    if($stock>0){
+                                                                       ?>
+                                                                      <div align="center" id="paypal-button"></div>
+                                                                      <?php
+                                                                    }else{
+                                                                      ?>
+                                                                      Aucune place disponible
+                                                                    <?php } ?>
+                                                                    </center>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                        <?php }  ?>
+                                      </div>
+                                  </div>
 
                 </div>
           <?php
