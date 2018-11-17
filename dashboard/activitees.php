@@ -85,82 +85,100 @@ require_once('includes/head.php');
                       </div>
                   </div>
               </div>
-                                  <?php
-                              $prixactivite = $s->price;
-                              $stock = $s->stock;
-                                   ?>
+              <div class="content">
+                  <div class="container-fluid">
+                      <div class="row">
+                          <div class="col-md-6">
+                              <div class="card">
+                                  <div class="card-header card-header-icon" data-background-color="rose">
+                                      <i class="material-icons">mail_outline</i>
+                                  </div>
+                                  <div class="card-content">
+                                      <h4 class="card-title">Choisir une formule</h4>
 
-                                    <?php
-                                  }if (stripos($activity_slug, 'ski') != FALSE){
-                                    // Si l'activité est du ski alors on affiche ce type de formulaire
-                                ?>
+                                      <?php
+                                      $prixactivite = $s->price;
+                                      $stock = $s->stock;
+                                      ?>
 
-                                        <form name="repas" method="POST">
-                                          <div class="card-content">
-                                            <div class="info info-horizontal">
-                                                <div class="icon icon-rose">
-                                                    <i class="material-icons">timeline</i>
+                                      <?php
+                                      }if (stripos($activity_slug, 'ski') != FALSE){
+                                        // Si l'activité est du ski alors on affiche ce type de formulaire
+                                      ?>
+
+                                            <form name="repas" method="POST">
+                                              <div class="card-content">
+                                                <div class="info info-horizontal">
+                                                    <div class="icon icon-rose">
+                                                        <i class="material-icons">timeline</i>
+                                                    </div>
+                                                    <div class="description">
+                                                        <h4 class="info-title">Le matériel</h4>
+                                                        <p class="description">
+
+
+
+                                            <?php
+                                              $select0 = $db->prepare("SELECT * FROM activityradio WHERE slug='$activity_slug' and type='materiel'");
+                                              $select0->execute();
+
+                                              while($s0=$select0->fetch(PDO::FETCH_OBJ)){
+                                                $type = $s0->type;
+                                                $price = $s0->price;
+                                                $packname = $s0->packname;
+                                                ?>
+
+                                                <div class="radio">
+                                                  <label>
+                                                    <input type="radio" name="optionmateriel" value="<?php echo $packname; ?>"> <?php echo $packname; ?> (<?php echo $price; ?>€)
+                                                  </label>
                                                 </div>
-                                                <div class="description">
-                                                    <h4 class="info-title">Le matériel</h4>
-                                                    <p class="description">
 
-
-
-                                        <?php
-                                          $select0 = $db->prepare("SELECT * FROM activityradio WHERE slug='$activity_slug' and type='materiel'");
-                                          $select0->execute();
-
-                                          while($s0=$select0->fetch(PDO::FETCH_OBJ)){
-                                            $type = $s0->type;
-                                            $price = $s0->price;
-                                            $packname = $s0->packname;
-                                            ?>
-
-                                            <div class="radio">
-                                              <label>
-                                                <input type="radio" name="optionmateriel" value="<?php echo $packname; ?>"> <?php echo $packname; ?> (<?php echo $price; ?>€)
-                                              </label>
-                                            </div>
-
-                                            <?php } ?>
-                                                    </p>
+                                                <?php } ?>
+                                                        </p>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="info info-horizontal">
-                                                <div class="icon icon-info">
-                                                    <i class="material-icons">group</i>
-                                                </div>
-                                                <div class="description">
-                                                    <h4 class="info-title">Le repas</h4>
-                                                    <p class="description">
+                                                <div class="info info-horizontal">
+                                                    <div class="icon icon-info">
+                                                        <i class="material-icons">group</i>
+                                                    </div>
+                                                    <div class="description">
+                                                        <h4 class="info-title">Le repas</h4>
+                                                        <p class="description">
 
 
 
-                                              <?php
-                                                $select1 = $db->prepare("SELECT * FROM activityradio WHERE slug='$activity_slug' and type='repas'");
-                                                $select1->execute();
+                                                  <?php
+                                                    $select1 = $db->prepare("SELECT * FROM activityradio WHERE slug='$activity_slug' and type='repas'");
+                                                    $select1->execute();
 
-                                                while($s1=$select1->fetch(PDO::FETCH_OBJ)){
-                                                  $type1 = $s1->type;
-                                                  $price1 = $s1->price;
-                                                  $packname1 = $s1->packname;
-                                                  ?>
+                                                    while($s1=$select1->fetch(PDO::FETCH_OBJ)){
+                                                      $type1 = $s1->type;
+                                                      $price1 = $s1->price;
+                                                      $packname1 = $s1->packname;
+                                                      ?>
 
-                                                  <div class="radio">
-                                                    <label>
-                                                      <input type="radio" name="option<?php echo $type1;?>" value="<?php echo $packname1; ?>"> <?php echo $packname1; ?> (<?php echo $price1; ?>€)
-                                                    </label>
+                                                      <div class="radio">
+                                                        <label>
+                                                          <input type="radio" name="option<?php echo $type1;?>" value="<?php echo $packname1; ?>"> <?php echo $packname1; ?> (<?php echo $price1; ?>€)
+                                                        </label>
+                                                      </div>
+                                                      <?php } ?>
+                                                          </p>
+                                                      </div>
                                                   </div>
-                                                  <?php } ?>
-                                                      </p>
-                                                  </div>
+
                                               </div>
-
-                                          </div>
                                           <div class="footer text-center">
-                                              <button type="submit" class="btn btn-primary btn-round"> Valider mes choix</button>
-                                          </div>
+                                             <button type="submit" class="btn btn-primary btn-round"> Valider mes choix</button>
+                                        </div>
+                                      </form>
+                                  </div>
+                              </div>
+                          </div>
+
+
+
                                       </form>
                                   </div>
                                       <div class="card-content">
