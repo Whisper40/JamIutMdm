@@ -207,7 +207,7 @@ require_once('includes/head.php');
 
                                                       if(isset($prixmateriel) && isset($prixrepas)){
                                                       $total = $prixactivite + $prixmateriel + $prixrepas;
-                                                      ?><h2> Total = <?php echo $total;?>€
+                                                      ?><h2> Total = <?php echo $total;?>€</h2>
                                                         <?php
                                                       if($stock>0){
                                                          ?>
@@ -215,7 +215,7 @@ require_once('includes/head.php');
                                                         <?php
                                                       }else{
                                                         ?>
-                                                        <button type="button">Aucune place disponible</button>
+                                                        Aucune place disponible
                                                   </div>
                                               </div>
                                           </div>
