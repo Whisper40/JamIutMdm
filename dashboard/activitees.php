@@ -84,8 +84,6 @@ require_once('includes/head.php');
                           </div>
                       </div>
                   </div>
-              </div>
-              <div class="content">
                   <div class="container-fluid">
                       <div class="row">
                           <div class="col-md-6">
@@ -140,7 +138,7 @@ require_once('includes/head.php');
                                                     </div>
                                                 </div>
                                               </div>
-                                              <div class="col-md-6">
+                                              <div class="col-md-3">
                                                 <div class="info info-horizontal">
                                                     <div class="icon icon-info">
                                                         <i class="material-icons">group</i>
