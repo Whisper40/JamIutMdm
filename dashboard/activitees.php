@@ -241,7 +241,9 @@ require_once('includes/head.php');
                                                       <div class="col-md-6">
                                                           <div class="card">
                                                               <div class="card-content">
+                                                                <center>
                                                                   <h3 class="card-title">Choisir une formule</h3>
+                                                                </center>
                                                                         <form name="accompagnement" method="POST">
                                                                           <div class="card-content">
                                                                             <div class="row">
@@ -250,9 +252,7 @@ require_once('includes/head.php');
                                                                                     <i class="material-icons">timeline</i>
                                                                                 </div>
                                                                                 <div class="description">
-                                                                                  <center>
                                                                                     <h4 class="info-title">Le match</h4>
-                                                                                  </center>
                                                                                     <p class="description">
 
                                                   <?php
