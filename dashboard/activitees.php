@@ -173,7 +173,9 @@ require_once('includes/head.php');
                                               </div>
                                             </div>
                                       </div>
-                                      <button type="submit" class="btn btn-primary btn-round"> Valider mes choix</button>
+                                      <div class="footer text-center">
+                                         <button type="submit" class="btn btn-primary btn-round"> Valider mes choix</button>
+                                    </div>
                                       </form>
                                   </div>
                               </div>
