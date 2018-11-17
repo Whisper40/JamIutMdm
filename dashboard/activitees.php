@@ -104,7 +104,7 @@ require_once('includes/head.php');
                                             <form name="repas" method="POST">
                                               <div class="card-content">
                                                 <div class="row">
-                                                <div class="col-md-5">
+                                                <div class="col-md-6">
                                                 <div class="info info-horizontal">
                                                     <div class="icon icon-rose">
                                                         <i class="material-icons">timeline</i>
@@ -136,7 +136,7 @@ require_once('includes/head.php');
                                                     </div>
                                                 </div>
                                               </div>
-                                              <div class="col-md-5">
+                                              <div class="col-md-6">
                                                 <div class="info info-horizontal">
                                                     <div class="icon icon-info">
                                                         <i class="material-icons">group</i>
