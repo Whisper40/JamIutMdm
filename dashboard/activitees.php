@@ -238,7 +238,6 @@ require_once('includes/head.php');
 
                                               <div class="container-fluid">
                                                   <div class="row">
-                                                      <div class="col-md-6">
                                                           <div class="card">
                                                               <div class="card-content">
                                                                 <center>
@@ -273,12 +272,10 @@ require_once('includes/head.php');
                                                           <input type="radio" name="option<?php echo $type4;?>" value="<?php echo $packname4; ?>"> <?php echo $packname4; ?> (<?php echo $price4; ?>€)
                                                         </label>
                                                       </div>
-                                                      <<?php } ?>
+                                                      <?php } ?>
                                                           </p>
                                                       </div>
                                                   </div>
-
-                                              </div>
                                             </div>
                                       </div>
                                       <div class="footer text-center">
