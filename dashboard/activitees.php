@@ -375,7 +375,6 @@ require_once('includes/head.php');
                                                   </div>
                                               </div>
                                           </div>
-                                        <?php }  ?>
                                       </div>
                                   </div>
 
