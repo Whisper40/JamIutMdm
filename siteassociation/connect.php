@@ -1,6 +1,5 @@
 <?php
     require_once('includes/connectBDD.php');
-    ini_set('display_errors', 1);
     require_once('includes/refusebypassconnection.php');
     $nompage = "Connexion";
     require_once('includes/head.php');
@@ -9,7 +8,7 @@
 
 
 
-                      
+
 
                    // START - Récupération du navigateur utilisé :
                     if(strpos($_SERVER["HTTP_USER_AGENT"], 'Firefox') !== false)
@@ -149,6 +148,7 @@
         </div>
 <?php
 // Ajout de tentative avec erreurs de mdp.
+
 $email = htmlspecialchars($_POST['email']);
 $numberofattempts = $db->query("SELECT numberofattempts from users WHERE email='$email'");
 $rattempts = $numberofattempts->fetch(PDO::FETCH_OBJ);
