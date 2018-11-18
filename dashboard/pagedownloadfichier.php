@@ -12,7 +12,7 @@
 <?php
   require_once('includes/navbar.php');
 ?>
-kk
+
 
             <div class="content">
                   <div class="container-fluid">
