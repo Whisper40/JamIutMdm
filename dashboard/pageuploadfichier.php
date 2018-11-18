@@ -4,23 +4,8 @@
     $nompage = "Téléchargement Fichier";
     require_once('includes/head.php');
 
-// START - Récupération de l'ip de connexion de l'utilisateur, même à travers de proxy !
-function get_ip() {
-// IP si internet partagé
-if (isset($_SERVER['HTTP_CLIENT_IP'])) {
-  return $_SERVER['HTTP_CLIENT_IP'];
-}
-// IP derrière un proxy
-elseif (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-  return $_SERVER['HTTP_X_FORWARDED_FOR'];
-}
-// Sinon : IP normale
-else {
-  return (isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '');
-}
-}
-$ip = get_ip();
-// Fin - Récupération IP
+
+
 
 ?>
 
