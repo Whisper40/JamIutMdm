@@ -9,6 +9,7 @@ $country_code = $_POST['country_code'];
 date_default_timezone_set('Europe/Paris');
 setlocale(LC_TIME, 'fr_FR.utf8','fra');
 $date = strftime('%d/%m/%Y %H:%M:%S');
+$datesystem = strftime('%Y-%m-%d');
 
 $transaction_id = $_POST['transaction_id'];
 $price = $_POST['price'];
@@ -55,7 +56,7 @@ $db->query("INSERT INTO catparticipe (user_id, name, page, icon) VALUES('$user_i
 
 
 $db->query("UPDATE activitesvoyages SET stock='$newstock' WHERE slug='$activity_name'");
-$db->query("INSERT INTO transactions (name, street, city, country, date, transaction_id, amount, currency_code, user_id, raison) VALUES('$name', '$street', '$city', '$country_code', '$date', '$transaction_id', '$price', '$currency_code', '$user_id' ,'$raison')");
+$db->query("INSERT INTO transactions (name, street, city, country, date, datesystem, transaction_id, amount, currency_code, user_id, raison) VALUES('$name', '$street', '$city', '$country_code', '$date', '$datesystem', '$transaction_id', '$price', '$currency_code', '$user_id' ,'$raison')");
 
 
 

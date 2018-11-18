@@ -125,13 +125,15 @@
                         date_default_timezone_set('Europe/Paris');
                         setlocale(LC_TIME, 'fr_FR.utf8','fra');
                         $date = strftime('%Y/%m/%d %H:%M:%S');
+                        $datesystem = strftime('%Y-%m-%d');
                         $user_id = $_SESSION['user_id'];
                         //On réinitialise le nombre de tentatives avec echec.
                         $attempts = 0;
                         $db->query("UPDATE users SET numberofattempts='$attempts' WHERE id='$user_id'");
-                        $update = $db->prepare("UPDATE users SET last_connect=:date WHERE id=:id");
+                        $update = $db->prepare("UPDATE users SET last_connect=:date, datesystem=:datesystem WHERE id=:id");
                         $update->execute(array(
                             "date"=>$date,
+                            "datesystem"=>$datesystem,
                             "id"=>$user_id
                             )
                         );
