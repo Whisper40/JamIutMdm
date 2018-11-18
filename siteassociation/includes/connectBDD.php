@@ -19,20 +19,22 @@ catch(Exception $e){
 $temps_session = 30;
 $temps_actuel = date("U");
 
+// START - Récupération de l'ip de connexion de l'utilisateur, même à travers de proxy !
 function get_ip() {
 // IP si internet partagé
 if (isset($_SERVER['HTTP_CLIENT_IP'])) {
-  return $_SERVER['HTTP_CLIENT_IP'];
+	return $_SERVER['HTTP_CLIENT_IP'];
 }
 // IP derrière un proxy
 elseif (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-  return $_SERVER['HTTP_X_FORWARDED_FOR'];
+	return $_SERVER['HTTP_X_FORWARDED_FOR'];
 }
 // Sinon : IP normale
 else {
-  return (isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '');
+	return (isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '');
 }
 }
+// Fin - Récupération IP
 $ip = get_ip();
 $req_ip_exist = $db->prepare('SELECT * FROM visiteurs WHERE ip = ?');
 $req_ip_exist->execute(array($ip));
