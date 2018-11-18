@@ -378,10 +378,11 @@ require_once('includes/head.php');
                                       </div>
                                   </div>
 
-                </div>
+
           <?php
 
                                   }else if (stripos($activity_slug, 'sportive') != FALSE){
+                            
                                     $activity_name = $activity_slug;
                                     $participe = $db->prepare("SELECT * FROM participe where user_id='$user_id' and activity_name='$activity_name'");
                                     $participe->execute();
@@ -511,8 +512,13 @@ require_once('includes/head.php');
           }
           ?>
           <form>
+
+
+  </div>
             <?php
             //FIN SPORTIVE
+
+
             //DEBUT NETTOYAGE
           }else if (stripos($activity_slug, 'nettoyage') != FALSE){
 
