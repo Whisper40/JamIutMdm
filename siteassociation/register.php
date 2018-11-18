@@ -68,15 +68,19 @@ if(!isset($_SESSION['user_id'])){
                 date_default_timezone_set('Europe/Paris');
                 setlocale(LC_TIME, 'fr_FR.utf8','fra');
                 $date = strftime('%d/%m/%Y %H:%M:%S');
+                $datesystem = strftime('%Y-%m-%d');
+                $subscribe = $datesystem;
 
-                $register= $db->prepare("INSERT INTO users (username, email, password, last_connect) VALUES(:username, :email, :param_password, :date)");
+                $register= $db->prepare("INSERT INTO users (username, email, password, last_connect, datesystem, subscribe) VALUES(:username, :email, :param_password, :date, :datesystem, :subscribe)");
                 $register->execute(array(
                   //On insert la date à laquelle s'est connecté l'utilisateur afin d'avoir un suivi d'activitée du site.
 
                     "username"=>$username,
                     "email"=>$email,
                     "param_password"=>$param_password,
-                    "date"=>$date
+                    "date"=>$date,
+                    "datesystem"=>$datesystem,
+                    "subscribe"=>$subscribe
                     )
                 );
 

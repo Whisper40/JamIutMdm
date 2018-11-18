@@ -8,22 +8,7 @@
 
 
 
-                      // START - Récupération de l'ip de connexion de l'utilisateur, même à travers de proxy !
-                      function get_ip() {
-                      // IP si internet partagé
-                      if (isset($_SERVER['HTTP_CLIENT_IP'])) {
-                        return $_SERVER['HTTP_CLIENT_IP'];
-                      }
-                      // IP derrière un proxy
-                      elseif (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-                        return $_SERVER['HTTP_X_FORWARDED_FOR'];
-                      }
-                      // Sinon : IP normale
-                      else {
-                        return (isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '');
-                      }
-                    }
-                    // Fin - Récupération IP
+
 
                    // START - Récupération du navigateur utilisé :
                     if(strpos($_SERVER["HTTP_USER_AGENT"], 'Firefox') !== false)
@@ -125,13 +110,15 @@
                         date_default_timezone_set('Europe/Paris');
                         setlocale(LC_TIME, 'fr_FR.utf8','fra');
                         $date = strftime('%Y/%m/%d %H:%M:%S');
+                        $datesystem = strftime('%Y-%m-%d');
                         $user_id = $_SESSION['user_id'];
                         //On réinitialise le nombre de tentatives avec echec.
                         $attempts = 0;
                         $db->query("UPDATE users SET numberofattempts='$attempts' WHERE id='$user_id'");
-                        $update = $db->prepare("UPDATE users SET last_connect=:date WHERE id=:id");
+                        $update = $db->prepare("UPDATE users SET last_connect=:date, datesystem=:datesystem WHERE id=:id");
                         $update->execute(array(
                             "date"=>$date,
+                            "datesystem"=>$datesystem,
                             "id"=>$user_id
                             )
                         );
@@ -161,6 +148,7 @@
         </div>
 <?php
 // Ajout de tentative avec erreurs de mdp.
+
 $email = htmlspecialchars($_POST['email']);
 $numberofattempts = $db->query("SELECT numberofattempts from users WHERE email='$email'");
 $rattempts = $numberofattempts->fetch(PDO::FETCH_OBJ);
