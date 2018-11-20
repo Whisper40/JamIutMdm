@@ -249,7 +249,7 @@
                 <div class="col-lg-6 text-center col-md-8 ml-auto mr-auto">
                   <?php if ($s->stock>0){ ?>
                   <div class="send-button">
-                    <a href="https://dashboard.jam-mdm.fr/activiteeencours.php?activityname=<?php echo $s->slug;?>" class="btn btn-primary btn-round btn-block btn-lg">Je Participe à l'évenement</a>
+                    <a href="https://dashboard.jam-mdm.fr/activiteesencours.php?activityname=<?php echo $s->slug;?>" class="btn btn-primary btn-round btn-block btn-lg">Je Participe à l'évenement</a>
 
                   </div>
                   <?php }else{ ?>
