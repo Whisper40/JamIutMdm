@@ -340,6 +340,10 @@ require_once('includes/head.php');
             <?php
 
             }else if (stripos($activity_slug, 'sportive') != FALSE){
+              $activity_name = $activity_slug;
+              $participe = $db->prepare("SELECT * FROM participe where user_id='$user_id' and activity_name='$activity_name'");
+              $participe->execute();
+              $countparticipe = $participe->rowCount();
 
             ?>
 
@@ -444,6 +448,7 @@ require_once('includes/head.php');
 
                                             <form action="" method="post">
                                               <?php
+                                              if ($countparticipe == '0'){
                                                 $selectstock = $db->query("SELECT stock from activitesvoyages WHERE slug='$activity_name'");
                                                 $rstock = $selectstock->fetch(PDO::FETCH_OBJ);
                                                 $stock = $rstock->stock;
@@ -455,7 +460,7 @@ require_once('includes/head.php');
                                                 ?>
                                                 Aucune place disponible
                                               <?php
-                                              }
+                                            } }
                                               ?>
                                               <form>
                                           </center>
@@ -562,7 +567,6 @@ require_once('includes/head.php');
                                         <div class="description">
                                           <?php $total = $prixactivite; ?>
                                             <center>
-                                            <h4 class="info-title">Prix Total : <?php echo $total;?>€</h4>
                                             <?php
                                             if ($countparticipe == '0'){
                                               $selectstock = $db->query("SELECT stock from activitesvoyages WHERE slug='$activity_name'");
