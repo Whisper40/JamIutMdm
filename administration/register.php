@@ -1,8 +1,8 @@
 <?php
     require_once('includes/connectBDD.php');
-    $nompage = "Inscription Admin";
+    $nompage = "Inscription";
     require_once('includes/head.php');
-
+    require_once('includes/quantcast.php');
 
 
 //Code de génératon du captcha fournie par GOOGLE
@@ -13,6 +13,9 @@ $sitekey = "LESITEKEY";
 
   <body class="login-page sidebar-collapse">
 
+<?php
+    require_once('includes/navbar.php');
+?>
 
 <style>
 .page-header>.content {
@@ -37,16 +40,25 @@ $sitekey = "LESITEKEY";
               </div>
             </div>
 <?php
-if(!isset($_SESSION['user_idadmin'])){
+if(!isset($_SESSION['user_id'])){
     if(isset($_POST['submit'])){
       //Conversion des minuscules en majuscule et vérification des caractères spéciaux
         $username = strtoupper(htmlspecialchars($_POST['nom']));
+        $prenom = strtoupper(htmlspecialchars($_POST['prenom']));
+        $ine = strtoupper(htmlspecialchars($_POST['ine']));
         $email = htmlspecialchars($_POST['email']);
         $password = htmlspecialchars($_POST['password']);
         $repeatpassword = htmlspecialchars($_POST['repeatpassword']);
         $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
         if(isset($username)&&isset($email)&&isset($password)&&isset($repeatpassword)){
-
+          $selectetudiant = $db->prepare("SELECT * FROM etud WHERE nom=:nom and prenom=:prenom and numero=:ine");
+          $selectetudiant->execute(array(
+              "nom" => $username,
+              "prenom" => $prenom,
+              "ine" => $ine
+              )
+          );
+          if($selectetudiant->rowCount()==1){
             //Le mot de passe est vérifié afin qu'il contienne une minuscule, majuscule, nombre et symbole
 
       if (preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{10,}$#', $password)){
@@ -56,15 +68,19 @@ if(!isset($_SESSION['user_idadmin'])){
                 date_default_timezone_set('Europe/Paris');
                 setlocale(LC_TIME, 'fr_FR.utf8','fra');
                 $date = strftime('%d/%m/%Y %H:%M:%S');
+                $datesystem = strftime('%Y-%m-%d');
+                $subscribe = $datesystem;
 
-                $register= $db->prepare("INSERT INTO admin (username, email, password, last_connect) VALUES(:username, :email, :param_password, :date)");
+                $register= $db->prepare("INSERT INTO users (username, email, password, last_connect, datesystem, subscribe) VALUES(:username, :email, :param_password, :date, :datesystem, :subscribe)");
                 $register->execute(array(
                   //On insert la date à laquelle s'est connecté l'utilisateur afin d'avoir un suivi d'activitée du site.
 
                     "username"=>$username,
                     "email"=>$email,
                     "param_password"=>$param_password,
-                    "date"=>$date
+                    "date"=>$date,
+                    "datesystem"=>$datesystem,
+                    "subscribe"=>$subscribe
                     )
                 );
 
@@ -80,7 +96,7 @@ if(!isset($_SESSION['user_idadmin'])){
                         <span aria-hidden="true"><i class="now-ui-icons ui-1_simple-remove"></i></span>
                     </button>
                     <center>
-                        <b>Succès :</b> Merci pour votre inscription, vous pouvez désormais vous <a href="connectadmin.php">connecter</a>
+                        <b>Succès :</b> Merci pour votre inscription, vous pouvez désormais vous <a href="connect.php">connecter</a>
                     </center>
 
                 </div>
@@ -150,7 +166,25 @@ if(!isset($_SESSION['user_idadmin'])){
           </div>
           <?php
               }
-
+        }else{
+?>
+        <div class="container">
+            <div class="row">
+                <div class="alert alert-warning">
+                    <div class="alert-icon">
+                      <i class="now-ui-icons ui-1_bell-53"></i>
+                    </div>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true"><i class="now-ui-icons ui-1_simple-remove"></i></span>
+                    </button>
+                    <center>
+                        <b>Attention :</b> Votre inscription n'a pas pu aboutir. Vous n'êtes pas membre de l'IUT MDM.
+                    </center>
+                </div>
+            </div>
+        </div>
+<?php
+            }
 
         }else{
 ?>
@@ -183,8 +217,22 @@ if(!isset($_SESSION['user_idadmin'])){
               </div>
               <input type="text" name="nom" class="form-control" placeholder="Nom" value="<?php echo $_POST['nom'];?>"/>
             </div>
-
-
+            <div class="input-group no-border input-lg">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="now-ui-icons users_single-02"></i>
+                </span>
+              </div>
+              <input type="text" name="prenom" class="form-control" placeholder="Prénom" value="<?php echo $_POST['prenom'];?>"/>
+            </div>
+            <div class="input-group no-border input-lg">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="now-ui-icons travel_info"></i>
+                </span>
+              </div>
+              <input type="text" name="ine" class="form-control" placeholder="Code UPPA" data-toggle="tooltip" data-placement="right" title="Ce code se trouve sur votre carte étudiante IZLY" data-container="body" data-animation="true" value="<?php echo $_POST['ine'];?>"/>
+            </div>
             <div class="input-group no-border input-lg">
               <div class="input-group-prepend">
                 <span class="input-group-text">
@@ -219,7 +267,7 @@ if(!isset($_SESSION['user_idadmin'])){
           </button>
             <div class="pull-center">
               <h6>
-                <a href="connectadmin.php" class="link">J'ai déja un compte</a>
+                <a href="connect.php" class="link">J'ai déja un compte</a>
               </h6>
             </div>
           </form>
@@ -232,7 +280,7 @@ if(!isset($_SESSION['user_idadmin'])){
 <?php
 
 }else{
-    header('Location: https://administration.jam-mdm.fr/');
+    header('Location:my_account.php');
 }
 
 require_once('includes/footer.php');
