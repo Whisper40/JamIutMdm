@@ -803,7 +803,7 @@ require_once('includes/head.php');
                         <div class="col-md-4">
                             <div class="card card-product">
                                 <div class="card-image" data-header-animation="false">
-                                        <img class="img" src="../../siteassociation/assets/img/<?php echo $row['slug']; ?>.<?php echo $row['formatimg']; ?>">
+                                        <img class="img" src="../siteassociation/assets/img/<?php echo $row['slug']; ?>.<?php echo $row['formatimg']; ?>">
                                 </div>
                                 <div class="card-content">
                                     <h3 class="card-title">
