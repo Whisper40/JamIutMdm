@@ -2,7 +2,7 @@
 
 require_once('includes/connectBDD.php');
 require_once('includes/checkconnection.php');
-$nompage = "Les activitées en cours";
+$nompage = "Activitees";
 require_once('includes/head.php');
 
 ?>
@@ -505,9 +505,6 @@ require_once('includes/head.php');
                                       </div>
                                   </div>
 
-
-                                </div>
-
 <?php
             //DEBUT NETTOYAGE
           }else if (stripos($activity_slug, 'nettoyage') != FALSE){
@@ -661,6 +658,7 @@ require_once('includes/head.php');
           <?php
           }
           ?>
+        </div>
           <script>
               paypal.Button.render({
           <?php
