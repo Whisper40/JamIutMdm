@@ -515,12 +515,14 @@ require_once('includes/head.php');
 
 <?php
             //DEBUT NETTOYAGE
-            if(!empty($_POST['jeparticipenettoyage'])){
+          }else if (stripos($activity_slug, 'nettoyage') != FALSE){
 
               $activity_name = $activity_slug;
               $participe = $db->prepare("SELECT * FROM participe where user_id='$user_id' and activity_name='$activity_name'");
               $participe->execute();
               $countparticipe = $participe->rowCount();
+
+              if(!empty($_POST['jeparticipenettoyage'])){
 
               $activity_name = $activity_slug;
               $selectrealname = $db->query("SELECT title,stock from activitesvoyages WHERE slug='$activity_name'");
