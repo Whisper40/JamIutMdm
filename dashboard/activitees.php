@@ -796,20 +796,14 @@ require_once('includes/head.php');
                       $req->setFetchMode(PDO::FETCH_ASSOC);
 
                       foreach($req as $row){
-                        $id = $row['id'];
 
-                    		$select = $db->prepare("SELECT slug, formatimg FROM activitesvoyages where id='$id'");
-                    		$select->execute();
-                    		$s = $select->fetch(PDO::FETCH_OBJ);
-                        $image = $s->slug;
-                        $formatimg = $s->formatimg;
 
                       ?>
 
                         <div class="col-md-4">
                             <div class="card card-product">
                                 <div class="card-image" data-header-animation="false">
-                                        <img class="img" src="../siteassociation/assets/img/<?php echo $image; ?>.<?php echo $formatimg; ?>">
+                                        <img class="img" src="../../siteassociation/assets/img/<?php echo $row['slug']; ?>.<?php echo $row['formatimg']; ?>">
                                 </div>
                                 <div class="card-content">
                                     <h3 class="card-title">
