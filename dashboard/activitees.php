@@ -464,6 +464,7 @@ require_once('includes/head.php');
                                             } }
                                               ?>
                                               <form>
+                                                <br><br>
                                           </center>
                                       </div>
                                   </div>
@@ -530,28 +531,28 @@ require_once('includes/head.php');
 
               if(!empty($_POST['jeparticipenettoyage'])){
 
-              $activity_name = $activity_slug;
-              $selectrealname = $db->query("SELECT title,stock from activitesvoyages WHERE slug='$activity_name'");
-              $r = $selectrealname->fetch(PDO::FETCH_OBJ);
-              $realname = $r->title;
-              $stock = $r->stock;
-              $newstock = $stock - '1';
-              $pageformulaire = 'formulaire.php?type=nettoyage';
-              $icon = 'dns';
+                $activity_name = $activity_slug;
+                $selectrealname = $db->query("SELECT title,stock from activitesvoyages WHERE slug='$activity_name'");
+                $r = $selectrealname->fetch(PDO::FETCH_OBJ);
+                $realname = $r->title;
+                $stock = $r->stock;
+                $newstock = $stock - '1';
+                $pageformulaire = 'formulaire.php?type=nettoyage';
+                $icon = 'dns';
 
 
-              $date = strftime('%d/%m/%Y %H:%M:%S');
-              $db->query("INSERT INTO participe (user_id, activity_name, date) VALUES('$user_id' ,'$activity_name' ,'$date')");
-              $db->query("UPDATE activitesvoyages SET stock='$newstock' WHERE slug='$activity_name'");
-              $db->query("INSERT INTO catparticipe (user_id, name, page, icon) VALUES('$user_id', '$realname', '$pageformulaire', '$icon')");
+                $date = strftime('%d/%m/%Y %H:%M:%S');
+                $db->query("INSERT INTO participe (user_id, activity_name, date) VALUES('$user_id' ,'$activity_name' ,'$date')");
+                $db->query("UPDATE activitesvoyages SET stock='$newstock' WHERE slug='$activity_name'");
+                $db->query("INSERT INTO catparticipe (user_id, name, page, icon) VALUES('$user_id', '$realname', '$pageformulaire', '$icon')");
 
 
-              ?>
-              <script>
-                  window.location = 'https://dashboard.jam-mdm.fr/';
-              </script>
-              <?php
-            }
+                ?>
+                <script>
+                    window.location = 'https://dashboard.jam-mdm.fr/';
+                </script>
+                <?php
+              }
             ?>
 
             <div class="container-fluid">
@@ -575,7 +576,7 @@ require_once('includes/head.php');
                                               $stock = $rstock->stock;
                                               if($stock>0){
                                               ?>
-                                                <input type="submit" id="jeparticipenettoyage" name="jeparticipenettoyage" value="Je Participe">
+                                              <button type="submit" class="btn btn-primary btn-round" id="jeparticipenettoyage" name="jeparticipenettoyage" value="Je Participe">Je Participe</button>
                                             <?php
                                             }else{
                                               ?>
