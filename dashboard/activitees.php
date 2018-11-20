@@ -516,20 +516,6 @@ require_once('includes/head.php');
 <?php
             //DEBUT NETTOYAGE
           }else if (stripos($activity_slug, 'nettoyage') != FALSE){
-
-          $activity_name = $activity_slug;
-          $participe = $db->prepare("SELECT * FROM participe where user_id='$user_id' and activity_name='$activity_name'");
-          $participe->execute();
-          $countparticipe = $participe->rowCount();
-          if ($countparticipe == '1'){
-           ?><form action="" method="post">
-           <input type="submit" id="jeneparticipeplusnettoyage" name="jeneparticipeplusnettoyage" value="J'annule ma participation">
-          </form><?php
-          }
-           ?>
-          <?php
-          if(!empty($_POST['jeparticipenettoyage'])){
-
             $activity_name = $activity_slug;
             $selectrealname = $db->query("SELECT title,stock from activitesvoyages WHERE slug='$activity_name'");
             $r = $selectrealname->fetch(PDO::FETCH_OBJ);
@@ -539,58 +525,55 @@ require_once('includes/head.php');
             $pageformulaire = 'formulaire.php?type=nettoyage';
             $icon = 'dns';
 
-
             $date = strftime('%d/%m/%Y %H:%M:%S');
             $db->query("INSERT INTO participe (user_id, activity_name, date) VALUES('$user_id' ,'$activity_name' ,'$date')");
             $db->query("UPDATE activitesvoyages SET stock='$newstock' WHERE slug='$activity_name'");
             $db->query("INSERT INTO catparticipe (user_id, name, page, icon) VALUES('$user_id', '$realname', '$pageformulaire', '$icon')");
 
-
             ?>
             <script>
                 window.location = 'https://dashboard.jam-mdm.fr/';
             </script>
-            <?php
-          }
-          if(!empty($_POST['jeneparticipeplusnettoyage'])){
-            $activity_name = $activity_slug;
-            $selectrealname = $db->query("SELECT title,stock from activitesvoyages WHERE slug='$activity_name'");
-            $r = $selectrealname->fetch(PDO::FETCH_OBJ);
-            $realname = $r->title;
-            $stock = $r->stock;
-            $newstock = $stock + '1';
-            $db->query("DELETE FROM participe WHERE user_id='$user_id' AND activity_name='$activity_name'");
-            $db->query("DELETE FROM catparticipe WHERE user_id='$user_id' AND name='$realname'");
-            $db->query("UPDATE activitesvoyages SET stock='$newstock' WHERE slug='$activity_name'");
 
-          ?>
-          <script>
-              window.location = 'https://dashboard.jam-mdm.fr/activiteesencours.php';
-          </script>
-          <?php
-          }
-          ?>
+            <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-6 col-md-offset-3">
+                      <div class="card">
+                          <div class="card-content">
+                            <center>
+                              <h3 class="card-title">Validation et Paiement</h3>
+                            </center>
+                            <form action="" method="post">
+                                <div class="card-content">
+                                    <div class="info info-horizontal">
+                                        <div class="description">
+                                          <?php $total = $prixactivite; ?>
+                                            <center>
+                                            <h4 class="info-title">Prix Total : <?php echo $total;?>€</h4>
+                                            <?php
+                                              $selectstock = $db->query("SELECT stock from activitesvoyages WHERE slug='$activity_name'");
+                                              $rstock = $selectstock->fetch(PDO::FETCH_OBJ);
+                                              $stock = $rstock->stock;
+                                              if($stock>0){
+                                              ?>
+                                                <input type="submit" id="jeparticipenettoyage" name="jeparticipenettoyage" value="Je Participe">
+                                            <?php
+                                            }else{
+                                              ?>
+                                              Aucune place disponible
+                                            <?php
+                                            }
+                                            ?>
+                                            </center>
+                                        </div>
+                                    </div>
+                                </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
 
-           <form action="" method="post">
-
-          <?php
-          if ($countparticipe == '0'){
-            $selectstock = $db->query("SELECT stock from activitesvoyages WHERE slug='$activity_name'");
-            $rstock = $selectstock->fetch(PDO::FETCH_OBJ);
-            $stock = $rstock->stock;
-            if($stock>0){
-            ?>
-              <input type="submit" id="jeparticipenettoyage" name="jeparticipenettoyage" value="Je Participe">
-          <?php
-          }else{
-            ?>
-            <button type="button">Aucune place disponible</button>
-          <?php
-          }
-          }
-
-          ?>
-          <form>
             <?php
           //FIN NETTOYAGE
           //DEBUT JOURNEE COURSE ORIENTATION
