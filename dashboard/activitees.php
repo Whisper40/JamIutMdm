@@ -380,7 +380,8 @@ require_once('includes/checkmemberjam.php');
                                   </div>
 
 
-          
+                                </div>
+
 <?php
             //DEBUT NETTOYAGE
           }else if (stripos($activity_slug, 'nettoyage') != FALSE){
