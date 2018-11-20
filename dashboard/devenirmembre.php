@@ -59,7 +59,7 @@ require_once('includes/head.php');
                                       </div>
                                   </div>
                               </div>
-                              <div class="col-md-5">
+                              <div class="col-md-5 col-md-offset-1">
                                 <div class="content">
                                       <div class="container-fluid">
                                           <div class="row">
