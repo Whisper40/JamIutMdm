@@ -454,7 +454,7 @@ require_once('includes/head.php');
                                                 $stock = $rstock->stock;
                                                 if($stock>0){
                                                 ?>
-                                                  <input type="submit" id="jeparticipe" name="jeparticipe" value="Je Participe">
+                                                <button type="submit" class="btn btn-primary btn-round" id="jeparticipe" name="jeparticipe" value="Je Participe">Je Participe</button>
                                               <?php
                                               }else{
                                                 ?>
