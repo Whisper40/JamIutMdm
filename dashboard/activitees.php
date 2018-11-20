@@ -555,10 +555,10 @@ require_once('includes/head.php');
                                 <div class="card-content">
                                     <div class="info info-horizontal">
                                         <div class="description">
-                                          <?php $total = $prixactivite; ?>
                                             <center>
                                             <?php
                                             if ($countparticipe == '0'){
+                                              $activity_name = $activity_slug;
                                               $selectstock = $db->query("SELECT stock from activitesvoyages WHERE slug='$activity_name'");
                                               $rstock = $selectstock->fetch(PDO::FETCH_OBJ);
                                               $stock = $rstock->stock;
@@ -623,7 +623,7 @@ require_once('includes/head.php');
                     <div class="card">
                         <div class="card-content">
                           <center>
-                            <h3 class="card-title">Validation et Paiement</h3>
+                            <h3 class="card-title">Participation</h3>
                           </center>
                           <form action="" method="post">
                               <div class="card-content">
