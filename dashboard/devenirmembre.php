@@ -22,7 +22,7 @@ require_once('includes/head.php');
                           <div class="card-content">
                               <h2 class="card-title text-center">Devenir Membre de l'association</h2>
                               <div class="row">
-                              <div class="col-md-5">
+                              <div class="col-md-7">
                                   <div class="card-content">
                                       <div class="info info-horizontal">
                                           <div class="icon icon-rose">
@@ -59,7 +59,7 @@ require_once('includes/head.php');
                                       </div>
                                   </div>
                               </div>
-                              <div class="col-md-5 col-md-offset-1">
+                              <div class="col-md-7">
                                 <div class="content">
                                       <div class="container-fluid">
                                           <div class="row">
