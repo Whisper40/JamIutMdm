@@ -552,8 +552,8 @@ require_once('includes/head.php');
                                 <div class="card-content">
                                     <div class="info info-horizontal">
                                         <div class="description">
+                                          <center>
                                           <h4 class="info-title">En cliquant sur ce bouton j'accepte de participer à l'activitée</h4>
-                                            <center>
                                             <?php
                                             if ($countparticipe == '0'){
                                               $activity_name = $activity_slug;
