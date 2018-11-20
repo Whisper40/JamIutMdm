@@ -382,7 +382,7 @@ require_once('includes/head.php');
           <?php
 
                                   }else if (stripos($activity_slug, 'sportive') != FALSE){
-                            
+
                                     $activity_name = $activity_slug;
                                     $participe = $db->prepare("SELECT * FROM participe where user_id='$user_id' and activity_name='$activity_name'");
                                     $participe->execute();
@@ -803,7 +803,7 @@ require_once('includes/head.php');
                         <div class="col-md-4">
                             <div class="card card-product">
                                 <div class="card-image" data-header-animation="false">
-                                        <img class="img" src="../../siteassociation/assets/img/<?php echo $row['slug']; ?>.<?php echo $row['formatimg']; ?>">
+                                        <img class="img" src="../siteassociation/assets/img/<?php echo $row['slug']; ?>.<?php echo $row['formatimg']; ?>">
                                 </div>
                                 <div class="card-content">
                                     <h3 class="card-title">
