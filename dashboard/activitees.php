@@ -362,6 +362,7 @@ require_once('includes/head.php');
                                           <div class="info info-horizontal">
                                               <div class="description">
                                                 <center>
+                                                  <h4 class="info-title">L'organisation</h4>
                                                 </center>
                                                   <p class="description">
 
