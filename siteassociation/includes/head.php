@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
 
-  <meta name="Description" content="Association JAM ( Jeunesse Associative Montoise ) - Mont de Marsan">
+  <meta name="Description" content="Association JAM MDM (Jeunesse Associative Montoise), Mont de Marsan, IUT MDM, UPPA, association étudiante pour les étudiants de l'iut de Mont de Marsan developpé dans le cadre d'un projet pédagogique. Les activités de l'association comprennent des sorties, déjours ski, activités gratuite concernant différent thèmes. ">
   <meta name="Keywords" content="jam, association mont de marsan, iut mont de marsan, iut mdm, uppa">
   <meta name="Identifier-Url" content="https://jam-mdm.fr">
   <meta name="Reply-To" content="postmaster@jam-mdm.fr"> <!-- Mail Admin -->
