@@ -641,6 +641,7 @@ require_once('includes/head.php');
                               <div class="card-content">
                                   <div class="info info-horizontal">
                                       <div class="description">
+                                        <center>
                                         <h4 class="info-title">En cliquant sur ce bouton j'accepte de participer à l'activitée</h4>
                                         <?php
                                         if ($countparticipe == '0'){
@@ -650,11 +651,11 @@ require_once('includes/head.php');
                                           $stock = $rstock->stock;
                                           if($stock>0){
                                           ?>
-                                            <input type="submit" id="jeparticipeorientation" name="jeparticipeorientation" value="Je Participe">
+                                          <button type="submit" class="btn btn-primary btn-round" id="jeparticipeorientation" name="jeparticipeorientation" value="Je Participe">Je Participe</button>
                                         <?php
                                         }else{
                                           ?>
-                                          <button type="button">Aucune place disponible</button>
+                                          Aucune place disponible
                                         <?php
                                         }
                                         }
