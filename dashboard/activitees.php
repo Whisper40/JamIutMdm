@@ -360,12 +360,8 @@ require_once('includes/head.php');
                                           <div class="row">
                                           <div class="col-md-6">
                                           <div class="info info-horizontal">
-                                              <div class="icon icon-rose">
-                                                  <i class="material-icons">timeline</i>
-                                              </div>
                                               <div class="description">
                                                 <center>
-                                                  <h4 class="info-title">Le match</h4>
                                                 </center>
                                                   <p class="description">
 
@@ -464,7 +460,7 @@ require_once('includes/head.php');
                                             } }
                                               ?>
                                               <form>
-                                                <br><br><br>
+                                                <br>
                                           </center>
                                       </div>
                                   </div>
