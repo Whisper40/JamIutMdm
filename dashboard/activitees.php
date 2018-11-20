@@ -4,7 +4,6 @@ require_once('includes/connectBDD.php');
 require_once('includes/checkconnection.php');
 $nompage = "Les activitées en cours";
 require_once('includes/head.php');
-require_once('includes/checkmemberjam.php');
 
 ?>
 <script src="https://www.paypalobjects.com/api/checkout.js"></script>
@@ -380,8 +379,146 @@ require_once('includes/checkmemberjam.php');
                                   </div>
 
 
-          
-<?php
+          <?php
+
+                                  }else if (stripos($activity_slug, 'sportive') != FALSE){
+
+                                    $activity_name = $activity_slug;
+                                    $participe = $db->prepare("SELECT * FROM participe where user_id='$user_id' and activity_name='$activity_name'");
+                                    $participe->execute();
+                                    $countparticipe = $participe->rowCount();
+                                    if ($countparticipe == '1'){
+                                     ?>
+                                     <form action="" method="post">
+                                      <div class="card-content">
+
+                                        <?php
+
+                                        $total = $prixactivite;
+                                        ?><h2> Total = <?php echo $total;?>€
+                                          <?php
+                                        if($stock>0){
+                                           ?>
+                                          <div align="center" id="paypal-button"></div>
+                                      </div>
+
+                                        <?php }else{ ?>
+                                      <div class="footer text-center">
+                                          <button type="button" class="btn btn-primary btn-round">Aucune place disponible</button>
+                                      </div>
+                                    <?php } ?>
+                                  </form>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+           <input type="submit" id="jeneparticipeplus" name="jeneparticipeplus" value="J'annule ma participation">
+          </form><?php
+          }else{
+            ?>
+
+          <form name="organisation" method="POST">
+          <h2> Cette activité est gratuite </h2>
+          <?php
+            $select4 = $db->prepare("SELECT * FROM activityradio WHERE slug='$activity_slug' and type='organisation'");
+            $select4->execute();
+
+            while($s4=$select4->fetch(PDO::FETCH_OBJ)){
+              $type4 = $s4->type;
+              $packname4 = $s4->packname;
+              ?>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="option<?php echo $type4;?>" value="<?php echo $packname4; ?>"> <?php echo $packname4; ?>
+                </label>
+              </div>
+              <?php
+            }
+            ?>
+                <button type="submit" class="btn btn-info"> Valider mes choix</button>
+              </form>
+
+          <?php
+          }
+           ?>
+          <?php
+          if(!empty($_POST['jeparticipe'])){
+            $optionorganisation = $_POST['optionorganisation'];
+            $activity_name = $activity_slug;
+            $selectrealname = $db->query("SELECT title,stock from activitesvoyages WHERE slug='$activity_name'");
+            $r = $selectrealname->fetch(PDO::FETCH_OBJ);
+            $realname = $r->title;
+            $stock = $r->stock;
+            $newstock = $stock - '1';
+            $pageformulaire = 'formulaire.php?type=sportive';
+            $icon = 'dns';
+            $date = strftime('%d/%m/%Y %H:%M:%S');
+            $db->query("INSERT INTO participe (user_id, activity_name, date, optionorganisation) VALUES('$user_id' ,'$activity_name' ,'$date', '$optionorganisation')");
+            $db->query("INSERT INTO catparticipe (user_id, name, page, icon) VALUES('$user_id', '$realname', '$pageformulaire', '$icon')");
+            $db->query("INSERT INTO formulairesportive (user_id) VALUES('$user_id')");
+            $db->query("UPDATE activitesvoyages SET stock='$newstock' WHERE slug='$activity_name'");
+
+            ?>
+            <script>
+                window.location = 'http://127.0.0.1/dashboard/formulaire.php?type=sportive';
+            </script>
+            <?php
+          }
+          if(!empty($_POST['jeneparticipeplus'])){
+            $activity_name = $activity_slug;
+            $selectrealname = $db->query("SELECT title,stock from activitesvoyages WHERE slug='$activity_name'");
+            $r = $selectrealname->fetch(PDO::FETCH_OBJ);
+            $realname = $r->title;
+            $stock = $r->stock;
+            $newstock = $stock + '1';
+            $db->query("DELETE FROM participe WHERE user_id='$user_id' AND activity_name='$activity_name'");
+            $db->query("DELETE FROM catparticipe WHERE user_id='$user_id' AND name='$realname'");
+            $db->query("DELETE FROM formulairesportive WHERE user_id='$user_id'");
+            $db->query("UPDATE activitesvoyages SET stock='$newstock' WHERE slug='$activity_name'");
+
+          ?>
+          <script>
+              window.location = 'https://dashboard.jam-mdm.fr/activiteesencours.php';
+          </script>
+          <?php
+          }
+          ?>
+          <?php
+          $optionorganisation = $_POST['optionorganisation'];
+
+          if(isset($optionorganisation)){
+
+           ?>
+           <form action="" method="post">
+
+          <?php
+          if ($countparticipe == '0'){
+            $selectstock = $db->query("SELECT stock from activitesvoyages WHERE slug='$activity_name'");
+            $rstock = $selectstock->fetch(PDO::FETCH_OBJ);
+            $stock = $rstock->stock;
+            if($stock>0){
+            ?>
+              <input type="submit" id="jeparticipe" name="jeparticipe" value="Je Participe">
+          <?php
+          }else{
+            ?>
+            <button type="button">Aucune place disponible</button>
+          <?php
+          }
+          }
+          }
+          ?>
+          <form>
+
+
+  </div>
+            <?php
+            //FIN SPORTIVE
+
+
             //DEBUT NETTOYAGE
           }else if (stripos($activity_slug, 'nettoyage') != FALSE){
 
@@ -666,7 +803,7 @@ require_once('includes/checkmemberjam.php');
                         <div class="col-md-4">
                             <div class="card card-product">
                                 <div class="card-image" data-header-animation="false">
-                                        <img class="img" src="https://jam-mdm.fr/assets/img/<?php echo $row['slug']; ?>.<?php echo $row['formatimg']; ?>">
+                                        <img class="img" src="../../siteassociation/assets/img/<?php echo $row['slug']; ?>.<?php echo $row['formatimg']; ?>">
                                 </div>
                                 <div class="card-content">
                                     <h3 class="card-title">
