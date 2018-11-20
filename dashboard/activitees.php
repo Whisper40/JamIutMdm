@@ -107,9 +107,6 @@ require_once('includes/head.php');
                                                 <div class="row">
                                                 <div class="col-md-6">
                                                 <div class="info info-horizontal">
-                                                    <div class="icon icon-rose">
-                                                        <i class="material-icons">timeline</i>
-                                                    </div>
                                                     <div class="description">
                                                       <center>
                                                         <h4 class="info-title">Le matériel</h4>
@@ -141,9 +138,6 @@ require_once('includes/head.php');
                                               </div>
                                               <div class="col-md-6">
                                                 <div class="info info-horizontal">
-                                                    <div class="icon icon-info">
-                                                        <i class="material-icons">group</i>
-                                                    </div>
                                                     <div class="description">
                                                       <center>
                                                         <h4 class="info-title">Le repas</h4>
@@ -249,9 +243,6 @@ require_once('includes/head.php');
                                                                             <div class="row">
                                                                             <div class="col-md-6">
                                                                             <div class="info info-horizontal">
-                                                                                <div class="icon icon-rose">
-                                                                                    <i class="material-icons">timeline</i>
-                                                                                </div>
                                                                                 <div class="description">
                                                                                   <center>
                                                                                     <h4 class="info-title">Le match</h4>
@@ -461,7 +452,7 @@ require_once('includes/head.php');
                                             } }
                                               ?>
                                               <form>
-                                                <br>
+                                                <br><br>
                                           </center>
                                       </div>
                                   </div>
