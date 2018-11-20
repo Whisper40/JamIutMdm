@@ -444,7 +444,6 @@ require_once('includes/head.php');
 
                                             <form action="" method="post">
                                               <?php
-                                              if ($countparticipe == '0'){
                                                 $selectstock = $db->query("SELECT stock from activitesvoyages WHERE slug='$activity_name'");
                                                 $rstock = $selectstock->fetch(PDO::FETCH_OBJ);
                                                 $stock = $rstock->stock;
@@ -454,9 +453,8 @@ require_once('includes/head.php');
                                               <?php
                                               }else{
                                                 ?>
-                                                <button type="button">Aucune place disponible</button>
+                                                Aucune place disponible
                                               <?php
-                                              }
                                               }
                                               ?>
                                               <form>
