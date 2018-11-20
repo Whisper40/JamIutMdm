@@ -4,6 +4,7 @@ require_once('includes/connectBDD.php');
 require_once('includes/checkconnection.php');
 $nompage = "Les activitées en cours";
 require_once('includes/head.php');
+require_once('includes/checkmemberjam.php');
 
 ?>
 <script src="https://www.paypalobjects.com/api/checkout.js"></script>
