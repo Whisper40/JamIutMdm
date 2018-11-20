@@ -1,29 +1,15 @@
 <?php
     require_once('includes/connectBDD.php');
-
-    $nompage = "Admin Connexion";
+    require_once('includes/refusebypassconnection.php');
+    $nompage = "Connexion";
+    ini_set('display_errors', 1);
     require_once('includes/head.php');
 
 
 
 
 
-                      // START - Récupération de l'ip de connexion de l'utilisateur, même à travers de proxy !
-                      function get_ip() {
-                      // IP si internet partagé
-                      if (isset($_SERVER['HTTP_CLIENT_IP'])) {
-                        return $_SERVER['HTTP_CLIENT_IP'];
-                      }
-                      // IP derrière un proxy
-                      elseif (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-                        return $_SERVER['HTTP_X_FORWARDED_FOR'];
-                      }
-                      // Sinon : IP normale
-                      else {
-                        return (isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '');
-                      }
-                    }
-                    // Fin - Récupération IP
+
 
                    // START - Récupération du navigateur utilisé :
                     if(strpos($_SERVER["HTTP_USER_AGENT"], 'Firefox') !== false)
@@ -46,7 +32,7 @@
 <body class="login-page sidebar-collapse">
 
 <?php
-    require_once('includes/navbar.php');
+
 ?>
 
 <div class="page-header clear-filter">
@@ -67,7 +53,7 @@
 <?php
                   // START - Process de connexion :
 
-                if(!isset($_SESSION['user_idadmin'])){
+                if(!isset($_SESSION['admin_id'])){
                     if(isset($_POST['submit'])){
                       // On demande l'utilisateur avec cet email qui n'est pas bannis et qui n'a pas de tentative de connexion frauduleuses
                         $email = htmlspecialchars($_POST['email']);
@@ -79,11 +65,12 @@
                                     )
                                 );
                                 if($select->rowCount()==1){
-
+                                  $ban = '0';
                                   $attempts = 5;
-                                  $selectban = $db->prepare("SELECT * FROM users WHERE email=:email and numberofattempts<:attempts");
+                                  $selectban = $db->prepare("SELECT * FROM admin WHERE email=:email and ban=:ban and numberofattempts<:attempts");
                                   $selectban->execute(array(
                                       "email" => $email,
+                                      "ban" => $ban,
                                       "attempts" => $attempts
                                       )
                                   );
@@ -94,9 +81,9 @@
                                     if(password_verify($password, $data['password'])){
                                       //Si le mot de passe correspond à l'email utilisé par la personne alors on définis les variables de sessions
 
-                                        $_SESSION['user_idadmin'] = $data['id'];
-                                        $_SESSION['user_nameadmin'] = $data['username'];
-                                        $_SESSION['user_emailadmin'] = $data['email'];
+                                        $_SESSION['admin_id'] = $data['id'];
+                                        $_SESSION['admin_name'] = $data['username'];
+                                        $_SESSION['admin_email'] = $data['email'];
 
                     // FIN - Process de connexion
 
@@ -107,10 +94,10 @@
                                 setlocale(LC_TIME, 'fr_FR.utf8','fra');
                                 $date = strftime('%d/%m/%Y %H:%M:%S');
                                 // On ajoute dans la BDD l'ensemble des informations de l'utilisateur qui se connecte, son IP, son navigateur ainsi que la date de connexion de la personne.
-                                $insertinfos = $db->prepare("INSERT INTO histconnexionadmin (user_id, ip, navigateur, date) VALUES(:user_id, :ip, :navigateur, :date)");
+                                $insertinfos = $db->prepare("INSERT INTO histconnexionadmin (admin_id, ip, navigateur, date) VALUES(:admin_id, :ip, :navigateur, :date)");
                                 $insertinfos->execute(array(
 
-                                    "user_id"=>$_SESSION['user_idadmin'],
+                                    "admin_id"=>$_SESSION['admin_id'],
                                     "ip"=>$ip,
                                     "navigateur"=>$user_agent_name,
                                     "date"=>$date
@@ -124,14 +111,16 @@
                         date_default_timezone_set('Europe/Paris');
                         setlocale(LC_TIME, 'fr_FR.utf8','fra');
                         $date = strftime('%Y/%m/%d %H:%M:%S');
-                        $user_id = $_SESSION['user_idadmin'];
+                        $datesystem = strftime('%Y-%m-%d');
+                        $admin_id = $_SESSION['admin_id'];
                         //On réinitialise le nombre de tentatives avec echec.
                         $attempts = 0;
-                        $db->query("UPDATE admin SET numberofattempts='$attempts' WHERE id='$user_id'");
-                        $update = $db->prepare("UPDATE admin SET last_connect=:date WHERE id=:id");
+                        $db->query("UPDATE admin SET numberofattempts='$attempts' WHERE id='$admin_id'");
+                        $update = $db->prepare("UPDATE admin SET last_connect=:date, datesystem=:datesystem WHERE id=:id");
                         $update->execute(array(
                             "date"=>$date,
-                            "id"=>$user_id
+                            "datesystem"=>$datesystem,
+                            "id"=>$admin_id
                             )
                         );
 
@@ -139,7 +128,7 @@
                    // Redirection en javascript car le header location pose problème dans ce cas :(
                    ?>
 
-                      <script>window.location="https://administration.jam-mdm.fr/";</script><?php
+                      <script>window.location="http://127.0.0.1/administration/index.php";</script><?php
 
                     }else{
 ?>
@@ -160,6 +149,7 @@
         </div>
 <?php
 // Ajout de tentative avec erreurs de mdp.
+
 $email = htmlspecialchars($_POST['email']);
 $numberofattempts = $db->query("SELECT numberofattempts from admin WHERE email='$email'");
 $rattempts = $numberofattempts->fetch(PDO::FETCH_OBJ);
@@ -270,7 +260,7 @@ $db->query("UPDATE admin SET numberofattempts='$newattempts' WHERE email='$email
 
 <?php
     }else{
-        header('Location:https://dashboard.jam-mdm.fr/');
+        header('Location:http://127.0.0.1/administration/index.php');
     }
 
 require_once('includes/footer.php');
