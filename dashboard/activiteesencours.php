@@ -4,6 +4,7 @@ require_once('includes/connectBDD.php');
 require_once('includes/checkconnection.php');
 $nompage = "Les activitées en cours";
 require_once('includes/head.php');
+require_once('includes/checkmemberjam.php');
 
 ?>
 <script src="https://www.paypalobjects.com/api/checkout.js"></script>
@@ -187,14 +188,14 @@ if($stock>0){
 //Fin Cinema
 }else if (stripos($activity_slug, 'sportive') != FALSE){
 
-                  $activity_name = $activity_slug;
-                  $participe = $db->prepare("SELECT * FROM participe where user_id='$user_id' and activity_name='$activity_name'");
-                  $participe->execute();
-                  $countparticipe = $participe->rowCount();
-                  if ($countparticipe == '1'){
-                   ?><form action="" method="post">
-                   <input type="submit" id="jeneparticipeplus" name="jeneparticipeplus" value="J'annule ma participation">
-                  </form><?php
+$activity_name = $activity_slug;
+$participe = $db->prepare("SELECT * FROM participe where user_id='$user_id' and activity_name='$activity_name'");
+$participe->execute();
+$countparticipe = $participe->rowCount();
+if ($countparticipe == '1'){
+ ?><form action="" method="post">
+ <input type="submit" id="jeneparticipeplus" name="jeneparticipeplus" value="J'annule ma participation">
+</form><?php
 }else{
   ?>
 
@@ -245,25 +246,25 @@ if(!empty($_POST['jeparticipe'])){
   </script>
   <?php
 }
-              if(!empty($_POST['jeneparticipeplus'])){
-                $activity_name = $activity_slug;
-                $selectrealname = $db->query("SELECT title,stock from activitesvoyages WHERE slug='$activity_name'");
-                $r = $selectrealname->fetch(PDO::FETCH_OBJ);
-                $realname = $r->title;
-                $stock = $r->stock;
-                $newstock = $stock + '1';
-                $db->query("DELETE FROM participe WHERE user_id='$user_id' AND activity_name='$activity_name'");
-                $db->query("DELETE FROM catparticipe WHERE user_id='$user_id' AND name='$realname'");
-                $db->query("DELETE FROM formulairesportive WHERE user_id='$user_id'");
-                $db->query("UPDATE activitesvoyages SET stock='$newstock' WHERE slug='$activity_name'");
+if(!empty($_POST['jeneparticipeplus'])){
+  $activity_name = $activity_slug;
+  $selectrealname = $db->query("SELECT title,stock from activitesvoyages WHERE slug='$activity_name'");
+  $r = $selectrealname->fetch(PDO::FETCH_OBJ);
+  $realname = $r->title;
+  $stock = $r->stock;
+  $newstock = $stock + '1';
+  $db->query("DELETE FROM participe WHERE user_id='$user_id' AND activity_name='$activity_name'");
+  $db->query("DELETE FROM catparticipe WHERE user_id='$user_id' AND name='$realname'");
+  $db->query("DELETE FROM formulairesportive WHERE user_id='$user_id'");
+  $db->query("UPDATE activitesvoyages SET stock='$newstock' WHERE slug='$activity_name'");
 
-                ?>
-                <script>
-                    window.location = 'https://dashboard.jam-mdm.fr/activiteesencours.php';
-                </script>
-                <?php
-                }
-                ?>
+?>
+<script>
+    window.location = 'https://dashboard.jam-mdm.fr/activiteesencours.php';
+</script>
+<?php
+}
+?>
 <?php
 $optionorganisation = $_POST['optionorganisation'];
 

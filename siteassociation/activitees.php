@@ -330,8 +330,9 @@
               <div class="pull-right">
                 <?php if ($s->stock>0){ ?>
                 <div class="button-container">
-                  <a href="?showmethisactivity=<?php echo $s->slug; ?>&amp;p=<?php echo $s->price; ?>" class="btn btn-primary btn-round btn-lg">Voir l'activité</a>
+                  <a href="https://dashboard.jam-mdm.fr/activiteesencours.php?activityname=<?php echo $s->slug;?>" class="btn btn-primary btn-round btn-lg">Voir l'activité</a>
                 </div>
+
                 <?php }else{ ?>
                   <br>
                   <h5 style="color:red;">Aucune place n'est disponible !</h5>
