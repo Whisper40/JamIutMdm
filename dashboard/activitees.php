@@ -385,14 +385,14 @@ require_once('includes/head.php');
 
                                           </div>
                                           <div class="col-md-6">
-                                            <br><br><br><br>
+                                            <br><br><br><br><br>
                                             <div class="text-center">
                                                <button type="submit" class="btn btn-primary btn-round"> Valider mes choix</button>
                                           </div>
                                           </div>
                                         </div>
                                   </div>
-                                  <br><br>
+
 
                                   </form>
                                 </div>
@@ -470,7 +470,7 @@ require_once('includes/head.php');
                 <?php }  ?>
             </div>
             </div>
-            
+
 <?php
 
                                   //Debut cinema
