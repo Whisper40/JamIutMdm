@@ -439,12 +439,13 @@ require_once('includes/head.php');
                                 <div class="card">
                                 <div class="card-content">
                                 <center>
-                                <h3 class="card-title">Validation et Paiement</h3>
+                                <h3 class="card-title">Participation</h3>
                                 </center>
                                 <div class="card-content">
                                   <div class="info info-horizontal">
                                       <div class="description">
                                           <center>
+                                            <h4 class="info-title">En cliquant sur ce bouton j'accepte de participer à l'activitée</h4>
 
                                             <form action="" method="post">
                                               <?php
