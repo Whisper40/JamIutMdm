@@ -549,7 +549,7 @@ require_once('includes/head.php');
                       <div class="card">
                           <div class="card-content">
                             <center>
-                              <h3 class="card-title">Validation et Paiement</h3>
+                              <h3 class="card-title">Participation</h3>
                             </center>
                             <form action="" method="post">
                                 <div class="card-content">
@@ -793,7 +793,7 @@ require_once('includes/head.php');
                                         <?php $price = $row['price']; ?>
                                     </div>
                                     <center>
-                                      <a href="activiteesencours.php?activityname=<?php echo $row['slug'];?>">
+                                      <a href="activitees.php?activityname=<?php echo $row['slug'];?>">
                                     <button class="btn btn-primary btn-round btn-sm">Je participe</button></a>
                                     </center>
                                 </div>
