@@ -33,7 +33,7 @@ if(!empty($nomdonneur) && (!empty($adressepostale)) && (!empty($email))){
 $db->query("INSERT INTO donation (nomprenom, adresse, email, price, message) VALUES('$nomdonneurfinal', '$adressepostalefinal', '$email', '$price', '$message')");
 }
 
-unset($_SESSION['message']);
+unset($_SESSION['messagedonneur']);
 unset($_SESSION['nomdonneur']);
-unset($_SESSION['adressepostale']);
+unset($_SESSION['adressedonneur']);
 unset($_SESSION['emaildonneur']);
