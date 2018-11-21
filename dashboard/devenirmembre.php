@@ -128,7 +128,6 @@ $status = $s->status;
                             </div>
                             <div class="col-md-9">
                                 <div class="card-content">
-                                    <div class="info info-horizontal">
                                       <div class="table-responsive">
                                           <table class="table">
                                               <thead class="text-primary">
@@ -177,7 +176,6 @@ $status = $s->status;
                                               </tbody>
                                           </table>
                                       </div>
-                                    </div>
                                 </div>
                             </div>
 
