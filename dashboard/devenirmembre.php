@@ -71,13 +71,17 @@ $status = $s->status;
                                               <p class="description">
                                                   We've developed the website with HTML5 and CSS3. The client has access to the code using GitHub.
                                               </p>
+                                              <div class="content">
+                                                  <div class="container-fluid">
+                                                      <div class="row">
+                                                          <center>
 
 
 
                                               <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
                                                   <div class="form-group label-floating">
-                                                      <label class="col-sm-2 label-on-left">Message :</label>
-                                                      <textarea name="message" class="form-control" rows="6"></textarea>
+                                                      <label class="col-sm-2 label-on-left">Message</label>
+                                                      <textarea name="message" class="form-control" rows="1"></textarea>
                                                       <span class="help-block">Merci de décrire précisément votre message</span>
                                                   </div>
                                                   <div class="form-group label-floating">
@@ -99,6 +103,9 @@ $status = $s->status;
                                                               </div>
                                                           </div>
                                                       </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                                   </div>
                                                   <div class="form-group label-floating">
                                                       <div class="g-recaptcha" data-sitekey="<?= $sitekey; ?>"></div>
