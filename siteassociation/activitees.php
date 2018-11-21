@@ -248,10 +248,22 @@
             <div class="row">
                 <div class="col-lg-6 text-center col-md-8 ml-auto mr-auto">
                   <?php if ($s->stock>0){ ?>
-                  <div class="send-button">
-                    <a href="https://dashboard.jam-mdm.fr/activiteesencours.php?activityname=<?php echo $s->slug;?>" class="btn btn-primary btn-round btn-block btn-lg">Je Participe à l'évenement</a>
+                    <?php
+                    if (isset($user_id)){
+                      ?>
+                      <div class="send-button">
+                        <a href="https://dashboard.jam-mdm.fr/activiteesencours.php?activityname=<?php echo $s->slug;?>" class="btn btn-primary btn-round btn-block btn-lg">Je Participe à l'évenement</a>
+                      </div>
+                      <?php
+                    }else{
+                      ?>
+                      <div class="send-button">
+                        <a href="https://jam-mdm.fr/connect.php" class="btn btn-primary btn-round btn-block btn-lg">Je me connecte pour participer</a>
+                      </div>
+                      <?php
+                    }
+                     ?>
 
-                  </div>
                   <?php }else{ ?>
                     <h5 style="color:red;">Aucune place n\'est disponible !</h5>
                   <?php } ?>
