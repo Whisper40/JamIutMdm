@@ -70,12 +70,9 @@ require_once('includes/head.php');
 
                                                     <div class="row">
                                                         <label class="col-sm-2 label-on-left">Message : </label>
-                                                        <div class="col-sm-10">
-                                                            <div class="form-group label-floating is-empty">
                                                                 <textarea name="message" class="form-control" rows="6">
                                                             </textarea>
-                                                        <span class="help-block">Merci de décrire précisément votre message</span></div>
-                                                        </div>
+                                                        <span class="help-block">Merci de décrire précisément votre message</span>
                                                     </div>
 
                                                      <div class="row">
@@ -101,7 +98,7 @@ require_once('includes/head.php');
 
                                                     <center>
                                                     <div class="g-recaptcha" data-sitekey="<?= $sitekey; ?>"></div>
-                                                  
+
                                                   <input type="submit" name="submit" value="Envoyer un message" class="btn btn-primary btn-round" />
 
           </center>
