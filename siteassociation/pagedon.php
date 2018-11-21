@@ -3,7 +3,7 @@
     $nompage = "Nous Contacter";
     require_once('includes/head.php');
     require_once('includes/quantcast.php');
-    
+
 
 //Code de génératon du captcha fournie par GOOGLE
 $secret = "LESECRET";
@@ -189,6 +189,10 @@ $_SESSION['nomdonneur'] = $_POST['nom'];
 $_SESSION['adressedonneur'] = $_POST['adressepostale'];
 $_SESSION['emaildonneur'] = $_POST['email'];
 $_SESSION['messagedonneur'] = $_POST['message'];
+echo $_SESSION['nomdonneur'];
+echo $_SESSION['adressedonneur'];
+echo $_SESSION['emaildonneur'];
+echo $_SESSION['messagedonneur'];
 
 $valueautre = $_POST['valueautre'];
 if(!empty($valueautre)){

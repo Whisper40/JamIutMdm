@@ -25,8 +25,8 @@ $db->query("INSERT INTO transactions (name, street, city, country, date, datesys
 $nomdonneur = $_SESSION['nomdonneur'];
 $adressepostale = $_SESSION['adressepostale'];
 $email = $_SESSION['emaildonneur'];
-$nomdonneurfinal = str_replace("'"," ",$nomdonneur);
-$adressepostalefinal = str_replace("'"," ",$adressepostale);
+$nomdonneurfinal = str_replace("'"," ",$_SESSION['nomdonneur']);
+$adressepostalefinal = str_replace("'"," ",$_SESSION['adressepostale'];);
 $message = $_SESSION['messagedonneur'];
 
 if(!empty($nomdonneur) && (!empty($adressepostale)) && (!empty($email))){
