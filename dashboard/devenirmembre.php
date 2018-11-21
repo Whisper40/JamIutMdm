@@ -23,14 +23,12 @@ require_once('includes/head.php');
                               <h2 class="card-title text-center">Devenir Membre de l'association</h2>
                               <div class="row">
                                 <div class="card-content">
-                                  <div class="info info-horizontal">
                                       <div class="description">
                                           <center>
                                             <h4 class="info-title">En cliquant sur ce bouton j'accepte de participer à l'activitée</h4>
                                           </center>
                                       </div>
                                   </div>
-                                </div>
                               <div class="col-md-6">
                                   <div class="card-content">
                                       <div class="info info-horizontal">
