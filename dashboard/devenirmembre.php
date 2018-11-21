@@ -116,6 +116,7 @@ $status = $s->status;
                                 <div class="card-content">
                                     <div class="info info-horizontal">
                                         <center>
+                                          <br>
                                             <div class="description">
                                                 <h4 class="info-title">Etape 3</h4>
                                                 <p class="description">
