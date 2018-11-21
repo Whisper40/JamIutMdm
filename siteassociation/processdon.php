@@ -30,7 +30,7 @@ $adressepostalefinal = str_replace("'"," ",$_SESSION['adressedonneur']);
 $message = $_SESSION['messagedonneur'];
 
 if(!empty($nomdonneur) && (!empty($adressepostale)) && (!empty($email))){
-$db->query("INSERT INTO donation (nomprenom, adresse, email, price, message) VALUES('$nomdonneurfinal', '$adressepostalefinal', '$email', '$price', '$message')");
+$db->query("INSERT INTO donation (nomprenom, adresse, email, price, message, date, datesystem) VALUES('$nomdonneurfinal', '$adressepostalefinal', '$email', '$price', '$message', '$date', '$datesystem')");
 }
 
 unset($_SESSION['messagedonneur']);
