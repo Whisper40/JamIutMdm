@@ -66,9 +66,6 @@ require_once('includes/head.php');
                                                           <center>
                                                             <div class="card">
                                                                 <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-                                                                    <div class="card-header card-header-text" data-background-color="rose">
-                                                                        <h4 class="card-title">Nous contacter</h4>
-                                                                    </div>
                                                                     <div class="card-content">
 
 
@@ -128,5 +125,10 @@ require_once('includes/head.php');
                   </div>
               </div>
           </div>
-
+      </div>
   </div>
+
+</body>
+<?php
+    require_once('includes/javascriptdashboard.php');
+?>
