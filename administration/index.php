@@ -359,10 +359,9 @@ $valmonth0 = date("m");
 $valyear0 = date("Y");
 
 
-
-    $requete = $db->query("SELECT SUM(amount) AS totalamount5 FROM transactions WHERE MONTH(datesystem) = '$valmonth5' and YEAR(datesystem) = '$valyear5'");
-    $retour = mysql_query($requete);
-    $countmonth5 = mysql_fetch_array($retour);
+    $month5 = $db->query("SELECT SUM(amount) AS totalamount5 FROM transactions WHERE MONTH(datesystem) = '$valmonth5' and YEAR(datesystem) = '$valyear5'");
+    $r = $month5->fetch(PDO::FETCH_OBJ);
+    $countmonth5 = $r->totalamount5;
 
 
 $countmonth4 = $countmonth5;
