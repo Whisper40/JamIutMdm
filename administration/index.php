@@ -359,35 +359,26 @@ $valmonth0 = date("m");
 $valyear0 = date("Y");
 
 
-$month5 = $db->prepare("SELECT SUM(amount) AS countsum5 FROM transactions WHERE MONTH(datesystem) = '$valmonth5' and YEAR(datesystem) = '$valyear5'");
-$month5->execute();
-$row5 = $month5->fetchAll(PDO::FETCH_OBJ);
-$countmonth5 = $row5->countsum5;
+		$month5 = $db->query("SELECT SUM(amount) FROM transactions WHERE MONTH(datesystem) = '$valmonth5' and YEAR(datesystem) = '$valyear5'");
+		$user_ids5= $month5->fetchAll(PDO::FETCH_COLUMN, 0);
+    $countmonth5 = $user_ids5->amount;
 
-$month4 = $db->prepare("SELECT SUM(amount) AS countsum4 FROM transactions WHERE MONTH(datesystem) = '$valmonth4' and YEAR(datesystem) = '$valyear4'");
-$month4->execute();
-$row4 = $month4->fetchAll(PDO::FETCH_OBJ);
-$countmonth4 = $row4->countsum4;
 
-$month3 = $db->prepare("SELECT SUM(amount) AS countsum3 FROM transactions WHERE MONTH(datesystem) = '$valmonth3' and YEAR(datesystem) = '$valyear3'");
-$month3->execute();
-$row3 = $month3->fetchAll(PDO::FETCH_OBJ);
-$countmonth3 = $row3->countsum3;
 
-$month2 = $db->prepare("SELECT SUM(amount) AS countsum2 FROM transactions WHERE MONTH(datesystem) = '$valmonth2' and YEAR(datesystem) = '$valyear2'");
-$month2->execute();
-$row2 = $month2->fetchAll(PDO::FETCH_OBJ);
-$countmonth2 = $row2->countsum2;
+    $month4 = $db->query("SELECT SUM(amount) FROM transactions WHERE MONTH(datesystem) = '$valmonth4' and YEAR(datesystem) = '$valyear4'");
+    $user_ids4= $month4->fetchAll(PDO::FETCH_COLUMN, 0);
+    $countmonth4 = $user_ids4->amount;
 
-$month1 = $db->prepare("SELECT SUM(amount) AS countsum1 FROM transactions WHERE MONTH(datesystem) = '$valmonth1' and YEAR(datesystem) = '$valyear1'");
-$month1->execute();
-$row1 = $month1->fetchAll(PDO::FETCH_OBJ);
-$countmonth1 = $row1->countsum1;
 
-$month0 = $db->prepare("SELECT SUM(amount) AS countsum0 FROM transactions WHERE MONTH(datesystem) = '$valmonth0' and YEAR(datesystem) = '$valyear0'");
-$month0->execute();
-$row0 = $month0->fetchAll(PDO::FETCH_OBJ);
-$countmonth0 = $row0->countsum0;
+$countmonth3 = $countmonth4;
+
+
+$countmonth2 = $countmonth4;
+
+
+$countmonth1 = $countmonth4;
+
+$countmonth0 = $countmonth4;
 
 
 
