@@ -166,7 +166,6 @@ $status = $s->status;
                   </div>
               </div>
           </div>
-      </div>
 
       <?php
       if(isset($_POST['submit'])){
@@ -263,6 +262,7 @@ $status = $s->status;
               </div></div></div></div>
             <?php  }  } ?>
 
+      </div>
   </body>
 
 <?php
