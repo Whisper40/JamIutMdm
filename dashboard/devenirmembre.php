@@ -75,36 +75,33 @@ $status = $s->status;
                                                   <div class="container-fluid">
                                                       <div class="row">
                                                           <center>
-
-
-
-                                              <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-                                                  <div class="form-group label-floating">
-                                                      <textarea name="message" class="form-control" rows="3" placeholder="Vous avez un message ? (optionel)"></textarea>
-                                                      <span class="help-block">Merci de décrire précisément votre message</span>
+                                                              <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+                                                                  <div class="form-group label-floating">
+                                                                      <textarea name="message" class="form-control" rows="4" placeholder="Vous avez un message ? (optionel)"></textarea>
+                                                                      <span class="help-block">Merci de décrire précisément votre message</span>
+                                                                  </div>
+                                                                  <div class="form-group form-file-upload">
+                                                                      <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
+                                                                      <div class="input-group">
+                                                                          <input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
+                                                                          <span class="input-group-btn input-group-s">
+                                                                              <button type="button" class="btn btn-just-icon btn-round btn-info">
+                                                                                  <i class="material-icons">layers</i>
+                                                                              </button>
+                                                                          </span>
+                                                                      </div>
+                                                                  </div>
+                                                                  <div class="form-group label-floating">
+                                                                      <div class="g-recaptcha" data-sitekey="<?= $sitekey; ?>"></div>
+                                                                  </div>
+                                                                  <button type="submit" name="submit" value="Envoyer un message" class="btn btn-fill btn-rose">Envoyer le fichier</button>
+                                                              </form>
+                                                          </center>
+                                                      </div>
                                                   </div>
-                                                                 <div class="form-group form-file-upload">
-                                                                     <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
-                                                                     <div class="input-group">
-                                                                        <input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
-                                                                        <span class="input-group-btn input-group-s">
-                                                                            <button type="button" class="btn btn-just-icon btn-round btn-info">
-                                                                                <i class="material-icons">layers</i>
-                                                                            </button>
-                                                                        </span>
-                                                                     </div>
-                                                                 </div>
-                                                  <div class="form-group label-floating">
-                                                      <div class="g-recaptcha" data-sitekey="<?= $sitekey; ?>"></div>
-                                                  </div>
-                                                  <button type="submit" name="submit" value="Envoyer un message" class="btn btn-fill btn-rose">Envoyer le fichier</button>
-                                              </form>
-                                            </center>
-
-                                            </div>
-                                        </div>
-                                    </div>
-
+                                              </div>
+                                          </div>
+                                      </div>
                                   </div>
                               </div>
                           </div>
@@ -113,9 +110,8 @@ $status = $s->status;
               </div>
           </div>
       </div>
-  </div>
-
-</body>
+  </body>
+  
 <?php
     require_once('includes/javascriptdashboard.php');
 ?>
