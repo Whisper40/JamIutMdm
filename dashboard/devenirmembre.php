@@ -80,12 +80,10 @@ $status = $s->status;
 
                                               <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
                                                   <div class="form-group label-floating">
-                                                      <label class="col-sm-2 label-on-left">Message</label>
-                                                      <textarea name="message" class="form-control" rows="1"></textarea>
+                                                      <textarea name="message" class="form-control" rows="1" placeholder="Insérer votre pièce jointe"></textarea>
                                                       <span class="help-block">Merci de décrire précisément votre message</span>
                                                   </div>
                                                   <div class="form-group label-floating">
-                                                         <label class="col-sm-2 label-on-left"> </label>
                                                              <div class="form-group label-floating is-empty">
                                                                  <div class="form-group form-file-upload">
                                                                      <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
