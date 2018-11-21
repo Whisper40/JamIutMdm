@@ -64,7 +64,6 @@ require_once('includes/head.php');
                                                   <div class="container-fluid">
                                                       <div class="row">
                                                           <center>
-                                                            <div class="card">
                                                                 <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
                                                                     <div class="card-content">
 
@@ -102,9 +101,7 @@ require_once('includes/head.php');
 
                                                     <center>
                                                     <div class="g-recaptcha" data-sitekey="<?= $sitekey; ?>"></div>
-                                                  </center>
-                                                </div>
-                                                <center>
+                                                  
                                                   <input type="submit" name="submit" value="Envoyer un message" class="btn btn-primary btn-round" />
 
           </center>
@@ -113,7 +110,6 @@ require_once('includes/head.php');
                                                                 </form>
 
                                                           </center>
-                                                      </div>
                                                   </div>
                                               </div>
                                           </div>
