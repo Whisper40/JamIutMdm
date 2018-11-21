@@ -3,7 +3,7 @@
     $nompage = "Nous Contacter";
     require_once('includes/head.php');
     require_once('includes/quantcast.php');
-    ini_set('display_errors', 1);
+    
 
 //Code de génératon du captcha fournie par GOOGLE
 $secret = "LESECRET";
