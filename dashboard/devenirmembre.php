@@ -111,16 +111,76 @@ $status = $s->status;
                                   </div>
                               </div>
                           </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="content">
-              <div class="container-fluid">
-                  <div class="card">
-                      <div class="card-content">
-                          <h2 class="card-title text-center">Devenir Membre de l'association</h2>
                           <div class="row">
+                            <div class="col-md-3">
+                                <div class="card-content">
+                                    <div class="info info-horizontal">
+                                        <center>
+                                            <div class="description">
+                                                <h4 class="info-title">Etape 3</h4>
+                                                <p class="description">
+                                                Tes Documents suivant sont en attente de validation !
+                                                </p>
+                                            </div>
+                                        </center>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="card-content">
+                                    <div class="info info-horizontal">
+                                      <div class="table-responsive">
+                                          <table class="table">
+                                              <thead class="text-primary">
+                                                  <th>Name</th>
+                                                  <th>Country</th>
+                                                  <th>City</th>
+                                                  <th>Salary</th>
+                                              </thead>
+                                              <tbody>
+                                                  <tr>
+                                                      <td>Dakota Rice</td>
+                                                      <td>Niger</td>
+                                                      <td>Oud-Turnhout</td>
+                                                      <td class="text-primary">$36,738</td>
+                                                  </tr>
+                                                  <tr>
+                                                      <td>Minerva Hooper</td>
+                                                      <td>Curaçao</td>
+                                                      <td>Sinaai-Waas</td>
+                                                      <td class="text-primary">$23,789</td>
+                                                  </tr>
+                                                  <tr>
+                                                      <td>Sage Rodriguez</td>
+                                                      <td>Netherlands</td>
+                                                      <td>Baileux</td>
+                                                      <td class="text-primary">$56,142</td>
+                                                  </tr>
+                                                  <tr>
+                                                      <td>Philip Chaney</td>
+                                                      <td>Korea, South</td>
+                                                      <td>Overland Park</td>
+                                                      <td class="text-primary">$38,735</td>
+                                                  </tr>
+                                                  <tr>
+                                                      <td>Doris Greene</td>
+                                                      <td>Malawi</td>
+                                                      <td>Feldkirchen in Kärnten</td>
+                                                      <td class="text-primary">$63,542</td>
+                                                  </tr>
+                                                  <tr>
+                                                      <td>Mason Porter</td>
+                                                      <td>Chile</td>
+                                                      <td>Gloucester</td>
+                                                      <td class="text-primary">$78,615</td>
+                                                  </tr>
+                                              </tbody>
+                                          </table>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+
                           </div>
                       </div>
                   </div>
