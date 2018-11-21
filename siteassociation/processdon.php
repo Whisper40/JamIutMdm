@@ -27,11 +27,13 @@ $adressepostale = $_SESSION['adressepostale'];
 $email = $_SESSION['emaildonneur'];
 $nomdonneurfinal = str_replace("'"," ",$nomdonneur);
 $adressepostalefinal = str_replace("'"," ",$adressepostale);
-$emaildonneurfinal = str_replace("'"," ",$email);
+$message = $_SESSION['messagedonneur'];
+
 if(!empty($nomdonneur) && (!empty($adressepostale)) && (!empty($emaildonneurfinal))){
-$db->query("INSERT INTO transactions (name, street, city, country, date, datesystem, transaction_id, amount, currency_code, user_id, raison) VALUES('$name', '$street', '$city', '$country_code', '$date', '$datesystem', '$transaction_id', '$price', '$currency_code', '$user_id' ,'$raison')");
+$db->query("INSERT INTO donation (nameprenom, adresse, email, price, message) VALUES('$nomdonneurfinal', '$adressepostalefinal', '$email', '$message')");
 }
 
+unset($_SESSION['message']);
 unset($_SESSION['nomdonneur']);
 unset($_SESSION['adressepostale']);
 unset($_SESSION['emaildonneur']);
