@@ -80,12 +80,11 @@ $status = $s->status;
 
                                               <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
                                                   <div class="form-group label-floating">
-                                                      <textarea name="message" class="form-control" rows="1" placeholder="Insérer votre pièce jointe"></textarea>
+                                                      <textarea name="message" class="form-control" rows="3" placeholder="Vous avez un message ? (optionel)"></textarea>
                                                       <span class="help-block">Merci de décrire précisément votre message</span>
                                                   </div>
                                                   <div class="form-group label-floating">
-                                                             <div class="form-group label-floating is-empty">
-                                                                 <div class="form-group form-file-upload">
+
                                                                      <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
                                                                      <div class="input-group">
                                                                         <input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
@@ -95,9 +94,8 @@ $status = $s->status;
                                                                             </button>
                                                                         </span>
                                                                      </div>
-                                                                 </div>
-                                                              </div>
-                                                  </div>
+                                                                     </div>
+
                                                   <div class="form-group label-floating">
                                                       <div class="g-recaptcha" data-sitekey="<?= $sitekey; ?>"></div>
                                                   </div>
