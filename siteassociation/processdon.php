@@ -23,10 +23,10 @@ if(empty($user_id)){
 $db->query("INSERT INTO transactions (name, street, city, country, date, datesystem, transaction_id, amount, currency_code, user_id, raison) VALUES('$name', '$street', '$city', '$country_code', '$date', '$datesystem', '$transaction_id', '$price', '$currency_code', '$user_id' ,'$raison')");
 
 $nomdonneur = $_SESSION['nomdonneur'];
-$adressepostale = $_SESSION['adressepostale'];
+$adressepostale = $_SESSION['adressedonneur'];
 $email = $_SESSION['emaildonneur'];
 $nomdonneurfinal = str_replace("'"," ",$_SESSION['nomdonneur']);
-$adressepostalefinal = str_replace("'"," ",$_SESSION['adressepostale'];);
+$adressepostalefinal = str_replace("'"," ",$_SESSION['adressedonneur'];);
 $message = $_SESSION['messagedonneur'];
 
 if(!empty($nomdonneur) && (!empty($adressepostale)) && (!empty($email))){
