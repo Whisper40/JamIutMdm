@@ -32,37 +32,31 @@ require_once('includes/head.php');
                               <div class="col-md-6">
                                   <div class="card-content">
                                       <div class="info info-horizontal">
-                                          <div class="icon icon-rose">
-                                              <i class="material-icons">timeline</i>
-                                          </div>
                                           <div class="description">
                                               <h4 class="info-title">Etape 1</h4>
                                               <p class="description">
                                                   We've created the marketing campaign of the website. It was a very interesting collaboration.
                                               </p>
                                               <div class="content">
-                                                    <div class="container-fluid">
-                                                        <div class="row">
-                                                        <h3 class="title text-center">Mes documents</h3>
-                                                        <center><a href="./download.php?dl=thisfilecontainsyourdocumentsforjam" class="btn btn-rose btn-round">
-                                                                                                        <i class="material-icons">vertical_align_bottom</i> Télécharger les documents
-                                                                                                    </a></center>
-                                                                                                  </div>
-                                                                                                </div>
-                                                                                              </div>
+                                                  <div class="container-fluid">
+                                                      <div class="row">
+                                                          <center>
+                                                              <a href="./download.php?dl=thisfilecontainsyourdocumentsforjam" class="btn btn-rose btn-round">
+                                                                  <i class="material-icons">vertical_align_bottom</i> Télécharger les documents
+                                                              </a>
+                                                          </center>
+                                                      </div>
+                                                  </div>
+                                              </div>
                                           </div>
                                       </div>
-
                                   </div>
                               </div>
                               <div class="col-md-6">
                                   <div class="card-content">
                                       <div class="info info-horizontal">
-                                          <div class="icon icon-primary">
-                                              <i class="material-icons">code</i>
-                                          </div>
                                           <div class="description">
-                                              <h4 class="info-title">Fully Coded in HTML5</h4>
+                                              <h4 class="info-title">Etape 2</h4>
                                               <p class="description">
                                                   We've developed the website with HTML5 and CSS3. The client has access to the code using GitHub.
                                               </p>
