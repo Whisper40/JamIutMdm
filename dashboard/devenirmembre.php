@@ -103,15 +103,17 @@ $status = $s->status;
                                                               </div>
                                                           </div>
                                                       </div>
-                                                    </div>
-                                                </div>
-                                            </div>
                                                   </div>
                                                   <div class="form-group label-floating">
                                                       <div class="g-recaptcha" data-sitekey="<?= $sitekey; ?>"></div>
                                                   </div>
                                                   <button type="submit" name="submit" value="Envoyer un message" class="btn btn-fill btn-rose">Envoyer le fichier</button>
                                               </form>
+                                            </center>
+
+                                            </div>
+                                        </div>
+                                    </div>
 
                                   </div>
                               </div>
