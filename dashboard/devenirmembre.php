@@ -84,7 +84,7 @@ $status = $s->status;
                                                       <span class="help-block">Merci de décrire précisément votre message</span>
                                                   </div>
                                                   <div class="form-group label-floating">
-
+                                                                 <div class="form-group form-file-upload">
                                                                      <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
                                                                      <div class="input-group">
                                                                         <input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
@@ -94,8 +94,8 @@ $status = $s->status;
                                                                             </button>
                                                                         </span>
                                                                      </div>
-                                                                     </div>
-
+                                                                 </div>
+                                                  </div>
                                                   <div class="form-group label-floating">
                                                       <div class="g-recaptcha" data-sitekey="<?= $sitekey; ?>"></div>
                                                   </div>
