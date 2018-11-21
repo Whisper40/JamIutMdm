@@ -185,14 +185,8 @@ $sitekey = "LESITEKEY";
           <?php
 // Code Paypal
 
-$_SESSION['nomdonneur'] = $_POST['nom'];
-$_SESSION['adressedonneur'] = $_POST['adressepostale'];
-$_SESSION['emaildonneur'] = $_POST['email'];
-$_SESSION['messagedonneur'] = $_POST['message'];
-echo $_SESSION['nomdonneur'];
-echo $_SESSION['adressedonneur'];
-echo $_SESSION['emaildonneur'];
-echo $_SESSION['messagedonneur'];
+
+
 
 $valueautre = $_POST['valueautre'];
 if(!empty($valueautre)){
@@ -214,6 +208,10 @@ if(!empty($valueautre)){
           }else{
             $total = $_POST['optionsRadios'];
           }
+          $_SESSION['nomdonneur'] = $_POST['nom'];
+          $_SESSION['adressedonneur'] = $_POST['adressepostale'];
+          $_SESSION['emaildonneur'] = $_POST['email'];
+          $_SESSION['messagedonneur'] = $_POST['message'];
 
 
           ?>
