@@ -342,7 +342,7 @@
               <div class="pull-right">
                 <?php if ($s->stock>0){ ?>
                 <div class="button-container">
-                  <a href="https://dashboard.jam-mdm.fr/activiteesencours.php?activityname=<?php echo $s->slug;?>" class="btn btn-primary btn-round btn-lg">Voir l'activité</a>
+                  <a href="https://jam-mdm.fr/activitees.php?showmethisactivity=<?php echo $s->slug;?>" class="btn btn-primary btn-round btn-lg">Voir l'activité</a>
                 </div>
 
                 <?php }else{ ?>
