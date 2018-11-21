@@ -20,7 +20,6 @@ $user_id = $_SESSION['user_id'];
 $selectstatus = $db->query("SELECT status FROM users WHERE id='$user_id'");
 $s = $selectstatus->fetch(PDO::FETCH_OBJ);
 $status = $s->status;
-
 ?>
 <h1> Le status actuel de votre compte est <?php echo $status ?></h1>
 <h3> Voici l'état actuel de la validation des documents transmis </h3>

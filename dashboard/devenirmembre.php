@@ -5,6 +5,17 @@ require_once('includes/checkconnection.php');
 $nompage = "Devenir Membre";
 require_once('includes/head.php');
 
+
+$secret = "LESECRET";
+$sitekey = "LESITEKEY";
+?>
+<script src='https://www.google.com/recaptcha/api.js'></script>
+
+<?php
+$user_id = $_SESSION['user_id'];
+$selectstatus = $db->query("SELECT status FROM users WHERE id='$user_id'");
+$s = $selectstatus->fetch(PDO::FETCH_OBJ);
+$status = $s->status;
 ?>
 
 
@@ -60,57 +71,41 @@ require_once('includes/head.php');
                                               <p class="description">
                                                   We've developed the website with HTML5 and CSS3. The client has access to the code using GitHub.
                                               </p>
-                                              <div class="content">
-                                                  <div class="container-fluid">
-                                                      <div class="row">
-                                                          <center>
-                                                                <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-                                                                    <div class="card-content">
 
 
-                                                    <div class="row">
-                                                        <label class="col-sm-2 label-on-left">Message : </label>
-                                                                <textarea name="message" class="form-control" rows="6">
-                                                            </textarea>
-                                                        <span class="help-block">Merci de décrire précisément votre message</span>
-                                                    </div>
 
-                                                     <div class="row">
-                                                        <label class="col-sm-2 label-on-left"> </label>
-                                                        <div class="col-sm-10">
-                                                            <div class="form-group label-floating is-empty">
-
-
-                                                                <div class="form-group form-file-upload">
-                          <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
-                          <div class="input-group">
-                            <input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
-                            <span class="input-group-btn input-group-s">
-                              <button type="button" class="btn btn-just-icon btn-round btn-info">
-                                <i class="material-icons">layers</i>
-                              </button>
-                            </span>
-                          </div>
-                        </div>
-                                                      </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <center>
-                                                    <div class="g-recaptcha" data-sitekey="<?= $sitekey; ?>"></div>
-
-                                                  <input type="submit" name="submit" value="Envoyer un message" class="btn btn-primary btn-round" />
-
-          </center>
-
-
-                                                                </form>
-
-                                                          </center>
+                                              <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+                                                  <div class="form-group label-floating">
+                                                      <label class="col-sm-2 label-on-left">Message :</label>
+                                                      <textarea name="message" class="form-control" rows="6"></textarea>
+                                                      <span class="help-block">Merci de décrire précisément votre message</span>
                                                   </div>
-                                              </div>
-                                          </div>
-                                      </div>
+                                                  <div class="form-group label-floating">
+                                                      <div class="row">
+                                                         <label class="col-sm-2 label-on-left"> </label>
+                                                         <div class="col-sm-10">
+                                                             <div class="form-group label-floating is-empty">
+                                                                 <div class="form-group form-file-upload">
+                                                                     <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
+                                                                     <div class="input-group">
+                                                                        <input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
+                                                                        <span class="input-group-btn input-group-s">
+                                                                            <button type="button" class="btn btn-just-icon btn-round btn-info">
+                                                                                <i class="material-icons">layers</i>
+                                                                            </button>
+                                                                        </span>
+                                                                     </div>
+                                                                 </div>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="form-group label-floating">
+                                                      <div class="g-recaptcha" data-sitekey="<?= $sitekey; ?>"></div>
+                                                  </div>
+                                                  <button type="submit" name="submit" value="Envoyer un message" class="btn btn-fill btn-rose">Envoyer le fichier</button>
+                                              </form>
+
                                   </div>
                               </div>
                           </div>
