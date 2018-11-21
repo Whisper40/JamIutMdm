@@ -1,7 +1,7 @@
 <?php
     require_once('includes/connectBDD.php');
     require_once('includes/checkconnection.php');
-    $nompage = "Mon Profil";
+    $nompage = "Formulaire activitée";
     require_once('includes/head.php');
 if(isset($_GET['type'])){
   $type=$_GET['type'];
