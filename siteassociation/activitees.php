@@ -3,6 +3,7 @@
     $nompage = "Activité / Voyage";
     require_once('includes/head.php');
     require_once('includes/quantcast.php');
+    $user_id = $_SESSION['user_id'];
 ?>
 <style>
 .page-header .page-header-image {
