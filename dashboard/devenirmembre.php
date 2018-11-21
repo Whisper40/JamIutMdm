@@ -35,74 +35,78 @@ $status = $s->status;
                               <div class="row">
                               <div class="col-md-6">
                                   <div class="card-content">
-                                    <div class="info info-horizontal">
-                                          <div class="description">
-                                              <h4 class="info-title">Introduction</h4>
-                                              <p class="description">
+                                      <div class="info info-horizontal">
+                                          <center>
+                                              <div class="description">
+                                                  <h4 class="info-title">Introduction</h4>
+                                                  <p class="description">
                                                   Tu souhaite devenir mebre de l'association.
-                                              </p>
-                                          </div>
+                                                  </p>
+                                              </div>
+                                          </center>
                                       </div>
                                       <div class="info info-horizontal">
-                                          <div class="description">
-                                              <h4 class="info-title">Etape 1</h4>
-                                              <p class="description">
+                                          <center>
+                                              <div class="description">
+                                                  <h4 class="info-title">Etape 1</h4>
+                                                  <p class="description">
                                                   We've created the marketing campaign of the website. It was a very interesting collaboration.
-                                              </p>
-                                              <div class="content">
-                                                  <div class="container-fluid">
-                                                      <div class="row">
-                                                          <center>
+                                                  </p>
+                                                  <div class="content">
+                                                      <div class="container-fluid">
+                                                          <div class="row">
                                                               <a href="./download.php?dl=thisfilecontainsyourdocumentsforjam" class="btn btn-rose btn-round">
                                                                   <i class="material-icons">vertical_align_bottom</i>
                                                                   Télécharger les documents
                                                               </a>
-                                                          </center>
+                                                          </div>
                                                       </div>
                                                   </div>
                                               </div>
-                                          </div>
+                                          </center>
                                       </div>
                                   </div>
                               </div>
                               <div class="col-md-6">
                                   <div class="card-content">
                                       <div class="info info-horizontal">
-                                          <div class="description">
-                                              <h4 class="info-title">Etape 2</h4>
-                                              <p class="description">
-                                                  We've developed the website with HTML5 and CSS3. The client has access to the code using GitHub.
-                                              </p>
-                                              <div class="content">
-                                                  <div class="container-fluid">
-                                                      <div class="row">
-                                                          <center>
-                                                              <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-                                                                  <div class="form-group label-floating">
-                                                                      <textarea name="message" class="form-control" rows="4" placeholder="Vous avez un message ? (optionel)"></textarea>
-                                                                      <span class="help-block">Merci de décrire précisément votre message</span>
-                                                                  </div>
-                                                                  <div class="form-group form-file-upload">
-                                                                      <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
-                                                                      <div class="input-group">
-                                                                          <input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
-                                                                          <span class="input-group-btn input-group-s">
-                                                                              <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
-                                                                                  <i class="material-icons">layers</i>
-                                                                              </button>
-                                                                          </span>
+                                          <center>
+                                              <div class="description">
+                                                  <h4 class="info-title">Etape 2</h4>
+                                                  <p class="description">
+                                                      We've developed the website with HTML5 and CSS3. The client has access to the code using GitHub.
+                                                  </p>
+                                                  <div class="content">
+                                                      <div class="container-fluid">
+                                                          <div class="row">
+                                                              <center>
+                                                                  <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+                                                                      <div class="form-group label-floating">
+                                                                          <textarea name="message" class="form-control" rows="4" placeholder="Vous avez un message ? (optionel)"></textarea>
+                                                                          <span class="help-block">Merci de décrire précisément votre message</span>
                                                                       </div>
-                                                                  </div>
-                                                                  <div class="form-group label-floating">
-                                                                      <div class="g-recaptcha" data-sitekey="<?= $sitekey; ?>"></div>
-                                                                  </div>
-                                                                  <button type="submit" name="submit" value="Envoyer un message" class="btn btn-rose btn-round">Envoyer le fichier</button>
-                                                              </form>
-                                                          </center>
+                                                                      <div class="form-group form-file-upload">
+                                                                          <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
+                                                                          <div class="input-group">
+                                                                              <input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
+                                                                              <span class="input-group-btn input-group-s">
+                                                                                  <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
+                                                                                      <i class="material-icons">layers</i>
+                                                                                  </button>
+                                                                              </span>
+                                                                          </div>
+                                                                      </div>
+                                                                      <div class="form-group label-floating">
+                                                                          <div class="g-recaptcha" data-sitekey="<?= $sitekey; ?>"></div>
+                                                                      </div>
+                                                                      <button type="submit" name="submit" value="Envoyer un message" class="btn btn-rose btn-round">Envoyer le fichier</button>
+                                                                  </form>
+                                                              </center>
+                                                          </div>
                                                       </div>
                                                   </div>
                                               </div>
-                                          </div>
+                                          </center>
                                       </div>
                                   </div>
                               </div>
