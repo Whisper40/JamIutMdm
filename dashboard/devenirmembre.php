@@ -53,7 +53,8 @@ $status = $s->status;
                                                       <div class="row">
                                                           <center>
                                                               <a href="./download.php?dl=thisfilecontainsyourdocumentsforjam" class="btn btn-rose btn-round">
-                                                                  <i class="material-icons">vertical_align_bottom</i> Télécharger les documents
+                                                                  <i class="material-icons">vertical_align_bottom</i>
+                                                                  Télécharger les documents
                                                               </a>
                                                           </center>
                                                       </div>
@@ -85,7 +86,7 @@ $status = $s->status;
                                                                       <div class="input-group">
                                                                           <input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
                                                                           <span class="input-group-btn input-group-s">
-                                                                              <button type="button" class="btn btn-just-icon btn-round btn-info">
+                                                                              <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
                                                                                   <i class="material-icons">layers</i>
                                                                               </button>
                                                                           </span>
@@ -94,7 +95,7 @@ $status = $s->status;
                                                                   <div class="form-group label-floating">
                                                                       <div class="g-recaptcha" data-sitekey="<?= $sitekey; ?>"></div>
                                                                   </div>
-                                                                  <button type="submit" name="submit" value="Envoyer un message" class="btn btn-fill btn-rose">Envoyer le fichier</button>
+                                                                  <button type="submit" name="submit" value="Envoyer un message" class="btn btn-rose btn-round">Envoyer le fichier</button>
                                                               </form>
                                                           </center>
                                                       </div>
@@ -111,7 +112,7 @@ $status = $s->status;
           </div>
       </div>
   </body>
-  
+
 <?php
     require_once('includes/javascriptdashboard.php');
 ?>
