@@ -115,6 +115,17 @@ $status = $s->status;
                   </div>
               </div>
           </div>
+          <div class="content">
+              <div class="container-fluid">
+                  <div class="card">
+                      <div class="card-content">
+                          <h2 class="card-title text-center">Devenir Membre de l'association</h2>
+                          <div class="row">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
       </div>
   </body>
 
