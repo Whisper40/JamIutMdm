@@ -6,7 +6,7 @@ require_once('includes/checkconnection.php');
 $selectaccesautorise = $db->prepare("SELECT * FROM transactions WHERE user_id='$user_id' AND raison='Cotisation Annuelle'");
 $selectaccesautorise->execute();
 $countaccesautorise = $selectaccesautorise->rowCount();
-if($countaccesautorise == '0'){
+if($countaccesautorise == 0){
 
 
 $nompage = "Devenir Membre";
@@ -397,6 +397,7 @@ client: {
 
 <?php
 }else{
+  echo 'NONNNNNNN';
   header('Location: https://dashboard.jam-mdm.fr/');
 }
     require_once('includes/javascriptdashboard.php');
