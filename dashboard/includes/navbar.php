@@ -16,7 +16,7 @@
 
 
 <?php
-ini_set('display_errors', 1);
+
 $user_id = $_SESSION['user_id'];
 $sql = "SELECT * FROM users WHERE id = '$user_id'";
 $req = $db->query($sql);
@@ -54,11 +54,11 @@ while($unecat = $cat->fetch(PDO::FETCH_OBJ)){
   $selectpaiementcotisation = $db->prepare("SELECT * FROM transactions WHERE user_id='$user_id' AND raison='Cotisation Annuelle'");
   $selectpaiementcotisation->execute();
   $countvalidation = $selectpaiementcotisation->rowCount();
-  echo $countvalidation;
+
   $namepage = $unecat->name;
-  echo $namepage;
+
   if($namepage == 'Devenir Membre'){
-    echo 'OUI';
+
     if($countvalidation == '1'){
 
     }else{
