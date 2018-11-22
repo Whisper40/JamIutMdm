@@ -9,6 +9,9 @@ require_once('includes/head.php');
 $secret = "LESECRET";
 $sitekey = "LESITEKEY";
 ?>
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 <script src='https://www.google.com/recaptcha/api.js'></script>
 
 <?php
@@ -25,6 +28,10 @@ $status = $s->status;
       <?php
           require_once('includes/navbar.php');
 
+          $selectnumbervalidation = $db->prepare("SELECT * FROM validationfichiers WHERE user_id='$user_id'");
+          $selectnumbervalidation->execute();
+          $countvalidation = $selectnumbervalidation->rowCount();
+          if($countvalidation<3){
               ?>
 
               <div class="content">
@@ -166,6 +173,122 @@ $status = $s->status;
                   </div>
               </div>
           </div>
+          <?php
+        }else{
+          ?>
+<h3> Tu peut payer </h3>
+<div align="center" id="paypal-button"></div>
+
+<script>
+    paypal.Button.render({
+<?php
+  $total = '3';
+
+
+
+?>
+env: 'sandbox',
+
+client: {
+    sandbox:    'AZDxjDScFpQtjWTOUtWKbyN_bDt4OgqaF4eYXlewfBP4-8aqX3PiV8e1GWU6liB2CUXlkA59kJXE7M6R',
+    production: 'AXaV8dsJkxtDm__NKyNdyXBxp9wa8TSS8YZvNOyk3OEpi9rO82H3lc2wKhQrEbJS7NxfnLJ9Igq-rsIC'
+},
+
+
+        style: {
+            layout: 'vertical',  // horizontal | vertical
+            size:   'medium',    // medium | large | responsive
+            shape:  'pill',      // pill | rect
+            color:  'blue'       // gold | blue | silver | black
+        },
+
+        commit: true,
+
+        payment: function(data, actions) {
+
+            return actions.payment.create({
+                payment: {
+                    transactions: [
+                        {
+                            amount: { total: <?= $total ?>, currency: 'EUR' }
+                        }
+                    ]
+                },
+            });
+        },
+
+        onAuthorize: function(data, actions) {
+
+            return actions.payment.get().then(function(data) {
+
+                console.log(data);
+
+                var shipping = data.payer.payer_info.shipping_address;
+
+                var name = shipping.recipient_name;
+                var street = shipping.line1;
+                var country_code = shipping.country_code;
+                var city = shipping.city;
+                var date = '<?= date("Y/m/d") ?>';
+                var transaction_id = data.id;
+                var price = data.transactions[0].amount.total;
+                var currency_code = 'EUR';
+
+                $.post(
+                    "processcotisation.php",
+                    {
+                        name : name,
+                        street: street,
+                        city: city,
+                        country_code : country_code,
+                        date: date,
+                        transaction_id: transaction_id,
+                        price: price,
+                        currency_code: currency_code,
+                    }
+                );
+                return actions.payment.execute().then(function() {
+                    $(location).attr("href", '<?= "https://jam-mdm.fr"."/successcotisation.php"; ?>');
+                });
+            });
+        },
+
+    }, '#paypal-button');
+</script>
+
+
+
+
+          <?php
+        }
+         ?>
+
+
+
+          <!-- RAJOUT KEVIN -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <!-- FIN RAJOUT KEVIN -->
 
       <?php
       if(isset($_POST['submit'])){
