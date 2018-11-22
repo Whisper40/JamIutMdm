@@ -32,10 +32,8 @@ $status = $s->status;
           $selectaccesautorise = $db->prepare("SELECT * FROM transactions WHERE user_id='$user_id' AND raison='Cotisation Annuelle'");
           $selectaccesautorise->execute();
           $countaccesautorise = $selectaccesautorise->rowCount();
-          echo $countaccesautorise;
-          if($countaccesautorise == 0){
-            echo $countaccesautorise;
 
+          if($countaccesautorise == 0){
           $selectnumbervalidation = $db->prepare("SELECT * FROM validationfichiers WHERE user_id='$user_id' AND status='VALIDE'");
           $selectnumbervalidation->execute();
           $countvalidation = $selectnumbervalidation->rowCount();
@@ -398,8 +396,9 @@ client: {
 
 <?php
 }else{
-  echo 'NONNNNNNN';
-  header('Location: https://dashboard.jam-mdm.fr/');
+  ?>
+<script>window.location="https://dashboard.jam-mdm.fr/";</script>
+  <?php
 }
     require_once('includes/javascriptdashboard.php');
 ?>
