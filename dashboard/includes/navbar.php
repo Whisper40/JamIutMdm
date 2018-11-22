@@ -16,7 +16,7 @@
 
 
 <?php
-
+ini_set('display_errors', 1);
 $user_id = $_SESSION['user_id'];
 $sql = "SELECT * FROM users WHERE id = '$user_id'";
 $req = $db->query($sql);
