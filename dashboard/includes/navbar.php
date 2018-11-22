@@ -57,7 +57,8 @@ while($unecat = $cat->fetch(PDO::FETCH_OBJ)){
   echo $countvalidation;
   $namepage = $unecat->nom;
   if($namepage == 'Devenir Membre'){
-    if($countvalidation=='1'){
+    echo 'OUI';
+    if($countvalidation == '1'){
 
     }else{
       ?>
