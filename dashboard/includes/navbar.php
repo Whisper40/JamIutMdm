@@ -55,7 +55,7 @@ while($unecat = $cat->fetch(PDO::FETCH_OBJ)){
   $selectpaiementcotisation->execute();
   $countvalidation = $selectpaiementcotisation->rowCount();
   echo $countvalidation;
-  $namepage = $unecat->nom;
+  $namepage = $unecat->name;
   echo $namepage;
   if($namepage == 'Devenir Membre'){
     echo 'OUI';
