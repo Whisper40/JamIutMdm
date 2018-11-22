@@ -42,18 +42,42 @@ while($unecat = $cat->fetch(PDO::FETCH_OBJ)){
   <li
   <?php
   if($unecat->name == $nompage){
+
   ?>
   class="active">
   <?php }else{ ?>
   >
-  <?php } ?>
+  <?php }
+
+
+
+  $selectpaiementcotisation = $db->prepare("SELECT * FROM transactions WHERE user_id='$user_id' AND raison='Cotisation Annuelle'");
+  $selectpaiementcotisation->execute();
+  $countvalidation = $selectpaiementcotisation->rowCount();
+  $namepage = $unecat->page;
+  if($namepage=='Devenir Membre'){
+    if($countvalidation=='1'){
+
+    }else{
+      ?>
+
       <a href="<?php echo $unecat->page;?>">
           <i class="material-icons"><?php echo $unecat->icon;?></i>
           <p><?php echo $unecat->name;?></p>
       </a>
-  </li>
+      </li>
+
     <?php
-      }
+  }}else{
+    ?>
+
+    <a href="<?php echo $unecat->page;?>">
+        <i class="material-icons"><?php echo $unecat->icon;?></i>
+        <p><?php echo $unecat->name;?></p>
+    </a>
+</li>
+<?php
+  }}
 
 
 

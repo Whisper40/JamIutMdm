@@ -248,7 +248,7 @@ client: {
                     }
                 );
                 return actions.payment.execute().then(function() {
-                    $(location).attr("href", '<?= "https://jam-mdm.fr"."/successcotisation.php"; ?>');
+                    $(location).attr("href", '<?= "https://dashboard.jam-mdm.fr"."/successcotisation.php"; ?>');
                 });
             });
         },
