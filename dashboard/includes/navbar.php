@@ -54,8 +54,9 @@ while($unecat = $cat->fetch(PDO::FETCH_OBJ)){
   $selectpaiementcotisation = $db->prepare("SELECT * FROM transactions WHERE user_id='$user_id' AND raison='Cotisation Annuelle'");
   $selectpaiementcotisation->execute();
   $countvalidation = $selectpaiementcotisation->rowCount();
-  $namepage = $unecat->page;
-  if($namepage=='Devenir Membre'){
+  echo $countvalidation;
+  $namepage = $unecat->nom;
+  if($namepage == 'Devenir Membre'){
     if($countvalidation=='1'){
 
     }else{
