@@ -3,12 +3,6 @@
 require_once('includes/connectBDD.php');
 require_once('includes/checkconnection.php');
 
-$selectaccesautorise = $db->prepare("SELECT * FROM transactions WHERE user_id='$user_id' AND raison='Cotisation Annuelle'");
-$selectaccesautorise->execute();
-$countaccesautorise = $selectaccesautorise->rowCount();
-if($countaccesautorise == 0){
-
-
 $nompage = "Devenir Membre";
 require_once('includes/head.php');
 
@@ -34,6 +28,13 @@ $status = $s->status;
 
       <?php
           require_once('includes/navbar.php');
+
+          $selectaccesautorise = $db->prepare("SELECT * FROM transactions WHERE user_id='$user_id' AND raison='Cotisation Annuelle'");
+          $selectaccesautorise->execute();
+          $countaccesautorise = $selectaccesautorise->rowCount();
+          echo $countaccesautorise;
+          if($countaccesautorise == 0){
+            echo $countaccesautorise;
 
           $selectnumbervalidation = $db->prepare("SELECT * FROM validationfichiers WHERE user_id='$user_id' AND status='VALIDE'");
           $selectnumbervalidation->execute();
