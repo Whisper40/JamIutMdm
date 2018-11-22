@@ -28,7 +28,7 @@ $status = $s->status;
       <?php
           require_once('includes/navbar.php');
 
-          $selectnumbervalidation = $db->prepare("SELECT * FROM validationfichiers WHERE user_id='$user_id'");
+          $selectnumbervalidation = $db->prepare("SELECT * FROM validationfichiers WHERE user_id='$user_id' AND status='VALIDE'");
           $selectnumbervalidation->execute();
           $countvalidation = $selectnumbervalidation->rowCount();
           if($countvalidation<3){
