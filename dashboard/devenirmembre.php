@@ -352,11 +352,12 @@ client: {
               date_default_timezone_set('Europe/Paris');
               setlocale(LC_TIME, 'fr_FR.utf8','fra');
               $date = strftime('%d/%m/%y %H:%M:%S');
-              $insertinfos = $db->prepare("INSERT INTO validationfichiers (user_id, filename, message, ip, date, status) VALUES(:user_id, :filename, :message, :ip, :date, :status)");
+              $insertinfos = $db->prepare("INSERT INTO validationfichiers (user_id, filename,filenamesystem, message, ip, date, status) VALUES(:user_id, :filename, :filenamesystem, :message, :ip, :date, :status)");
               $insertinfos->execute(array(
 
                   "user_id"=>$_SESSION['user_id'],
                   "filename"=>$target_filefile,
+                  "filenamesystem"=>$target_file2,
                   "message"=>$message,
                   "ip"=>$ip,
                   "date"=>$date,
