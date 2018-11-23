@@ -129,6 +129,7 @@ $('#resultat').html(retour).fadeIn();
       $idfichier = $sfiles->id;
       $idutilisateur = $sfiles->user_id;
       $filename = $sfiles->filename;
+      $filenamesystem = $sfiles->filenamesystem;
       $message = $sfiles->message;
       $datefile = $sfiles->date;
 
