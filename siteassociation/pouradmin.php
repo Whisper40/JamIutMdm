@@ -136,7 +136,7 @@ $('#resultat').html(retour).fadeIn();
 
     <tr>
       <th scope="row"><?php echo $idutilisateur;?></th>
-      <td><a href="./download.php?nom=<?php echo $filename;?>&amp;id=<?php echo $idutilisateur;?>"><?php echo $filename;?></a></td>
+      <td><a href="./download.php?nom=<?php echo $filenamesystem;?>&amp;id=<?php echo $idutilisateur;?>"><?php echo $filename;?></a></td>
       <td><?php echo $message;?></td>
       <td><?php echo $datefile;?></td>
       <td>
