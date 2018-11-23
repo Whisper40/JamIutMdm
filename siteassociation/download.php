@@ -1,13 +1,10 @@
 <?php
     require_once('includes/connectBDD.php');
 
-
-
-$id = $_GET['id'];
 $nom = $_GET['nom'];
 
 
-$fichier = "../../Upload/".$id."/".$nom;
+$fichier = $nom;
 
 $full_path = $fichier; // chemin système (local) vers le fichier
 $file_name = basename($full_path);
