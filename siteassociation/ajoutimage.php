@@ -173,14 +173,14 @@ $sitekey = "LESITEKEY";
 
 
 
-          if($image_src!==false){
+
 
             $image_width=30;
             $image_height=30;
 
             if($image_size[0]==$image_width){
 
-              $image_finale = $image_src;
+              $image_finale = $target_filefile;
 
             }else{
 
@@ -194,9 +194,9 @@ $sitekey = "LESITEKEY";
 
             }
 
-            imagejpeg($image_finale,$target_dirnewthumb.$target_filefile.'.jpg');
+            imagejpeg($image_finale,$target_dirnewthumb.$target_filefile);
 
-          }
+
 
 
 
