@@ -3,7 +3,7 @@
     $nompage = "Nous Contacter";
     require_once('includes/head.php');
     require_once('includes/quantcast.php');
-
+ini_set('display_errors', 1);
 //Code de génératon du captcha fournie par GOOGLE
 $secret = "LESECRET";
 $sitekey = "LESITEKEY";
@@ -178,7 +178,7 @@ $sitekey = "LESITEKEY";
               //TAILLE DE L'IMAGE ACTUELLE
 
               $taille = getimagesize($img_tmp);
-
+echo 'taille';
 
                         //SI LE FICHIER EXISTE
 
@@ -189,6 +189,7 @@ $sitekey = "LESITEKEY";
                   //SI JPG
 
                   if ($taille['mime']=='image/jpeg' ) {
+                    echo 'mime';
 
                       //OUVERTURE DE L'IMAGE ORIGINALE
 
