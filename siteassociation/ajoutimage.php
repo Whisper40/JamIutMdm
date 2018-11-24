@@ -53,7 +53,7 @@ $sitekey = "LESITEKEY";
      ?>
 
             <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-                Où habitez vous ?<br>
+                Sélectionner la catégorie de l'image<br>
                 <select name="catimage">
                   <?php
                     while($s = $selectcatimages->fetch(PDO::FETCH_OBJ)){
@@ -87,10 +87,9 @@ $sitekey = "LESITEKEY";
   <?php
   if(isset($_POST['submit'])){
     $catimage = $_POST['catimage'];
-    echo $catimage;
 
         $target_dir = "../../../JamFichiers/Photos";
-        echo $target_dir;
+
 
         if (file_exists($target_dir/$catimage)) {
           $target_dirnew = "$target_dir/$catimage/";
@@ -99,16 +98,25 @@ $sitekey = "LESITEKEY";
           $target_dirnew = "$target_dir/$catimage/";
         }
 
-echo $target_dirnew;
+        //Ajout thumb
+        $thumb = 'Thumb';
+        if (file_exists($target_dir/$thumb/$catimage)) {
+          $target_dirnewthumb = "$target_dir/$thumb/$catimage/";
+        }else{
+          mkdir("$target_dir/$thumb/$catimage", 0700);
+          $target_dirnewthumb = "$target_dir/$thumb/$catimage/";
+        }
+
+
+        //FIN
+
 
   $total = count($_FILES['fileToUpload']['name']);
-  echo $total;
+
   for( $i=0 ; $i < $total ; $i++ ) {
   $target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
-  echo $target_file;
   $uploadOk = 1;
   $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-  echo 'JAMES';
   // Check if file already exists
   if (file_exists($target_file)) {
       echo "Sorry, file already exists.";
@@ -118,6 +126,7 @@ echo $target_dirnew;
   if ($_FILES["fileToUpload"]["size"][$i] > 2000000) {
       echo "Sorry, your file is too large.";
       $uploadOk = 0;
+
   }
   // Allow certain file formats
   if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
@@ -133,7 +142,7 @@ echo $target_dirnew;
     date_default_timezone_set('Europe/Paris');
     setlocale(LC_TIME, 'fr_FR.utf8','fra');
     $date = strftime('%d:%m:%y %H:%M:%S');
-echo 'OK';
+
     $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
     $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
     $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
@@ -144,7 +153,7 @@ echo 'OK';
           date_default_timezone_set('Europe/Paris');
           setlocale(LC_TIME, 'fr_FR.utf8','fra');
           $date = strftime('%Y-%m-%d %H:%M:%S');
-          echo $date;
+
           $insertinfos = $db->prepare("INSERT INTO images (title, icon, file_name, uploaded_on, status) VALUES(:title, :icon, :file_name, :date, :status)");
           $insertinfos->execute(array(
 
@@ -155,7 +164,50 @@ echo 'OK';
               "status"=>$status
               )
           );
-          echo 'insert bdd ok';
+
+          $img_tmp = $_FILES['fileToUpload']['tmp_name'][$i];
+
+          $image_size = getimagesize($img_tmp);
+
+          if($image_size['mime']=='image/jpeg'){
+            $image_src = imagecreatefromjpeg($img_tmp);
+
+          }else if($image_size['mime']=='image/png'){
+            $image_src = imagecreatefrompng($img_tmp);
+
+          }else{
+            $image_src = false;
+            echo'Veuillez rentrer une image valide';
+
+          }
+
+          if($image_src!==false){
+
+            $image_width=30;
+            $image_height=30;
+
+            if($image_size[0]==$image_width){
+
+              $image_finale = $image_src;
+
+            }else{
+
+              $new_width[0]=$image_width;
+
+              $new_height[1]=$image_height;
+
+              $image_finale = imagecreatetruecolor($new_width[0],$new_height[1]);
+
+              imagecopyresampled($image_finale,$image_src,0,0,0,0,$new_width[0],$new_height[1],$image_size[0],$image_size[1]);
+
+            }
+
+            imagejpeg($image_finale,$target_dirnewthumb.$target_filefile'.jpg');
+
+          }
+
+
+
 
       }else {
           echo "Sorry, there was an error uploading your file.";
