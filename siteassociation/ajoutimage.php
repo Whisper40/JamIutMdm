@@ -168,33 +168,52 @@ $sitekey = "LESITEKEY";
           $img_tmp = $_FILES['fileToUpload']['tmp_name'][$i];
           echo $img_tmp;
 
-          $image_size = getimagesize($img_tmp);
-          echo $image_size;
+            //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
+
+              $longueur = '50';
+
+              $largeur = '50';
+
+
+              //TAILLE DE L'IMAGE ACTUELLE
+
+              $taille = getimagesize($img_tmp);
+
+
+                        //SI LE FICHIER EXISTE
+
+              if ($taille) {
 
 
 
+                  //SI JPG
+
+                  if ($taille['mime']=='image/jpeg' ) {
+
+                      //OUVERTURE DE L'IMAGE ORIGINALE
+
+                      $img_big = imagecreatefromjpeg($img_tmp);
+
+                      $img_new = imagecreate($longueur, $largeur);
 
 
-            $image_width=30;
-            $image_height=30;
 
-            if($image_size[0]==$image_width){
+                    //CREATION DE LA MINIATURE
 
-              $image_finale = $target_filefile;
+                      $img_petite = imagecreatetruecolor($longueur, $largeur) or $img_petite = imagecreate($longueur, $largeur);
 
-            }else{
 
-              $new_width[0]=$image_width;
 
-              $new_height[1]=$image_height;
+                      //COPIE DE L'IMAGE REDIMENSIONNEE
 
-              $image_finale = imagecreatetruecolor($new_width[0],$new_height[1]);
+                      imagecopyresized($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
 
-              imagecopyresampled($image_finale,$img_tmp,0,0,0,0,$new_width[0],$new_height[1],$image_size[0],$image_size[1]);
+                      imagejpeg($img_petite,$target_dirnewthumb.$img_tmp);
 
-            }
 
-            imagejpeg($image_finale,$target_dirnewthumb.$target_filefile);
+
+                  }}
+
 
 
 
