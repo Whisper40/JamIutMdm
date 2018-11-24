@@ -102,8 +102,10 @@ $sitekey = "LESITEKEY";
 echo $target_dirnew;
 
   $total = count($_FILES['fileToUpload']['name']);
+  echo $total;
   for( $i=0 ; $i < $total ; $i++ ) {
   $target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
+  echo $target_file;
   $uploadOk = 1;
   $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
   echo 'JAMES';
