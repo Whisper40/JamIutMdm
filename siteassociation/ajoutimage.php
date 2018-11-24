@@ -87,8 +87,10 @@ $sitekey = "LESITEKEY";
   <?php
   if(isset($_POST['submit'])){
     $catimage = $_POST['catimage'];
-      
+    echo $catimage;
+
         $target_dir = "../../../JamFichiers/Photos";
+        echo $target_dir;
 
         if (file_exists($target_dir/$catimage)) {
           $target_dirnew = "$target_dir/$catimage";
@@ -96,6 +98,8 @@ $sitekey = "LESITEKEY";
           mkdir("$target_dir/$catimage", 0700);
           $target_dirnew = "$target_dir/$catimage/";
         }
+
+echo $target_dirnew;
 
   $total = count($_FILES['fileToUpload']['name']);
   for( $i=0 ; $i < $total ; $i++ ) {
@@ -150,7 +154,7 @@ $sitekey = "LESITEKEY";
           echo "Sorry, there was an error uploading your file.";
       } } }
 
-        <?php    } ?>
+            } ?>
 
   <?php
   require_once('includes/footer.php');
