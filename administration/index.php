@@ -387,7 +387,9 @@ $maxavecmarge = round($maxvalue + 1);
 
 
 //simpleBarChart
-
+$barmonth11 = $db->prepare("SELECT * FROM users WHERE MONTH(subscribe) = '$valmonth11' and YEAR(subscribe) = '$valyear11'");
+$barmonth11->execute();
+$barcountmonth11 = $barmonth11->rowCount();
 
 
 $barmonth10 = $db->prepare("SELECT * FROM users WHERE MONTH(subscribe) = '$valmonth10' and YEAR(subscribe) = '$valyear10'");
