@@ -202,7 +202,7 @@ $sitekey = "LESITEKEY";
 
             }
 
-            imagejpeg($image_finale,$target_dirnewthumb.$target_filefile'.jpg');
+            imagejpeg($image_finale,$target_dirnewthumb.$target_filefile.'.jpg');
 
           }
 
