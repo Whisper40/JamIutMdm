@@ -166,20 +166,12 @@ $sitekey = "LESITEKEY";
           );
 
           $img_tmp = $_FILES['fileToUpload']['tmp_name'][$i];
+          echo $img_tmp;
 
           $image_size = getimagesize($img_tmp);
+          echo $image_size;
 
-          if($image_size['mime']=='image/jpg'){
-            $image_src = imagecreatefromjpeg($img_tmp);
 
-          }else if($image_size['mime']=='image/png'){
-            $image_src = imagecreatefrompng($img_tmp);
-
-          }else{
-            $image_src = false;
-            echo'Veuillez rentrer une image valide';
-
-          }
 
           if($image_src!==false){
 
@@ -198,7 +190,7 @@ $sitekey = "LESITEKEY";
 
               $image_finale = imagecreatetruecolor($new_width[0],$new_height[1]);
 
-              imagecopyresampled($image_finale,$image_src,0,0,0,0,$new_width[0],$new_height[1],$image_size[0],$image_size[1]);
+              imagecopyresampled($image_finale,$img_tmp,0,0,0,0,$new_width[0],$new_height[1],$image_size[0],$image_size[1]);
 
             }
 
