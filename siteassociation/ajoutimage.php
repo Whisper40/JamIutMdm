@@ -52,7 +52,7 @@ $sitekey = "LESITEKEY";
 
      ?>
 
-            <form method="post" action="traitement.php">
+            <form method="post" action="">
                 Où habitez vous ?<br>
                 <select name="catimage">
                   <?php
@@ -87,8 +87,7 @@ $sitekey = "LESITEKEY";
   <?php
   if(isset($_POST['submit'])){
     $catimage = $_POST['catimage'];
-      $responseData = json_decode(file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$_POST['g-recaptcha-response']));
-      if($responseData->success){
+      
         $target_dir = "../../../JamFichiers/Photos";
 
         if (file_exists($target_dir/$catimage)) {
@@ -150,28 +149,8 @@ $sitekey = "LESITEKEY";
       }else {
           echo "Sorry, there was an error uploading your file.";
       } } }
-      }else{
-      ?>
 
-        <div class="content">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-6 col-md-offset-3">
-
-
-
-        <div class="alert alert-danger">
-                <div class="container">
-            <div class="alert-icon">
-              <i class="material-icons">info_outline</i>
-            </div>
-
-
-                  <b>Erreur Captcha:</b> BipBoup BoupBip ! Robot détecté !
-                </div>
-            </div>
-          </div></div></div></div>
-        <?php  }  } ?>
+        <?php    } ?>
 
   <?php
   require_once('includes/footer.php');
