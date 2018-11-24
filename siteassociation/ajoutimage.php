@@ -143,7 +143,7 @@ echo 'OK';
           setlocale(LC_TIME, 'fr_FR.utf8','fra');
           $date = strftime('%Y-%m-%d %H:%M:%S');
           echo $date;
-          $insertinfos = $db->prepare("INSERT INTO images (title, icon, file_name, date, status) VALUES(:title, :icon, :filename, :date, :status)");
+          $insertinfos = $db->prepare("INSERT INTO images (title, icon, file_name, uploaded_on, status) VALUES(:title, :icon, :file_name, :date, :status)");
           $insertinfos->execute(array(
 
               "title"=>$catimage,
@@ -153,6 +153,7 @@ echo 'OK';
               "status"=>$status
               )
           );
+          echo 'insert bdd ok';
 
       }else {
           echo "Sorry, there was an error uploading your file.";
