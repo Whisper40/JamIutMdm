@@ -106,6 +106,7 @@ echo $target_dirnew;
   $target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
   $uploadOk = 1;
   $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+  echo 'JAMES';
   // Check if file already exists
   if (file_exists($target_file)) {
       echo "Sorry, file already exists.";
@@ -130,7 +131,7 @@ echo $target_dirnew;
     date_default_timezone_set('Europe/Paris');
     setlocale(LC_TIME, 'fr_FR.utf8','fra');
     $date = strftime('%d:%m:%y %H:%M:%S');
-
+echo 'OK';
     $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
     $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
       if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_filefile)) {
@@ -139,6 +140,7 @@ echo $target_dirnew;
           date_default_timezone_set('Europe/Paris');
           setlocale(LC_TIME, 'fr_FR.utf8','fra');
           $date = strftime('%Y-%m-%d %H:%M:%S');
+          echo $date;
           $insertinfos = $db->prepare("INSERT INTO images (title, icon, file_name, date, status) VALUES(:title, :icon, :filename, :date, :status)");
           $insertinfos->execute(array(
 
