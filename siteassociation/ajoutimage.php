@@ -93,7 +93,7 @@ $sitekey = "LESITEKEY";
         echo $target_dir;
 
         if (file_exists($target_dir/$catimage)) {
-          $target_dirnew = "$target_dir/$catimage";
+          $target_dirnew = "$target_dir/$catimage/";
         }else{
           mkdir("$target_dir/$catimage", 0700);
           $target_dirnew = "$target_dir/$catimage/";
