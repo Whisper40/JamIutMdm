@@ -136,7 +136,9 @@ echo $target_dirnew;
 echo 'OK';
     $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
     $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
-      if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_filefile)) {
+    $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
+
+      if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
           echo "The file ". basename( $_FILES["fileToUpload"]["name"][$i]). " has been uploaded.";
           $status = '1';
           date_default_timezone_set('Europe/Paris');
