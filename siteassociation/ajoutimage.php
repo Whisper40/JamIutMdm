@@ -48,7 +48,7 @@ $sitekey = "LESITEKEY";
 
 
     <?php
-  $selectcatimages=$db->query("SELECT * FROM images");
+  $selectcatimages=$db->query("SELECT DISTINCT title FROM images");
 
      ?>
 
@@ -169,7 +169,7 @@ $sitekey = "LESITEKEY";
 
           $image_size = getimagesize($img_tmp);
 
-          if($image_size['mime']=='image/jpeg'){
+          if($image_size['mime']=='image/jpg'){
             $image_src = imagecreatefromjpeg($img_tmp);
 
           }else if($image_size['mime']=='image/png'){
