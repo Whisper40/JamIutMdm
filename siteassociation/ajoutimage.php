@@ -165,7 +165,7 @@ $sitekey = "LESITEKEY";
               )
           );
 
-          $img_tmp = $_FILES['fileToUpload']['tmp_name'][$i];
+          $img_tmp = basename($_FILES["fileToUpload"]["name"][$i]);
           echo $img_tmp;
 
             //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
