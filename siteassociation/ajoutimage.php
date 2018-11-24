@@ -207,10 +207,9 @@ $sitekey = "LESITEKEY";
                       //COPIE DE L'IMAGE REDIMENSIONNEE
 
                       imagecopyresized($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
-
+echo 'toto';
                       imagejpeg($img_petite,$target_dirnewthumb.$img_tmp);
-
-
+echo'lili';
 
                   }}
 
