@@ -52,7 +52,7 @@ $sitekey = "LESITEKEY";
 
      ?>
 
-            <form method="post" action="">
+            <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
                 Où habitez vous ?<br>
                 <select name="catimage">
                   <?php
