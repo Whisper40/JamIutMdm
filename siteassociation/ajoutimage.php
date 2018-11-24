@@ -171,9 +171,9 @@ $sitekey = "LESITEKEY";
 
             //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
 
-              $longueur = '50';
+              $longueur = 50;
 
-              $largeur = '50';
+              $largeur = 50;
 
 
               //TAILLE DE L'IMAGE ACTUELLE
