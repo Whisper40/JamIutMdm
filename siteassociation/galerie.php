@@ -52,7 +52,7 @@
  <script type="text/javascript" src="includes/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
 <meta http-equiv="cache-control" content="no-cache" />
 <body class="profile-page sidebar-collapse">
-  <div class="wrapper">
+
 
 <?php
     require_once('includes/navbar.php');
