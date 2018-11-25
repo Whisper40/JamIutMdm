@@ -76,83 +76,216 @@ if ($type == 'ski'){
 
            ?>
            <div class="col-md-12">
-    <div class="card">
-        <form method="get" action="/" class="form-horizontal">
-            <div class="card-content">
-                <div class="row">
-                    <label class="col-sm-2 label-on-left">Poids (Kg)</label>
-                    <div class="col-sm-10">
-                        <div class="form-group label-floating is-empty">
-                            <label class="control-label"></label>
-                            <input type="number" class="form-control" value="<?php echo $poids; ?>"name="poids" id="poids">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <label class="col-sm-2 label-on-left">Taille (cm)</label>
-                    <div class="col-sm-10">
-                        <div class="form-group label-floating is-empty">
-                            <label class="control-label"></label>
-                            <input type="number" name="taille" value="<?php echo $taille; ?>"id="taille" class="form-control">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <label class="col-sm-2 label-on-left">Allèrgies</label>
-                    <div class="col-sm-10">
-                        <div class="form-group label-floating is-empty">
-                            <label class="control-label"></label>
-                            <input type="text" name="allergie" value="<?php echo $allergie; ?>"id="allergie" class="form-control">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <label class="col-sm-2 label-on-left">Adresse</label>
-                    <div class="col-sm-10">
-                        <div class="form-group label-floating is-empty">
-                            <label class="control-label"></label>
-                            <input type="text" name="adresse" value="<?php echo $adresse; ?>"id="adresse" class="form-control">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <label class="col-sm-2 label-on-left">Code Postal</label>
-                    <div class="col-sm-10">
-                        <div class="form-group label-floating is-empty">
-                            <label class="control-label"></label>
-                            <input type="number" name="codepostal" value="<?php echo $codepostal; ?>" id="codepostal" class="form-control">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <label class="col-sm-2 label-on-left">Ville</label>
-                    <div class="col-sm-10">
-                        <div class="form-group label-floating is-empty">
-                            <label class="control-label"></label>
-                            <input type="text" name="ville" value="<?php echo $ville; ?>" id="ville" class="form-control">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <label class="col-sm-2 label-on-left">Téléphone d'urgence</label>
-                    <div class="col-sm-10">
-                        <div class="form-group label-floating is-empty">
-                            <label class="control-label"></label>
-                            <input type="number" name="telurgence" value="<?php echo $telurgence; ?>" id="telurgence" class="form-control">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                <center>
-                <button id="submitFormDataSki" onclick="SubmitFormDataSki();" type="button" class="btn btn-fill btn-rose">Modifier</button>
-                </center>
+                            <div class="card">
+                              <div class="col-md-12">
+                          <div class="card">
+                              <form action="" method="post" id="myForm1" class="contact-form">
+                                  <div class="card-header card-header-text" data-background-color="rose">
+                                      <h4 class="card-title">Input Variants</h4>
+                                  </div>
+                                  <div class="card-content">
+                                      <div class="row">
+                                          <label class="col-sm-2 label-on-left">Custom Checkboxes &amp; radios</label>
+                                          <div class="col-sm-4 col-sm-offset-1 checkbox-radios">
+                                              <div class="checkbox">
+                                                  <label>
+                                                      <input type="checkbox" name="optionsCheckboxes"> Unchecked
+                                                  </label>
+                                              </div>
+                                              <div class="checkbox">
+                                                  <label>
+                                                      <input type="checkbox" name="optionsCheckboxes" checked> Checked
+                                                  </label>
+                                              </div>
+                                              <div class="checkbox">
+                                                  <label>
+                                                      <input type="checkbox" name="optionsCheckboxes" disabled> Disabled Unchecked
+                                                  </label>
+                                              </div>
+                                              <div class="checkbox">
+                                                  <label>
+                                                      <input type="checkbox" name="optionsCheckboxes" checked disabled> Disabled Checked
+                                                  </label>
+                                              </div>
+                                          </div>
+                                          <div class="col-sm-5 checkbox-radios">
+                                              <div class="radio">
+                                                  <label>
+                                                      <input type="radio" name="optionsRadios"> Radio is off
+                                                  </label>
+                                              </div>
+                                              <div class="radio">
+                                                  <label>
+                                                      <input type="radio" name="optionsRadios" checked="true"> Radio is on
+                                                  </label>
+                                              </div>
+                                              <div class="radio">
+                                                  <label>
+                                                      <input type="radio" name="optionsRadiosDisabled" disabled> Disabled Radio is off
+                                                  </label>
+                                              </div>
+                                              <div class="radio">
+                                                  <label>
+                                                      <input type="radio" name="optionsRadiosDisabled" checked="true" disabled> Disabled Radio is on
+                                                  </label>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="row">
+                                          <label class="col-sm-2 label-on-left">Input with success</label>
+                                          <div class="col-sm-10">
+                                              <div class="form-group label-floating is-empty has-success">
+                                                  <label class="control-label"></label>
+                                                  <input type="text" class="form-control" value="Success">
+                                                  <span class="material-icons form-control-feedback">done</span>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="row">
+                                          <label class="col-sm-2 label-on-left">Input with error</label>
+                                          <div class="col-sm-10">
+                                              <div class="form-group label-floating is-empty has-error">
+                                                  <label class="control-label"></label>
+                                                  <input type="text" class="form-control" value="Error Input">
+                                                  <span class="material-icons form-control-feedback">clear</span>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="row">
+                                          <label class="col-sm-2 label-on-left">Column sizing</label>
+                                          <div class="col-sm-10">
+                                              <div class="row">
+                                                  <div class="col-md-3">
+                                                      <div class="form-group label-floating is-empty">
+                                                          <label class="control-label"></label>
+                                                          <input type="text" class="form-control" placeholder=".col-md-3">
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-md-4">
+                                                      <div class="form-group label-floating is-empty">
+                                                          <label class="control-label"></label>
+                                                          <input type="text" class="form-control" placeholder=".col-md-4">
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-md-5">
+                                                      <div class="form-group label-floating is-empty">
+                                                          <label class="control-label"></label>
+                                                          <input type="text" class="form-control" placeholder=".col-md-5">
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
               </div>
-
-
+          </div>
+                                    <div class="card-header card-header-text" data-background-color="rose">
+                                        <h4 class="card-title">Input Variants</h4>
+                                    </div>
+                                    <div class="card-content">
+                                        <div class="row">
+                                            <label class="col-sm-2 label-on-left">Custom Checkboxes &amp; radios</label>
+                                            <div class="col-sm-4 col-sm-offset-1 checkbox-radios">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox" name="optionsCheckboxes"> Unchecked
+                                                    </label>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox" name="optionsCheckboxes" checked> Checked
+                                                    </label>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox" name="optionsCheckboxes" disabled> Disabled Unchecked
+                                                    </label>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox" name="optionsCheckboxes" checked disabled> Disabled Checked
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-5 checkbox-radios">
+                                                <div class="radio">
+                                                    <label>
+                                                        <input type="radio" name="optionsRadios"> Radio is off
+                                                    </label>
+                                                </div>
+                                                <div class="radio">
+                                                    <label>
+                                                        <input type="radio" name="optionsRadios" checked="true"> Radio is on
+                                                    </label>
+                                                </div>
+                                                <div class="radio">
+                                                    <label>
+                                                        <input type="radio" name="optionsRadiosDisabled" disabled> Disabled Radio is off
+                                                    </label>
+                                                </div>
+                                                <div class="radio">
+                                                    <label>
+                                                        <input type="radio" name="optionsRadiosDisabled" checked="true" disabled> Disabled Radio is on
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-sm-2 label-on-left">Input with success</label>
+                                            <div class="col-sm-10">
+                                                <div class="form-group label-floating is-empty has-success">
+                                                    <label class="control-label"></label>
+                                                    <input type="text" class="form-control" value="Success">
+                                                    <span class="material-icons form-control-feedback">done</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-sm-2 label-on-left">Input with error</label>
+                                            <div class="col-sm-10">
+                                                <div class="form-group label-floating is-empty has-error">
+                                                    <label class="control-label"></label>
+                                                    <input type="text" class="form-control" value="Error Input">
+                                                    <span class="material-icons form-control-feedback">clear</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-sm-2 label-on-left">Column sizing</label>
+                                            <div class="col-sm-10">
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <div class="form-group label-floating is-empty">
+                                                            <label class="control-label"></label>
+                                                            <input type="text" class="form-control" placeholder=".col-md-3">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group label-floating is-empty">
+                                                            <label class="control-label"></label>
+                                                            <input type="text" class="form-control" placeholder=".col-md-4">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-5">
+                                                        <div class="form-group label-floating is-empty">
+                                                            <label class="control-label"></label>
+                                                            <input type="text" class="form-control" placeholder=".col-md-5">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </form>
-    </div>
-</div>
 
 
 
