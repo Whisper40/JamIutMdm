@@ -83,7 +83,7 @@ if ($type == 'ski'){
                                                </div>
                                                <div class="card-content">
                                                    <div class="row">
-                                                       <label class="col-sm-2 label-on-left">Taille (cm)</label>
+                                                       <label class="col-sm-2 label-on-left">With help</label>
                                                        <div class="col-sm-10">
                                                            <div class="form-group label-floating is-empty">
                                                                <label class="control-label"></label>
