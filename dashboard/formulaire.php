@@ -76,85 +76,106 @@ if ($type == 'ski'){
 
            ?>
            <div class="col-md-12">
-    <div class="card">
-        <form action="" method="post" id="myForm1" class="contact-form">
-          <div class="card-header card-header-text" data-background-color="rose">
-              <h4 class="card-title">Form Elements</h4>
-          </div>
-            <div class="card-content">
-                <div class="row">
-                    <label class="col-sm-2 label-on-left">Poids (Kg)</label>
-                    <div class="col-sm-10">
-                        <div class="form-group label-floating is-empty">
-                            <input type="number" class="form-control" value="<?php echo $poids; ?>"name="poids" id="poids">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <label class="col-sm-2 label-on-left">Taille (cm)</label>
-                    <div class="col-sm-10">
-                        <div class="form-group label-floating is-empty">
-                            <label class="control-label">Taille (cm)</label>
-                            <input type="number" name="taille" value="<?php echo $taille; ?>"id="taille" class="form-control">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <label class="col-sm-2 label-on-left">Allèrgies</label>
-                    <div class="col-sm-10">
-                        <div class="form-group label-floating is-empty">
-                            <label class="control-label"></label>
-                            <input type="text" name="allergie" value="<?php echo $allergie; ?>"id="allergie" class="form-control">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <label class="col-sm-2 label-on-left">Adresse</label>
-                    <div class="col-sm-10">
-                        <div class="form-group label-floating is-empty">
-                            <label class="control-label"></label>
-                            <input type="text" name="adresse" value="<?php echo $adresse; ?>"id="adresse" class="form-control">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <label class="col-sm-2 label-on-left">Code Postal</label>
-                    <div class="col-sm-10">
-                        <div class="form-group label-floating is-empty">
-                            <label class="control-label"></label>
-                            <input type="number" name="codepostal" value="<?php echo $codepostal; ?>" id="codepostal" class="form-control">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <label class="col-sm-2 label-on-left">Ville</label>
-                    <div class="col-sm-10">
-                        <div class="form-group label-floating is-empty">
-                            <label class="control-label"></label>
-                            <input type="text" name="ville" value="<?php echo $ville; ?>" id="ville" class="form-control">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <label class="col-sm-2 label-on-left">Téléphone d'urgence</label>
-                    <div class="col-sm-10">
-                        <div class="form-group label-floating is-empty">
-                            <label class="control-label"></label>
-                            <input type="number" name="telurgence" value="<?php echo $telurgence; ?>" id="telurgence" class="form-control">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                <center>
-                <button id="submitFormDataSki" onclick="SubmitFormDataSki();" type="button" class="btn btn-fill btn-rose">Modifier</button>
-                </center>
-              </div>
-
-
-            </div>
-        </form>
-    </div>
-</div>
+                                       <div class="card">
+                                           <form method="get" action="/" class="form-horizontal">
+                                               <div class="card-header card-header-text" data-background-color="rose">
+                                                   <h4 class="card-title">Form Elements</h4>
+                                               </div>
+                                               <div class="card-content">
+                                                   <div class="row">
+                                                       <label class="col-sm-2 label-on-left">With help</label>
+                                                       <div class="col-sm-10">
+                                                           <div class="form-group label-floating is-empty">
+                                                               <label class="control-label"></label>
+                                                               <input type="text" class="form-control" value>
+                                                               <span class="help-block">A block of help text that breaks onto a new line.</span>
+                                                           </div>
+                                                       </div>
+                                                   </div>
+                                                   <div class="row">
+                                                       <label class="col-sm-2 label-on-left">Password</label>
+                                                       <div class="col-sm-10">
+                                                           <div class="form-group label-floating is-empty">
+                                                               <label class="control-label"></label>
+                                                               <input type="password" class="form-control" value>
+                                                           </div>
+                                                       </div>
+                                                   </div>
+                                                   <div class="row">
+                                                       <label class="col-sm-2 label-on-left">Placeholder</label>
+                                                       <div class="col-sm-10">
+                                                           <div class="form-group label-floating is-empty">
+                                                               <label class="control-label"></label>
+                                                               <input type="text" class="form-control" placeholder="placeholder">
+                                                           </div>
+                                                       </div>
+                                                   </div>
+                                                   <div class="row">
+                                                       <label class="col-sm-2 label-on-left">Disabled</label>
+                                                       <div class="col-sm-10">
+                                                           <div class="form-group label-floating is-empty">
+                                                               <label class="control-label"></label>
+                                                               <input type="text" placeholder="Disabled input here..." disabled="" class="form-control">
+                                                           </div>
+                                                       </div>
+                                                   </div>
+                                                   <div class="row">
+                                                       <label class="col-sm-2 label-on-left">Static control</label>
+                                                       <div class="col-sm-10">
+                                                           <div class="form-group">
+                                                               <p class="form-control-static">hello@creative-tim.com</p>
+                                                           </div>
+                                                       </div>
+                                                   </div>
+                                                   <div class="row">
+                                                       <label class="col-sm-2 label-on-left">Checkboxes and radios</label>
+                                                       <div class="col-sm-10 checkbox-radios">
+                                                           <div class="checkbox">
+                                                               <label>
+                                                                   <input type="checkbox" name="optionsCheckboxes"> First Checkbox
+                                                               </label>
+                                                           </div>
+                                                           <div class="checkbox">
+                                                               <label>
+                                                                   <input type="checkbox" name="optionsCheckboxes"> Second Checkbox
+                                                               </label>
+                                                           </div>
+                                                           <div class="radio">
+                                                               <label>
+                                                                   <input type="radio" name="optionsRadios" checked="true"> First Radio
+                                                               </label>
+                                                           </div>
+                                                           <div class="radio">
+                                                               <label>
+                                                                   <input type="radio" name="optionsRadios"> Second Radio
+                                                               </label>
+                                                           </div>
+                                                       </div>
+                                                   </div>
+                                                   <div class="row">
+                                                       <label class="col-sm-2 label-on-left">Inline checkboxes</label>
+                                                       <div class="col-sm-10">
+                                                           <div class="checkbox checkbox-inline">
+                                                               <label>
+                                                                   <input type="checkbox" name="optionsCheckboxes">a
+                                                               </label>
+                                                           </div>
+                                                           <div class="checkbox checkbox-inline">
+                                                               <label>
+                                                                   <input type="checkbox" name="optionsCheckboxes">b
+                                                               </label>
+                                                           </div>
+                                                           <div class="checkbox checkbox-inline">
+                                                               <label>
+                                                                   <input type="checkbox" name="optionsCheckboxes">c
+                                                               </label>
+                                                           </div>
+                                                       </div>
+                                                   </div>
+                                               </div>
+                                           </form>
+                                       </div>
+                                   </div>
 
 
 
