@@ -112,8 +112,8 @@
                    ?>
                      <div class="col-md-4">
                        <center>
-                         <a class="fancybox-thumb" rel="fancybox-thumb" href="../../../JamFichiers/Photos/Affiche/<?php echo $uneimage->title;?>/<?php echo $uneimage->file_name;?>" title="<?php echo $rest;?>">
-                         <img class="img-raised" src="../../../JamFichiers/Photos/Thumb/<?php echo $uneimage->title;?>/<?php echo $uneimage->file_name;?>" alt="<?php echo $rest;?>" /></a>
+                         <a class="fancybox-thumb" rel="fancybox-thumb" href="../JamFichiers/Photos/Affiche/<?php echo $uneimage->title;?>/<?php echo $uneimage->file_name;?>" title="<?php echo $rest;?>">
+                         <img class="img-raised" src="../JamFichiers/Photos/Thumb/<?php echo $uneimage->title;?>/<?php echo $uneimage->file_name;?>" alt="<?php echo $rest;?>" /></a>
                        </center>
                      </div>
                   <?php } ?>
