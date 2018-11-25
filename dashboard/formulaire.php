@@ -316,6 +316,33 @@ if(!empty($infoscomplementaires3)){
 ?>
                 </div>
                     </div>
+
+
+                    <!--AJOUTKEVIN -->
+                    <form action="" method="post">
+                    <input type="submit" id="jeneparticipeplusnettoyage" name="jeneparticipeplusnettoyage" value="J'annule ma participation">
+                  </form>
+<?php
+                  if(!empty($_POST['jeneparticipeplusnettoyage'])){
+                    $activity_name = 'nettoyage';
+                    $selectrealname = $db->query("SELECT title,stock from activitesvoyages WHERE slug LIKE '%$activity_name%'");
+                    $r = $selectrealname->fetch(PDO::FETCH_OBJ);
+                    $realname = $r->title;
+                    $stock = $r->stock;
+                    $newstock = $stock + '1';
+                    $db->query("DELETE FROM participe WHERE user_id='$user_id' AND activity_name LIKE '%$activity_name%'");
+                    $db->query("DELETE FROM catparticipe WHERE user_id='$user_id' AND name LIKE '%$realname%'");
+                    $db->query("UPDATE activitesvoyages SET stock='$newstock' WHERE slug LIKE '%$activity_name%'");
+
+                  ?>
+                  <script>
+                      window.location = 'https://dashboard.jam-mdm.fr/activiteesencours.php';
+                  </script>
+                  <?php
+                  }
+                  ?>
+
+                    <!-- FIN KEVIN -->
                   </div>
 
 <?php
@@ -386,6 +413,42 @@ if(!empty($infoscomplementaires3)){
 
 
                   </div>
+
+                  <!-- AJOUTKEVIN -->
+                    <!-- AJOUTKEVIN -->
+                      <!-- AJOUTKEVIN -->
+                  <form action="" method="post">
+                  <input type="submit" id="jeneparticipeplus" name="jeneparticipeplus" value="J'annule ma participation">
+                 </form>
+
+<?php
+
+if(!empty($_POST['jeneparticipeplus'])){
+  $activity_name = 'sportive';
+  $selectrealname = $db->query("SELECT title,stock from activitesvoyages WHERE slug LIKE '%$activity_name%'");
+  $r = $selectrealname->fetch(PDO::FETCH_OBJ);
+  $realname = $r->title;
+  $stock = $r->stock;
+  $newstock = $stock + '1';
+  $db->query("DELETE FROM participe WHERE user_id='$user_id' AND activity_name LIKE '%$activity_name%'");
+  $db->query("DELETE FROM catparticipe WHERE user_id='$user_id' AND name LIKE '%$realname%'");
+  $db->query("DELETE FROM formulairesportive WHERE user_id='$user_id'");
+  $db->query("UPDATE activitesvoyages SET stock='$newstock' WHERE slug LIKE '%$activity_name%'");
+
+?>
+<script>
+    window.location = 'https://dashboard.jam-mdm.fr/activiteesencours.php';
+</script>
+<?php
+}
+ ?>
+
+
+ <!-- FIN KEVIN-->
+ <!-- FIN KEVIN-->
+  <!-- FIN KEVIN-->
+
+
 
 
               <div id="results3"> <!-- TRES IMPORTANT -->
@@ -464,6 +527,37 @@ if(!empty($infoscomplementaires3)){
 
 
                   </div>
+
+                  <!-- AJOUT KEVIN -->
+
+
+                  <form action="" method="post">
+                  <input type="submit" id="jeneparticipeplusorientation" name="jeneparticipeplusorientation" value="J'annule ma participation">
+                  </form>
+<?php
+
+
+                  if(!empty($_POST['jeneparticipeplusorientation'])){
+                    $activity_name = 'orientation';
+                    $selectrealname = $db->query("SELECT title,stock from activitesvoyages WHERE slug LIKE '%$activity_name%'");
+                    $r = $selectrealname->fetch(PDO::FETCH_OBJ);
+                    $realname = addslashes($r->title);
+                    $stock = $r->stock;
+                    $newstock = $stock + '1';
+                    $db->query("DELETE FROM participe WHERE user_id='$user_id' AND activity_name LIKE '%$activity_name%'");
+                    $db->query("DELETE FROM catparticipe WHERE user_id='$user_id' AND name LIKE '%$realname%'");
+                    $db->query("DELETE FROM formulaireorientation WHERE user_id='$user_id'");
+                    $db->query("UPDATE activitesvoyages SET stock='$newstock' WHERE slug LIKE '%$activity_name%'");
+
+                  ?>
+                  <script>
+                      window.location = 'https://dashboard.jam-mdm.fr/activiteesencours.php';
+                  </script>
+                  <?php
+                  }
+                  ?>
+
+                  <!-- FIN KEVIN -->
 
 
               <div id="results4"> <!-- TRES IMPORTANT -->
