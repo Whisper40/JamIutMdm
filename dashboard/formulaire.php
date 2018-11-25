@@ -77,7 +77,7 @@ if ($type == 'ski'){
            ?>
            <div class="col-md-12">
     <div class="card">
-        <form action="" method="post" id="myForm1" class="contact-form">
+        <form method="get" action="/" class="form-horizontal">
             <div class="card-content">
                 <div class="row">
                     <label class="col-sm-2 label-on-left">Poids (Kg)</label>
