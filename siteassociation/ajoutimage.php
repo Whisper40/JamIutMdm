@@ -88,7 +88,7 @@ $sitekey = "LESITEKEY";
   if(isset($_POST['submit'])){
     $catimage = $_POST['catimage'];
 
-        $target_dir = "../JamFichiers/Photos";
+        $target_dir = "../../../JamFichiers/Photos";
 
         $original = 'Original';
         if (file_exists($target_dir/$original/$catimage)) {
