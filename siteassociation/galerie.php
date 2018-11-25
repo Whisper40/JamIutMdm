@@ -109,7 +109,7 @@
 
                     $nomfile = $uneimage->file_name;
                     $rest2 = explode('.', $nomfile);
-                    $rest = echo $rest2[0];
+                    $rest = $rest2[0];
                    ?>
                      <div class="col-md-4">
                        <center>
