@@ -77,18 +77,17 @@ if ($type == 'ski'){
            ?>
            <div class="col-md-12">
                                        <div class="card">
-                                           <form method="get" action="/" class="form-horizontal">
+                                           <form action="" method="post" id="myForm1" class="contact-form">
                                                <div class="card-header card-header-text" data-background-color="rose">
                                                    <h4 class="card-title">Form Elements</h4>
                                                </div>
                                                <div class="card-content">
                                                    <div class="row">
-                                                       <label class="col-sm-2 label-on-left">With help</label>
+                                                       <label class="col-sm-2 label-on-left">Taille (cm)</label>
                                                        <div class="col-sm-10">
                                                            <div class="form-group label-floating is-empty">
                                                                <label class="control-label"></label>
-                                                               <input type="text" class="form-control" value>
-                                                               <span class="help-block">A block of help text that breaks onto a new line.</span>
+                                                               <input type="number" name="taille" value="<?php echo $taille; ?>"id="taille" class="form-control">
                                                            </div>
                                                        </div>
                                                    </div>
