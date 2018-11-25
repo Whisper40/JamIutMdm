@@ -31,8 +31,8 @@ function slugify($text){
 ?>
 
 <div class="content">
-    <div class="container-fluid">
-        <div class="row">
+                <div class="container-fluid">
+                    <div class="row">
           <?php
 $user_id = $_SESSION['user_id'];
 if ($type == 'ski'){
@@ -78,6 +78,9 @@ if ($type == 'ski'){
            <div class="col-md-12">
     <div class="card">
         <form action="" method="post" id="myForm1" class="contact-form">
+          <div class="card-header card-header-text" data-background-color="rose">
+              <h4 class="card-title">Form Elements</h4>
+          </div>
             <div class="card-content">
                 <div class="row">
                     <label class="col-sm-2 label-on-left">Poids (Kg)</label>
