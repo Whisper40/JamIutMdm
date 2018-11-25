@@ -87,7 +87,8 @@ if ($type == 'ski'){
                                                        <div class="col-sm-10">
                                                            <div class="form-group label-floating is-empty">
                                                                <label class="control-label"></label>
-                                                               <input type="number" name="taille" value="<?php echo $taille; ?>"id="taille" class="form-control">
+                                                               <input type="text" class="form-control" value>
+                                                               <span class="help-block">A block of help text that breaks onto a new line.</span>
                                                            </div>
                                                        </div>
                                                    </div>
