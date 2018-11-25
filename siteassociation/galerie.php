@@ -50,7 +50,7 @@
 
  <link rel="stylesheet" href="includes/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
  <script type="text/javascript" src="includes/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
-
+<meta http-equiv="cache-control" content="no-cache" />
 <body class="profile-page sidebar-collapse">
   <div class="wrapper">
 
