@@ -106,11 +106,14 @@
                    <?php
                    $image = $db->query("SELECT * FROM images WHERE title = '$title' ORDER BY uploaded_on DESC");
                    while($uneimage = $image->fetch(PDO::FETCH_OBJ)){
+
+                    $nomfile = $uneimage->file_name;
+                    $rest = substr($nomfile, 0, -4);
                    ?>
                      <div class="col-md-4">
                        <center>
-                         <a class="fancybox-thumb" rel="fancybox-thumb" href="assets/images/<?php echo $uneimage->file_name;?>" title="<?php echo $uneimage->title;?>">
-                         <img class="img-raised" src="assets/images/thumb/<?php echo $uneimage->file_name;?>" alt="<?php echo $uneimage->title;?>" /></a>
+                         <a class="fancybox-thumb" rel="fancybox-thumb" href="../../../JamFichiers/Photos/Affiche/<?php echo $uneimage->title;?>/<?php echo $uneimage->file_name;?>" title="<?php echo $rest;?>">
+                         <img class="img-raised" src="../../../JamFichiers/Photos/Thumb/<?php echo $uneimage->title;?>/<?php echo $uneimage->file_name;?>" alt="<?php echo $rest;?>" /></a>
                        </center>
                      </div>
                   <?php } ?>
