@@ -108,7 +108,7 @@
                    while($uneimage = $image->fetch(PDO::FETCH_OBJ)){
 
                     $nomfile = $uneimage->file_name;
-                    $rest = explode('.', $nomfile);
+                    $rest[0] = explode('.', $nomfile);
                    ?>
                      <div class="col-md-4">
                        <center>
