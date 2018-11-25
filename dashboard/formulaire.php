@@ -9,15 +9,10 @@ if(isset($_GET['type'])){
 //Fonction de vérification des données entrées
 function slugify($text){
         $text = preg_replace('~[^\pL\d]+~u', '-', $text);
-
         $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
-
         $text = preg_replace('~[^-\w]+~', '', $text);
-
         $text = trim($text, '-');
-
         $text = preg_replace('~-+~', '-', $text);
-
         $text = strtolower($text);
 
         if (empty($text)) {
@@ -80,56 +75,87 @@ if ($type == 'ski'){
           $telurgence = $r2->telurgence;
 
            ?>
-
-
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header card-header-icon" data-background-color="rose">
-                        <i class="material-icons">mail_outline</i>
+           <div class="col-md-12">
+    <div class="card">
+        <form action="" method="post" id="myForm1" class="contact-form">
+            <div class="card-content">
+                <div class="row">
+                    <label class="col-sm-2 label-on-left">Poids (Kg)</label>
+                    <div class="col-sm-10">
+                        <div class="form-group label-floating is-empty">
+                            <label class="control-label"></label>
+                            <input type="number" class="form-control" value="<?php echo $poids; ?>"name="poids" id="poids">
+                        </div>
                     </div>
-
-                    <div class="card-content">
-                        <h4 class="card-title">Modifier mes informations</h4>
-                        <form action="" method="post" id="myForm1" class="contact-form">
-                            <div class="form-group label-floating">
-                                <label class="control-label">Poids (Kg)</label>
-
-                                <input type="number" class="form-control" value="<?php echo $poids; ?>"name="poids" id="poids">
-
-                            </div>
-                            <div class="form-group label-floating">
-                                <label class="control-label">Taille (cm)</label>
-                                <input type="number" name="taille" value="<?php echo $taille; ?>"id="taille" class="form-control">
-                            </div>
-                            <div class="form-group label-floating">
-                                <label class="control-label">Allèrgies</label>
-                                <input type="text" name="allergie" value="<?php echo $allergie; ?>"id="allergie" class="form-control">
-                            </div>
-                            <div class="form-group label-floating">
-                                <label class="control-label">Adresse</label>
-                                <input type="text" name="adresse" value="<?php echo $adresse; ?>"id="adresse" class="form-control">
-                            </div>
-                            <div class="form-group label-floating">
-                                <label class="control-label">Code Postal</label>
-                                <input type="number" name="codepostal" value="<?php echo $codepostal; ?>" id="codepostal" class="form-control">
-                            </div>
-                            <div class="form-group label-floating">
-                                <label class="control-label">Ville</label>
-                                <input type="text" name="ville" value="<?php echo $ville; ?>" id="ville" class="form-control">
-                            </div>
-                            <div class="form-group label-floating">
-                                <label class="control-label">Téléphone d'urgence</label>
-                                <input type="number" name="telurgence" value="<?php echo $telurgence; ?>" id="telurgence" class="form-control">
-                            </div>
-                            <center>
-                            <button id="submitFormDataSki" onclick="SubmitFormDataSki();" type="button" class="btn btn-fill btn-rose">Modifier</button>
-                            </center>
-                        </form>
-                    </div>
-                  </div>
-
-
                 </div>
+                <div class="row">
+                    <label class="col-sm-2 label-on-left">Taille (cm)</label>
+                    <div class="col-sm-10">
+                        <div class="form-group label-floating is-empty">
+                            <label class="control-label"></label>
+                            <input type="number" name="taille" value="<?php echo $taille; ?>"id="taille" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-sm-2 label-on-left">Allèrgies</label>
+                    <div class="col-sm-10">
+                        <div class="form-group label-floating is-empty">
+                            <label class="control-label"></label>
+                            <input type="text" name="allergie" value="<?php echo $allergie; ?>"id="allergie" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-sm-2 label-on-left">Adresse</label>
+                    <div class="col-sm-10">
+                        <div class="form-group label-floating is-empty">
+                            <label class="control-label"></label>
+                            <input type="text" name="adresse" value="<?php echo $adresse; ?>"id="adresse" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-sm-2 label-on-left">Code Postal</label>
+                    <div class="col-sm-10">
+                        <div class="form-group label-floating is-empty">
+                            <label class="control-label"></label>
+                            <input type="number" name="codepostal" value="<?php echo $codepostal; ?>" id="codepostal" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-sm-2 label-on-left">Ville</label>
+                    <div class="col-sm-10">
+                        <div class="form-group label-floating is-empty">
+                            <label class="control-label"></label>
+                            <input type="text" name="ville" value="<?php echo $ville; ?>" id="ville" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-sm-2 label-on-left">Téléphone d'urgence</label>
+                    <div class="col-sm-10">
+                        <div class="form-group label-floating is-empty">
+                            <label class="control-label"></label>
+                            <input type="number" name="telurgence" value="<?php echo $telurgence; ?>" id="telurgence" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                <center>
+                <button id="submitFormDataSki" onclick="SubmitFormDataSki();" type="button" class="btn btn-fill btn-rose">Modifier</button>
+                </center>
+              </div>
+
+
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
 
 
             <div id="results1"> <!-- TRES IMPORTANT -->
