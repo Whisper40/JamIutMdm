@@ -86,7 +86,6 @@ if ($type == 'ski'){
                     <label class="col-sm-2 label-on-left">Poids (Kg)</label>
                     <div class="col-sm-10">
                         <div class="form-group label-floating is-empty">
-                            <label class="control-label"></label>
                             <input type="number" class="form-control" value="<?php echo $poids; ?>"name="poids" id="poids">
                         </div>
                     </div>
@@ -95,7 +94,7 @@ if ($type == 'ski'){
                     <label class="col-sm-2 label-on-left">Taille (cm)</label>
                     <div class="col-sm-10">
                         <div class="form-group label-floating is-empty">
-                            <label class="control-label"></label>
+                            <label class="control-label">Taille (cm)</label>
                             <input type="number" name="taille" value="<?php echo $taille; ?>"id="taille" class="form-control">
                         </div>
                     </div>
