@@ -7,6 +7,7 @@
 //Code de génératon du captcha fournie par GOOGLE
 $secret = "LESECRET";
 $sitekey = "LESITEKEY";
+
 ?>
 <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 
@@ -36,7 +37,9 @@ $sitekey = "LESITEKEY";
       </div>
     </div>
 
-
+<?php
+if(empty($_POST['optionsRadios'])){ // SI ON NE SELECTIONNE AUCUN MONTANT
+ ?>
 
     <div class="section section-contact-us text-center">
       <div class="container">
@@ -153,39 +156,42 @@ $sitekey = "LESITEKEY";
           </form>
 
 
-          <?php
-// Code Paypal
-
-
-
-
-$valueautre = $_POST['valueautre'];
-if(!empty($valueautre)){
-  $prixfinal = $_POST['valueautre'];
-}else{
-  $prixfinal = $_POST['optionsRadios'];
+<?php
 }
-           ?>
+ ?>
 
+<?php
+if(!empty($_POST['optionsRadios'])){ // SI LE MONTANT EST SAISIT
+
+  // Code Paypal
+
+  $valueautre = $_POST['valueautre'];
+  if(!empty($valueautre)){
+    $prixfinal = $_POST['valueautre'];
+  }else{
+    $prixfinal = $_POST['optionsRadios'];
+  }
+
+  ?>
           <div align="center" id="paypal-button"></div>
+<?php
 
+
+if(!empty($valueautre)){
+  $total = $_POST['valueautre'];
+}else{
+  $total = $_POST['optionsRadios'];
+}
+$_SESSION['nomdonneur'] = $_POST['nom'];
+$_SESSION['adressedonneur'] = $_POST['adressepostale'];
+$_SESSION['emaildonneur'] = $_POST['email'];
+$_SESSION['messagedonneur'] = $_POST['message'];
+
+} ?>
 
           <script>
               paypal.Button.render({
-          <?php
 
-          if(!empty($valueautre)){
-            $total = $_POST['valueautre'];
-          }else{
-            $total = $_POST['optionsRadios'];
-          }
-          $_SESSION['nomdonneur'] = $_POST['nom'];
-          $_SESSION['adressedonneur'] = $_POST['adressepostale'];
-          $_SESSION['emaildonneur'] = $_POST['email'];
-          $_SESSION['messagedonneur'] = $_POST['message'];
-
-
-          ?>
           env: 'sandbox',
 
           client: {
