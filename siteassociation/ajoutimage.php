@@ -90,12 +90,12 @@ $sitekey = "LESITEKEY";
 
         $target_dir = "../../../JamFichiers/Photos";
 
-
-        if (file_exists($target_dir/$catimage)) {
-          $target_dirnew = "$target_dir/$catimage/";
+        $original = 'Original';
+        if (file_exists($target_dir/$original/$catimage)) {
+          $target_dirnew = "$target_dir/$original/$catimage/";
         }else{
-          mkdir("$target_dir/$catimage", 0700);
-          $target_dirnew = "$target_dir/$catimage/";
+          mkdir("$target_dir/$original/$catimage", 0700);
+          $target_dirnew = "$target_dir/$original/$catimage/";
         }
 
         //Ajout thumb
@@ -105,6 +105,14 @@ $sitekey = "LESITEKEY";
         }else{
           mkdir("$target_dir/$thumb/$catimage", 0700);
           $target_dirnewthumb = "$target_dir/$thumb/$catimage/";
+        }
+
+        $affiche = 'Affiche';
+        if (file_exists($target_dir/$affiche/$catimage)) {
+          $target_dirnewaffiche = "$target_dir/$affiche/$catimage/";
+        }else{
+          mkdir("$target_dir/$affiche/$catimage", 0700);
+          $target_dirnewaffiche = "$target_dir/$affiche/$catimage/";
         }
 
 
@@ -164,57 +172,106 @@ $sitekey = "LESITEKEY";
               "status"=>$status
               )
           );
-
           $img_tmp = $target_dirnew.$target_filefile;
           $fin = $target_dirnewthumb.$target_filefile;
-          echo $img_tmp;
+
 
             //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
-
               $longueur = 50;
-
               $largeur = 50;
-
-
               //TAILLE DE L'IMAGE ACTUELLE
-
               $taille = getimagesize($img_tmp);
-echo 'taille';
-
-                        //SI LE FICHIER EXISTE
-
+              //SI LE FICHIER EXISTE
               if ($taille) {
-
-
-
                   //SI JPG
-
                   if ($taille['mime']=='image/jpeg' ) {
-                    echo 'mime';
+                            //OUVERTURE DE L'IMAGE ORIGINALE
+                              $img_big = imagecreatefromjpeg($img_tmp);
+                              $img_new = imagecreate($longueur, $largeur);
+                            //CREATION DE LA MINIATURE
+                              $img_petite = imagecreatetruecolor($longueur, $largeur) or $img_petite = imagecreate($longueur, $largeur);
+                              //COPIE DE L'IMAGE REDIMENSIONNEE
+                              imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
+                              imagejpeg($img_petite,$fin);
+                  }
+                //SI PNG
+              else if ($taille['mime']=='image/png' ) {
+                              //OUVERTURE DE L'IMAGE ORIGINALE
+                              $img_big = imagecreatefrompng($img_tmp); // On ouvre l'image d'origine
+                              $img_new = imagecreate($longueur, $largeur);
+                              //CREATION DE LA MINIATURE
+                              $img_petite = imagecreatetruecolor($longueur, $largeur) OR $img_petite = imagecreate($longueur, $largeur);
+                              //COPIE DE L'IMAGE REDIMENSIONNEE
+                              imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
+                              imagepng($img_petite,$fin);
+                          }
+                          // GIF
+                else if ($taille['mime']=='image/gif' ) {
+                              //OUVERTURE DE L'IMAGE ORIGINALE
+                              $img_big = imagecreatefromgif($img_tmp);
+                              $img_new = imagecreate($longueur, $largeur);
+                              //CREATION DE LA MINIATURE
+                              $img_petite = imagecreatetruecolor($longueur, $largeur) or $img_petite = imagecreate($longueur, $largeur);
+                              //COPIE DE L'IMAGE REDIMENSIONNEE
+                              imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
+                              imagegif($img_petite,$fin);
 
-                      //OUVERTURE DE L'IMAGE ORIGINALE
 
-                      $img_big = imagecreatefromjpeg($img_tmp);
-
-                      $img_new = imagecreate($longueur, $largeur);
+                        }
+                  }
 
 
 
-                    //CREATION DE LA MINIATURE
-
-                      $img_petite = imagecreatetruecolor($longueur, $largeur) or $img_petite = imagecreate($longueur, $largeur);
 
 
+                  //Affiche Grande
+                  // Destination
+                  $img_tmp = $target_dirnew.$target_filefile;
+                  $finaffiche = $target_dirnewaffiche.$target_filefile;
 
-                      //COPIE DE L'IMAGE REDIMENSIONNEE
+                  //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
+                    $longueur = 1320;
+                    $largeur = 1280;
+                    //TAILLE DE L'IMAGE ACTUELLE
+                    $tailleaffiche = getimagesize($img_tmp);
+                    //SI LE FICHIER EXISTE
+                    if ($tailleaffiche) {
+                        //SI JPG
+                        if ($tailleaffiche['mime']=='image/jpeg' ) {
+                                  //OUVERTURE DE L'IMAGE ORIGINALE
+                                    $img_big = imagecreatefromjpeg($img_tmp);
+                                    $img_new = imagecreate($longueur, $largeur);
+                                  //CREATION DE LA MINIATURE
+                                    $img_petite = imagecreatetruecolor($longueur, $largeur) or $img_petite = imagecreate($longueur, $largeur);
+                                    //COPIE DE L'IMAGE REDIMENSIONNEE
+                                    imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$tailleaffiche[0],$tailleaffiche[1]);
+                                    imagejpeg($img_petite,$finaffiche);
+                        }
+                      //SI PNG
+                    else if ($tailleaffiche['mime']=='image/png' ) {
+                                    //OUVERTURE DE L'IMAGE ORIGINALE
+                                    $img_big = imagecreatefrompng($img_tmp); // On ouvre l'image d'origine
+                                    $img_new = imagecreate($longueur, $largeur);
+                                    //CREATION DE LA MINIATURE
+                                    $img_petite = imagecreatetruecolor($longueur, $largeur) OR $img_petite = imagecreate($longueur, $largeur);
+                                    //COPIE DE L'IMAGE REDIMENSIONNEE
+                                    imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$tailleaffiche[0],$tailleaffiche[1]);
+                                    imagepng($img_petite,$finaffiche);
+                                }
+                                // GIF
+                      else if ($tailleaffiche['mime']=='image/gif' ) {
+                                    //OUVERTURE DE L'IMAGE ORIGINALE
+                                    $img_big = imagecreatefromgif($img_tmp);
+                                    $img_new = imagecreate($longueur, $largeur);
+                                    //CREATION DE LA MINIATURE
+                                    $img_petite = imagecreatetruecolor($longueur, $largeur) or $img_petite = imagecreate($longueur, $largeur);
+                                    //COPIE DE L'IMAGE REDIMENSIONNEE
+                                    imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$tailleaffiche[0],$tailleaffiche[1]);
+                                    imagegif($img_petite,$finaffiche);
 
-                      imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
-echo 'toto';
-                      imagejpeg($img_petite,$fin);
-echo'lili';
 
-                  }}
-
+                              }
+                        }
 
 
 
