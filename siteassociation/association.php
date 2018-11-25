@@ -36,7 +36,7 @@
 </style>
 
 <body class="landing-page sidebar-collapse">
-  <div class="wrapper">
+
 
 <?php
     require_once('includes/navbar.php');
@@ -46,7 +46,7 @@
     $head = $db->query("SELECT * FROM photopage WHERE nompage = '$nompage'");
     $pagehead = $head->fetch(PDO::FETCH_OBJ);
 ?>
-
+<div class="wrapper">
 
     <div class="page-header page-header-small">
       <div class="page-header-image" data-parallax="true" style="background-image: url('./assets/img/<?php echo $pagehead->image; ?>');">

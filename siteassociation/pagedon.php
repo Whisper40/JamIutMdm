@@ -12,40 +12,11 @@ $sitekey = "LESITEKEY";
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 
-<style>
-.page-header .page-header-image {
-  position: absolute;
-  background-size: cover;
-  background-position: center center;
-  width: 100%;
-  height: 80%;
-  z-index: -1;
-}
 
-.page-header .content-center {
-  position: absolute;
-  top: 38%;
-  left: 50%;
-  z-index: 2;
-  -ms-transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: #FFFFFF;
-  padding: 0 15px;
-  width: 100%;
-  max-width: 880px;
-}
-.section {
-  padding: 0px 0;
-  position: relative;
-  background: #FFFFFF;
-}
-</style>
 <script src='https://www.google.com/recaptcha/api.js'></script>
 
 <body class="landing-page sidebar-collapse">
-  <div class="wrapper">
+
 
 <?php
     require_once('includes/navbar.php');
@@ -53,6 +24,7 @@ $sitekey = "LESITEKEY";
     $head = $db->query("SELECT * FROM photopage WHERE nompage = '$nompage'");
     $pagehead = $head->fetch(PDO::FETCH_OBJ);
 ?>
+<div class="wrapper">
 
     <div class="page-header page-header-small">
       <div class="page-header-image" data-parallax="true" style="background-image: url('./assets/img/<?php echo $pagehead->image; ?>');">
