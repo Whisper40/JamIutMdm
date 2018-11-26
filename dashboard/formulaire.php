@@ -121,6 +121,7 @@ if ($type == 'ski'){
                                     </div>
                                </div>
                                <div class="col-sm-12">
+                                   <div class="card-content">
                                      <div class="form-group label-floating">
                                          <label class="control-label">Téléphone d'urgence</label>
                                          <input type="number" name="telurgence" value="<?php echo $telurgence; ?>" id="telurgence" class="form-control">
@@ -128,6 +129,7 @@ if ($type == 'ski'){
                                      <center>
                                      <button id="submitFormDataSki" onclick="SubmitFormDataSki();" type="button" class="btn btn-fill btn-rose">Modifier</button>
                                      </center>
+                                    </div>
                                  </div>
                            </div>
                          </form>
