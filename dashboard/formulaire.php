@@ -241,12 +241,6 @@ if ($type == 'ski'){
 
 
 
-
-
-
-
-
-
               <div id="results2"> <!-- TRES IMPORTANT -->
 
 
@@ -417,50 +411,75 @@ if(!empty($infoscomplementaires3)){
 
              ?>
 
-
-              <div class="col-md-6">
-                  <div class="card">
-                      <div class="card-header card-header-icon" data-background-color="rose">
-                          <i class="material-icons">mail_outline</i>
-                      </div>
-
-                      <div class="card-content">
-                          <h4 class="card-title">Modifier mes informations</h4>
-                          <form action="" method="post" id="myForm3" class="contact-form">
-
-
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Adresse</label>
-                                  <input type="text" name="adresse" value="<?php echo $adresse; ?>"id="adresse" class="form-control">
-                              </div>
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Code Postal</label>
-                                  <input type="number" name="codepostal" value="<?php echo $codepostal; ?>" id="codepostal" class="form-control">
-                              </div>
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Ville</label>
-                                  <input type="text" name="ville" value="<?php echo $ville; ?>" id="ville" class="form-control">
-                              </div>
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Téléphone d'urgence</label>
-                                  <input type="number" name="telurgence" value="<?php echo $telurgence; ?>" id="telurgence" class="form-control">
-                              </div>
-                              <center>
-                              <button id="submitFormDataSportive" onclick="SubmitFormDataSportive();" type="button" class="btn btn-fill btn-rose">Modifier</button>
-                              </center>
-                          </form>
-                      </div>
-                    </div>
+             <div class="container-fluid">
+                 <div class="row">
+                     <div class="col-md-6">
+                         <div class="card">
+                             <div class="card-content">
+                               <center>
+                                 <h3 class="card-title">Choisir une formule</h3>
+                               </center>
+                                       <form name="accompagnement" method="POST">
+                                         <div class="card-content">
+                                           <div class="row">
+                                             <form action="" method="post" id="myForm3" class="contact-form">
 
 
-                  </div>
+                                                 <div class="form-group label-floating">
+                                                     <label class="control-label">Adresse</label>
+                                                     <input type="text" name="adresse" value="<?php echo $adresse; ?>"id="adresse" class="form-control">
+                                                 </div>
+                                                 <div class="form-group label-floating">
+                                                     <label class="control-label">Code Postal</label>
+                                                     <input type="number" name="codepostal" value="<?php echo $codepostal; ?>" id="codepostal" class="form-control">
+                                                 </div>
+                                                 <div class="form-group label-floating">
+                                                     <label class="control-label">Ville</label>
+                                                     <input type="text" name="ville" value="<?php echo $ville; ?>" id="ville" class="form-control">
+                                                 </div>
+                                                 <div class="form-group label-floating">
+                                                     <label class="control-label">Téléphone d'urgence</label>
+                                                     <input type="number" name="telurgence" value="<?php echo $telurgence; ?>" id="telurgence" class="form-control">
+                                                 </div>
+                                                 <center>
+                                                 <button id="submitFormDataSportive" onclick="SubmitFormDataSportive();" type="button" class="btn btn-fill btn-rose">Modifier</button>
+                                                 </center>
+                                             </form>
+                                          </div>
+                                        </div>
+                                        <br><br>
+                                      </form>
+                                   </div>
+                                  </div>
+                                  </div>
 
-                  <!-- AJOUTKEVIN -->
-                    <!-- AJOUTKEVIN -->
-                      <!-- AJOUTKEVIN -->
-                  <form action="" method="post">
-                  <input type="submit" id="jeneparticipeplus" name="jeneparticipeplus" value="J'annule ma participation">
-                 </form>
+
+<div class="col-md-6">
+<div class="card">
+<div class="card-content">
+<center>
+<h3 class="card-title">Validation et Paiement</h3>
+</center>
+ <div class="card-content">
+     <div class="info info-horizontal">
+         <div class="description">
+             <center>
+             <h4 class="info-title">En cliquant sur ce bouton j'accepte de participer à l'activitée</h4>
+             <form action="" method="post">
+             <input type="submit" id="jeneparticipeplus" name="jeneparticipeplus" value="J'annule ma participation">
+            </form>
+
+             </center>
+         </div>
+     </div>
+ </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
 
 <?php
 
@@ -485,17 +504,7 @@ if(!empty($_POST['jeneparticipeplus'])){
  ?>
 
 
- <!-- FIN KEVIN-->
- <!-- FIN KEVIN-->
-  <!-- FIN KEVIN-->
-
-
-
-
-              <div id="results3"> <!-- TRES IMPORTANT -->
-
-
-
+              <div id="results3">
           </div>
 
 
