@@ -455,7 +455,6 @@ if(!empty($infoscomplementaires3)){
                                                     <h4 class="info-title">En cliquant sur ce bouton je renonce à participer à l'activitée</h4>
                                                     <form action="" method="post">
                                                     <input type="submit" class="btn btn-primary btn-round btn-rose" id="jeneparticipeplus" name="jeneparticipeplus" value="J'annule ma participation">
-                                                    <br>
                                                    </form>
                                                     </center>
                                                 </div>
@@ -533,49 +532,63 @@ if(!empty($_POST['jeneparticipeplus'])){
              ?>
 
 
-              <div class="col-md-6">
-                  <div class="card">
-                      <div class="card-header card-header-icon" data-background-color="rose">
-                          <i class="material-icons">mail_outline</i>
-                      </div>
+             <div class="content">
+                 <div class="container-fluid">
+                     <div class="card">
+                         <div class="card-content">
+                             <h2 class="card-title text-center">Titre</h2>
+                             <div class="row">
+                               <div class="col-sm-6">
+                                   <div class="card-content">
+                                     <form action="" method="post" id="myForm3" class="contact-form">
+                                         <div class="form-group label-floating">
+                                             <label class="control-label">Adresse</label>
+                                             <input type="text" name="adresse" value="<?php echo $adresse; ?>"id="adresse" class="form-control">
+                                         </div>
+                                         <div class="form-group label-floating">
+                                             <label class="control-label">Code Postal</label>
+                                             <input type="number" name="codepostal" value="<?php echo $codepostal; ?>" id="codepostal" class="form-control">
+                                         </div>
+                                         <div class="form-group label-floating">
+                                             <label class="control-label">Ville</label>
+                                             <input type="text" name="ville" value="<?php echo $ville; ?>" id="ville" class="form-control">
+                                         </div>
+                                         <div class="form-group label-floating">
+                                             <label class="control-label">Téléphone d'urgence</label>
+                                             <input type="number" name="telurgence" value="<?php echo $telurgence; ?>" id="telurgence" class="form-control">
+                                         </div>
+                                         <center>
+                                         <button id="submitFormDataOrientation" onclick="SubmitFormDataOrientation();" type="button" class="btn btn-fill btn-rose">Modifier</button>
+                                         </center>
+                                     </form>
+                                     </div>
+                                 </div>
+                                 <div class="col-sm-6">
+                                     <div class="card-content">
+                                       <br><br><br>
+                                       <center>
+                                       <h3 class="card-title">Annuler sa Participation</h3>
+                                       </center>
+                                        <div class="card-content">
+                                            <div class="info info-horizontal">
+                                                <div class="description">
+                                                    <center>
+                                                    <h4 class="info-title">En cliquant sur ce bouton je renonce à participer à l'activitée</h4>
+                                                    <form action="" method="post">
+                                                    <input type="submit" class="btn btn-primary btn-round btn-rose" id="jeneparticipeplusorientation" name="jeneparticipeplusorientation" value="J'annule ma participation">
+                                                    </form>
+                                                    </center>
+                                                </div>
+                                            </div>
+                                        </div>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
 
-                      <div class="card-content">
-                          <h4 class="card-title">Modifier mes informations</h4>
-                          <form action="" method="post" id="myForm3" class="contact-form">
-
-
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Adresse</label>
-                                  <input type="text" name="adresse" value="<?php echo $adresse; ?>"id="adresse" class="form-control">
-                              </div>
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Code Postal</label>
-                                  <input type="number" name="codepostal" value="<?php echo $codepostal; ?>" id="codepostal" class="form-control">
-                              </div>
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Ville</label>
-                                  <input type="text" name="ville" value="<?php echo $ville; ?>" id="ville" class="form-control">
-                              </div>
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Téléphone d'urgence</label>
-                                  <input type="number" name="telurgence" value="<?php echo $telurgence; ?>" id="telurgence" class="form-control">
-                              </div>
-                              <center>
-                              <button id="submitFormDataOrientation" onclick="SubmitFormDataOrientation();" type="button" class="btn btn-fill btn-rose">Modifier</button>
-                              </center>
-                          </form>
-                      </div>
-                    </div>
-
-
-                  </div>
-
-                  <!-- AJOUT KEVIN -->
-
-
-                  <form action="" method="post">
-                  <input type="submit" id="jeneparticipeplusorientation" name="jeneparticipeplusorientation" value="J'annule ma participation">
-                  </form>
 <?php
 
 
@@ -599,12 +612,7 @@ if(!empty($_POST['jeneparticipeplus'])){
                   }
                   ?>
 
-                  <!-- FIN KEVIN -->
-
-
-              <div id="results4"> <!-- TRES IMPORTANT -->
-
-
+              <div id="results4">
 
           </div>
 
