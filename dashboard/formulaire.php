@@ -120,7 +120,6 @@ if ($type == 'ski'){
                                        </div>
                                     </div>
                                </div>
-                          
                                <div class="col-sm-12">
                                    <div class="card-content">
                                      <div class="form-group label-floating">
