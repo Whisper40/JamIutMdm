@@ -1,20 +1,13 @@
 <footer class="footer">
   <div class="container">
-    <nav>
-      <ul>
-        <li>
-          <a href="https://jam-mdm.fr/">
-            Accueil
-          </a>
-        </li>
-      </ul>
-    </nav>
+    <center>
     <div class="copyright" id="copyright">
       &copy;
       <script>
         document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
-      </script>, Jam - Jeunesse Associative Montoise
+      </script>, Jam - Jeunesse Associative Montoise - Créée par Paul Boussard et Kévin Perez
     </div>
+  </center>
   </div>
 </footer>
 
