@@ -318,10 +318,11 @@ if(!empty($infoscomplementaires3)){
                   <div class="row">
                     <div class="col-sm-6">
                         <div class="card-content">
+                          <br><br><br>
                           <div class="info info-horizontal">
                               <div class="description">
                                   <center>
-                                  <h4 class="info-title">Vous trouverez ci-dessous des informations complémentaire sur cette activitée</h4>
+                                  <h3 class="info-title">Vous trouverez ci-dessous des informations complémentaire sur cette activitée</h3>
 
 
                           <?php
