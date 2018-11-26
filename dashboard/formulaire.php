@@ -558,7 +558,7 @@ if(!empty($_POST['jeneparticipeplus'])){
                                              <input type="number" name="telurgence" value="<?php echo $telurgence; ?>" id="telurgence" class="form-control">
                                          </div>
                                          <center>
-                                         <button id="submitFormDataOrientation" onclick="SubmitFormDataOrientation();" type="button" class="btn btn-fill btn-rose">Modifier</button>
+                                         <button id="submitFormDataOrientation" onclick="SubmitFormDataOrientation();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
                                          </center>
                                      </form>
                                      </div>
