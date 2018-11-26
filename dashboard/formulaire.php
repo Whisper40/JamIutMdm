@@ -437,7 +437,7 @@ if(!empty($infoscomplementaires3)){
                                              <input type="number" name="telurgence" value="<?php echo $telurgence; ?>" id="telurgence" class="form-control">
                                          </div>
                                          <center>
-                                         <button id="submitFormDataSportive" onclick="SubmitFormDataSportive();" type="button" class="btn btn-fill btn-rose">Modifier</button>
+                                         <button id="submitFormDataSportive" onclick="SubmitFormDataSportive();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
                                          </center>
                                      </form>
                                      </div>
@@ -454,7 +454,7 @@ if(!empty($infoscomplementaires3)){
                                                     <center>
                                                     <h4 class="info-title">En cliquant sur ce bouton je renonce à participer à l'activitée</h4>
                                                     <form action="" method="post">
-                                                    <input type="submit" class="btn btn-primary btn-round" id="jeneparticipeplus" name="jeneparticipeplus" value="J'annule ma participation">
+                                                    <input type="submit" class="btn btn-primary btn-round btn-rose" id="jeneparticipeplus" name="jeneparticipeplus" value="J'annule ma participation">
                                                    </form>
                                                     </center>
                                                 </div>
