@@ -449,7 +449,6 @@ if(!empty($infoscomplementaires3)){
                                      <center>
                                      <h3 class="card-title">Validation et Paiement</h3>
                                      </center>
-                                      <div class="card-content">
                                           <div class="info info-horizontal">
                                               <div class="description">
                                                   <center>
@@ -461,7 +460,6 @@ if(!empty($infoscomplementaires3)){
                                                   </center>
                                               </div>
                                           </div>
-                                      </div>
                                      </div>
                                      </div>
                                  </div>
