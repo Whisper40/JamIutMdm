@@ -317,12 +317,10 @@ if(!empty($infoscomplementaires3)){
                   <h2 class="card-title text-center">Titre</h2>
                   <div class="row">
                     <div class="col-sm-6">
-                        <div class="card-content">
-                          <br><br><br>
-                          <div class="info info-horizontal">
-                              <div class="description">
-                                  <center>
-                                  <h3 class="info-title">Informations complémentaire</h3>
+                      <div class="card-content">
+                        <br><br><br>
+                        <center>
+                        <h3 class="card-title">Annuler sa Participation</h3>
 
 
                           <?php
@@ -355,8 +353,7 @@ if(!empty($infoscomplementaires3)){
                                       </center>
                                   </div>
                               </div>
-                          </div>
-                      </div>
+
                       <div class="col-sm-6">
                           <div class="card-content">
                             <br><br><br>
