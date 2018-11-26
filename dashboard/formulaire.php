@@ -454,7 +454,7 @@ if(!empty($infoscomplementaires3)){
                                                     <center>
                                                     <h4 class="info-title">En cliquant sur ce bouton je renonce à participer à l'activitée</h4>
                                                     <form action="" method="post">
-                                                    <input type="submit" id="jeneparticipeplus" name="jeneparticipeplus" value="J'annule ma participation">
+                                                    <input type="submit" class="btn btn-primary btn-round" id="jeneparticipeplus" name="jeneparticipeplus" value="J'annule ma participation">
                                                    </form>
                                                     </center>
                                                 </div>
