@@ -334,7 +334,7 @@ if(!empty($infoscomplementaires3)){
 
                           if(!empty($infoscomplementaires)){
                           ?>
-                          <li> <?php>
+                          <li> <?php
                             echo $infoscomplementaires;
                             ?>
                           </li> <?php
@@ -344,7 +344,7 @@ if(!empty($infoscomplementaires3)){
                           <?php
                           if(!empty($infoscomplementaires2)){
                             ?>
-                            <li> <?php>
+                            <li> <?php
                               echo $infoscomplementaires2;
                               ?>
                             </li> <?php
@@ -354,7 +354,7 @@ if(!empty($infoscomplementaires3)){
                           <?php
                           if(!empty($infoscomplementaires3)){
                             ?>
-                            <li> <?php>
+                            <li> <?php
                               echo $infoscomplementaires3;
                               ?>
                             </li> <?php
