@@ -91,16 +91,22 @@ if ($type == 'ski'){
                                <div class="col-sm-6">
                                    <div class="card-content">
                                      <div class="col-sm-3">
+                                       <div class="card-content">
+
                                      <div class="form-group label-floating">
                                          <label class="control-label">Poids (Kg)</label>
                                          <input type="number" class="form-control" value="<?php echo $poids; ?>"name="poids" id="poids">
                                      </div>
                                    </div>
+                                 </div>
                                      <div class="col-sm-3">
+                                       <div class="card-content">
+
                                      <div class="form-group label-floating">
                                          <label class="control-label">Taille (cm)</label>
                                          <input type="number" name="taille" value="<?php echo $taille; ?>"id="taille" class="form-control">
                                      </div>
+                                   </div>
                                    </div>
                                      <div class="form-group label-floating">
                                          <label class="control-label">Allèrgies</label>
