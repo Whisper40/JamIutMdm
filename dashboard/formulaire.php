@@ -322,7 +322,7 @@ if(!empty($infoscomplementaires3)){
                           <div class="info info-horizontal">
                               <div class="description">
                                   <center>
-                                  <h3 class="info-title">Vous trouverez ci-dessous des informations complémentaire sur cette activitée</h3>
+                                  <h3 class="info-title">Informations complémentaire</h3>
 
 
                           <?php
@@ -369,7 +369,7 @@ if(!empty($infoscomplementaires3)){
                                          <center>
                                          <h4 class="info-title">En cliquant sur ce bouton je renonce à participer à l'activitée</h4>
                                          <form action="" method="post">
-                                         <input type="submit" id="jeneparticipeplusnettoyage" name="jeneparticipeplusnettoyage" value="J'annule ma participation">
+                                         <input type="submit" class="btn btn-primary btn-round btn-rose" id="jeneparticipeplusnettoyage" name="jeneparticipeplusnettoyage" value="J'annule ma participation">
                                        </form>
                                          </center>
                                      </div>
