@@ -360,6 +360,7 @@ if(!empty($infoscomplementaires3)){
                             </li> <?php
                           }
                           ?>
+                        </ul>
                                       </center>
                                   </div>
                               </div>
