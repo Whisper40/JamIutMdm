@@ -318,9 +318,10 @@ if(!empty($infoscomplementaires3)){
                   <div class="row">
                     <div class="col-sm-6">
                       <div class="card-content">
-                        <br><br><br>
+                        <br><br>
                         <center>
-                        <h3 class="card-title">Annuler sa Participation</h3>
+                        <h3 class="card-title">Information Complémentaire</h3>
+                        <ul>
 
 
                           <?php
@@ -332,22 +333,31 @@ if(!empty($infoscomplementaires3)){
                           $infoscomplementaires3 = $r2->infoscomplementaires3;
 
                           if(!empty($infoscomplementaires)){
-                            //CODE HTML
+                          ?>
+                          <li> <?php>
                             echo $infoscomplementaires;
+                            ?>
+                          </li>
                           }
                           ?>
                           <br/>
                           <?php
                           if(!empty($infoscomplementaires2)){
-                            //CODE HTML
-                            echo $infoscomplementaires2;
+                            ?>
+                            <li> <?php>
+                              echo $infoscomplementaires2;
+                              ?>
+                            </li>
                           }
                           ?>
                           <br/>
                           <?php
                           if(!empty($infoscomplementaires3)){
-                            //CODE HTML
-                            echo $infoscomplementaires3;
+                            ?>
+                            <li> <?php>
+                              echo $infoscomplementaires3;
+                              ?>
+                            </li>
                           }
                           ?>
                                       </center>
@@ -356,7 +366,7 @@ if(!empty($infoscomplementaires3)){
 
                       <div class="col-sm-6">
                           <div class="card-content">
-                            <br><br><br>
+                            <br><br>
                             <center>
                             <h3 class="card-title">Annuler sa Participation</h3>
                             </center>
