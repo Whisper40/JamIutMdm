@@ -415,7 +415,7 @@ if(!empty($infoscomplementaires3)){
                  <div class="container-fluid">
                      <div class="card">
                          <div class="card-content">
-                             <h2 class="card-title text-center">Salut</h2>
+                             <h2 class="card-title text-center">Titre</h2>
                              <div class="row">
                                <div class="col-sm-6">
                                    <div class="card-content">
@@ -444,18 +444,18 @@ if(!empty($infoscomplementaires3)){
                                  </div>
                                  <div class="col-sm-6">
                                      <div class="card-content">
+                                       <br><br><br>
                                        <center>
-                                       <h3 class="card-title">Validation et Paiement</h3>
+                                       <h3 class="card-title">Annuler sa Participation</h3>
                                        </center>
                                         <div class="card-content">
                                             <div class="info info-horizontal">
                                                 <div class="description">
                                                     <center>
-                                                    <h4 class="info-title">En cliquant sur ce bouton j'accepte de participer à l'activitée</h4>
+                                                    <h4 class="info-title">En cliquant sur ce bouton je renonce à participer à l'activitée</h4>
                                                     <form action="" method="post">
                                                     <input type="submit" id="jeneparticipeplus" name="jeneparticipeplus" value="J'annule ma participation">
                                                    </form>
-
                                                     </center>
                                                 </div>
                                             </div>
