@@ -206,10 +206,6 @@ if(!empty($_POST['optionsRadios'])){ // SI LE MONTANT EST SAISIT
       <div class="row">
         <div class="col-lg-6 text-center col-md-8 ml-auto mr-auto">
           <div align="center" id="paypal-button"></div>
-
-          <div class="send-button">
-            <a  href="https://jam-mdm.fr/don.php" class="btn btn-primary btn-round btn-block btn-lg" name="submit">Annuler le Paiement</a>
-          </div>
         </div>
       </div>
     </div>
