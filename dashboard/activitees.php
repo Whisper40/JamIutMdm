@@ -189,6 +189,20 @@ require_once('includes/head.php');
                           $prixrepas = $r2->price;
 
                           if(isset($prixmateriel) && isset($prixrepas)){
+                              //27/11/2018
+                          $activity_name = $_GET['activityname'];
+                          $selectparticipedeja = $db->query("SELECT user_id FROM participe WHERE activity_name='$activity_name'");
+                          $rparticipe = $selectparticipedeja->fetch(PDO::FETCH_OBJ);
+                          $ligneparticipe = $rparticipe->rowCount();
+                          if($ligneparticipe>0){
+                              ?>
+                              <h3> Tu participe déja </h3>
+                              <?php
+                              
+                          }else{
+                              //
+
+
                           $total = $prixactivite + $prixmateriel + $prixrepas;
                           ?>
 
@@ -228,7 +242,7 @@ require_once('includes/head.php');
                     <?php
 
                                             //Si ce n'est pas du ski alors on passe à :
-                                            }else if (stripos($activity_slug, 'rugby') != FALSE){ ?>
+                                            }}else if (stripos($activity_slug, 'rugby') != FALSE){ ?>
 
                                               <div class="container-fluid">
                                                   <div class="row">
