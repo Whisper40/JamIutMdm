@@ -63,15 +63,15 @@ $sitekey = "LESITEKEY";
         </div>
       </div>
     </div>
-    <div class="section section-contact-us text-center">
-      <div class="container">
-        <h2 class="title"><?php echo $pagehead->titre; ?></h2>
-        <p class="description"><?php echo $pagehead->description; ?></p>
+
 
 <?php
 if(empty($_POST['optionsRadios'])){ // SI ON NE SELECTIONNE AUCUN MONTANT
  ?>
-
+   <div class="section section-contact-us text-center">
+     <div class="container">
+       <h2 class="title"><?php echo $pagehead->titre; ?></h2>
+       <p class="description"><?php echo $pagehead->description; ?></p>
         <div class="row">
           <div class="col-lg-6 text-center col-md-8 ml-auto mr-auto">
             <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
@@ -197,11 +197,22 @@ if(!empty($_POST['optionsRadios'])){ // SI LE MONTANT EST SAISIT
   }else{
     $prixfinal = $_POST['optionsRadios'];
   }
-
   ?>
+
+  <div class="section section-contact-us text-center">
+    <div class="container">
+      <h2 class="title"><?php echo $pagehead->titre; ?></h2>
+      <p class="description"><?php echo $pagehead->description; ?></p>
+      <div class="row">
           <div align="center" id="paypal-button"></div>
 
-          <a href="https://jam-mdm.fr/pagedon.php" class="w3-btn w3-black">Annuler le Paiement</a>
+          <div class="send-button">
+            <a  href="https://jam-mdm.fr/don.php" class="btn btn-primary btn-round btn-block btn-lg" name="submit">Annuler le Paiement</a>
+          </div>
+
+      </div>
+    </div>
+  </div>
 <?php
 
 
