@@ -114,9 +114,9 @@ $status = $s->status;?>
                                                                       <button type="submit" name="submit" value="Envoyer un message" class="btn btn-rose btn-round">Envoyer le fichier</button>
                                                                   </form>
                                                                   <?php
-if(isset($error_captcha) && $error_captcha == true)
+if(isset($error_captcha) && $error_captcha === true)
 {
-  require_once('erreurtestform.php');
+  require('erreurtestform.html');
 }
 ?>
                                                               </center>
