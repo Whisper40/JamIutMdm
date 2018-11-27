@@ -163,7 +163,7 @@ if(empty($_POST['optionsRadios'])){ // SI ON NE SELECTIONNE AUCUN MONTANT
 
             <div id="ifYes" style="display:none">
               <p class="description">
-              Merci d'indiquer le montant :</p>
+              Merci d'indiquer le montant :
               <div class="input-group input-lg">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
@@ -171,7 +171,7 @@ if(empty($_POST['optionsRadios'])){ // SI ON NE SELECTIONNE AUCUN MONTANT
                   </span>
                 </div>
                 <input type='number' id='yes' name='valueautre' class="form-control">
-              </div>
+              </div></p>
             </div>
 
           </tr>
