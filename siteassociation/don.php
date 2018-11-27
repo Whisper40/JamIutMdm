@@ -209,7 +209,7 @@ if(!empty($_POST['optionsRadios'])){ // SI LE MONTANT EST SAISIT
           <div align="center" id="paypal-button"></div>
         </div>
       </div>
-      <br><br>
+      <br><br><br>
     </div>
   </div>
 
@@ -241,7 +241,7 @@ $_SESSION['messagedonneur'] = $_POST['message'];
 
 
                   style: {
-                      layout: 'vertical',  // horizontal | vertical
+                      layout: 'horizontal',  // horizontal | vertical
                       size:   'large',    // medium | large | responsive
                       shape:  'pill',      // pill | rect
                       color:  'blue'       // gold | blue | silver | black
