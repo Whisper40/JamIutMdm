@@ -190,6 +190,10 @@ if(empty($_POST['optionsRadios'])){ // SI ON NE SELECTIONNE AUCUN MONTANT
 
 <?php
 if(!empty($_POST['optionsRadios'])){ // SI LE MONTANT EST SAISIT
+  $nompage = "Faire un don paiement";
+
+  $head = $db->query("SELECT * FROM photopage WHERE nompage = '$nompage'");
+  $pagehead = $head->fetch(PDO::FETCH_OBJ);
 
   $valueautre = $_POST['valueautre'];
   if(!empty($valueautre)){
@@ -241,7 +245,7 @@ $_SESSION['messagedonneur'] = $_POST['message'];
 
 
                   style: {
-                      layout: 'horizontal',  // horizontal | vertical
+                      layout: 'vertical',  // horizontal | vertical
                       size:   'large',    // medium | large | responsive
                       shape:  'pill',      // pill | rect
                       color:  'blue'       // gold | blue | silver | black
