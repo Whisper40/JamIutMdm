@@ -162,8 +162,7 @@ if(empty($_POST['optionsRadios'])){ // SI ON NE SELECTIONNE AUCUN MONTANT
             </script>
 
             <div id="ifYes" style="display:none">
-                Merci d'indiquer le montant :
-                <input type='number' id='yes' name='valueautre' class="form-control"><br>
+                Merci d'indiquer le montant :<input type='number' id='yes' name='valueautre' class="form-control"><br>
             </div>
 
           </tr>
