@@ -1,6 +1,6 @@
 <?php
     require_once('includes/connectBDD.php');
-    $nompage = "Nous Contacter";
+    $nompage = "Faire un don";
     require_once('includes/head.php');
     require_once('includes/quantcast.php');
 
@@ -40,10 +40,7 @@ $sitekey = "LESITEKEY";
 }
 </style>
 <script src="https://www.paypalobjects.com/api/checkout.js"></script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
-
-
 <script src='https://www.google.com/recaptcha/api.js'></script>
 
 <body class="landing-page sidebar-collapse">
@@ -66,26 +63,25 @@ $sitekey = "LESITEKEY";
         </div>
       </div>
     </div>
+    <div class="section section-contact-us text-center">
+      <div class="container">
+        <h2 class="title"><?php echo $pagehead->titre; ?></h2>
+        <p class="description"><?php echo $pagehead->description; ?></p>
 
 <?php
 if(empty($_POST['optionsRadios'])){ // SI ON NE SELECTIONNE AUCUN MONTANT
  ?>
 
-    <div class="section section-contact-us text-center">
-      <div class="container">
-        <h2 class="title"><?php echo $pagehead->titre; ?></h2>
-        <p class="description"><?php echo $pagehead->description; ?></p>
         <div class="row">
           <div class="col-lg-6 text-center col-md-8 ml-auto mr-auto">
             <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-              <h3> Si vous souhaitez faire une donation anonyme merci de ne pas compléter vos informations personelles.</h3>
             <div class="input-group input-lg">
               <div class="input-group-prepend">
                 <span class="input-group-text">
                   <i class="now-ui-icons users_circle-08"></i>
                 </span>
               </div>
-              <input type="text" class="form-control" placeholder="Nom et Prénom" name="nom">
+              <input type="text" class="form-control" placeholder="Nom et Prénom (optionel)" name="nom">
             </div>
 
             <div class="input-group input-lg">
@@ -94,7 +90,7 @@ if(empty($_POST['optionsRadios'])){ // SI ON NE SELECTIONNE AUCUN MONTANT
                   <i class="now-ui-icons users_circle-08"></i>
                 </span>
               </div>
-              <input type="text" class="form-control" placeholder="Adresse postale" name="adressepostale">
+              <input type="text" class="form-control" placeholder="Adresse postale (optionel)" name="adressepostale">
             </div>
 
             <div class="input-group input-lg">
@@ -103,14 +99,15 @@ if(empty($_POST['optionsRadios'])){ // SI ON NE SELECTIONNE AUCUN MONTANT
                   <i class="now-ui-icons ui-1_email-85"></i>
                 </span>
               </div>
-              <input type="email" class="form-control" placeholder="Email" name="email">
+              <input type="email" class="form-control" placeholder="Email (optionel)" name="email">
             </div>
 
             <div class="textarea-container">
-              <textarea class="form-control" name="message" rows="10" cols="80" placeholder="Votre message :"></textarea>
+              <textarea class="form-control" name="message" rows="10" cols="80" placeholder="Votre message : (optionel)"></textarea>
             </div>
             <p class="category">Donation</p>
-            <center><table>
+            <center>
+              <table>
               <tr>
                 <td>
             <div class="col-sm-8 col-lg-3 mb-4">
@@ -131,7 +128,8 @@ if(empty($_POST['optionsRadios'])){ // SI ON NE SELECTIONNE AUCUN MONTANT
                   10€
                 </label>
               </div>
-            </div></td>
+            </div>
+          </td>
             <td>
             <div class="col-sm-8 col-lg-3 mb-4">
               <div class="form-check form-check-radio">
@@ -152,38 +150,31 @@ if(empty($_POST['optionsRadios'])){ // SI ON NE SELECTIONNE AUCUN MONTANT
                   Autre
                 </label>
               </div>
-            </div></td>
+            </div>
+          </td>
 
-     <script>
-// Le code s'adapte en fonction de l'endroit ou le clique à été fait.
-//Si le click est fait sur autre alors on affiche "indiquer le montant"
-     function yesnoCheck() {
-         if (document.getElementById('yesCheck').checked) {
-             document.getElementById('ifYes').style.display = 'block';
-         }
-         else document.getElementById('ifYes').style.display = 'none';
+            <script>
+            function yesnoCheck() {
+                if (document.getElementById('yesCheck').checked) {
+                   document.getElementById('ifYes').style.display = 'block';
+                }else document.getElementById('ifYes').style.display = 'none';
+            }
+            </script>
 
-     }
-    </script>
-    <div id="ifYes" style="display:none">
-            Merci d'indiquer le montant : <input type='number' id='yes' name='valueautre'><br>
+            <div id="ifYes" style="display:none">
+                Merci d'indiquer le montant :
+                <input type='number' id='yes' name='valueautre' class="form-control"><br>
+            </div>
 
-
-
-    </div>
-
-</div>
-
-
-
-          </tr></table></center>
-            <center>
-
-          </center><br>
+          </tr>
+        </table>
+          <br>
             <div class="send-button">
               <button type="submit" class="btn btn-primary btn-round btn-block btn-lg" name="submit">Confirmer et choisir votre moyen de paiement</button>
             </div>
           </form>
+        </div>
+      </div>
 
 
 <?php
@@ -298,7 +289,6 @@ $_SESSION['messagedonneur'] = $_POST['message'];
 
 
 <!-- FIN PAYPAL -->
-          </div>
         </div>
       </div>
     </div>
