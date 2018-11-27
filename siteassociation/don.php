@@ -242,7 +242,7 @@ $_SESSION['messagedonneur'] = $_POST['message'];
 
                   style: {
                       layout: 'vertical',  // horizontal | vertical
-                      size:   'Large',    // medium | large | responsive
+                      size:   'large',    // medium | large | responsive
                       shape:  'pill',      // pill | rect
                       color:  'blue'       // gold | blue | silver | black
                   },
