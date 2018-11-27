@@ -113,7 +113,7 @@ if(empty($_POST['optionsRadios'])){ // SI ON NE SELECTIONNE AUCUN MONTANT
             <div class="col-sm-8 col-lg-3 mb-4">
               <div class="form-check form-check-radio">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="radio" name="optionsRadios" checked="true" value="5">
+                  <input class="form-check-input" type="radio" onclick="javascript:yesnoCheck();" id="noCheck" name="optionsRadios" value="5">
                   <span class="form-check-sign"></span>
                   5€
                 </label>
@@ -123,7 +123,7 @@ if(empty($_POST['optionsRadios'])){ // SI ON NE SELECTIONNE AUCUN MONTANT
             <div class="col-sm-8 col-lg-3 mb-4">
               <div class="form-check form-check-radio">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="radio" name="optionsRadios" checked="true" value="10">
+                  <input class="form-check-input" type="radio" onclick="javascript:yesnoCheck();" id="noCheck" name="optionsRadios" checked="true" value="10">
                   <span class="form-check-sign"></span>
                   10€
                 </label>
