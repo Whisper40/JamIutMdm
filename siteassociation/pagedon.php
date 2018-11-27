@@ -170,7 +170,7 @@ if(empty($_POST['optionsRadios'])){ // SI ON NE SELECTIONNE AUCUN MONTANT
                     <i class="now-ui-icons users_circle-08"></i>
                   </span>
                 </div>
-                <input type='number' id='yes' name='valueautre' class="form-control">
+                <input type='number' id='yes' name='valueautre' class="form-control" placeholder="Indiquer un montant">
               </div></p>
             </div>
 
@@ -184,15 +184,12 @@ if(empty($_POST['optionsRadios'])){ // SI ON NE SELECTIONNE AUCUN MONTANT
         </div>
       </div>
 
-
 <?php
 }
  ?>
 
 <?php
 if(!empty($_POST['optionsRadios'])){ // SI LE MONTANT EST SAISIT
-
-  // Code Paypal
 
   $valueautre = $_POST['valueautre'];
   if(!empty($valueautre)){
