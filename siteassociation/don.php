@@ -209,6 +209,7 @@ if(!empty($_POST['optionsRadios'])){ // SI LE MONTANT EST SAISIT
           <div align="center" id="paypal-button"></div>
         </div>
       </div>
+      <br><br>
     </div>
   </div>
 
