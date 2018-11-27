@@ -203,6 +203,7 @@ if(!empty($_POST['optionsRadios'])){ // SI LE MONTANT EST SAISIT
     <div class="container">
       <h2 class="title"><?php echo $pagehead->titre; ?></h2>
       <p class="description"><?php echo $pagehead->description; ?></p>
+      <br><br>
       <div class="row">
         <div class="col-lg-6 text-center col-md-8 ml-auto mr-auto">
           <div align="center" id="paypal-button"></div>
