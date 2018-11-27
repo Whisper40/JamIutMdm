@@ -116,7 +116,7 @@ $status = $s->status;?>
                                                                   <?php
 if(isset($error_captcha) && $error_captcha === true)
 {
-  require 'erreurtestform.php'; // ou .php
+  require_once('erreurtestform.php');
 }
 ?>
                                                               </center>
