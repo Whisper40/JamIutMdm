@@ -59,7 +59,7 @@
           </div>
           <div class="row justify-content-md-center sharing-area text-center">
             <div class="text-center col-md-12 col-lg-8">
-              <a target="_blank" href="<?php echo $index->fb ?>" class="btn btn-primary btn-simple btn-round btn-lg" rel="tooltip">
+              <a target="_blank" href="<?php echo $index->fb ?>" class="btn btn-neutral btn-icon btn-facebook btn-round btn-lg" rel="tooltip">
                 <i class="fab fa-facebook-square"></i>
               </a>
             </div>
