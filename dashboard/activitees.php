@@ -449,6 +449,18 @@ require_once('includes/head.php');
 
                                 if(isset($optionorganisation)){
 
+                                    $activity_name = $_GET['activityname'];                 
+
+                            $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name='$activity_name'");
+                            $check->execute();
+                            $countcheck = $check->rowCount();
+                            if($countcheck>0){
+                              ?>
+                              <h3> Tu participe déja </h3>
+                              <?php
+                              
+                          }else{
+
                                  ?>
                                 <div class="col-md-6">
                                 <div class="card">
@@ -492,7 +504,7 @@ require_once('includes/head.php');
                             </div>
                         </div>
                     </div>
-                <?php }  ?>
+                <?php }}  ?>
             </div>
             </div>
 
