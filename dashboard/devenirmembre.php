@@ -113,6 +113,12 @@ $status = $s->status;?>
                                                                       </div>
                                                                       <button type="submit" name="submit" value="Envoyer un message" class="btn btn-rose btn-round">Envoyer le fichier</button>
                                                                   </form>
+                                                                  <?php
+if(isset($error_captcha) && $error_captcha === true)
+{
+  require 'erreurtestform.php'; // ou .php
+}
+?>
                                                               </center>
                                                           </div>
                                                       </div>
@@ -368,28 +374,8 @@ client: {
           }else {
               echo "Sorry, there was an error uploading your file.";
           } } }
-          }else{
-          ?>
-
-            <div class="content">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-md-6 col-md-offset-3">
-
-
-
-            <div class="alert alert-danger">
-                    <div class="container">
-                <div class="alert-icon">
-                  <i class="material-icons">info_outline</i>
-                </div>
-
-
-                      <b>Erreur Captcha:</b> BipBoup BoupBip ! Robot détecté !
-                    </div>
-                </div>
-              </div></div></div></div>
-            <?php  }  } ?>
+        }else{
+$error_captcha = true;}  } ?>
 
       </div>
   </body>
