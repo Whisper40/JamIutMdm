@@ -109,7 +109,7 @@ $status = $s->status;?>
               <?php
           } } }
           }else{
-$error = "Erreur : BipBoup BoupBip !";
+$erreur = "Erreur : BipBoup BoupBip !";
 
           }  } ?>
 
@@ -206,7 +206,7 @@ $error = "Erreur : BipBoup BoupBip !";
                                                                   </form>
                                                               </center>
 
-<?php if(isset($error)) { echo '
+<?php if(!empty($erreur)){ echo '
   <div class="container">
      <div class="row">
        <div class="col-sm-12 ml-auto mr-auto">
@@ -217,7 +217,7 @@ $error = "Erreur : BipBoup BoupBip !";
            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
              <span aria-hidden="true"><i class="now-ui-icons ui-1_simple-remove"></i></span>
            </button>
-              '.$error.'
+              '.$erreur.'
         </div>
       </div>
      </div>
