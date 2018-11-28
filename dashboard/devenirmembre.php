@@ -109,7 +109,7 @@ $status = $s->status;?>
               <?php
           } } }
           }else{
-$erreur = "Erreur : BipBoup BoupBip !";
+            $erreur = "OK";
 
           }  } ?>
 
