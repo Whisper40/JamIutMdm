@@ -41,6 +41,10 @@ function slugify($text){
           <?php
 $user_id = $_SESSION['user_id'];
 if ($type == 'ski'){
+  $participeski = $db->prepare("SELECT * FROM participe WHERE user_id='$user_id' AND activity_name LIKE '%ski%'");
+  $participeski->execute();
+  $countparticipeski = $participeski->rowCount();
+  if($countparticipeski>0){
 
            ?>
 
@@ -143,7 +147,18 @@ if ($type == 'ski'){
 
         </div>
         <?php
+}else{
+  ?>
+    <script>window.location="https://dashboard.jam-mdm.fr/";</script>
+    <?php
+}
+
 }else if ($type == 'rugby'){
+
+  $participerugby = $db->prepare("SELECT * FROM participe WHERE user_id='$user_id' AND activity_name LIKE '%rugby%'");
+  $participerugby->execute();
+  $countparticiperugby = $participerugby->rowCount();
+  if($countparticiperugby>0){
   ?>
             <script>
 
@@ -251,8 +266,17 @@ if ($type == 'ski'){
 <?php
 //FIN RUGBY
 //DEBIT CINEMA
-}else if ($type == 'cinema'){
+}else{
+  ?>
+  <script>window.location="https://dashboard.jam-mdm.fr/";</script>
+  <?php
+
+}}else if ($type == 'cinema'){
   $user_id = $_SESSION['user_id'];
+  $participecinema = $db->prepare("SELECT * FROM participe WHERE user_id='$user_id' AND activity_name LIKE '%cinema%'");
+  $participecinema->execute();
+  $countparticipecinema = $participecinema->rowCount();
+  if($countparticipecinema>0){
 
 
   ?>
@@ -303,8 +327,16 @@ if(!empty($infoscomplementaires3)){
 
 <?php
 //FIN CINEMA
-}else if ($type == 'nettoyage'){
+}else{
+  ?>
+    <script>window.location="https://dashboard.jam-mdm.fr/";</script>
+<?php
+}}else if ($type == 'nettoyage'){
   $user_id = $_SESSION['user_id'];
+  $participenettoyage = $db->prepare("SELECT * FROM participe WHERE user_id='$user_id' AND activity_name LIKE '%nettoyage%'");
+  $participenettoyage->execute();
+  $countparticipenettoyage = $participenettoyage->rowCount();
+  if($countparticipenettoyage>0){
 
 
   ?>
@@ -415,7 +447,17 @@ if(!empty($infoscomplementaires3)){
 
 <?php
 //FIN NETTOYAGE
-}else if ($type == 'sportive'){
+}else{
+  ?>
+    <script>window.location="https://dashboard.jam-mdm.fr/";</script>
+<?php
+}}else if ($type == 'sportive'){
+
+  $participesportive = $db->prepare("SELECT * FROM participe WHERE user_id='$user_id' AND activity_name LIKE '%sportive%'");
+  $participesportive->execute();
+  $countparticipesportive = $participesportive->rowCount();
+  if($countparticipesportive>0){
+
   ?>
             <script>
 
@@ -535,7 +577,18 @@ if(!empty($_POST['jeneparticipeplus'])){
 <?php
 //FIN SPORTIVE
 
-}else if ($type == 'orientation'){
+}else{
+  ?>
+
+    <script>window.location="https://dashboard.jam-mdm.fr/";</script>
+    <?php
+}}else if ($type == 'orientation'){
+
+
+  $participeorientation = $db->prepare("SELECT * FROM participe WHERE user_id='$user_id' AND activity_name LIKE '%orientation%'");
+  $participeorientation->execute();
+  $countparticipeorientation = $participeorientation->rowCount();
+  if($countparticipeorientation>0){
   ?>
             <script>
 
@@ -665,6 +718,10 @@ if(!empty($_POST['jeneparticipeplus'])){
 
     require_once('includes/javascriptdashboard.php');
   }else{
+?>
+  <script>window.location="https://dashboard.jam-mdm.fr/";</script>
+<?php
+  }}else{
       header("Location:https://jam-mdm.fr/");
   }
 ?>
