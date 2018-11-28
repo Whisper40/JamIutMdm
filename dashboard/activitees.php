@@ -190,7 +190,7 @@ require_once('includes/head.php');
 
                           if(isset($prixmateriel) && isset($prixrepas)){
                               //27/11/2018
-                          $activity_name = $_GET['activityname'];                 
+                          $activity_name = $_GET['activityname'];
 
                             $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name='$activity_name'");
                             $check->execute();
@@ -199,7 +199,7 @@ require_once('includes/head.php');
                               ?>
                               <h3> Tu participe déja </h3>
                               <?php
-                              
+
                           }else{
                               //
 
@@ -309,7 +309,7 @@ require_once('includes/head.php');
 
 
                     if(isset($prixaccompagnement)){
-                        $activity_name = $_GET['activityname'];                 
+                        $activity_name = $_GET['activityname'];
 
                             $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name='$activity_name'");
                             $check->execute();
@@ -318,7 +318,7 @@ require_once('includes/head.php');
                               ?>
                               <h3> Tu participe déja </h3>
                               <?php
-                              
+
                           }else{
 
                     $total = $prixactivite + $prixaccompagnement; ?>
@@ -449,7 +449,7 @@ require_once('includes/head.php');
 
                                 if(isset($optionorganisation)){
 
-                                    $activity_name = $_GET['activityname'];                 
+                                    $activity_name = $_GET['activityname'];
 
                             $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name='$activity_name'");
                             $check->execute();
@@ -458,7 +458,7 @@ require_once('includes/head.php');
                               ?>
                               <h3> Tu participe déja </h3>
                               <?php
-                              
+
                           }else{
 
                                  ?>
@@ -512,9 +512,9 @@ require_once('includes/head.php');
 
                                   //Debut cinema
                                   }else if (stripos($activity_slug, 'cinema') != FALSE){
-                                    
 
-                                    $activity_name = $_GET['activityname'];                 
+
+                                    $activity_name = $_GET['activityname'];
 
                                     $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name='$activity_name'");
                                     $check->execute();
@@ -523,7 +523,7 @@ require_once('includes/head.php');
                                     ?>
                                     <h3> Tu participe déja </h3>
                                     <?php
-                                    
+
                                     }else{
 
 
@@ -597,7 +597,7 @@ require_once('includes/head.php');
                 <?php
               }
 
-              $activity_name = $_GET['activityname'];                 
+              $activity_name = $_GET['activityname'];
 
                             $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name='$activity_name'");
                             $check->execute();
@@ -606,7 +606,7 @@ require_once('includes/head.php');
                               ?>
                               <h3> Tu participe déja </h3>
                               <?php
-                              
+
                           }else{
             ?>
 
@@ -684,16 +684,16 @@ require_once('includes/head.php');
             <?php
           }
 
-          $activity_name = $_GET['activityname'];                 
+          $activity_name = $_GET['activityname'];
 
-                            $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name='$activity_name'");
-                            $check->execute();
-                            $countcheck = $check->rowCount();
-                            if($countcheck>0){
+                            $check1 = $db->prepare("SELECT user_id FROM participe WHERE activity_name='$activity_name'");
+                            $check1->execute();
+                            $countcheck1 = $check1->rowCount();
+                            if($countcheck1>0){
                               ?>
                               <h3> Tu participe déja </h3>
                               <?php
-                              
+
                           }else{
           ?>
 
