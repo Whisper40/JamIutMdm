@@ -135,7 +135,7 @@ $status = $s->status;?>
 
                                                 <?php
                                                 var_dump($error);
-                                                if(isset($error)) { echo '
+                                                if($error === true) { echo '
                                                   <div class="container">
                                                     <div class="row">
                                                       <div class="col-sm-12 ml-auto mr-auto">
@@ -363,7 +363,7 @@ client: {
           } } }
           }else{
 
-$error = "Erreur";
+$error = true;
 
 
           }  } ?>
