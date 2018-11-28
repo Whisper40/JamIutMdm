@@ -1,13 +1,8 @@
 <?php
-
 require_once('includes/connectBDD.php');
 require_once('includes/checkconnection.php');
-ini_set('display_errors', 1);
-
 $nompage = "Devenir Membre";
 require_once('includes/head.php');
-
-
 $secret = "LESECRET";
 $sitekey = "LESITEKEY";
 ?>
@@ -28,11 +23,9 @@ $status = $s->status;?>
 
       <?php
           require_once('includes/navbar.php');
-
           $selectaccesautorise = $db->prepare("SELECT * FROM transactions WHERE user_id='$user_id' AND raison='Cotisation Annuelle'");
           $selectaccesautorise->execute();
           $countaccesautorise = $selectaccesautorise->rowCount();
-
           if($countaccesautorise == 0){
           $selectnumbervalidation = $db->prepare("SELECT * FROM validationfichiers WHERE user_id='$user_id' AND status='VALIDE'");
           $selectnumbervalidation->execute();
@@ -112,26 +105,8 @@ $status = $s->status;?>
                                                                       <div class="form-group label-floating">
                                                                           <div class="g-recaptcha" data-sitekey="<?= $sitekey; ?>"></div>
                                                                       </div>
-                                                                      <button type="submit" name="submit" value="Envoyer le fichier" class="btn btn-rose btn-round">Envoyer le fichier</button>
+                                                                      <button type="submit" name="submit" value="Envoyer un message" class="btn btn-rose btn-round">Envoyer le fichier</button>
                                                                   </form>
-                                                                  <?php if(isset($error)) { echo '
-                                                                    <div class="container">
-                                                                      <div class="row">
-                                                                        <div class="col-sm-12 ml-auto mr-auto">
-                                                                          <div class="alert alert-warning">
-                                                                            <div class="alert-icon">
-                                                                              <i class="now-ui-icons ui-1_bell-53"></i>
-                                                                            </div>
-                                                                              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                                              <span aria-hidden="true"><i class="now-ui-icons ui-1_simple-remove"></i></span>
-                                                                              </button>
-                                                                              '.$error.'
-                                                                          </div>
-                                                                       </div>
-                                                                     </div>
-                                                                  </div>'; }
-
-                                                                  ?>
                                                               </center>
                                                           </div>
                                                       </div>
@@ -174,7 +149,6 @@ $status = $s->status;?>
                                               $sql = "SELECT * FROM validationfichiers WHERE user_id='$user_id' ORDER BY date ASC";
                                               $req = $db->query($sql);
                                               $req->setFetchMode(PDO::FETCH_ASSOC);
-
                                               foreach($req as $row){
                                               ?>
 
@@ -207,29 +181,20 @@ $status = $s->status;?>
     paypal.Button.render({
 <?php
   $total = '3';
-
-
-
 ?>
 env: 'sandbox',
-
 client: {
     sandbox:    'AZDxjDScFpQtjWTOUtWKbyN_bDt4OgqaF4eYXlewfBP4-8aqX3PiV8e1GWU6liB2CUXlkA59kJXE7M6R',
     production: 'AXaV8dsJkxtDm__NKyNdyXBxp9wa8TSS8YZvNOyk3OEpi9rO82H3lc2wKhQrEbJS7NxfnLJ9Igq-rsIC'
 },
-
-
         style: {
             layout: 'vertical',  // horizontal | vertical
             size:   'medium',    // medium | large | responsive
             shape:  'pill',      // pill | rect
             color:  'blue'       // gold | blue | silver | black
         },
-
         commit: true,
-
         payment: function(data, actions) {
-
             return actions.payment.create({
                 payment: {
                     transactions: [
@@ -240,15 +205,10 @@ client: {
                 },
             });
         },
-
         onAuthorize: function(data, actions) {
-
             return actions.payment.get().then(function(data) {
-
                 console.log(data);
-
                 var shipping = data.payer.payer_info.shipping_address;
-
                 var name = shipping.recipient_name;
                 var street = shipping.line1;
                 var country_code = shipping.country_code;
@@ -257,7 +217,6 @@ client: {
                 var transaction_id = data.id;
                 var price = data.transactions[0].amount.total;
                 var currency_code = 'EUR';
-
                 $.post(
                     "processcotisation.php",
                     {
@@ -276,7 +235,6 @@ client: {
                 });
             });
         },
-
     }, '#paypal-button');
 </script>
 
@@ -291,27 +249,6 @@ client: {
 
           <!-- RAJOUT KEVIN -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
           <!-- FIN RAJOUT KEVIN -->
 
       <?php
@@ -325,14 +262,12 @@ client: {
           if($responseData->success){
             $user_id = $_SESSION['user_id'];
             $target_dir = "../../../JamFichiers/Uploads";
-
             if (file_exists($target_dir/$user_id)) {
               $target_dirnew = "$target_dir/$user_id/";
             }else{
               mkdir("$target_dir/$user_id", 0700);
               $target_dirnew = "$target_dir/$user_id/";
             }
-
       $total = count($_FILES['fileToUpload']['name']);
       for( $i=0 ; $i < $total ; $i++ ) {
       $target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
@@ -351,7 +286,7 @@ client: {
       // Allow certain file formats
       if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
       && $imageFileType != "gif" && $imageFileType != "pdf" && $imageFileType != "zip" && $imageFileType != "rar") {
-          $error = "Sorry, only JPG, JPEG, PNG & GIF, ZIP and RAR files are allowed.";
+          echo "Sorry, only JPG, JPEG, PNG & GIF, ZIP and RAR files are allowed.";
           $uploadOk = 0;
       }
       // Check if $uploadOk is set to 0 by an error
@@ -362,7 +297,6 @@ client: {
         date_default_timezone_set('Europe/Paris');
         setlocale(LC_TIME, 'fr_FR.utf8','fra');
         $date = strftime('%d:%m:%y %H:%M:%S');
-
         $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
         $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
           if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file2)) {
@@ -373,7 +307,6 @@ client: {
               $date = strftime('%d/%m/%y %H:%M:%S');
               $insertinfos = $db->prepare("INSERT INTO validationfichiers (user_id, filename,filenamesystem, message, ip, date, status) VALUES(:user_id, :filename, :filenamesystem, :message, :ip, :date, :status)");
               $insertinfos->execute(array(
-
                   "user_id"=>$_SESSION['user_id'],
                   "filename"=>$target_filefile,
                   "filenamesystem"=>$target_file2,
@@ -383,15 +316,54 @@ client: {
                   "status"=>$status
                   )
               );
-
           }else {
-              echo "Sorry, there was an error uploading your file.";
+              ?>
+               <div class="container">
+           <div class="row">
+             <div class="col-sm-18 ml-auto mr-auto">
+              <div class="alert alert-danger">
+                 <div class="alert-icon">
+                   <i class="now-ui-icons ui-1_bell-53"></i>
+                 </div>
+                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                   <span aria-hidden="true"><i class="now-ui-icons ui-1_simple-remove"></i></span>
+                 </button>
+                    <b>Erreur :</b> Fichiers non uploadés !
+              </div>
+            </div>
+           </div>
+        </div>
+
+
+              <?php
           } } }
-        }else{
-$error = "gisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegiselle";
+          }else{
+          ?>
 
-}  }
+            <div class="content">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-6 col-md-offset-3">
 
+
+
+            <div class="alert alert-danger">
+                    <div class="container">
+                <div class="alert-icon">
+                  <i class="material-icons">info_outline</i>
+                </div>
+
+
+                      <b>Erreur Captcha:</b> BipBoup BoupBip ! Robot détecté !
+                    </div>
+                </div>
+              </div></div></div></div>
+            <?php  }  } ?>
+
+      </div>
+  </body>
+
+<?php
 }else{
   ?>
 <script>window.location="https://dashboard.jam-mdm.fr/";</script>
