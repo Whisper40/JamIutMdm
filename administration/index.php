@@ -136,8 +136,8 @@ ini_set('display_errors', 1);
                                     <i class="material-icons">weekend</i>
                                 </div>
                                 <div class="card-content">
-                                    <p class="category">Total Membres :</p>
-                                    <h3 class="card-title"><?php echo $countinscritsjam;?>/<?php echo $countinscritstotal;?></h3>
+                                    <p class="category">Total Membres (Jam/Total) :</p>
+                                    <h3 class="card-title"><?php echo $countinscritsjam;?> / <?php echo $countinscritstotal;?></h3>
                                 </div>
 
                             </div>
