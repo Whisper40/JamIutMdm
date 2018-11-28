@@ -359,25 +359,50 @@ $valmonth0 = date("m");
 $valyear0 = date("Y");
 
 
-    $month5 = $db->query("SELECT SUM(amount) AS totalamount5 FROM transactions WHERE MONTH(datesystem) = '11' and YEAR(datesystem) = '2018'");
-    $r = $month5->fetch(PDO::FETCH_OBJ);
-    $countmonth5 = $r->totalamount5;
+    $month5 = $db->query("SELECT SUM(amount) AS totalamount5 FROM transactions WHERE MONTH(datesystem) = '$valmonth5' and YEAR(datesystem) = '$valyear5'");
+    $r5 = $month5->fetch(PDO::FETCH_OBJ);
+    $countmonth5 = $r5->totalamount5;
+    if (is_null($countmonth5)){
+      $countmonth5 = 0;
+    }
 
-    ?>
-    <h1> <?php echo $countmonth5; ?></h1><?php
+    $month4 = $db->query("SELECT SUM(amount) AS totalamount4 FROM transactions WHERE MONTH(datesystem) = '$valmonth4' and YEAR(datesystem) = '$valyear4'");
+    $r4 = $month4->fetch(PDO::FETCH_OBJ);
+    $countmonth4 = $r4->totalamount4;
 
+    if (is_null($countmonth4)){
+      $countmonth4 = 0;
+    }
 
-$countmonth4 = $countmonth5;
+    $month3 = $db->query("SELECT SUM(amount) AS totalamount3 FROM transactions WHERE MONTH(datesystem) = '$valmonth3' and YEAR(datesystem) = '$valyear3'");
+    $r3 = $month3->fetch(PDO::FETCH_OBJ);
+    $countmonth3 = $r3->totalamount3;
 
-$countmonth3 = $countmonth4;
+    if (is_null($countmonth3)){
+      $countmonth3 = 0;
+    }
+    $month2 = $db->query("SELECT SUM(amount) AS totalamount2 FROM transactions WHERE MONTH(datesystem) = '$valmonth2' and YEAR(datesystem) = '$valyear2'");
+    $r2 = $month2->fetch(PDO::FETCH_OBJ);
+    $countmonth2 = $r2->totalamount2;
 
+    if (is_null($countmonth2)){
+      $countmonth2 = 0;
+    }
+    $month1 = $db->query("SELECT SUM(amount) AS totalamount1 FROM transactions WHERE MONTH(datesystem) = '$valmonth1' and YEAR(datesystem) = '$valyear1'");
+    $r5 = $month1>fetch(PDO::FETCH_OBJ);
+    $countmonth1 = $r1->totalamount1;
 
-$countmonth2 = $countmonth4;
+    if (is_null($countmonth1)){
+      $countmonth1 = 0;
+    }
 
+    $month0 = $db->query("SELECT SUM(amount) AS totalamount0 FROM transactions WHERE MONTH(datesystem) = '$valmonth0' and YEAR(datesystem) = '$valyear0'");
+    $r0 = $month0->fetch(PDO::FETCH_OBJ);
+    $countmonth0 = $r0->totalamount0;
 
-$countmonth1 = $countmonth4;
-
-$countmonth0 = $countmonth4;
+    if (is_null($countmonth0)){
+      $countmonth0 = 0;
+    }
 
 
 
