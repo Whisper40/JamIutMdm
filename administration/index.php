@@ -267,43 +267,43 @@ $day9 = date('Y-m-d', strtotime("9 day ago" ));
 $horodateurday9 = date('d/m', strtotime("9 day ago" ));
 
 
-$day0value = $db->prepare("SELECT * FROM users WHERE datesystem='$day0'");
+$day0value = $db->prepare("SELECT * FROM histconnexion WHERE datesystem='$day0'");
 $day0value->execute();
 $countday0value = $day0value->rowCount();
 
-$day1value = $db->prepare("SELECT * FROM users WHERE datesystem='$day1'");
+$day1value = $db->prepare("SELECT * FROM histconnexion WHERE datesystem='$day1'");
 $day1value->execute();
 $countday1value = $day1value->rowCount();
 
-$day2value = $db->prepare("SELECT * FROM users WHERE datesystem='$day2'");
+$day2value = $db->prepare("SELECT * FROM histconnexion WHERE datesystem='$day2'");
 $day2value->execute();
 $countday2value = $day2value->rowCount();
 
-$day3value = $db->prepare("SELECT * FROM users WHERE datesystem='$day3'");
+$day3value = $db->prepare("SELECT * FROM histconnexion WHERE datesystem='$day3'");
 $day3value->execute();
 $countday3value = $day3value->rowCount();
 
-$day4value = $db->prepare("SELECT * FROM users WHERE datesystem='$day4'");
+$day4value = $db->prepare("SELECT * FROM histconnexion WHERE datesystem='$day4'");
 $day4value->execute();
 $countday4value = $day4value->rowCount();
 
-$day5value = $db->prepare("SELECT * FROM users WHERE datesystem='$day5'");
+$day5value = $db->prepare("SELECT * FROM histconnexion WHERE datesystem='$day5'");
 $day5value->execute();
 $countday5value = $day5value->rowCount();
 
-$day6value = $db->prepare("SELECT * FROM users WHERE datesystem='$day6'");
+$day6value = $db->prepare("SELECT * FROM histconnexion WHERE datesystem='$day6'");
 $day6value->execute();
 $countday6value = $day6value->rowCount();
 
-$day7value = $db->prepare("SELECT * FROM users WHERE datesystem='$day7'");
+$day7value = $db->prepare("SELECT * FROM histconnexion WHERE datesystem='$day7'");
 $day7value->execute();
 $countday7value = $day7value->rowCount();
 
-$day8value = $db->prepare("SELECT * FROM users WHERE datesystem='$day8'");
+$day8value = $db->prepare("SELECT * FROM histconnexion WHERE datesystem='$day8'");
 $day8value->execute();
 $countday8value = $day8value->rowCount();
 
-$day9value = $db->prepare("SELECT * FROM users WHERE datesystem='$day9'");
+$day9value = $db->prepare("SELECT * FROM histconnexion WHERE datesystem='$day9'");
 $day9value->execute();
 $countday9value = $day9value->rowCount();
 
