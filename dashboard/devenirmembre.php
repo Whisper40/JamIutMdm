@@ -114,12 +114,24 @@ $status = $s->status;?>
                                                                       </div>
                                                                       <button type="submit" name="submit" value="Envoyer un message" class="btn btn-rose btn-round">Envoyer le fichier</button>
                                                                   </form>
-                                                                  <?php
-if(isset($error_captcha))
-{
-  echo 'toto';
-}
-?>
+                                                                  <?php if(isset($error)) { echo '
+                                                                    <div class="container">
+                                                                      <div class="row">
+                                                                        <div class="col-sm-12 ml-auto mr-auto">
+                                                                          <div class="alert alert-warning">
+                                                                            <div class="alert-icon">
+                                                                              <i class="now-ui-icons ui-1_bell-53"></i>
+                                                                            </div>
+                                                                              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                                              <span aria-hidden="true"><i class="now-ui-icons ui-1_simple-remove"></i></span>
+                                                                              </button>
+                                                                              '.$error.'
+                                                                          </div>
+                                                                       </div>
+                                                                     </div>
+                                                                  </div>'; }
+
+                                                                  ?>
                                                               </center>
                                                           </div>
                                                       </div>
@@ -376,7 +388,7 @@ client: {
               echo "Sorry, there was an error uploading your file.";
           } } }
         }else{
-$error_captcha = 'giselle';
+$error = 'giselle';
 
 }  } ?>
 
