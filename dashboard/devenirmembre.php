@@ -132,7 +132,10 @@ $status = $s->status;?>
                                                 <p class="description">
                                                 Tes Documents suivant sont en attente de validation !
                                                 </p>
-                                                <?php if(isset($error)) { echo '
+
+                                                <?php
+                                                var_dump($error);
+                                                if(isset($error)) { echo '
                                                   <div class="container">
                                                     <div class="row">
                                                       <div class="col-sm-12 ml-auto mr-auto">
