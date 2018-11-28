@@ -108,6 +108,26 @@ $status = $s->status;?>
                                                                       <button type="submit" name="submit" value="Envoyer un message" class="btn btn-rose btn-round">Envoyer le fichier</button>
                                                                   </form>
                                                               </center>
+
+                                                              <?php if(isset($error)) { echo '
+                                                                <div class="container">
+                                                                  <div class="row">
+                                                                    <div class="col-sm-12 ml-auto mr-auto">
+                                                                      <div class="alert alert-warning">
+                                                                        <div class="alert-icon">
+                                                                          <i class="now-ui-icons ui-1_bell-53"></i>
+                                                                        </div>
+                                                                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                                          <span aria-hidden="true"><i class="now-ui-icons ui-1_simple-remove"></i></span>
+                                                                          </button>
+                                                                          '.$error.'
+                                                                      </div>
+                                                                   </div>
+                                                                 </div>
+                                                              </div>'; }
+
+                                                              ?>
+                                                              
                                                           </div>
                                                       </div>
                                                   </div>
@@ -338,27 +358,11 @@ client: {
               <?php
           } } }
           }else{
-          ?>
 
-            <div class="content">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-md-6 col-md-offset-3">
+$error = "Erreur";
 
 
-
-            <div class="alert alert-danger">
-                    <div class="container">
-                <div class="alert-icon">
-                  <i class="material-icons">info_outline</i>
-                </div>
-
-
-                      <b>Erreur Captcha:</b> BipBoup BoupBip ! Robot détecté !
-                    </div>
-                </div>
-              </div></div></div></div>
-            <?php  }  } ?>
+          }  } ?>
 
       </div>
   </body>
