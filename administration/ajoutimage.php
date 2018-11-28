@@ -178,7 +178,7 @@ $sitekey = "LESITEKEY";
 
             //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
               $longueur = 300;
-              $largeur = 200;
+              $largeur = 220;
               //TAILLE DE L'IMAGE ACTUELLE
               $taille = getimagesize($img_tmp);
               //SI LE FICHIER EXISTE
@@ -231,7 +231,7 @@ $sitekey = "LESITEKEY";
 
                   //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
                     $longueur = 1024;
-                    $largeur = 684;
+                    $largeur = 700;
                     //TAILLE DE L'IMAGE ACTUELLE
                     $tailleaffiche = getimagesize($img_tmp);
                     //SI LE FICHIER EXISTE
