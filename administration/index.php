@@ -172,7 +172,7 @@ ini_set('display_errors', 1);
                                     <div id="roundedLineChart" class="ct-chart"></div>
                                 </div>
                                 <div class="card-content">
-                                    <h4 class="card-title">Nombre de transactions</h4>
+                                    <h4 class="card-title">Montant total des transactions</h4>
                                     <p class="category">Mensuel</p>
                                 </div>
                             </div>
