@@ -101,6 +101,10 @@ ini_set('display_errors', 1);
             $inscritsjam->execute();
             $countinscritsjam = $inscritsjam->rowCount();
 
+            $inscritstotal = $db->prepare("SELECT id FROM users");
+            $inscritstotal->execute();
+            $countinscritstotal = $inscritstotal->rowCount();
+
             $totalparticipants = $db->prepare("SELECT * FROM participe");
             $totalparticipants->execute();
             $counttotalparticipants = $totalparticipants->rowCount();
@@ -133,7 +137,7 @@ ini_set('display_errors', 1);
                                 </div>
                                 <div class="card-content">
                                     <p class="category">Total Membres :</p>
-                                    <h3 class="card-title"><?php echo $countinscritsjam; ?></h3>
+                                    <h3 class="card-title"><?php echo $countinscritsjam;?>/<?php echo $countinscritstotal;?></h3>
                                 </div>
 
                             </div>
