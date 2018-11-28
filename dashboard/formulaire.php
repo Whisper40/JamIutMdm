@@ -719,7 +719,6 @@ if(!empty($_POST['jeneparticipeplus'])){
 </body>
 <?php
 
-
   }else{
 ?>
   <script>window.location="https://dashboard.jam-mdm.fr/";</script>
