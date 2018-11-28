@@ -46,23 +46,24 @@ $status = $s->status;?>
       $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
       // Check if file already exists
       if (file_exists($target_file)) {
-          echo "Sorry, file already exists.";
+          $erreur = "<b>Erreur : </b> Le fichier existe déja !";
           $uploadOk = 0;
       }
       // Check file size < 2mo
       if ($_FILES["fileToUpload"]["size"][$i] > 2000000) {
-          echo "Sorry, your file is too large.";
+          $erreur = "<b>Erreur : </b> La Taille de votre est supérieur à 2 Mo !";
           $uploadOk = 0;
       }
       // Allow certain file formats
       if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
       && $imageFileType != "gif" && $imageFileType != "pdf" && $imageFileType != "zip" && $imageFileType != "rar") {
-          echo "Sorry, only JPG, JPEG, PNG & GIF, ZIP and RAR files are allowed.";
+
+          $erreur = "<b>Erreur : </b> Désolé, seuls les formats JPG, PDF, GIF, ZIP et RAR sont autorisés !";
           $uploadOk = 0;
       }
       // Check if $uploadOk is set to 0 by an error
       if ($uploadOk == 0) {
-          echo "Sorry, your file was not uploaded.";
+          $erreur = "<b>Erreur : </b> Désolé votre fichier n'a pas été transmis !";
       // if everything is ok, try to upload file
       } else {
         date_default_timezone_set('Europe/Paris');
@@ -72,6 +73,7 @@ $status = $s->status;?>
         $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
           if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file2)) {
               echo "The file ". basename( $_FILES["fileToUpload"]["name"][$i]). " has been uploaded.";
+              $succes = "<b>Succès : </b> Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à été transmis.";
               $status = "EN ATTENTE DE VALIDATION";
               date_default_timezone_set('Europe/Paris');
               setlocale(LC_TIME, 'fr_FR.utf8','fra');
@@ -88,28 +90,14 @@ $status = $s->status;?>
                   )
               );
           }else {
-              ?>
-               <div class="container">
-           <div class="row">
-             <div class="col-sm-18 ml-auto mr-auto">
-              <div class="alert alert-danger">
-                 <div class="alert-icon">
-                   <i class="now-ui-icons ui-1_bell-53"></i>
-                 </div>
-                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                   <span aria-hidden="true"><i class="now-ui-icons ui-1_simple-remove"></i></span>
-                 </button>
-                    <b>Erreur :</b> Fichiers non uploadés !
-              </div>
-            </div>
-           </div>
-        </div>
+
+               $erreur = "<b>Erreur : </b> Fichiers non uploadés !";
 
 
-              <?php
+
           } } }
           }else{
-            $erreur = "OK";
+            $erreur = "<b>Erreur : </b> Captcha non valide !";
 
           }  } ?>
 
@@ -208,8 +196,18 @@ $status = $s->status;?>
 
 <?php if(!empty($erreur)){
 
+
+// CODE HTML ICI
    echo '
   <button type="submit" name="jamesbond" value="Envoyer un message" class="btn btn-rose btn-round">'.$erreur.'</button>'; }
+
+?>
+<?php if(!empty($succes)){
+
+
+// CODE HTML ICI
+   echo '
+  <button type="submit" name="jamesbond" value="Envoyer un message" class="btn btn-rose btn-round">'.$succes.'</button>'; }
 
 ?>
 
