@@ -109,11 +109,10 @@ $status = $s->status;?>
               <?php
           } } }
           }else{
-echo 'james';
-
+$erreur = 'james';
 
           }  } ?>
-          
+
 
 
 <body>
@@ -207,7 +206,11 @@ echo 'james';
                                                                   </form>
                                                               </center>
 
-
+<?php
+if (isset($erreur)){
+  echo $erreur;
+}
+ ?>
 
                                                           </div>
                                                       </div>
