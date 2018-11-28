@@ -112,7 +112,7 @@ $status = $s->status;?>
                                                                       <div class="form-group label-floating">
                                                                           <div class="g-recaptcha" data-sitekey="<?= $sitekey; ?>"></div>
                                                                       </div>
-                                                                      <button type="submit" name="submit" value="Envoyer un message" class="btn btn-rose btn-round">Envoyer le fichier</button>
+                                                                      <button type="submit" name="submit" value="Envoyer le fichier" class="btn btn-rose btn-round">Envoyer le fichier</button>
                                                                   </form>
                                                                   <?php if(isset($error)) { echo '
                                                                     <div class="container">
@@ -351,7 +351,7 @@ client: {
       // Allow certain file formats
       if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
       && $imageFileType != "gif" && $imageFileType != "pdf" && $imageFileType != "zip" && $imageFileType != "rar") {
-          echo "Sorry, only JPG, JPEG, PNG & GIF, ZIP and RAR files are allowed.";
+          $error = "Sorry, only JPG, JPEG, PNG & GIF, ZIP and RAR files are allowed.";
           $uploadOk = 0;
       }
       // Check if $uploadOk is set to 0 by an error
@@ -388,7 +388,7 @@ client: {
               echo "Sorry, there was an error uploading your file.";
           } } }
         }else{
-$error = 'giselle';
+$error = 'gisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegiselle';
 
 }  } ?>
 
