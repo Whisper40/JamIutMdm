@@ -117,7 +117,7 @@ $status = $s->status;?>
                                                                   <?php
 if(isset($error_captcha))
 {
-  include('erreurtestform.php');
+  echo 'toto';
 }
 ?>
                                                               </center>
