@@ -18,3 +18,4 @@ $user_id = $_SESSION['user_id'];
 $raison = 'Cotisation Annuelle';
 
 $db->query("INSERT INTO transactions (name, street, city, country, date, datesystem, transaction_id, amount, currency_code, user_id, raison) VALUES('$name', '$street', '$city', '$country_code', '$date', '$datesystem', '$transaction_id', '$price', '$currency_code', '$user_id' ,'$raison')");
+$db->query("INSERT INTO users (status) VALUES ('MEMBRE') WHERE id='$user_id'");
