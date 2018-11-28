@@ -388,14 +388,10 @@ client: {
               echo "Sorry, there was an error uploading your file.";
           } } }
         }else{
-$error = 'gisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegiselle';
+$error = "gisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegisellegiselle";
 
-}  } ?>
+}  }
 
-      </div>
-  </body>
-
-<?php
 }else{
   ?>
 <script>window.location="https://dashboard.jam-mdm.fr/";</script>
