@@ -151,9 +151,7 @@ if ($type == 'ski'){
   ?>
     <script>window.location="https://dashboard.jam-mdm.fr/";</script>
     <?php
-}
-
-}else if ($type == 'rugby'){
+}}else if ($type == 'rugby'){
 
   $participerugby = $db->prepare("SELECT * FROM participe WHERE user_id='$user_id' AND activity_name LIKE '%rugby%'");
   $participerugby->execute();
@@ -706,6 +704,11 @@ if(!empty($_POST['jeneparticipeplus'])){
 <?php
 //FIN ORIENTATION
 
+}else{
+?>
+    <script>window.location="https://dashboard.jam-mdm.fr/";</script>
+
+<?php
 }
          ?>
         </div>
@@ -716,7 +719,7 @@ if(!empty($_POST['jeneparticipeplus'])){
 </body>
 <?php
 
-    require_once('includes/javascriptdashboard.php');
+
   }else{
 ?>
   <script>window.location="https://dashboard.jam-mdm.fr/";</script>
@@ -724,4 +727,5 @@ if(!empty($_POST['jeneparticipeplus'])){
   }}else{
       header("Location:https://jam-mdm.fr/");
   }
+  require_once('includes/javascriptdashboard.php');
 ?>
