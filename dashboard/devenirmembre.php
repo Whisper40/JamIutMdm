@@ -206,7 +206,9 @@ $status = $s->status;?>
                                                                   </form>
                                                               </center>
 
-<?php if(!empty($erreur)){ echo '
+<?php if(!empty($erreur)){
+var_dump($erreur);
+   echo '
   <div class="container">
      <div class="row">
        <div class="col-sm-12 ml-auto mr-auto">
