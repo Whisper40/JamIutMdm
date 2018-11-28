@@ -109,25 +109,8 @@ $status = $s->status;?>
                                                                   </form>
                                                               </center>
 
-                                                              <?php if(isset($error)) { echo '
-                                                                <div class="container">
-                                                                  <div class="row">
-                                                                    <div class="col-sm-12 ml-auto mr-auto">
-                                                                      <div class="alert alert-warning">
-                                                                        <div class="alert-icon">
-                                                                          <i class="now-ui-icons ui-1_bell-53"></i>
-                                                                        </div>
-                                                                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                                          <span aria-hidden="true"><i class="now-ui-icons ui-1_simple-remove"></i></span>
-                                                                          </button>
-                                                                          '.$error.'
-                                                                      </div>
-                                                                   </div>
-                                                                 </div>
-                                                              </div>'; }
 
-                                                              ?>
-                                                              
+
                                                           </div>
                                                       </div>
                                                   </div>
@@ -149,6 +132,24 @@ $status = $s->status;?>
                                                 <p class="description">
                                                 Tes Documents suivant sont en attente de validation !
                                                 </p>
+                                                <?php if(isset($error)) { echo '
+                                                  <div class="container">
+                                                    <div class="row">
+                                                      <div class="col-sm-12 ml-auto mr-auto">
+                                                        <div class="alert alert-warning">
+                                                          <div class="alert-icon">
+                                                            <i class="now-ui-icons ui-1_bell-53"></i>
+                                                          </div>
+                                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                            <span aria-hidden="true"><i class="now-ui-icons ui-1_simple-remove"></i></span>
+                                                            </button>
+                                                            '.$error.'
+                                                        </div>
+                                                     </div>
+                                                   </div>
+                                                </div>'; }
+
+                                                ?>
                                             </div>
                                         </center>
                                     </div>
