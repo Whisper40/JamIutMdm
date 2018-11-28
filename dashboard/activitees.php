@@ -192,7 +192,7 @@ require_once('includes/head.php');
                               //27/11/2018
                           $activity_name = $_GET['activityname'];
 
-                            $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name='$activity_name'");
+                            $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name='$activity_name' and user_id='$user_id'");
                             $check->execute();
                             $countcheck = $check->rowCount();
                             if($countcheck>0){
@@ -311,7 +311,7 @@ require_once('includes/head.php');
                     if(isset($prixaccompagnement)){
                         $activity_name = $_GET['activityname'];
 
-                            $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name='$activity_name'");
+                            $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name='$activity_name' and user_id='$user_id'");
                             $check->execute();
                             $countcheck = $check->rowCount();
                             if($countcheck>0){
@@ -451,7 +451,7 @@ require_once('includes/head.php');
 
                                     $activity_name = $_GET['activityname'];
 
-                            $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name='$activity_name'");
+                            $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name='$activity_name' and user_id='$user_id'");
                             $check->execute();
                             $countcheck = $check->rowCount();
                             if($countcheck>0){
@@ -516,7 +516,7 @@ require_once('includes/head.php');
 
                                     $activity_name = $_GET['activityname'];
 
-                                    $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name='$activity_name'");
+                                    $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name='$activity_name' and user_id='$user_id'");
                                     $check->execute();
                                     $countcheck = $check->rowCount();
                                     if($countcheck>0){
@@ -599,7 +599,7 @@ require_once('includes/head.php');
 
               $activity_name = $_GET['activityname'];
 
-                            $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name='$activity_name'");
+                            $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name='$activity_name' and user_id='$user_id'");
                             $check->execute();
                             $countcheck = $check->rowCount();
                             if($countcheck>0){
@@ -686,10 +686,10 @@ require_once('includes/head.php');
 
           $activity_name = $_GET['activityname'];
 
-                            $check1 = $db->prepare("SELECT user_id FROM participe WHERE activity_name='$activity_name'");
-                            $check1->execute();
-                            $countcheck1 = $check1->rowCount();
-                            if($countcheck1>0){
+                            $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name='$activity_name' and user_id='$user_id'");
+                            $check->execute();
+                            $countcheck = $check->rowCount();
+                            if($countcheck>0){
                               ?>
                               <h3> Tu participe déja </h3>
                               <?php
