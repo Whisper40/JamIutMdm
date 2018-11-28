@@ -136,7 +136,7 @@ $status = $s->status;?>
 
                                                 <?php
                                                 var_dump($error);
-                                                if($error === true) {
+                                                if($error == true) {
                                                   var_dump($error);
                                                   echo '
                                                   <div class="container">
