@@ -376,7 +376,9 @@ client: {
               echo "Sorry, there was an error uploading your file.";
           } } }
         }else{
-$error_captcha = true;}  } ?>
+$error_captcha = 'giselle';
+
+}  } ?>
 
       </div>
   </body>
