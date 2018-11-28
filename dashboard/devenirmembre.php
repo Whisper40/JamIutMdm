@@ -202,28 +202,14 @@ $status = $s->status;?>
                                                                       <div class="form-group label-floating">
                                                                           <div class="g-recaptcha" data-sitekey="<?= $sitekey; ?>"></div>
                                                                       </div>
-                                                                      <button type="submit" name="submit" value="Envoyer un message" class="btn btn-rose btn-round">Envoyer le fichier</button>
+                                                                      <button type="submit" name="submit" value="Envoyer un fichier" class="btn btn-rose btn-round">Envoyer le fichier</button>
                                                                   </form>
                                                               </center>
 
 <?php if(!empty($erreur)){
-var_dump($erreur);
+
    echo '
-  <div class="container">
-     <div class="row">
-       <div class="col-sm-12 ml-auto mr-auto">
-        <div class="alert alert-danger">
-           <div class="alert-icon">
-              <i class="now-ui-icons ui-1_bell-53"></i>
-           </div>
-           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-             <span aria-hidden="true"><i class="now-ui-icons ui-1_simple-remove"></i></span>
-           </button>
-              '.$erreur.'
-        </div>
-      </div>
-     </div>
-  </div>'; }
+  <button type="submit" name="jamesbond" value="Envoyer un message" class="btn btn-rose btn-round">'.$erreur.'</button>'; }
 
 ?>
 
