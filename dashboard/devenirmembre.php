@@ -1,4 +1,5 @@
 <?php
+ini_set('display_errors', 1);
 require_once('includes/connectBDD.php');
 require_once('includes/checkconnection.php');
 $nompage = "Devenir Membre";
@@ -135,7 +136,9 @@ $status = $s->status;?>
 
                                                 <?php
                                                 var_dump($error);
-                                                if($error === true) { echo '
+                                                if($error === true) {
+                                                  var_dump($error);
+                                                  echo '
                                                   <div class="container">
                                                     <div class="row">
                                                       <div class="col-sm-12 ml-auto mr-auto">
