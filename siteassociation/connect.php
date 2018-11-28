@@ -92,14 +92,16 @@
                                 date_default_timezone_set('Europe/Paris');
                                 setlocale(LC_TIME, 'fr_FR.utf8','fra');
                                 $date = strftime('%d/%m/%Y %H:%M:%S');
+                                $datesystem = strftime('%Y-%m-%d');
                                 // On ajoute dans la BDD l'ensemble des informations de l'utilisateur qui se connecte, son IP, son navigateur ainsi que la date de connexion de la personne.
-                                $insertinfos = $db->prepare("INSERT INTO histconnexion (user_id, ip, navigateur, date) VALUES(:user_id, :ip, :navigateur, :date)");
+                                $insertinfos = $db->prepare("INSERT INTO histconnexion (user_id, ip, navigateur, date, datesystem) VALUES(:user_id, :ip, :navigateur, :date, :datesystem)");
                                 $insertinfos->execute(array(
 
                                     "user_id"=>$_SESSION['user_id'],
                                     "ip"=>$ip,
                                     "navigateur"=>$user_agent_name,
-                                    "date"=>$date
+                                    "date"=>$date,
+                                    "datesystem"=>$datesystem
                                     )
                                 );
 
