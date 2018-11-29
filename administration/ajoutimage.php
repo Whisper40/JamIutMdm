@@ -97,7 +97,7 @@ $sitekey = "LESITEKEY";
 
             <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
                 Sélectionner la catégorie de la vidéo<br>
-                <select name="catimage">
+                <select name="catvideo">
                   <?php
                     $selectcatvideos=$db->query("SELECT DISTINCT title FROM videos");
                     while($s = $selectcatvideos->fetch(PDO::FETCH_OBJ)){
@@ -134,10 +134,6 @@ $sitekey = "LESITEKEY";
 
                 <input type="submit" name="videosubmit" value="Envoyer le formulaire !">
             </form>
-
-
-
-
 
 
 
@@ -187,7 +183,7 @@ $sitekey = "LESITEKEY";
 
 
 
-  $target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"]);
+  $target_file = $target_dirnew . basename($_FILES["fileToUploadVideo"]["name"]);
   $uploadOk = 1;
   $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
   // Check if file already exists
@@ -196,7 +192,7 @@ $sitekey = "LESITEKEY";
       $uploadOk = 0;
   }
   // Check file size < 2mo
-  if ($_FILES["fileToUpload"]["size"] > 2000000) {
+  if ($_FILES["fileToUploadVideo"]["size"] > 2000000) {
       echo "Sorry, your file is too large.";
       $uploadOk = 0;
 
@@ -216,12 +212,12 @@ $sitekey = "LESITEKEY";
     setlocale(LC_TIME, 'fr_FR.utf8','fra');
     $date = strftime('%d:%m:%y %H:%M:%S');
 
-    $target_filefile = basename($_FILES["fileToUpload"]["name"]);
-    $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"]);
-    $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"]);
+    $target_filefile = basename($_FILES["fileToUploadVideo"]["name"]);
+    $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUploadVideo"]["name"]);
+    $target_file3 = $target_dirnew."".basename($_FILES["fileToUploadVideo"]["name"]);
 
-      if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file3)) {
-          echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+      if (move_uploaded_file($_FILES["fileToUploadVideo"]["tmp_name"], $target_file3)) {
+          echo "The file ". basename( $_FILES["fileToUploadVideo"]["name"]). " has been uploaded.";
           $status = '1';
           date_default_timezone_set('Europe/Paris');
           setlocale(LC_TIME, 'fr_FR.utf8','fra');
