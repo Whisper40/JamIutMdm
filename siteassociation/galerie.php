@@ -132,7 +132,7 @@
                    <div class="col-md-4">
                      <center>
                        <a class="various fancybox.iframe" href="<?php echo $unevideo->file_namevideo;?>">
-                       <img class="img-raised" src="JamFichiers/Photos/Thumb/<?php echo $unevideo->file_nameimage;?>" alt="" /></a>
+                       <img class="img-raised" src="JamFichiers/Photos/Thumb/<?php echo $unevideo->title;?>/<?php echo $unevideo->file_nameimage;?>" alt="" /></a>
                      </center>
                    </div>
                  <?php } ?>
