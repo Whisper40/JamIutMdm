@@ -138,7 +138,11 @@ if(isset($error)){
 
       $checkcatimages= $db->prepare("SELECT * FROM images WHERE title = '$nomcategorieimage'");
       $checkcatimages->execute();
+      if(is_null($checkcatimages)){
+        $countcheckcatimages = 0;
+      }else{
       $countcheckcatimages = $checkcatimages->rowCount();
+    }
       if($countcheckcatimages=0){
         echo 'james';
 
@@ -720,7 +724,8 @@ echo '7';
     $target_file3 = $target_dirnew."".basename($_FILES["fileToUploadVideo"]["name"]);
 
       if (move_uploaded_file($_FILES["fileToUploadVideo"]["tmp_name"], $target_file3)) {
-          echo "The file ". basename( $_FILES["fileToUploadVideo"]["name"]). " has been uploaded.";
+
+          $succes = "Le fichier ". basename( $_FILES["fileToUploadVideo"]["name"]). " à bien été uploadé.";
           $status = '1';
           date_default_timezone_set('Europe/Paris');
           setlocale(LC_TIME, 'fr_FR.utf8','fra');
