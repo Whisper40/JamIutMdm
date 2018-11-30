@@ -137,7 +137,7 @@ if(isset($error)){
       $nomcategorieimage = $_POST['nomcategorieimage'];
 
       $checkcatimages = $db->prepare("SELECT COUNT(title) AS totalimg FROM images WHERE title = '$nomcategorieimage'");
-      $r3 = $checkcatimages>fetch(PDO::FETCH_OBJ);
+      $r3 = $checkcatimages->fetch(PDO::FETCH_OBJ);
       $countcheckimages= $r3->totalimg;
 
       if (is_null($countcheckimages)){
