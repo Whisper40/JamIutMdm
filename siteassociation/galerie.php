@@ -79,11 +79,19 @@
                <div class="nav-align-center">
                  <ul class="nav nav-pills nav-pills-primary nav-pills-just-icons" role="tablist">
                    <?php
-                   $albums = $db->query("SELECT DISTINCT title, icon FROM images WHERE status = 1");
+                   $albums = $db->query("SELECT DISTINCT title, icon, albumactif FROM images WHERE status = 1");
                    while($unalbum = $albums->fetch(PDO::FETCH_OBJ)){
                      ?>
                    <li class="nav-item">
+                     <?php
+                     if($unalbum->albumactif == 1){
+                     ?>
+                     <a class="nav-link active" data-toggle="tab" href="#<?php echo $unalbum->title;?>" role="tablist">
+                     <?php
+                     }else{
+                     ?>
                      <a class="nav-link" data-toggle="tab" href="#<?php echo $unalbum->title;?>" role="tablist">
+                     <?php } ?>
                        <i class="now-ui-icons <?php echo $unalbum->icon;?>"></i>
                      </a>
                    </li>
@@ -95,11 +103,17 @@
              <!-- Tab panes -->
              <div class="tab-content gallery">
                <?php
-               $folio = $db->query("SELECT DISTINCT title FROM images WHERE status = 1");
+               $folio = $db->query("SELECT DISTINCT title, albumactif FROM images WHERE status = 1");
                while($unfolio = $folio->fetch(PDO::FETCH_OBJ)){
                  $title = $unfolio->title;
+                 if($unfolio->albumactif == 1){
                  ?>
-               <div class="tab-pane" id="<?php echo $unfolio->title;?>" role="tabpanel">
+               <div class="tab-pane active" id="<?php echo $unfolio->title;?>" role="tabpanel">
+                 <?php
+                 }else{
+                 ?>
+                 <div class="tab-pane" id="<?php echo $unfolio->title;?>" role="tabpanel">
+                 <?php } ?>
                  <h3 class="title">Les images</h3>
                  <div class="col-md-16 ml-auto mr-auto">
                    <div class="row collections">
