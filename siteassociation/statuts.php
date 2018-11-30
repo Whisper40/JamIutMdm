@@ -67,7 +67,7 @@
     </div>
 
     <?php
-    $asso = $db->query("SELECT * FROM status");
+    $asso = $db->query("SELECT * FROM status ORDER BY article");
     while($association = $asso->fetch(PDO::FETCH_OBJ)){
       ?>
 
@@ -78,7 +78,7 @@
               <h3 class="title">
                 <ul>
                   <li>
-                    Article <?php echo $association->article; ?> - <?php echo $association->titre; ?>
+                    Article <?php echo $association->article; ?> - <?php echo $association->titre; ?> - <?php echo $association->soustitre; ?>
                   </li>
                 </ul>
               </h3>
