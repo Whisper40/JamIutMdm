@@ -136,7 +136,7 @@ if(isset($error)){
     if(isset($_POST['catphotosubmit'])){
       $nomcategorieimage = $_POST['nomcategorieimage'];
 
-      $checkcatimages $db->prepare("SELECT COUNT(title) FROM images WHERE title = '$nomcategorieimage'");
+      $checkcatimages = $db->prepare("SELECT COUNT(title) FROM images WHERE title = '$nomcategorieimage'");
       $checkcatimages->execute();
 
       if($checkcatimages == 0){
