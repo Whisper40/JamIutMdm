@@ -314,7 +314,7 @@ require_once('includes/head.php');
                             $check->execute();
                             $countcheck = $check->rowCount();
 
-                    $total = $prixactivite + $prixaccompagnement; ?>
+                     ?>
                     <div class="col-md-6">
                         <div class="card">
                             <div class="card-content">
@@ -332,7 +332,7 @@ require_once('includes/head.php');
                                             <?php
                                             }else{
 
-                                            $total = $prixactivite + $prixmateriel + $prixrepas;
+                                            $total = $prixactivite + $prixaccompagnement;
                                             ?>
                                               <h4 class="info-title">Prix Total : <?php echo $total;?>€</h4>
                                                 <?php
@@ -454,12 +454,6 @@ require_once('includes/head.php');
                             $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name='$activity_name' and user_id='$user_id'");
                             $check->execute();
                             $countcheck = $check->rowCount();
-                            if($countcheck>0){
-                              ?>
-                              <h3> Tu participe déja </h3>
-                              <?php
-
-                          }else{
 
                                  ?>
                                 <div class="col-md-6">
@@ -472,29 +466,28 @@ require_once('includes/head.php');
                                   <div class="info info-horizontal">
                                       <div class="description">
                                           <center>
-                                            
+                                            <?php
+                                            if($countcheck>0){
+                                            ?>
+                                            <h4 class="info-title"><font color="red">Tu participe déja à cette activitée</font></h4>
+                                            <?php
+                                            }else{
+                                            ?>
                                             <h4 class="info-title">En cliquant sur ce bouton j'accepte de participer à l'activitée</h4>
-
                                             <form action="" method="post">
                                               <?php
-                                              if ($countparticipe == '0'){
                                                 $selectstock = $db->query("SELECT stock from activitesvoyages WHERE slug='$activity_name'");
                                                 $rstock = $selectstock->fetch(PDO::FETCH_OBJ);
                                                 $stock = $rstock->stock;
                                                 if($stock>0){
                                                 ?>
                                                 <button type="submit" class="btn btn-primary btn-round" id="jeparticipe" name="jeparticipe" value="Je Participe">Je Participe</button>
-                                              <?php
-                                              }else{
-                                                ?>
-                                                Aucune place disponible
-                                              <?php
-                                            } }else{
-                                                ?>
-                                                <h3> Vous participez déja </h3>
                                                 <?php
-
-                                            }
+                                                }else{
+                                                ?>
+                                                <h4 class="info-title"><font color="red">Aucune place disponible</font></h4>
+                                                <?php
+                                                } }
                                               ?>
                                               <form>
                                                 <br><br>
@@ -505,7 +498,7 @@ require_once('includes/head.php');
                             </div>
                         </div>
                     </div>
-                <?php }}  ?>
+                <?php }  ?>
             </div>
             </div>
 
@@ -520,13 +513,6 @@ require_once('includes/head.php');
                                     $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name='$activity_name' and user_id='$user_id'");
                                     $check->execute();
                                     $countcheck = $check->rowCount();
-                                    if($countcheck>0){
-                                    ?>
-                                    <h3> Tu participe déja </h3>
-                                    <?php
-
-                                    }else{
-
 
 ?>
                                     <div class="container-fluid">
@@ -541,10 +527,17 @@ require_once('includes/head.php');
                                                         <div class="card-content">
                                                             <div class="info info-horizontal">
                                                                 <div class="description">
-                                                                  <?php $total = $prixactivite; ?>
-                                                                    <center>
-                                                                    <h4 class="info-title">Prix Total : <?php echo $total;?>€</h4>
+                                                                  <center>
+                                                                  <?php
+                                                                  if($countcheck>0){
+                                                                  ?>
+                                                                  <h4 class="info-title"><font color="red">Tu participe déja à cette activitée</font></h4>
+                                                                  <?php
+                                                                  }else{
 
+                                                                  $total = $prixactivite;
+                                                                  ?>
+                                                                    <h4 class="info-title">Prix Total : <?php echo $total;?>€</h4>
                                                                       <?php
                                                                     if($stock>0){
                                                                        ?>
@@ -552,8 +545,8 @@ require_once('includes/head.php');
                                                                       <?php
                                                                     }else{
                                                                       ?>
-                                                                      Aucune place disponible
-                                                                    <?php } ?>
+                                                                      <h4 class="info-title"><font color="red">Aucune place disponible</font></h4>
+                                                                    <?php } } ?>
                                                                     </center>
                                                                 </div>
                                                             </div>
@@ -566,7 +559,7 @@ require_once('includes/head.php');
 
 <?php
             //DEBUT NETTOYAGE
-          }}else if (stripos($activity_slug, 'nettoyage') != FALSE){
+          }else if (stripos($activity_slug, 'nettoyage') != FALSE){
 
               $activity_name = $activity_slug;
               $participe = $db->prepare("SELECT * FROM participe where user_id='$user_id' and activity_name='$activity_name'");
@@ -603,12 +596,6 @@ require_once('includes/head.php');
                             $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name='$activity_name' and user_id='$user_id'");
                             $check->execute();
                             $countcheck = $check->rowCount();
-                            if($countcheck>0){
-                              ?>
-                              <h3> Tu participe déja </h3>
-                              <?php
-
-                          }else{
             ?>
 
             <div class="container-fluid">
@@ -624,9 +611,15 @@ require_once('includes/head.php');
                                     <div class="info info-horizontal">
                                         <div class="description">
                                           <center>
-                                          <h4 class="info-title">En cliquant sur ce bouton j'accepte de participer à l'activitée</h4>
                                             <?php
-                                            if ($countparticipe == '0'){
+                                            if($countcheck>0){
+                                            ?>
+                                            <h4 class="info-title"><font color="red">Tu participe déja à cette activitée</font></h4>
+                                            <?php
+                                            }else{
+                                            ?>
+                                            <h4 class="info-title">En cliquant sur ce bouton j'accepte de participer à l'activitée</h4>
+                                            <?php
                                               $activity_name = $activity_slug;
                                               $selectstock = $db->query("SELECT stock from activitesvoyages WHERE slug='$activity_name'");
                                               $rstock = $selectstock->fetch(PDO::FETCH_OBJ);
@@ -634,13 +627,13 @@ require_once('includes/head.php');
                                               if($stock>0){
                                               ?>
                                               <button type="submit" class="btn btn-primary btn-round" id="jeparticipenettoyage" name="jeparticipenettoyage" value="Je Participe">Je Participe</button>
-                                            <?php
-                                            }else{
+                                              <?php
+                                              }else{
                                               ?>
-                                              Aucune place disponible
-                                            <?php
-                                          } }
-                                            ?>
+                                              <h4 class="info-title"><font color="red">Aucune place disponible</font></h4>
+                                              <?php
+                                              } }
+                                              ?>
                                             </center>
                                         </div>
                                     </div>
@@ -654,7 +647,7 @@ require_once('includes/head.php');
             <?php
           //FIN NETTOYAGE
           //DEBUT JOURNEE COURSE ORIENTATION
-          }}else if (stripos($activity_slug, 'orientation') != FALSE){
+          }else if (stripos($activity_slug, 'orientation') != FALSE){
 
           $activity_name = $activity_slug;
           $participe = $db->prepare("SELECT * FROM participe where user_id='$user_id' and activity_name='$activity_name'");
@@ -690,12 +683,6 @@ require_once('includes/head.php');
                             $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name='$activity_name' and user_id='$user_id'");
                             $check->execute();
                             $countcheck = $check->rowCount();
-                            if($countcheck>0){
-                              ?>
-                              <h3> Tu participe déja </h3>
-                              <?php
-
-                          }else{
           ?>
 
           <div class="container-fluid">
@@ -711,9 +698,15 @@ require_once('includes/head.php');
                                   <div class="info info-horizontal">
                                       <div class="description">
                                         <center>
-                                        <h4 class="info-title">En cliquant sur ce bouton j'accepte de participer à l'activitée</h4>
+                                          <?php
+                                          if($countcheck>0){
+                                          ?>
+                                          <h4 class="info-title"><font color="red">Tu participe déja à cette activitée</font></h4>
+                                          <?php
+                                          }else{
+                                          ?>
+                                          <h4 class="info-title">En cliquant sur ce bouton j'accepte de participer à l'activitée</h4>
                                         <?php
-                                        if ($countparticipe == '0'){
                                           $activity_name = $activity_slug;
                                           $selectstock = $db->query("SELECT stock from activitesvoyages WHERE slug='$activity_name'");
                                           $rstock = $selectstock->fetch(PDO::FETCH_OBJ);
@@ -721,15 +714,13 @@ require_once('includes/head.php');
                                           if($stock>0){
                                           ?>
                                           <button type="submit" class="btn btn-primary btn-round" id="jeparticipeorientation" name="jeparticipeorientation" value="Je Participe">Je Participe</button>
-                                        <?php
-                                        }else{
+                                          <?php
+                                          }else{
                                           ?>
-                                          Aucune place disponible
-                                        <?php
-                                        }
-                                        }
-
-                                        ?>
+                                          <h4 class="info-title"><font color="red">Aucune place disponible</font></h4>
+                                          <?php
+                                          } }
+                                          ?>
                                           </center>
                                       </div>
                                   </div>
@@ -740,7 +731,7 @@ require_once('includes/head.php');
             </div>
           </div>
           <?php
-          }}
+          }
           ?>
         </div>
           <script>
