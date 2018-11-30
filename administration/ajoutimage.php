@@ -124,7 +124,13 @@ if(isset($error)){
 
 
 
+    <?php
 
+    if(isset($error)){
+      echo $error;
+    }else if(isset($succes)){
+      echo $succes;
+    }
 
 
     <?php
@@ -136,6 +142,7 @@ if(isset($error)){
       $checkcatimages->execute();
       $countcheckcatimages = $checkcatimages->rowCount();
       if($countcheckcatimages=0){
+        echo 'james';
 
 
           $target_dir = "../../../JamFichiers/Photos";
@@ -334,7 +341,7 @@ if(isset($_POST['catvideosubmit'])){
   $liencatvideo = $_POST['liencatvideo'];
   $catvideo = $_POST['nomcategorievideo'];
 
-  $checkcatvideo= $db->prepare("SELECT * FROM videos WHERE title = '$nomcategorievideo'");
+  $checkcatvideo= $db->prepare("SELECT * FROM videos WHERE title = '$catvideo'");
   $checkcatvideo->execute();
   $countcheckcatvideo = $checkcatvideo->rowCount();
   if($countcheckcatvideo=0){
