@@ -648,6 +648,7 @@ if ($uploadOk == 0) {
   if(isset($_POST['videosubmit'])){
     $lienvideo = $_POST['lienvideo'];
     $catvideo = $_POST['catvideo'];
+    echo '1';
 
         $target_dir = "../../../JamFichiers/Photos";
 
@@ -658,6 +659,7 @@ if ($uploadOk == 0) {
           mkdir("$target_dir/$original/$catvideo", 0700);
           $target_dirnew = "$target_dir/$original/$catvideo/";
         }
+        echo '2';
 
         //Ajout thumb
         $thumb = 'Thumb';
@@ -667,6 +669,7 @@ if ($uploadOk == 0) {
           mkdir("$target_dir/$thumb/$catvideo", 0700);
           $target_dirnewthumb = "$target_dir/$thumb/$catvideo/";
         }
+        echo '3';
 
         $affiche = 'Affiche';
         if (file_exists($target_dir/$affiche/$catvideo)) {
@@ -676,7 +679,7 @@ if ($uploadOk == 0) {
           $target_dirnewaffiche = "$target_dir/$affiche/$catvideo/";
         }
 
-
+        echo '4';
         //FIN
 
 
@@ -689,6 +692,7 @@ if ($uploadOk == 0) {
       $error = 'Désolé, le fichier existe déja.';
       $uploadOk = 0;
   }
+  echo '5';
   // Check file size < 2mo
   if ($_FILES["fileToUploadVideo"]["size"] > 2000000) {
       $error = 'Désolé, le fichier est trop grand.';
@@ -701,6 +705,7 @@ if ($uploadOk == 0) {
       $error = 'Désolé, les formats autorisés sont JPG, PNG et GIF.';
       $uploadOk = 0;
   }
+  echo '6';
   // Check if $uploadOk is set to 0 by an error
   if ($uploadOk == 0) {
       $error = 'Désolé, votre fichier n\'a pas été uploadé';
@@ -709,7 +714,7 @@ if ($uploadOk == 0) {
     date_default_timezone_set('Europe/Paris');
     setlocale(LC_TIME, 'fr_FR.utf8','fra');
     $date = strftime('%d:%m:%y %H:%M:%S');
-
+echo '7';
     $target_filefile = basename($_FILES["fileToUploadVideo"]["name"]);
     $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUploadVideo"]["name"]);
     $target_file3 = $target_dirnew."".basename($_FILES["fileToUploadVideo"]["name"]);
@@ -720,7 +725,7 @@ if ($uploadOk == 0) {
           date_default_timezone_set('Europe/Paris');
           setlocale(LC_TIME, 'fr_FR.utf8','fra');
           $date = strftime('%Y-%m-%d %H:%M:%S');
-
+echo '8';
           $insertinfos = $db->prepare("INSERT INTO videos (file_nameimage, file_namevideo, title, uploaded_on, status) VALUES(:file_nameimage, :file_namevideo, :title, :date, :status)");
           $insertinfos->execute(array(
 
@@ -731,6 +736,7 @@ if ($uploadOk == 0) {
               "status"=>$status
               )
           );
+          echo '9';
           $img_tmp = $target_dirnew.$target_filefile;
           $fin = $target_dirnewthumb.$target_filefile;
 
@@ -742,6 +748,7 @@ if ($uploadOk == 0) {
               $taille = getimagesize($img_tmp);
               //SI LE FICHIER EXISTE
               if ($taille) {
+                echo '10';
                   //SI JPG
                   if ($taille['mime']=='image/jpeg' ) {
                             //OUVERTURE DE L'IMAGE ORIGINALE
@@ -779,7 +786,7 @@ if ($uploadOk == 0) {
                         }
                   }
 
-
+echo '11';
                   //Affiche Grande
                   // Destination
                   $img_tmp = $target_dirnew.$target_filefile;
@@ -828,7 +835,7 @@ if ($uploadOk == 0) {
 
                               }
                         }
-
+echo '12';
       }else {
           $error = 'Désolé, une erreur est survenue.';
       } } }
