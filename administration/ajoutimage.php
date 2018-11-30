@@ -217,16 +217,19 @@ if(isset($error)){
             setlocale(LC_TIME, 'fr_FR.utf8','fra');
             $date = strftime('%Y-%m-%d %H:%M:%S');
 
-            $insertinfos = $db->prepare("INSERT INTO images (title, icon, file_name, uploaded_on, status) VALUES(:title, :icon, :file_name, :date, :status)");
+            $insertinfos = $db->prepare("INSERT INTO images (title, albumactif, icon, file_name, uploaded_on, status) VALUES(:title, :albumactif, :icon, :file_name, :date, :status)");
             $insertinfos->execute(array(
 
                 "title"=>$nomcategorieimage,
+                "albumactif"=>'1',
                 "icon"=>'design_image',
                 "file_name"=>$target_filefile,
                 "date"=>$date,
                 "status"=>$status
                 )
             );
+            $db->query("UPDATE images SET albumactif='1' WHERE title='$nomcategorieimage'");
+            $db->query("UPDATE images SET albumactif='0' WHERE title <> '$nomcategorieimage'");
             $img_tmp = $target_dirnew.$target_filefile;
             $fin = $target_dirnewthumb.$target_filefile;
 
