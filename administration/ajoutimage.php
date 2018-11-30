@@ -136,6 +136,11 @@ if(isset($error)){
     if(isset($_POST['catphotosubmit'])){
       $nomcategorieimage = $_POST['nomcategorieimage'];
 
+      $checkcatimages $db->prepare("SELECT COUNT(title) FROM images WHERE title = '$nomcategorieimage'");
+      $checkcatimages->execute();
+
+      if($checkcatimages == 0){
+
 
         echo 'james';
 
@@ -181,7 +186,7 @@ if(isset($error)){
         $uploadOk = 0;
     }
     // Check file size < 2mo
-    if ($_FILES["fileToUploadVideo"]["size"] > 2000000) {
+    if ($_FILES["fileToUploadCatImage"]["size"] > 2000000) {
         $error = 'Désolé, le fichier est trop grand.';
         $uploadOk = 0;
 
@@ -327,7 +332,9 @@ if(isset($error)){
 
         }else {
             $error = 'Désolé, une erreur est survenue';
-        } } }
+        } } }else{
+          echo 'non';
+        }}
 ?>
 
 
