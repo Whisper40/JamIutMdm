@@ -99,9 +99,12 @@ $status = $s->status;?>
           }else{
             $erreur = "<b>Erreur : </b> Captcha non valide !";
 
-          }  } ?>
+          }  }
 
 
+          $page = $db->query("SELECT * FROM pagedevenirmembre");
+          $lapage = $page->fetch(PDO::FETCH_OBJ);
+          ?>
 
 <body>
     <div class="wrapper">
@@ -131,7 +134,7 @@ $status = $s->status;?>
                                               <div class="description">
                                                   <h4 class="info-title">Introduction</h4>
                                                   <p class="description">
-                                                  Tu souhaite devenir mebre de l'association.
+                                                    <?php echo $lapage->introduction; ?>
                                                   </p>
                                               </div>
                                           </center>
@@ -141,7 +144,7 @@ $status = $s->status;?>
                                               <div class="description">
                                                   <h4 class="info-title">Etape 1</h4>
                                                   <p class="description">
-                                                  We've created the marketing campaign of the website. It was a very interesting collaboration.
+                                                    <?php echo $lapage->etape1; ?>
                                                   </p>
                                                   <div class="content">
                                                       <div class="container-fluid">
@@ -165,7 +168,7 @@ $status = $s->status;?>
                                               <div class="description">
                                                   <h4 class="info-title">Etape 2</h4>
                                                   <p class="description">
-                                                      We've developed the website with HTML5 and CSS3. The client has access to the code using GitHub.
+                                                      <?php echo $lapage->etape2; ?>
                                                   </p>
                                                   <div class="content">
                                                       <div class="container-fluid">
@@ -231,7 +234,7 @@ $status = $s->status;?>
                                             <div class="description">
                                                 <h4 class="info-title">Etape 3</h4>
                                                 <p class="description">
-                                                Tes Documents suivant sont en attente de validation !
+                                                  <?php echo $lapage->etape3; ?>
                                                 </p>
 
 
