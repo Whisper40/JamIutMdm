@@ -136,12 +136,15 @@ if(isset($error)){
     if(isset($_POST['catphotosubmit'])){
       $nomcategorieimage = $_POST['nomcategorieimage'];
 
-      $checkcatimages = $db->prepare("SELECT COUNT(title) FROM images WHERE title = '$nomcategorieimage'");
-      $checkcatimages->execute();
+      $checkcatimages = $db->prepare("SELECT COUNT(title) AS totalimg FROM images WHERE title = '$nomcategorieimage'");
+      $r3 = $checkcatimages>fetch(PDO::FETCH_OBJ);
+      $countcheckimages= $r3->totalimg;
 
-      if($checkcatimages == 0){
+      if (is_null($countcheckimages)){
+        $countcheckimages = 0;
+      }
 
-
+      if($countcheckimages == 0){
         echo 'james';
 
 
