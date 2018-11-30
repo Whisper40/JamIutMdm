@@ -136,14 +136,7 @@ if(isset($error)){
     if(isset($_POST['catphotosubmit'])){
       $nomcategorieimage = $_POST['nomcategorieimage'];
 
-      $checkcatimages= $db->prepare("SELECT * FROM images WHERE title = '$nomcategorieimage'");
-      $checkcatimages->execute();
-      if(is_null($checkcatimages)){
-        $countcheckcatimages = 0;
-      }else{
-      $countcheckcatimages = $checkcatimages->rowCount();
-    }
-      if($countcheckcatimages=0){
+
         echo 'james';
 
 
@@ -334,9 +327,7 @@ if(isset($error)){
 
         }else {
             $error = 'Désolé, une erreur est survenue';
-        } } }else{
-          $error = 'Désolé, la catégorie existe déja.';
-        }}
+        } } }
 ?>
 
 
