@@ -211,7 +211,7 @@ require_once('includes/head.php');
                                                     <?php
                                                     if($countcheck>0){
                                                     ?>
-                                                      <h3> Tu participe déja </h3>
+                                                    <h4 class="info-title"><font color="red">Tu participe déja</font></h4>
                                                     <?php
                                                     }else{
 
