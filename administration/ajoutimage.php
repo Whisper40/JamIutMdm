@@ -141,11 +141,11 @@ if(isset($error)){
       $countcheckimages= $r3->totalimg;
 
       if (is_null($countcheckimages)){
-        $countcheckimages = 0;
+        $countcheckimages = '0';
         echo 'isnull';
       }
-
-      if($countcheckimages = 0){
+//A REFAIRE
+      if($countcheckimages == '0'){
         echo 'james';
 
 
