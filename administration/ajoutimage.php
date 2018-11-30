@@ -929,10 +929,11 @@ if ($uploadOk == 0) {
           setlocale(LC_TIME, 'fr_FR.utf8','fra');
           $date = strftime('%Y-%m-%d %H:%M:%S');
 
-          $insertinfos = $db->prepare("INSERT INTO images (title, icon, file_name, uploaded_on, status) VALUES(:title, :icon, :file_name, :date, :status)");
+          $insertinfos = $db->prepare("INSERT INTO images (title, albumactif, icon, file_name, uploaded_on, status) VALUES(:title, :albumactif, :icon, :file_name, :date, :status)");
           $insertinfos->execute(array(
 
               "title"=>$catimage,
+              "albumactif"=>'1',
               "icon"=>'design_image',
               "file_name"=>$target_filefile,
               "date"=>$date,
