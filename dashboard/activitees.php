@@ -59,7 +59,7 @@ require_once('includes/head.php');
                                               <div class="description">
                                                   <h4 class="info-title">Prix</h4>
                                                   <p class="description">
-                                                      Le prix de cette activitées est de <?php echo $s->price; ?> €
+                                                      Le prix de base pour cette activitées est de <?php echo $s->price; ?> €
                                                   </p>
                                               </div>
                                           </div>
@@ -72,9 +72,9 @@ require_once('includes/head.php');
                                                   <i class="material-icons">group</i>
                                               </div>
                                               <div class="description">
-                                                  <h4 class="info-title">Built Audience</h4>
+                                                  <h4 class="info-title">Plus d'information</h4>
                                                   <p class="description">
-                                                      There is also a Fully Customizable CMS Admin Dashboard for this product.
+                                                      Pour plus d'information sur cette activité, vous pouvez <a href="https://jam-mdm.fr/activitees.php?showmethisactivity=<?php echo $activity_slug ?>" target="_blank">cliquer ici</a>.
                                                   </p>
                                               </div>
                                           </div>

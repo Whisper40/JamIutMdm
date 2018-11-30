@@ -103,8 +103,8 @@ if ($type == 'ski'){
                                          <input type="number" name="taille" value="<?php echo $taille; ?>"id="taille" class="form-control">
                                      </div>
                                      <div class="form-group label-floating">
-                                         <label class="control-label">Allèrgies</label>
-                                         <input type="text" name="allergie" value="<?php echo $allergie; ?>"id="allergie" class="form-control">
+                                         <label class="control-label">Téléphone d'urgence</label>
+                                         <input type="number" name="telurgence" value="<?php echo $telurgence; ?>" id="telurgence" class="form-control">
                                      </div>
                                     </div>
                                  </div>
@@ -127,8 +127,8 @@ if ($type == 'ski'){
                                <div class="col-sm-12">
                                    <div class="card-content">
                                      <div class="form-group label-floating">
-                                         <label class="control-label">Téléphone d'urgence</label>
-                                         <input type="number" name="telurgence" value="<?php echo $telurgence; ?>" id="telurgence" class="form-control">
+                                         <label class="control-label">Allèrgies</label>
+                                         <input type="text" name="allergie" value="<?php echo $allergie; ?>"id="allergie" class="form-control">
                                      </div>
                                      <center>
                                      <button id="submitFormDataSki" onclick="SubmitFormDataSki();" type="button" class="btn btn-fill btn-rose">Modifier</button>
