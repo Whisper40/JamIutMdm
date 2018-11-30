@@ -133,8 +133,6 @@ if(isset($error)){
     }
 
 
-    <?php
-
     if(isset($_POST['catphotosubmit'])){
       $nomcategorieimage = $_POST['nomcategorieimage'];
 
