@@ -322,7 +322,7 @@ $sitekey = "LESITEKEY";
 
 if(isset($_POST['catvideosubmit'])){
 
-  $liencatvideo = $_POST['liencatvideo']
+  $liencatvideo = $_POST['liencatvideo'];
   $catvideo = $_POST['nomcategorievideo'];
 
       $target_dir = "../../../JamFichiers/Photos";
