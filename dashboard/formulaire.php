@@ -131,7 +131,7 @@ if ($type == 'ski'){
                                          <input type="text" name="allergie" value="<?php echo $allergie; ?>"id="allergie" class="form-control">
                                      </div>
                                      <center>
-                                     <button id="submitFormDataSki" onclick="SubmitFormDataSki();" type="button" class="btn btn-fill btn-rose">Modifier</button>
+                                     <button id="submitFormDataSki" onclick="SubmitFormDataSki();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
                                      </center>
                                     </div>
                                  </div>
@@ -185,80 +185,69 @@ if ($type == 'ski'){
 
              ?>
 
-             <div class="container-fluid">
-                 <div class="row">
-                     <div class="col-md-6">
-                         <div class="card">
-                             <div class="card-content">
-                               <center>
-                                 <h3 class="card-title">Choisir une formule</h3>
-                               </center>
-                                       <form name="accompagnement" method="POST">
-                                         <div class="card-content">
-                                           <div class="row">
-                                             <form action="" method="post" id="myForm2" class="contact-form">
-
-
-                                                 <div class="form-group label-floating">
-                                                     <label class="control-label">Adresse</label>
-                                                     <input type="text" name="adresse" value="<?php echo $adresse; ?>"id="adresse" class="form-control">
-                                                 </div>
-                                                 <div class="form-group label-floating">
-                                                     <label class="control-label">Code Postal</label>
-                                                     <input type="number" name="codepostal" value="<?php echo $codepostal; ?>" id="codepostal" class="form-control">
-                                                 </div>
-                                                 <div class="form-group label-floating">
-                                                     <label class="control-label">Ville</label>
-                                                     <input type="text" name="ville" value="<?php echo $ville; ?>" id="ville" class="form-control">
-                                                 </div>
-                                                 <div class="form-group label-floating">
-                                                     <label class="control-label">Téléphone d'urgence</label>
-                                                     <input type="number" name="telurgence" value="<?php echo $telurgence; ?>" id="telurgence" class="form-control">
-                                                 </div>
-                                                 <center>
-                                                 <button id="submitFormDataRugby" onclick="SubmitFormDataRugby();" type="button" class="btn btn-fill btn-rose">Modifier</button>
-                                                 </center>
-                                             </form>
-                                          </div>
+             <div class="content">
+                 <div class="container-fluid">
+                     <div class="card">
+                         <div class="card-content">
+                             <h2 class="card-title text-center">Titre</h2>
+                             <div class="row">
+                               <div class="col-sm-6">
+                                   <div class="card-content">
+                                     <form action="" method="post" id="myForm2" class="contact-form">
+                                       <div class="form-group label-floating">
+                                           <label class="control-label">Adresse</label>
+                                           <input type="text" name="adresse" value="<?php echo $adresse; ?>"id="adresse" class="form-control">
+                                       </div>
+                                       <div class="form-group label-floating">
+                                           <label class="control-label">Code Postal</label>
+                                           <input type="number" name="codepostal" value="<?php echo $codepostal; ?>" id="codepostal" class="form-control">
+                                       </div>
+                                       <div class="form-group label-floating">
+                                           <label class="control-label">Ville</label>
+                                           <input type="text" name="ville" value="<?php echo $ville; ?>" id="ville" class="form-control">
+                                       </div>
+                                       <div class="form-group label-floating">
+                                           <label class="control-label">Téléphone d'urgence</label>
+                                           <input type="number" name="telurgence" value="<?php echo $telurgence; ?>" id="telurgence" class="form-control">
+                                       </div>
+                                         <center>
+                                           <button id="submitFormDataRugby" onclick="SubmitFormDataRugby();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                                         </center>
+                                     </form>
+                                     </div>
+                                 </div>
+                                 <div class="col-sm-6">
+                                     <div class="card-content">
+                                       <br><br><br>
+                                       <center>
+                                       <h3 class="card-title">Annuler sa Participation</h3>
+                                       </center>
+                                        <div class="card-content">
+                                            <div class="info info-horizontal">
+                                                <div class="description">
+                                                    <center>
+                                                    <h4 class="info-title">En cliquant sur ce bouton je renonce à participer à l'activitée</h4>
+                                                    <form action="" method="post">
+                                                    <input type="submit" class="btn btn-primary btn-round btn-rose" id="jeneparticipeplus" name="jeneparticipeplus" value="J'annule ma participation">
+                                                   </form>
+                                                    </center>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <br><br>
-                                      </form>
-                                   </div>
-                                  </div>
-                                  </div>
+                                     </div>
+                                 </div>
 
-
-<div class="col-md-6">
-<div class="card">
-<div class="card-content">
-<center>
-<h3 class="card-title">Validation et Paiement</h3>
-</center>
- <div class="card-content">
-     <div class="info info-horizontal">
-         <div class="description">
-             <center>
-             <h4 class="info-title">En cliquant sur ce bouton j'accepte de participer à l'activitée</h4>
-
-
-             </center>
-         </div>
-     </div>
- </div>
-</div>
-</div>
-</div>
-</div>
-</div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+               </div>
 
 
 
 
-              <div id="results2"> <!-- TRES IMPORTANT -->
 
-
-
-          </div>
+              <div id="results2"></div>
 
 
 <?php
@@ -510,7 +499,7 @@ if(!empty($infoscomplementaires3)){
                                              <input type="number" name="telurgence" value="<?php echo $telurgence; ?>" id="telurgence" class="form-control">
                                          </div>
                                          <center>
-                                         <button id="submitFormDataSportive" onclick="SubmitFormDataSportive();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                                           <button id="submitFormDataSportive" onclick="SubmitFormDataSportive();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
                                          </center>
                                      </form>
                                      </div>
@@ -568,8 +557,7 @@ if(!empty($_POST['jeneparticipeplus'])){
  ?>
 
 
-              <div id="results3">
-          </div>
+              <div id="results3"></div>
 
 
 <?php
@@ -642,7 +630,7 @@ if(!empty($_POST['jeneparticipeplus'])){
                                              <input type="number" name="telurgence" value="<?php echo $telurgence; ?>" id="telurgence" class="form-control">
                                          </div>
                                          <center>
-                                         <button id="submitFormDataOrientation" onclick="SubmitFormDataOrientation();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                                           <button id="submitFormDataOrientation" onclick="SubmitFormDataOrientation();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
                                          </center>
                                      </form>
                                      </div>
@@ -696,9 +684,7 @@ if(!empty($_POST['jeneparticipeplus'])){
                   }
                   ?>
 
-              <div id="results4">
-
-          </div>
+              <div id="results4"></div>
 
 
 <?php
