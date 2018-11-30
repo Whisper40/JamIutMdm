@@ -82,47 +82,69 @@
         </div>
       </div>
     </div>
+
+    <?php
+    $titre1 = $s->title;
+    $carousel1 = $db->query("SELECT * FROM carousel WHERE slug = '$news' AND titre = '$titre1'");
+    $nbimage1 = $carousel1->rowCount();
+    if($nbimage1 != 0){
+    ?>
+
     <div class="section" id="carousel">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-8 col-md-12">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
               <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                <?php
+                  $indic = 0;
+                  while($indic != $nbimage1){
+                ?>
+                <li data-target="#carouselExampleIndicators" data-slide-to="<?php echo $indic ?>"></li>
+                <?php
+                  $indic++;
+                  }
+                ?>
               </ol>
               <div class="carousel-inner" role="listbox">
+              <?php
+                $indic = 0;
+                while($uneimg = $carousel1->fetch(PDO::FETCH_OBJ)){
+                  if($indic == 0){
+              ?>
                 <div class="carousel-item active">
-                  <img class="d-block" src="assets/img/bg1.jpg" alt="First slide">
-                  <div class="carousel-caption d-none d-md-block">
-                    <h5>Nature, United States</h5>
-                  </div>
-                </div>
+              <?php }else{ ?>
                 <div class="carousel-item">
-                  <img class="d-block" src="assets/img/bg3.jpg" alt="Second slide">
+              <?php } ?>
+                  <img class="d-block" src="assets/img/<?php echo $uneimg->image ?>">
                   <div class="carousel-caption d-none d-md-block">
-                    <h5>Somewhere Beyond, United States</h5>
+                    <h5><?php echo $uneimg->titreimage ?></h5>
                   </div>
                 </div>
-                <div class="carousel-item">
-                  <img class="d-block" src="assets/img/bg4.jpg" alt="Third slide">
-                  <div class="carousel-caption d-none d-md-block">
-                    <h5>Yellowstone National Park, United States</h5>
-                  </div>
-                </div>
+              <?php
+              $indic = 1;
+              }
+              ?>
               </div>
+              <?php
+                if($nbimage1 != 1){
+              ?>
               <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                 <i class="now-ui-icons arrows-1_minimal-left"></i>
               </a>
               <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
                 <i class="now-ui-icons arrows-1_minimal-right"></i>
               </a>
+              <?php } ?>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+  <?php } ?>
+
+
     <div class="section section-about-us">
       <div class="container">
         <div class="row">
@@ -133,47 +155,68 @@
         </div>
       </div>
     </div>
+
+    <?php
+    $titre2 = $s->title2;
+    $carousel2 = $db->query("SELECT * FROM carousel WHERE slug = '$news' AND titre = '$titre2'");
+    $nbimage2 = $carousel2->rowCount();
+    if($nbimage1 != 0){
+    ?>
+
     <div class="section" id="carousel">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-8 col-md-12">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
               <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                <?php
+                  $indic = 0;
+                  while($indic != $nbimage2){
+                ?>
+                <li data-target="#carouselExampleIndicators" data-slide-to="<?php echo $indic ?>"></li>
+                <?php
+                  $indic++;
+                  }
+                ?>
               </ol>
               <div class="carousel-inner" role="listbox">
+              <?php
+                $indic = 0;
+                while($uneimg = $carousel2->fetch(PDO::FETCH_OBJ)){
+                  if($indic == 0){
+              ?>
                 <div class="carousel-item active">
-                  <img class="d-block" src="assets/img/bg1.jpg" alt="First slide">
-                  <div class="carousel-caption d-none d-md-block">
-                    <h5>Nature, United States</h5>
-                  </div>
-                </div>
+              <?php }else{ ?>
                 <div class="carousel-item">
-                  <img class="d-block" src="assets/img/bg3.jpg" alt="Second slide">
+              <?php } ?>
+                  <img class="d-block" src="assets/img/<?php echo $uneimg->image ?>">
                   <div class="carousel-caption d-none d-md-block">
-                    <h5>Somewhere Beyond, United States</h5>
+                    <h5><?php echo $uneimg->titreimage ?></h5>
                   </div>
                 </div>
-                <div class="carousel-item">
-                  <img class="d-block" src="assets/img/bg4.jpg" alt="Third slide">
-                  <div class="carousel-caption d-none d-md-block">
-                    <h5>Yellowstone National Park, United States</h5>
-                  </div>
-                </div>
+              <?php
+              $indic = 1;
+              }
+              ?>
               </div>
+              <?php
+                if($nbimage2 != 1){
+              ?>
               <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                 <i class="now-ui-icons arrows-1_minimal-left"></i>
               </a>
               <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
                 <i class="now-ui-icons arrows-1_minimal-right"></i>
               </a>
+              <?php } ?>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+  <?php } ?>
+
     <div class="section section-about-us">
       <div class="container">
         <div class="row">
@@ -184,47 +227,68 @@
         </div>
       </div>
     </div>
+
+    <?php
+    $titre3 = $s->title3;
+    $carousel3 = $db->query("SELECT * FROM carousel WHERE slug = '$news' AND titre = '$titre3'");
+    $nbimage3 = $carousel3->rowCount();
+    if($nbimage3 != 0){
+    ?>
+
     <div class="section" id="carousel">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-8 col-md-12">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
               <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                <?php
+                  $indic = 0;
+                  while($indic != $nbimage3){
+                ?>
+                <li data-target="#carouselExampleIndicators" data-slide-to="<?php echo $indic ?>"></li>
+                <?php
+                  $indic++;
+                  }
+                ?>
               </ol>
               <div class="carousel-inner" role="listbox">
+              <?php
+                $indic = 0;
+                while($uneimg = $carousel3->fetch(PDO::FETCH_OBJ)){
+                  if($indic == 0){
+              ?>
                 <div class="carousel-item active">
-                  <img class="d-block" src="assets/img/bg1.jpg" alt="First slide">
-                  <div class="carousel-caption d-none d-md-block">
-                    <h5>Nature, United States</h5>
-                  </div>
-                </div>
+              <?php }else{ ?>
                 <div class="carousel-item">
-                  <img class="d-block" src="assets/img/bg3.jpg" alt="Second slide">
+              <?php } ?>
+                  <img class="d-block" src="assets/img/<?php echo $uneimg->image ?>">
                   <div class="carousel-caption d-none d-md-block">
-                    <h5>Somewhere Beyond, United States</h5>
+                    <h5><?php echo $uneimg->titreimage ?></h5>
                   </div>
                 </div>
-                <div class="carousel-item">
-                  <img class="d-block" src="assets/img/bg4.jpg" alt="Third slide">
-                  <div class="carousel-caption d-none d-md-block">
-                    <h5>Yellowstone National Park, United States</h5>
-                  </div>
-                </div>
+              <?php
+              $indic = 1;
+              }
+              ?>
               </div>
+              <?php
+                if($nbimage3 != 1){
+              ?>
               <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                 <i class="now-ui-icons arrows-1_minimal-left"></i>
               </a>
               <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
                 <i class="now-ui-icons arrows-1_minimal-right"></i>
               </a>
+              <?php } ?>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+  <?php } ?>
+
     <br>
 
 		<?php

@@ -60,29 +60,22 @@
         <h2 class="title"><?php echo $pagehead->titre; ?></h2>
         <div class="team">
 
-
-          <?php
-          $cat = $db->query("SELECT DISTINCT categorie FROM membres");
-          while($unecat = $cat->fetch(PDO::FETCH_OBJ)){
-          $lacat = $unecat->categorie
-            ?>
-
           <div class="pull-left">
             <h3 class="title">
               <ul>
                 <li>
-                  <?php echo $lacat ?>
+                  La présidence
                 </li>
               </ul>
             </h3>
           </div>
-        <br><br><br>        <br><br>
+        <br><br><br><br><br>
 
         <div class="row">
 
 
             <?php
-            $membres = $db->query("SELECT * FROM membres WHERE categorie = '$lacat'");
+            $membres = $db->query("SELECT * FROM membres WHERE categorie = 'pres' ORDER BY importance");
             while($unmembre = $membres->fetch(PDO::FETCH_OBJ)){
               ?>
             <div class="col-md-4">
@@ -98,9 +91,101 @@
                 ?>
 
           </div>
-          <?php
-              }
+          <div class="pull-left">
+            <h3 class="title">
+              <ul>
+                <li>
+                  Responsable Secrétaire
+                </li>
+              </ul>
+            </h3>
+          </div>
+        <br><br><br><br><br>
+
+        <div class="row">
+
+
+            <?php
+            $membres = $db->query("SELECT * FROM membres WHERE categorie = 'secr' ORDER BY importance");
+            while($unmembre = $membres->fetch(PDO::FETCH_OBJ)){
               ?>
+            <div class="col-md-4">
+              <div class="team-player">
+                <img src="assets/img/membres/<?php echo $unmembre->image ?>" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
+                <h4 class="title"><?php echo $unmembre->nom ?></h4>
+                <p class="category text-primary"><?php echo $unmembre->fonction ?></p>
+                <p class="description"><?php echo $unmembre->description ?></p><br>
+              </div>
+            </div>
+            <?php
+                }
+                ?>
+
+          </div>
+          <div class="pull-left">
+            <h3 class="title">
+              <ul>
+                <li>
+                  Responsable Trésorier
+                </li>
+              </ul>
+            </h3>
+          </div>
+        <br><br><br><br><br>
+
+        <div class="row">
+
+
+            <?php
+            $membres = $db->query("SELECT * FROM membres WHERE categorie = 'tres' ORDER BY importance");
+            while($unmembre = $membres->fetch(PDO::FETCH_OBJ)){
+              ?>
+            <div class="col-md-4">
+              <div class="team-player">
+                <img src="assets/img/membres/<?php echo $unmembre->image ?>" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
+                <h4 class="title"><?php echo $unmembre->nom ?></h4>
+                <p class="category text-primary"><?php echo $unmembre->fonction ?></p>
+                <p class="description"><?php echo $unmembre->description ?></p><br>
+              </div>
+            </div>
+            <?php
+                }
+                ?>
+
+          </div>
+          <div class="pull-left">
+            <h3 class="title">
+              <ul>
+                <li>
+                  Responsable Communicartion
+                </li>
+              </ul>
+            </h3>
+          </div>
+        <br><br><br><br><br>
+
+        <div class="row">
+
+
+            <?php
+            $membres = $db->query("SELECT * FROM membres WHERE categorie = 'com' ORDER BY importance");
+            while($unmembre = $membres->fetch(PDO::FETCH_OBJ)){
+              ?>
+            <div class="col-md-4">
+              <div class="team-player">
+                <img src="assets/img/membres/<?php echo $unmembre->image ?>" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
+                <h4 class="title"><?php echo $unmembre->nom ?></h4>
+                <p class="category text-primary"><?php echo $unmembre->fonction ?></p>
+                <p class="description"><?php echo $unmembre->description ?></p><br>
+              </div>
+            </div>
+            <?php
+                }
+                ?>
+
+          </div>
+
+
         </div>
       </div>
     </div>

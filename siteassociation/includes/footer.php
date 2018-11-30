@@ -1,7 +1,7 @@
 <footer class="footer">
   <div class="container">
     <center>
-    <div class="copyright" id="copyright">
+    <div id="copyright">
       &copy;
       <script>
         document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
