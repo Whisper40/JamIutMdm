@@ -433,6 +433,7 @@ if ($uploadOk == 0) {
             "status"=>$status
             )
         );
+
         $img_tmp = $target_dirnew.$target_filefile;
         $fin = $target_dirnewthumb.$target_filefile;
 
@@ -938,6 +939,8 @@ if ($uploadOk == 0) {
               "status"=>$status
               )
           );
+          $db->query("UPDATE images SET albumactif='1' WHERE title='$catimage'");
+          $db->query("UPDATE images SET albumactif='0' WHERE title <> '$catimage'");
           $img_tmp = $target_dirnew.$target_filefile;
           $fin = $target_dirnewthumb.$target_filefile;
 
