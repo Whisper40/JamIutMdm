@@ -144,7 +144,7 @@ if(isset($error)){
           if (file_exists($target_dir/$original/$nomcategorieimage)){
             $target_dirnew = "$target_dir/$original/$nomcategorieimage/";
           }else{
-            mkdir("$target_dir/$original/$catvideo", 0700);
+            mkdir("$target_dir/$original/$nomcategorieimage", 0700);
             $target_dirnew = "$target_dir/$original/$nomcategorieimage/";
           }
 
