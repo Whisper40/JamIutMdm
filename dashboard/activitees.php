@@ -39,7 +39,7 @@ require_once('includes/head.php');
                                       <div class="card-content">
                                           <div class="info info-horizontal">
                                               <div class="icon icon-rose">
-                                                  <i class="material-icons">timeline</i>
+                                                  <i class="material-icons">description</i>
                                               </div>
                                               <div class="description">
                                                   <h4 class="info-title">Description</h4>
@@ -54,7 +54,7 @@ require_once('includes/head.php');
                                         <div class="card-content">
                                           <div class="info info-horizontal">
                                               <div class="icon icon-primary">
-                                                  <i class="material-icons">code</i>
+                                                  <i class="material-icons">euro_symbol</i>
                                               </div>
                                               <div class="description">
                                                   <h4 class="info-title">Prix</h4>
@@ -69,7 +69,7 @@ require_once('includes/head.php');
                                         <div class="card-content">
                                           <div class="info info-horizontal">
                                               <div class="icon icon-info">
-                                                  <i class="material-icons">group</i>
+                                                  <i class="material-icons">link</i>
                                               </div>
                                               <div class="description">
                                                   <h4 class="info-title">Plus d'information</h4>
