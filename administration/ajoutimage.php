@@ -142,9 +142,10 @@ if(isset($error)){
 
       if (is_null($countcheckimages)){
         $countcheckimages = 0;
+        echo 'isnull';
       }
 
-      if($countcheckimages == 0){
+      if($countcheckimages = 0){
         echo 'james';
 
 
