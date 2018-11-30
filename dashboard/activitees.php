@@ -196,16 +196,7 @@ require_once('includes/head.php');
                             $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name='$activity_name' and user_id='$user_id'");
                             $check->execute();
                             $countcheck = $check->rowCount();
-                            if($countcheck>0){
-                              ?>
-                              <h3> Tu participe déja </h3>
-                              <?php
 
-                          }else{
-                              //
-
-
-                          $total = $prixactivite + $prixmateriel + $prixrepas;
                           ?>
 
                             <div class="col-md-6">
@@ -217,6 +208,15 @@ require_once('includes/head.php');
                                           <div class="card-content">
                                               <div class="info info-horizontal">
                                                   <div class="description">
+                                                    <?php
+                                                    if($countcheck>0){
+                                                    ?>
+                                                      <h3> Tu participe déja </h3>
+                                                    <?php
+                                                    }else{
+
+                                                    $total = $prixactivite + $prixmateriel + $prixrepas;
+                                                    ?>
 
                                                       <center>
                                                       <h4 class="info-title">Prix Total : <?php echo $total;?>€</h4>
@@ -229,7 +229,7 @@ require_once('includes/head.php');
                                                       }else{
                                                         ?>
                                                         Aucune place disponible
-                                                      <?php } ?>
+                                                      <?php } } ?>
                                                       </center>
                                                   </div>
                                               </div>
@@ -244,7 +244,7 @@ require_once('includes/head.php');
                     <?php
 
                                             //Si ce n'est pas du ski alors on passe à :
-                                            }}else if (stripos($activity_slug, 'rugby') != FALSE){ ?>
+                                            }else if (stripos($activity_slug, 'rugby') != FALSE){ ?>
 
                                               <div class="container-fluid">
                                                   <div class="row">
