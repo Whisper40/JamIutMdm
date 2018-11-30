@@ -331,16 +331,12 @@
       <div class="col-md-10 ml-auto col-xl-6 mr-auto">
         <div class="card">
           <div class="card-header">
-            <a href="?showmethisnews=<?php echo $s->slug; ?>">
-              <img src="assets/img/<?php echo $s->slug; ?>.<?php echo $s->formatimg; ?>">
-            </a>
+            <img src="assets/img/<?php echo $s->slug; ?>.<?php echo $s->formatimg; ?>">
           </div>
           <div class="card-body">
             <div class="card-content">
               <center>
-              <a href="?showmethisnews=<?php echo $s->slug; ?>">
-                <h2 class="card-title"><?php echo $s->title;?></h2>
-              </a>
+              <h2 class="card-title"><?php echo $s->title;?></h2>
               <p class="card-description">
                 <?php echo $description_finale; ?>
               </p>
