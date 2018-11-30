@@ -44,6 +44,14 @@ $sitekey = "LESITEKEY";
 <body class="landing-page sidebar-collapse">
   <div class="wrapper">
 
+<?php
+if(isset($error)){
+  echo $error;
+}else if(isset($succes)){
+  echo $succes;
+}
+
+ ?>
 
     <h3> Créer une catégorie d'image </h3>
 
