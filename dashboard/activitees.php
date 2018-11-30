@@ -208,6 +208,7 @@ require_once('includes/head.php');
                                           <div class="card-content">
                                               <div class="info info-horizontal">
                                                   <div class="description">
+                                                    <center>
                                                     <?php
                                                     if($countcheck>0){
                                                     ?>
@@ -217,10 +218,7 @@ require_once('includes/head.php');
 
                                                     $total = $prixactivite + $prixmateriel + $prixrepas;
                                                     ?>
-
-                                                      <center>
                                                       <h4 class="info-title">Prix Total : <?php echo $total;?>€</h4>
-
                                                         <?php
                                                       if($stock>0){
                                                          ?>
