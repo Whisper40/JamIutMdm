@@ -348,7 +348,7 @@ if(isset($_POST['catvideosubmit'])){
   $liencatvideo = $_POST['liencatvideo'];
   $catvideo = $_POST['nomcategorievideo'];
 
-  $checkcatvideo= $db->prepare("SELECT * FROM videos WHERE title = '$catvideo'");
+  $checkcatvideo=$db->prepare("SELECT * FROM videos WHERE title = '$catvideo'");
   $checkcatvideo->execute();
   $countcheckcatvideo = $checkcatvideo->rowCount();
 
@@ -357,7 +357,7 @@ if(isset($_POST['catvideosubmit'])){
 
   }
 
-  if($countcheckcatvideo=0){
+  if($countcheckcatvideo == '0'){
 
 
 
