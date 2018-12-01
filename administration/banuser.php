@@ -110,7 +110,7 @@ $('#resultat').html(retour).fadeIn();
   <?php
 
     if($_GET['action']=='unban'){
-echo'bond';
+echo 'bond';
     $id=$_GET['id'];
     $setunban = $db->prepare("UPDATE users SET ban='0' WHERE id=$id");
     $setunban->execute();
@@ -118,9 +118,9 @@ echo'bond';
     <script>window.location="https://administration.jam-mdm.fr/banuser.php"</script>
     <?php
 }else if($_GET['action']=='ban'){
-  echo'james';
-$id=$_GET['id'];
-$setban = $db->prepare("UPDATE users SET ban='1' WHERE id=$id");
+  echo 'james';
+$iduserok=$_GET['iduserok'];
+$setban = $db->prepare("UPDATE users SET ban='1' WHERE id=$iduserok");
 $setban->execute();
 ?>
     <script>window.location="https://administration.jam-mdm.fr/banuser.php"</script>
@@ -190,7 +190,7 @@ $setban->execute();
 <?php
 $iduser = '8';
  ?>
-  <a href="?action=ban&amp;id=<?php echo $iduser;?>">
+  <a href="?action=ban&amp;iduserok=<?php echo $iduser;?>">
     <button type="button" class="btn">ban</button>
   </a>
 
