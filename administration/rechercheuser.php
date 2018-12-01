@@ -32,6 +32,7 @@ if(count($table)>0){
     $iduser=$ligne->id;
     $pseudo=$ligne->username;
     $last_connect=$ligne->last_connect;
+    $attempts=$ligne->numberofattempts;
 
 
     echo '
