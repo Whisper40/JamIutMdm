@@ -351,6 +351,12 @@ if(isset($_POST['catvideosubmit'])){
   $checkcatvideo= $db->prepare("SELECT * FROM videos WHERE title = '$catvideo'");
   $checkcatvideo->execute();
   $countcheckcatvideo = $checkcatvideo->rowCount();
+
+  if (is_null($countcheckcatvideo)){
+    $countcheckcatvideo = '0';
+
+  }
+
   if($countcheckcatvideo=0){
 
 
