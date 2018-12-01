@@ -35,18 +35,17 @@ if(count($table)>0){
 
     echo '
 
-    <tr>
-      <th scope="row">'.$iduser.'</th>'
+    '<tr>'
+      '<th scope="row">'.$iduser.'</th>'
       '<td>'.$pseudo.'<td>'
       '<td>'.$last_connect.'</td>'
       '<td>'.$attempts.'</td>'
       '<td>'
-  '<a href="?action=ban&amp;id='.$iduser.'>">'
-  '<button type="button" class="btn">ban</button>
-  </a>'
-      '</td>'
-    '</tr>'
-'<hr>'
+  '<a href="?action=ban&amp;id='.$iduser.'">'
+  '<button type="button" class="btn">ban</button>'
+  '</a>'
+      '</td>
+    </tr><hr>'
     ';
   }
 
