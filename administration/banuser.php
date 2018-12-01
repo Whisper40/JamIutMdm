@@ -100,13 +100,6 @@ $('#resultat').html(retour).fadeIn();
   </tr>
 </thead>
 <tbody>
-
-
-
-
-
-
-
   <?php
 
     if($_GET['action']=='unban'){
