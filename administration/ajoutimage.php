@@ -138,7 +138,7 @@ if(isset($error)){
 
       $checkcatimages = $db->prepare("SELECT title FROM images WHERE title = '$nomcategorieimage'");
       $checkcatimages->execute();
-      $countcheckcatimages = $checkcatimages->rowCount();
+      $countcheckimages = $checkcatimages->rowCount();
 
       if (is_null($countcheckimages)){
         $countcheckimages = '0';
