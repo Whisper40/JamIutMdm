@@ -110,7 +110,7 @@ $('#resultat').html(retour).fadeIn();
   <?php
 
     if($_GET['action']=='unban'){
-
+echo'bond';
     $id=$_GET['id'];
     $setunban = $db->prepare("UPDATE users SET ban='0' WHERE id=$id");
     $setunban->execute();
@@ -118,6 +118,7 @@ $('#resultat').html(retour).fadeIn();
     <script>window.location="https://administration.jam-mdm.fr/banuser.php"</script>
     <?php
 }else if($_GET['action']=='ban'){
+  echo'james';
 $id=$_GET['id'];
 $setban = $db->prepare("UPDATE users SET ban='1' WHERE id=$id");
 $setban->execute();
