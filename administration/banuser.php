@@ -117,13 +117,14 @@ $('#resultat').html(retour).fadeIn();
     ?>
     <script>window.location="https://administration.jam-mdm.fr/banuser.php"</script>
     <?php
-}else if($_GET['action']=='ban'){
+}
+if($_GET['action']=='ban'){
 
 $id=$_GET['id'];
 $setban = $db->prepare("UPDATE users SET ban='1' WHERE id=$id");
 $setban->execute();
 ?>
-<script>window.location="https://administration.jam-mdm.fr/banuser.php"</script>
+    <script>window.location="https://administration.jam-mdm.fr/banuser.php"</script>
 <?php
 }
 
