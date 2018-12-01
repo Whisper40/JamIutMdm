@@ -4,7 +4,7 @@ require_once('includes/connectBDD.php');
 
 if($_GET['action']=='ban'){
 echo'bond';
-$id=$_GET['iduser'];
+$id=$_GET['id'];
 $setunban = $db->prepare("UPDATE users SET ban='0' WHERE id=$id");
 $setunban->execute();
 ?>
