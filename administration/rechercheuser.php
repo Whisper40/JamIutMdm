@@ -34,18 +34,19 @@ if(count($table)>0){
     $last_connect=$ligne->last_connect;
 
     echo '
+
     <tr>
-      <th scope="row"><?php echo $iduser;?></th>
-      <td><?php echo $pseudo;?><td>
-      <td><?php echo $last_connect;?></td>
-      <td><?php echo $attempts;?></td>
-      <td>
-  <a href="?action=ban&amp;id=<?php echo $iduser;?>">
-  <button type="button" class="btn">ban</button>
-  </a>
-      </td>
-    </tr>
-<hr>
+      <th scope="row">'.$iduser.'</th>'
+      '<td>'.$pseudo.'<td>'
+      '<td>'.$last_connect.'</td>'
+      '<td>'.$attempts.'</td>'
+      '<td>'
+  '<a href="?action=ban&amp;id='.$iduser.'>">'
+  '<button type="button" class="btn">ban</button>
+  </a>'
+      '</td>'
+    '</tr>'
+'<hr>'
     ';
   }
 
