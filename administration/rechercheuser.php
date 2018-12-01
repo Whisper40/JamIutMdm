@@ -1,6 +1,19 @@
 <?php
 require_once('includes/connectBDD.php');
 
+
+if($_GET['action']=='ban'){
+echo'bond';
+$id=$_GET['iduser'];
+$setunban = $db->prepare("UPDATE users SET ban='0' WHERE id=$id");
+$setunban->execute();
+?>
+<script>window.location="https://administration.jam-mdm.fr/banuser.php"</script>
+<?php
+}
+
+
+
 if(isset($_GET['critere'])){
   $critere=$_GET['critere'];
 
