@@ -59,8 +59,6 @@ $('#resultat').html(retour).fadeIn();
 });
 });
 </script>
-
-
 <body class="landing-page sidebar-collapse">
   <div class="wrapper">
 
@@ -125,8 +123,6 @@ $setban->execute();
       $pseudo = $sban->username;
       $last_connect = $sban->last_connect;
       $attempts = $sban->numberofattempts;
-
-
 ?>
 
     <tr>
@@ -138,21 +134,11 @@ $setban->execute();
 <a href="?action=unban&amp;id=<?php echo $iduser;?>">
   <button type="button" class="btn">Unban</button>
 </a>
-<a href="?action=ban&amp;id=9">
-  <button type="button" class="btn">ban</button>
-</a>
-
 
       </td>
     </tr>
-
 <?php
-
-
     }
-
-
-
      ?>
    </tbody>
  </table>
@@ -164,7 +150,6 @@ $setban->execute();
   <?php
 }
  ?>
-
     <div class="section section-contact-us text-center">
       <div class="container">
         <h2 class="title">AUTRE</h2>
@@ -177,8 +162,6 @@ $setban->execute();
       </div>
     </div>
 
-
-
 <h3> Bannir un utilisateur :  </h3>
   <input type='text' name="valeur" placeholder="Saisir son nom, id ou email">
   <p id='resultat'></p>
@@ -186,11 +169,9 @@ $setban->execute();
 
  ?>
 
-
   </div>
 
   <?php
   require_once('includes/footer.php');
-
   require_once('includes/javascript.php');
   ?>

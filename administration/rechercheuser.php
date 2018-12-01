@@ -34,7 +34,6 @@ if(count($table)>0){
     $last_connect=$ligne->last_connect;
     $attempts=$ligne->numberofattempts;
 
-
     echo '
     <tr>
       <th scope="row">'.$iduser.'</th>
