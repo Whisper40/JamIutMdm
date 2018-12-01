@@ -1,7 +1,7 @@
 <?php
     require_once('includes/connectBDD.php');
     $nompage = "Nous Contacter";
-    require_once('includes/head.php');
+
     require_once('includes/quantcast.php');
 
 //Code de génératon du captcha fournie par GOOGLE
@@ -114,14 +114,14 @@ $('#resultat').html(retour).fadeIn();
     $setvalide = $db->prepare("UPDATE validationfichiers SET status='VALIDE' WHERE id=$id");
     $setvalide->execute();
     ?>
-    <script>window.location="hhttps://administration.jam-mdm.fr/veriffichier.php"</script>
+    <script>window.location="https://administration.jam-mdm.fr/veriffichier.php"</script>
     <?php
 }else if($_GET['action']=='refusfichier'){
   $id=$_GET['id'];
   $setrefus = $db->prepare("UPDATE validationfichiers SET status='REFUS' WHERE id=$id");
   $setrefus->execute();
   ?>
-  <script>window.location="hhttps://administration.jam-mdm.fr/veriffichier.php"</script>
+  <script>window.location="https://administration.jam-mdm.fr/veriffichier.php"</script>
   <?php
 }
 
