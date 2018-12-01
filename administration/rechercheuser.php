@@ -2,7 +2,7 @@
 require_once('includes/connectBDD.php');
 ini_set('display_errors', 1);
 
-if($_GET['action']=='ban'){
+if(isset($_GET['action']=='ban')){
 echo'bond';
 $id=$_GET['id'];
 $setunban = $db->prepare("UPDATE users SET ban='0' WHERE id=$id");
@@ -55,7 +55,7 @@ if(count($table)>0){
       <td>'.$last_connect.'</td>
       <td>'.$attempts.'</td>
       <td>
-  <a href="?action=ban&amp;id='.$iduser.'">
+  <a href="https://administration.jam-mdm.fr/rechercheuser.php?action=ban&amp;id='.$iduser.'">
   <button type="button" class="btn">ban</button>
   </a>
       </td>

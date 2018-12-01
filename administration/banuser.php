@@ -112,7 +112,7 @@ $('#resultat').html(retour).fadeIn();
   <script>window.location="https://administration.jam-mdm.fr/banuser.php"</script>
   <?php
   }
-  
+
 
     if($_GET['action']=='unban'){
 echo'bond';
