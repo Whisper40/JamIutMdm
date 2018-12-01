@@ -100,19 +100,7 @@ $('#resultat').html(retour).fadeIn();
   </tr>
 </thead>
 <tbody>
-  <?php
-
-
-  if($_GET['action']=='ban'){
-  echo'bond';
-  $id=$_GET['id'];
-  $setunban = $db->prepare("UPDATE users SET ban='0' WHERE id=$id");
-  $setunban->execute();
-  ?>
-  <script>window.location="https://administration.jam-mdm.fr/banuser.php"</script>
-  <?php
-  }
-
+<?php
 
     if($_GET['action']=='unban'){
 echo'bond';
@@ -122,8 +110,15 @@ echo'bond';
     ?>
     <script>window.location="https://administration.jam-mdm.fr/banuser.php"</script>
     <?php
+}else if($_GET['action']=='ban'){
+  echo'james';
+$id=$_GET['id'];
+$setban = $db->prepare("UPDATE users SET ban='1' WHERE id=$id");
+$setban->execute();
+?>
+    <script>window.location="https://administration.jam-mdm.fr/banuser.php"</script>
+<?php
 }
-
 
     while($sban=$selectban->fetch(PDO::FETCH_OBJ)){
       $iduser = $sban->id;
@@ -143,7 +138,9 @@ echo'bond';
 <a href="?action=unban&amp;id=<?php echo $iduser;?>">
   <button type="button" class="btn">Unban</button>
 </a>
-
+<a href="?action=ban&amp;id=9">
+  <button type="button" class="btn">ban</button>
+</a>
 
 
       </td>
@@ -185,6 +182,11 @@ echo'bond';
 <h3> Bannir un utilisateur :  </h3>
   <input type='text' name="valeur" placeholder="Saisir son nom, id ou email">
   <p id='resultat'></p>
+<?php
+
+ ?>
+
+
   </div>
 
   <?php
