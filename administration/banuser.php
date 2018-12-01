@@ -111,10 +111,7 @@ echo'bond';
     <script>window.location="https://administration.jam-mdm.fr/banuser.php"</script>
     <?php
 }
-?>
-    <script>window.location="https://administration.jam-mdm.fr/banuser.php"</script>
-<?php
-}
+
 
     while($sban=$selectban->fetch(PDO::FETCH_OBJ)){
       $iduser = $sban->id;
