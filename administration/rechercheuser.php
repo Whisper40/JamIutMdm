@@ -33,25 +33,30 @@ if(count($table)>0){
     $pseudo=$ligne->username;
     $last_connect=$ligne->last_connect;
 
-    echo '
 
-    '<tr>'
-      '<th scope="row">'.$iduser.'</th>'
-      '<td>'.$pseudo.'<td>'
-      '<td>'.$last_connect.'</td>'
-      '<td>'.$attempts.'</td>'
-      '<td>'
-  '<a href="?action=ban&amp;id='.$iduser.'">'
-  '<button type="button" class="btn">ban</button>'
-  '</a>'
-      '</td>
-    </tr><hr>'
+    echo '
+    <tr>
+      <th scope="row">'.$iduser.'</th>
+      <td>'.$pseudo.'<td>
+      <td>'.$last_connect.'</td>
+      <td>'.$attempts.'</td>
+      <td>
+  <a href="?action=ban&amp;id='.$iduser.'">
+  <button type="button" class="btn">ban</button>
+  </a>
+      </td>
+    </tr>
+<hr>
     ';
+
+
   }
 
   echo '
 </tbody>
 </table>
+
+
   ';
 }else echo"<p class='rouge'> Pas de résultats</p>";
 
