@@ -1,6 +1,6 @@
 <?php
 require_once('includes/connectBDD.php');
-
+ini_set('display_errors', 1);
 
 if($_GET['action']=='ban'){
 echo'bond';
