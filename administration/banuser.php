@@ -187,8 +187,10 @@ $setban->execute();
 <h3> Bannir un utilisateur :  </h3>
   <input type='text' name="valeur" placeholder="Saisir son nom, id ou email">
   <p id='resultat'></p>
-
-  <a href="?action=ban&amp;id=8">
+<?php
+$iduser = '8';
+ ?>
+  <a href="?action=ban&amp;id=<?php echo $iduser;?>">
     <button type="button" class="btn">ban</button>
   </a>
 
