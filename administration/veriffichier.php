@@ -114,14 +114,14 @@ $('#resultat').html(retour).fadeIn();
     $setvalide = $db->prepare("UPDATE validationfichiers SET status='VALIDE' WHERE id=$id");
     $setvalide->execute();
     ?>
-    <script>window.location="http://127.0.0.1/siteassociation/veriffichier.php"</script>
+    <script>window.location="hhttps://administration.jam-mdm.fr/veriffichier.php"</script>
     <?php
 }else if($_GET['action']=='refusfichier'){
   $id=$_GET['id'];
   $setrefus = $db->prepare("UPDATE validationfichiers SET status='REFUS' WHERE id=$id");
   $setrefus->execute();
   ?>
-  <script>window.location="http://127.0.0.1/siteassociation/veriffichier.php"</script>
+  <script>window.location="hhttps://administration.jam-mdm.fr/veriffichier.php"</script>
   <?php
 }
 
