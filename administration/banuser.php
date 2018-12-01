@@ -117,9 +117,7 @@ $('#resultat').html(retour).fadeIn();
     ?>
     <script>window.location="https://administration.jam-mdm.fr/banuser.php"</script>
     <?php
-}
-if($_GET['action']=='ban'){
-
+}else if($_GET['action']=='ban'){
 $id=$_GET['id'];
 $setban = $db->prepare("UPDATE users SET ban='1' WHERE id=$id");
 $setban->execute();
@@ -188,6 +186,10 @@ $setban->execute();
 <h3> Bannir un utilisateur :  </h3>
   <input type='text' name="valeur" placeholder="Saisir son nom, id ou email">
   <p id='resultat'></p>
+
+  <a href="?action=ban&amp;id=8">
+    <button type="button" class="btn">ban</button>
+  </a>
 
 
   </div>
