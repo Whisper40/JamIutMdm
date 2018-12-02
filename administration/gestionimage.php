@@ -49,7 +49,7 @@ var critere;
 $recherche.keyup(function(){
   critere = $.trim($recherche.val());
   if(critere!=''){
-    $.get('rechercheuser.php?critere='+critere,function(retour){
+    $.get('gestionrechercheimg.php?critere='+critere,function(retour){
 
 $('#resultat').html(retour).fadeIn();
 
@@ -59,27 +59,40 @@ $('#resultat').html(retour).fadeIn();
 });
 });
 </script>
+
+
+
+
+
+
+
 <body class="landing-page sidebar-collapse">
   <div class="wrapper">
-
 <?php
 
 if($_GET['action']=='unban'){
-echo'bond';
+
 $id=$_GET['id'];
-$setunban = $db->prepare("UPDATE users SET ban='0' WHERE id=$id");
+$setunban = $db->prepare("UPDATE images SET status='1' WHERE id=$id");
 $setunban->execute();
 ?>
-<script>window.location="https://administration.jam-mdm.fr/banuser.php"</script>
+<script>window.location="https://administration.jam-mdm.fr/gestionimage.php"</script>
 <?php
 }else if($_GET['action']=='ban'){
-echo'james';
-$id=$_GET['id'];
-$setban = $db->prepare("UPDATE users SET ban='1' WHERE id=$id");
-$setban->execute();
 
+$id=$_GET['id'];
+$setban = $db->prepare("UPDATE images SET status='0' WHERE id=$id");
+$setban->execute();
 ?>
-<script>window.location="https://administration.jam-mdm.fr/banuser.php"</script>
+<script>window.location="https://administration.jam-mdm.fr/gestionimage.php"</script>
+<?php
+}else if($_GET['action']=='delete'){
+
+$id=$_GET['id'];
+$setban = $db->prepare("UPDATE images SET status='0' WHERE id=$id");
+$setban->execute();
+?>
+<script>window.location="https://administration.jam-mdm.fr/gestionimage.php"</script>
 <?php
 }
 
@@ -101,42 +114,43 @@ $setban->execute();
 
     <?php
 
-    $selectban = $db->prepare("SELECT * FROM users WHERE ban='1'");
-    $selectban->execute();
-    $countban = $selectban->rowCount();
-    if($countban>'0'){
+    $selectbanimg = $db->prepare("SELECT * FROM images WHERE status='0'");
+    $selectbanimg->execute();
+    $countbanimg = $selectbanimg->rowCount();
+    if($countbanimg>'0'){
     ?>
-    <h3> Utilisateurs bannis </h3>
+    <h3> Images inactives </h3>
     <table class="table">
 <thead>
   <tr>
     <th scope="col">Id</th>
-    <th scope="col">Pseudo</th>
-    <th scope="col">Dernière connexion</th>
-    <th scope="col">Status</th>
-    <th scope="col">Status</th>
+    <th scope="col">Nom</th>
+    <th scope="col">Catégorie</th>
+    <th scope="col">Album Actif</th>
+    <th scope="col">Action</th>
   </tr>
 </thead>
 <tbody>
 <?php
 
 
-
     while($sban=$selectban->fetch(PDO::FETCH_OBJ)){
-      $iduser = $sban->id;
-      $pseudo = $sban->username;
-      $last_connect = $sban->last_connect;
-      $attempts = $sban->numberofattempts;
+      $idimg = $sban->id;
+      $file_name = $sban->file_name;
+      $title = $sban->title;
+      $albumactif = $sban->albumactif;
 ?>
-
     <tr>
-      <th scope="row"><?php echo $iduser;?></th>
-      <td><?php echo $pseudo;?><td>
-      <td><?php echo $last_connect;?></td>
-      <td><?php echo $attempts;?></td>
+      <th scope="row"><?php echo $idimg;?></th>
+      <td><?php echo $file_name;?><td>
+      <td><?php echo $title;?></td>
+      <td><?php echo $albumactif;?></td>
       <td>
-<a href="?action=unban&amp;id=<?php echo $iduser;?>">
-  <button type="button" class="btn">Unban</button>
+<a href="?action=unban&amp;id=<?php echo $idimg;?>">
+  <button type="button" class="btn">Activer</button>
+</a>
+<a href="?action=delete&amp;id=<?php echo $idimg;?>">
+  <button type="button" class="btn">Supprimer</button>
 </a>
 
       </td>
@@ -150,7 +164,7 @@ $setban->execute();
  <?php
 }else{
   ?>
-<h3> Aucun utilisateur n'est actuellement bannis ! Inchallah </h3>
+<h3> Aucune image n'est actuellement bannie ! Inchallah </h3>
   <?php
 }
  ?>
@@ -166,7 +180,7 @@ $setban->execute();
       </div>
     </div>
 
-<h3> Bannir un utilisateur :  </h3>
+<h3> Bannir une image :  </h3>
   <input type='text' name="valeur" placeholder="Saisir son nom, id ou email">
   <p id='resultat'></p>
 <?php
