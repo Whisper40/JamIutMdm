@@ -98,18 +98,22 @@ $target_dir = "../../../JamFichiers/Photos";
 $original = 'Original';
 $affiche = 'Affiche';
 $thumb = 'Thumb';
+echo 'Jamesbond';
 
 if (file_exists($target_dir/$original/$dossier)){
+  echo 'Jesuisrnetré';
   unlink ("$target_dir/$original/$dossier/$valnom");
   unlink ("$target_dir/$affiche/$dossier/$valnom");
   unlink ("$target_dir/$thumb/$dossier/$valnom");
+  echo 'deleted';
   $updatedelete = $db->prepare("DELETE FROM images WHERE id=$id");
   $updatedelete->execute();
 
 }else{
+  echo 'n extse pas';
   $error = 'Un problème de répertoire est présent, contacter votre administrateur !';
 }
-
+echo 'esquive';
 
 ?>
 <script>window.location="https://administration.jam-mdm.fr/gestionimage.php"</script>
