@@ -134,7 +134,7 @@ $setban->execute();
 <?php
 
 
-    while($sban=$selectban->fetch(PDO::FETCH_OBJ)){
+    while($sban=$selectbanimg->fetch(PDO::FETCH_OBJ)){
       $idimg = $sban->id;
       $file_name = $sban->file_name;
       $title = $sban->title;
