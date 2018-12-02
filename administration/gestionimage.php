@@ -94,18 +94,18 @@ $rname = $selectnom->fetch(PDO::FETCH_OBJ);
 $valnom = $rname->file_name;
 $dossier = $rname->title;
 
-$target_dir = "../../../JamFichiers/Photos";
+$target_dir = '../../../JamFichiers/Photos';
 $original = 'Original';
 $affiche = 'Affiche';
 $thumb = 'Thumb';
 echo 'Jamesbond';
 echo "$target_dir/$original/$dossier";
 
-if (file_exists($target_dir/$original/$dossier/)){
+if (file_exists($target_dir/$original/$dossier)){
   echo 'Jesuisrnetré';
-  unlink ("$target_dir/$original/$dossier/$valnom");
-  unlink ("$target_dir/$affiche/$dossier/$valnom");
-  unlink ("$target_dir/$thumb/$dossier/$valnom");
+  unlink("$target_dir/$original/$dossier/$valnom");
+  unlink("$target_dir/$affiche/$dossier/$valnom");
+  unlink("$target_dir/$thumb/$dossier/$valnom");
   echo 'deleted';
   $updatedelete = $db->prepare("DELETE FROM images WHERE id=$id");
   $updatedelete->execute();
