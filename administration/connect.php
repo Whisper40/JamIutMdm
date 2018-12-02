@@ -128,7 +128,7 @@
                    // Redirection en javascript car le header location pose problème dans ce cas :(
                    ?>
 
-                      <script>window.location="http://127.0.0.1/administration/index.php";</script><?php
+                      <script>window.location="https://administration.jam-mdm.fr/";</script><?php
 
                     }else{
 ?>

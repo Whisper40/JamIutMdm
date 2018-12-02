@@ -1,5 +1,6 @@
 <?php
     require_once('includes/connectBDD.php');
+    require_once('includes/checkconnection.php');
     $nompage = "Inscription";
     require_once('includes/head.php');
     require_once('includes/quantcast.php');

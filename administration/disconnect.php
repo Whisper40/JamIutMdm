@@ -3,6 +3,6 @@ session_start();
 session_unset();
 session_destroy();
 
-header('Location: http://127.0.0.1/administration/connect.php');
+header('Location: https://administration.jam-mdm.fr/connect.php');
 
 ?>

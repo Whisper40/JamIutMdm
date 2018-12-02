@@ -1,5 +1,6 @@
 <?php
     require_once('includes/connectBDD.php');
+    require_once('includes/checkconnection.php');
     $nompage = "Nous Contacter";
 
     require_once('includes/quantcast.php');
