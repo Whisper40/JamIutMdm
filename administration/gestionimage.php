@@ -89,8 +89,28 @@ $setban->execute();
 }else if($_GET['action']=='delete'){
 
 $id=$_GET['id'];
-$setban = $db->prepare("UPDATE images SET status='0' WHERE id=$id");
-$setban->execute();
+$selectnom = $db->query("SELECT * FROM images WHERE id='$id'");
+$rname = $selectnom->fetch(PDO::FETCH_OBJ);
+$valnom = $rname->file_name;
+$dossier = $rname->title;
+
+$target_dir = "../../../JamFichiers/Photos";
+$original = 'Original';
+$affiche = 'Affiche';
+$thumb = 'Thumb';
+
+if (file_exists($target_dir/$original/$dossier)){
+  unlink ("$target_dir/$original/$dossier/$valnom");
+  unlink ("$target_dir/$affiche/$dossier/$valnom");
+  unlink ("$target_dir/$thumb/$dossier/$valnom");
+  $updatedelete = $db->prepare("DELETE FROM images WHERE id=$id");
+  $updatedelete->execute();
+
+}else{
+  $error = 'Un problème de répertoire est présent, contacter votre administrateur !';
+}
+
+
 ?>
 <script>window.location="https://administration.jam-mdm.fr/gestionimage.php"</script>
 <?php

@@ -4,7 +4,7 @@ require_once('includes/connectBDD.php');
 if(isset($_GET['critere'])){
   $critere=$_GET['critere'];
 
-  $select = $db->query("SELECT * FROM images WHERE title LIKE '%$critere%' OR id LIKE '$critere' OR file_name LIKE '%$critere%' and status='1'");
+  $select = $db->query("SELECT * FROM images WHERE id LIKE '$critere' OR file_name LIKE '%$critere%' and status='1'");
   $s = $select->fetch(PDO::FETCH_OBJ);
   $idimg = $s->id;
 
