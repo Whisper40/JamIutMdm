@@ -99,9 +99,9 @@ $original = 'Original';
 $affiche = 'Affiche';
 $thumb = 'Thumb';
 echo 'Jamesbond';
-echo "$target_dir/$original/$dossier";
+echo "$target_dir.'/'.$original.'/'.$dossier";
 
-if (file_exists($target_dir/$original/$dossier)){
+if (file_exists($target_dir.'/'.$original.'/'.$dossier)){
   echo 'Jesuisrnetré';
   unlink("$target_dir/$original/$dossier/$valnom");
   unlink("$target_dir/$affiche/$dossier/$valnom");
