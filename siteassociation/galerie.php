@@ -118,7 +118,7 @@
                  <div class="col-md-16 ml-auto mr-auto">
                    <div class="row collections">
                    <?php
-                   $image = $db->query("SELECT * FROM images WHERE title = '$title' ORDER BY uploaded_on DESC");
+                   $image = $db->query("SELECT * FROM images WHERE title = '$title' and status='1' ORDER BY uploaded_on DESC");
                    while($uneimage = $image->fetch(PDO::FETCH_OBJ)){
 
                     $nomfile = $uneimage->file_name;
@@ -140,7 +140,7 @@
                 <div class="row collections">
 
               <?php
-                   $video = $db->query("SELECT * FROM videos WHERE title = '$title' ORDER BY uploaded_on DESC");
+                   $video = $db->query("SELECT * FROM videos WHERE title = '$title' and status='1' ORDER BY uploaded_on DESC");
                    while($unevideo = $video->fetch(PDO::FETCH_OBJ)){
                    ?>
                    <div class="col-md-4">
