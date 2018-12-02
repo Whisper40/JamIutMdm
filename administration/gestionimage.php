@@ -99,6 +99,7 @@ $original = 'Original';
 $affiche = 'Affiche';
 $thumb = 'Thumb';
 echo 'Jamesbond';
+echo "$target_dir/$original/$dossier";
 
 if (file_exists($target_dir/$original/$dossier)){
   echo 'Jesuisrnetré';
