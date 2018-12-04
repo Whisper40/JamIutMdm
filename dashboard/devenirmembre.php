@@ -255,7 +255,7 @@ $status = $s->status;?>
 
                                               <?php
                                               $user_id = $_SESSION['user_id'];
-                                              $sql = "SELECT * FROM validationfichiers WHERE user_id='$user_id' ORDER BY date ASC";
+                                              $sql = "SELECT * FROM validationfichiers WHERE user_id='$user_id' ORDER BY id ASC";
                                               $req = $db->query($sql);
                                               $req->setFetchMode(PDO::FETCH_ASSOC);
                                               foreach($req as $row){
