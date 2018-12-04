@@ -18,8 +18,12 @@ require_once('includes/head.php');
 
       if(isset($_GET['activityname'])){
             $activity_slug=$_GET['activityname'];
-            $select = $db->prepare("SELECT * FROM activitesvoyages WHERE slug='$activity_slug' AND status='ACTIVE'");
-            $select->execute();
+            $select = $db->prepare("SELECT * FROM activitesvoyages WHERE slug=:activity_slug AND status=:status");
+            $select->execute(array(
+                "activity_slug"=>$activity_slug,
+                "status"=>'ACTIVE'
+                )
+            );
 
             while($s=$select->fetch(PDO::FETCH_OBJ)){
 
@@ -117,8 +121,12 @@ require_once('includes/head.php');
 
 
                                             <?php
-                                              $select0 = $db->prepare("SELECT * FROM activityradio WHERE slug='$activity_slug' and type='materiel'");
-                                              $select0->execute();
+                                              $select0 = $db->prepare("SELECT * FROM activityradio WHERE slug=:activity_slug and type=:materiel");
+                                              $select0->execute(array(
+                                                  "activity_slug"=>$activity_slug,
+                                                  "materiel"=>'materiel'
+                                                  )
+                                              );
 
                                               while($s0=$select0->fetch(PDO::FETCH_OBJ)){
                                                 $type = $s0->type;
@@ -148,8 +156,13 @@ require_once('includes/head.php');
 
 
                                                   <?php
-                                                    $select1 = $db->prepare("SELECT * FROM activityradio WHERE slug='$activity_slug' and type='repas'");
-                                                    $select1->execute();
+                                                    $select1 = $db->prepare("SELECT * FROM activityradio WHERE slug=:activity_slug and type=:repas");
+
+                                                    $select1->execute(array(
+                                                        "activity_slug"=>$activity_slug,
+                                                        "repas"=>'repas'
+                                                        )
+                                                    );
 
                                                     while($s1=$select1->fetch(PDO::FETCH_OBJ)){
                                                       $type1 = $s1->type;
@@ -193,8 +206,12 @@ require_once('includes/head.php');
                               //27/11/2018
                           $activity_name = $_GET['activityname'];
 
-                            $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name='$activity_name' and user_id='$user_id'");
-                            $check->execute();
+                            $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name=:activity_name and user_id=:user_id");
+                            $check->execute(array(
+                                "activity_name"=>$activity_name,
+                                "user_id"=>$user_id
+                                )
+                            );
                             $countcheck = $check->rowCount();
 
                           ?>
@@ -264,8 +281,12 @@ require_once('includes/head.php');
                                                                                     <p class="description">
 
                                                   <?php
-                                                    $select4 = $db->prepare("SELECT * FROM activityradio WHERE slug='$activity_slug' and type='accompagnement'");
-                                                    $select4->execute();
+                                                    $select4 = $db->prepare("SELECT * FROM activityradio WHERE slug=:activity_slug and type=:accompagnement");
+                                                    $select4->execute(array(
+                                                        "activity_slug"=>$activity_slug,
+                                                        "accompagnement"=>'accompagnement'
+                                                        )
+                                                    );
 
                                                     while($s4=$select4->fetch(PDO::FETCH_OBJ)){
                                                       $type4 = $s4->type;
@@ -310,8 +331,13 @@ require_once('includes/head.php');
                     if(isset($prixaccompagnement)){
                         $activity_name = $_GET['activityname'];
 
-                            $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name='$activity_name' and user_id='$user_id'");
-                            $check->execute();
+                            $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name=:activity_name and user_id=:user_id'");
+                            $check->execute(array(
+                                "activity_name"=>$activity_name,
+                                "user_id"=>$user_id
+                                )
+                            );
+
                             $countcheck = $check->rowCount();
 
                      ?>
@@ -359,8 +385,14 @@ require_once('includes/head.php');
 
             }else if (stripos($activity_slug, 'sportive') != FALSE){
               $activity_name = $activity_slug;
-              $participe = $db->prepare("SELECT * FROM participe where user_id='$user_id' and activity_name='$activity_name'");
-              $participe->execute();
+              $participe = $db->prepare("SELECT * FROM participe where user_id=:user_id and activity_name=:activity_name");
+
+              $participe->execute(array(
+                  "user_id"=>$user_id,
+                  "activity_name"=>$activity_name
+                  )
+              );
+
               $countparticipe = $participe->rowCount();
 
             ?>
@@ -385,8 +417,15 @@ require_once('includes/head.php');
                                                   <p class="description">
 
                                                     <?php
-                                                      $select4 = $db->prepare("SELECT * FROM activityradio WHERE slug='$activity_slug' and type='organisation'");
-                                                      $select4->execute();
+                                                      $select4 = $db->prepare("SELECT * FROM activityradio WHERE slug=:activity_slug and type=:organisation");
+                                                      $select4->execute(array(
+                                                          "activity_slug"=>$activity_slug,
+                                                          "organisation"=>'organisation'
+                                                          )
+                                                      );
+
+
+
 
                                                       while($s4=$select4->fetch(PDO::FETCH_OBJ)){
                                                         $type4 = $s4->type;
@@ -451,8 +490,16 @@ require_once('includes/head.php');
 
                                     $activity_name = $_GET['activityname'];
 
-                            $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name='$activity_name' and user_id='$user_id'");
-                            $check->execute();
+                            $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name=:activity_name and user_id=:user_id");
+                            $check->execute(array(
+                                "activity_name"=>$activity_name,
+                                "user_id"=>$user_id
+                                )
+                            );
+
+
+
+
                             $countcheck = $check->rowCount();
 
                                  ?>
@@ -510,8 +557,14 @@ require_once('includes/head.php');
 
                                     $activity_name = $_GET['activityname'];
 
-                                    $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name='$activity_name' and user_id='$user_id'");
-                                    $check->execute();
+                                    $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name=:activity_name and user_id=:user_id");
+                                    $check->execute(array(
+                                        "activity_name"=>$activity_name,
+                                        "user_id"=>$user_id
+                                        )
+                                    );
+
+
                                     $countcheck = $check->rowCount();
 
 ?>
@@ -562,8 +615,14 @@ require_once('includes/head.php');
           }else if (stripos($activity_slug, 'nettoyage') != FALSE){
 
               $activity_name = $activity_slug;
-              $participe = $db->prepare("SELECT * FROM participe where user_id='$user_id' and activity_name='$activity_name'");
-              $participe->execute();
+              $participe = $db->prepare("SELECT * FROM participe where user_id=:user_id and activity_name=:activity_name");
+
+              $participe->execute(array(
+                  "user_id"=>$user_id,
+                  "activity_name"=>$activity_name
+                  )
+              );
+
               $countparticipe = $participe->rowCount();
 
               if(!empty($_POST['jeparticipenettoyage'])){
@@ -593,8 +652,14 @@ require_once('includes/head.php');
 
               $activity_name = $_GET['activityname'];
 
-                            $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name='$activity_name' and user_id='$user_id'");
-                            $check->execute();
+                            $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name=:activity_name and user_id=:user_id");
+
+
+                            $check->execute(array(
+                                "activity_name"=>$activity_name,
+                                "user_id"=>$user_id
+                                )
+                            );
                             $countcheck = $check->rowCount();
             ?>
 
@@ -650,8 +715,13 @@ require_once('includes/head.php');
           }else if (stripos($activity_slug, 'orientation') != FALSE){
 
           $activity_name = $activity_slug;
-          $participe = $db->prepare("SELECT * FROM participe where user_id='$user_id' and activity_name='$activity_name'");
-          $participe->execute();
+          $participe = $db->prepare("SELECT * FROM participe where user_id=:user_id and activity_name=:activity_name");
+          $participe->execute(array(
+              "user_id"=>$user_id,
+              "activity_name"=>$activity_name
+              )
+          );
+
           $countparticipe = $participe->rowCount();
 
           if(!empty($_POST['jeparticipeorientation'])){
@@ -680,8 +750,12 @@ require_once('includes/head.php');
 
           $activity_name = $_GET['activityname'];
 
-                            $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name='$activity_name' and user_id='$user_id'");
-                            $check->execute();
+                            $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name=:activity_name and user_id=:user_id");
+                            $check->execute(array(
+                                "activity_name"=>$activity_name,
+                                "user_id"=>$user_id
+                                )
+                            );
                             $countcheck = $check->rowCount();
           ?>
 
