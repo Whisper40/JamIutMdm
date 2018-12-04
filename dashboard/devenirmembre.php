@@ -14,7 +14,8 @@ $sitekey = "LESITEKEY";
 
 <?php
 $user_id = $_SESSION['user_id'];
-$selectstatus = $db->query("SELECT status FROM users WHERE id='$user_id'");
+$selectstatus = $db->prepare("SELECT status FROM users WHERE id='$user_id'");
+$selectstatus->execute();
 $s = $selectstatus->fetch(PDO::FETCH_OBJ);
 $status = $s->status;?>
 
@@ -102,7 +103,8 @@ $status = $s->status;?>
           }  }
 
 
-          $page = $db->query("SELECT * FROM pagedevenirmembre");
+          $page = $db->prepare("SELECT * FROM pagedevenirmembre");
+          $page->execute();
           $lapage = $page->fetch(PDO::FETCH_OBJ);
           ?>
 
@@ -256,7 +258,8 @@ $status = $s->status;?>
                                               <?php
                                               $user_id = $_SESSION['user_id'];
                                               $sql = "SELECT * FROM validationfichiers WHERE user_id='$user_id' ORDER BY id ASC";
-                                              $req = $db->query($sql);
+                                              $req = $db->prepare($sql);
+                                              $req->execute();
                                               $req->setFetchMode(PDO::FETCH_ASSOC);
                                               foreach($req as $row){
                                               ?>
