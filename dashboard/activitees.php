@@ -181,13 +181,11 @@ require_once('includes/head.php');
                           <?php
                           $optionmaterielform = $_POST['optionmateriel'];
                           $optionrepasform = $_POST['optionrepas'];
-                          $selectpricemateriel = $db->prepare("SELECT price FROM activityradio WHERE packname='$optionmaterielform'");
-                          $selectpricemateriel->execute();
+                          $selectpricemateriel = $db->query("SELECT price FROM activityradio WHERE packname='$optionmaterielform'");
                           $r = $selectpricemateriel->fetch(PDO::FETCH_OBJ);
                           $prixmateriel = $r->price;
 
-                          $selectpricerepas= $db->prepare("SELECT price FROM activityradio WHERE packname='$optionrepasform'");
-                          $selectpricerepas->execute();
+                          $selectpricerepas= $db->query("SELECT price FROM activityradio WHERE packname='$optionrepasform'");
                           $r2 = $selectpricerepas->fetch(PDO::FETCH_OBJ);
                           $prixrepas = $r2->price;
 
@@ -304,8 +302,7 @@ require_once('includes/head.php');
 
                     <?php
                     $optionaccompagnementform = $_POST['optionaccompagnement'];
-                    $selectpriceaccompagnement = $db->prepare("SELECT price FROM activityradio WHERE packname='$optionaccompagnementform'");
-                    $selectpriceaccompagnement->execute();
+                    $selectpriceaccompagnement = $db->query("SELECT price FROM activityradio WHERE packname='$optionaccompagnementform'");
                     $r = $selectpriceaccompagnement->fetch(PDO::FETCH_OBJ);
                     $prixaccompagnement = $r->price;
 
@@ -426,8 +423,7 @@ require_once('includes/head.php');
                                 if(!empty($_POST['jeparticipe'])){
                                   $optionorganisation = $_POST['optionorganisation'];
                                   $activity_name = $activity_slug;
-                                  $selectrealname = $db->prepare("SELECT title,stock from activitesvoyages WHERE slug='$activity_name'");
-                                  $selectrealname->execute();
+                                  $selectrealname = $db->query("SELECT title,stock from activitesvoyages WHERE slug='$activity_name'");
                                   $r = $selectrealname->fetch(PDO::FETCH_OBJ);
                                   $realname = $r->title;
                                   $stock = $r->stock;
@@ -435,40 +431,10 @@ require_once('includes/head.php');
                                   $pageformulaire = 'formulaire.php?type=sportive';
                                   $icon = 'dns';
                                   $date = strftime('%d/%m/%Y %H:%M:%S');
-
-                                  $insertparticipe = $db->prepare("INSERT INTO participe (user_id, activity_name, date, optionorganisation) VALUES(:user_id , :activity_name , :date, :optionorganisation)");
-                                  $insertparticipe->execute(array(
-                                      "user_id" => $user_id,
-                                      "activity_name" => $activity_name,
-                                      "date" => $date,
-                                      "optionorganisation" => $optionorganisation
-                                      )
-                                  );
-
-                                  $insertcatparticipe = $db->prepare("INSERT INTO catparticipe (user_id, name, page, icon) VALUES(:user_id, :realname, :pageformulaire, :icon)");
-                                  $insertcatparticipe->execute(array(
-                                      "user_id" => $user_id,
-                                      "name" => $realname,
-                                      "page" => $pageformulaire,
-                                      "icon" => $icon
-                                      )
-                                  );
-
-
-
-                                  $insertformsport = $db->prepare("INSERT INTO formulairesportive (user_id) VALUES(:user_id)");
-                                  $insertformsport->execute(array(
-                                      "user_id" => $user_id
-                                      )
-                                  );
-
-                                  $insertcatactivoyage = $db->prepare("UPDATE activitesvoyages SET stock= :newstock WHERE slug= :activity_name");
-                                  $insertcatactivoyage->execute(array(
-                                      "stock" => $newstock,
-                                      "slug" => $activity_name
-                                      )
-                                  );
-
+                                  $db->query("INSERT INTO participe (user_id, activity_name, date, optionorganisation) VALUES('$user_id' ,'$activity_name' ,'$date', '$optionorganisation')");
+                                  $db->query("INSERT INTO catparticipe (user_id, name, page, icon) VALUES('$user_id', '$realname', '$pageformulaire', '$icon')");
+                                  $db->query("INSERT INTO formulairesportive (user_id) VALUES('$user_id')");
+                                  $db->query("UPDATE activitesvoyages SET stock='$newstock' WHERE slug='$activity_name'");
 
                                   ?>
                                   <script>
@@ -510,8 +476,7 @@ require_once('includes/head.php');
                                             <h4 class="info-title">En cliquant sur ce bouton j'accepte de participer à l'activitée</h4>
                                             <form action="" method="post">
                                               <?php
-                                                $selectstock = $db->prepare("SELECT stock from activitesvoyages WHERE slug='$activity_name'");
-                                                $selectstock->execute();
+                                                $selectstock = $db->query("SELECT stock from activitesvoyages WHERE slug='$activity_name'");
                                                 $rstock = $selectstock->fetch(PDO::FETCH_OBJ);
                                                 $stock = $rstock->stock;
                                                 if($stock>0){
@@ -604,8 +569,7 @@ require_once('includes/head.php');
               if(!empty($_POST['jeparticipenettoyage'])){
 
                 $activity_name = $activity_slug;
-                $selectrealname = $db->prepare("SELECT title,stock from activitesvoyages WHERE slug='$activity_name'");
-                $selectrealname->execute();
+                $selectrealname = $db->query("SELECT title,stock from activitesvoyages WHERE slug='$activity_name'");
                 $r = $selectrealname->fetch(PDO::FETCH_OBJ);
                 $realname = $r->title;
                 $stock = $r->stock;
@@ -615,34 +579,10 @@ require_once('includes/head.php');
 
 
                 $date = strftime('%d/%m/%Y %H:%M:%S');
+                $db->query("INSERT INTO participe (user_id, activity_name, date) VALUES('$user_id' ,'$activity_name' ,'$date')");
+                $db->query("UPDATE activitesvoyages SET stock='$newstock' WHERE slug='$activity_name'");
+                $db->query("INSERT INTO catparticipe (user_id, name, page, icon) VALUES('$user_id', '$realname', '$pageformulaire', '$icon')");
 
-                $participe = $db->prepare("INSERT INTO participe (user_id, activity_name, date) VALUES(:user_id ,:activity_name ,:date)");
-                $participe->execute(array(
-                    "user_id" => $user_id,
-                    "activity_name" => $activity_name,
-                    "date" => $date
-
-                    )
-                );
-
-                $updateacti = $db->prepare("UPDATE activitesvoyages SET stock=:newstock WHERE slug=:activity_name");
-                $updateacti->execute(array(
-                    "stock" => $newstock,
-                    "slug" => $activity_name
-                    )
-                );
-
-
-
-
-                $updateacti = $db->prepare("INSERT INTO catparticipe (user_id, name, page, icon) VALUES(:user_id, :realname, :pageformulaire, :icon)");
-                $updateacti->execute(array(
-                    "user_id" => $user_id,
-                    "name" => $realname,
-                    "page" => $pageformulaire,
-                    "icon" => $icon
-                    )
-                );
 
                 ?>
                 <script>
@@ -681,8 +621,7 @@ require_once('includes/head.php');
                                             <h4 class="info-title">En cliquant sur ce bouton j'accepte de participer à l'activitée</h4>
                                             <?php
                                               $activity_name = $activity_slug;
-                                              $selectstock = $db->prepare("SELECT stock from activitesvoyages WHERE slug='$activity_name'");
-                                              $selectstock->execute();
+                                              $selectstock = $db->query("SELECT stock from activitesvoyages WHERE slug='$activity_name'");
                                               $rstock = $selectstock->fetch(PDO::FETCH_OBJ);
                                               $stock = $rstock->stock;
                                               if($stock>0){
@@ -717,8 +656,7 @@ require_once('includes/head.php');
 
           if(!empty($_POST['jeparticipeorientation'])){
             $activity_name = $activity_slug;
-            $selectrealname = $db->prepare("SELECT title,stock from activitesvoyages WHERE slug='$activity_name'");
-            $selectrealname->execute();
+            $selectrealname = $db->query("SELECT title,stock from activitesvoyages WHERE slug='$activity_name'");
             $r = $selectrealname->fetch(PDO::FETCH_OBJ);
             $realname = addslashes($r->title); //Corrige le bug d'importation de guillemet dans la BDD
             $stock = $r->stock;
@@ -726,41 +664,12 @@ require_once('includes/head.php');
             $pageformulaire = 'formulaire.php?type=orientation';
             $icon = 'dns';
             $date = strftime('%d/%m/%Y %H:%M:%S');
-
-            $insertparticipeok = $db->prepare("INSERT INTO participe (user_id, activity_name, date) VALUES(:user_id , :activity_name, :date)");
-            $insertparticipeok->execute(array(
-                "user_id" => $user_id,
-                "activity_name" => $activity_name,
-                "date" => $date
-                )
-            );
-
-
-            $insertcatparticipeok = $db->prepare("INSERT INTO catparticipe (user_id, name, page, icon) VALUES(:user_id, :realname, :pageformulaire, :icon)");
-            $insertcatparticipeok->execute(array(
-                "user_id" => $user_id,
-                "name" => $realname,
-                "page" => $pageformulaire,
-                "icon" => $icon
-                )
-            );
-
-
-
-            $insertformorient = $db->prepare("INSERT INTO formulaireorientation (user_id) VALUES('$user_id')");
-            $insertformorient->execute(array(
-                "user_id" => $user_id
-                )
-            );
-
-
-            $insertactivoyage = $db->prepare("UPDATE activitesvoyages SET stock=:newstock WHERE slug=:activity_name");
-            $insertactivoyage->execute(array(
-                "stock" => $stock,
-                "slug" => $activity_name
-                )
-            );
-
+            $db->query("INSERT INTO participe (user_id, activity_name, date) VALUES('$user_id' ,'$activity_name' ,'$date')");
+          echo '1';
+            $db->query("INSERT INTO catparticipe (user_id, name, page, icon) VALUES('$user_id', '$realname', '$pageformulaire', '$icon')");
+          echo '2';
+            $db->query("INSERT INTO formulaireorientation (user_id) VALUES('$user_id')");
+            $db->query("UPDATE activitesvoyages SET stock='$newstock' WHERE slug='$activity_name'");
 
             ?>
             <script>
@@ -799,8 +708,7 @@ require_once('includes/head.php');
                                           <h4 class="info-title">En cliquant sur ce bouton j'accepte de participer à l'activitée</h4>
                                         <?php
                                           $activity_name = $activity_slug;
-                                          $selectstock = $db->prepare("SELECT stock from activitesvoyages WHERE slug='$activity_name'");
-                                          $selectstock->execute();
+                                          $selectstock = $db->query("SELECT stock from activitesvoyages WHERE slug='$activity_name'");
                                           $rstock = $selectstock->fetch(PDO::FETCH_OBJ);
                                           $stock = $rstock->stock;
                                           if($stock>0){
@@ -934,9 +842,8 @@ require_once('includes/head.php');
 
                       <?php
                       $user_id = $_SESSION['user_id'];
-                      $sql = "SELECT * FROM activitesvoyages WHERE status='ACTIVE' ORDER BY id ASC";
-                      $req = $db->prepare($sql);
-                      $req->execute();
+                      $sql = "SELECT * FROM activitesvoyages WHERE status='ACTIVE' ORDER BY date ASC";
+                      $req = $db->query($sql);
                       $req->setFetchMode(PDO::FETCH_ASSOC);
 
                       foreach($req as $row){
