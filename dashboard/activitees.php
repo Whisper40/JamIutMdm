@@ -438,7 +438,7 @@ require_once('includes/head.php');
 
                                   ?>
                                   <script>
-                                      window.location = 'http://127.0.0.1/dashboard/formulaire.php?type=sportive';
+                                      window.location = 'https://dashboard.jam-mdm.fr/formulaire.php?type=sportive';
                                   </script>
                                   <?php
                                 }
@@ -673,7 +673,7 @@ require_once('includes/head.php');
 
             ?>
             <script>
-                window.location = 'http://127.0.0.1/dashboard/formulaire.php?type=orientation';
+                window.location = 'https://dashboard.jam-mdm.fr/formulaire.php?type=orientation';
             </script>
             <?php
           }
@@ -818,7 +818,7 @@ require_once('includes/head.php');
                               }
                           );
                           return actions.payment.execute().then(function() {
-                              $(location).attr("href", '<?= "http://127.0.0.1"."/dashboard"; ?>');
+                              $(location).attr("href", '<?= "https://dashboard.jam-mdm.fr"; ?>');
                           });
                       });
                   },
