@@ -72,8 +72,8 @@ $status = $s->status;?>
         $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
         $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
           if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file2)) {
-              echo "The file ". basename( $_FILES["fileToUpload"]["name"][$i]). " has been uploaded.";
-              $succes = "<b>Succès : </b> Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à été transmis.";
+
+              $success = "<b>Succès : </b> Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à été transmis.";
               $status = "EN ATTENTE DE VALIDATION";
               date_default_timezone_set('Europe/Paris');
               setlocale(LC_TIME, 'fr_FR.utf8','fra');
@@ -205,12 +205,12 @@ $status = $s->status;?>
   <button type="submit" name="jamesbond" value="Envoyer un message" class="btn btn-rose btn-round">'.$erreur.'</button>'; }
 
 ?>
-<?php if(!empty($succes)){
+<?php if(!empty($success)){
 
 
 // CODE HTML ICI
    echo '
-  <button type="submit" name="jamesbond" value="Envoyer un message" class="btn btn-rose btn-round">'.$succes.'</button>'; }
+  <button type="submit" name="jamesbond" value="Envoyer un message" class="btn btn-rose btn-round">'.$success.'</button>'; }
 
 ?>
 
