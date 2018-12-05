@@ -474,7 +474,7 @@ require_once('includes/head.php');
                                 <?php
 
                                 if(!empty($_POST['jeparticipe'])){
-                                  $optionorganisation = $_POST['optionorganisation'];
+                                  $optionorganisation = $_POST['option'];
                                   var_dump($optionorganisation);
                                   $activity_name = $activity_slug;
                                   $selectrealname = $db->prepare("SELECT title,stock from activitesvoyages WHERE slug=:activity_name");
@@ -491,7 +491,7 @@ require_once('includes/head.php');
                                   $icon = 'dns';
                                   $date = strftime('%d/%m/%Y %H:%M:%S');
                                   $db->query("INSERT INTO participe (user_id, activity_name, date, optionorganisation) VALUES('$user_id' ,'$activity_name' ,'$date', '$optionorganisation')");
-                                  
+
 
 
 
