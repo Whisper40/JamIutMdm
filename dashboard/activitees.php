@@ -410,10 +410,7 @@ require_once('includes/head.php');
 
             ?>
             <?php
-            if(isset($_POST['accompagnement'])){
-$_SESSION['tentative'] = $_POST['optionorganisation'];
-$toto = $_SESSION['tentative'];
-}
+
              ?>
 
             <div class="container-fluid">
@@ -424,7 +421,7 @@ $toto = $_SESSION['tentative'];
                               <center>
                                 <h3 class="card-title">Choisir une formule</h3>
                               </center>
-                                      <form name="accompagnement" method="POST">
+                                      <form action="" method="POST">
                                         <div class="card-content">
                                           <div class="row">
                                           <div class="col-md-6">
@@ -443,16 +440,13 @@ $toto = $_SESSION['tentative'];
                                                           )
                                                       );
 
-
-
-
                                                       while($s4=$select4->fetch(PDO::FETCH_OBJ)){
                                                         $type4 = $s4->type;
                                                         $packname4 = $s4->packname;
                                                         ?>
                                                         <div class="radio">
                                                           <label>
-                                                            <input type="radio" name="optionorganisation" value="<?php echo $packname4; ?>"> <?php echo $packname4; ?>
+                                                            <input type="radio" name="option<?php echo $type4; ?>" value="<?php echo $packname4; ?>"> <?php echo $packname4; ?>
                                                           </label>
                                                         </div>
                                                       <?php  }  ?>
@@ -469,8 +463,6 @@ $toto = $_SESSION['tentative'];
                                           </div>
                                         </div>
                                   </div>
-
-
                                   </form>
                                 </div>
                                 </div>
@@ -480,7 +472,7 @@ $toto = $_SESSION['tentative'];
                                 <?php
 
                                 if(!empty($_POST['jeparticipe'])){
-
+                                  $optionorganisation = $_POST['optionorganisation'];
                                   var_dump($optionorganisation);
                                   $activity_name = $activity_slug;
                                   $selectrealname = $db->prepare("SELECT title,stock from activitesvoyages WHERE slug=:activity_name");
