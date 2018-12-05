@@ -402,6 +402,59 @@ require_once('includes/head.php');
 
                 $optionorganisation = $_SESSION['optionorganisation'];
                 $activity_name = $activity_slug;
+
+                ?>
+
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-content">
+                          <center>
+                            <h3 class="card-title">Choisir une formule</h3>
+                          </center>
+                                  <form name="" method="POST">
+                                    <div class="card-content">
+                                      <div class="row">
+                                      <div class="col-md-6">
+                                      <div class="info info-horizontal">
+                                          <div class="description">
+                                            <center>
+                                              <h4 class="info-title">L'organisation</h4>
+                                            </center>
+                                              <p class="description">
+                                                <?php
+                                                  $select4 = $db->prepare("SELECT * FROM activityradio WHERE slug=:activity_slug and type=:organisation");
+                                                  $select4->execute(array(
+                                                      "activity_slug"=>$activity_slug,
+                                                      "organisation"=>'organisation'
+                                                      )
+                                                  );
+                                                  while($s4=$select4->fetch(PDO::FETCH_OBJ)){
+                                                    $type4 = $s4->type;
+                                                    $packname4 = $s4->packname;
+                                                    ?>
+                                                    <div class="radio">
+                                                      <label>
+                                                        <input type="radio" name="optionorganisation" value="<?php echo $packname4; ?>"> <?php echo $packname4; ?>
+                                                      </label>
+                                                    </div>
+                                                  <?php  }  ?>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                      </div>
+                                      <div class="col-md-6">
+                                        <br><br><br><br><br>
+                                        <div class="text-center">
+                                           <button type="submit" class="btn btn-primary btn-round">Valider mes choix</button>
+                                      </div>
+                                      </div>
+                                    </div>
+                              </div>
+                              </form>
+                            </div>
+                            </div>
+                            </div>
+                            <?php
                 $selectrealname = $db->prepare("SELECT title,stock from activitesvoyages WHERE slug=:activity_name");
                 $selectrealname->execute(array(
                     "activity_name"=>$activity_name
@@ -532,55 +585,7 @@ require_once('includes/head.php');
 
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-content">
-                              <center>
-                                <h3 class="card-title">Choisir une formule</h3>
-                              </center>
-                                      <form name="" method="POST">
-                                        <div class="card-content">
-                                          <div class="row">
-                                          <div class="col-md-6">
-                                          <div class="info info-horizontal">
-                                              <div class="description">
-                                                <center>
-                                                  <h4 class="info-title">L'organisation</h4>
-                                                </center>
-                                                  <p class="description">
-                                                    <?php
-                                                      $select4 = $db->prepare("SELECT * FROM activityradio WHERE slug=:activity_slug and type=:organisation");
-                                                      $select4->execute(array(
-                                                          "activity_slug"=>$activity_slug,
-                                                          "organisation"=>'organisation'
-                                                          )
-                                                      );
-                                                      while($s4=$select4->fetch(PDO::FETCH_OBJ)){
-                                                        $type4 = $s4->type;
-                                                        $packname4 = $s4->packname;
-                                                        ?>
-                                                        <div class="radio">
-                                                          <label>
-                                                            <input type="radio" name="optionorganisation" value="<?php echo $packname4; ?>"> <?php echo $packname4; ?>
-                                                          </label>
-                                                        </div>
-                                                      <?php  }  ?>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                          </div>
-                                          <div class="col-md-6">
-                                            <br><br><br><br><br>
-                                            <div class="text-center">
-                                               <button type="submit" class="btn btn-primary btn-round">Valider mes choix</button>
-                                          </div>
-                                          </div>
-                                        </div>
-                                  </div>
-                                  </form>
-                                </div>
-                                </div>
-                                </div>
+
                             </div>
             </div>
 
