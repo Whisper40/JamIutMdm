@@ -451,6 +451,7 @@ require_once('includes/head.php');
 
 
               if(isset($_POST['organisation'])){
+            $optionorganisation = $_POST['optionorganisation'];
             $activity_name = $_GET['activityname'];
             $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name=:activity_name and user_id=:user_id");
             $check->execute(array(
@@ -488,7 +489,7 @@ require_once('includes/head.php');
                               $rstock = $selectstock->fetch(PDO::FETCH_OBJ);
                               $stock = $rstock->stock;
                               if($stock>0){
-                              $optionorganisation = $_POST['optionorganisation'];
+
                               ?>
 
                               <button type="submit" class="btn btn-primary btn-round" id="jeparticipe" name="jeparticipe" value="Je Participe">Je Participe</button>
