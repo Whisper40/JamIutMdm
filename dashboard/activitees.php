@@ -476,6 +476,7 @@ require_once('includes/head.php');
                                 if(!empty($_POST['jeparticipe'])){
                                   $optionorganisation = $_POST['optionorganisation'];
                                   var_dump($optionorganisation);
+                                  echo $optionorganisation;
                                   $activity_name = $activity_slug;
                                   $selectrealname = $db->prepare("SELECT title,stock from activitesvoyages WHERE slug=:activity_name");
                                   $selectrealname->execute(array(
@@ -496,7 +497,7 @@ require_once('includes/head.php');
                                       "user_id"=>$user_id,
                                       "activity_name"=>$activity_name,
                                       "date"=>$date,
-                                      "optionorganisation"=>'Je suis James'
+                                      "optionorganisation"=>$optionorganisation
                                       )
                                   );
 
