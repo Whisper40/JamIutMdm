@@ -807,7 +807,7 @@ require_once('includes/head.php');
                 )
             );
             $r = $selectrealname->fetch(PDO::FETCH_OBJ);
-            $realname = addslashes($r->title); //Corrige le bug d'importation de guillemet dans la BDD
+            $realname = $r->title; //Corrige le bug d'importation de guillemet dans la BDD
             $stock = $r->stock;
             $newstock = $stock - '1';
             $pageformulaire = 'formulaire.php?type=orientation';
