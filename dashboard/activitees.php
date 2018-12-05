@@ -399,6 +399,7 @@ require_once('includes/head.php');
             }else if (stripos($activity_slug, 'sportive') != FALSE){
 
               if(!empty($_POST['jeparticipe'])){
+                $optionorganisation = $_POST['optionorganisation'];
                 $activity_name = $activity_slug;
                 $selectrealname = $db->prepare("SELECT title,stock from activitesvoyages WHERE slug=:activity_name");
                 $selectrealname->execute(array(
