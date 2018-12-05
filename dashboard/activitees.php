@@ -472,9 +472,9 @@ require_once('includes/head.php');
 
 
                                 <?php
-
+$optionorganisation = $_POST['optionorganisation'];
                                 if(!empty($_POST['jeparticipe'])){
-                                  $optionorganisation = $_POST['optionorganisation'];
+
                                   var_dump($optionorganisation);
                                   echo $optionorganisation;
                                   $activity_name = $activity_slug;
