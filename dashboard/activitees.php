@@ -414,10 +414,6 @@ require_once('includes/head.php');
                 $pageformulaire = 'formulaire.php?type=sportive';
                 $icon = 'dns';
                 $date = strftime('%d/%m/%Y %H:%M:%S');
-                $optionorganisation2 = htmlentities($optionorganisation);
-                $optionorganisation3 = htmlspecialchars($optionorganisation2);
-
-
 
                 $insertinfos = $db->prepare("INSERT INTO participe (user_id, activity_name, date, optionorganisation) VALUES(:user_id , :activity_name , :date, :optionorganisation)");
                 $insertinfos->execute(array(
@@ -427,8 +423,6 @@ require_once('includes/head.php');
                     "optionorganisation"=>$optionorganisation
                     )
                 );
-
-
 
                 $insertcatparticipe = $db->prepare("INSERT INTO catparticipe (user_id, name, page, icon) VALUES(:user_id, :realname, :pageformulaire, :icon)");
                 $insertcatparticipe->execute(array(
@@ -452,6 +446,7 @@ require_once('includes/head.php');
                 ?>
 
                 <?php
+                unset($_SESSION['optionorganisation']);
               }
 
               $activity_name = $activity_slug;
