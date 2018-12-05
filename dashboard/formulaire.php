@@ -216,37 +216,11 @@ if ($type == 'ski'){
                                      </form>
                                      </div>
                                  </div>
-                                 <div class="col-sm-6">
-                                     <div class="card-content">
-                                       <br><br><br>
-                                       <center>
-                                       <h3 class="card-title">Annuler sa Participation</h3>
-                                       </center>
-                                        <div class="card-content">
-                                            <div class="info info-horizontal">
-                                                <div class="description">
-                                                    <center>
-                                                    <h4 class="info-title">En cliquant sur ce bouton je renonce à participer à l'activitée</h4>
-                                                    <form action="" method="post">
-                                                    <input type="submit" class="btn btn-primary btn-round btn-rose" id="jeneparticipeplus" name="jeneparticipeplus" value="J'annule ma participation">
-                                                   </form>
-                                                    </center>
-                                                </div>
-                                            </div>
-                                        </div>
-                                     </div>
-                                 </div>
-
                              </div>
                          </div>
                      </div>
                  </div>
                </div>
-
-
-
-
-
               <div id="results2"></div>
 
 
