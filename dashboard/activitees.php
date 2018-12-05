@@ -468,7 +468,7 @@ require_once('includes/head.php');
                                 </div>
                                 </div>
                                 <?php
-$optionorganisation = $_POST['optionorganisation'];
+
                                  ?>
 
 
@@ -476,7 +476,7 @@ $optionorganisation = $_POST['optionorganisation'];
 
                                 if(!empty($_POST['jeparticipe'])){
 
-
+$optionorganisation = $_POST['optionorganisation'];
                                   $activity_name = $activity_slug;
                                   $selectrealname = $db->prepare("SELECT title,stock from activitesvoyages WHERE slug=:activity_name");
                                   $selectrealname->execute(array(
@@ -579,9 +579,11 @@ $optionorganisation = $_POST['optionorganisation'];
                                                 ?>
                                                 <h4 class="info-title"><font color="red">Aucune place disponible</font></h4>
                                                 <?php
-                                                } }
+                                                }
+                                                ?>
+                                              </form><?php }
                                               ?>
-                                              <form>
+
                                                 <br><br>
                                           </center>
                                       </div>
