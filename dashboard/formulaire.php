@@ -5,6 +5,14 @@
     require_once('includes/head.php');
 if(isset($_GET['type'])){
   $type=$_GET['type'];
+  $cattitre = $_GET['type'];
+  $selecttitre = $db->prepare("SELECT title from activitesvoyages WHERE slug LIKE :typeslug");
+  $selecttitre->execute(array(
+      "typeslug"=>'%'.$cattitre.'%'
+      )
+  );
+  $recup = $selecttitre->fetch(PDO::FETCH_OBJ);
+  $titledelapage = $recup->title;
 
 //Fonction de vérification des données entrées
 function slugify($text){
@@ -89,7 +97,7 @@ if ($type == 'ski'){
                <div class="container-fluid">
                    <div class="card">
                        <div class="card-content">
-                           <h2 class="card-title text-center">Salut</h2>
+                           <h2 class="card-title text-center"><?php echo $titledelapage; ?></h2>
                            <form action="" method="post" id="myForm1" class="contact-form">
                            <div class="row">
                                <div class="col-sm-6">
@@ -192,18 +200,10 @@ if ($type == 'ski'){
                            <?php
 
 
-                           $cattitre = $_GET['type'];
-                           $selecttitre = $db->prepare("SELECT title from activitesvoyages WHERE slug LIKE :typeslug");
-                           $selecttitre->execute(array(
-                               "typeslug"=>'%'.$cattitre.'%'
-                               )
-                           );
-                           $recup = $selecttitre->fetch(PDO::FETCH_OBJ);
-                           $title = $recup->title;
 
 
                             ?>
-                             <h2 class="card-title text-center"><?php echo $title;?></h2>
+                             <h2 class="card-title text-center"><?php echo $titledelapage;?></h2>
                              <div class="row">
                                <div class="col-sm-6">
                                    <div class="card-content">
@@ -321,7 +321,7 @@ if(!empty($infoscomplementaires3)){
       <div class="container-fluid">
           <div class="card">
               <div class="card-content">
-                  <h2 class="card-title text-center">Titre</h2>
+                  <h2 class="card-title text-center"><?php echo $titledelapage; ?></h2>
                   <div class="row">
                     <div class="col-sm-6">
                       <div class="card-content">
@@ -465,7 +465,7 @@ if(!empty($infoscomplementaires3)){
                  <div class="container-fluid">
                      <div class="card">
                          <div class="card-content">
-                             <h2 class="card-title text-center">Titre</h2>
+                             <h2 class="card-title text-center"><?php echo $titledelapage; ?></h2>
                              <div class="row">
                                <div class="col-sm-6">
                                    <div class="card-content">
@@ -596,7 +596,7 @@ if(!empty($_POST['jeneparticipeplus'])){
                  <div class="container-fluid">
                      <div class="card">
                          <div class="card-content">
-                             <h2 class="card-title text-center">Titre</h2>
+                             <h2 class="card-title text-center"><?php echo $titledelapage; ?></h2>
                              <div class="row">
                                <div class="col-sm-6">
                                    <div class="card-content">
