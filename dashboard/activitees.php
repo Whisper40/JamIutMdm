@@ -552,7 +552,7 @@ require_once('includes/head.php');
                                                         ?>
                                                         <div class="radio">
                                                           <label>
-                                                            <input type="radio" name="optionorganisation" value="<?php echo $packname4; ?>"> <?php echo $packname4; ?>
+                                                            <input type="radio" name="optionorganisation[]" value="<?php echo $packname4; ?>"> <?php echo $packname4; ?>
                                                           </label>
                                                         </div>
                                                       <?php  }  ?>
