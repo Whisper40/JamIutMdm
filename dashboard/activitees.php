@@ -564,7 +564,7 @@ require_once('includes/head.php');
                                           <div class="col-md-6">
                                             <br><br><br><br><br>
                                             <div class="text-center">
-                                               <button type="submit" name="organisation" class="btn btn-primary btn-round">Valider mes choix</button>
+                                               <button type="submit" class="btn btn-primary btn-round">Valider mes choix</button>
                                           </div>
                                           </div>
                                         </div>
