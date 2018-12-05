@@ -399,7 +399,7 @@ require_once('includes/head.php');
             }else if (stripos($activity_slug, 'sportive') != FALSE){
 
               if(!empty($_POST['jeparticipe'])){
-                
+
                 $optionorganisation = $_POST['optionorganisation'];
                 $activity_name = $activity_slug;
                 $selectrealname = $db->prepare("SELECT title,stock from activitesvoyages WHERE slug=:activity_name");
@@ -454,6 +454,8 @@ require_once('includes/head.php');
 
               if(isset($_POST['organisation'])){
                 echo '<pre>'.print_r($_POST,true).'</pre>';
+                echo '<pre>'.$_POST['optionorganisation[0]'].'</pre>';
+                echo '<pre>'.$_POST['optionorganisation[1]'].'</pre>';
             $optionorganisation = $_POST['optionorganisation'];
             $activity_name = $_GET['activityname'];
             $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name=:activity_name and user_id=:user_id");
@@ -552,7 +554,7 @@ require_once('includes/head.php');
                                                         ?>
                                                         <div class="radio">
                                                           <label>
-                                                            <input type="radio" name="optionorganisation" value="<?php echo $packname4; ?>"> <?php echo $packname4; ?>
+                                                            <input type="radio" name="optionorganisation[]" value="<?php echo $packname4; ?>"> <?php echo $packname4; ?>
                                                           </label>
                                                         </div>
                                                       <?php  }  ?>
