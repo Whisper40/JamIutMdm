@@ -458,7 +458,7 @@ require_once('includes/head.php');
                                           <div class="col-md-6">
                                             <br><br><br><br><br>
                                             <div class="text-center">
-                                               <button type="submit" name="jeparticipe" class="btn btn-primary btn-round"> Valider mes choix</button>
+                                               <button type="submit" class="btn btn-primary btn-round"> Valider mes choix</button>
                                           </div>
                                           </div>
                                         </div>
@@ -470,7 +470,7 @@ require_once('includes/head.php');
                                 </div>
                                 </div>
 
-
+<?php echo $_POST['optionorganisation']; ?>
                                 <?php
                                 if(!empty($_POST['jeparticipe'])){
                                   $optionorganisation = $_POST['optionorganisation'];
