@@ -195,7 +195,7 @@ if ($type == 'ski'){
                            $cattitre = $_GET['type'];
                            $selecttitre = $db->prepare("SELECT title from activitesvoyages WHERE slug LIKE :typeslug");
                            $selecttitre->execute(array(
-                               "typeslug"=>%$cattitre%
+                               "typeslug"=>'%'.$cattitre.'%'
                                )
                            );
                            $recup = $selecttitre->fetch(PDO::FETCH_OBJ);
