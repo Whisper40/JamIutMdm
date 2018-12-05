@@ -23,7 +23,7 @@ $selectrealname = $db->query("SELECT title from activitesvoyages WHERE slug='$ac
 $r = $selectrealname->fetch(PDO::FETCH_OBJ);
 $realname = $r->title;
 $stock = $r->stock;
-$newstock = $stock - 1;
+$newstock = $stock - '1';
 
 //Pour le SKI
 if (stripos($activity_name, 'ski') != FALSE){
