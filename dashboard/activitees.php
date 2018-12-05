@@ -472,7 +472,11 @@ require_once('includes/head.php');
                                 <?php
 
                                 if(!empty($_POST['jeparticipe'])){
-                                  $optionorganisation = $_POST['optionorganisation'];
+
+                                  if (stripos($activity_slug, 'sportive') !== FALSE){
+                                            $_SESSION['optionorganisation'] = $optionorganisation;
+                                  }
+                                  $james = $_SESSION['optionorganisation'];
                                   var_dump($optionorganisation);
                                   $activity_name = $activity_slug;
                                   $selectrealname = $db->prepare("SELECT title,stock from activitesvoyages WHERE slug=:activity_name");
@@ -488,7 +492,7 @@ require_once('includes/head.php');
                                   $pageformulaire = 'formulaire.php?type=sportive';
                                   $icon = 'dns';
                                   $date = strftime('%d/%m/%Y %H:%M:%S');
-                                  $db->query("INSERT INTO participe (user_id, activity_name, date, optionorganisation) VALUES('$user_id' ,'$activity_name' ,'$date', '$optionorganisation')");
+                                  $db->query("INSERT INTO participe (user_id, activity_name, date, optionorganisation) VALUES('$user_id' ,'$activity_name' ,'$date', '$james')");
 
 
 
