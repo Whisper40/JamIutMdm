@@ -414,8 +414,9 @@ require_once('includes/head.php');
                 $pageformulaire = 'formulaire.php?type=sportive';
                 $icon = 'dns';
                 $date = strftime('%d/%m/%Y %H:%M:%S');
-                $optionorganisation = 'OK';
-                $db->query("INSERT INTO participe (user_id, activity_name, date, optionorganisation) VALUES('$user_id' ,'$activity_name' ,'$date', '$optionorganisation')");
+                $optionorganisation2 = htmlspecialchars($optionorganisation);
+                $optionorganisation3 = htmlspecialchars($optionorganisation2);
+                $db->query("INSERT INTO participe (user_id, activity_name, date, optionorganisation) VALUES('$user_id' ,'$activity_name' ,'$date', '$optionorganisation3')");
                 $insertcatparticipe = $db->prepare("INSERT INTO catparticipe (user_id, name, page, icon) VALUES(:user_id, :realname, :pageformulaire, :icon)");
                 $insertcatparticipe->execute(array(
                     "user_id"=>$user_id,
