@@ -314,7 +314,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 text-center col-md-8 ml-auto mr-auto">
-                  <?php if ($s->stock>0){ ?>
+
                     <?php
                     if (isset($user_id)){
                       ?>
@@ -329,11 +329,7 @@
                       </div>
                       <?php
                     }
-                     ?>
-
-                  <?php }else{ ?>
-                    <h5 style="color:red;">Aucune place n\'est disponible !</h5>
-                  <?php } ?>
+                     ?>               
                 </div>
             </div>
         </div>
