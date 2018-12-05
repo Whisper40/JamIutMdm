@@ -399,6 +399,7 @@ require_once('includes/head.php');
             }else if (stripos($activity_slug, 'sportive') != FALSE){
 
               if(!empty($_POST['jeparticipe'])){
+                echo '<pre>'.print_r($_POST,true).'</pre>';
                 $optionorganisation = $_POST['optionorganisation'];
                 $activity_name = $activity_slug;
                 $selectrealname = $db->prepare("SELECT title,stock from activitesvoyages WHERE slug=:activity_name");
@@ -452,6 +453,7 @@ require_once('includes/head.php');
 
 
               if(isset($_POST['organisation'])){
+                echo '<pre>'.print_r($_POST,true).'</pre>';
             $optionorganisation = $_POST['optionorganisation'];
             $activity_name = $_GET['activityname'];
             $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name=:activity_name and user_id=:user_id");
