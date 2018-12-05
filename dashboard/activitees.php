@@ -474,7 +474,7 @@ require_once('includes/head.php');
                                 if(!empty($_POST['jeparticipe'])){
 
                                   if (stripos($activity_slug, 'sportive') !== FALSE){
-                                            $_SESSION['optionorganisation'] = $_POST['optionorganisation'];;
+                                            $_SESSION['optionorganisation'] = $_POST['optionorganisation'];
                                   }
                                   $james = $_SESSION['optionorganisation'];
                                   var_dump($james);
