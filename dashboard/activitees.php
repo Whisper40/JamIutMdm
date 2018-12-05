@@ -446,7 +446,7 @@ require_once('includes/head.php');
                                                         ?>
                                                         <div class="radio">
                                                           <label>
-                                                            <input type="radio" name="option<?php echo $type4; ?>" value="<?php echo $packname4; ?>"> <?php echo $packname4; ?>
+                                                            <input type="radio" name="optionorganisation; ?>" value="<?php echo $packname4; ?>"> <?php echo $packname4; ?>
                                                           </label>
                                                         </div>
                                                       <?php  }  ?>
@@ -488,7 +488,7 @@ require_once('includes/head.php');
                                   $pageformulaire = 'formulaire.php?type=sportive';
                                   $icon = 'dns';
                                   $date = strftime('%d/%m/%Y %H:%M:%S');
-                                  $db->query("INSERT INTO participe (user_id, activity_name, date, optionorganisation) VALUES('$user_id' ,'$activity_name' ,'$date', 'toto')");
+                                  $db->query("INSERT INTO participe (user_id, activity_name, date, optionorganisation) VALUES('$user_id' ,'$activity_name' ,'$date', '$optionorganisation')");
 
                                   $insertcatparticipe = $db->prepare("INSERT INTO catparticipe (user_id, name, page, icon) VALUES(:user_id, :realname, :pageformulaire, :icon)");
                                   $insertcatparticipe->execute(array(
