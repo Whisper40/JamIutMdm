@@ -421,7 +421,7 @@ require_once('includes/head.php');
                               <center>
                                 <h3 class="card-title">Choisir une formule</h3>
                               </center>
-                                      <form action="organisation" method="POST">
+                                      <form name="organisation" method="POST">
                                         <div class="card-content">
                                           <div class="row">
                                           <div class="col-md-6">
@@ -476,7 +476,7 @@ $optionorganisation = $_POST['optionorganisation'];
 
                                 if(!empty($_POST['jeparticipe'])){
 
-                                  
+
                                   $activity_name = $activity_slug;
                                   $selectrealname = $db->prepare("SELECT title,stock from activitesvoyages WHERE slug=:activity_name");
                                   $selectrealname->execute(array(
