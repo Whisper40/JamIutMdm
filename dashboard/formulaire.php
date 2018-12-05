@@ -189,7 +189,21 @@ if ($type == 'ski'){
                  <div class="container-fluid">
                      <div class="card">
                          <div class="card-content">
-                             <h2 class="card-title text-center">Titre</h2>
+                           <?php
+
+
+                           $cattitre = $_GET['type'];
+                           $selecttitre = $db->prepare("SELECT title from activitesvoyages WHERE slug LIKE :typeslug");
+                           $selecttitre->execute(array(
+                               "typeslug"=>%$cattitre%
+                               )
+                           );
+                           $recup = $selecttitre->fetch(PDO::FETCH_OBJ);
+                           $title = $recup->title;
+
+
+                            ?>
+                             <h2 class="card-title text-center"><?php echo $title;?></h2>
                              <div class="row">
                                <div class="col-sm-6">
                                    <div class="card-content">
