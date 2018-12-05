@@ -61,7 +61,7 @@ $r = $selectrealname->fetch(PDO::FETCH_OBJ);
 $realname = $r->title;
 $stock = $r->stock;
 $newstock = $stock - '1';
-
+$db->query("INSERT INTO testkevin (stock, newstock, acti) VALUES ('$stock', '$newstock', '$activity_name')");
 $db->query("UPDATE activitesvoyages SET stock='$newstock' WHERE slug='$activity_name'");
 $db->query("INSERT INTO transactions (name, street, city, country, date, datesystem, transaction_id, amount, currency_code, user_id, raison) VALUES('$name', '$street', '$city', '$country_code', '$date', '$datesystem', '$transaction_id', '$price', '$currency_code', '$user_id' ,'$raison')");
 
