@@ -400,7 +400,7 @@ require_once('includes/head.php');
 
               if(!empty($_POST['jeparticipe'])){
 
-                
+                $optionorganisation = $_SESSION['optionorganisation'];
                 $activity_name = $activity_slug;
                 $selectrealname = $db->prepare("SELECT title,stock from activitesvoyages WHERE slug=:activity_name");
                 $selectrealname->execute(array(
@@ -455,7 +455,7 @@ require_once('includes/head.php');
               if(isset($_POST['optionorganisation'])){
                 echo '<pre>'.print_r($_POST,true).'</pre>';
 
-            $optionorganisation = $_POST['optionorganisation'];
+            $_SESSION['optionorganisation'] = $_POST['optionorganisation'];
             $activity_name = $_GET['activityname'];
             $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name=:activity_name and user_id=:user_id");
             $check->execute(array(
