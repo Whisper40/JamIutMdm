@@ -477,6 +477,12 @@ require_once('includes/head.php');
                                 if(!empty($_POST['jeparticipe'])){
 
 $optionorganisation = $_POST['optionorganisation'];
+echo $optionorganisation;
+echo $optionorganisation;
+
+echo $optionorganisation;
+echo $optionorganisation;
+echo $optionorganisation;
                                   $activity_name = $activity_slug;
                                   $selectrealname = $db->prepare("SELECT title,stock from activitesvoyages WHERE slug=:activity_name");
                                   $selectrealname->execute(array(
