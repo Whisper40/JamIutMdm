@@ -314,7 +314,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 text-center col-md-8 ml-auto mr-auto">
-
+                  <?php if ($s->stock>0){ ?>
                     <?php
                     if (isset($user_id)){
                       ?>
@@ -329,7 +329,11 @@
                       </div>
                       <?php
                     }
-                     ?>               
+                     ?>
+
+                  <?php }else{ ?>
+                    <h5 style="color:red;">Aucune place n\'est disponible !</h5>
+                  <?php } ?>
                 </div>
             </div>
         </div>
@@ -399,15 +403,10 @@
               </div>
               </center>
               <div class="pull-right">
-                <?php if ($s->stock>0){ ?>
                 <div class="button-container">
                   <a href="https://jam-mdm.fr/activitees.php?showmethisactivity=<?php echo $s->slug;?>" class="btn btn-primary btn-round btn-lg">Voir l'activité</a>
                 </div>
-
-                <?php }else{ ?>
-                  <br>
-                  <h5 style="color:red;">Aucune place n'est disponible !</h5>
-                <?php } ?>
+                  <br>                   
               </div>
 
               </div>
