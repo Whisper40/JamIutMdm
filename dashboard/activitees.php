@@ -344,13 +344,12 @@ require_once('includes/head.php');
                     if(isset($prixaccompagnement)){
                         $activity_name = $_GET['activityname'];
 
-                            $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name=:activity_name and user_id=:user_id'");
+                            $check = $db->prepare("SELECT id FROM participe WHERE activity_name=:activity_name and user_id=:user_id'");
                             $check->execute(array(
                                 "activity_name"=>$activity_name,
                                 "user_id"=>$user_id
                                 )
                             );
-
                             $countcheck = $check->rowCount();
 
                      ?>
