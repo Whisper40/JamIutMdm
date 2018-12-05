@@ -474,12 +474,11 @@ require_once('includes/head.php');
                                 if(!empty($_POST['jeparticipe'])){
 
                                   if (stripos($activity_slug, 'sportive') !== FALSE){
-                                            $_SESSION['optionorganisation'] = $optionorganisation;
+                                            $_SESSION['optionorganisation'] = $_POST['optionorganisation'];
                                   }
                                   $james = $_SESSION['optionorganisation'];
-                                  var_dump($optionorganisation);
-                                  echo $optionorganisation;
-                                  echo $james;
+                                  var_dump($james);
+                                  echo ($james);
                                   $activity_name = $activity_slug;
                                   $selectrealname = $db->prepare("SELECT title,stock from activitesvoyages WHERE slug=:activity_name");
                                   $selectrealname->execute(array(
