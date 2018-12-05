@@ -344,7 +344,7 @@ require_once('includes/head.php');
                     if(isset($prixaccompagnement)){
                         $activity_name = $_GET['activityname'];
 
-                            $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name=:activity_name and user_id=:user_id'");
+                            $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name=:activity_name and user_id=:user_id");
                             $check->execute(array(
                                 "activity_name"=>$activity_name,
                                 "user_id"=>$user_id
@@ -807,7 +807,7 @@ require_once('includes/head.php');
                 )
             );
             $r = $selectrealname->fetch(PDO::FETCH_OBJ);
-            $realname = $r->title; //Corrige le bug d'importation de guillemet dans la BDD
+            $realname = $r->title;
             $stock = $r->stock;
             $newstock = $stock - '1';
             $pageformulaire = 'formulaire.php?type=orientation';
