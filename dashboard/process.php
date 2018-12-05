@@ -54,6 +54,13 @@ $db->query("INSERT INTO participe (user_id, activity_name, date) VALUES('$user_i
 $db->query("INSERT INTO catparticipe (user_id, name, page, icon) VALUES('$user_id', '$realname', '$pageformulaire', '$icon')");
 }
 
+$activity_name = $_SESSION['activity_name'];
+
+$selectrealname = $db->query("SELECT title from activitesvoyages WHERE slug='$activity_name'");
+$r = $selectrealname->fetch(PDO::FETCH_OBJ);
+$realname = $r->title;
+$stock = $r->stock;
+$newstock = $stock - '1';
 
 $db->query("UPDATE activitesvoyages SET stock='$newstock' WHERE slug='$activity_name'");
 $db->query("INSERT INTO transactions (name, street, city, country, date, datesystem, transaction_id, amount, currency_code, user_id, raison) VALUES('$name', '$street', '$city', '$country_code', '$date', '$datesystem', '$transaction_id', '$price', '$currency_code', '$user_id' ,'$raison')");
