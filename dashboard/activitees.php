@@ -452,7 +452,7 @@ $toto = $_SESSION['tentative'];
                                                         ?>
                                                         <div class="radio">
                                                           <label>
-                                                            <input type="radio" name="option<?php echo $type4; ?>" value="<?php echo $packname4; ?>"> <?php echo $packname4; ?>
+                                                            <input type="radio" name="optionorganisation" value="<?php echo $packname4; ?>"> <?php echo $packname4; ?>
                                                           </label>
                                                         </div>
                                                       <?php  }  ?>
