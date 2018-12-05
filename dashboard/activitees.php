@@ -410,7 +410,53 @@ require_once('includes/head.php');
 
             ?>
             <?php
+            if(!empty($_POST['jeparticipe'])){
 
+              $optionorganisation = $_POST['optionorganisation'];
+              $activity_name = $activity_slug;
+              $selectrealname = $db->prepare("SELECT title,stock from activitesvoyages WHERE slug=:activity_name");
+              $selectrealname->execute(array(
+                  "activity_name"=>$activity_name
+                  )
+              );
+
+              $r = $selectrealname->fetch(PDO::FETCH_OBJ);
+              $realname = $r->title;
+              $stock = $r->stock;
+              $newstock = $stock - '1';
+              $pageformulaire = 'formulaire.php?type=sportive';
+              $icon = 'dns';
+              $date = strftime('%d/%m/%Y %H:%M:%S');
+              $db->query("INSERT INTO participe (user_id, activity_name, date, optionorganisation) VALUES('$user_id' ,'$activity_name' ,'$date', '$optionorganisation')");
+
+              $insertcatparticipe = $db->prepare("INSERT INTO catparticipe (user_id, name, page, icon) VALUES(:user_id, :realname, :pageformulaire, :icon)");
+              $insertcatparticipe->execute(array(
+                  "user_id"=>$user_id,
+                  "realname"=>$realname,
+                  "pageformulaire"=>$pageformulaire,
+                  "icon"=>$icon
+                  )
+              );
+
+              $insertformulairesportive = $db->prepare("INSERT INTO formulairesportive (user_id) VALUES(:user_id)");
+              $insertformulairesportive->execute(array(
+                  "user_id"=>$user_id
+                  )
+              );
+
+              $insertactivitesvoyages = $db->prepare("UPDATE activitesvoyages SET stock=:newstock WHERE slug=:activity_name");
+              $insertactivitesvoyages->execute(array(
+                  "newstock"=>$newstock,
+                  "activity_name"=>$activity_slug
+                  )
+              );
+
+              ?>
+              <script>
+                  window.location = 'https://dashboard.jam-mdm.fr/formulaire.php?type=sportive';
+              </script>
+              <?php
+            }
              ?>
 
             <div class="container-fluid">
@@ -471,53 +517,7 @@ require_once('includes/head.php');
 
                                 <?php
 
-                                if(!empty($_POST['jeparticipe'])){
 
-                                  $optionorganisation = $_POST['optionorganisation'];
-                                  $activity_name = $activity_slug;
-                                  $selectrealname = $db->prepare("SELECT title,stock from activitesvoyages WHERE slug=:activity_name");
-                                  $selectrealname->execute(array(
-                                      "activity_name"=>$activity_name
-                                      )
-                                  );
-
-                                  $r = $selectrealname->fetch(PDO::FETCH_OBJ);
-                                  $realname = $r->title;
-                                  $stock = $r->stock;
-                                  $newstock = $stock - '1';
-                                  $pageformulaire = 'formulaire.php?type=sportive';
-                                  $icon = 'dns';
-                                  $date = strftime('%d/%m/%Y %H:%M:%S');
-                                  $db->query("INSERT INTO participe (user_id, activity_name, date, optionorganisation) VALUES('$user_id' ,'$activity_name' ,'$date', '$optionorganisation')");
-
-                                  $insertcatparticipe = $db->prepare("INSERT INTO catparticipe (user_id, name, page, icon) VALUES(:user_id, :realname, :pageformulaire, :icon)");
-                                  $insertcatparticipe->execute(array(
-                                      "user_id"=>$user_id,
-                                      "realname"=>$realname,
-                                      "pageformulaire"=>$pageformulaire,
-                                      "icon"=>$icon
-                                      )
-                                  );
-
-                                  $insertformulairesportive = $db->prepare("INSERT INTO formulairesportive (user_id) VALUES(:user_id)");
-                                  $insertformulairesportive->execute(array(
-                                      "user_id"=>$user_id
-                                      )
-                                  );
-
-                                  $insertactivitesvoyages = $db->prepare("UPDATE activitesvoyages SET stock=:newstock WHERE slug=:activity_name");
-                                  $insertactivitesvoyages->execute(array(
-                                      "newstock"=>$newstock,
-                                      "activity_name"=>$activity_slug
-                                      )
-                                  );
-
-                                  ?>
-                                  <script>
-                                      window.location = 'https://dashboard.jam-mdm.fr/formulaire.php?type=sportive';
-                                  </script>
-                                  <?php
-                                }
 
 
 
