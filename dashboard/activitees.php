@@ -410,7 +410,10 @@ require_once('includes/head.php');
 
             ?>
             <?php
-$optionorganisation = $_POST['optionorganisation'];
+            if(isset($_POST['accompagnement'])){
+$_SESSION['tentative'] = $_POST['optionorganisation'];
+$toto = $_SESSION['tentative'];
+}
              ?>
 
             <div class="container-fluid">
@@ -477,7 +480,7 @@ $optionorganisation = $_POST['optionorganisation'];
                                 <?php
 
                                 if(!empty($_POST['jeparticipe'])){
-                                  
+
                                   var_dump($optionorganisation);
                                   $activity_name = $activity_slug;
                                   $selectrealname = $db->prepare("SELECT title,stock from activitesvoyages WHERE slug=:activity_name");
@@ -493,7 +496,7 @@ $optionorganisation = $_POST['optionorganisation'];
                                   $pageformulaire = 'formulaire.php?type=sportive';
                                   $icon = 'dns';
                                   $date = strftime('%d/%m/%Y %H:%M:%S');
-                                  $db->query("INSERT INTO participe (user_id, activity_name, date, optionorganisation) VALUES('$user_id' ,'$activity_name' ,'$date', '$optionorganisation')");
+                                  $db->query("INSERT INTO participe (user_id, activity_name, date, optionorganisation) VALUES('$user_id' ,'$activity_name' ,'$date', '$toto')");
 
 
 
