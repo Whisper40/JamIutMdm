@@ -421,7 +421,7 @@ require_once('includes/head.php');
                               <center>
                                 <h3 class="card-title">Choisir une formule</h3>
                               </center>
-                                      <form name="organisation" method="POST">
+                                      <form action="" method="POST">
                                         <div class="card-content">
                                           <div class="row">
                                           <div class="col-md-6">
@@ -567,7 +567,7 @@ echo $optionorganisation;
                                             }else{
                                             ?>
                                             <h4 class="info-title">En cliquant sur ce bouton j'accepte de participer à l'activitée</h4>
-                                            <form action="" method="post">
+                                            <form action="" method="POST">
                                               <?php
                                                 $selectstock = $db->prepare("SELECT stock from activitesvoyages WHERE slug=:activity_name");
                                                 $selectstock->execute(array(
