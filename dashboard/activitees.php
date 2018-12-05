@@ -472,7 +472,7 @@ require_once('includes/head.php');
 
 
                                 <?php
-                                $optionorganisation = $_POST['optionorganisation'];
+                                $james = $_POST['optionorganisation'];
                                 if(!empty($_POST['jeparticipe'])){
                                   $optionorganisation = $_POST['optionorganisation'];
                                   $activity_name = $activity_slug;
@@ -494,7 +494,7 @@ require_once('includes/head.php');
                                       "user_id"=>$user_id,
                                       "activity_name"=>$activity_name,
                                       "date"=>$date,
-                                      "optionorganisation"=>'$optionorganisation'
+                                      "optionorganisation"=>$james
                                       )
                                   );
 
