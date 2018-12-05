@@ -488,7 +488,7 @@ require_once('includes/head.php');
                                   $pageformulaire = 'formulaire.php?type=sportive';
                                   $icon = 'dns';
                                   $date = strftime('%d/%m/%Y %H:%M:%S');
-                                  $db->query("INSERT INTO participe (user_id, activity_name, date, optionorganisation) VALUES('$user_id' ,'$activity_name' ,'$date', '$toto')");
+                                  $db->query("INSERT INTO participe (user_id, activity_name, date, optionorganisation) VALUES('$user_id' ,'$activity_name' ,'$date', '$optionorganisation')");
 
 
 
