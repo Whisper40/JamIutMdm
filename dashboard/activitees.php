@@ -452,7 +452,7 @@ require_once('includes/head.php');
 
 
 
-              if(isset($_POST['organisation'])){
+              if(isset($_POST['optionorganisation'])){
                 echo '<pre>'.print_r($_POST,true).'</pre>';
 
             $optionorganisation = $_POST['optionorganisation'];
@@ -530,7 +530,7 @@ require_once('includes/head.php');
                               <center>
                                 <h3 class="card-title">Choisir une formule</h3>
                               </center>
-                                      <form name="organisation" method="POST">
+                                      <form name="" method="POST">
                                         <div class="card-content">
                                           <div class="row">
                                           <div class="col-md-6">
