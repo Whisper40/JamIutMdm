@@ -397,259 +397,210 @@ require_once('includes/head.php');
             <?php
 
             }else if (stripos($activity_slug, 'sportive') != FALSE){
-
-              if(!empty($_POST['jeparticipe'])){
-
-                $optionorganisation = $_SESSION['optionorganisation'];
-                $activity_name = $activity_slug;
-
-                ?>
-
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-content">
-                          <center>
-                            <h3 class="card-title">Choisir une formule</h3>
-                          </center>
-                                  <form name="" method="POST">
-                                    <div class="card-content">
-                                      <div class="row">
-                                      <div class="col-md-6">
-                                      <div class="info info-horizontal">
-                                          <div class="description">
-                                            <center>
-                                              <h4 class="info-title">L'organisation</h4>
-                                            </center>
-                                              <p class="description">
-                                                <?php
-                                                  $select4 = $db->prepare("SELECT * FROM activityradio WHERE slug=:activity_slug and type=:organisation");
-                                                  $select4->execute(array(
-                                                      "activity_slug"=>$activity_slug,
-                                                      "organisation"=>'organisation'
-                                                      )
-                                                  );
-                                                  while($s4=$select4->fetch(PDO::FETCH_OBJ)){
-                                                    $type4 = $s4->type;
-                                                    $packname4 = $s4->packname;
-                                                    ?>
-                                                    <div class="radio">
-                                                      <label>
-                                                        <input type="radio" name="optionorganisation" value="<?php echo $packname4; ?>"> <?php echo $packname4; ?>
-                                                      </label>
-                                                    </div>
-                                                  <?php  }  ?>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                      </div>
-                                      <div class="col-md-6">
-                                        <br><br><br><br><br>
-                                        <div class="text-center">
-                                           <button type="submit" class="btn btn-primary btn-round">Valider mes choix</button>
-                                      </div>
-                                      </div>
-                                    </div>
-                              </div>
-                              </form>
-                            </div>
-                            </div>
-                            </div>
-                            <?php
-                $selectrealname = $db->prepare("SELECT title,stock from activitesvoyages WHERE slug=:activity_name");
-                $selectrealname->execute(array(
-                    "activity_name"=>$activity_name
-                    )
-                );
-                $r = $selectrealname->fetch(PDO::FETCH_OBJ);
-                $realname = $r->title;
-                $stock = $r->stock;
-                $newstock = $stock - '1';
-                $pageformulaire = 'formulaire.php?type=sportive';
-                $icon = 'dns';
-                $date = strftime('%d/%m/%Y %H:%M:%S');
-
-                $insertinfos = $db->prepare("INSERT INTO participe (user_id, activity_name, date, optionorganisation) VALUES(:user_id , :activity_name , :date, :optionorganisation)");
-                $insertinfos->execute(array(
-                    "user_id"=>$user_id,
-                    "activity_name"=>$activity_name,
-                    "date"=>$date,
-                    "optionorganisation"=>$optionorganisation
-                    )
-                );
-
-                $insertcatparticipe = $db->prepare("INSERT INTO catparticipe (user_id, name, page, icon) VALUES(:user_id, :realname, :pageformulaire, :icon)");
-                $insertcatparticipe->execute(array(
-                    "user_id"=>$user_id,
-                    "realname"=>$realname,
-                    "pageformulaire"=>$pageformulaire,
-                    "icon"=>$icon
-                    )
-                );
-                $insertformulairesportive = $db->prepare("INSERT INTO formulairesportive (user_id) VALUES(:user_id)");
-                $insertformulairesportive->execute(array(
-                    "user_id"=>$user_id
-                    )
-                );
-                $insertactivitesvoyages = $db->prepare("UPDATE activitesvoyages SET stock=:newstock WHERE slug=:activity_name");
-                $insertactivitesvoyages->execute(array(
-                    "newstock"=>$newstock,
-                    "activity_name"=>$activity_slug
-                    )
-                );
-                ?>
-
-                <?php
-                unset($_SESSION['optionorganisation']);
-              }
-
               $activity_name = $activity_slug;
               $participe = $db->prepare("SELECT * FROM participe where user_id=:user_id and activity_name=:activity_name");
+
               $participe->execute(array(
                   "user_id"=>$user_id,
                   "activity_name"=>$activity_name
                   )
               );
+
               $countparticipe = $participe->rowCount();
 
-
-
-              if(isset($_POST['optionorganisation'])){
-                echo '<pre>'.print_r($_POST,true).'</pre>';
-
-            $_SESSION['optionorganisation'] = $_POST['optionorganisation'];
-            $activity_name = $_GET['activityname'];
-            $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name=:activity_name and user_id=:user_id");
-            $check->execute(array(
-              "activity_name"=>$activity_name,
-              "user_id"=>$user_id
-              )
-            );
-            $countcheck = $check->rowCount();
-               ?>
-              <div class="col-md-6">
-              <div class="card">
-              <div class="card-content">
-              <center>
-              <h3 class="card-title">Participation</h3>
-              </center>
-              <div class="card-content">
-                <div class="info info-horizontal">
-                    <div class="description">
-                        <center>
-                          <?php
-                          if($countcheck>0){
-                          ?>
-                          <h4 class="info-title"><font color="red">Tu participe déja à cette activitée</font></h4>
-                          <?php
-                          }else{
-                          ?>
-                          <h4 class="info-title">En cliquant sur ce bouton j'accepte de participer à l'activitée</h4>
-                          <form action="" method="POST">
-                            <?php
-                              $selectstock = $db->prepare("SELECT stock from activitesvoyages WHERE slug=:activity_name");
-                              $selectstock->execute(array(
-                                  "activity_name"=>$activity_name
-                                  )
-                              );
-                              $rstock = $selectstock->fetch(PDO::FETCH_OBJ);
-                              $stock = $rstock->stock;
-                              if($stock>0){
-
-                              ?>
-
-                              <button type="submit" class="btn btn-primary btn-round" id="jeparticipe" name="jeparticipe" value="Je Participe">Je Participe</button>
-                              <?php
-                              }else{
-                              ?>
-                              <h4 class="info-title"><font color="red">Aucune place disponible</font></h4>
-                              <?php
-                              }
-                              ?>
-                            </form>
-                          <?php
-                        }
-                            ?>
-                              <br><br>
-                        </center>
-                    </div>
-                </div>
-              </div>
-            </div>
-            </div>
-            </div>
-            <?php }
             ?>
+            <?php
 
-
-
+             ?>
 
             <div class="container-fluid">
                 <div class="row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-content">
+                              <center>
+                                <h3 class="card-title">Choisir une formule</h3>
+                              </center>
+                                      <form name="organisation" method="POST">
+                                        <div class="card-content">
+                                          <div class="row">
+                                          <div class="col-md-6">
+                                          <div class="info info-horizontal">
+                                              <div class="description">
+                                                <center>
+                                                  <h4 class="info-title">L'organisation</h4>
+                                                </center>
+                                                  <p class="description">
 
-                            </div>
-            </div>
+                                                    <?php
+                                                      $select4 = $db->prepare("SELECT * FROM activityradio WHERE slug=:activity_slug and type=:organisation");
+                                                      $select4->execute(array(
+                                                          "activity_slug"=>$activity_slug,
+                                                          "organisation"=>'organisation'
+                                                          )
+                                                      );
 
-<?php
+                                                      while($s4=$select4->fetch(PDO::FETCH_OBJ)){
+                                                        $type4 = $s4->type;
+                                                        $packname4 = $s4->packname;
+                                                        ?>
+                                                        <div class="radio">
+                                                          <label>
+                                                            <input type="radio" name="optionorganisation" value="<?php echo $packname4; ?>"> <?php echo $packname4; ?>
+                                                          </label>
+                                                        </div>
+                                                      <?php  }  ?>
+                                                        </p>
+                                                    </div>
+                                                </div>
 
-                                  //Debut cinema
-                                  }else if (stripos($activity_slug, 'cinema') != FALSE){
+                                          </div>
+                                          <div class="col-md-6">
+                                            <br><br><br><br><br>
+                                            <div class="text-center">
+                                               <button type="submit" class="btn btn-primary btn-round"> Valider mes choix</button>
+                                          </div>
+                                          </div>
+                                        </div>
+                                  </div>
+                                  </form>
+                                </div>
+                                </div>
+                                </div>
+                                <?php
+
+                                 ?>
 
 
-                                    $activity_name = $_GET['activityname'];
+                                <?php
 
-                                    $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name=:activity_name and user_id=:user_id");
-                                    $check->execute(array(
-                                        "activity_name"=>$activity_name,
-                                        "user_id"=>$user_id
+                                if(!empty($_POST['jeparticipe'])){
+                                  $optionorganisation = $_SESSION['optionorganisation'];
+
+                $activity_name = $activity_slug;
+                      $selectrealname = $db->prepare("SELECT title,stock from activitesvoyages WHERE slug=:activity_name");
+                      $selectrealname->execute(array(
+                          "activity_name"=>$activity_name
+                          )
+                      );
+
+                      $r = $selectrealname->fetch(PDO::FETCH_OBJ);
+                      $realname = $r->title;
+                      $stock = $r->stock;
+                      $newstock = $stock - '1';
+                      $pageformulaire = 'formulaire.php?type=sportive';
+                      $icon = 'dns';
+                      $date = strftime('%d/%m/%Y %H:%M:%S');
+
+                      $insertinfos = $db->prepare("INSERT INTO participe (user_id, activity_name, date, optionorganisation) VALUES(:user_id , :activity_name , :date, :optionorganisation)");
+                                      $insertinfos->execute(array(
+                                          "user_id"=>$user_id,
+                                          "activity_name"=>$activity_name,
+                                          "date"=>$date,
+                                          "optionorganisation"=>$optionorganisation
+                                          )
+                                      );
+                      $insertcatparticipe = $db->prepare("INSERT INTO catparticipe (user_id, name, page, icon) VALUES(:user_id, :realname, :pageformulaire, :icon)");
+                      $insertcatparticipe->execute(array(
+                          "user_id"=>$user_id,
+                          "realname"=>$realname,
+                          "pageformulaire"=>$pageformulaire,
+                          "icon"=>$icon
+                          )
+                      );
+
+                      $insertformulairesportive = $db->prepare("INSERT INTO formulairesportive (user_id) VALUES(:user_id)");
+                      $insertformulairesportive->execute(array(
+                          "user_id"=>$user_id
+                          )
+                      );
+
+                      $insertactivitesvoyages = $db->prepare("UPDATE activitesvoyages SET stock=:newstock WHERE slug=:activity_name");
+                      $insertactivitesvoyages->execute(array(
+                          "newstock"=>$newstock,
+                          "activity_name"=>$activity_slug
+                          )
+                      );
+
+                      ?>
+                      <script>
+                          window.location = 'https://dashboard.jam-mdm.fr/';
+                      </script>
+                      <?php
+                      unset($_SESSION['optionorganisation']);
+                    }
+
+
+
+
+
+                    if(isset($_POST['optionorganisation'])){
+                      $_SESSION['optionorganisation'] = $_POST['optionorganisation'];
+                        $activity_name = $_GET['activityname'];
+
+                $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name=:activity_name and user_id=:user_id");
+                $check->execute(array(
+                    "activity_name"=>$activity_name,
+                    "user_id"=>$user_id
+                    )
+                );
+
+
+
+
+                $countcheck = $check->rowCount();
+
+                     ?>
+                    <div class="col-md-6">
+                    <div class="card">
+                    <div class="card-content">
+                    <center>
+                    <h3 class="card-title">Participation</h3>
+                    </center>
+                    <div class="card-content">
+                      <div class="info info-horizontal">
+                          <div class="description">
+                              <center>
+                                <?php
+                                if($countcheck>0){
+                                ?>
+                                <h4 class="info-title"><font color="red">Tu participe déja à cette activitée</font></h4>
+                                <?php
+                                }else{
+                                ?>
+                                <h4 class="info-title">En cliquant sur ce bouton j'accepte de participer à l'activitée</h4>
+                                <form action="" method="post">
+                                  <?php
+                                    $selectstock = $db->prepare("SELECT stock from activitesvoyages WHERE slug=:activity_name");
+                                    $selectstock->execute(array(
+                                        "activity_name"=>$activity_name
                                         )
                                     );
 
-
-                                    $countcheck = $check->rowCount();
-
-?>
-                                    <div class="container-fluid">
-                                        <div class="row">
-                                          <div class="col-md-6 col-md-offset-3">
-                                              <div class="card">
-                                                  <div class="card-content">
-                                                    <center>
-                                                      <h3 class="card-title">Validation et Paiement</h3>
-                                                    </center>
-                                                    <form name="accompagnement" method="POST">
-                                                        <div class="card-content">
-                                                            <div class="info info-horizontal">
-                                                                <div class="description">
-                                                                  <center>
-                                                                  <?php
-                                                                  if($countcheck>0){
-                                                                  ?>
-                                                                  <h4 class="info-title"><font color="red">Tu participe déja à cette activitée</font></h4>
-                                                                  <?php
-                                                                  }else{
-
-                                                                  $total = $prixactivite;
-                                                                  ?>
-                                                                    <h4 class="info-title">Prix Total : <?php echo $total;?>€</h4>
-                                                                      <?php
-                                                                    if($stock>0){
-                                                                       ?>
-                                                                      <div align="center" id="paypal-button"></div>
-                                                                      <?php
-                                                                    }else{
-                                                                      ?>
-                                                                      <h4 class="info-title"><font color="red">Aucune place disponible</font></h4>
-                                                                    <?php } } ?>
-                                                                    </center>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-
+                                    $rstock = $selectstock->fetch(PDO::FETCH_OBJ);
+                                    $stock = $rstock->stock;
+                                    if($stock>0){
+                                    ?>
+                                    <button type="submit" class="btn btn-primary btn-round" id="jeparticipe" name="jeparticipe" value="Je Participe">Je Participe</button>
+                                    <?php
+                                    }else{
+                                    ?>
+                                    <h4 class="info-title"><font color="red">Aucune place disponible</font></h4>
+                                    <?php
+                                    } }
+                                  ?>
+                                </form>
+                                    <br><br>
+                              </center>
+                          </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php }  ?>
+</div>
+</div>
 <?php
             //DEBUT NETTOYAGE
           }else if (stripos($activity_slug, 'nettoyage') != FALSE){
