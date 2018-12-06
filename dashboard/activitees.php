@@ -396,6 +396,28 @@ require_once('includes/head.php');
 
             <?php
 
+
+            }else if (stripos($activity_slug, 'cinema') != FALSE){
+            ?>
+
+            <?php
+
+            $total = $prixactivite;
+            ?><h2> Total = <?php echo $total;?>€
+              <?php
+            if($stock>0){
+               ?>
+              <div align="center" id="paypal-button"></div>
+              <?php
+            }else{
+              ?>
+              <button type="button">Aucune place disponible</button>
+            <?php
+
+            }
+
+
+            //Fin Cinema
             }else if (stripos($activity_slug, 'sportive') != FALSE){
               $activity_name = $activity_slug;
               $participe = $db->prepare("SELECT * FROM participe where user_id=:user_id and activity_name=:activity_name");
