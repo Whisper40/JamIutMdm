@@ -19,7 +19,14 @@ $raison = 'Commande activité/voyage';
 
 $activity_name = $_SESSION['activity_name'];
 
-$selectrealname = $db->query("SELECT * from activitesvoyages WHERE slug='$activity_name'");
+
+$selectrealname = $db->prepare("SELECT * from activitesvoyages WHERE slug=:activity_name");
+$selectrealname->execute(array(
+    "activity_name"=>$activity_name
+    )
+);
+
+
 $r = $selectrealname->fetch(PDO::FETCH_OBJ);
 $realname = $r->title;
 $stock = $r->stock;
@@ -32,9 +39,32 @@ $optionrepas = $_SESSION['optionrepas'];
 $pageformulaire = 'formulaire.php?type=ski';
 $icon = 'dns';
 
-$db->query("INSERT INTO participe (user_id, activity_name, date, optionmateriel, optionrepas) VALUES('$user_id' ,'$activity_name' ,'$date' ,'$optionmateriel' ,'$optionrepas')");
-$db->query("INSERT INTO catparticipe (user_id, name, page, icon) VALUES('$user_id', '$realname', '$pageformulaire', '$icon')");
-$db->query("INSERT INTO formulaireski (user_id) VALUES('$user_id')");
+$insertparticipe = $db->prepare("INSERT INTO participe (user_id, activity_name, date, optionmateriel, optionrepas) VALUES(:user_id , :activity_name , :date , :optionmateriel , :optionrepas)");
+$insertparticipe->execute(array(
+    "user_id"=>$user_id,
+    "activity_name"=>$activity_name,
+    "date"=>$date,
+    "optionmateriel"=>$optionmateriel,
+    "optionrepas"=>$optionrepas
+    )
+);
+
+
+$insertcatparticipe = $db->prepare("INSERT INTO catparticipe (user_id, name, page, icon) VALUES(:user_id, :realname, :pageformulaire, :icon)");
+$insertcatparticipe->execute(array(
+    "user_id"=>$user_id,
+    "realname"=>$realname,
+    "pageformulaire"=>$pageformulaire,
+    "icon"=>$icon
+    )
+);
+
+
+$insertformski = $db->prepare("INSERT INTO formulaireski (user_id) VALUES(:user_id)");
+$insertformski->execute(array(
+    "user_id"=>$user_id
+    )
+);
 
 // Pour le RUGBY
 }else if (stripos($activity_name, 'rugby') != FALSE){
@@ -42,23 +72,80 @@ $optionaccompagnement = $_SESSION['optionaccompagnement'];
 $pageformulaire = 'formulaire.php?type=rugby';
 $icon = 'whatshot';
 
-$db->query("INSERT INTO participe (user_id, activity_name, date, optionaccompagnement) VALUES('$user_id' ,'$activity_name' ,'$date', '$optionaccompagnement')");
-$db->query("INSERT INTO catparticipe (user_id, name, page, icon) VALUES('$user_id', '$realname', '$pageformulaire', '$icon')");
-$db->query("INSERT INTO formulairerugby (user_id) VALUES('$user_id')");
+
+$insertparticipe2 = $db->prepare("INSERT INTO participe (user_id, activity_name, date, optionaccompagnement) VALUES(:user_id ,:activity_name , :date, :optionaccompagnement)");
+$insertparticipe2->execute(array(
+    "user_id"=>$user_id,
+    "activity_name"=>$activity_name,
+    "date"=>$date,
+    "optionaccompagnement"=>$optionaccompagnement
+    )
+);
+
+
+$insertcatparticipe2 = $db->prepare("INSERT INTO catparticipe (user_id, name, page, icon) VALUES(:user_id, :realname, :pageformulaire, :icon)");
+$insertcatparticipe2->execute(array(
+    "user_id"=>$user_id,
+    "realname"=>$realname,
+    "pageformulaire"=>$pageformulaire,
+    "icon"=>$icon
+    )
+);
+
+$insertformrugby = $db->prepare("INSERT INTO formulairerugby (user_id) VALUES(:user_id)");
+$insertformrugby->execute(array(
+    "user_id"=>$user_id
+    )
+);
 
 }else if (stripos($activity_name, 'cinema') != FALSE){
 $pageformulaire = 'formulaire.php?type=cinema';
 $icon = 'whatshot';
 
-$db->query("INSERT INTO participe (user_id, activity_name, date) VALUES('$user_id' ,'$activity_name' ,'$date')");
-$db->query("INSERT INTO catparticipe (user_id, name, page, icon) VALUES('$user_id', '$realname', '$pageformulaire', '$icon')");
+
+$insertparticipe3 = $db->prepare("INSERT INTO participe (user_id, activity_name, date) VALUES(:user_id , :activity_name ,:date)");
+$insertparticipe3->execute(array(
+    "user_id"=>$user_id,
+    "activity_name"=>$activity_name,
+    "date"=>$date
+    )
+);
+
+
+$insertcatparticipe3 = $db->prepare("INSERT INTO catparticipe (user_id, name, page, icon) VALUES(:user_id, :realname, :pageformulaire, :icon)");
+$insertcatparticipe3->execute(array(
+    "user_id"=>$user_id,
+    "realname"=>$realname,
+    "pageformulaire"=>$pageformulaire,
+    "icon"=>$icon
+    )
+);
+
 }
 
 
-$db->query("UPDATE activitesvoyages SET stock='$newstock' WHERE slug='$activity_name'");
-$db->query("INSERT INTO transactions (name, street, city, country, date, datesystem, transaction_id, amount, currency_code, user_id, raison) VALUES('$name', '$street', '$city', '$country_code', '$date', '$datesystem', '$transaction_id', '$price', '$currency_code', '$user_id' ,'$raison')");
+$updateactiv = $db->prepare("UPDATE activitesvoyages SET stock=:newstock WHERE slug=:activity_name");
+$updateactiv->execute(array(
+    "newstock"=>$newstock,
+    "activity_name"=>$activity_name
+    )
+);
 
-
+$insertcatparticipe3 = $db->prepare("INSERT INTO transactions (name, street, city, country, date, datesystem, transaction_id, amount, currency_code, user_id, raison) VALUES(:name, :street, :city, :country_code, :date, :datesystem, :transaction_id, :price, :currency_code, :user_id , :raison)");
+$insertcatparticipe3->execute(array(
+    "name"=>$name,
+    "street"=>$street,
+    "city"=>$city,
+    "country_code"=>$country_code,
+    "date"=>$date,
+    "datesystem"=>$datesystem,
+    "transaction_id"=>$transaction_id,
+    "price"=>$price,
+    "currency_code"=>$currency_code,
+    "user_id"=>$user_id,
+    "raison"=>$raison
+    )
+);
 
 unset($_SESSION['activity_name']);
 unset($_SESSION['optionmateriel']);

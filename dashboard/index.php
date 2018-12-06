@@ -219,7 +219,9 @@
                                           </p>
                                            <small>
                                            Publié par <?php
-                                           $select = $db->query("SELECT * FROM actus WHERE date= (SELECT MAX(date) FROM actus)");
+
+                                           $select = $db->prepare("SELECT * FROM actus WHERE date= (SELECT MAX(date) FROM actus)");
+                                           $select->execute();
 
                                            while($s = $select->fetch(PDO::FETCH_OBJ)){
                                             ?>
