@@ -81,7 +81,11 @@ if ($type == 'ski'){
           </script>
 
           <?php
-          $selectformulaireremplis = $db->query("SELECT * from formulaireski WHERE user_id='$user_id'");
+          $selectformulaireremplis = $db->prepare("SELECT * from formulaireski WHERE user_id=:user_id");
+          $selectformulaireremplis->execute(array(
+              "user_id"=>$user_id
+              )
+          );
           $r2 = $selectformulaireremplis->fetch(PDO::FETCH_OBJ);
           $poids = $r2->poids;
           $taille = $r2->taille;
@@ -184,7 +188,12 @@ if ($type == 'ski'){
             </script>
 
             <?php
-            $selectformulaireremplis = $db->query("SELECT * from formulairerugby WHERE user_id='$user_id'");
+            $selectformulaireremplis = $db->prepare("SELECT * from formulairerugby WHERE user_id=:user_id");
+            $selectformulaireremplis->execute(array(
+                "user_id"=>$user_id
+                )
+            );
+
             $r2 = $selectformulaireremplis->fetch(PDO::FETCH_OBJ);
             $adresse = $r2->adresse;
             $codepostal = $r2->codepostal;
@@ -271,7 +280,11 @@ if ($type == 'ski'){
                           <h3> Si dessous apparaitront des notes concernant cette activité. </h3>
 <?php
 
-$selectformulaireremplis = $db->query("SELECT * from communicationactivite WHERE slug LIKE '%$type%'");
+$selectformulaireremplis = $db->prepare("SELECT * from communicationactivite WHERE slug LIKE :type");
+$selectformulaireremplis->execute(array(
+    "type"=>'%'.$type.'%'
+    )
+);
 $r2 = $selectformulaireremplis->fetch(PDO::FETCH_OBJ);
 $infoscomplementaires = $r2->infoscomplementaires;
 $infoscomplementaires2 = $r2->infoscomplementaires2;
@@ -308,8 +321,13 @@ if(!empty($infoscomplementaires3)){
 <?php
 }}else if ($type == 'nettoyage'){
   $user_id = $_SESSION['user_id'];
-  $participenettoyage = $db->prepare("SELECT * FROM participe WHERE user_id='$user_id' AND activity_name LIKE '%nettoyage%'");
-  $participenettoyage->execute();
+  $participenettoyage = $db->prepare("SELECT * FROM participe WHERE user_id=:user_id AND activity_name LIKE :nettoyage");
+  $participenettoyage->execute(array(
+      "user_id"=>$user_id,
+      "nettoyage"=>'%nettoyage%'
+      )
+  );
+
   $countparticipenettoyage = $participenettoyage->rowCount();
   if($countparticipenettoyage>0){
 
@@ -332,8 +350,13 @@ if(!empty($infoscomplementaires3)){
 
 
                           <?php
+                          $selectformulaireremplis = $db->prepare("SELECT * from communicationactivite WHERE slug LIKE :type");
+                          $selectformulaireremplis->execute(array(
+                              "type"=>'%'.$type.'%'
+                              )
+                          );
 
-                          $selectformulaireremplis = $db->query("SELECT * from communicationactivite WHERE slug LIKE '%$type%'");
+
                           $r2 = $selectformulaireremplis->fetch(PDO::FETCH_OBJ);
                           $infoscomplementaires = $r2->infoscomplementaires;
                           $infoscomplementaires2 = $r2->infoscomplementaires2;
@@ -402,14 +425,38 @@ if(!empty($infoscomplementaires3)){
 <?php
                   if(!empty($_POST['jeneparticipeplusnettoyage'])){
                     $activity_name = 'nettoyage';
-                    $selectrealname = $db->query("SELECT title,stock from activitesvoyages WHERE slug LIKE '%$activity_name%'");
+                    $selectrealname = $db->prepare("SELECT title,stock from activitesvoyages WHERE slug LIKE :activity_name");
+                    $selectrealname->execute(array(
+                        "activity_name"=>'%'.$activity_name.'%'
+                        )
+                    );
+
+
                     $r = $selectrealname->fetch(PDO::FETCH_OBJ);
                     $realname = $r->title;
                     $stock = $r->stock;
                     $newstock = $stock + '1';
-                    $db->query("DELETE FROM participe WHERE user_id='$user_id' AND activity_name LIKE '%$activity_name%'");
-                    $db->query("DELETE FROM catparticipe WHERE user_id='$user_id' AND name LIKE '%$realname%'");
-                    $db->query("UPDATE activitesvoyages SET stock='$newstock' WHERE slug LIKE '%$activity_name%'");
+
+                    $deleteparticipe2 = $db->prepare("DELETE FROM participe WHERE user_id=:user_id AND activity_name LIKE :activity_name");
+                    $deleteparticipe2->execute(array(
+                        "user_id"=>$user_id,
+                        "activity_name"=>'%'.$activity_name.'%'
+                        )
+                    );
+
+                    $delcat2 = $db->prepare("DELETE FROM catparticipe WHERE user_id=:user_id AND name LIKE :realname");
+                    $delcat2->execute(array(
+                        "user_id"=>$user_id,
+                        "realname"=>'%'.$realname.'%'
+                        )
+                    );
+
+                    $updateacti2 = $db->prepare("UPDATE activitesvoyages SET stock=:newstock WHERE slug LIKE :activity_name");
+                    $updateacti2->execute(array(
+                        "newstock"=>$newstock,
+                        "activity_name"=>'%'.$activity_name.'%'
+                        )
+                    );
 
                   ?>
                   <script>
@@ -452,7 +499,13 @@ if(!empty($infoscomplementaires3)){
             </script>
 
             <?php
-            $selectformulaireremplis = $db->query("SELECT * from formulairesportive WHERE user_id='$user_id'");
+
+            $selectformulaireremplis = $db->prepare("SELECT * from formulairesportive WHERE user_id=:user_id");
+            $selectformulaireremplis->execute(array(
+                "user_id"=>$user_id
+                )
+            );
+
             $r2 = $selectformulaireremplis->fetch(PDO::FETCH_OBJ);
             $adresse = $r2->adresse;
             $codepostal = $r2->codepostal;
@@ -526,15 +579,47 @@ if(!empty($infoscomplementaires3)){
 
 if(!empty($_POST['jeneparticipeplus'])){
   $activity_name = 'sportive';
-  $selectrealname = $db->query("SELECT title,stock from activitesvoyages WHERE slug LIKE '%$activity_name%'");
+
+  $selectrealname = $db->prepare("SELECT title,stock from activitesvoyages WHERE slug LIKE :activity_name");
+  $selectrealname->execute(array(
+      "activity_name"=>'%'.$activity_name.'%'
+      )
+  );
+
+
   $r = $selectrealname->fetch(PDO::FETCH_OBJ);
   $realname = $r->title;
   $stock = $r->stock;
   $newstock = $stock + '1';
-  $db->query("DELETE FROM participe WHERE user_id='$user_id' AND activity_name LIKE '%$activity_name%'");
-  $db->query("DELETE FROM catparticipe WHERE user_id='$user_id' AND name LIKE '%$realname%'");
-  $db->query("DELETE FROM formulairesportive WHERE user_id='$user_id'");
-  $db->query("UPDATE activitesvoyages SET stock='$newstock' WHERE slug LIKE '%$activity_name%'");
+
+  $deleteparticipe = $db->prepare("DELETE FROM participe WHERE user_id=:user_id AND activity_name LIKE :activity_name");
+  $deleteparticipe->execute(array(
+      "user_id"=>$user_id,
+      "activity_name"=>'%'.$activity_name.'%'
+      )
+  );
+
+  $deletecatparticipe= $db->prepare("DELETE FROM catparticipe WHERE user_id=:user_id AND name LIKE :realname");
+  $deletecatparticipe->execute(array(
+      "user_id"=>$user_id,
+      "realname"=>'%'.$realname.'%'
+      )
+  );
+
+  $deleteformspor = $db->prepare("DELETE FROM formulairesportive WHERE user_id=:user_id");
+  $deleteformspor->execute(array(
+      "user_id"=>$user_id
+      )
+  );
+
+
+  $updateacti = $db->prepare("UPDATE activitesvoyages SET stock=:newstock WHERE slug LIKE :activity_name");
+  $updateacti->execute(array(
+      "newstock"=>$newstock,
+      "activity_name"=>'%'.$activity_name.'%'
+      )
+  );
+
 
 ?>
 <script>
@@ -582,7 +667,12 @@ if(!empty($_POST['jeneparticipeplus'])){
             </script>
 
             <?php
-            $selectformulaireremplis = $db->query("SELECT * from formulaireorientation WHERE user_id='$user_id'");
+            $selectformulaireremplis = $db->prepare("SELECT * from formulaireorientation WHERE user_id=:user_id");
+            $selectformulaireremplis->execute(array(
+                "user_id"=>$user_id
+                )
+            );
+
             $r2 = $selectformulaireremplis->fetch(PDO::FETCH_OBJ);
             $adresse = $r2->adresse;
             $codepostal = $r2->codepostal;
@@ -654,15 +744,45 @@ if(!empty($_POST['jeneparticipeplus'])){
 
                   if(!empty($_POST['jeneparticipeplusorientation'])){
                     $activity_name = 'orientation';
-                    $selectrealname = $db->query("SELECT title,stock from activitesvoyages WHERE slug LIKE '%$activity_name%'");
+
+                    $selectrealname = $db->prepare("SELECT title,stock from activitesvoyages WHERE slug LIKE :activity_name");
+                    $selectrealname->execute(array(
+                        "activity_name"=>'%'.$activity_name.'%'
+                        )
+                    );
                     $r = $selectrealname->fetch(PDO::FETCH_OBJ);
                     $realname = addslashes($r->title);
                     $stock = $r->stock;
                     $newstock = $stock + '1';
-                    $db->query("DELETE FROM participe WHERE user_id='$user_id' AND activity_name LIKE '%$activity_name%'");
-                    $db->query("DELETE FROM catparticipe WHERE user_id='$user_id' AND name LIKE '%$realname%'");
-                    $db->query("DELETE FROM formulaireorientation WHERE user_id='$user_id'");
-                    $db->query("UPDATE activitesvoyages SET stock='$newstock' WHERE slug LIKE '%$activity_name%'");
+
+                    $deleteparticipe = $db->prepare("DELETE FROM participe WHERE user_id=:user_id AND activity_name LIKE :activity_name");
+                    $deleteparticipe->execute(array(
+                        "user_id"=>$user_id,
+                        "activity_name"=>'%'.$activity_name.'%'
+                        )
+                    );
+
+                    $deletecatparticipe= $db->prepare("DELETE FROM catparticipe WHERE user_id=:user_id AND name LIKE :realname");
+                    $deletecatparticipe->execute(array(
+                        "user_id"=>$user_id,
+                        "realname"=>'%'.$realname.'%'
+                        )
+                    );
+
+                    $deleteformor = $db->prepare("DELETE FROM formulaireorientation WHERE user_id=:user_id");
+                    $deleteformor->execute(array(
+                        "user_id"=>$user_id
+                        )
+                    );
+
+
+                    $updateacti = $db->prepare("UPDATE activitesvoyages SET stock=:newstock WHERE slug LIKE :activity_name");
+                    $updateacti->execute(array(
+                        "newstock"=>$newstock,
+                        "activity_name"=>'%'.$activity_name.'%'
+                        )
+                    );
+
 
                   ?>
                   <script>

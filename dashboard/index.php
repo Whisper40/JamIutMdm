@@ -27,7 +27,12 @@
                                                                                     <h3 class="card-title">
 
             <?php
-                        $req = $db->query("SELECT  COUNT(*) as id FROM products_transactions WHERE user_id = '$user_id'");
+
+                        $req = $db->prepare("SELECT  COUNT(*) as id FROM products_transactions WHERE user_id = :user_id");
+                        $req->execute(array(
+                            "user_id"=>$user_id
+                            )
+                        );
 
                         $donnees = $req->fetch();
                         $req->closeCursor();
