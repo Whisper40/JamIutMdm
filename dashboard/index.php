@@ -61,7 +61,12 @@
 
             <?php
             $user_id = $_SESSION['user_id'];
-            $select = $db->query("SELECT * FROM users WHERE id = '$user_id'");
+
+            $select = $db->prepare("SELECT * FROM users WHERE id = :user_id");
+            $select->execute(array(
+                "user_id"=>$user_id
+                )
+            );
 
             while($s = $select->fetch(PDO::FETCH_OBJ)){
                 ?>
@@ -110,7 +115,11 @@
                                             <h3 class="card-title">
 
                         <?php
-                        $req = $db->query("SELECT  COUNT(*) as id FROM transactions WHERE user_id = '$user_id'");
+                        $req = $db->prepare("SELECT  COUNT(*) as id FROM transactions WHERE user_id = :user_id");
+                        $req->execute(array(
+                            "user_id"=>$user_id
+                            )
+                        );
 
                         $donnees = $req->fetch();
                         $req->closeCursor();
@@ -156,7 +165,12 @@
 
                             <?php
                                 $user_id = $_SESSION['user_id'];
-                                $select = $db->query("SELECT * FROM products_transactions WHERE user_id = '$user_id'");
+
+                                $select = $db->prepare("SELECT * FROM products_transactions WHERE user_id = :user_id");
+                                $select->execute(array(
+                                    "user_id"=>$user_id
+                                    )
+                                );
 
                                 while($s = $select->fetch(PDO::FETCH_OBJ)){
 
@@ -192,7 +206,8 @@
 
                                        <?php
                                         $user_id = $_SESSION['user_id'];
-                                        $select = $db->query("SELECT DISTINCT * FROM actus WHERE date= (SELECT MAX(date) FROM actus)");
+                                        $select = $db->prepare("SELECT DISTINCT * FROM actus WHERE date= (SELECT MAX(date) FROM actus)");
+                                        $select->execute();
 
                                         while($s = $select->fetch(PDO::FETCH_OBJ)){
                                             ?>
