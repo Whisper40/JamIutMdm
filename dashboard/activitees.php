@@ -1025,18 +1025,9 @@ require_once('includes/head.php');
 
                       <?php
                       $user_id = $_SESSION['user_id'];
-
-
-
-                      $reqrecup = $db->prepare("SELECT * FROM activitesvoyages WHERE status=:status ORDER BY date ASC");
-                      $reqrecup->execute(array(
-                          "status"=>'ACTIVE'
-                          )
-                      );
-                      $req=$reqrecup->setFetchMode(PDO::FETCH_ASSOC);
-
-
-
+                      $sql = "SELECT * FROM activitesvoyages WHERE status='ACTIVE' ORDER BY date ASC";
+                      $req = $db->prepare($sql);
+                      $req->setFetchMode(PDO::FETCH_ASSOC);
                       foreach($req as $row){
 
 
