@@ -397,24 +397,61 @@ require_once('includes/head.php');
             <?php
 
 
-            }else if (stripos($activity_slug, 'cinema') != FALSE){
-            ?>
+          }else if (stripos($activity_slug, 'cinema') != FALSE){
 
-            <?php
 
-            $total = $prixactivite;
-            ?><h2> Total = <?php echo $total;?>€
-              <?php
-            if($stock>0){
-               ?>
-              <div align="center" id="paypal-button"></div>
-              <?php
-            }else{
-              ?>
-              <button type="button">Aucune place disponible</button>
-            <?php
+            $activity_name = $_GET['activityname'];
 
-            }
+            $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name='$activity_name' and user_id='$user_id'");
+            $check->execute();
+            $countcheck = $check->rowCount();
+
+?>
+            <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-6 col-md-offset-3">
+                      <div class="card">
+                          <div class="card-content">
+                            <center>
+                              <h3 class="card-title">Validation et Paiement</h3>
+                            </center>
+                            <form name="accompagnement" method="POST">
+                                <div class="card-content">
+                                    <div class="info info-horizontal">
+                                        <div class="description">
+                                          <center>
+                                          <?php
+                                          if($countcheck>0){
+                                          ?>
+                                          <h4 class="info-title"><font color="red">Tu participe déja à cette activitée</font></h4>
+                                          <?php
+                                          }else{
+
+                                          $total = $prixactivite;
+                                          ?>
+                                            <h4 class="info-title">Prix Total : <?php echo $total;?>€</h4>
+                                              <?php
+                                            if($stock>0){
+                                               ?>
+                                              <div align="center" id="paypal-button"></div>
+                                              <?php
+                                            }else{
+                                              ?>
+                                              <h4 class="info-title"><font color="red">Aucune place disponible</font></h4>
+                                            <?php } } ?>
+                                            </center>
+                                        </div>
+                                    </div>
+                                </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+<?php
+//DEBUT NETTOYAGE
+
 
 
             //Fin Cinema
