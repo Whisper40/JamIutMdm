@@ -87,7 +87,7 @@ if(empty($_POST['optionsRadios'])){ // SI ON NE SELECTIONNE AUCUN MONTANT
             <div class="input-group input-lg">
               <div class="input-group-prepend">
                 <span class="input-group-text">
-                  <i class="now-ui-icons users_circle-08"></i>
+                  <i class="now-ui-icons location_world"></i>
                 </span>
               </div>
               <input type="text" class="form-control" placeholder="Adresse postale (optionel)" name="adressepostale">
@@ -167,10 +167,10 @@ if(empty($_POST['optionsRadios'])){ // SI ON NE SELECTIONNE AUCUN MONTANT
               <div class="input-group input-lg">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
-                    <i class="now-ui-icons users_circle-08"></i>
+                    <i class="now-ui-icons buisness_money-coins"></i>
                   </span>
                 </div>
-                <input type='number' id='yes' name='valueautre' class="form-control" placeholder="Indiquer un montant">
+                <input type='number' id='yes' name='valueautre' class="form-control" placeholder="Montant du don">
               </div></p>
             </div>
 

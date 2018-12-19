@@ -87,7 +87,7 @@ $sitekey = "LESITEKEY";
             <div class="input-group input-lg">
               <div class="input-group-prepend">
                 <span class="input-group-text">
-                  <i class="now-ui-icons ui-1_email-85"></i>
+                  <i class="now-ui-icons arrows-1_share-66"></i>
                 </span>
               </div>
               <input type="file" class="form-control" id="attachment" name="attachment" multiple="">
