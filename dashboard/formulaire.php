@@ -207,12 +207,6 @@ if ($type == 'ski'){
                  <div class="container-fluid">
                      <div class="card">
                          <div class="card-content">
-                           <?php
-
-
-
-
-                            ?>
                              <h2 class="card-title text-center"><?php echo $titledelapage;?></h2>
                              <div class="row">
                                <div class="col-sm-6">

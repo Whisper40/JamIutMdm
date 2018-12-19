@@ -1019,8 +1019,16 @@ require_once('includes/head.php');
 
       <div class="content">
           <div class="container-fluid">
-            <h3>Manage Listings</h3>
-                    <br>
+              <div class="card">
+                  <div class="card-content">
+                      <h2 class="card-title text-center">Listes des activitées proposé par l'Association</h2>
+                  </div>
+              </div>
+          </div>
+        </div>
+
+      <div class="content">
+          <div class="container-fluid">
                     <div class="row">
 
                       <?php
