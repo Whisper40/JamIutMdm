@@ -127,6 +127,7 @@
         </div>
       </div>
     </div>
+  </div>
 
     <?php } ?>
 
@@ -141,7 +142,7 @@
           </div>
         </div>
       </div>
-  </div>
+    </div>
 
   <?php
   require_once('includes/footer.php');

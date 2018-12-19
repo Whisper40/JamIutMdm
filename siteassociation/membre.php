@@ -55,24 +55,31 @@
       </div>
     </div>
 
+    <div class="section section-about-us">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 ml-auto mr-auto text-center">
+            <h2 class="title"><?php echo $pagehead->titre; ?></h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="container">
+        <h3 class="title">
+          <ul>
+            <li>
+              La présidence
+            </li>
+          </ul>
+        </h3>
+      </div>
+    </div>
     <div class="section section-team text-center">
       <div class="container">
-        <h2 class="title"><?php echo $pagehead->titre; ?></h2>
         <div class="team">
-
-          <div class="pull-left">
-            <h3 class="title">
-              <ul>
-                <li>
-                  La présidence
-                </li>
-              </ul>
-            </h3>
-          </div>
-        <br><br><br><br><br>
-
-        <div class="row">
-
+          <div class="row">
 
             <?php
             $membres = $db->query("SELECT * FROM membres WHERE categorie = 'pres' ORDER BY importance");
@@ -91,18 +98,24 @@
                 ?>
 
           </div>
-          <div class="pull-left">
-            <h3 class="title">
-              <ul>
-                <li>
-                  Responsable Secrétaire
-                </li>
-              </ul>
-            </h3>
-          </div>
-        <br><br><br><br><br>
-
-        <div class="row">
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="container">
+        <h3 class="title">
+          <ul>
+            <li>
+              Responsable Secrétaire
+            </li>
+          </ul>
+        </h3>
+      </div>
+    </div>
+    <div class="section section-team text-center">
+      <div class="container">
+        <div class="team">
+          <div class="row">
 
 
             <?php
@@ -121,8 +134,12 @@
                 }
                 ?>
 
+              </div>
+            </div>
           </div>
-          <div class="pull-left">
+        </div>
+        <div class="section">
+          <div class="container">
             <h3 class="title">
               <ul>
                 <li>
@@ -131,10 +148,11 @@
               </ul>
             </h3>
           </div>
-        <br><br><br><br><br>
-
-        <div class="row">
-
+        </div>
+        <div class="section section-team text-center">
+          <div class="container">
+            <div class="team">
+              <div class="row">
 
             <?php
             $membres = $db->query("SELECT * FROM membres WHERE categorie = 'tres' ORDER BY importance");
@@ -152,8 +170,12 @@
                 }
                 ?>
 
+              </div>
+            </div>
           </div>
-          <div class="pull-left">
+        </div>
+        <div class="section">
+          <div class="container">
             <h3 class="title">
               <ul>
                 <li>
@@ -162,10 +184,11 @@
               </ul>
             </h3>
           </div>
-        <br><br><br><br><br>
-
-        <div class="row">
-
+        </div>
+        <div class="section section-team text-center">
+          <div class="container">
+            <div class="team">
+              <div class="row">
 
             <?php
             $membres = $db->query("SELECT * FROM membres WHERE categorie = 'com' ORDER BY importance");
@@ -183,13 +206,13 @@
                 }
                 ?>
 
+
+
+              </div>
+            </div>
           </div>
-
-
         </div>
       </div>
-    </div>
-  </div>
 
   <?php
   require_once('includes/footer.php');

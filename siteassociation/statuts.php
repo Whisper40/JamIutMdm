@@ -71,10 +71,8 @@
     while($association = $asso->fetch(PDO::FETCH_OBJ)){
       ?>
 
-      <div class="section section-team text-center">
-        <div class="container">
-          <div class="team">
-            <div class="pull-left">
+      <div class="section">
+          <div class="container">
               <h3 class="title">
                 <ul>
                   <li>
@@ -82,20 +80,18 @@
                   </li>
                 </ul>
               </h3>
-            </div>
+              <div class="section section-about-us">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-10 ml-auto mr-auto text-center">
+                      <h5 class="description"><?php echo $association->description; ?></h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
           </div>
-        </div>
       </div>
-      <br><br><br><br><br>
-      <div class="section section-about-us">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-8 ml-auto mr-auto text-center">
-              <h5 class="description"><?php echo $association->description; ?></h5>
-            </div>
-          </div>
-        </div>
-      </div>
+
     <?php
         }
     ?>

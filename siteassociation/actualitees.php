@@ -47,8 +47,7 @@
 <div class="wrapper">
 
       <div class="page-header page-header-small">
-        <div class="page-header-image" data-parallax="true" style="background-image: url('./assets/img/<?php echo $pagehead->image; ?>');">
-        </div>
+        <div class="page-header-image" data-parallax="true" style="background-image: url('./assets/img/<?php echo $pagehead->image; ?>');"></div>
         <div class="content-center">
           <div class="container">
             <h1 class="title"><?php echo $pagehead->pagetitre; ?></h1>
@@ -141,6 +140,7 @@
         </div>
       </div>
     </div>
+  </div>
 
   <?php } ?>
 
@@ -214,6 +214,7 @@
         </div>
       </div>
     </div>
+  </div>
 
   <?php } ?>
 
@@ -286,6 +287,7 @@
         </div>
       </div>
     </div>
+  </div>
 
   <?php } ?>
 
@@ -356,8 +358,6 @@
         </div>
       </div>
     </div>
-  </div>
-</div>
 
 <?php
 }else{
@@ -365,6 +365,9 @@
 }
 }
 
+?>
+  </div>
+<?php
 
 require_once('includes/footer.php');
 
