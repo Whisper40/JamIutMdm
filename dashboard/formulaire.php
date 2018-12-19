@@ -13,6 +13,7 @@ if(isset($_GET['type'])){
   );
   $recup = $selecttitre->fetch(PDO::FETCH_OBJ);
   $titledelapage = $recup->title;
+  $nompage = $titledelapage;
 
 //Fonction de vérification des données entrées
 function slugify($text){

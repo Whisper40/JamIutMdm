@@ -88,7 +88,7 @@ while($unecat = $cat->fetch(PDO::FETCH_OBJ)){
 
     $catparticipe = $db->query("SELECT * FROM catparticipe WHERE user_id=$user_id");
     while($uneparticipation = $catparticipe->fetch(PDO::FETCH_OBJ)){
-      $nom = "Formulaire activitée";
+      $nom = $uneparticipation->name;
       ?>
       <li
       <?php
