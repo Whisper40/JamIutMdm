@@ -167,7 +167,7 @@ if(empty($_POST['optionsRadios'])){ // SI ON NE SELECTIONNE AUCUN MONTANT
               <div class="input-group input-lg">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
-                    <i class="now-ui-icons buisness_money-coins"></i>
+                    <i class="now-ui-icons business_money-coins"></i>
                   </span>
                 </div>
                 <input type='number' id='yes' name='valueautre' class="form-control" placeholder="Montant du don">
