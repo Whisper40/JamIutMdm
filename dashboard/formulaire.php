@@ -265,53 +265,60 @@ if ($type == 'ski'){
 
   ?>
 
+  <div class="content">
+      <div class="container-fluid">
+          <div class="card">
+              <div class="card-content">
+                  <h2 class="card-title text-center"><?php echo $titledelapage; ?></h2>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="card-content">
+                        <br><br>
+                        <center>
+                        <h3 class="card-title">Information Complémentaire</h3>
+                        </center>
+                        <br>
 
+                          <?php
+                          $selectformulaireremplis = $db->prepare("SELECT * from communicationactivite WHERE slug LIKE :type");
+                          $selectformulaireremplis->execute(array(
+                              "type"=>'%'.$type.'%'
+                              )
+                          );
 
+                          $r2 = $selectformulaireremplis->fetch(PDO::FETCH_OBJ);
+                          $infoscomplementaires = $r2->infoscomplementaires;
+                          ?>
 
-              <div class="col-md-6">
-                  <div class="card">
-                      <div class="card-header card-header-icon" data-background-color="rose">
-                          <i class="material-icons">mail_outline</i>
+                            <p align="justify"><?php echo $infoscomplementaires ?></p>
+                        </div>
                       </div>
 
-                      <div class="card-content">
-                          <h4 class="card-title">Aucune informations supplémentaires n'est nécessaire pour cette sortie
-                          </h4>
-                          <h3> Si dessous apparaitront des notes concernant cette activité. </h3>
-<?php
-
-$selectformulaireremplis = $db->prepare("SELECT * from communicationactivite WHERE slug LIKE :type");
-$selectformulaireremplis->execute(array(
-    "type"=>'%'.$type.'%'
-    )
-);
-$r2 = $selectformulaireremplis->fetch(PDO::FETCH_OBJ);
-$infoscomplementaires = $r2->infoscomplementaires;
-$infoscomplementaires2 = $r2->infoscomplementaires2;
-$infoscomplementaires3 = $r2->infoscomplementaires3;
-
-if(!empty($infoscomplementaires)){
-  //CODE HTML
-  echo $infoscomplementaires;
-}
-?>
-<br/>
-<?php
-if(!empty($infoscomplementaires2)){
-  //CODE HTML
-  echo $infoscomplementaires2;
-}
-?>
-<br/>
-<?php
-if(!empty($infoscomplementaires3)){
-  //CODE HTML
-  echo $infoscomplementaires3;
-}
-?>
-                </div>
-                    </div>
+                      <div class="col-sm-6">
+                          <div class="card-content">
+                            <br><br>
+                            <center>
+                            <h3 class="card-title">Annuler sa Participation</h3>
+                            </center>
+                             <div class="card-content">
+                                 <div class="info info-horizontal">
+                                     <div class="description">
+                                         <center>
+                                         <h4 class="info-title">En cliquant sur ce bouton je renonce à participer à l'activitée</h4>
+                                         <form action="" method="post">
+                                         <input type="submit" class="btn btn-primary btn-round btn-rose" id="###" name="###" value="J'annule ma participation">
+                                       </form>
+                                         </center>
+                                     </div>
+                                 </div>
+                             </div>
+                          </div>
+                      </div>
                   </div>
+              </div>
+          </div>
+      </div>
+  </div>
 
 <?php
 //FIN CINEMA
@@ -347,6 +354,7 @@ if(!empty($infoscomplementaires3)){
                         <center>
                         <h3 class="card-title">Information Complémentaire</h3>
                         </center>
+                        <br>
 
                           <?php
                           $selectformulaireremplis = $db->prepare("SELECT * from communicationactivite WHERE slug LIKE :type");
