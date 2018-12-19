@@ -359,9 +359,7 @@ if(!empty($infoscomplementaires3)){
                           $infoscomplementaires = $r2->infoscomplementaires;
                           ?>
 
-                          <div class="col-sm-6">
                             <p><?php echo $infoscomplementaires ?></p>
-                          </div>
                         </div>
                       </div>
 
