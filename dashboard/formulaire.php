@@ -346,8 +346,7 @@ if(!empty($infoscomplementaires3)){
                         <br><br>
                         <center>
                         <h3 class="card-title">Information Complémentaire</h3>
-                        <ul>
-
+                        </center>
 
                           <?php
                           $selectformulaireremplis = $db->prepare("SELECT * from communicationactivite WHERE slug LIKE :type");
@@ -356,44 +355,15 @@ if(!empty($infoscomplementaires3)){
                               )
                           );
 
-
                           $r2 = $selectformulaireremplis->fetch(PDO::FETCH_OBJ);
                           $infoscomplementaires = $r2->infoscomplementaires;
-                          $infoscomplementaires2 = $r2->infoscomplementaires2;
-                          $infoscomplementaires3 = $r2->infoscomplementaires3;
+                          ?>
 
-                          if(!empty($infoscomplementaires)){
-                          ?>
-                          <li> <?php
-                            echo $infoscomplementaires;
-                            ?>
-                          </li> <?php
-                          }
-                          ?>
-                          <br/>
-                          <?php
-                          if(!empty($infoscomplementaires2)){
-                            ?>
-                            <li> <?php
-                              echo $infoscomplementaires2;
-                              ?>
-                            </li> <?php
-                          }
-                          ?>
-                          <br/>
-                          <?php
-                          if(!empty($infoscomplementaires3)){
-                            ?>
-                            <li> <?php
-                              echo $infoscomplementaires3;
-                              ?>
-                            </li> <?php
-                          }
-                          ?>
-                        </ul>
-                                      </center>
-                                  </div>
-                              </div>
+                          <div class="col-sm-6">
+                            <p><?php echo $infoscomplementaires ?></p>
+                          </div>
+                        </div>
+                      </div>
 
                       <div class="col-sm-6">
                           <div class="card-content">
