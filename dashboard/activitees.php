@@ -1024,12 +1024,7 @@ require_once('includes/head.php');
                       <h2 class="card-title text-center">Listes des activitées proposé par l'Association</h2>
                   </div>
               </div>
-          </div>
-        </div>
-
-      <div class="content">
-          <div class="container-fluid">
-                    <div class="row">
+              <div class="row">
 
                       <?php
                       $user_id = $_SESSION['user_id'];
