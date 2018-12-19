@@ -359,7 +359,7 @@ if(!empty($infoscomplementaires3)){
                           $infoscomplementaires = $r2->infoscomplementaires;
                           ?>
 
-                            <p><?php echo $infoscomplementaires ?></p>
+                            <p align="justify"><?php echo $infoscomplementaires ?></p>
                         </div>
                       </div>
 
