@@ -61,7 +61,7 @@
 
       <?php
 
-	if(isset($_GET['showmethisnews'])){
+	if(isset($_GET['userid'])){
 		$news = htmlentities($_GET['showmethisnews']);
 		$select = $db->prepare("SELECT * FROM newsactus WHERE slug='$news'");
 		$select->execute();
@@ -324,7 +324,34 @@
 	}else{
 
 
-		$category_slug=$_GET['category'];
+
+
+
+
+    $selectid = $db->prepare("SELECT distinct user_id FROM validationfichiers WHERE status='EN ATTENTE DE VALIDATION' ORDER BY date");
+    $selectid->execute();
+    $countid = $selectid->rowCount();
+    if($countid>'0'){
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     $select = $db->prepare("SELECT surname FROM sitecat WHERE slug=:category_slug");
     $select->execute(array(
