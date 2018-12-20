@@ -116,7 +116,17 @@
                         $user_id = $_SESSION['user_id'];
                         //On réinitialise le nombre de tentatives avec echec.
                         $attempts = 0;
-                        $db->query("UPDATE users SET numberofattempts='$attempts' WHERE id='$user_id'");
+
+
+
+                        $tentative = $db->prepare("UPDATE users SET numberofattempts=:attempts WHERE id=:user_id");
+                        $tentative->execute(array(
+                            "attempts"=>$attempts,
+                            "user_id"=>$user_id
+                            )
+                        );
+
+
                         $update = $db->prepare("UPDATE users SET last_connect=:date, datesystem=:datesystem WHERE id=:id");
                         $update->execute(array(
                             "date"=>$date,
@@ -152,11 +162,25 @@
 // Ajout de tentative avec erreurs de mdp.
 
 $email = htmlspecialchars($_POST['email']);
-$numberofattempts = $db->query("SELECT numberofattempts from users WHERE email='$email'");
+$numberofattempts = $db->prepare("SELECT numberofattempts from users WHERE email=:email");
+$numberofattempts->execute(array(
+    "email"=>$email
+    )
+);
+
+
 $rattempts = $numberofattempts->fetch(PDO::FETCH_OBJ);
 $recupnumberofattempts = $rattempts->numberofattempts;
 $newattempts = $recupnumberofattempts + '1';
-$db->query("UPDATE users SET numberofattempts='$newattempts' WHERE email='$email'");
+
+
+
+$updatenumberofattempts = $db->prepare("UPDATE users SET numberofattempts=:newattempts WHERE email=:email");
+$updatenumberofattempts->execute(array(
+    "newattempts"=>$newattempts,
+    "email"=>$email
+    )
+);
 
 }}else{
   ?>

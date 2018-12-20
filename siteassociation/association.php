@@ -41,9 +41,19 @@
 <?php
     require_once('includes/navbar.php');
 
-    $asso = $db->query("SELECT * FROM pageasso");
+    $asso = $db->prepare("SELECT * FROM pageasso");
+    $asso->execute();
+
+
     $association = $asso->fetch(PDO::FETCH_OBJ);
-    $head = $db->query("SELECT * FROM photopage WHERE nompage = '$nompage'");
+
+    $head = $db->prepare("SELECT * FROM photopage WHERE nompage=:nompage");
+    $head->execute(array(
+        "nompage"=>$nompage
+        )
+    );
+
+
     $pagehead = $head->fetch(PDO::FETCH_OBJ);
 ?>
 <div class="wrapper">
@@ -71,7 +81,13 @@
 
 
     <?php
-    $carousel = $db->query("SELECT * FROM carousel WHERE slug = '$nompage'");
+
+    $carousel = $db->prepare("SELECT * FROM carousel WHERE slug=:nompage");
+    $carousel->execute(array(
+        "nompage"=>$nompage
+        )
+    );
+
     $nbimage = $carousel->rowCount();
     if($nbimage != 0){
     ?>
