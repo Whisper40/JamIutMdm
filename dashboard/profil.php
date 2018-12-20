@@ -99,7 +99,7 @@ foreach($req as $row)
               var password = $("#password").val();
               var repeatpassword = $("#repeatpassword").val();
 
-              $.post("modifypasswordpanel.php", { email: email, password: password, repeatpassword: repeatpassword},
+              $.post("ajax/modifypasswordpanel.php", { email: email, password: password, repeatpassword: repeatpassword},
               function(data) {
                $('#results').html(data);
                $('#myForm')[0].reset();
@@ -110,7 +110,7 @@ foreach($req as $row)
               var newemail = $("#newemail").val();
               var repeatnewemail = $("#repeatnewemail").val();
 
-              $.post("modifyemailpanel.php", { email2: email2, newemail: newemail, repeatnewemail: repeatnewemail},
+              $.post("ajax/modifyemailpanel.php", { email2: email2, newemail: newemail, repeatnewemail: repeatnewemail},
               function(data) {
                $('#results2').html(data);
                $('#myForm2')[0].reset();
