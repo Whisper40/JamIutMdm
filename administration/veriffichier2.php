@@ -323,7 +323,7 @@
 
 	}else{
 
-	if(isset($_GET['category'])){
+
 		$category_slug=$_GET['category'];
 
     $select = $db->prepare("SELECT surname FROM sitecat WHERE slug=:category_slug");
@@ -397,9 +397,7 @@
     </div>
 
 <?php
-}else{
-	header('Location: https://jam-mdm.fr/');
-}
+
 }
 
 ?>
