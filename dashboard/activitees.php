@@ -3,7 +3,7 @@
 require_once('includes/connectBDD.php');
 require_once('includes/checkconnection.php');
 require_once('includes/checkmemberjam.php');
-ini_set('display_errors', 1);
+
 $nompage = "Activitees";
 require_once('includes/head.php');
 
