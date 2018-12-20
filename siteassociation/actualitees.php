@@ -41,7 +41,11 @@
 <?php
     require_once('includes/navbar.php');
 
-    $head = $db->query("SELECT * FROM photopage WHERE nompage = '$nompage'");
+    $head = $db->prepare("SELECT * FROM photopage WHERE nompage=:nompage");
+    $head->execute(array(
+        "nompage"=>$nompage
+        )
+    );
     $pagehead = $head->fetch(PDO::FETCH_OBJ);
 ?>
 <div class="wrapper">
@@ -84,7 +88,14 @@
 
     <?php
     $titre1 = $s->title;
-    $carousel1 = $db->query("SELECT * FROM carousel WHERE slug = '$news' AND titre = '$titre1'");
+
+    $carousel1 = $db->prepare("SELECT * FROM carousel WHERE slug=:news AND titre=:titre1");
+    $carousel1->execute(array(
+        "news"=>$news,
+        "titre1"=>$titre1
+        )
+    );
+
     $nbimage1 = $carousel1->rowCount();
     if($nbimage1 != 0){
     ?>
@@ -158,7 +169,14 @@
 
     <?php
     $titre2 = $s->title2;
-    $carousel2 = $db->query("SELECT * FROM carousel WHERE slug = '$news' AND titre = '$titre2'");
+
+    $carousel2 = $db->prepare("SELECT * FROM carousel WHERE slug=:news AND titre=:titre2");
+    $carousel2->execute(array(
+        "news"=>$news,
+        "titre2"=>$titre2
+        )
+    );
+
     $nbimage2 = $carousel2->rowCount();
     if($nbimage1 != 0){
     ?>
@@ -231,7 +249,15 @@
 
     <?php
     $titre3 = $s->title3;
-    $carousel3 = $db->query("SELECT * FROM carousel WHERE slug = '$news' AND titre = '$titre3'");
+
+    $carousel3 = $db->prepare("SELECT * FROM carousel WHERE slug=:news AND titre=:titre3");
+    $carousel3->execute(array(
+        "news"=>$news,
+        "titre3"=>$titre3,
+        )
+    );
+
+
     $nbimage3 = $carousel3->rowCount();
     if($nbimage3 != 0){
     ?>
@@ -299,11 +325,25 @@
 
 	if(isset($_GET['category'])){
 		$category_slug=$_GET['category'];
-		$select = $db->query("SELECT surname FROM sitecat WHERE slug='$category_slug'");
+
+    $select = $db->prepare("SELECT surname FROM sitecat WHERE slug=:category_slug");
+    $select->execute(array(
+        "category_slug"=>$category_slug
+        )
+    );
+
 		$results = $select->fetch(PDO::FETCH_OBJ);
 		$category = addslashes($results->surname);
 		$select = $db->prepare("SELECT * FROM newsactus WHERE surname='$category' AND status='ACTIVE'");
 		$select->execute();
+
+
+    $select = $db->prepare("SELECT * FROM newsactus WHERE surname=:category AND status=:status");
+    $select->execute(array(
+        "category"=>$category,
+        "status"=>'ACTIVE'
+        )
+    );
 
     ?>
     <div class="section section-about-us">
