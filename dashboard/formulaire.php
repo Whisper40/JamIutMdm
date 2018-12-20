@@ -412,7 +412,7 @@ if ($type == 'ski'){
 
                   ?>
                   <script>
-                      window.location = 'https://dashboard.jam-mdm.fr/activiteesencours.php';
+                      window.location = 'https://dashboard.jam-mdm.fr/activitees.php';
                   </script>
                   <?php
                   }
@@ -575,7 +575,7 @@ if(!empty($_POST['jeneparticipeplus'])){
 
 ?>
 <script>
-    window.location = 'https://dashboard.jam-mdm.fr/activiteesencours.php';
+    window.location = 'https://dashboard.jam-mdm.fr/activitees.php';
 </script>
 <?php
 }
@@ -738,7 +738,7 @@ if(!empty($_POST['jeneparticipeplus'])){
 
                   ?>
                   <script>
-                      window.location = 'https://dashboard.jam-mdm.fr/activiteesencours.php';
+                      window.location = 'https://dashboard.jam-mdm.fr/activitees.php';
                   </script>
                   <?php
                   }
