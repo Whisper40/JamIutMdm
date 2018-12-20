@@ -335,7 +335,7 @@
 		$results = $select->fetch(PDO::FETCH_OBJ);
 		$category = addslashes($results->surname);
 
-    $select = $db->prepare("SELECT * FROM newsactus WHERE surname=:category AND status:status");
+    $select = $db->prepare("SELECT * FROM newsactus WHERE surname=:category AND status=:status");
     $select->execute(array(
         "category"=>$category,
         "status"=>'ACTIVE'
