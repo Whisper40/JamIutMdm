@@ -1,6 +1,6 @@
 <?php
     require_once('includes/connectBDD.php');
-    require_once('includes/refusebypassconnection.php');
+    //require_once('includes/refusebypassconnection.php');
     $nompage = "Connexion";
     ini_set('display_errors', 1);
     require_once('includes/head.php');
