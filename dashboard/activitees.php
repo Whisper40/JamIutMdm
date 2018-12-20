@@ -583,7 +583,7 @@ require_once('includes/head.php');
 
                       ?>
                       <script>
-                          window.location = 'https://dashboard.jam-mdm.fr/formulaire.php?type=nettoyage';
+                          window.location = 'https://dashboard.jam-mdm.fr/formulaire.php?type=sportive';
                       </script>
                       <?php
                       unset($_SESSION['optionorganisation']);
