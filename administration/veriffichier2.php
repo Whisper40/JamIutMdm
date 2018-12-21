@@ -131,11 +131,12 @@ while($fichier2 = $selectfichierdejatraiter->fetch(PDO::FETCH_OBJ)){
   $idfichier = $fichier2->id;
   $idutilisateur = $fichier2->user_id;
 
-  $selectnom = $db->prepare("SELECT username FROM users WHERE id='$idutilisateur' ORDER BY id ASC");
+  $selectnom = $db->prepare("SELECT username, email FROM users WHERE id='$idutilisateur' ORDER BY id ASC");
   $selectnom->execute();
 
   $s = $selectnom->fetch(PDO::FETCH_OBJ);
   $nom = $s->username;
+  $owner_mail = $s->email;
 
 
   $filename = $fichier2->filename;
@@ -167,29 +168,11 @@ while($fichier2 = $selectfichierdejatraiter->fetch(PDO::FETCH_OBJ)){
                                                      <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
 
                                                          <div class="card-header card-header-text" data-background-color="rose">
-                                                             <h4 class="card-title">Nous contacter</h4>
+                                                             <h4 class="card-title">Contacter la personne</h4>
                                                          </div>
                                                          <div class="card-content">
-                                         <div class="row">
-                                             <label class="col-sm-2 label-on-left">Nom / Prénom : </label>
-                                             <div class="col-sm-10">
-                                                 <div class="form-group label-floating is-empty">
-                                                     <label class="control-label"></label>
-                                                     <input type="text" name="nom" class="form-control" value>
-                                                     <span class="help-block">Merci de renseigner ce champs</span>
-                                                 </div>
-                                             </div>
-                                         </div>
-                                         <div class="row">
-                                             <label class="col-sm-2 label-on-left">Email : </label>
-                                             <div class="col-sm-10">
-                                                 <div class="form-group label-floating is-empty">
-                                                     <label class="control-label"></label>
-                                                     <input type="email" name="email" class="form-control" value>
-                                                     <span class="help-block">Ce champs servira d'email de réponse</span>
-                                                 </div>
-                                             </div>
-                                         </div>
+
+
 
 
                                          <div class="row">
@@ -205,26 +188,7 @@ while($fichier2 = $selectfichierdejatraiter->fetch(PDO::FETCH_OBJ)){
                                              </div>
                                          </div>
 
-                                         <div class="row">
-                                             <label class="col-sm-2 label-on-left">Prioritée :</label>
-                                             <div class="col-sm-10">
-                                                 <div class="radio">
-                                                     <label>
-                                                         <input type="radio" name="optionsRadios2" value="1">Urgent
-                                                     </label>
-                                                 </div>
-                                                 <div class="radio">
-                                                     <label>
-                                                         <input type="radio" name="optionsRadios2" checked="true" value="3">Modéré
-                                                     </label>
-                                                 </div>
-                                                 <div class="radio">
-                                                     <label>
-                                                         <input type="radio" name="optionsRadios2" value="5">Faible
-                                                     </label>
-                                                 </div>
-                                             </div>
-                                         </div>
+
 
 
                                           <div class="row">
@@ -271,13 +235,13 @@ while($fichier2 = $selectfichierdejatraiter->fetch(PDO::FETCH_OBJ)){
 
 <?php
 if(isset($_POST['submit'])){
- $owner_mail = "contact@jam-mdm.fr";
- $priority = $_POST['optionsRadios2'];
- $nom = $_POST['nom'];
- $email = $_POST['email'];
+ //owner = le mail de la personne
+   $priority = '3';
+
+   $email = 'contact@jam-mdm.fr';
    $message = $_POST['message'];
-   $subject = '['.$nom.']'.'[Contact]';
- if($subject&&$email&&$message&&$nom){
+   $subject = '[JAM]'.'[Problème de document]';
+ if($subject&&$email&&$message){
    $responseData = json_decode(file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$_POST['g-recaptcha-response']));
    if($responseData->success){
      if(!isset($_FILES['attachment'])){
