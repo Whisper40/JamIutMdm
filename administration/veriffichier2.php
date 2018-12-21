@@ -184,7 +184,7 @@ while($fichier2 = $selectfichierdejatraiter->fetch(PDO::FETCH_OBJ)){
                                                      <textarea name="message" class="form-control" rows="6">
 
                                                  </textarea>
-                                             <span class="help-block">Ce champs doit être remplie avec la valeur de votre ID (L'ID est le numéro en haut à gauche de votre dashboard #XX)</span></div>
+                                             <span class="help-block">Merci de décrire précisémement le problème rencontré avec le document.</span></div>
                                              </div>
                                          </div>
 
