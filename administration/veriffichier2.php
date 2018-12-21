@@ -25,7 +25,8 @@ if(isset($_GET['gestionfichier'])){
             )
         );
         $table = $selectnom->fetch(PDO::FETCH_OBJ);
-        
+        var_dump($table);
+
         if(count($table)>0){
           echo "<h3>".count($table)." documents trouvés</h3>";
           echo '
