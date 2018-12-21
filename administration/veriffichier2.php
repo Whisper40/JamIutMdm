@@ -6,6 +6,83 @@
 
 if(isset($_GET['gestionfichier'])){
   $user_id=$_GET['id'];
+  $selectfichieratraiter = $db->prepare("SELECT * FROM validationfichiers WHERE status='EN ATTENTE DE VALIDATION' and user_id='$user_id' ORDER BY id ASC");
+  $selectfichieratraiter->execute();
+  $countid = $selectid->rowCount();
+  if($countid>'0'){
+  ?>
+<h2> Les fichiers en attente de validation : </h2>
+<table class="table">
+<thead>
+<tr>
+<th scope="col">Utilisateur</th>
+<th scope="col">Nom du fichier</th>
+<th scope="col">Message</th>
+<th scope="col">Date d'ajout</th>
+<th scope="col">Action</th>
+</tr>
+</thead>
+<tbody>
+<?php
+
+
+if($_GET['action']=='validefichier'){
+
+$id=$_GET['id'];
+$setvalide = $db->prepare("UPDATE validationfichiers SET status='VALIDE' WHERE id=$id");
+$setvalide->execute();
+?>
+<script>window.location="https://administration.jam-mdm.fr/veriffichier.php"</script>
+<?php
+}else if($_GET['action']=='refusfichier'){
+$id=$_GET['id'];
+$setrefus = $db->prepare("UPDATE validationfichiers SET status='REFUS' WHERE id=$id");
+$setrefus->execute();
+?>
+<script>window.location="https://administration.jam-mdm.fr/veriffichier.php"</script>
+<?php
+}
+
+ ?>
+  <?php
+  while($fichier = $selectfichieratraiter->fetch(PDO::FETCH_OBJ)){
+
+    $idfichier = $fichier->id;
+    $idutilisateur = $fichier->user_id;
+    $filename = $fichier->filename;
+    $filenamesystem = $fichier->filenamesystem;
+    $message = $fichier->message;
+    $datefile = $fichier->date;
+  ?>
+
+  <tr>
+    <th scope="row"><?php echo $idutilisateur;?></th>
+    <td><a href="./download.php?nom=<?php echo $filenamesystem;?>&amp;id=<?php echo $idutilisateur;?>"><?php echo $filename;?></a></td>
+    <td><?php echo $message;?></td>
+    <td><?php echo $datefile;?></td>
+    <td>
+<a href="?action=validefichier&amp;id=<?php echo $idfichier;?>">
+<button type="button" class="btn">Valider</button>
+</a>
+<a href="?action=refusfichier&amp;id=<?php echo $idfichier;?>">
+<button type="button" class="btn">Refuser</button>
+</a>
+
+
+    </td>
+  </tr>
+
+<?php
+}
+
+?>
+</tbody>
+</table>
+<?php
+}
+
+
+
 
 
 }else{
@@ -45,7 +122,7 @@ if(isset($_GET['gestionfichier'])){
             $status = $ligne->status;
 
             echo '
-            
+
             <tr>
               <th scope="row">'.$username.'</th>
               <td>'.$email.'<td>
