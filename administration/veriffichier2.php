@@ -54,6 +54,13 @@ if($_GET['action']=='gestionfichier'){
 
     $idfichier = $fichier->id;
     $idutilisateur = $fichier->user_id;
+
+    $selectnom = $db->prepare("SELECT username FROM users WHERE id='$idutilisateur' ORDER BY id ASC");
+    $selectnom->execute();
+
+    $s = $selectnom->fetch(PDO::FETCH_OBJ);
+    $nom = $s->username;
+
     $filename = $fichier->filename;
     $filenamesystem = $fichier->filenamesystem;
     $message = $fichier->message;
@@ -61,7 +68,7 @@ if($_GET['action']=='gestionfichier'){
   ?>
 
   <tr>
-    <th scope="row"><?php echo $idutilisateur;?></th>
+    <th scope="row"><?php echo $nom;?></th>
     <td><a href="./download.php?nom=<?php echo $filenamesystem;?>&amp;id=<?php echo $idutilisateur;?>"><?php echo $filename;?></a></td>
     <td><?php echo $message;?></td>
     <td><?php echo $datefile;?></td>
