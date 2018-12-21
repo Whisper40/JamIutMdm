@@ -45,7 +45,7 @@ if(isset($_GET['gestionfichier'])){
             $status = $ligne->status;
 
             echo '
-            <h2>ok4</h2>
+            
             <tr>
               <th scope="row">'.$username.'</th>
               <td>'.$email.'<td>
