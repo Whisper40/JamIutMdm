@@ -215,6 +215,26 @@ echo 'esquive';
 
 
  <?php
+
+
+if(isset($_POST['submit'])){
+$action = $_POST['optionsRadios'];
+if($action = 'defaut'){
+
+}else if ($action = 'ban'){
+
+}else if ($action = 'delete'){
+
+}else{
+  echo ' probleme ';
+}
+
+
+
+
+
+
+}
 $selectcatimages=$db->query("SELECT DISTINCT title FROM images");
 
   ?>
@@ -235,7 +255,7 @@ $selectcatimages=$db->query("SELECT DISTINCT title FROM images");
              </select>
 
              <div class="row">
-                                               <label class="col-sm-2 label-on-left">Prioritée :</label>
+                                               <label class="col-sm-2 label-on-left">Action :</label>
                                                <div class="col-sm-10">
                                                    <div class="radio">
                                                        <label>
