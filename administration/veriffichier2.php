@@ -4,8 +4,8 @@
     require_once('includes/head.php');
     require_once('includes/quantcast.php');
     ini_set('display_errors', 1);
-
-    if(isset($_GET['action']=='validefichier')){
+    if(isset($_GET['action'])){
+    if($_GET['action']=='validefichier'){
       echo"bond";
 
     $id=$_GET['id'];
@@ -14,7 +14,7 @@
     ?>
     <script>window.location="https://administration.jam-mdm.fr/veriffichier2.php"</script>
     <?php
-  }else if(isset($_GET['action']=='refusfichier')){
+    }else if($_GET['action']=='refusfichier'){
     $id=$_GET['id'];
     $setrefus = $db->prepare("UPDATE validationfichiers SET status='REFUS' WHERE id=$id");
     $setrefus->execute();
@@ -22,6 +22,7 @@
     <script>window.location="https://administration.jam-mdm.fr/veriffichier2.php"</script>
     <?php
     }
+
 
 if($_GET['action']=='gestionfichier'){
   $user_id=$_GET['id'];
@@ -89,7 +90,7 @@ if($_GET['action']=='gestionfichier'){
 
 
 
-}else{
+}}else{
 
     $selectid = $db->prepare("SELECT distinct user_id FROM validationfichiers WHERE status='EN ATTENTE DE VALIDATION' ORDER BY date");
     $selectid->execute();
