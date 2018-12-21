@@ -113,6 +113,7 @@ if($countid2>'0'){
 <th scope="col">Nom du fichier</th>
 <th scope="col">Message</th>
 <th scope="col">Date d'ajout</th>
+<th scope="col">Status</th>
 
 </tr>
 </thead>
@@ -132,6 +133,7 @@ while($fichier2 = $selectfichierdejatraiter->fetch(PDO::FETCH_OBJ)){
   $filenamesystem = $fichier2->filenamesystem;
   $message = $fichier2->message;
   $datefile = $fichier2->date;
+  $status = $fichier2->status;
 ?>
 
 <tr>
@@ -139,6 +141,7 @@ while($fichier2 = $selectfichierdejatraiter->fetch(PDO::FETCH_OBJ)){
   <td><a href="./download.php?nom=<?php echo $filenamesystem;?>&amp;id=<?php echo $idutilisateur;?>"><?php echo $filename;?></a></td>
   <td><?php echo $message;?></td>
   <td><?php echo $datefile;?></td>
+  <td><?php echo $status;?></td>
 </tr>
 
 <?php
