@@ -24,8 +24,8 @@ if(isset($_GET['gestionfichier'])){
             "user_id"=>$user_id
             )
         );
-        $table = $selectnom->fetch(PDO::FETCH_OBJ);
-        var_dump($table);
+        $table = $selectnom->fetchAll(PDO::FETCH_OBJ);
+        
 
         if(count($table)>0){
           echo "<h3>".count($table)." documents trouvés</h3>";
