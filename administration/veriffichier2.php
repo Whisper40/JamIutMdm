@@ -4,7 +4,7 @@
     require_once('includes/head.php');
     require_once('includes/quantcast.php');
 
-if(isset($_GET['action']=='gestionfichier')){
+if($_GET['action']=='gestionfichier'){
   $user_id=$_GET['id'];
   $selectfichieratraiter = $db->prepare("SELECT * FROM validationfichiers WHERE status='EN ATTENTE DE VALIDATION' and user_id='$user_id' ORDER BY id ASC");
   $selectfichieratraiter->execute();
