@@ -32,14 +32,14 @@ $id=$_GET['id'];
 $setvalide = $db->prepare("UPDATE validationfichiers SET status='VALIDE' WHERE id=$id");
 $setvalide->execute();
 ?>
-<script>window.location="https://administration.jam-mdm.fr/veriffichier.php"</script>
+<script>window.location="https://administration.jam-mdm.fr/veriffichier2.php"</script>
 <?php
 }else if($_GET['action']=='refusfichier'){
 $id=$_GET['id'];
 $setrefus = $db->prepare("UPDATE validationfichiers SET status='REFUS' WHERE id=$id");
 $setrefus->execute();
 ?>
-<script>window.location="https://administration.jam-mdm.fr/veriffichier.php"</script>
+<script>window.location="https://administration.jam-mdm.fr/veriffichier2.php"</script>
 <?php
 }
 
