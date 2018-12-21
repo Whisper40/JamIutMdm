@@ -90,7 +90,112 @@ if($_GET['action']=='gestionfichier'){
 
 
 
-}}else{
+
+
+
+
+
+
+
+
+
+
+$selectfichierdejatraiter = $db->prepare("SELECT * FROM validationfichiers WHERE status <> 'EN ATTENTE DE VALIDATION' and user_id='$user_id' ORDER BY id ASC");
+$selectfichierdejatraiter->execute();
+$countid2 = $selectfichierdejatraiter->rowCount();
+if($countid2>'0'){
+?>
+<h2> Les fichiers déja traités : </h2>
+<table class="table">
+<thead>
+<tr>
+<th scope="col">Utilisateur</th>
+<th scope="col">Nom du fichier</th>
+<th scope="col">Message</th>
+<th scope="col">Date d'ajout</th>
+
+</tr>
+</thead>
+<tbody>
+<?php
+
+
+
+
+?>
+<?php
+while($fichier2 = $selectfichierdejatraiter->fetch(PDO::FETCH_OBJ)){
+
+  $idfichier = $fichier2->id;
+  $idutilisateur = $fichier2->user_id;
+  $filename = $fichier2->filename;
+  $filenamesystem = $fichier2->filenamesystem;
+  $message = $fichier2->message;
+  $datefile = $fichier2->date;
+?>
+
+<tr>
+  <th scope="row"><?php echo $idutilisateur;?></th>
+  <td><a href="./download.php?nom=<?php echo $filenamesystem;?>&amp;id=<?php echo $idutilisateur;?>"><?php echo $filename;?></a></td>
+  <td><?php echo $message;?></td>
+  <td><?php echo $datefile;?></td>
+</tr>
+
+<?php
+}
+
+?>
+</tbody>
+</table>
+<?php
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+}else{
 
     $selectid = $db->prepare("SELECT distinct user_id FROM validationfichiers WHERE status='EN ATTENTE DE VALIDATION' ORDER BY date");
     $selectid->execute();
