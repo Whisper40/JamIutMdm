@@ -136,6 +136,14 @@ while($fichier2 = $selectfichierdejatraiter->fetch(PDO::FETCH_OBJ)){
 
   $idfichier = $fichier2->id;
   $idutilisateur = $fichier2->user_id;
+
+  $selectnom = $db->prepare("SELECT username FROM users WHERE id='$idutilisateur' ORDER BY id ASC");
+  $selectnom->execute();
+
+  $s = $selectnom->fetch(PDO::FETCH_OBJ);
+  $nom = $s->username;
+
+
   $filename = $fichier2->filename;
   $filenamesystem = $fichier2->filenamesystem;
   $message = $fichier2->message;
@@ -144,7 +152,7 @@ while($fichier2 = $selectfichierdejatraiter->fetch(PDO::FETCH_OBJ)){
 ?>
 
 <tr>
-  <th scope="row"><?php echo $idutilisateur;?></th>
+  <th scope="row"><?php echo $nom;?></th>
   <td><a href="./download.php?nom=<?php echo $filenamesystem;?>&amp;id=<?php echo $idutilisateur;?>"><?php echo $filename;?></a></td>
   <td><?php echo $message;?></td>
   <td><?php echo $datefile;?></td>
