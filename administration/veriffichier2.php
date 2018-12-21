@@ -8,7 +8,7 @@ if(isset($_GET['action'])){
   $user_id=$_GET['id'];
   $selectfichieratraiter = $db->prepare("SELECT * FROM validationfichiers WHERE status='EN ATTENTE DE VALIDATION' and user_id='$user_id' ORDER BY id ASC");
   $selectfichieratraiter->execute();
-  $countid = $selectid->rowCount();
+  $countid = $selectfichieratraiter->rowCount();
   if($countid>'0'){
   ?>
 <h2> Les fichiers en attente de validation : </h2>
