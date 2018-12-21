@@ -5,7 +5,7 @@
     require_once('includes/quantcast.php');
     ini_set('display_errors', 1);
 
-    if($_GET['action']=='validefichier'){
+    if(isset($_GET['action']=='validefichier')){
       echo"bond";
 
     $id=$_GET['id'];
@@ -22,7 +22,7 @@
     <script>window.location="https://administration.jam-mdm.fr/veriffichier2.php"</script>
     <?php
     }
-    
+
 if($_GET['action']=='gestionfichier'){
   $user_id=$_GET['id'];
   $selectfichieratraiter = $db->prepare("SELECT * FROM validationfichiers WHERE status='EN ATTENTE DE VALIDATION' and user_id='$user_id' ORDER BY id ASC");
