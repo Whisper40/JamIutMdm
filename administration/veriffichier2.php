@@ -13,8 +13,10 @@ if(isset($_GET['gestionfichier'])){
     $selectid = $db->prepare("SELECT distinct user_id FROM validationfichiers WHERE status='EN ATTENTE DE VALIDATION' ORDER BY date");
     $selectid->execute();
     $countid = $selectid->rowCount();
+    echo'ok';
     if($countid>'0'){
       while($uneselectid = $selectid->fetch(PDO::FETCH_OBJ)){
+        echo'ok2';
         $user_id = $uneselectid->user_id;
         $selectnom = $db->prepare("SELECT username, email, status FROM users WHERE id=:user_id ORDER BY id ASC");
         $selectnom->execute(array(
@@ -22,6 +24,7 @@ if(isset($_GET['gestionfichier'])){
             )
         );
         $table = $selectnom->fetch(PDO::FETCH_OBJ);
+        echo'ok3';
         if(count($table)>0){
           echo "<h3>".count($table)." documents trouvés</h3>";
           echo '
@@ -43,6 +46,7 @@ if(isset($_GET['gestionfichier'])){
             $status = $ligne->status;
 
             echo '
+            <h2>ok4</h2>
             <tr>
               <th scope="row">'.$username.'</th>
               <td>'.$email.'<td>
