@@ -27,6 +27,7 @@ if($_GET['action']=='gestionfichier'){
 
 
 if($_GET['action']=='validefichier'){
+  echo"bond";
 
 $id=$_GET['id'];
 $setvalide = $db->prepare("UPDATE validationfichiers SET status='VALIDE' WHERE id=$id");
