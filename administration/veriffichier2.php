@@ -46,6 +46,7 @@ if(isset($_GET['gestionfichier'])){
             $username = $ligne->username;
             $email = $ligne->email;
             $status = $ligne->status;
+            echo $username;
 
             echo '
             <h2>ok4</h2>
