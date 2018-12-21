@@ -3,6 +3,7 @@
     $nompage = "Actualité";
     require_once('includes/head.php');
     require_once('includes/quantcast.php');
+    ini_set('display_errors', 1);
 
 if($_GET['action']=='gestionfichier'){
   $user_id=$_GET['id'];
