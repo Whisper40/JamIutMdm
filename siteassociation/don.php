@@ -236,73 +236,60 @@ $_SESSION['messagedonneur'] = $_POST['message'];
           <script>
               paypal.Button.render({
 
-          env: 'sandbox',
-
-          client: {
-              sandbox:    'AZDxjDScFpQtjWTOUtWKbyN_bDt4OgqaF4eYXlewfBP4-8aqX3PiV8e1GWU6liB2CUXlkA59kJXE7M6R',
-              production: 'AXaV8dsJkxtDm__NKyNdyXBxp9wa8TSS8YZvNOyk3OEpi9rO82H3lc2wKhQrEbJS7NxfnLJ9Igq-rsIC'
-          },
-
-
-                  style: {
-                      layout: 'vertical',  // horizontal | vertical
-                      size:   'large',    // medium | large | responsive
-                      shape:  'pill',      // pill | rect
-                      color:  'blue'       // gold | blue | silver | black
-                  },
-
-                  commit: true,
-
-                  payment: function(data, actions) {
-
-                      return actions.payment.create({
-                          payment: {
-                              transactions: [
-                                  {
-                                      amount: { total: <?= $total ?>, currency: 'EUR' }
-                                  }
-                              ]
-                          },
-                      });
-                  },
-
-                  onAuthorize: function(data, actions) {
-
-                      return actions.payment.get().then(function(data) {
-
-                          console.log(data);
-
-                          var shipping = data.payer.payer_info.shipping_address;
-
-                          var name = shipping.recipient_name;
-                          var street = shipping.line1;
-                          var country_code = shipping.country_code;
-                          var city = shipping.city;
-                          var date = '<?= date("Y/m/d") ?>';
-                          var transaction_id = data.id;
-                          var price = data.transactions[0].amount.total;
-                          var currency_code = 'EUR';
-
-                          $.post(
-                              "processdon.php",
-                              {
-                                  name : name,
-                                  street: street,
-                                  city: city,
-                                  country_code : country_code,
-                                  date: date,
-                                  transaction_id: transaction_id,
-                                  price: price,
-                                  currency_code: currency_code,
-                              }
-                          );
-                          return actions.payment.execute().then(function() {
-                              $(location).attr("href", '<?= "https://jam-mdm.fr"."/successdon.php"; ?>');
-                          });
-                      });
-                  },
-
-              }, '#paypal-button');
+                env: 'sandbox',
+                client: {
+                    sandbox:    'AZDxjDScFpQtjWTOUtWKbyN_bDt4OgqaF4eYXlewfBP4-8aqX3PiV8e1GWU6liB2CUXlkA59kJXE7M6R',
+                    production: 'AXaV8dsJkxtDm__NKyNdyXBxp9wa8TSS8YZvNOyk3OEpi9rO82H3lc2wKhQrEbJS7NxfnLJ9Igq-rsIC'
+                },
+                        style: {
+                            layout: 'vertical',  // horizontal | vertical
+                            size:   'medium',    // medium | large | responsive
+                            shape:  'pill',      // pill | rect
+                            color:  'blue'       // gold | blue | silver | black
+                        },
+                        commit: true,
+                        payment: function(data, actions) {
+                            return actions.payment.create({
+                                payment: {
+                                    transactions: [
+                                        {
+                                            amount: { total: <?= $total ?>, currency: 'EUR' }
+                                        }
+                                    ]
+                                },
+                            });
+                        },
+                        onAuthorize: function(data, actions) {
+                            return actions.payment.get().then(function(data) {
+                                console.log(data);
+                                var shipping = data.payer.payer_info.shipping_address;
+                                var name = shipping.recipient_name;
+                                var street = shipping.line1;
+                                var country_code = shipping.country_code;
+                                var city = shipping.city;
+                                var date = '<?= date("Y/m/d") ?>';
+                                var transaction_id = data.id;
+                                var price = data.transactions[0].amount.total;
+                                var currency_code = 'EUR';
+                                $.post(
+                                    "processcotisation.php",
+                                    {
+                                        name : name,
+                                        street: street,
+                                        city: city,
+                                        country_code : country_code,
+                                        date: date,
+                                        transaction_id: transaction_id,
+                                        price: price,
+                                        currency_code: currency_code,
+                                    }
+                                );
+                                return actions.payment.execute().then(function() {
+                                    $(location).attr("href", '<?= "https://dashboard.jam-mdm.fr"."/successcotisation.php"; ?>');
+                                });
+                            });
+                        },
+                    }, '#paypal-button');
           </script>
 
 
