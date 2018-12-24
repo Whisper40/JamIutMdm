@@ -233,11 +233,10 @@ if($action = 'defaut'){
 
 }else if ($action = 'ban'){
 echo 'OK';
-  $insertinfos = $db->prepare("UPDATE images SET albumactif=:albumactif WHERE title=:title");
-  $insertinfos->execute(array(
+  $insertinfos2 = $db->prepare("UPDATE images SET albumactif=:albumactif WHERE title=:title");
+  $insertinfos2->execute(array(
       "title"=>$cat,
-      "albumactif"=>'0',
-      "status"=>'0'
+      "albumactif"=>'0'      
       )
   );
 
@@ -311,7 +310,7 @@ $selectcatimages=$db->query("SELECT DISTINCT title FROM images");
                                                    </div>
                                                    <div class="radio">
                                                        <label>
-                                                           <input type="radio" name="optionsRadios"  value="ban"> Désactiver
+                                                           <input type="radio" name="optionsRadios" value="ban"> Désactiver
                                                        </label>
                                                    </div>
                                                    <div class="radio">
