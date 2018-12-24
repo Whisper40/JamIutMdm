@@ -73,9 +73,17 @@ if(isset($_POST['catphotosubmit'])){
       $original = 'Original';
       if (file_exists($target_dir/$original/$nomcategorieimage)){
         $target_dirnew = "$target_dir/$original/$nomcategorieimage/";
+        echo '00';
+
       }else{
+        echo '11';
+
         mkdir($target_dir/$original/$nomcategorieimage, 0750);
+        echo '12';
+
         $target_dirnew = "$target_dir/$original/$nomcategorieimage/";
+        echo '13';
+
       }
 
       //Ajout thumb
