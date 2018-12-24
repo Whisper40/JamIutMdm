@@ -220,7 +220,7 @@ echo 'esquive';
 if(isset($_POST['submit'])){
 $action = $_POST['optionsRadios'];
 $cat = $_POST['catimage'];
-if($action = 'defaut'){
+if($action == 'defaut'){
 
   $insertinfos = $db->prepare("UPDATE images SET albumactif=:albumactif WHERE title=:title");
   $insertinfos->execute(array(
@@ -231,8 +231,10 @@ if($action = 'defaut'){
 
   $success = "L\'album à été définis comme album par défaut";
 
-}elseif ($action = 'ban') {
+}else if ($action == 'ban'){
   var_dump('james');
+}else if ($action == 'delete'){
+  var_dump('jamesttt');
 }
 
 
