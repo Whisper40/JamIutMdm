@@ -154,11 +154,9 @@ if($_GET['page']=='index'){
 
 
 
-$id=$_GET['id'];
-$setunban = $db->prepare("UPDATE images SET status='1' WHERE id=$id");
-$setunban->execute();
-?>
-<script>window.location="https://administration.jam-mdm.fr/gestionimage.php"</script>
+
+
+
 <?php
 }else if($_GET['action']=='ban'){
 
