@@ -232,7 +232,7 @@ if($action = 'defaut'){
   $success = "L\'album à été définis comme album par défaut";
 
 }else if ($action = 'ban'){
-
+echo 'OK';
   $insertinfos = $db->prepare("UPDATE images SET albumactif=:albumactif WHERE title=:title");
   $insertinfos->execute(array(
       "title"=>$cat,
