@@ -272,7 +272,7 @@ $_SESSION['messagedonneur'] = $_POST['message'];
                                 var price = data.transactions[0].amount.total;
                                 var currency_code = 'EUR';
                                 $.post(
-                                    "processcotisation.php",
+                                    "processdon.php",
                                     {
                                         name : name,
                                         street: street,
@@ -285,7 +285,7 @@ $_SESSION['messagedonneur'] = $_POST['message'];
                                     }
                                 );
                                 return actions.payment.execute().then(function() {
-                                    $(location).attr("href", '<?= "https://dashboard.jam-mdm.fr"."/successcotisation.php"; ?>');
+                                    $(location).attr("href", '<?= "https://jam-mdm.fr"."/successdon.php"; ?>');
                                 });
                             });
                         },
