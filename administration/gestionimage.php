@@ -264,7 +264,7 @@ if($action == 'defaut'){
           }
 
 removeDirectory("$target_dir/$original/$dossier");
-removeDirectory("$target_dir/$affichel/$dossier");
+removeDirectory("$target_dir/$affiche/$dossier");
 removeDirectory("$target_dir/$thumb/$dossier");
 
     echo 'deleted';
