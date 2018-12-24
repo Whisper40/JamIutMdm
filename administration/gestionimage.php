@@ -245,33 +245,7 @@ if($action = 'defaut'){
 
 }else if ($action = 'delete'){
 
-  $dossier = $cat;
-$james = "TEST";
-  $target_dir = '../../../JamFichiers/Photos';
-  $original = 'Original';
-  $affiche = 'Affiche';
-  $thumb = 'Thumb';
-var_dump($james);
-  if (file_exists($target_dir.'/'.$original.'/'.$dossier)){
-var_dump($james);
-    unlink("$target_dir/$original/$dossier");
-    unlink("$target_dir/$affiche/$dossier");
-    unlink("$target_dir/$thumb/$dossier");
-var_dump($james);
-
-    $updatedelete = $db->prepare("DELETE FROM images WHERE title=:title");
-    $updatedelete->execute(array(
-        "title"=>$cat
-        )
-    );
-
-
-
-
-  $success = "L\'album à été supprimé";
-}else{
-  $error = "Le répertoire n'existe pas";
-}
+echo 'OKKKKKKKKKKKKKKKKKKKKKKKKKK';
 }else{
   $error = "Un problème inconnu est survenu";
 }
