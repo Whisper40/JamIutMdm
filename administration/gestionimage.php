@@ -222,10 +222,11 @@ $action = $_POST['optionsRadios'];
 $cat = $_POST['catimage'];
 if($action == 'defaut'){
 
-  $insertinfos = $db->prepare("UPDATE images SET albumactif=:albumactif WHERE title=:title");
+  $insertinfos = $db->prepare("UPDATE images SET albumactif=:albumactif, status=:status WHERE title=:title");
   $insertinfos->execute(array(
       "title"=>$cat,
-      "albumactif"=>'1'
+      "albumactif"=>'1',
+      "status"=>'1'
       )
   );
 
@@ -243,13 +244,32 @@ if($action == 'defaut'){
 
   $success = "L\'album à été définis comme album par défaut";
 }else if ($action == 'delete'){
-  var_dump('jamesttt');
+
+  $dossier = $cat;
+
+  $target_dir = '../../../JamFichiers/Photos';
+  $original = 'Original';
+  $affiche = 'Affiche';
+  $thumb = 'Thumb';
+
+  if (file_exists($target_dir.'/'.$original.'/'.$dossier)){
+    unlink("$target_dir/$original/$dossier");
+    unlink("$target_dir/$affiche/$dossier");
+    unlink("$target_dir/$thumb/$dossier");
+    echo 'deleted';
+    $updatedelete = $db->prepare("DELETE FROM images WHERE title=:title");
+    $updatedelete->execute(array(
+        "title"=>$cat
+        )
+    );
+
+  }else{
+    $error = "Le répertoire n\'existe pas ! ";
+  }
+
+}else{
+  $error = "Aucune action sélectionnée ";
 }
-
-
-
-
-
 
 
 }
