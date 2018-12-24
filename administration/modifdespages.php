@@ -83,43 +83,68 @@ if($_GET['page']=='index'){
                       <div class="col-sm-6">
                           <div class="card-content">
                             <div class="form-group label-floating">
-                                <label class="control-label">Poids (Kg)</label>
-                                <input type="number" class="form-control" value="<?php echo $poids; ?>" name="poids" id="poids">
+                                <label class="control-label">Image du fond</label>
+                                <input type="number" class="form-control" value="<?php echo $img1; ?>" name="img1" id="img1">
                             </div>
                             <div class="form-group label-floating">
-                                <label class="control-label">Taille (cm)</label>
-                                <input type="number" name="taille" value="<?php echo $taille; ?>"id="taille" class="form-control">
+                                <label class="control-label">Logo Central</label>
+                                <input type="number" name="logo1" value="<?php echo $logo1; ?>"id="logo1" class="form-control">
                             </div>
                             <div class="form-group label-floating">
-                                <label class="control-label">Téléphone d'urgence</label>
-                                <input type="number" name="telurgence" value="<?php echo $telurgence; ?>" id="telurgence" class="form-control">
+                                <label class="control-label">Titre Principal</label>
+                                <input type="number" name="titre1" value="<?php echo $titre1; ?>" id="titre1" class="form-control">
                             </div>
                            </div>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-12">
                             <div class="card-content">
                               <div class="form-group label-floating">
-                                  <label class="control-label">Adresse</label>
-                                  <input type="text" name="adresse" value="<?php echo $adresse; ?>"id="adresse" class="form-control">
+                                  <label class="control-label">Description</label>
+                                  <input type="text" name="description1" value="<?php echo $description1; ?>"id="description1" class="form-control">
                               </div>
                               <div class="form-group label-floating">
-                                  <label class="control-label">Code Postal</label>
-                                  <input type="number" name="codepostal" value="<?php echo $codepostal; ?>" id="codepostal" class="form-control">
+                                  <label class="control-label">Bouton Gauche</label>
+                                  <input type="text" name="bouton1" value="<?php echo $bouton1; ?>" id="bouton1" class="form-control">
                               </div>
                               <div class="form-group label-floating">
-                                  <label class="control-label">Ville</label>
-                                  <input type="text" name="ville" value="<?php echo $ville; ?>" id="ville" class="form-control">
+                                  <label class="control-label">Lien bouton gauche</label>
+                                  <input type="text" name="lienbt1" value="<?php echo $lienbt1; ?>" id="lienbt1" class="form-control">
+                              </div>
+                              <div class="form-group label-floating">
+                                  <label class="control-label">Bouton Droite</label>
+                                  <input type="text" name="bouton2" value="<?php echo $bouton2; ?>" id="bouton2" class="form-control">
+                              </div>
+                              <div class="form-group label-floating">
+                                  <label class="control-label">Lien bouton droite</label>
+                                  <input type="text" name="lienbt2" value="<?php echo $lienbt2; ?>" id="lienbt2" class="form-control">
+                              </div>
+
+                              <div class="form-group label-floating">
+                                  <label class="control-label">Logo</label>
+                                  <input type="text" name="logo2" value="<?php echo $logo2; ?>" id="logo2" class="form-control">
+                              </div>
+
+                              <div class="form-group label-floating">
+                                  <label class="control-label">Titre Secondaire</label>
+                                  <input type="text" name="titre2" value="<?php echo $titre2; ?>" id="titre2" class="form-control">
+                              </div>
+
+                              <div class="form-group label-floating">
+                                  <label class="control-label">Description Secondaire</label>
+                                  <input type="text" name="description2" value="<?php echo $description2; ?>" id="description2" class="form-control">
+                              </div>
+
+                              <div class="form-group label-floating">
+                                  <label class="control-label">Lien Facebook</label>
+                                  <input type="text" name="fb" value="<?php echo $fb; ?>" id="fb" class="form-control">
                               </div>
                            </div>
                       </div>
                       <div class="col-sm-12">
                           <div class="card-content">
-                            <div class="form-group label-floating">
-                                <label class="control-label">Allèrgies</label>
-                                <input type="text" name="allergie" value="<?php echo $allergie; ?>"id="allergie" class="form-control">
-                            </div>
+
                             <center>
-                            <button id="submitFormDataSki" onclick="SubmitFormDataSki();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                            <button id="submitFormDataIndex" onclick="SubmitFormDataIndex();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
                             </center>
                            </div>
                         </div>
