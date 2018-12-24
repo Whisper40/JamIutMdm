@@ -84,15 +84,15 @@ if($_GET['page']=='index'){
                           <div class="card-content">
                             <div class="form-group label-floating">
                                 <label class="control-label">Image du fond</label>
-                                <input type="number" class="form-control" value="<?php echo $img1; ?>" name="img1" id="img1">
+                                <input type="text" class="form-control" value="<?php echo $img1; ?>" name="img1" id="img1">
                             </div>
                             <div class="form-group label-floating">
                                 <label class="control-label">Logo Central</label>
-                                <input type="number" name="logo1" value="<?php echo $logo1; ?>"id="logo1" class="form-control">
+                                <input type="text" name="logo1" value="<?php echo $logo1; ?>"id="logo1" class="form-control">
                             </div>
                             <div class="form-group label-floating">
                                 <label class="control-label">Titre Principal</label>
-                                <input type="number" name="titre1" value="<?php echo $titre1; ?>" id="titre1" class="form-control">
+                                <input type="text" name="titre1" value="<?php echo $titre1; ?>" id="titre1" class="form-control">
                             </div>
                            </div>
                         </div>
