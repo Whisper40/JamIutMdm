@@ -229,12 +229,48 @@ if($action = 'defaut'){
       )
   );
 
+  $success = "L\'album à été définis comme album par défaut";
+
 }else if ($action = 'ban'){
+
+  $insertinfos = $db->prepare("UPDATE images SET albumactif=:albumactif, status=:status WHERE title=:title");
+  $insertinfos->execute(array(
+      "title"=>$cat,
+      "albumactif"=>'0',
+      "status"=>'0'
+      )
+  );
+
+  $success = "L\'album à été désactivé";
 
 }else if ($action = 'delete'){
 
+  $dossier = $cat;
+
+  $target_dir = '../../../JamFichiers/Photos';
+  $original = 'Original';
+  $affiche = 'Affiche';
+  $thumb = 'Thumb';
+
+  if (file_exists($target_dir.'/'.$original.'/'.$dossier)){
+
+    unlink("$target_dir/$original/$dossier");
+    unlink("$target_dir/$affiche/$dossier");
+    unlink("$target_dir/$thumb/$dossier");
+
+    $updatedelete = $db->prepare("DELETE FROM images WHERE title=:title");
+    $updatedelete->execute(array(
+        "title"=>$cat
+        )
+    );
+
+
+
+
+  $success = "L\'album à été supprimé";
+
 }else{
-  echo ' probleme ';
+  $error = "Un problème inconnu est survenu";
 }
 
 
