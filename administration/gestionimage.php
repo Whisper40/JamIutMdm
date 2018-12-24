@@ -231,48 +231,6 @@ if($action = 'defaut'){
 
   $success = "L\'album à été définis comme album par défaut";
 
-}else if ($action = 'ban'){
-echo 'OK';
-  $insertinfos2 = $db->prepare("UPDATE images SET albumactif=:albumactif WHERE title=:title");
-  $insertinfos2->execute(array(
-      "title"=>$cat,
-      "albumactif"=>'0'      
-      )
-  );
-
-  $success = "L\'album à été désactivé";
-
-}else if ($action = 'delete'){
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  $success = "L\'album à été supprimé";
-
-}else{
-  echo ' probleme ';
 }
 
 
@@ -281,6 +239,8 @@ echo 'OK';
 
 
 }
+
+
 $selectcatimages=$db->query("SELECT DISTINCT title FROM images");
 
   ?>
