@@ -253,9 +253,20 @@ if($action == 'defaut'){
   $thumb = 'Thumb';
 
   if (file_exists($target_dir.'/'.$original.'/'.$dossier)){
-    unlink("$target_dir/$original/$dossier");
-    unlink("$target_dir/$affiche/$dossier");
-    unlink("$target_dir/$thumb/$dossier");
+
+    function removeDirectory($path) {
+ 	      $files = glob($path . '/*');
+	      foreach ($files as $file) {
+		        is_dir($file) ? removeDirectory($file) : unlink($file);
+	         }
+	          rmdir($path);
+ 	          return;
+          }
+
+removeDirectory("$target_dir/$original/$dossier");
+removeDirectory("$target_dir/$affichel/$dossier");
+removeDirectory("$target_dir/$thumb/$dossier");
+
     echo 'deleted';
     $updatedelete = $db->prepare("DELETE FROM images WHERE title=:title");
     $updatedelete->execute(array(
