@@ -268,17 +268,18 @@ if($action = 'defaut'){
 
 
   $success = "L\'album à été supprimé";
-
+}
 }else{
   $error = "Un problème inconnu est survenu";
 }
-
-
-
-
-
-
 }
+
+
+
+
+
+
+
 $selectcatimages=$db->query("SELECT DISTINCT title FROM images");
 
   ?>
