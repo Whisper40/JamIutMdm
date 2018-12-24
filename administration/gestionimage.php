@@ -243,9 +243,6 @@ if($action = 'defaut'){
 
   $success = "L\'album à été désactivé";
 
-}else if ($action = 'delete'){
-
-echo 'OKKKKKKKKKKKKKKKKKKKKKKKKKK';
 }else{
   $error = "Un problème inconnu est survenu";
 }
