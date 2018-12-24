@@ -251,12 +251,13 @@ if($action = 'defaut'){
   $original = 'Original';
   $affiche = 'Affiche';
   $thumb = 'Thumb';
-
+echo 'james';
   if (file_exists($target_dir.'/'.$original.'/'.$dossier)){
-
+echo 'bond';
     unlink("$target_dir/$original/$dossier");
     unlink("$target_dir/$affiche/$dossier");
     unlink("$target_dir/$thumb/$dossier");
+    echo 'bond2';
 
     $updatedelete = $db->prepare("DELETE FROM images WHERE title=:title");
     $updatedelete->execute(array(
@@ -268,6 +269,8 @@ if($action = 'defaut'){
 
 
   $success = "L\'album à été supprimé";
+}else{
+  $error = "Le répertoire n'existe pas";
 }
 }else{
   $error = "Un problème inconnu est survenu";
