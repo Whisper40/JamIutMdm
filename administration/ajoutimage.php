@@ -3,7 +3,7 @@
     require_once('includes/checkconnection.php');
     $nompage = "";
     require_once('includes/head.php');
-    require_once('includes/quantcast.php');
+  
 
 //Code de génératon du captcha fournie par GOOGLE
 $secret = "LESECRET";
