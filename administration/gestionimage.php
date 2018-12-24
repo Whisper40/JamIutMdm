@@ -232,6 +232,7 @@ if($action = 'defaut'){
   $success = "L\'album à été définis comme album par défaut";
 
 }
+var_dump('james');
 
 
 
