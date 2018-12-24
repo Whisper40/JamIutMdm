@@ -231,8 +231,10 @@ if($action = 'defaut'){
 
   $success = "L\'album à été définis comme album par défaut";
 
+}elseif ($action = 'ban') {
+  var_dump('james');
 }
-var_dump('james');
+
 
 
 
