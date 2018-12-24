@@ -246,18 +246,18 @@ if($action = 'defaut'){
 }else if ($action = 'delete'){
 
   $dossier = $cat;
-
+$james = "TEST";
   $target_dir = '../../../JamFichiers/Photos';
   $original = 'Original';
   $affiche = 'Affiche';
   $thumb = 'Thumb';
-echo 'james';
+var_dump($james);
   if (file_exists($target_dir.'/'.$original.'/'.$dossier)){
-echo 'bond';
+var_dump($james);
     unlink("$target_dir/$original/$dossier");
     unlink("$target_dir/$affiche/$dossier");
     unlink("$target_dir/$thumb/$dossier");
-    echo 'bond2';
+var_dump($james);
 
     $updatedelete = $db->prepare("DELETE FROM images WHERE title=:title");
     $updatedelete->execute(array(
