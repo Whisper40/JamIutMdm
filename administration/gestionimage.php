@@ -221,6 +221,13 @@ if(isset($_POST['submit'])){
 $action = $_POST['optionsRadios'];
 if($action = 'defaut'){
 
+  $insertinfos = $db->prepare("UPDATE images (albumactif) SET VALUES(:albumactif) WHERE title=:title");
+  $insertinfos->execute(array(
+      "title"=>$action,
+      "albumactif"=>'1'
+      )
+  );
+
 }else if ($action = 'ban'){
 
 }else if ($action = 'delete'){
@@ -264,12 +271,12 @@ $selectcatimages=$db->query("SELECT DISTINCT title FROM images");
                                                    </div>
                                                    <div class="radio">
                                                        <label>
-                                                           <input type="radio" name="optionsRadios"  value="2"> Désactiver
+                                                           <input type="radio" name="optionsRadios"  value="ban"> Désactiver
                                                        </label>
                                                    </div>
                                                    <div class="radio">
                                                        <label>
-                                                           <input type="radio" name="optionsRadios" value="3"> Supprimer
+                                                           <input type="radio" name="optionsRadios" value="delete"> Supprimer
                                                        </label>
                                                    </div>
                                                </div>
