@@ -71,28 +71,28 @@ if(isset($_POST['catphotosubmit'])){
       $target_dir = "../../../JamFichiers/Photos";
 
       $original = 'Original';
-      if (file_exists($target_dir.'/'.$original.'/'.$nomcategorieimage)){
-        $target_dirnew = "$target_dir.'/'.$original.'/'.$nomcategorieimage.'/'";
+      if (file_exists($target_dir/$original/$nomcategorieimage)){
+        $target_dirnew = "$target_dir/$original/$nomcategorieimage/";
       }else{
-        mkdir("$target_dir.'/'.$original.'/'.$nomcategorieimage", 0700);
-        $target_dirnew = "$target_dir.'/'.$original.'/'.$nomcategorieimage.'/'";
+        mkdir("$target_dir/$original/$nomcategorieimage", 0700);
+        $target_dirnew = "$target_dir/$original/$nomcategorieimage/";
       }
 
       //Ajout thumb
       $thumb = 'Thumb';
-      if (file_exists($target_dir.'/'.$thumb.'/'.$nomcategorieimage)) {
-        $target_dirnewthumb = "$target_dir.'/'.$thumb.'/'.$nomcategorieimage.'/'";
+      if (file_exists($target_dir/$thumb/$nomcategorieimage)) {
+        $target_dirnewthumb = "$target_dir/$thumb/$nomcategorieimage/";
       }else{
-        mkdir("$target_dir.'/'.$thumb.'/'.$nomcategorieimage", 0700);
-        $target_dirnewthumb = "$target_dir.'/'.$thumb.'/'.$nomcategorieimage.'/'";
+        mkdir("$target_dir/$thumb/$nomcategorieimage", 0700);
+        $target_dirnewthumb = "$target_dir/$thumb/$nomcategorieimage/";
       }
 
       $affiche = 'Affiche';
-      if (file_exists($target_dir.'/'.$affiche.'/'.$nomcategorieimage)) {
-        $target_dirnewaffiche = "$target_dir.'/'.$affiche.'/'.$nomcategorieimage.'/'";
+      if (file_exists($target_dir/$affiche/$nomcategorieimage)) {
+        $target_dirnewaffiche = "$target_dir/$affiche/$nomcategorieimage/";
       }else{
-        mkdir("$target_dir.'/'.$affiche.'/'.$nomcategorieimage", 0700);
-        $target_dirnewaffiche = "$target_dir.'/'.$affiche.'/'.$nomcategorieimage.'/'";
+        mkdir("$target_dir/$affiche/$nomcategorieimage", 0700);
+        $target_dirnewaffiche = "$target_dir/$affiche/$nomcategorieimage/";
       }
 
 
