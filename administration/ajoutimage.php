@@ -74,7 +74,7 @@ if(isset($_POST['catphotosubmit'])){
       if (file_exists($target_dir/$original/$nomcategorieimage)){
         $target_dirnew = "$target_dir/$original/$nomcategorieimage/";
       }else{
-        mkdir("$target_dir/$original/$nomcategorieimage", 0750);
+        mkdir($target_dir/$original/$nomcategorieimage, 0750);
         $target_dirnew = "$target_dir/$original/$nomcategorieimage/";
       }
 
@@ -83,7 +83,7 @@ if(isset($_POST['catphotosubmit'])){
       if (file_exists($target_dir/$thumb/$nomcategorieimage)) {
         $target_dirnewthumb = "$target_dir/$thumb/$nomcategorieimage/";
       }else{
-        mkdir("$target_dir/$thumb/$nomcategorieimage", 0750);
+        mkdir($target_dir/$thumb/$nomcategorieimage, 0750);
         $target_dirnewthumb = "$target_dir/$thumb/$nomcategorieimage/";
       }
 
@@ -91,7 +91,7 @@ if(isset($_POST['catphotosubmit'])){
       if (file_exists($target_dir/$affiche/$nomcategorieimage)) {
         $target_dirnewaffiche = "$target_dir/$affiche/$nomcategorieimage/";
       }else{
-        mkdir("$target_dir/$affiche/$nomcategorieimage", 0750);
+        mkdir($target_dir/$affiche/$nomcategorieimage, 0750);
         $target_dirnewaffiche = "$target_dir/$affiche/$nomcategorieimage/";
       }
 
