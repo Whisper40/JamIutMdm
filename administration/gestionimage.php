@@ -233,7 +233,7 @@ if($action = 'defaut'){
 
 }else if ($action = 'ban'){
 
-  $insertinfos = $db->prepare("UPDATE images SET albumactif=:albumactif, status=:status WHERE title=:title");
+  $insertinfos = $db->prepare("UPDATE images SET albumactif=:albumactif WHERE title=:title");
   $insertinfos->execute(array(
       "title"=>$cat,
       "albumactif"=>'0',
@@ -263,7 +263,7 @@ if($action = 'defaut'){
 
 
 
-  
+
 
 
 
