@@ -54,6 +54,18 @@ $sitekey = "LESITEKEY";
 if(isset($_POST['catphotosubmit'])){
   $nomcategorieimage = $_POST['nomcategorieimage'];
 
+
+  $selectnomicon = $db->prepare("SELECT icon FROM images WHERE title = '$nomcategorieimage'");
+  $selectnomicon->execute(array(
+      "optionmaterielform"=>$optionmaterielform
+      )
+  );
+  $ricon = $selectnomicon->fetch(PDO::FETCH_OBJ);
+  $nomicon = $ricon->icon;
+
+
+
+
   $checkcatimages = $db->prepare("SELECT title FROM images WHERE title = '$nomcategorieimage'");
   $checkcatimages->execute();
   $countcheckimages = $checkcatimages->rowCount();
@@ -146,7 +158,7 @@ if ($uploadOk == 0) {
 
             "title"=>$nomcategorieimage,
             "albumactif"=>'1',
-            "icon"=>'design_image',
+            "icon"=>$nomicon,
             "file_name"=>$target_filefile,
             "date"=>$date,
             "status"=>$status
@@ -687,6 +699,7 @@ if ($uploadOk == 0) {
 
 if(isset($_POST['submit'])){
   $catimage = $_POST['catimage'];
+  $nomicon = $_POST['nomicon'];
 
       $target_dir = "../../../JamFichiers/Photos";
 
@@ -767,7 +780,7 @@ if ($uploadOk == 0) {
 
             "title"=>$catimage,
             "albumactif"=>'1',
-            "icon"=>'design_image',
+            "icon"=>$nomicon,
             "file_name"=>$target_filefile,
             "date"=>$date,
             "status"=>$status
@@ -915,6 +928,7 @@ if(isset($error)){
             </span>
           </div>
           <input type="text" class="form-control" placeholder="Nom de la catégorie d'images"  name="nomcategorieimage">
+          <input type="text" class="form-control" placeholder="Nom icon"  name="nomicon">
         </div>
 
         <div class="form-group form-file-upload">
