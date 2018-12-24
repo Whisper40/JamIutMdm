@@ -223,7 +223,7 @@ if($action = 'defaut'){
 
   $insertinfos = $db->prepare("UPDATE images (albumactif) SET VALUES(:albumactif) WHERE title=:title");
   $insertinfos->execute(array(
-      "title"=>$action,
+      "title"=>$catimage,
       "albumactif"=>'1'
       )
   );
