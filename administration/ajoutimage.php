@@ -53,7 +53,6 @@ $sitekey = "LESITEKEY";
 
 if(isset($_POST['catphotosubmit'])){
   $nomcategorieimage = $_POST['nomcategorieimage'];
-  $nomicon = $_POST['nomicon'];
 
   $checkcatimages = $db->prepare("SELECT title FROM images WHERE title = '$nomcategorieimage'");
   $checkcatimages->execute();
@@ -71,7 +70,7 @@ if(isset($_POST['catphotosubmit'])){
       $target_dir = "../../../JamFichiers/Photos";
 
       $original = 'Original';
-      if (file_exists("$target_dir/$original/$nomcategorieimage")){
+      if (file_exists($target_dir/$original/$nomcategorieimage)){
         $target_dirnew = "$target_dir/$original/$nomcategorieimage/";
       }else{
         mkdir("$target_dir/$original/$nomcategorieimage", 0700);
@@ -80,7 +79,7 @@ if(isset($_POST['catphotosubmit'])){
 
       //Ajout thumb
       $thumb = 'Thumb';
-      if (file_exists("$target_dir/$thumb/$nomcategorieimage")) {
+      if (file_exists($target_dir/$thumb/$nomcategorieimage)) {
         $target_dirnewthumb = "$target_dir/$thumb/$nomcategorieimage/";
       }else{
         mkdir("$target_dir/$thumb/$nomcategorieimage", 0700);
@@ -88,7 +87,7 @@ if(isset($_POST['catphotosubmit'])){
       }
 
       $affiche = 'Affiche';
-      if (file_exists("$target_dir/$affiche/$nomcategorieimage")) {
+      if (file_exists($target_dir/$affiche/$nomcategorieimage)) {
         $target_dirnewaffiche = "$target_dir/$affiche/$nomcategorieimage/";
       }else{
         mkdir("$target_dir/$affiche/$nomcategorieimage", 0700);
@@ -147,7 +146,7 @@ if ($uploadOk == 0) {
 
             "title"=>$nomcategorieimage,
             "albumactif"=>'1',
-            "icon"=>$nomicon,
+            "icon"=>'design_image',
             "file_name"=>$target_filefile,
             "date"=>$date,
             "status"=>$status
@@ -916,7 +915,6 @@ if(isset($error)){
             </span>
           </div>
           <input type="text" class="form-control" placeholder="Nom de la catégorie d'images"  name="nomcategorieimage">
-          <input type="text" class="form-control" placeholder="Nom de l'icon"  name="nomicon">
         </div>
 
         <div class="form-group form-file-upload">
