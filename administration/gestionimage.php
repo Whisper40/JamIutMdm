@@ -222,7 +222,7 @@ $action = $_POST['optionsRadios'];
 $cat = $_POST['catimage'];
 if($action = 'defaut'){
 
-  $insertinfos = $db->prepare("UPDATE images (albumactif) SET VALUES(:albumactif) WHERE title=:title");
+  $insertinfos = $db->prepare("UPDATE images SET albumactif=:albumactif WHERE title=:title");
   $insertinfos->execute(array(
       "title"=>$cat,
       "albumactif"=>'1'
