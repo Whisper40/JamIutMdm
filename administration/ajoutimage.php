@@ -689,6 +689,16 @@ if ($uploadOk == 0) {
 if(isset($_POST['submit'])){
   $catimage = $_POST['catimage'];
 
+
+  $selecticon = $db->prepare("SELECT icon FROM images WHERE title=:catimage");
+  $selecticon->execute(array(
+      "catimage"=>$catimage
+      )
+  );
+  $ricon = $selecticon->fetch(PDO::FETCH_OBJ);
+  $nomicon = $ricon->icon;
+
+
       $target_dir = "../../../JamFichiers/Photos";
 
       $original = 'Original';
@@ -768,7 +778,7 @@ if ($uploadOk == 0) {
 
             "title"=>$catimage,
             "albumactif"=>'1',
-            "icon"=>'design_image',
+            "icon"=>$nomicon,
             "file_name"=>$target_filefile,
             "date"=>$date,
             "status"=>$status
@@ -1016,7 +1026,7 @@ if(isset($error)){
                     </div>
                 </div>
 
-                <input type="submit" name="submit" value="Envoyer le formulaire !">
+                <input type="submit" name="submit" value="Envoyer le formulaire image !">
             </form>
 
             <hr>
