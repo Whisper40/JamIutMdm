@@ -382,20 +382,13 @@ if($_GET['page']=='index'){
 
 
 
-  $selectid = $db->prepare("SELECT distinct id FROM membres");
-  $selectid->execute();
-  $countid = $selectid->rowCount();
 
-  if($countid>'0'){
 
-    while($uneselectid = $selectid->fetch(PDO::FETCH_OBJ)){
 
-      $id = $uneselectid->id;
-      $selectnom = $db->prepare("SELECT image, nom, categorie, importance, fonction, description FROM membres WHERE ID=:id");
-      $selectnom->execute(array(
-          "id"=>$id
-          )
-      );
+
+
+      $selectnom = $db->prepare("SELECT id, image, nom, categorie, importance, fonction, description FROM membres");
+      $selectnom->execute();
 
 
       $table = $selectnom->fetchAll(PDO::FETCH_OBJ);
@@ -451,8 +444,8 @@ if($_GET['page']=='index'){
 }else{
   echo ' rien';
 }
-}
-}else{
+
+else{
   $error = "Malheureusement, aucun gradé n\'existe";
 }
 
