@@ -377,87 +377,139 @@ if($_GET['page']=='index'){
 
 
 
-}else if ($_GET['page']=='association'){
-  $table = $_GET['table'];
-
-
-  ?>
-    <script>
-
-
-     function SubmitFormDataPageAsso() {
-        var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-        var titre1 = $("#titre1").val();
-        var description1 = $("#description1").val();
-        var description2 = $("#description2").val();
-
-
-        $.post("ajax/modifypagedevenirmembre.php", { user_id:user_id, titre1: titre1, description1: description1, description2: description2},
-        function(data) {
-         $('#results3').html(data);
-
-        });
-
-    }
-
-    </script>
-    <?php
-    $selectinfosactuel = $db->prepare("SELECT * from pageasso");
-    $selectinfosactuel->execute();
-    $r2 = $selectinfosactuel->fetch(PDO::FETCH_OBJ);
-    $titre1 = $r2->titre1;
-    $description1 = $r2->description1;
-    $description2 = $r2->description2;
-
-  ?>
-    <div class="content">
-        <div class="container-fluid">
-            <div class="card">
-                <div class="card-content">
-                    <h2 class="card-title text-center">Modification de la page association</h2>
-                    <form action="" method="post" id="myForm1" class="contact-form">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="card-content">
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Titre 1</label>
-                                  <input type="text" class="form-control" value="<?php echo $titre1; ?>" name="titre1" id="titre1">
-                              </div>
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Description 1</label>
-                                  <input type="text" name="description1" value="<?php echo $description1; ?>"id="description1" class="form-control">
-                              </div>
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Description 2</label>
-                                  <input type="text" name="description2" value="<?php echo $description2; ?>" id="description2" class="form-control">
-                              </div>
-                             </div>
-                          </div>
-
-                        <div class="col-sm-12">
-                            <div class="card-content">
-
-                              <center>
-                              <button id="SubmitFormDataPageAsso" onclick="SubmitFormDataPageAsso();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
-                              <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
-                              </center>
-                             </div>
-                          </div>
-                    </div>
-                  </form>
-                </div>
-            </div>
-        </div>
-
-     <div id="results3"> <!-- TRES IMPORTANT -->
+}else if ($_GET['page']=='membre'){
 
 
 
-    </div>
-  </div>
+
+  $selectid = $db->prepare("SELECT ID FROM membres ORDER BY ID ASC");
+  $selectid->execute();
+  $countid = $selectid->rowCount();
+
+  if($countid>'0'){
+    while($uneselectid = $selectid->fetch(PDO::FETCH_OBJ)){
+
+      $id = $uneselectid->ID;
+      $selectnom = $db->prepare("SELECT image, nom, categorie, importance, fonction, description FROM membres WHERE id=:id");
+      $selectnom->execute(array(
+          "id"=>$id
+          )
+      );
+      $table = $selectnom->fetchAll(PDO::FETCH_OBJ);
+      if(count($table)>0){
+        echo "<h3>".count($table)." Personnes trouvées</h3>";
+        echo '
+        <table class="table">
+        <thead>
+        <tr>
+        <th scope="col">Nom</th>
+        <th scope="col">Image</th>
+        <th scope="col">Fonction</th>
+        <th scope="col">Action</th>
 
 
-<?php
+        </tr>
+        </thead>
+        <tbody>
+
+        ';
+        foreach($table as $ligne){
+          $nom = $ligne->nom;
+          $image = $ligne->image;
+          $fonction = $ligne->fonction;
+
+
+          echo '
+
+          <tr>
+            <th scope="row">'.$nom.'</th>
+            <td>'.$image.'<td>
+            <td>'.$fonction.'</td>
+
+            <td>
+        <a href="&amp;modifmembre='.$id.'">
+        <button type="button" class="btn">Modifier</button>
+        </a>
+            </td>
+          </tr>
+      <hr>
+          ';
+        }
+
+        echo '
+      </tbody>
+      </table>
+
+
+        ';
+
+}
+}
+}else{
+  $error = "Malheureusement, aucun gradé n\'existe";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
