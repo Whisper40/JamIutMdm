@@ -287,7 +287,7 @@ if($_GET['page']=='index'){
 
 
 
-}else if
+
 
 
 }else{//FIN $_GET
