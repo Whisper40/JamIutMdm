@@ -12,6 +12,11 @@ $sitekey = "LESITEKEY";
 ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src='https://www.google.com/recaptcha/api.js'></script>
+<script>
+function RetourIndex(){
+  window.location="https://administration.jam-mdm.fr/modifdespages.php"
+}
+</script>
 
 
 
@@ -50,9 +55,7 @@ if($_GET['page']=='index'){
       });
 
   }
-    function RetourIndex(){
-      window.location="https://administration.jam-mdm.fr/modifdespages.php"
-    }
+
   </script>
   <?php
   $selectinfosactuel = $db->prepare("SELECT * from pageindex");
@@ -143,7 +146,7 @@ if($_GET['page']=='index'){
 
                             <center>
                             <button id="submitFormDataIndex" onclick="SubmitFormDataIndex();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
-                              <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
+                            <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                             </center>
                            </div>
                         </div>
