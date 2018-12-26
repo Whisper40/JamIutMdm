@@ -382,17 +382,17 @@ if($_GET['page']=='index'){
 
 
 
-  $selectid = $db->prepare("SELECT distinct user_id FROM validationfichiers WHERE status='EN ATTENTE DE VALIDATION' ORDER BY date");
+  $selectid = $db->prepare("SELECT ID from membres");
   $selectid->execute();
   $countid = $selectid->rowCount();
 
   if($countid>'0'){
     while($uneselectid = $selectid->fetch(PDO::FETCH_OBJ)){
 
-      $user_id = $uneselectid->user_id;
-      $selectnom = $db->prepare("SELECT username, email, status FROM users WHERE id=:user_id ORDER BY id ASC");
+      $ID = $uneselectid->ID;
+      $selectnom = $db->prepare("SELECT nom FROM membres WHERE ID=:ID");
       $selectnom->execute(array(
-          "user_id"=>$user_id
+          "ID"=>$ID
           )
       );
       $table = $selectnom->fetchAll(PDO::FETCH_OBJ);
