@@ -423,8 +423,7 @@ echo'2';
           $fonction = $ligne->fonction;
 
 
-          echo 'X';
-          ?>
+          echo '
 
           <tr>
             <th scope="row">'.$nom.'</th>
@@ -432,7 +431,7 @@ echo'2';
             <td>'.$fonction.'</td>
 
             <td>
-        <a href="&amp;modifmembre='.$id.'">
+        <a>
         <button type="button" class="btn">Modifier</button>
         </a>
             </td>
