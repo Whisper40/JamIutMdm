@@ -428,6 +428,13 @@ if($_GET['page']=='index'){
             <a href="&amp;modifmembre='.$id.'">
             <button type="button" class="btn">Modifier</button>
             </a>
+            <a href="modifmembre='.$id.'">
+            <button type="button" class="btn">Modifier</button>
+            </a>
+            <a href="?modifmembre='.$id.'">
+            <button type="button" class="btn">Modifier</button>
+            </a>
+
             </td>
           </tr>
 
