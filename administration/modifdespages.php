@@ -294,16 +294,16 @@ if($_GET['page']=='index'){
     <script>
 
 
-     function SubmitFormDataDevenirMembre() {
-       var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-        var introduction = $("#introduction").val();
-        var etape1 = $("#etape1").val();
-        var etape2 = $("#etape2").val();
-        var etape3 = $("#etape3").val();
+     function SubmitFormDataPageAsso() {
+        var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+        var titre1 = $("#titre1").val();
+        var description1 = $("#description1").val();
+        var description2 = $("#description2").val();
 
-        $.post("ajax/modifypagedevenirmembre.php", { user_id:user_id, introduction: introduction, etape1: etape1, etape2: etape2, etape3: etape3},
+
+        $.post("ajax/modifypagedevenirmembre.php", { user_id:user_id, titre1: titre1, description1: description1, description2: description2},
         function(data) {
-         $('#results2').html(data);
+         $('#results3').html(data);
 
         });
 
@@ -311,35 +311,34 @@ if($_GET['page']=='index'){
 
     </script>
     <?php
-    $selectinfosactuel = $db->prepare("SELECT * from pagedevenirmembre");
+    $selectinfosactuel = $db->prepare("SELECT * from pageasso");
     $selectinfosactuel->execute();
     $r2 = $selectinfosactuel->fetch(PDO::FETCH_OBJ);
-    $introduction = $r2->introduction;
-    $etape1 = $r2->etape1;
-    $etape2 = $r2->etape2;
-    $etape3 = $r2->etape3;
+    $titre1 = $r2->titre1;
+    $description1 = $r2->description1;
+    $description2 = $r2->description2;
 
   ?>
     <div class="content">
         <div class="container-fluid">
             <div class="card">
                 <div class="card-content">
-                    <h2 class="card-title text-center">Modification de la page devenir membre</h2>
+                    <h2 class="card-title text-center">Modification de la page association</h2>
                     <form action="" method="post" id="myForm1" class="contact-form">
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="card-content">
                               <div class="form-group label-floating">
-                                  <label class="control-label">Introduction</label>
-                                  <input type="text" class="form-control" value="<?php echo $introduction; ?>" name="introduction" id="introduction">
+                                  <label class="control-label">Titre 1</label>
+                                  <input type="text" class="form-control" value="<?php echo $titre1; ?>" name="titre1" id="titre1">
                               </div>
                               <div class="form-group label-floating">
-                                  <label class="control-label">Etape 1</label>
-                                  <input type="text" name="etape1" value="<?php echo $etape1; ?>"id="etape1" class="form-control">
+                                  <label class="control-label">Description 1</label>
+                                  <input type="text" name="description1" value="<?php echo $description1; ?>"id="description1" class="form-control">
                               </div>
                               <div class="form-group label-floating">
-                                  <label class="control-label">Etape 2</label>
-                                  <input type="text" name="etape2" value="<?php echo $etape2; ?>" id="etape2" class="form-control">
+                                  <label class="control-label">Description 2</label>
+                                  <input type="text" name="description2" value="<?php echo $description2; ?>" id="description2" class="form-control">
                               </div>
                              </div>
                           </div>
@@ -356,7 +355,7 @@ if($_GET['page']=='index'){
                             <div class="card-content">
 
                               <center>
-                              <button id="SubmitFormDataDevenirMembre" onclick="SubmitFormDataDevenirMembre();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                              <button id="SubmitFormDataPageAsso" onclick="SubmitFormDataPageAsso();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
                               <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                               </center>
                              </div>
@@ -367,7 +366,7 @@ if($_GET['page']=='index'){
             </div>
         </div>
 
-     <div id="results2"> <!-- TRES IMPORTANT -->
+     <div id="results3"> <!-- TRES IMPORTANT -->
 
 
 
