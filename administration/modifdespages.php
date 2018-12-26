@@ -385,14 +385,15 @@ if($_GET['page']=='index'){
   $selectid = $db->prepare("SELECT ID FROM membres");
   $selectid->execute();
   $countid = $selectid->rowCount();
-  var_dump($selectid);
+
 
   if($countid>'0'){
     echo'1';
     while($uneselectid = $selectid->fetch(PDO::FETCH_OBJ)){
 echo'2';
       $id = $uneselectid->ID;
-      echo $id;echo $id;echo $id;echo $id;
+      var_dump($uneselectid);
+
       $selectnom = $db->prepare("SELECT image, nom, categorie, importance, fonction, description FROM membres WHERE id=:id");
       $selectnom->execute(array(
           "id"=>$id
@@ -401,7 +402,7 @@ echo'2';
       echo'3';
 
       $table = $selectnom->fetchAll(PDO::FETCH_OBJ);
-      
+
       if(count($table)>0){
         echo'4';
         echo "<h3>".count($table)." Personnes trouvées</h3>";
