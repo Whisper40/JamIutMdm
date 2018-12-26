@@ -29,32 +29,32 @@ if($_GET['page']=='index'){
   <script>
 
 
-   function SubmitFormDataSki() {
+   function SubmitFormDataIndex() {
      var user_id = "<?php echo $_SESSION['user_id']; ?>";
-      var poids = $("#poids").val();
-      var taille = $("#taille").val();
-      var allergie = $("#allergie").val();
-      var adresse = $("#adresse").val();
-      var codepostal = $("#codepostal").val();
-      var ville = $("#ville").val();
-      var telurgence = $("#telurgence").val();
-      $.post("ajax/modifyformulaireski.php", { user_id:user_id, poids: poids, taille: taille, allergie: allergie, adresse: adresse, codepostal: codepostal, ville: ville, telurgence: telurgence},
+      var img1 = $("#img1").val();
+      var logo1 = $("#logo1").val();
+      var titre1 = $("#titre1").val();
+      var description1 = $("#description1").val();
+      var bouton1 = $("#bouton1").val();
+      var lienbt1 = $("#lienbt1").val();
+      var bouton2 = $("#bouton2").val();
+      var lienbt2 = $("#lienbt2").val();
+      var logo2 = $("#logo2").val();
+      var titre2 = $("#titre2").val();
+      var description2 = $("#description2").val();
+      var fb = $("#fb").val();
+      $.post("ajax/modifypageindex.php", { user_id:user_id, img1: img1, logo1: logo1, titre1: titre1, description1: description1, bouton1: bouton1, lienbt1: lienbt1, bouton2: bouton2, lienbt2: lienbt2, logo2: logo2, titre2: titre2, description2: description2, fb: fb},
       function(data) {
        $('#results1').html(data);
 
       });
 
   }
-
-
-
-
-
+    function RetourIndex(){
+      window.location="https://administration.jam-mdm.fr/modifdespages.php"
+    }
   </script>
   <?php
-
-
-
   $selectinfosactuel = $db->prepare("SELECT * from pageindex");
   $selectinfosactuel->execute();
   $r2 = $selectinfosactuel->fetch(PDO::FETCH_OBJ);
@@ -70,8 +70,6 @@ if($_GET['page']=='index'){
   $titre2 = $r2->titre2;
   $description2 = $r2->description2;
   $fb = $r2->fb;
-
-
 ?>
   <div class="content">
       <div class="container-fluid">
@@ -145,6 +143,7 @@ if($_GET['page']=='index'){
 
                             <center>
                             <button id="submitFormDataIndex" onclick="SubmitFormDataIndex();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                              <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                             </center>
                            </div>
                         </div>
