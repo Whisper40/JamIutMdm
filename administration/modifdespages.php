@@ -382,29 +382,20 @@ if($_GET['page']=='index'){
 
 
 
-  $selectid = $db->prepare("SELECT ID FROM membres");
+  $selectid = $db->prepare("SELECT distinct user_id FROM validationfichiers WHERE status='EN ATTENTE DE VALIDATION' ORDER BY date");
   $selectid->execute();
   $countid = $selectid->rowCount();
 
-
   if($countid>'0'){
-
     while($uneselectid = $selectid->fetch(PDO::FETCH_OBJ)){
 
-      $id = $uneselectid->ID;
-      $id2 = $uneselectid = $selectid->fetch(PDO::FETCH_OBJ);
-      echo $id2;
-      var_dump($id);
-
-      $selectnom = $db->prepare("SELECT nom FROM membres WHERE ID=:id");
+      $user_id = $uneselectid->user_id;
+      $selectnom = $db->prepare("SELECT username, email, status FROM users WHERE id=:user_id ORDER BY id ASC");
       $selectnom->execute(array(
-          "id"=>$id
+          "user_id"=>$user_id
           )
       );
-
-
       $table = $selectnom->fetchAll(PDO::FETCH_OBJ);
-
       if(count($table)>0){
 
         echo "<h3>".count($table)." Personnes trouvées</h3>";
