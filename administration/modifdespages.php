@@ -394,7 +394,7 @@ echo'2';
       $id = $uneselectid->ID;
       var_dump($uneselectid);
 
-      $selectnom = $db->prepare("SELECT image, nom, categorie, importance, fonction, description FROM membres WHERE id=:id");
+      $selectnom = $db->prepare("SELECT image, nom, categorie, importance, fonction, description FROM membres WHERE ID=:id");
       $selectnom->execute(array(
           "id"=>$id
           )
