@@ -445,9 +445,7 @@ if($_GET['page']=='index'){
   echo ' rien';
 }
 
-else{
-  $error = "Malheureusement, aucun gradé n\'existe";
-}
+
 
 
 
