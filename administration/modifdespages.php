@@ -301,7 +301,7 @@ if($_GET['page']=='index'){
         var description2 = $("#description2").val();
 
 
-        $.post("ajax/modifypagedevenirmembre.php", { user_id:user_id, titre1: titre1, description1: description1, description2: description2},
+        $.post("ajax/modifypageassociation.php", { user_id:user_id, titre1: titre1, description1: description1, description2: description2},
         function(data) {
          $('#results3').html(data);
 
@@ -382,7 +382,7 @@ if($_GET['page']=='index'){
 
 
 
-  $selectid = $db->prepare("SELECT ID FROM membres ORDER BY ID ASC");
+  $selectid = $db->prepare("SELECT ID FROM membres");
   $selectid->execute();
   $countid = $selectid->rowCount();
 
