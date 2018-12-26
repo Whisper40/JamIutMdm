@@ -27,7 +27,6 @@ function RetourIndex(){
 <body class="landing-page sidebar-collapse">
   <div class="wrapper">
 <?php
-require_once('includes/navbar.php');
 if(isset($_GET['page'])){
 if($_GET['page']=='index'){
   $table = $_GET['table'];
