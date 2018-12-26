@@ -391,6 +391,7 @@ if($_GET['page']=='index'){
     while($uneselectid = $selectid->fetch(PDO::FETCH_OBJ)){
 
       $ID = $uneselectid->ID;
+      var_dump($uneselectid);
       var_dump($ID);
       echo '<pre>'.print_r($ID,true).'</pre>';
       $selectnom = $db->prepare("SELECT nom FROM membres WHERE ID=:ID");
