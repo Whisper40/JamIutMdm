@@ -397,7 +397,7 @@ echo'2';
           )
       );
       echo'3';
-      var_dump($selectnom);
+      
       $table = $selectnom->fetchAll(PDO::FETCH_OBJ);
       var_dump($table);
       if(count($table)>0){
