@@ -392,7 +392,7 @@ if($_GET['page']=='index'){
     while($uneselectid = $selectid->fetch(PDO::FETCH_OBJ)){
 
       $id = $uneselectid->ID;
-      var_dump($uneselectid);
+      var_dump($id);
 
       $selectnom = $db->prepare("SELECT * FROM membres WHERE ID=:id");
       $selectnom->execute(array(
