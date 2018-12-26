@@ -391,13 +391,14 @@ if($_GET['page']=='index'){
     while($uneselectid = $selectid->fetch(PDO::FETCH_OBJ)){
 echo'2';
       $id = $uneselectid->ID;
+      echo $id;
       $selectnom = $db->prepare("SELECT image, nom, categorie, importance, fonction, description FROM membres WHERE id=:id");
       $selectnom->execute(array(
           "id"=>$id
           )
       );
       echo'3';
-      
+
       $table = $selectnom->fetchAll(PDO::FETCH_OBJ);
       var_dump($table);
       if(count($table)>0){
