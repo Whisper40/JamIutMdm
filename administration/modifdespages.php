@@ -400,7 +400,7 @@ if($_GET['page']=='index'){
 
       $table = $selectnom->fetchAll(PDO::FETCH_OBJ);
       if(count($table)>0){
-        
+
         echo "<h3>".count($table)." Personnes trouvées</h3>";
         echo '
         <table class="table">
@@ -418,7 +418,7 @@ if($_GET['page']=='index'){
 
         ';
         foreach($table as $ligne){
-          $id = $ligne->ID;
+          $id = $ligne->id;
           $nom = $ligne->nom;
           $image = $ligne->image;
           $fonction = $ligne->fonction;
