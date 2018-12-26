@@ -2,7 +2,6 @@
     require_once('includes/connectBDD.php');
     require_once('includes/checkconnection.php');
     $nompage = "Nous Contacter";
-    ini_set('display_errors', 1);
 
 
 
@@ -383,25 +382,25 @@ if($_GET['page']=='index'){
 
 
 
-  $selectid = $db->prepare("SELECT ID from membres");
+  $selectid = $db->prepare("SELECT ID FROM membres");
   $selectid->execute();
   $countid = $selectid->rowCount();
 
   if($countid>'0'){
+
     while($uneselectid = $selectid->fetch(PDO::FETCH_OBJ)){
 
-      $ID = $uneselectid->ID;
-      var_dump($uneselectid);
-
-    
-      $selectnom = $db->prepare("SELECT nom FROM membres WHERE ID=:ID");
+      $id = $uneselectid->id;
+      $selectnom = $db->prepare("SELECT image, nom, categorie, importance, fonction, description FROM membres WHERE ID=:id");
       $selectnom->execute(array(
-          "ID"=>$ID
+          "id"=>$id
           )
       );
+
+
       $table = $selectnom->fetchAll(PDO::FETCH_OBJ);
       if(count($table)>0){
-
+        
         echo "<h3>".count($table)." Personnes trouvées</h3>";
         echo '
         <table class="table">
