@@ -388,23 +388,23 @@ if($_GET['page']=='index'){
 
 
   if($countid>'0'){
-    echo'1';
+
     while($uneselectid = $selectid->fetch(PDO::FETCH_OBJ)){
-echo'2';
+
       $id = $uneselectid->ID;
       var_dump($uneselectid);
 
-      $selectnom = $db->prepare("SELECT image, nom, categorie, importance, fonction, description FROM membres WHERE ID=:id");
+      $selectnom = $db->prepare("SELECT * FROM membres WHERE ID=:id");
       $selectnom->execute(array(
           "id"=>$id
           )
       );
-      echo'3';
+
 
       $table = $selectnom->fetchAll(PDO::FETCH_OBJ);
 
       if(count($table)>0){
-        echo'4';
+
         echo "<h3>".count($table)." Personnes trouvées</h3>";
         echo '
         <table class="table">
