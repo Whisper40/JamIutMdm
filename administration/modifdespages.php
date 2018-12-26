@@ -286,6 +286,106 @@ if($_GET['page']=='index'){
 
 
 
+}else if ($_GET['page']=='association'){
+  $table = $_GET['table'];
+
+
+  ?>
+    <script>
+
+
+     function SubmitFormDataDevenirMembre() {
+       var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+        var introduction = $("#introduction").val();
+        var etape1 = $("#etape1").val();
+        var etape2 = $("#etape2").val();
+        var etape3 = $("#etape3").val();
+
+        $.post("ajax/modifypagedevenirmembre.php", { user_id:user_id, introduction: introduction, etape1: etape1, etape2: etape2, etape3: etape3},
+        function(data) {
+         $('#results2').html(data);
+
+        });
+
+    }
+
+    </script>
+    <?php
+    $selectinfosactuel = $db->prepare("SELECT * from pagedevenirmembre");
+    $selectinfosactuel->execute();
+    $r2 = $selectinfosactuel->fetch(PDO::FETCH_OBJ);
+    $introduction = $r2->introduction;
+    $etape1 = $r2->etape1;
+    $etape2 = $r2->etape2;
+    $etape3 = $r2->etape3;
+
+  ?>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-content">
+                    <h2 class="card-title text-center">Modification de la page devenir membre</h2>
+                    <form action="" method="post" id="myForm1" class="contact-form">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="card-content">
+                              <div class="form-group label-floating">
+                                  <label class="control-label">Introduction</label>
+                                  <input type="text" class="form-control" value="<?php echo $introduction; ?>" name="introduction" id="introduction">
+                              </div>
+                              <div class="form-group label-floating">
+                                  <label class="control-label">Etape 1</label>
+                                  <input type="text" name="etape1" value="<?php echo $etape1; ?>"id="etape1" class="form-control">
+                              </div>
+                              <div class="form-group label-floating">
+                                  <label class="control-label">Etape 2</label>
+                                  <input type="text" name="etape2" value="<?php echo $etape2; ?>" id="etape2" class="form-control">
+                              </div>
+                             </div>
+                          </div>
+                          <div class="col-sm-12">
+                              <div class="card-content">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Etape 3</label>
+                                    <input type="text" name="etape3" value="<?php echo $etape3; ?>"id="etape3" class="form-control">
+                                </div>
+
+                             </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="card-content">
+
+                              <center>
+                              <button id="SubmitFormDataDevenirMembre" onclick="SubmitFormDataDevenirMembre();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                              <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
+                              </center>
+                             </div>
+                          </div>
+                    </div>
+                  </form>
+                </div>
+            </div>
+        </div>
+
+     <div id="results2"> <!-- TRES IMPORTANT -->
+
+
+
+    </div>
+  </div>
+
+
+<?php
+
+
+
+
+
+
+
+
+
+
 }
 
 
