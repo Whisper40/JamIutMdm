@@ -188,7 +188,7 @@ if($_GET['page']=='index'){
 
 
 <?php
-}else{
+}}else{
 
 
 
