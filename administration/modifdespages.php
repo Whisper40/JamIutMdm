@@ -382,7 +382,7 @@ if($_GET['page']=='index'){
 
 
 
-  $selectid = $db->prepare("SELECT * FROM membres");
+  $selectid = $db->prepare("SELECT distinct ID FROM membres");
   $selectid->execute();
   $countid = $selectid->rowCount();
 
