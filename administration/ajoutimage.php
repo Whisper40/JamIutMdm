@@ -3,8 +3,8 @@
     require_once('includes/checkconnection.php');
     $nompage = "";
     require_once('includes/head.php');
-  
 
+//TEST ATOM
 //Code de génératon du captcha fournie par GOOGLE
 $secret = "LESECRET";
 $sitekey = "LESITEKEY";
