@@ -342,15 +342,7 @@ if($_GET['page']=='index'){
                               </div>
                              </div>
                           </div>
-                          <div class="col-sm-12">
-                              <div class="card-content">
-                                <div class="form-group label-floating">
-                                    <label class="control-label">Etape 3</label>
-                                    <input type="text" name="etape3" value="<?php echo $etape3; ?>"id="etape3" class="form-control">
-                                </div>
-
-                             </div>
-                        </div>
+                        
                         <div class="col-sm-12">
                             <div class="card-content">
 
