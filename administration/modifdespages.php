@@ -20,7 +20,10 @@ function RetourIndex(){
 
 
 
+<?php
 
+require_once('includes/navbar.php');
+ ?>
 
 
 
@@ -185,35 +188,14 @@ if($_GET['page']=='index'){
 
 
 <?php
-}else if($_GET['action']=='ban'){
-
-$id=$_GET['id'];
-$setban = $db->prepare("UPDATE images SET status='0' WHERE id=$id");
-$setban->execute();
-?>
-<script>window.location="https://administration.jam-mdm.fr/gestionimage.php"</script>
-<?php
-}else if($_GET['action']=='delete'){
-
-$id=$_GET['id'];
-$selectnom = $db->query("SELECT * FROM images WHERE id='$id'");
-$rname = $selectnom->fetch(PDO::FETCH_OBJ);
-$valnom = $rname->file_name;
-$dossier = $rname->title;
-
-echo 'esquive';
-
-?>
-<script>window.location="https://administration.jam-mdm.fr/gestionimage.php"</script>
-<?php
-}
+}else{
 
 
 
 
-}//FIN $_GET
+//FIN $_GET
 
-    require_once('includes/navbar.php');
+
 
 
 
@@ -245,7 +227,7 @@ echo 'esquive';
 
 
 
-
+}
 
 
 
