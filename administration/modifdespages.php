@@ -190,7 +190,57 @@ if($_GET['page']=='index'){
 
 
 
+}else{//FIN $_GET
+
+
+
+
+
+?>
+
+    <a href="?page=index&amp;table=pageindex">
+      <button type="button" class="btn">Page Index</button>
+    </a>
+
+    <a href="?page=devenirmembre&amp;table=pagedevenirmembre">
+      <button type="button" class="btn">Page Devenir Membre</button>
+    </a>
+
+    <a href="?page=association&amp;table=pageasso">
+      <button type="button" class="btn">Page Association</button>
+    </a>
+
+    <a href="?page=membre&amp;table=membres">
+      <button type="button" class="btn">Page Membre</button>
+    </a>
+
+    <a href="?page=status&amp;table=status">
+      <button type="button" class="btn">Page Status</button>
+    </a>
+
+    <a href="?page=lienutiles&amp;table=lienutiles">
+      <button type="button" class="btn">Page Liens</button>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+<?php
+
+
+
 }
+?>
+
+
   </div>
 
   <?php
