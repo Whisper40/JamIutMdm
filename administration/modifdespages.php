@@ -381,12 +381,13 @@ if($_GET['page']=='index'){
 
 
 
-echo'OKKK';
+
   $selectid = $db->prepare("SELECT ID FROM membres ORDER BY ID ASC");
   $selectid->execute();
   $countid = $selectid->rowCount();
 
   if($countid>'0'){
+    echo'OKKK';
     while($uneselectid = $selectid->fetch(PDO::FETCH_OBJ)){
 
       $id = $uneselectid->ID;
