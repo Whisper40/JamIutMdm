@@ -387,19 +387,19 @@ if($_GET['page']=='index'){
   $countid = $selectid->rowCount();
 
   if($countid>'0'){
-    echo'OKKK';
+    echo'1';
     while($uneselectid = $selectid->fetch(PDO::FETCH_OBJ)){
-echo'OKKK';
+echo'2';
       $id = $uneselectid->ID;
       $selectnom = $db->prepare("SELECT image, nom, categorie, importance, fonction, description FROM membres WHERE id=:id");
       $selectnom->execute(array(
           "id"=>$id
           )
       );
-      echo'OKKK';
+      echo'3';
       $table = $selectnom->fetchAll(PDO::FETCH_OBJ);
       if(count($table)>0){
-        echo'OKKK';
+        echo'4';
         echo "<h3>".count($table)." Personnes trouvées</h3>";
         echo '
         <table class="table">
@@ -417,12 +417,14 @@ echo'OKKK';
 
         ';
         foreach($table as $ligne){
+          $id = $ligne->ID;
           $nom = $ligne->nom;
           $image = $ligne->image;
           $fonction = $ligne->fonction;
 
 
-          echo '
+          echo 'X';
+          ?>
 
           <tr>
             <th scope="row">'.$nom.'</th>
