@@ -425,12 +425,12 @@ if($_GET['page']=='index'){
             <td>'.$fonction.'</td>
 
             <td>
-        <a>
-        <button type="button" class="btn">Modifier</button>
-        </a>
+            <a href="&amp;modifmembre='.$id.'">
+            <button type="button" class="btn">Modifier</button>
+            </a>
             </td>
           </tr>
-      
+
           ';
         }
 
