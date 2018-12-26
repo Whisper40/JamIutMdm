@@ -430,7 +430,7 @@ if($_GET['page']=='index'){
         </a>
             </td>
           </tr>
-      <hr>
+      
           ';
         }
 
@@ -444,24 +444,6 @@ if($_GET['page']=='index'){
 }else{
   echo ' rien';
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
