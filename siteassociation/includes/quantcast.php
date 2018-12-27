@@ -75,7 +75,7 @@
     window.__cmp('init', {
     		'Language': 'fr',
 		'Initial Screen Title Text': 'Le respect de votre vie privée est notre priorité',
-		'Initial Screen Reject Button Text': 'Je refuse',
+	
 		'Initial Screen Accept Button Text': 'J&#039;accepte',
 		'Initial Screen Purpose Link Text': 'Afficher toutes les utilisations prévues',
 		'Purpose Screen Title Text': 'Le respect de votre vie privée est notre priorité',
