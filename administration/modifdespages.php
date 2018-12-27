@@ -541,7 +541,7 @@ if ($categorie == 'tres'){
             </div>
         </div>
 
-     <div id="results3"> <!-- TRES IMPORTANT -->
+     <div id="results4"> <!-- TRES IMPORTANT -->
 
 
 
@@ -618,8 +618,142 @@ if ($categorie == 'tres'){
 
         ';
 
+
+//Création membres
+
+?>
+<script>
+
+
+ function SubmitFormDataCreationMembre() {
+    var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+    var nom = $("#nom").val();
+    var image = $("#image").val();
+    var description = $("#description").val();
+    var grademembre = $('#grademembre').val();
+    var importancegrade = $('#importancegrade').val();
+    var fonction = $("#fonction").val();
+
+
+    $.post("ajax/creationmembre.php", { user_id:user_id, nom: nom, image: image, description: description, grademembre: grademembre, importancegrade: importancegrade},
+    function(data) {
+     $('#results5').html(data);
+
+    });
+
+}
+
+</script>
+<div class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-content">
+                <h2 class="card-title text-center">Création d'un membre</h2>
+                <form action="" method="post" id="myForm1" class="contact-form">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card-content">
+                          <div class="form-group label-floating">
+                              <label class="control-label">Nom/Prénom</label>
+                              <input type="text" class="form-control" value="Nom Prenom" name="nom" id="nom">
+                          </div>
+                          <div class="form-group label-floating">
+                              <label class="control-label">Image</label>
+                              <input type="text" name="image" value="monimage.jpg"id="image" class="form-control">
+                          </div>
+
+                          <div class="jquerysel"><!-- on s'en fout -->
+<label>Grade : </label><select id="grademembre">
+<option value="pres">Président</option>
+<option value="tres">Trésorier</option>
+<option value="secr">Secrétaire</option>
+<option value="com">Communication</option>
+</select>
+</div>
+
+<div class="jquerysel"><!-- on s'en fout -->
+<label>Spécification grade : </label><select id="importancegrade">
+<option value="1">Responsable</option>
+<option value="2">Vice</option>
+<option value="3">Honneur</option>
+</select>
+</div>
+
+<div class="form-group label-floating">
+<label class="control-label">Fonction</label>
+<input type="text" name="fonction" value="Vice Trésorier" id="fonction" class="form-control">
+</div>
+
+
+                          <div class="form-group label-floating">
+                              <label class="control-label">Description</label>
+                              <input type="text" name="description" value="Ma description" id="description" class="form-control">
+                          </div>
+                         </div>
+                      </div>
+
+                    <div class="col-sm-12">
+                        <div class="card-content">
+
+                          <center>
+                          <button id="SubmitFormDataCreationMembre" onclick="SubmitFormDataCreationMembre();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                          <button onclick="RetourIndex2();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
+                          </center>
+                         </div>
+                      </div>
+                </div>
+              </form>
+            </div>
+        </div>
+    </div>
+
+ <div id="results5"> <!-- TRES IMPORTANT -->
+
+
+
+</div>
+</div>
+<?php
+//FIn Création
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }else{
-  echo ' rien';
+  $error = "Aucune personne trouvée";
 }
 
 
