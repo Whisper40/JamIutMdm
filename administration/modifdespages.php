@@ -812,6 +812,354 @@ if ($categorie == 'tres'){
 
 
 
+}else if ($_GET['page']=='status'){
+
+  if(isset($_GET['modifstatus'])){
+
+
+?>
+<script>
+function RetourIndex2(){
+  window.location="https://administration.jam-mdm.fr/modifdespages.php?page=membre&table=membres"
+}
+</script>
+    <script>
+
+
+     function SubmitFormDataModifStatus() {
+        var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+        var article = $("#article").val();
+        var titre = $("#titre").val();
+        var soustitre = $("#soustitre").val();
+        var description = $("#description").val();
+        $.post("ajax/modifypagestatus.php", { user_id:user_id, article: article, titre: titre, soustitre: soustitre, description: description},
+        function(data) {
+         $('#results6').html(data);
+
+        });
+
+    }
+
+    </script>
+    <?php
+    $id = $_GET['modifstatus'];
+
+    $selectinfosactuel = $db->prepare("SELECT * from status where id=:id");
+    $selectinfosactuel->execute(array(
+        "id"=>$id
+        )
+    );
+    $r2 = $selectinfosactuel->fetch(PDO::FETCH_OBJ);
+    $article = $r2->article;
+    $titre = $r2->titre;
+    $soustitre = $r2->soustitre;
+    $description = $r2->description;
+
+?>
+
+    <div class="content">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-content">
+                    <h2 class="card-title text-center">Modification des informations</h2>
+                    <form action="" method="post" id="myForm1" class="contact-form">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="card-content">
+                              <div class="form-group label-floating">
+                                  <label class="control-label">Article</label>
+                                  <input type="text" class="form-control" value="<?php echo $article; ?>" name="article" id="article">
+                              </div>
+
+                              <div class="form-group label-floating">
+                                  <label class="control-label">Titre</label>
+                                  <input type="text" name="titre" value="<?php echo $titre; ?>"id="titre" class="form-control">
+                              </div>
+
+                              <div class="form-group label-floating">
+                                  <label class="control-label">Sous Titre</label>
+                                  <input type="text" name="soustitre" value="<?php echo $soustitre; ?>" id="soustitre" class="form-control">
+                              </div>
+
+                              <div class="form-group label-floating">
+                                  <label class="control-label">Description</label>
+                                  <input type="text" name="description" value="<?php echo $description; ?>" id="description" class="form-control">
+                              </div>
+                             </div>
+                          </div>
+
+                        <div class="col-sm-12">
+                            <div class="card-content">
+
+                              <center>
+                              <button id="SubmitFormDataModifStatus" onclick="SubmitFormDataModifStatus();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                              <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
+                              </center>
+                             </div>
+                          </div>
+                    </div>
+                  </form>
+                </div>
+            </div>
+        </div>
+
+     <div id="results6"> <!-- TRES IMPORTANT -->
+    </div>
+  </div>
+  <?php
+
+
+
+
+}else{
+
+      $selectnom = $db->prepare("SELECT * FROM status");
+      $selectnom->execute();
+
+
+      $table = $selectnom->fetchAll(PDO::FETCH_OBJ);
+      if(count($table)>0){
+
+        echo "<h3>".count($table)." Personnes trouvées</h3>";
+        echo '
+        <table class="table">
+        <thead>
+        <tr>
+        <th scope="col">Article</th>
+        <th scope="col">Titre/Sous titre</th>
+        <th scope="col">Description</th>
+        <th scope="col">Action</th>
+
+
+        </tr>
+        </thead>
+        <tbody>
+
+        ';
+        foreach($table as $ligne){
+          $id = $ligne->id;
+          $article = $ligne->article;
+          $titre = $ligne->titre;
+          $soustitre = $ligne->soustitre;
+          $description = $ligne->description;
+
+
+          echo '
+
+          <tr>
+            <th scope="row">'.$article.'</th>
+            <td>'.$titre.'<td>
+            <td>'.$soustitre.'</td>
+            <td>
+            <a href="?page=status&amp;table=status&amp;modifstatus='.$id.'">
+            <button type="button" class="btn">Modifier</button>
+            </a>
+            </td>
+          </tr>
+          ';
+        }
+
+        echo '
+      </tbody>
+      </table>
+
+
+        ';
+      }else{
+        $error = "Aucun status trouvé";
+      }
+
+
+//Création membres
+
+?>
+<script>
+
+
+ function SubmitFormDataCreationMembre() {
+    var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+    var nom = $("#nom").val();
+    var image = $("#image").val();
+    var description = $("#description").val();
+    var grademembre = $('#grademembre').val();
+    var importancegrade = $('#importancegrade').val();
+    var fonction = $("#fonction").val();
+
+
+    $.post("ajax/creationmembre.php", { user_id:user_id, nom: nom, image: image, description: description, grademembre: grademembre, importancegrade: importancegrade},
+    function(data) {
+     $('#results5').html(data);
+
+    });
+
+}
+
+</script>
+<div class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-content">
+                <h2 class="card-title text-center">Création d'un membre</h2>
+                <form action="" method="post" id="myForm1" class="contact-form">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card-content">
+                          <div class="form-group label-floating">
+                              <label class="control-label">Nom/Prénom</label>
+                              <input type="text" class="form-control" value="Nom Prenom" name="nom" id="nom">
+                          </div>
+                          <div class="form-group label-floating">
+                              <label class="control-label">Image</label>
+                              <input type="text" name="image" value="monimage.jpg"id="image" class="form-control">
+                          </div>
+
+                          <div class="jquerysel"><!-- on s'en fout -->
+<label>Grade : </label><select id="grademembre">
+<option value="pres">Président</option>
+<option value="tres">Trésorier</option>
+<option value="secr">Secrétaire</option>
+<option value="com">Communication</option>
+</select>
+</div>
+
+<div class="jquerysel"><!-- on s'en fout -->
+<label>Spécification grade : </label><select id="importancegrade">
+<option value="1">Responsable</option>
+<option value="2">Vice</option>
+<option value="3">Honneur</option>
+</select>
+</div>
+
+<div class="form-group label-floating">
+<label class="control-label">Fonction</label>
+<input type="text" name="fonction" value="Vice Trésorier" id="fonction" class="form-control">
+</div>
+
+
+                          <div class="form-group label-floating">
+                              <label class="control-label">Description</label>
+                              <input type="text" name="description" value="Ma description" id="description" class="form-control">
+                          </div>
+                         </div>
+                      </div>
+
+                    <div class="col-sm-12">
+                        <div class="card-content">
+
+                          <center>
+                          <button id="SubmitFormDataCreationMembre" onclick="SubmitFormDataCreationMembre();" type="button" class="btn btn-primary btn-round btn-rose">Créer</button>
+                          <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
+                          </center>
+                         </div>
+                      </div>
+                </div>
+              </form>
+            </div>
+        </div>
+    </div>
+
+ <div id="results5"> <!-- TRES IMPORTANT -->
+
+
+
+</div>
+</div>
+<?php
+//FIn Création
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 
