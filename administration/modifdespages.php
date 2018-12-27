@@ -446,7 +446,7 @@ function RetourIndex2(){
                                   <input type="text" name="image" value="<?php echo $image; ?>"id="image" class="form-control">
                               </div>
 
-                              <div class="jquerysel">
+                              <div class="jquerysel"><!-- on s'en fout -->
 <label>Grade : </label><select id="grademembre">
   <?php
 if ($categorie == 'pres'){
@@ -482,11 +482,31 @@ if ($categorie == 'tres'){
 </select>
 </div>
 
-<div class="jquerysel">
+<div class="jquerysel"><!-- on s'en fout -->
 <label>Spécification grade : </label><select id="importancegrade">
-<option value="1">Responsable</option>
-<option value="2">Vice</option>
+  <?php
+  if ($importance == '1'){
+    ?>
+<option selected value="1">Responsable</option>
+<?php }else{
+  ?>
+  <option value="1">Responsable</option>
+  <?php
+}
+  if ($importance == '2'){
+    ?>
+<option selected value="2">Vice</option>
+<?php }else{
+  ?>
+  <option value="2">Vice</option>
+  <?php
+}
+  if ($importance == '3'){
+    ?>
+    <option selected value="3">Honneur</option>
+  <?php }else{ ?>
 <option value="3">Honneur</option>
+<?php } ?>
 
 
 
