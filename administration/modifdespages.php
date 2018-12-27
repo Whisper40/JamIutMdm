@@ -3,9 +3,6 @@
     require_once('includes/checkconnection.php');
     $nompage = "Nous Contacter";
 
-
-
-
 //Code de génératon du captcha fournie par GOOGLE
 $secret = "LESECRET";
 $sitekey = "LESITEKEY";
@@ -18,12 +15,6 @@ function RetourIndex(){
 }
 </script>
 
-
-
-
-
-
-
 <body class="landing-page sidebar-collapse">
   <div class="wrapper">
 <?php
@@ -35,7 +26,8 @@ if($_GET['page']=='index'){
 
 
    function SubmitFormDataIndex() {
-     var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+      var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+      var id = "<?php echo $id ?>";
       var img1 = $("#img1").val();
       var logo1 = $("#logo1").val();
       var titre1 = $("#titre1").val();
@@ -48,7 +40,7 @@ if($_GET['page']=='index'){
       var titre2 = $("#titre2").val();
       var description2 = $("#description2").val();
       var fb = $("#fb").val();
-      $.post("ajax/modifypageindex.php", { user_id:user_id, img1: img1, logo1: logo1, titre1: titre1, description1: description1, bouton1: bouton1, lienbt1: lienbt1, bouton2: bouton2, lienbt2: lienbt2, logo2: logo2, titre2: titre2, description2: description2, fb: fb},
+      $.post("ajax/modifypageindex.php", { user_id:user_id, id:id, img1: img1, logo1: logo1, titre1: titre1, description1: description1, bouton1: bouton1, lienbt1: lienbt1, bouton2: bouton2, lienbt2: lienbt2, logo2: logo2, titre2: titre2, description2: description2, fb: fb},
       function(data) {
        $('#results1').html(data);
 
@@ -61,6 +53,7 @@ if($_GET['page']=='index'){
   $selectinfosactuel = $db->prepare("SELECT * from pageindex");
   $selectinfosactuel->execute();
   $r2 = $selectinfosactuel->fetch(PDO::FETCH_OBJ);
+  $id = $r2->id;
   $img1 = $r2->img1;
   $logo1 = $r2->logo1;
   $titre1 = $r2->titre1;
@@ -163,27 +156,6 @@ if($_GET['page']=='index'){
   </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <?php
 }else if ($_GET['page']=='devenirmembre'){
   $table = $_GET['table'];
@@ -194,13 +166,14 @@ if($_GET['page']=='index'){
 
 
      function SubmitFormDataDevenirMembre() {
-       var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+        var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+        var id = "<?php echo $id; ?>";
         var introduction = $("#introduction").val();
         var etape1 = $("#etape1").val();
         var etape2 = $("#etape2").val();
         var etape3 = $("#etape3").val();
 
-        $.post("ajax/modifypagedevenirmembre.php", { user_id:user_id, introduction: introduction, etape1: etape1, etape2: etape2, etape3: etape3},
+        $.post("ajax/modifypagedevenirmembre.php", { user_id:user_id, id:id, introduction: introduction, etape1: etape1, etape2: etape2, etape3: etape3},
         function(data) {
          $('#results2').html(data);
 
@@ -213,6 +186,7 @@ if($_GET['page']=='index'){
     $selectinfosactuel = $db->prepare("SELECT * from pagedevenirmembre");
     $selectinfosactuel->execute();
     $r2 = $selectinfosactuel->fetch(PDO::FETCH_OBJ);
+    $id = $r2->id;
     $introduction = $r2->introduction;
     $etape1 = $r2->etape1;
     $etape2 = $r2->etape2;
@@ -296,12 +270,13 @@ if($_GET['page']=='index'){
 
      function SubmitFormDataPageAsso() {
         var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+        var id = "<?php echo $id; ?>";
         var titre1 = $("#titre1").val();
         var description1 = $("#description1").val();
         var description2 = $("#description2").val();
 
 
-        $.post("ajax/modifypageassociation.php", { user_id:user_id, titre1: titre1, description1: description1, description2: description2},
+        $.post("ajax/modifypageassociation.php", { user_id:user_id, id:id, titre1: titre1, description1: description1, description2: description2},
         function(data) {
          $('#results3').html(data);
 
@@ -314,6 +289,7 @@ if($_GET['page']=='index'){
     $selectinfosactuel = $db->prepare("SELECT * from pageasso");
     $selectinfosactuel->execute();
     $r2 = $selectinfosactuel->fetch(PDO::FETCH_OBJ);
+    $id = $r2->id;
     $titre1 = $r2->titre1;
     $description1 = $r2->description1;
     $description2 = $r2->description2;
@@ -393,6 +369,7 @@ function RetourIndex2(){
 
      function SubmitFormDataModifMembre() {
         var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+        var id = "<?php echo $id; ?>";
         var nom = $("#nom").val();
         var image = $("#image").val();
         var description = $("#description").val();
@@ -401,7 +378,7 @@ function RetourIndex2(){
         var fonction = $("#fonction").val();
 
 
-        $.post("ajax/modifypagemodifmembre.php", { user_id:user_id, nom: nom, image: image, description: description, grademembre: grademembre, importancegrade: importancegrade},
+        $.post("ajax/modifypagemodifmembre.php", { user_id:user_id, id:id, nom: nom, image: image, description: description, grademembre: grademembre, importancegrade: importancegrade},
         function(data) {
          $('#results4').html(data);
 
@@ -419,6 +396,7 @@ function RetourIndex2(){
         )
     );
     $r2 = $selectinfosactuel->fetch(PDO::FETCH_OBJ);
+    $id = $r2->id;
     $nom = $r2->nom;
     $image = $r2->image;
     $categorie = $r2->categorie;
@@ -723,91 +701,7 @@ if ($categorie == 'tres'){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -828,11 +722,12 @@ function RetourIndex2(){
 
      function SubmitFormDataModifStatus() {
         var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+        var id = "<?php echo $id; ?>";
         var article = $("#article").val();
         var titre = $("#titre").val();
         var soustitre = $("#soustitre").val();
         var description = $("#description").val();
-        $.post("ajax/modifypagestatus.php", { user_id:user_id, article: article, titre: titre, soustitre: soustitre, description: description},
+        $.post("ajax/modifypagestatus.php", { user_id:user_id, id:id, article: article, titre: titre, soustitre: soustitre, description: description},
         function(data) {
          $('#results6').html(data);
 
@@ -850,6 +745,7 @@ function RetourIndex2(){
         )
     );
     $r2 = $selectinfosactuel->fetch(PDO::FETCH_OBJ);
+
     $article = $r2->article;
     $titre = $r2->titre;
     $soustitre = $r2->soustitre;
@@ -1052,109 +948,12 @@ function SubmitFormDataCreateStatus() {
 </div>
 <?php
 //FIn Création
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
-
 
 
 }else{//FIN $_GET
-
-
-
-
 
 ?>
 
@@ -1182,20 +981,7 @@ function SubmitFormDataCreateStatus() {
       <button type="button" class="btn">Page Liens</button>
     </a>
 
-
-
-
-
-
-
-
-
-
-
-
 <?php
-
-
 
 }
 ?>
