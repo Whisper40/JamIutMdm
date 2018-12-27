@@ -913,14 +913,14 @@ function RetourIndex2(){
 
 }else{
 
-      $selectnom = $db->prepare("SELECT * FROM status");
+      $selectnom = $db->prepare("SELECT * FROM status ORDER BY article ASC");
       $selectnom->execute();
 
 
       $table = $selectnom->fetchAll(PDO::FETCH_OBJ);
       if(count($table)>0){
 
-        echo "<h3>".count($table)." Personnes trouvées</h3>";
+        echo "<h3>".count($table)." status trouvés</h3>";
         echo '
         <table class="table">
         <thead>
@@ -988,7 +988,7 @@ function RetourIndex2(){
 
     $.post("ajax/creationmembre.php", { user_id:user_id, nom: nom, image: image, description: description, grademembre: grademembre, importancegrade: importancegrade},
     function(data) {
-     $('#results5').html(data);
+     $('#results7').html(data);
 
     });
 
@@ -1058,7 +1058,7 @@ function RetourIndex2(){
         </div>
     </div>
 
- <div id="results5"> <!-- TRES IMPORTANT -->
+ <div id="results7"> <!-- TRES IMPORTANT -->
 
 
 
