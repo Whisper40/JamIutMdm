@@ -448,10 +448,35 @@ function RetourIndex2(){
 
                               <div class="jquerysel">
 <label>Grade : </label><select id="grademembre">
+  <?php
+if ($fonction == 'pres'){
+  ?>
+  <option selected value="pres">Président</option>
+<?php
+else{
+  ?>
     <option value="pres">Président</option>
+<?php }
+
+if ($fonction == 'tres'){
+  ?>
+    <option selected value="tres">Trésorier</option>
+    <?php
+    else{ ?>
     <option value="tres">Trésorier</option>
+  <?php }
+  if ($fonction == 'secr'){
+    ?>
+    <option selected value="secr">Secrétaire</option>
+  <?php }else{ ?>
     <option value="secr">Secrétaire</option>
+  <?php }
+  if ($fonction == 'com'){
+    ?>
+    <option selected value="com">Communication</option>
+  <?php }else{ ?>
     <option value="com">Communication</option>
+  <?php } ?>
 
 
 </select>
