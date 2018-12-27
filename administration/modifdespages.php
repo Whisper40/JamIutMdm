@@ -696,8 +696,8 @@ if ($categorie == 'tres'){
                         <div class="card-content">
 
                           <center>
-                          <button id="SubmitFormDataCreationMembre" onclick="SubmitFormDataCreationMembre();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
-                          <button onclick="RetourIndex2();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
+                          <button id="SubmitFormDataCreationMembre" onclick="SubmitFormDataCreationMembre();" type="button" class="btn btn-primary btn-round btn-rose">Créer</button>
+                          <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                           </center>
                          </div>
                       </div>
