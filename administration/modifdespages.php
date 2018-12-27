@@ -617,6 +617,9 @@ if ($categorie == 'tres'){
 
 
         ';
+      }else{
+        $error = "Aucune personne trouvée";
+      }
 
 
 //Création membres
@@ -752,9 +755,7 @@ if ($categorie == 'tres'){
 
 
 
-}else{
-  $error = "Aucune personne trouvée";
-}
+
 
 
 
