@@ -856,6 +856,11 @@ function RetourIndex2(){
     $description = $r2->description;
 
 ?>
+<script>
+function RetourIndex3(){
+  window.location="https://administration.jam-mdm.fr/modifdespages.php?page=status&table=status"
+}
+</script>
 
     <div class="content">
         <div class="container-fluid">
@@ -893,7 +898,7 @@ function RetourIndex2(){
 
                               <center>
                               <button id="SubmitFormDataModifStatus" onclick="SubmitFormDataModifStatus();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
-                              <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
+                              <button onclick="RetourIndex3();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                               </center>
                              </div>
                           </div>
