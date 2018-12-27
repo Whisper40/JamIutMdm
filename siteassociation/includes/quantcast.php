@@ -75,7 +75,7 @@
     window.__cmp('init', {
     		'Language': 'fr',
 		'Initial Screen Title Text': 'Le respect de votre vie privée est notre priorité',
-	
+		'Initial Screen Reject Button Text': 'Je refuse',
 		'Initial Screen Accept Button Text': 'J&#039;accepte',
 		'Initial Screen Purpose Link Text': 'Afficher toutes les utilisations prévues',
 		'Purpose Screen Title Text': 'Le respect de votre vie privée est notre priorité',
@@ -94,10 +94,10 @@
 		'Initial Screen Body Text Option': 1,
 		'Publisher Name': 'Jam',
 		'Display UI': 'always',
-		'Publisher Purpose IDs': [1,5],
-		'Post Consent Page': 'http://google.fr/',
+		'Publisher Purpose IDs': [1,4,5],
+		'Post Consent Page': 'https://google.fr',
 		'Consent Scope': 'service',
-		'Publisher Purpose Legitimate Interest IDs': [1,5],
+		'No Option': false,
     });
 </script>
 <!-- End Quantcast Choice. Consent Manager Tag -->
