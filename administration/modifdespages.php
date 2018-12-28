@@ -730,7 +730,7 @@ if(isset($_POST['submitphotomembre'])){
       $target_dir = "../../../JamFichiers/Img/Membres";
 
       $original = 'Original';
-      if (file_exists($target_dir/$original)) {
+      if (file_exists($target_dir/$original/)) {
         $target_dirnew = "$target_dir/$original";
       }else{
         mkdir("$target_dir/$original", 0700);
@@ -739,7 +739,7 @@ if(isset($_POST['submitphotomembre'])){
 
       //Ajout thumb
       $thumb = 'Thumb';
-      if (file_exists($target_dir/$thumb)) {
+      if (file_exists($target_dir/$thumb/)) {
         $target_dirnewthumb = "$target_dir/$thumb/";
       }else{
         mkdir("$target_dir/$thumb", 0700);
