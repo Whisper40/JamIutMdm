@@ -98,13 +98,7 @@ $lang_list = array(
 
 //--- EDIT BELOW CAREFULLY OR DO NOT EDIT AT ALL
 
-if ($report_errors == true) {
-    @ini_set('error_reporting', E_ALL);
-    @ini_set('display_errors', 1);
-} else {
-    @ini_set('error_reporting', E_ALL);
-    @ini_set('display_errors', 0);
-}
+
 
 // Show Memory Used
 function fm_memory($size) {
