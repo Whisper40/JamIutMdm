@@ -771,7 +771,7 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
 }
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-    
+
 // if everything is ok, try to upload file
 } else {
   date_default_timezone_set('Europe/Paris');
@@ -829,20 +829,7 @@ if ($uploadOk == 0) {
                 }
 
 
-                if(!empty($error)){
 
-
-                // CODE HTML ICI
-                   echo '
-                  <button>'.$error.'</button>'; }
-
-
-                if(!empty($succes)){
-
-
-                // CODE HTML ICI
-                   echo '
-                  <button>'.$succes.'</button>'; }
 
 
 
@@ -876,6 +863,22 @@ if ($uploadOk == 0) {
 
                 <input type="submit" name="submitphotomembre" value="Envoyer les images !">
             </form>
+            <?php
+
+            if(!empty($error)){
+
+
+            // CODE HTML ICI
+               echo '
+              <button>'.$error.'</button>'; }
+
+
+            if(!empty($succes)){
+
+
+            // CODE HTML ICI
+               echo '
+              <button>'.$succes.'</button>'; }?>
 </div>
 <?php
 //FIn Création
