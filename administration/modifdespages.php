@@ -718,58 +718,15 @@ if ($categorie == 'tres'){
 
 </div>
 
-<?php
-if(isset($_POST['test'])){
-  $dest = "/var/JamFichiers/Img/membres";
-  unlink("$dest/$Entry");
-}
 
-
- ?>
-<?php
-
-function ScanDirectory($Directory){
-
-$MyDirectory = opendir($Directory) or die('Erreur');
-while($Entry = @readdir($MyDirectory)) {
-if(is_dir($Directory.'/'.$Entry)&& $Entry != '.' && $Entry != '..') {
-echo '<ul>'.$Directory;
-ScanDirectory($Directory.'/'.$Entry);
-echo '</ul>';
-}
-else {
-echo '<li>'.$Entry.'</li>';
-?>
-<input type="submit" name="test" value="Supprimer">
-<?php
-
-}
-}
-closedir($MyDirectory);
-}
-
-ScanDirectory('/var/JamFichiers/Img/membres/');
-
-?>
 
 
 
 
 
             <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-                Sélectionner la catégorie de l'image<br>
-                <select name="catimage">
-                  <?php
-                    while($s = $selectcatimages->fetch(PDO::FETCH_OBJ)){
-                      $catimage=$s->title;
-                      ?>
-                    <option value="<?php echo $catimage;?>"><?php echo $catimage; ?></option>
-                  <?php
-                }
-                ?>
 
-
-                </select>
+              
 
                 <div class="form-group form-file-upload">
                     <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
