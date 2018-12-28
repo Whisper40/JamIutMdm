@@ -690,6 +690,35 @@ if ($categorie == 'tres'){
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+
+ <div id="results5"> <!-- TRES IMPORTANT -->
+
+
+
+</div>
+
+
 <script>
 
 function ScanDirectory($Directory){
@@ -743,33 +772,6 @@ ScanDirectory('.');
 
                 <input type="submit" name="submit" value="Envoyer le formulaire image !">
             </form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        </div>
-    </div>
-
- <div id="results5"> <!-- TRES IMPORTANT -->
-
-
-
-</div>
 </div>
 <?php
 //FIn Création
