@@ -685,6 +685,83 @@ if ($categorie == 'tres'){
                 </div>
               </form>
             </div>
+
+
+
+
+
+<script>
+
+function ScanDirectory($Directory){
+
+$MyDirectory = opendir($Directory) or die('Erreur');
+while($Entry = @readdir($MyDirectory)) {
+if(is_dir($Directory.'/'.$Entry)&& $Entry != '.' && $Entry != '..') {
+echo '<ul>'.$Directory;
+ScanDirectory($Directory.'/'.$Entry);
+echo '</ul>';
+}
+else {
+echo '<li>'.$Entry.'</li>';
+}
+}
+closedir($MyDirectory);
+}
+
+ScanDirectory('.');
+
+</script>
+
+
+
+            <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+                Sélectionner la catégorie de l'image<br>
+                <select name="catimage">
+                  <?php
+                    while($s = $selectcatimages->fetch(PDO::FETCH_OBJ)){
+                      $catimage=$s->title;
+                      ?>
+                    <option value="<?php echo $catimage;?>"><?php echo $catimage; ?></option>
+                  <?php
+                }
+                ?>
+
+
+                </select>
+
+                <div class="form-group form-file-upload">
+                    <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
+                    <div class="input-group">
+                        <input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
+                        <span class="input-group-btn input-group-s">
+                            <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
+                                <i class="material-icons">layers</i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+
+                <input type="submit" name="submit" value="Envoyer le formulaire image !">
+            </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         </div>
     </div>
 

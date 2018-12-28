@@ -7,13 +7,6 @@ require_once('../includes/connectBDD.php');
         $soustitre = $_POST['soustitre'];
         $description = $_POST['description'];
 
-
-        var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-        var article = $("#article").val();
-        var titre = $("#titre").val();
-        var soustitre = $("#soustitre").val();
-        var description = $("#description").val();
-
       if(!empty($user_id)&&!empty($article)&&!empty($titre)&&!empty($description)){
 
 
