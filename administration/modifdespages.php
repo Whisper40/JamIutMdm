@@ -718,20 +718,7 @@ if ($categorie == 'tres'){
 
 <?php
 
-if(!empty($error)){
 
-
-// CODE HTML ICI
-   echo '
-  <button type="submit" name="jamesbond" value="Envoyer un message" class="btn btn-rose btn-round">'.$error.'</button>'; }
-
-
-if(!empty($succes)){
-
-
-// CODE HTML ICI
-   echo '
-  <button type="submit" name="jamesbond" value="Envoyer un message" class="btn btn-rose btn-round">'.$succes.'</button>'; }
 
 
 
@@ -797,8 +784,8 @@ if ($uploadOk == 0) {
 
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
         $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
-        echo $succes;
-        echo 'TGGG';
+
+
         $status = '1';
         date_default_timezone_set('Europe/Paris');
         setlocale(LC_TIME, 'fr_FR.utf8','fra');
@@ -842,7 +829,20 @@ if ($uploadOk == 0) {
                 }
 
 
+                if(!empty($error)){
 
+
+                // CODE HTML ICI
+                   echo '
+                  <button type="submit" name="jamesbond" value="Envoyer un message" class="btn btn-rose btn-round">'.$error.'</button>'; }
+
+
+                if(!empty($succes)){
+
+
+                // CODE HTML ICI
+                   echo '
+                  <button type="submit" name="jamesbond" value="Envoyer un message" class="btn btn-rose btn-round">'.$succes.'</button>'; }
 
 
 
