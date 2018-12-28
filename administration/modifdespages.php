@@ -741,13 +741,14 @@ echo '<li>'.$Entry.'</li>';
 closedir($MyDirectory);
 }
 
-ScanDirectory('/var/JamFichiers/Img/');
+ScanDirectory('/var/JamFichiers/Img/membres/');
 
 ?>
 
 <?php
 if(isset($_POST['test'])){
-  unlink("/var/JamFichiers/img/$Entry");
+  $dest = "/var/JamFichiers/Img/membres";
+  unlink("$dest/$Entry");
 }
 
 
