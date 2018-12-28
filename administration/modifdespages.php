@@ -755,7 +755,6 @@ $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 // Check if file already exists
 if (file_exists($target_file)) {
     $error = 'Désolé, le fichier existe déja.';
-    echo 'ok';
     $uploadOk = 0;
 }
 // Check file size < 2mo
@@ -772,7 +771,7 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
 }
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-    $error = 'Désolé, une erreur est survenue.';
+    
 // if everything is ok, try to upload file
 } else {
   date_default_timezone_set('Europe/Paris');
