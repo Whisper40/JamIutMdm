@@ -834,7 +834,7 @@ if ($uploadOk == 0) {
 
                 // CODE HTML ICI
                    echo '
-                  <button type="submit" name="jamesbond" value="Envoyer un message" class="btn btn-rose btn-round">'.$error.'</button>'; }
+                  <button>'.$error.'</button>'; }
 
 
                 if(!empty($succes)){
@@ -842,7 +842,7 @@ if ($uploadOk == 0) {
 
                 // CODE HTML ICI
                    echo '
-                  <button type="submit" name="jamesbond" value="Envoyer un message" class="btn btn-rose btn-round">'.$succes.'</button>'; }
+                  <button>'.$succes.'</button>'; }
 
 
 
