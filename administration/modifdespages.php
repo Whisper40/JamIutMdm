@@ -784,6 +784,7 @@ if ($uploadOk == 0) {
 
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
         $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+        echo $succes;
         echo 'TGGG';
         $status = '1';
         date_default_timezone_set('Europe/Paris');
