@@ -717,13 +717,11 @@ if ($categorie == 'tres'){
 </div>
 
 <?php
-if (isset($error)){
+
   echo $error;
-}else if (isset($succes)){
+
   echo $succes;
-}else{
-  echo 'rien';
-}
+
 
 if(isset($_POST['submitphotomembre'])){
 
