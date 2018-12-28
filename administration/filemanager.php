@@ -2268,9 +2268,7 @@ function fm_show_nav_path($path)
                             </div>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a title="<?php echo lng('Upload') ?>" class="nav-link" href="?p=<?php echo urlencode(FM_PATH) ?>&amp;upload"><i class="fa fa-cloud-upload" aria-hidden="true"></i> <?php echo lng('Upload') ?></a>
-                    </li>
+                
 
                     <?php endif; ?>
                     <?php if (FM_USE_AUTH): ?>
