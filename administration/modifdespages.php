@@ -754,12 +754,12 @@ $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 // Check if file already exists
 if (file_exists($target_file)) {
-    $error = 'Désolé, le fichier existe déja.';
+    $error = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " existe déja !";
     $uploadOk = 0;
 }
 // Check file size < 2mo
 if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
-    $error = 'Désolé, le fichier est trop grand.';
+    $error = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " est trop grand ! (max=3Mo)";
     $uploadOk = 0;
 
 }
@@ -783,7 +783,7 @@ if ($uploadOk == 0) {
   $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
 
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
-        $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+        $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé";
 
 
         $status = '1';
