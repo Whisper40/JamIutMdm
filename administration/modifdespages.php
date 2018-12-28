@@ -718,7 +718,14 @@ if ($categorie == 'tres'){
 
 </div>
 
+<?php
+if(isset($_POST['test'])){
+  $dest = "/var/JamFichiers/Img/membres";
+  unlink("$dest/$Entry");
+}
 
+
+ ?>
 <?php
 
 function ScanDirectory($Directory){
@@ -745,14 +752,7 @@ ScanDirectory('/var/JamFichiers/Img/membres/');
 
 ?>
 
-<?php
-if(isset($_POST['test'])){
-  $dest = "/var/JamFichiers/Img/membres";
-  unlink("$dest/$Entry");
-}
 
-
- ?>
 
 
 
