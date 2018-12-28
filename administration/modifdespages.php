@@ -727,7 +727,7 @@ if (isset($error)){
 
 if(isset($_POST['submitphotomembre'])){
 
-      $target_dir = "../../../JamFichiers/Imgs/Membres";
+      $target_dir = "../../../JamFichiers/Img/Membres";
 
       $original = 'Original';
       if (file_exists($target_dir/$original)) {
