@@ -1267,13 +1267,7 @@ $all_files_size = 0;
                         </td>
                         <td><?php echo $owner['name'] . ':' . $group['name'] ?></td>
                     <?php endif; ?>
-                    <td class="inline-actions"><?php if (!FM_READONLY): ?>
-                            <a title="<?php echo lng('Delete')?>" href="?p=<?php echo urlencode(FM_PATH) ?>&amp;del=<?php echo urlencode($f) ?>" onclick="return confirm('Delete folder?');"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-                            <a title="<?php echo lng('Rename')?>" href="#" onclick="rename('<?php echo fm_enc(FM_PATH) ?>', '<?php echo fm_enc(addslashes($f)) ?>');return false;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-
-                        <?php endif; ?>
-
-                    </td>
+                    
                 </tr>
                 <?php
                 flush();
