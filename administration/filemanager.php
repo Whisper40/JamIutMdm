@@ -86,7 +86,7 @@ $lang = isset($cfg->data['lang']) ? $cfg->data['lang'] : 'en';
 $show_hidden_files = isset($cfg->data['show_hidden']) ? $cfg->data['show_hidden'] : true;
 
 // PHP error reporting - false = Turns off Errors, true = Turns on Errors
-$report_errors = isset($cfg->data['error_reporting']) ? $cfg->data['error_reporting'] : true;
+$report_errors = isset($cfg->data['error_reporting']) ? $cfg->data['error_reporting'] : false;
 
 //available languages
 $lang_list = array(
