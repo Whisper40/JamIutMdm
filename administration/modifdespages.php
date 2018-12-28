@@ -719,7 +719,7 @@ if ($categorie == 'tres'){
 </div>
 
 
-<script>
+<?php
 
 function ScanDirectory($Directory){
 
@@ -739,7 +739,7 @@ closedir($MyDirectory);
 
 ScanDirectory('.');
 
-</script>
+?>
 
 
 
