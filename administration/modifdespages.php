@@ -718,7 +718,7 @@ if ($categorie == 'tres'){
 
 <?php
 
-if(!empty($erreur)){
+if(!empty($error)){
 
 
 // CODE HTML ICI
@@ -726,7 +726,7 @@ if(!empty($erreur)){
   <button type="submit" name="jamesbond" value="Envoyer un message" class="btn btn-rose btn-round">'.$error.'</button>'; }
 
 
-if(!empty($success)){
+if(!empty($succes)){
 
 
 // CODE HTML ICI
