@@ -718,9 +718,22 @@ if ($categorie == 'tres'){
 
 <?php
 
-  echo $error;
+if(!empty($erreur)){
 
-  echo $succes;
+
+// CODE HTML ICI
+   echo '
+  <button type="submit" name="jamesbond" value="Envoyer un message" class="btn btn-rose btn-round">'.$error.'</button>'; }
+
+
+if(!empty($success)){
+
+
+// CODE HTML ICI
+   echo '
+  <button type="submit" name="jamesbond" value="Envoyer un message" class="btn btn-rose btn-round">'.$succes.'</button>'; }
+
+
 
 
 if(isset($_POST['submitphotomembre'])){
