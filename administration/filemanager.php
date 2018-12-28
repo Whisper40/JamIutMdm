@@ -194,7 +194,7 @@ if ($use_auth) {
                 <div class="row justify-content-md-center h-100">
                     <div class="card-wrapper">
                         <div class="brand">
-                            <svg version="1.0" xmlns="http://www.w3.org/2000/svg" M1008 width="100%" height="121px" viewBox="0 0 238.000000 140.000000" aria-label="H3K Tiny File Manager">
+                            <svg version="1.0" xmlns="http://www.w3.org/2000/svg" M1008 width="100%" height="121px" viewBox="0 0 238.000000 140.000000" aria-label="Jam FileManager From H3K">
                                 <g transform="translate(0.000000,140.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
                                     <path d="M160 700 l0 -600 110 0 110 0 0 260 0 260 70 0 70 0 0 -260 0 -260 110 0 110 0 0 600 0 600 -110 0 -110 0 0 -260 0 -260 -70 0 -70 0 0 260 0 260 -110 0 -110 0 0 -600z"/>
                                     <path fill="#003500" d="M1008 1227 l-108 -72 0 -117 0 -118 110 0 110 0 0 110 0 110 70 0 70 0 0 -180 0 -180 -125 0 c-69 0 -125 -3 -125 -6 0 -3 23 -39 52 -80 l52 -74 73 0 73 0 0 -185 0 -185 -70 0 -70 0 0 115 0 115 -110 0 -110 0 0 -190 0 -190 181 0 181 0 109 73 108 72 1 181 0 181 -69 48 -68 49 68 50 69 49 0 249 0 248 -182 -1 -183 0 -107 -72z"/>
@@ -1353,7 +1353,7 @@ $all_files_size = 0;
         </table>
     </div>
 
-    
+
 
 </form>
 
@@ -2403,7 +2403,7 @@ $isStickyNavBar = $sticky_navbar ? 'navbar-fixed' : 'navbar-normal';
     <meta name="robots" content="noindex, nofollow">
     <meta name="googlebot" content="noindex">
     <link rel="icon" href="<?php echo FM_SELF_URL ?>?img=favicon" type="image/png">
-    <title>H3K | Tiny File Manager</title>
+    <title>Jam - FileManager </title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <?php if (isset($_GET['view']) && FM_USE_HIGHLIGHTJS): ?>
@@ -2993,7 +2993,7 @@ function lng($txt) {
     global $lang;
 
     // English Language
-    $tr['en']['AppName']        = 'Tiny File Manager';      $tr['en']['AppTitle']           = 'File Manager';
+    $tr['en']['AppName']        = 'Jam File Manager';      $tr['en']['AppTitle']           = 'Jam File Manager';
     $tr['en']['Login']          = 'Sign in';                $tr['en']['Username']           = 'Username';
     $tr['en']['Password']       = 'Password';               $tr['en']['Logout']             = 'Sign Out';
     $tr['en']['Move']           = 'Move';                   $tr['en']['Copy']               = 'Copy';
@@ -3023,7 +3023,7 @@ function lng($txt) {
 
 
     // French Language
-    $tr['fr']['AppName']        = 'Tiny File Manager';      $tr['fr']['AppTitle']           = 'File Manager';
+    $tr['fr']['AppName']        = 'Jam File Manager';      $tr['fr']['AppTitle']           = 'Jam File Manager';
     $tr['fr']['Login']          = 'Connexion';              $tr['fr']['Username']           = 'Utilisateur';
     $tr['fr']['Password']       = 'Mot de passe';           $tr['fr']['Logout']             = 'Déconnexion';
     $tr['fr']['Move']           = 'Déplacer';               $tr['fr']['Copy']               = 'Copier';
@@ -3052,7 +3052,7 @@ function lng($txt) {
     $tr['fr']['MemoryUsed']     = 'Mémoire utilisée';       $tr['fr']['PartitionSize']      = 'Taille de la partition';
 
     // Italian Language
-    $tr['it']['AppName']        = 'Tiny File Manager';      $tr['it']['AppTitle']           = 'File Manager';
+    $tr['it']['AppName']        = 'Tiny File Manager';      $tr['it']['AppTitle']           = 'Jam FileManager';
     $tr['it']['Login']          = 'Connettiti';             $tr['it']['Username']           = 'Username';
     $tr['it']['Password']       = 'Password';               $tr['it']['Logout']             = 'Disconnettiti';
     $tr['it']['Move']           = 'Sposta';                 $tr['it']['Copy']               = 'Copia';
