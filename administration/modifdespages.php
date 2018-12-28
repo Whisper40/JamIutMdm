@@ -755,6 +755,7 @@ $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 // Check if file already exists
 if (file_exists($target_file)) {
     $error = 'Désolé, le fichier existe déja.';
+    echo 'ok';
     $uploadOk = 0;
 }
 // Check file size < 2mo
