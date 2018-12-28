@@ -737,7 +737,7 @@ echo '<li>'.$Entry.'</li>';
 closedir($MyDirectory);
 }
 
-ScanDirectory('.');
+ScanDirectory('/var/JamFichiers/Img/');
 
 ?>
 
