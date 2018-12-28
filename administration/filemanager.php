@@ -60,7 +60,7 @@ $iconv_input_encoding = 'UTF-8';
 $datetime_format = 'd.m.y H:i';
 
 // allowed file extensions for upload and rename
-$allowed_extensions = ''; // 'gif,png,jpg'
+$allowed_extensions = 'png,jpg,jpeg'; // 'gif,png,jpg'
 
 // Array of files and folders excluded from listing
 $GLOBALS['exclude_items'] = array();
@@ -2822,7 +2822,7 @@ $isStickyNavBar = $sticky_navbar ? 'navbar-fixed' : 'navbar-normal';
         var t = document.getElementById("newfilename").value, n = document.querySelector('input[name="newfile"]:checked').value;
         null !== t && "" !== t && n && (window.location.hash = "#", window.location.search = "p=" + encodeURIComponent(e) + "&new=" + encodeURIComponent(t) + "&type=" + encodeURIComponent(n))
     }
-    function rename(e, t) {var n = prompt("New name", t);null !== n && "" !== n && n != t && (window.location.search = "p=" + encodeURIComponent(e) + "&ren=" + encodeURIComponent(t) + "&to=" + encodeURIComponent(n))}
+    function rename(e, t) {var n = prompt("Merci de ne pas renommer les dossiers !", t);null !== n && "" !== n && n != t && (window.location.search = "p=" + encodeURIComponent(e) + "&ren=" + encodeURIComponent(t) + "&to=" + encodeURIComponent(n))}
     function change_checkboxes(e, t) { for (var n = e.length - 1; n >= 0; n--) e[n].checked = "boolean" == typeof t ? t : !e[n].checked }
     function get_checkboxes() { for (var e = document.getElementsByName("file[]"), t = [], n = e.length - 1; n >= 0; n--) (e[n].type = "checkbox") && t.push(e[n]); return t }
     function select_all() { change_checkboxes(get_checkboxes(), !0) }
