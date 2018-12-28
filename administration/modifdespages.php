@@ -732,6 +732,10 @@ echo '</ul>';
 }
 else {
 echo '<li>'.$Entry.'</li>';
+?>
+<input type="submit" name="test" value="Supprimer">
+<?php
+
 }
 }
 closedir($MyDirectory);
@@ -740,6 +744,14 @@ closedir($MyDirectory);
 ScanDirectory('/var/JamFichiers/Img/');
 
 ?>
+
+<?php
+if(isset($_POST['test'])){
+  unlink("/var/JamFichiers/img/$Entry");
+}
+
+
+ ?>
 
 
 
