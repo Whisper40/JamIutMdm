@@ -27,7 +27,7 @@ $readonly_users = array(
 // array('Username' => 'Directory path', 'Username2' => 'Directory path', ...)
 $directories_users = array(
     'adminjam' => '/',
-    'administrationjam' => '/var/JamFichiers/Img/Membres'
+    'administrationjam' => '/var/JamFichiers/Img'
 
 );
 
@@ -2268,7 +2268,7 @@ function fm_show_nav_path($path)
                             </div>
                         </div>
                     </li>
-                
+
 
                     <?php endif; ?>
                     <?php if (FM_USE_AUTH): ?>

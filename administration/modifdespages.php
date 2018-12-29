@@ -1098,8 +1098,8 @@ function SubmitFormDataCreateStatus() {
                               <input type="text" class="form-control" value="Numéro de l'article" name="article" id="article">
                           </div>
                           <div class="form-group label-floating">
-                              <label class="control-label">Image</label>
-                              <input type="text" name="titre" value="Titre de l'actualité" id="titre" class="form-control">
+                              <label class="control-label">Titre</label>
+                              <input type="text" name="titre" value="Titre du status" id="titre" class="form-control">
                           </div>
 
 

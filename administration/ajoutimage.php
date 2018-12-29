@@ -1079,9 +1079,241 @@ if(isset($error)){
                     </div>
                 </div>
 
-                <input type="submit" name="videosubmit" value="Envoyer le formulaire !">
+                <input type="submit" name="videosubmit" value="Envoyer le formulaire video !">
             </form>
 
+
+
+
+
+<!-- Ajoutd'images au site web (assets)-->
+<?php
+if(isset($_POST['submitassets'])){
+
+
+
+
+
+      $target_dir = "../../../JamFichiers/Photos";
+
+      $original = 'Original';
+      if (file_exists($target_dir/$original/$catimage)) {
+        $target_dirnew = "$target_dir/$original/$catimage/";
+      }else{
+        mkdir("$target_dir/$original/$catimage", 0700);
+        $target_dirnew = "$target_dir/$original/$catimage/";
+      }
+
+      //Ajout thumb
+      $thumb = 'Thumb';
+      if (file_exists($target_dir/$thumb/$catimage)) {
+        $target_dirnewthumb = "$target_dir/$thumb/$catimage/";
+      }else{
+        mkdir("$target_dir/$thumb/$catimage", 0700);
+        $target_dirnewthumb = "$target_dir/$thumb/$catimage/";
+      }
+
+      $affiche = 'Affiche';
+      if (file_exists($target_dir/$affiche/$catimage)) {
+        $target_dirnewaffiche = "$target_dir/$affiche/$catimage/";
+      }else{
+        mkdir("$target_dir/$affiche/$catimage", 0700);
+        $target_dirnewaffiche = "$target_dir/$affiche/$catimage/";
+      }
+
+
+      //FIN
+
+
+$total = count($_FILES['fileToUpload']['name']);
+
+for( $i=0 ; $i < $total ; $i++ ) {
+$target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
+$uploadOk = 1;
+$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+// Check if file already exists
+if (file_exists($target_file)) {
+    $error = 'Désolé, le fichier existe déja.';
+    $uploadOk = 0;
+}
+// Check file size < 2mo
+if ($_FILES["fileToUpload"]["size"][$i] > 2000000) {
+    $error = 'Désolé, le fichier est trop grand.';
+    $uploadOk = 0;
+
+}
+// Allow certain file formats
+if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+&& $imageFileType != "gif" && $imageFileType != "pdf" && $imageFileType != "zip" && $imageFileType != "rar") {
+    $error = 'Désolé, les formats autorisés sont JPG, PNG et GIF.';
+    $uploadOk = 0;
+}
+// Check if $uploadOk is set to 0 by an error
+if ($uploadOk == 0) {
+    $error = 'Désolé, une erreur est survenue.';
+// if everything is ok, try to upload file
+} else {
+  date_default_timezone_set('Europe/Paris');
+  setlocale(LC_TIME, 'fr_FR.utf8','fra');
+  $date = strftime('%d:%m:%y %H:%M:%S');
+
+  $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
+  $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
+  $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
+
+    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
+        $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+        $status = '1';
+        date_default_timezone_set('Europe/Paris');
+        setlocale(LC_TIME, 'fr_FR.utf8','fra');
+        $date = strftime('%Y-%m-%d %H:%M:%S');
+
+        $insertinfos = $db->prepare("INSERT INTO images (title, albumactif, icon, file_name, uploaded_on, status) VALUES(:title, :albumactif, :icon, :file_name, :date, :status)");
+        $insertinfos->execute(array(
+
+            "title"=>$catimage,
+            "albumactif"=>'1',
+            "icon"=>$nomicon,
+            "file_name"=>$target_filefile,
+            "date"=>$date,
+            "status"=>$status
+            )
+        );
+        $db->query("UPDATE images SET albumactif='1' WHERE title='$catimage'");
+        $db->query("UPDATE images SET albumactif='0' WHERE title <> '$catimage'");
+        $img_tmp = $target_dirnew.$target_filefile;
+        $fin = $target_dirnewthumb.$target_filefile;
+
+
+          //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
+            $longueur = 300;
+            $largeur = 220;
+            //TAILLE DE L'IMAGE ACTUELLE
+            $taille = getimagesize($img_tmp);
+            //SI LE FICHIER EXISTE
+            if ($taille) {
+                //SI JPG
+                if ($taille['mime']=='image/jpeg' ) {
+                          //OUVERTURE DE L'IMAGE ORIGINALE
+                            $img_big = imagecreatefromjpeg($img_tmp);
+                            $img_new = imagecreate($longueur, $largeur);
+                          //CREATION DE LA MINIATURE
+                            $img_petite = imagecreatetruecolor($longueur, $largeur) or $img_petite = imagecreate($longueur, $largeur);
+                            //COPIE DE L'IMAGE REDIMENSIONNEE
+                            imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
+                            imagejpeg($img_petite,$fin);
+                }
+              //SI PNG
+            else if ($taille['mime']=='image/png' ) {
+                            //OUVERTURE DE L'IMAGE ORIGINALE
+                            $img_big = imagecreatefrompng($img_tmp); // On ouvre l'image d'origine
+                            $img_new = imagecreate($longueur, $largeur);
+                            //CREATION DE LA MINIATURE
+                            $img_petite = imagecreatetruecolor($longueur, $largeur) OR $img_petite = imagecreate($longueur, $largeur);
+                            //COPIE DE L'IMAGE REDIMENSIONNEE
+                            imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
+                            imagepng($img_petite,$fin);
+                        }
+                        // GIF
+              else if ($taille['mime']=='image/gif' ) {
+                            //OUVERTURE DE L'IMAGE ORIGINALE
+                            $img_big = imagecreatefromgif($img_tmp);
+                            $img_new = imagecreate($longueur, $largeur);
+                            //CREATION DE LA MINIATURE
+                            $img_petite = imagecreatetruecolor($longueur, $largeur) or $img_petite = imagecreate($longueur, $largeur);
+                            //COPIE DE L'IMAGE REDIMENSIONNEE
+                            imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
+                            imagegif($img_petite,$fin);
+
+
+                      }
+                }
+
+
+
+
+
+                //Affiche Grande
+                // Destination
+                $img_tmp = $target_dirnew.$target_filefile;
+                $finaffiche = $target_dirnewaffiche.$target_filefile;
+
+                //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
+                  $longueur = 1024;
+                  $largeur = 700;
+                  //TAILLE DE L'IMAGE ACTUELLE
+                  $tailleaffiche = getimagesize($img_tmp);
+                  //SI LE FICHIER EXISTE
+                  if ($tailleaffiche) {
+                      //SI JPG
+                      if ($tailleaffiche['mime']=='image/jpeg' ) {
+                                //OUVERTURE DE L'IMAGE ORIGINALE
+                                  $img_big = imagecreatefromjpeg($img_tmp);
+                                  $img_new = imagecreate($longueur, $largeur);
+                                //CREATION DE LA MINIATURE
+                                  $img_petite = imagecreatetruecolor($longueur, $largeur) or $img_petite = imagecreate($longueur, $largeur);
+                                  //COPIE DE L'IMAGE REDIMENSIONNEE
+                                  imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$tailleaffiche[0],$tailleaffiche[1]);
+                                  imagejpeg($img_petite,$finaffiche);
+                      }
+                    //SI PNG
+                  else if ($tailleaffiche['mime']=='image/png' ) {
+                                  //OUVERTURE DE L'IMAGE ORIGINALE
+                                  $img_big = imagecreatefrompng($img_tmp); // On ouvre l'image d'origine
+                                  $img_new = imagecreate($longueur, $largeur);
+                                  //CREATION DE LA MINIATURE
+                                  $img_petite = imagecreatetruecolor($longueur, $largeur) OR $img_petite = imagecreate($longueur, $largeur);
+                                  //COPIE DE L'IMAGE REDIMENSIONNEE
+                                  imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$tailleaffiche[0],$tailleaffiche[1]);
+                                  imagepng($img_petite,$finaffiche);
+                              }
+                              // GIF
+                    else if ($tailleaffiche['mime']=='image/gif' ) {
+                                  //OUVERTURE DE L'IMAGE ORIGINALE
+                                  $img_big = imagecreatefromgif($img_tmp);
+                                  $img_new = imagecreate($longueur, $largeur);
+                                  //CREATION DE LA MINIATURE
+                                  $img_petite = imagecreatetruecolor($longueur, $largeur) or $img_petite = imagecreate($longueur, $largeur);
+                                  //COPIE DE L'IMAGE REDIMENSIONNEE
+                                  imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$tailleaffiche[0],$tailleaffiche[1]);
+                                  imagegif($img_petite,$finaffiche);
+
+
+                            }
+                      }
+
+
+
+
+
+
+    }else {
+        $error = 'Désolé, une erreur est survenue.';
+    } } }
+
+          } ?>
+
+
+
+
+
+
+            <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+
+                <div class="form-group form-file-upload">
+                    <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
+                    <div class="input-group">
+                        <input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
+                        <span class="input-group-btn input-group-s">
+                            <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
+                                <i class="material-icons">layers</i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+
+                <input type="submit" name="submitassets" value="Envoyer les images du site !">
+            </form>
 
 
 
