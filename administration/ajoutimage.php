@@ -1208,7 +1208,7 @@ if ($uploadOk == 0) {
 
 
 
-
+<h3> Ajouter des images au site (assets) </h3>
 
             <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
 
