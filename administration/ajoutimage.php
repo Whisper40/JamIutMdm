@@ -1106,7 +1106,7 @@ if(isset($_POST['submitassets'])){
 
       //Ajout thumb
       $thumb = 'Thumb';
-      if (file_exists($target_dir/$thumb/)) {
+      if (file_exists($target_dir/$thumb)) {
         $target_dirnewthumb = "$target_dir/$thumb/";
       }else{
         mkdir("$target_dir/$thumb", 0700);
