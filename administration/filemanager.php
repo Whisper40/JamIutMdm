@@ -26,7 +26,7 @@ $readonly_users = array(
 // user specific directories
 // array('Username' => 'Directory path', 'Username2' => 'Directory path', ...)
 $directories_users = array(
-    'adminjam' => '/',
+    'adminjam' => '.',
     'administrationjam' => '/var/JamFichiers/Img'
 
 );
