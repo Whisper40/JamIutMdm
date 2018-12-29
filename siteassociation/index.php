@@ -17,11 +17,11 @@
 
   <div class="wrapper">
     <div class="page-header clear-filter">
-      <div class="page-header-image" data-parallax="true" style="background-image: url('assets/img/<?php echo $index->img1 ?>');">
+      <div class="page-header-image" data-parallax="true" style="background-image: url('JamFichiers/Img/ImagesDuSite/Original/<?php echo $index->img1 ?>');">
       </div>
       <div class="container">
         <div class="content-center brand">
-          <img class="n-logo" src="assets/img/<?php echo $index->logo1 ?>" alt="">
+          <img class="n-logo" src="JamFichiers/Img/ImagesDuSite/Original/<?php echo $index->logo1 ?>" alt="">
         </div>
       </div>
     </div>
@@ -41,7 +41,7 @@
             <div class="col-lg-6 col-md-12">
               <div class="container text-center">
                 <br><br><br><br>
-                <img src="assets/img/<?php echo $index->logo2 ?>" alt="">
+                <img src="JamFichiers/Img/ImagesDuSite/Original/<?php echo $index->logo2 ?>" alt="">
               </div>
             </div>
           </div>

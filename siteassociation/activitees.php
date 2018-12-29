@@ -55,7 +55,7 @@
 <div class="wrapper">
 
       <div class="page-header page-header-small">
-        <div class="page-header-image" data-parallax="true" style="background-image: url('./assets/img/<?php echo $pagehead->image; ?>');">
+        <div class="page-header-image" data-parallax="true" style="background-image: url('./JamFichiers/Img/ImagesDuSite/Original/<?php echo $pagehead->image; ?>');">
         </div>
         <div class="content-center">
           <div class="container">
@@ -132,7 +132,7 @@
                 <?php }else{ ?>
                   <div class="carousel-item">
                 <?php } ?>
-                    <img class="d-block" src="assets/img/<?php echo $uneimg->image ?>">
+                    <img class="d-block" src="JamFichiers/Img/ImagesDuSite/Original/<?php echo $uneimg->image ?>">
                     <div class="carousel-caption d-none d-md-block">
                       <h5><?php echo $uneimg->titreimage ?></h5>
                     </div>
@@ -216,7 +216,7 @@
                 <?php }else{ ?>
                   <div class="carousel-item">
                 <?php } ?>
-                    <img class="d-block" src="assets/img/<?php echo $uneimg->image ?>">
+                    <img class="d-block" src="JamFichiers/Img/ImagesDuSite/Original/<?php echo $uneimg->image ?>">
                     <div class="carousel-caption d-none d-md-block">
                       <h5><?php echo $uneimg->titreimage ?></h5>
                     </div>
@@ -301,7 +301,7 @@
                 <?php }else{ ?>
                   <div class="carousel-item">
                 <?php } ?>
-                    <img class="d-block" src="assets/img/<?php echo $uneimg->image ?>">
+                    <img class="d-block" src="JamFichiers/Img/ImagesDuSite/Original/<?php echo $uneimg->image ?>">
                     <div class="carousel-caption d-none d-md-block">
                       <h5><?php echo $uneimg->titreimage ?></h5>
                     </div>
@@ -433,7 +433,7 @@
       <div class="col-md-10 ml-auto col-xl-6 mr-auto">
         <div class="card">
           <div class="card-header">
-            <img src="assets/img/<?php echo $s->slug; ?>.<?php echo $s->formatimg; ?>">
+            <img src="JamFichiers/Img/ImagesDuSite/Original/<?php echo $s->slug; ?>.<?php echo $s->formatimg; ?>">
           </div>
           <div class="card-body">
             <div class="card-content">

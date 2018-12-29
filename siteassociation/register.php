@@ -26,7 +26,7 @@ $sitekey = "LESITEKEY";
 </style>
 
 <div class="page-header clear-filter">
-  <div class="page-header-image" style="background-image:url(assets/img/IUTmdm.JPG)"></div>
+  <div class="page-header-image" style="background-image:url(JamFichiers/Img/ImagesDuSite/Original/IUTmdm.JPG)"></div>
   <div class="content">
     <div class="container">
       <div class="col-md-4 ml-auto mr-auto">

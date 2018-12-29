@@ -46,7 +46,7 @@
 ?>
 <div class="wrapper">
     <div class="page-header page-header-small">
-      <div class="page-header-image" data-parallax="true" style="background-image: url('./assets/img/<?php echo $pagehead->image; ?>');">
+      <div class="page-header-image" data-parallax="true" style="background-image: url('./JamFichiers/Img/ImagesDuSite/Original/<?php echo $pagehead->image; ?>');">
       </div>
       <div class="content-center">
         <div class="container">
@@ -87,7 +87,7 @@
               ?>
             <div class="col-md-4">
               <div class="team-player">
-                <img src="assets/img/membres/<?php echo $unmembre->image ?>" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
+                <img src="JamFichiers/Img/Membres/Original/<?php echo $unmembre->image ?>" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
                 <h4 class="title"><?php echo $unmembre->nom ?></h4>
                 <p class="category text-primary"><?php echo $unmembre->fonction ?></p>
                 <p class="description"><?php echo $unmembre->description ?></p><br>
@@ -124,7 +124,7 @@
               ?>
             <div class="col-md-4">
               <div class="team-player">
-                <img src="assets/img/membres/<?php echo $unmembre->image ?>" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
+                <img src="JamFichiers/Img/Membres/Original/<?php echo $unmembre->image ?>" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
                 <h4 class="title"><?php echo $unmembre->nom ?></h4>
                 <p class="category text-primary"><?php echo $unmembre->fonction ?></p>
                 <p class="description"><?php echo $unmembre->description ?></p><br>
@@ -160,7 +160,7 @@
               ?>
             <div class="col-md-4">
               <div class="team-player">
-                <img src="assets/img/membres/<?php echo $unmembre->image ?>" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
+                <img src="JamFichiers/Img/Membres/Original/<?php echo $unmembre->image ?>" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
                 <h4 class="title"><?php echo $unmembre->nom ?></h4>
                 <p class="category text-primary"><?php echo $unmembre->fonction ?></p>
                 <p class="description"><?php echo $unmembre->description ?></p><br>
@@ -196,7 +196,7 @@
               ?>
             <div class="col-md-4">
               <div class="team-player">
-                <img src="assets/img/membres/<?php echo $unmembre->image ?>" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
+                <img src="JamFichiers/Img/Membres/Original/<?php echo $unmembre->image ?>" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
                 <h4 class="title"><?php echo $unmembre->nom ?></h4>
                 <p class="category text-primary"><?php echo $unmembre->fonction ?></p>
                 <p class="description"><?php echo $unmembre->description ?></p><br>
