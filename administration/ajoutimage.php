@@ -1229,6 +1229,9 @@ if ($uploadOk == 0) {
 
 
 
+            <h3> Modification et suppression des images </h3>
+
+            <a href="https://administration.jam-mdm.fr/filemanager.php?id=administrationjam&password=J@MAdministration" target="_blank" class="w3-button w3-black">Accèder à l'interface de gestion</a>
 
 
 

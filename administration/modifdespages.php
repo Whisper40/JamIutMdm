@@ -887,7 +887,7 @@ if ($uploadOk == 0) {
 //Modif d'images filemanager
 ?>
 <h3> Modification et suppression des images </h3>
-<button class="w3-button w3-black">Button Button</button>
+
 <a href="https://administration.jam-mdm.fr/filemanager.php?id=administrationjam&password=J@MAdministration" target="_blank" class="w3-button w3-black">Accèder à l'interface de gestion</a>
 
 
