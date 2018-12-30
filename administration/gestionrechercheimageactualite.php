@@ -45,7 +45,7 @@ if(count($table)>0){
 
       </td>
     </tr>
-<hr>
+
     ';
 
 
