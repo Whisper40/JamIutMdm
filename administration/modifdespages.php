@@ -1564,10 +1564,10 @@ $result = raccourcirChaine($description, 80);
             <td>'.$result.'</td>
             <td>'.$status.'</td>
             <td>
-            <a href="?page=actus&amp;table=newsactus&amp;modifactus='.$id.'">
+            <a href="?page=actualite&amp;table=newsactus&amp;modifactus='.$id.'">
             <button type="button" class="btn">Modifier</button>
             </a>
-            <a href="?page=actus&amp;table=newsactus&amp;banactus='.$id.'">
+            <a href="?page=actualite&amp;table=newsactus&amp;banactus='.$id.'">
             <button type="button" class="btn">Désactiver</button>
             </a>
             </td>
