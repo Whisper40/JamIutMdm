@@ -3,7 +3,7 @@
     require_once('includes/checkconnection.php');
     $nompage = "Nous Contacter";
     ini_set('display_errors', 1);
-    $user_id = $_SESSION['admin_id'];
+    
 
 //Code de génératon du captcha fournie par GOOGLE
 $secret = "LESECRET";
