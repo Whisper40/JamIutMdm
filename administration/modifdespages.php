@@ -1294,7 +1294,7 @@ function RetourIndex2(){
     <script>
 
 
-     function SubmitFormDataModifStatus() {
+     function SubmitFormDataModifActualite() {
         var user_id = "<?php echo $_SESSION['admin_id']; ?>";
         var id = "<?php echo $id; ?>";
         var title = $("#title").val();
@@ -1388,7 +1388,7 @@ function RetourIndex4(){
                             <div class="card-content">
 
                               <center>
-                              <button id="SubmitFormDataModifStatus" onclick="SubmitFormDataModifStatus();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                              <button id="SubmitFormDataModifActualite" onclick="SubmitFormDataModifActualite();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
                               <button onclick="RetourIndex4();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                               </center>
                              </div>
@@ -1587,20 +1587,40 @@ $result = raccourcirChaine($description, 80);
 
 
 //Création membres
+function slugify($text){
+  $text = preg_replace('~[^\pL\d]+~u', '-', $text);
+
+  $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+
+  $text = preg_replace('~[^-\w]+~', '', $text);
+
+  $text = trim($text, '-');
+
+  $text = preg_replace('~-+~', '-', $text);
+
+  $text = strtolower($text);
+
+  if (empty($text)) {
+    return 'n-a';
+  }
+
+    return $text;
+}
+
 
 ?>
 <script>
 
 
-function SubmitFormDataCreateStatus() {
+function SubmitFormDataCreateUneActu() {
    var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-   var article = $("#article").val();
-   var titre = $("#titre").val();
-   var soustitre = $("#soustitre").val();
+   var title = $("#title").val();
    var description = $("#description").val();
-   $.post("ajax/createpagestatus.php", { user_id:user_id, article: article, titre: titre, soustitre: soustitre, description: description},
+   var formatimg = $("#formatimg").val();
+
+   $.post("ajax/createuneactu.php", { user_id:user_id, title: title, description: description, formatimg: formatimg},
    function(data) {
-    $('#results7').html(data);
+    $('#results11').html(data);
 
    });
 
@@ -1611,32 +1631,27 @@ function SubmitFormDataCreateStatus() {
     <div class="container-fluid">
         <div class="card">
             <div class="card-content">
-                <h2 class="card-title text-center">Création d'un status</h2>
+                <h2 class="card-title text-center">Création d'actualitée</h2>
                 <form action="" method="post" id="myForm1" class="contact-form">
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="card-content">
                           <div class="form-group label-floating">
-                              <label class="control-label">Article</label>
-                              <input type="text" class="form-control" value="Numéro de l'article" name="article" id="article">
+                              <label class="control-label">Titre</label>
+                              <input type="text" class="form-control" value="Titre de l'actualité" name="title" id="title">
                           </div>
                           <div class="form-group label-floating">
-                              <label class="control-label">Titre</label>
-                              <input type="text" name="titre" value="Titre du status" id="titre" class="form-control">
+                              <label class="control-label">Description</label>
+                              <input type="text" name="description" value="Titre du status" id="description" class="form-control">
                           </div>
 
 
 
                         <div class="form-group label-floating">
                         <label class="control-label">Sous Titre</label>
-                        <input type="text" name="soustitre" value="Sous titre" id="soustitre" class="form-control">
+                        <input type="text" name="formatimg" value="jpg" id="formatimg" class="form-control">
                         </div>
 
-
-                          <div class="form-group label-floating">
-                              <label class="control-label">Description</label>
-                              <input type="text" name="description" value="La description" id="description" class="form-control">
-                          </div>
                          </div>
                       </div>
 
@@ -1644,7 +1659,7 @@ function SubmitFormDataCreateStatus() {
                         <div class="card-content">
 
                           <center>
-                          <button id="SubmitFormDataCreateStatus" onclick="SubmitFormDataCreateStatus();" type="button" class="btn btn-primary btn-round btn-rose">Créer</button>
+                          <button id="SubmitFormDataCreateUneActu" onclick="SubmitFormDataCreateUneActu();" type="button" class="btn btn-primary btn-round btn-rose">Créer</button>
                           <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                           </center>
                          </div>
@@ -1655,7 +1670,7 @@ function SubmitFormDataCreateStatus() {
         </div>
     </div>
 
- <div id="results7"> <!-- TRES IMPORTANT -->
+ <div id="results11"> <!-- TRES IMPORTANT -->
 
 
 
