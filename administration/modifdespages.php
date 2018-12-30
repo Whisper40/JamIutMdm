@@ -2528,6 +2528,19 @@ function SubmitFormDataGallerie() {
 }
 
 </script>
+
+<?php
+$selectinfosactuel43 = $db->prepare("SELECT * from photopage where nompage=:nompage");
+$selectinfosactuel43->execute(array(
+  "nompage"=>'Galerie'
+));
+$r43 = $selectinfosactuel43->fetch(PDO::FETCH_OBJ);
+$pagetitre = $r43->pagetitre;
+$image = $r43->image;
+$titre = $r43->titre;
+
+
+?>
 <div class="content">
     <div class="container-fluid">
         <div class="card">
