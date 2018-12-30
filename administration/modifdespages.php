@@ -1486,27 +1486,6 @@ function RetourIndex4(){
      <div id="results11"> <!-- TRES IMPORTANT -->
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   </div>
   <?php
 
@@ -1605,19 +1584,6 @@ function RetourIndex4(){
   </div>
 </div>
 <?php
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   //Fin page news actus
   function raccourcirChaine($chaine, $tailleMax)
@@ -2141,26 +2107,31 @@ if (file_exists($target_dir)){
 
 }else if ($_GET['page']=='activitesvoyages'){
 
-  if(isset($_GET['modifactivitesvoyages'])){
-?>
-<script>
-function RetourIndex2(){
+  if(isset($_GET['modifactus'])){
+  
+
+  ?>
+  <script>
+  function RetourIndex2(){
   window.location="https://administration.jam-mdm.fr/modifdespages.php?page=membre&table=membres"
-}
-</script>
+  }
+  </script>
     <script>
 
 
-     function SubmitFormDataModifStatus() {
+     function SubmitFormDataModifActualite() {
         var user_id = "<?php echo $_SESSION['admin_id']; ?>";
         var id = "<?php echo $id; ?>";
-        var article = $("#article").val();
-        var titre = $("#titre").val();
-        var soustitre = $("#soustitre").val();
+        var title = $("#title").val();
         var description = $("#description").val();
-        $.post("ajax/modifypagestatus.php", { user_id:user_id, id:id, article: article, titre: titre, soustitre: soustitre, description: description},
+        var title2 = $("#title2").val();
+        var description2 = $("#description2").val();
+        var title3 = $("#titre3").val();
+        var description3 = $("#description3").val();
+        var formatimg = $("#formatimg").val();
+        $.post("ajax/modifyallactualite.php", { user_id:user_id, id:id, title: title, description: description, title2: title2, description2: description2, title3: title3, description3: description3, formatimg: formatimg},
         function(data) {
-         $('#results6').html(data);
+         $('#results11').html(data);
 
         });
 
@@ -2168,55 +2139,73 @@ function RetourIndex2(){
 
     </script>
     <?php
-    $id = $_GET['modifstatus'];
+    $id = $_GET['modifactus'];
 
-    $selectinfosactuel = $db->prepare("SELECT * from status where id=:id");
+    $selectinfosactuel = $db->prepare("SELECT * from newsactus where id=:id");
     $selectinfosactuel->execute(array(
         "id"=>$id
         )
     );
     $r2 = $selectinfosactuel->fetch(PDO::FETCH_OBJ);
 
-    $article = $r2->article;
-    $titre = $r2->titre;
-    $soustitre = $r2->soustitre;
+    $title = $r2->title;
     $description = $r2->description;
-
-?>
-<script>
-function RetourIndex3(){
-  window.location="https://administration.jam-mdm.fr/modifdespages.php?page=status&table=status"
-}
-</script>
+    $title2 = $r2->title2;
+    $description2 = $r2->description2;
+    $title3 = $r2->title3;
+    $description3 = $r2->description3;
+    $formatimg = $r2->formatimg;
+  ?>
+  <script>
+  function RetourIndex4(){
+  window.location="https://administration.jam-mdm.fr/modifdespages.php?page=actualite&table=newsactus"
+  }
+  </script>
 
     <div class="content">
         <div class="container-fluid">
             <div class="card">
                 <div class="card-content">
-                    <h2 class="card-title text-center">Modification des informations</h2>
+                    <h2 class="card-title text-center">Modification de l'actualité</h2>
                     <form action="" method="post" id="myForm1" class="contact-form">
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="card-content">
                               <div class="form-group label-floating">
-                                  <label class="control-label">Article</label>
-                                  <input type="text" class="form-control" value="<?php echo $article; ?>" name="article" id="article">
-                              </div>
-
-                              <div class="form-group label-floating">
                                   <label class="control-label">Titre</label>
-                                  <input type="text" name="titre" value="<?php echo $titre; ?>"id="titre" class="form-control">
-                              </div>
-
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Sous Titre</label>
-                                  <input type="text" name="soustitre" value="<?php echo $soustitre; ?>" id="soustitre" class="form-control">
+                                  <input type="text" class="form-control" value="<?php echo $title; ?>" name="title" id="title">
                               </div>
 
                               <div class="form-group label-floating">
                                   <label class="control-label">Description</label>
-                                  <input type="text" name="description" value="<?php echo $description; ?>" id="description" class="form-control">
+                                  <input type="text" name="description" value="<?php echo $description; ?>"id="description" class="form-control">
                               </div>
+
+                              <div class="form-group label-floating">
+                                  <label class="control-label">Titre 2</label>
+                                  <input type="text" name="title2" value="<?php echo $title2; ?>" id="title2" class="form-control">
+                              </div>
+
+                              <div class="form-group label-floating">
+                                  <label class="control-label">Description 2</label>
+                                  <input type="text" name="description2" value="<?php echo $description2; ?>" id="description2" class="form-control">
+                              </div>
+
+                              <div class="form-group label-floating">
+                                  <label class="control-label">Titre 3</label>
+                                  <input type="text" name="title3" value="<?php echo $title3; ?>" id="title3" class="form-control">
+                              </div>
+
+                              <div class="form-group label-floating">
+                                  <label class="control-label">Description 3</label>
+                                  <input type="text" name="description3" value="<?php echo $description3; ?>" id="description3" class="form-control">
+                              </div>
+
+                              <div class="form-group label-floating">
+                                  <label class="control-label">Format Img</label>
+                                  <input type="text" name="formatimg" value="<?php echo $formatimg; ?>" id="formatimg" class="form-control">
+                              </div>
+
                              </div>
                           </div>
 
@@ -2224,8 +2213,8 @@ function RetourIndex3(){
                             <div class="card-content">
 
                               <center>
-                              <button id="SubmitFormDataModifStatus" onclick="SubmitFormDataModifStatus();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
-                              <button onclick="RetourIndex3();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
+                              <button id="SubmitFormDataModifActualite" onclick="SubmitFormDataModifActualite();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                              <button onclick="RetourIndex4();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                               </center>
                              </div>
                           </div>
@@ -2235,159 +2224,168 @@ function RetourIndex3(){
             </div>
         </div>
 
-     <div id="results6"> <!-- TRES IMPORTANT -->
+     <div id="results11"> <!-- TRES IMPORTANT -->
     </div>
+
+
   </div>
   <?php
 
 
 
 
-}else{
+  }else{
 
-//Modif page activitesvoyages
+  //Page newsactus
 
-?>
-<script>
-
-
-function SubmitFormDataActivitesVoyages() {
-   var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-   var pagetitre = $("#pagetitre").val();
-   var image = $("#image").val();
-   var titre = $("#titre").val();
-   var description = $("#description").val();
-   $.post("ajax/modifypageactivitesvoyages.php", { user_id:user_id, pagetitre: pagetitre, image: image, titre: titre, description: description},
-   function(data) {
-    $('#results21').html(data);
-
-   });
-
-}
-
-</script>
-<?php
-$selectinfosactuel41 = $db->prepare("SELECT * from photopage where nompage=:nompage");
-$selectinfosactuel41->execute(array(
-  "nompage"=>'Activité / Voyage'
-));
-$r41 = $selectinfosactuel41->fetch(PDO::FETCH_OBJ);
-$pagetitre = $r41->pagetitre;
-$image = $r41->image;
-$titre = $r41->titre;
-$description = $r41->description;
-
-?>
-<div class="content">
-    <div class="container-fluid">
-        <div class="card">
-            <div class="card-content">
-                <h2 class="card-title text-center">Modification de la page Activités/Voyages</h2>
-                <form action="" method="post" id="myForm1" class="contact-form">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="card-content">
-                          <div class="form-group label-floating">
-                              <label class="control-label">Titre de la page</label>
-                              <input type="text" class="form-control" value="<?php echo $pagetitre; ?>" name="pagetitre" id="pagetitre">
-                          </div>
-                          <div class="form-group label-floating">
-                              <label class="control-label">Images</label>
-                              <input type="text" name="image" value="<?php echo $image;?>" id="image" class="form-control">
-                          </div>
+  ?>
+  <script>
 
 
+   function SubmitFormDataModifActus() {
+      var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+      var image = $("#image").val();
+      var titre = $("#titre").val();
+      var pagetitre = $("#pagetitre").val();
+      var description = $("#description").val();
+      $.post("ajax/modifypageactus.php", { user_id:user_id, image: image, titre: titre, pagetitre: pagetitre, description: description},
+      function(data) {
+       $('#results10').html(data);
 
-                        <div class="form-group label-floating">
-                        <label class="control-label">Titre</label>
-                        <input type="text" name="titre" value="<?php echo $titre;?>" id="titre" class="form-control">
+      });
+
+  }
+
+  </script>
+  <?php
+
+
+  $selectinfosactuel9 = $db->prepare("SELECT * from photopage where nompage=:nompage");
+  $selectinfosactuel9->execute(array(
+      "nompage"=>'Actualité'
+      )
+  );
+  $r9 = $selectinfosactuel9->fetch(PDO::FETCH_OBJ);
+
+  $image = $r9->image;
+  $pagetitre = $r9->pagetitre;
+  $titre = $r9->titre;
+  $description = $r9->description;
+
+  ?>
+
+
+  <div class="content">
+      <div class="container-fluid">
+          <div class="card">
+              <div class="card-content">
+                  <h2 class="card-title text-center">Modification des informations de la page actualitée</h2>
+                  <form action="" method="post" id="myForm1" class="contact-form">
+                  <div class="row">
+                      <div class="col-sm-6">
+                          <div class="card-content">
+
+                            <div class="form-group label-floating">
+                                <label class="control-label">Titre de la page</label>
+                                <input type="text" name="pagetitre" value="<?php echo $pagetitre; ?>" id="pagetitre" class="form-control">
+                            </div>
+
+                            <div class="form-group label-floating">
+                                <label class="control-label">Image</label>
+                                <input type="text" class="form-control" value="<?php echo $image; ?>" name="image" id="image">
+                            </div>
+
+                            <div class="form-group label-floating">
+                                <label class="control-label">Titre</label>
+                                <input type="text" name="titre" value="<?php echo $titre; ?>"id="titre" class="form-control">
+                            </div>
+
+                            <div class="form-group label-floating">
+                                <label class="control-label">Description</label>
+                                <input type="text" name="description" value="<?php echo $description; ?>" id="description" class="form-control">
+                            </div>
+                           </div>
                         </div>
 
+                      <div class="col-sm-12">
+                          <div class="card-content">
 
-                          <div class="form-group label-floating">
-                              <label class="control-label">Description</label>
-                              <input type="text" name="description" value="<?php echo $description; ?>" id="description" class="form-control">
-                          </div>
-                         </div>
-                      </div>
+                            <center>
+                            <button id="SubmitFormDataModifActus" onclick="SubmitFormDataModifActus();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                            <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
+                            </center>
+                           </div>
+                        </div>
+                  </div>
+                </form>
+              </div>
+          </div>
+      </div>
 
-                    <div class="col-sm-12">
-                        <div class="card-content">
-
-                          <center>
-                          <button id="SubmitFormDataActivitesVoyages" onclick="SubmitFormDataActivitesVoyages();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
-                          <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
-                          </center>
-                         </div>
-                      </div>
-                </div>
-              </form>
-            </div>
-        </div>
-    </div>
-
- <div id="results21"> <!-- TRES IMPORTANT -->
+   <div id="results10"> <!-- TRES IMPORTANT -->
+  </div>
+  </div>
+  <?php
 
 
+  //Fin page news actus
+  function raccourcirChaine($chaine, $tailleMax)
+  {
+  // Variable locale
+  $positionDernierEspace = 0;
+  if( strlen($chaine) >= $tailleMax )
+  {
+  $chaine = substr($chaine,0,$tailleMax);
+  $positionDernierEspace = strrpos($chaine,' ');
+  $chaine = substr($chaine,0,$positionDernierEspace).'...';
+  }
+  return $chaine;
+  }
 
-</div>
-</div>
-<?php
-
-//Fin modif activitesvoyages
-
-
-
-
-
-
-
-
-
-
-
-
-
-      $selectnom = $db->prepare("SELECT * FROM status ORDER BY article ASC");
-      $selectnom->execute();
+      $selectnomactus = $db->prepare("SELECT * FROM newsactus ORDER BY id DESC");
+      $selectnomactus->execute();
 
 
-      $table = $selectnom->fetchAll(PDO::FETCH_OBJ);
-      if(count($table)>0){
+      $tableactus = $selectnomactus->fetchAll(PDO::FETCH_OBJ);
+      if(count($tableactus)>0){
 
-        echo "<h3>".count($table)." status trouvés</h3>";
+        echo "<h3>".count($tableactus)." actus trouvés</h3>";
         echo '
         <table class="table">
         <thead>
         <tr>
-        <th scope="col">Article</th>
-        <th scope="col">Titre/Sous titre</th>
+        <th scope="col">Titre</th>
         <th scope="col">Description</th>
+        <th scope="col">Status</th>
         <th scope="col">Action</th>
-
-
         </tr>
         </thead>
         <tbody>
 
         ';
-        foreach($table as $ligne){
-          $id = $ligne->id;
-          $article = $ligne->article;
-          $titre = $ligne->titre;
-          $soustitre = $ligne->soustitre;
-          $description = $ligne->description;
+        foreach($tableactus as $ligneactus){
+          $id = $ligneactus->id;
+          $title = $ligneactus->title;
+          $description = $ligneactus->description;
+          $status = $ligneactus->status;
 
+
+
+
+  $result = raccourcirChaine($description, 80);
 
           echo '
 
           <tr>
-            <th scope="row">'.$article.'</th>
-            <td>'.$titre.'<td>
-            <td>'.$soustitre.'</td>
+            <th scope="row">'.$title.'</th>
+            <td>'.$result.'</td>
+            <td>'.$status.'</td>
             <td>
-            <a href="?page=status&amp;table=status&amp;modifstatus='.$id.'">
+            <a href="?page=actualite&amp;table=newsactus&amp;modifactus='.$id.'">
             <button type="button" class="btn">Modifier</button>
+            </a>
+            <a href="?page=actualite&amp;table=newsactus&amp;banactus='.$id.'">
+            <button type="button" class="btn">Désactiver</button>
             </a>
             </td>
           </tr>
@@ -2401,74 +2399,78 @@ $description = $r41->description;
 
         ';
       }else{
-        $error = "Aucun status trouvé";
+        $error = "Aucune actualitée trouvée";
       }
 
 
-//Création membres
+  //Création membres
+  function slugify($text){
+  $text = preg_replace('~[^\pL\d]+~u', '-', $text);
 
-?>
-<script>
+  $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+
+  $text = preg_replace('~[^-\w]+~', '', $text);
+
+  $text = trim($text, '-');
+
+  $text = preg_replace('~-+~', '-', $text);
+
+  $text = strtolower($text);
+
+  if (empty($text)) {
+    return 'n-a';
+  }
+
+    return $text;
+  }
 
 
-function SubmitFormDataCreateStatus() {
+  ?>
+
+
+  <script>
+
+
+  function SubmitFormDataCreateUneActu() {
    var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-   var article = $("#article").val();
-   var titre = $("#titre").val();
-   var soustitre = $("#soustitre").val();
+   var title = $("#title").val();
    var description = $("#description").val();
-   $.post("ajax/createpagestatus.php", { user_id:user_id, article: article, titre: titre, soustitre: soustitre, description: description},
+   var formatimg = $("#formatimg").val();
+
+   $.post("ajax/createuneactu.php", { user_id:user_id, title: title, description: description, formatimg: formatimg},
    function(data) {
-    $('#results7').html(data);
+    $('#results11').html(data);
 
    });
 
-}
+  }
 
-</script>
-
-<?php
-$selectinfosactuel42 = $db->prepare("SELECT * from photopage where nompage=:nompage");
-$selectinfosactuel42->execute(array(
-  "nompage"=>'Statuts'
-));
-$r42 = $selectinfosactuel42->fetch(PDO::FETCH_OBJ);
-$pagetitre = $r42->pagetitre;
-$image = $r42->image;
-$titre = $r42->titre;
-$description = $r42->description;
-
-?>
-<div class="content">
+  </script>
+  <div class="content">
     <div class="container-fluid">
         <div class="card">
             <div class="card-content">
-                <h2 class="card-title text-center">Création d'un status</h2>
+                <h2 class="card-title text-center">Création d'actualitée</h2>
                 <form action="" method="post" id="myForm1" class="contact-form">
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="card-content">
                           <div class="form-group label-floating">
-                              <label class="control-label">Article</label>
-                              <input type="text" class="form-control" value="Numéro de l'article" name="article" id="article">
+                              <label class="control-label">Titre</label>
+                              <input type="text" class="form-control" value="Titre de l'actualité" name="title" id="title">
                           </div>
                           <div class="form-group label-floating">
-                              <label class="control-label">Titre</label>
-                              <input type="text" name="titre" value="Titre du status" id="titre" class="form-control">
+                              <label class="control-label">Description</label>
+                              <input type="text" name="description" value="Titre du status" id="description" class="form-control">
                           </div>
 
 
 
                         <div class="form-group label-floating">
                         <label class="control-label">Sous Titre</label>
-                        <input type="text" name="soustitre" value="Sous titre" id="soustitre" class="form-control">
+                        <input type="text" name="formatimg" value="jpg" id="formatimg" class="form-control">
                         </div>
 
-
-                          <div class="form-group label-floating">
-                              <label class="control-label">Description</label>
-                              <input type="text" name="description" value="La description" id="description" class="form-control">
-                          </div>
                          </div>
                       </div>
 
@@ -2476,7 +2478,7 @@ $description = $r42->description;
                         <div class="card-content">
 
                           <center>
-                          <button id="SubmitFormDataCreateStatus" onclick="SubmitFormDataCreateStatus();" type="button" class="btn btn-primary btn-round btn-rose">Créer</button>
+                          <button id="SubmitFormDataCreateUneActu" onclick="SubmitFormDataCreateUneActu();" type="button" class="btn btn-primary btn-round btn-rose">Créer</button>
                           <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                           </center>
                          </div>
@@ -2487,16 +2489,365 @@ $description = $r42->description;
         </div>
     </div>
 
- <div id="results7"> <!-- TRES IMPORTANT -->
+  <div id="results11"> <!-- TRES IMPORTANT -->
+  </div>
 
 
 
-</div>
-</div>
-<?php
-//FIn Création
+
+  <script>
+  function SubmitFormDataDeleteActu() {
+   var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+   var title = $("#title").val();
+
+
+   $.post("ajax/deleteuneactu.php", { user_id:user_id, title: title},
+   function(data) {
+    $('#results20').html(data);
+
+   });
+
+  }
+  </script>
+
+  <div class="container-fluid">
+    <div class="card">
+        <div class="card-content">
+            <h2 class="card-title text-center">Suppression d'actualité</h2>
+            <form action="" method="post" id="myForm1" class="contact-form">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card-content">
+                      Sélectionner l'actualité à supprimer<br><?php
+
+                      $selectactuasupprimer=$db->query("SELECT DISTINCT title FROM newsactus");
+                      ?>
+
+                      <select name="catactu">
+                        <?php
+                          while($sa = $selectactuasupprimer->fetch(PDO::FETCH_OBJ)){
+                            $catactu=$sa->title;
+                            ?>
+                          <option value="<?php echo $catactu;?>"><?php echo $catactu; ?></option>
+                        <?php
+                      }
+                      ?>
+                      </select>
+                     </div>
+                  </div>
+
+                <div class="col-sm-12">
+                    <div class="card-content">
+                      <center>
+                      <button id="SubmitFormDataDeleteActu" onclick="SubmitFormDataDeleteActu();" type="button" class="btn btn-primary btn-round btn-rose">Supprimer</button>
+                      <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
+                      </center>
+                     </div>
+                  </div>
+            </div>
+          </form>
+        </div>
+
+
+    </div>
+  </div>
+
+  <div id="results20"> <!-- TRES IMPORTANT -->
+  </div>
+
+
+
+  <!-- Ajoutd'images au site web (assets)-->
+  <?php
+  if(isset($_POST['submitphotoactualite'])){
+  $category = $_POST['catimage'];
+  $titreimage = $_POST['titreimage'];
+  if(!isset($titreimage)){
+    $uploadOk = 0;
+  }
+
+
+  $selectinfosactuel12 = $db->prepare("SELECT slug from newsactus where title=:title");
+  $selectinfosactuel12->execute(array(
+      "title"=>$category
+      )
+  );
+
+  $r12 = $selectinfosactuel12->fetch(PDO::FETCH_OBJ);
+
+  $slug = $r12->slug;
+
+      $target_dir = "../../../JamFichiers/Img/ImagesDuSite";
+
+      $original = 'Original';
+      if (file_exists($target_dir/$original)) {
+        $target_dirnew = "$target_dir/$original/";
+      }else{
+        mkdir("$target_dir/$original", 0700);
+        $target_dirnew = "$target_dir/$original/";
+      }
+
+      //Ajout thumb
+      $thumb = 'Thumb';
+      if (file_exists($target_dir/$thumb)) {
+        $target_dirnewthumb = "$target_dir/$thumb/";
+      }else{
+        mkdir("$target_dir/$thumb", 0700);
+        $target_dirnewthumb = "$target_dir/$thumb/";
+      }
+      //FIN
+
+
+  $total = count($_FILES['fileToUpload']['name']);
+
+  for( $i=0 ; $i < $total ; $i++ ) {
+  $target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
+  $uploadOk = 1;
+  $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+  // Check if file already exists
+  if (file_exists($target_file)) {
+    $error = 'Désolé, le fichier existe déja.';
+    $uploadOk = 0;
+  }
+  // Check file size < 2mo
+  if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
+    $error = 'Désolé, le fichier est trop grand.';
+    $uploadOk = 0;
+
+  }
+  // Allow certain file formats
+  if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
+    $error = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+    $uploadOk = 0;
+  }
+  // Check if $uploadOk is set to 0 by an error
+  if ($uploadOk == 0) {
+    $error = 'Désolé, une erreur est survenue.';
+  // if everything is ok, try to upload file
+  } else {
+  date_default_timezone_set('Europe/Paris');
+  setlocale(LC_TIME, 'fr_FR.utf8','fra');
+  $date = strftime('%d:%m:%y %H:%M:%S');
+
+  $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
+  $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
+  $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
+
+    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
+        $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+
+
+        $insert = $db->prepare("INSERT INTO carousel (slug, titre, image, titreimage) VALUES (:slug, :category, :target_filefile, :titreimage)");
+        $insert->execute(array(
+            "slug"=>$slug,
+            "category"=>$category,
+            "target_filefile"=>$target_filefile,
+            "titreimage"=>$titreimage
+            )
+        );
+
+        date_default_timezone_set('Europe/Paris');
+        setlocale(LC_TIME, 'fr_FR.utf8','fra');
+        $date = strftime('%d/%m/%Y %H:%M:%S');
+
+
+        $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
+        $insertlogs->execute(array(
+                            "user_id"=>$user_id,
+                            "type"=>'Ajout',
+                            "action"=>'Ajout d\'images aux actualités',
+                            "page"=>'actualitees.php',
+                            "date"=>$date
+                            )
+                        );
+
+
+
+        $status = '1';
+        date_default_timezone_set('Europe/Paris');
+        setlocale(LC_TIME, 'fr_FR.utf8','fra');
+        $date = strftime('%Y-%m-%d %H:%M:%S');
+
+        $img_tmp = $target_dirnew.$target_filefile;
+        $fin = $target_dirnewthumb.$target_filefile;
+
+
+          //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
+            $longueur = 300;
+            $largeur = 220;
+            //TAILLE DE L'IMAGE ACTUELLE
+            $taille = getimagesize($img_tmp);
+            //SI LE FICHIER EXISTE
+            if ($taille) {
+                //SI JPG
+                if ($taille['mime']=='image/jpeg' ) {
+                          //OUVERTURE DE L'IMAGE ORIGINALE
+                            $img_big = imagecreatefromjpeg($img_tmp);
+                            $img_new = imagecreate($longueur, $largeur);
+                          //CREATION DE LA MINIATURE
+                            $img_petite = imagecreatetruecolor($longueur, $largeur) or $img_petite = imagecreate($longueur, $largeur);
+                            //COPIE DE L'IMAGE REDIMENSIONNEE
+                            imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
+                            imagejpeg($img_petite,$fin);
+                }
+              //SI PNG
+            else if ($taille['mime']=='image/png' ) {
+                            //OUVERTURE DE L'IMAGE ORIGINALE
+                            $img_big = imagecreatefrompng($img_tmp); // On ouvre l'image d'origine
+                            $img_new = imagecreate($longueur, $largeur);
+                            //CREATION DE LA MINIATURE
+                            $img_petite = imagecreatetruecolor($longueur, $largeur) OR $img_petite = imagecreate($longueur, $largeur);
+                            //COPIE DE L'IMAGE REDIMENSIONNEE
+                            imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
+                            imagepng($img_petite,$fin);
+                        }
+
+
+                }
+
+
+    }else {
+        $error = 'Désolé, une erreur est survenue.';
+    } } }
+
+          } ?>
+
+
+
+
+  <h1>Selectionner la catégorie à laquelle ajouter les photos</h1>
+
+
+  <?php
+  $selectcatimages=$db->query("SELECT DISTINCT title FROM newsactus");
+
+  ?>
+
+        <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+            Sélectionner la catégorie d'actualité<br>
+            <select name="catimage">
+              <?php
+                while($s = $selectcatimages->fetch(PDO::FETCH_OBJ)){
+                  $catimage=$s->title;
+                  ?>
+                <option value="<?php echo $catimage;?>"><?php echo $catimage; ?></option>
+              <?php
+            }
+            ?>
+
+
+            </select>
+
+            <div class="input-group input-lg">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="now-ui-icons users_circle-08"></i>
+                </span>
+              </div>
+              <input type="text" class="form-control" placeholder="Indiquez un nom commun à ces images"  name="titreimage">
+            </div>
+
+            <div class="form-group form-file-upload">
+                <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
+                <div class="input-group">
+                    <input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
+                    <span class="input-group-btn input-group-s">
+                        <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
+                            <i class="material-icons">layers</i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+
+            <input type="submit" name="submitphotoactualite" value="Envoyer les images !">
+        </form>
+
+  </div>
+
+
+
+
+  <script>
+  $(document).ready(function(){
+
+  var $recherche =$('input[name=valeur]');
+  var critere;
+  $recherche.keyup(function(){
+  critere = $.trim($recherche.val());
+  if(critere!=''){
+    $.get('gestionrechercheimageactualite.php?critere='+critere,function(retour){
+
+  $('#resultat').html(retour).fadeIn();
+
+  });
+
+  }else $('#resultat').empty().fadeOut();
+  });
+  });
+  </script>
+
+
+  <?php
+  if(isset($_GET['action'])){
+  if($_GET['action']=='delete'){
+
+  $id=$_GET['id'];
+  $selectnom = $db->query("SELECT * FROM carousel WHERE id='$id'");
+  $rname = $selectnom->fetch(PDO::FETCH_OBJ);
+  $valnom = $rname->image;
+
+
+  $target_dir = '../../../JamFichiers/Img/ImagesDuSite/Original';
+
+  echo 'Jamesbond';
+
+
+  if (file_exists($target_dir)){
+  unlink("$target_dir/$valnom");
+  $updatedelete = $db->prepare("DELETE FROM carousel WHERE image=:image");
+  $updatedelete->execute(array(
+    "image"=>$valnom
+
+  ));
+  $succes = "Le fichier.$valnom. à bien été supprimé";
+
+  }else{
+  echo 'n extse pas';
+  $error = 'Un problème de répertoire est présent, contacter votre administrateur !';
+  }
+
+
+  ?>
+  <script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=actualite&table=newsactus"</script>
+  <?php
+  }
+  }
+
+  ?>
+
+
+    <div class="section section-contact-us text-center">
+      <div class="container">
+        <h2 class="title">AUTRE</h2>
+        <p class="description">AUTRE</p>
+        <div class="row">
+          <div class="col-lg-6 text-center col-md-8 ml-auto mr-auto">
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <h3> Supprimer :  </h3>
+  <input type='text' name="valeur" placeholder="Saisir son nom ou la catégorie à laquelle elle appartient">
+  <p id='resultat'></p>
+
+
+
+  <?php
+  //FIn Création
+  }
 }
-
 }else if ($_GET['page']=='galerie'){
 
 
