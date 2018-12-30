@@ -2107,13 +2107,13 @@ if (file_exists($target_dir)){
 
 }else if ($_GET['page']=='activitesvoyages'){
 
-  if(isset($_GET['modifactus'])){
+  if(isset($_GET['modifactivitesvoyages'])){
 
 
   ?>
   <script>
   function RetourIndex2(){
-  window.location="https://administration.jam-mdm.fr/modifdespages.php?page=membre&table=membres"
+  window.location="https://administration.jam-mdm.fr/modifdespages.php?page=activitesvoyages&table=activitesvoyages"
   }
   </script>
     <script>
@@ -2242,15 +2242,15 @@ if (file_exists($target_dir)){
   <script>
 
 
-   function SubmitFormDataModifActus() {
+   function SubmitFormDataModifActivitesVoyages() {
       var user_id = "<?php echo $_SESSION['admin_id']; ?>";
       var image = $("#image").val();
       var titre = $("#titre").val();
       var pagetitre = $("#pagetitre").val();
       var description = $("#description").val();
-      $.post("ajax/modifypageactus.php", { user_id:user_id, image: image, titre: titre, pagetitre: pagetitre, description: description},
+      $.post("ajax/modifypageactivitesvoyages.php", { user_id:user_id, image: image, titre: titre, pagetitre: pagetitre, description: description},
       function(data) {
-       $('#results10').html(data);
+       $('#results18').html(data);
 
       });
 
@@ -2262,7 +2262,7 @@ if (file_exists($target_dir)){
 
   $selectinfosactuel9 = $db->prepare("SELECT * from photopage where nompage=:nompage");
   $selectinfosactuel9->execute(array(
-      "nompage"=>'Actualité'
+      "nompage"=>'Activité / Voyage'
       )
   );
   $r9 = $selectinfosactuel9->fetch(PDO::FETCH_OBJ);
@@ -2279,7 +2279,7 @@ if (file_exists($target_dir)){
       <div class="container-fluid">
           <div class="card">
               <div class="card-content">
-                  <h2 class="card-title text-center">Modification des informations de la page actualitée</h2>
+                  <h2 class="card-title text-center">Modification des informations de la page Activités/Voyages</h2>
                   <form action="" method="post" id="myForm1" class="contact-form">
                   <div class="row">
                       <div class="col-sm-6">
@@ -2311,7 +2311,7 @@ if (file_exists($target_dir)){
                           <div class="card-content">
 
                             <center>
-                            <button id="SubmitFormDataModifActus" onclick="SubmitFormDataModifActus();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                            <button id="SubmitFormDataModifActivitesVoyages" onclick="SubmitFormDataModifActivitesVoyages();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
                             <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                             </center>
                            </div>
@@ -2322,7 +2322,7 @@ if (file_exists($target_dir)){
           </div>
       </div>
 
-   <div id="results10"> <!-- TRES IMPORTANT -->
+   <div id="results18"> <!-- TRES IMPORTANT -->
   </div>
   </div>
   <?php
@@ -2342,20 +2342,21 @@ if (file_exists($target_dir)){
   return $chaine;
   }
 
-      $selectnomactus = $db->prepare("SELECT * FROM newsactus ORDER BY id DESC");
-      $selectnomactus->execute();
+      $selectnomactivitesvoyages = $db->prepare("SELECT * FROM activitesvoyages ORDER BY id DESC");
+      $selectnomactivitesvoyages->execute();
 
 
-      $tableactus = $selectnomactus->fetchAll(PDO::FETCH_OBJ);
-      if(count($tableactus)>0){
+      $tableactivitesvoyages = $selectnomactivitesvoyages->fetchAll(PDO::FETCH_OBJ);
+      if(count($tableactivitesvoyages)>0){
 
-        echo "<h3>".count($tableactus)." actus trouvés</h3>";
+        echo "<h3>".count($tableactivitesvoyages)." actus trouvés</h3>";
         echo '
         <table class="table">
         <thead>
         <tr>
         <th scope="col">Titre</th>
         <th scope="col">Description</th>
+        <th scope="col">Place Restantes</th>
         <th scope="col">Status</th>
         <th scope="col">Action</th>
         </tr>
@@ -2363,28 +2364,27 @@ if (file_exists($target_dir)){
         <tbody>
 
         ';
-        foreach($tableactus as $ligneactus){
-          $id = $ligneactus->id;
-          $title = $ligneactus->title;
-          $description = $ligneactus->description;
-          $status = $ligneactus->status;
+        foreach($tableactivitesvoyages as $ligneactivitesvoyages){
+          $id = $ligneactivitesvoyages->id;
+          $title = $ligneactivitesvoyages->title;
+          $description = $ligneactivitesvoyages->description;
+          $status = $ligneactivitesvoyages->status;
+          $stock = $ligneactivitesvoyages->stock;
 
-
-
-
-  $result = raccourcirChaine($description, 80);
+          $result = raccourcirChaine($description, 80);
 
           echo '
 
           <tr>
             <th scope="row">'.$title.'</th>
             <td>'.$result.'</td>
+            <td>'.$stock.'</td>
             <td>'.$status.'</td>
             <td>
-            <a href="?page=actualite&amp;table=newsactus&amp;modifactus='.$id.'">
+            <a href="?page=activitesvoyages&amp;table=activitesvoyages&amp;modifactivitesvoyages='.$id.'">
             <button type="button" class="btn">Modifier</button>
             </a>
-            <a href="?page=actualite&amp;table=newsactus&amp;banactus='.$id.'">
+            <a href="?page=activitesvoyages&amp;table=activitesvoyages&amp;banactivitesvoyages='.$id.'">
             <button type="button" class="btn">Désactiver</button>
             </a>
             </td>
@@ -2399,7 +2399,7 @@ if (file_exists($target_dir)){
 
         ';
       }else{
-        $error = "Aucune actualitée trouvée";
+        $error = "Aucune activitée trouvée";
       }
 
 
@@ -2436,8 +2436,11 @@ if (file_exists($target_dir)){
    var title = $("#title").val();
    var description = $("#description").val();
    var formatimg = $("#formatimg").val();
+   var stock = $("#stock").val();
+   var datesejour = $("#datesejour").val();
+   var price = $("#price").val();
 
-   $.post("ajax/createuneactu.php", { user_id:user_id, title: title, description: description, formatimg: formatimg},
+   $.post("ajax/createuneactivitevoyage.php", { user_id:user_id, title: title, description: description, formatimg: formatimg, stock: stock, datesejour: datesejour, price: price},
    function(data) {
     $('#results11').html(data);
 
@@ -2467,8 +2470,23 @@ if (file_exists($target_dir)){
 
 
                         <div class="form-group label-floating">
-                        <label class="control-label">Sous Titre</label>
+                        <label class="control-label">Format Image</label>
                         <input type="text" name="formatimg" value="jpg" id="formatimg" class="form-control">
+                        </div>
+
+                        <div class="form-group label-floating">
+                        <label class="control-label">Stock</label>
+                        <input type="number" name="stock" value="1" id="stock" class="form-control">
+                        </div>
+
+                        <div class="form-group label-floating">
+                        <label class="control-label">Date (XX/XX/2018 - XX/XX/2019)</label>
+                        <input type="text" name="datesejour" value="29/08/2019" id="datesejour" class="form-control">
+                        </div>
+
+                        <div class="form-group label-floating">
+                        <label class="control-label">Price</label>
+                        <input type="number" name="price" value="1" id="price" class="form-control">
                         </div>
 
                          </div>
@@ -2496,12 +2514,12 @@ if (file_exists($target_dir)){
 
 
   <script>
-  function SubmitFormDataDeleteActu() {
+  function SubmitFormDataDeleteActivitevoyages() {
    var user_id = "<?php echo $_SESSION['admin_id']; ?>";
    var title = $("#title").val();
 
-
-   $.post("ajax/deleteuneactu.php", { user_id:user_id, title: title},
+//AFAIRE
+   $.post("ajax/deleteuneactivitevoyage.php", { user_id:user_id, title: title},
    function(data) {
     $('#results20').html(data);
 
@@ -2513,22 +2531,22 @@ if (file_exists($target_dir)){
   <div class="container-fluid">
     <div class="card">
         <div class="card-content">
-            <h2 class="card-title text-center">Suppression d'actualité</h2>
+            <h2 class="card-title text-center">Suppression d'activité/voyages</h2>
             <form action="" method="post" id="myForm1" class="contact-form">
             <div class="row">
                 <div class="col-sm-6">
                     <div class="card-content">
-                      Sélectionner l'actualité à supprimer<br><?php
+                      Sélectionner l'activitée à supprimer<br><?php
 
-                      $selectactuasupprimer=$db->query("SELECT DISTINCT title FROM newsactus");
+                      $selectactivitevoyagesupprimer=$db->query("SELECT DISTINCT title FROM activitesvoyages");
                       ?>
 
                       <select name="catactu">
                         <?php
-                          while($sa = $selectactuasupprimer->fetch(PDO::FETCH_OBJ)){
-                            $catactu=$sa->title;
+                          while($sa = $selectactivitevoyagesupprimer->fetch(PDO::FETCH_OBJ)){
+                            $catactivitevoyage=$sa->title;
                             ?>
-                          <option value="<?php echo $catactu;?>"><?php echo $catactu; ?></option>
+                          <option value="<?php echo $catactivitevoyage;?>"><?php echo $catactivitevoyage; ?></option>
                         <?php
                       }
                       ?>
@@ -2539,7 +2557,7 @@ if (file_exists($target_dir)){
                 <div class="col-sm-12">
                     <div class="card-content">
                       <center>
-                      <button id="SubmitFormDataDeleteActu" onclick="SubmitFormDataDeleteActu();" type="button" class="btn btn-primary btn-round btn-rose">Supprimer</button>
+                      <button id="SubmitFormDataDeleteActivitevoyages" onclick="SubmitFormDataDeleteActivitevoyages();" type="button" class="btn btn-primary btn-round btn-rose">Supprimer</button>
                       <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                       </center>
                      </div>
