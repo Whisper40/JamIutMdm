@@ -1949,11 +1949,13 @@ echo 'Jamesbond';
 if (file_exists($target_dir)){
   echo 'Jesuisrnetré';
   unlink("$target_dir/$valnom");
-  unlink("$target_dir/$valnom");
-  unlink("$target_dir/$valnom");
+
   echo 'deleted';
-  $updatedelete = $db->prepare("DELETE FROM carousel WHERE image=$valnom");
-  $updatedelete->execute();
+  $updatedelete = $db->prepare("DELETE FROM carousel WHERE image=:image");
+  $updatedelete->execute(array(
+    "image"=>$valnom
+
+  ));
 
 }else{
   echo 'n extse pas';
