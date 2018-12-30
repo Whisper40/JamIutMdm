@@ -1932,7 +1932,7 @@ $('#resultat').html(retour).fadeIn();
 
 
 <?php
-
+if(isset($_GET['action'])){
 if($_GET['action']=='delete'){
 
 $id=$_GET['id'];
@@ -1965,7 +1965,7 @@ if (file_exists($target_dir)){
 <script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=actualite&table=newsactus"</script>
 <?php
 }
-
+}
 
 ?>
 
