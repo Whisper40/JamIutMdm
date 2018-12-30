@@ -2590,7 +2590,7 @@ function SubmitFormDataContactUs() {
     <div class="container-fluid">
         <div class="card">
             <div class="card-content">
-                <h2 class="card-title text-center">Modification de la page Galerie</h2>
+                <h2 class="card-title text-center">Modification de la page Contactez-nous</h2>
                 <form action="" method="post" id="myForm1" class="contact-form">
                 <div class="row">
                     <div class="col-sm-6">
@@ -2638,18 +2638,175 @@ function SubmitFormDataContactUs() {
 </div>
 </div>
 
+<?php
 
-<h3> Pour ajouter des images concernant la galerie, c'est ici : </h3>
-<a href="https://administration.jam-mdm.fr/ajoutimage.php" target="_blank" class="w3-button w3-black">Ajouter des images</a>
+//Fin modif contactez nous
+
+}else if ($_GET['page']=='faireundon'){
+
+//Modif page faire un don
+
+?>
+<script>
 
 
-<h3> Pour gérer les images concernant la galerie, c'est ici : </h3>
-<a href="https://administration.jam-mdm.fr/gestionimage.php" target="_blank" class="w3-button w3-black">Gérer les images</a>
+function SubmitFormDataFaireUnDon() {
+   var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+   var pagetitre = $("#pagetitre").val();
+   var image = $("#image").val();
+   var titre = $("#titre").val();
+   var description = $("#description").val();
+
+   $.post("ajax/modifypagefaireundon.php", { user_id:user_id, pagetitre: pagetitre, image: image, titre: titre, description: description},
+   function(data) {
+    $('#results23').html(data);
+
+   });
+
+}
+
+</script>
+<div class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-content">
+                <h2 class="card-title text-center">Modification de la page Faire Un Don</h2>
+                <form action="" method="post" id="myForm1" class="contact-form">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card-content">
+                          <div class="form-group label-floating">
+                              <label class="control-label">Titre de la page</label>
+                              <input type="text" class="form-control" value="<?php echo $pagetitre; ?>" name="pagetitre" id="pagetitre">
+                          </div>
+                          <div class="form-group label-floating">
+                              <label class="control-label">Images</label>
+                              <input type="text" name="image" value="<?php echo $image;?>" id="image" class="form-control">
+                          </div>
+
+
+
+                        <div class="form-group label-floating">
+                        <label class="control-label">Titre</label>
+                        <input type="text" name="titre" value="<?php echo $titre;?>" id="titre" class="form-control">
+                        </div>
+
+                        <div class="form-group label-floating">
+                        <label class="control-label">Description</label>
+                        <input type="text" name="description" value="<?php echo $description;?>" id="description" class="form-control">
+                        </div>
+
+                         </div>
+                      </div>
+
+                    <div class="col-sm-12">
+                        <div class="card-content">
+
+                          <center>
+                          <button id="SubmitFormDataFaireUnDon" onclick="SubmitFormDataFaireUnDon();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                          <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
+                          </center>
+                         </div>
+                      </div>
+                </div>
+              </form>
+            </div>
+        </div>
+    </div>
+
+ <div id="results23"> <!-- TRES IMPORTANT -->
+</div>
+</div>
+
+
 
 
 <?php
 
-//Fin modif galerie
+//Fin modif don
+
+}else if ($_GET['page']=='faireundonpaiement'){
+
+//Modif page faire un don paiement
+
+?>
+<script>
+
+
+function SubmitFormDataFaireUnDonPaiement() {
+   var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+   var pagetitre = $("#pagetitre").val();
+   var image = $("#image").val();
+   var titre = $("#titre").val();
+   var description = $("#description").val();
+
+   $.post("ajax/modifypagefaireundonpaiement.php", { user_id:user_id, pagetitre: pagetitre, image: image, titre: titre, description: description},
+   function(data) {
+    $('#results23').html(data);
+
+   });
+
+}
+
+</script>
+<div class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-content">
+                <h2 class="card-title text-center">Modification de la page Faire Un Don Paiement</h2>
+                <form action="" method="post" id="myForm1" class="contact-form">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card-content">
+                          <div class="form-group label-floating">
+                              <label class="control-label">Titre de la page</label>
+                              <input type="text" class="form-control" value="<?php echo $pagetitre; ?>" name="pagetitre" id="pagetitre">
+                          </div>
+                          <div class="form-group label-floating">
+                              <label class="control-label">Images</label>
+                              <input type="text" name="image" value="<?php echo $image;?>" id="image" class="form-control">
+                          </div>
+
+
+
+                        <div class="form-group label-floating">
+                        <label class="control-label">Titre</label>
+                        <input type="text" name="titre" value="<?php echo $titre;?>" id="titre" class="form-control">
+                        </div>
+
+                        <div class="form-group label-floating">
+                        <label class="control-label">Description</label>
+                        <input type="text" name="description" value="<?php echo $description;?>" id="description" class="form-control">
+                        </div>
+
+                         </div>
+                      </div>
+
+                    <div class="col-sm-12">
+                        <div class="card-content">
+
+                          <center>
+                          <button id="SubmitFormDataFaireUnDonPaiement" onclick="SubmitFormDataFaireUnDonPaiement();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                          <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
+                          </center>
+                         </div>
+                      </div>
+                </div>
+              </form>
+            </div>
+        </div>
+    </div>
+
+ <div id="results23"> <!-- TRES IMPORTANT -->
+</div>
+</div>
+
+
+
+
+<?php
+
+//Fin modif paiement don
 
 }
 
@@ -2696,6 +2853,14 @@ function SubmitFormDataContactUs() {
 
     <a href="?page=nouscontacter&amp;table=none">
       <button type="button" class="btn">Page Nous Contacter</button>
+    </a>
+
+    <a href="?page=faireundon&amp;table=none">
+      <button type="button" class="btn">Page Faire Un Don</button>
+    </a>
+
+    <a href="?page=faireundonpaiement&amp;table=none">
+      <button type="button" class="btn">Page Faire Un Don Paiement</button>
     </a>
 
 <?php
