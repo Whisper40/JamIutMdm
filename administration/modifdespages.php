@@ -3,6 +3,7 @@
     require_once('includes/checkconnection.php');
     $nompage = "Nous Contacter";
     ini_set('display_errors', 1);
+    $user_id = $_SESSION['admin_id'];
 
 //Code de génératon du captcha fournie par GOOGLE
 $secret = "LESECRET";
@@ -1789,6 +1790,7 @@ if ($uploadOk == 0) {
         date_default_timezone_set('Europe/Paris');
         setlocale(LC_TIME, 'fr_FR.utf8','fra');
         $date = strftime('%d/%m/%Y %H:%M:%S');
+
 
         $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
         $insertlogs->execute(array(
