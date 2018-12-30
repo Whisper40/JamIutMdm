@@ -1297,13 +1297,16 @@ function RetourIndex2(){
      function SubmitFormDataModifStatus() {
         var user_id = "<?php echo $_SESSION['admin_id']; ?>";
         var id = "<?php echo $id; ?>";
-        var article = $("#article").val();
-        var titre = $("#titre").val();
-        var soustitre = $("#soustitre").val();
+        var title = $("#title").val();
         var description = $("#description").val();
-        $.post("ajax/modifypagestatus.php", { user_id:user_id, id:id, article: article, titre: titre, soustitre: soustitre, description: description},
+        var title2 = $("#title2").val();
+        var description2 = $("#description2").val();
+        var titre3 = $("#titre3").val();
+        var description3 = $("#description3").val();
+        var formatimg = $("#formatimg").val();
+        $.post("ajax/modifypagestatus.php", { user_id:user_id, id:id, title: title, description: description, title2: title2, description2: description2, titre3: titre3, description3: description3, formatimg: formatimg},
         function(data) {
-         $('#results6').html(data);
+         $('#results11').html(data);
 
         });
 
@@ -1311,24 +1314,26 @@ function RetourIndex2(){
 
     </script>
     <?php
-    $id = $_GET['modifstatus'];
+    $id = $_GET['modifactus'];
 
-    $selectinfosactuel = $db->prepare("SELECT * from status where id=:id");
+    $selectinfosactuel = $db->prepare("SELECT * from newsactus where id=:id");
     $selectinfosactuel->execute(array(
         "id"=>$id
         )
     );
     $r2 = $selectinfosactuel->fetch(PDO::FETCH_OBJ);
 
-    $article = $r2->article;
-    $titre = $r2->titre;
-    $soustitre = $r2->soustitre;
+    $title = $r2->title;
     $description = $r2->description;
-
+    $title2 = $r2->title2;
+    $description2 = $r2->description2;
+    $title3 = $r2->title3;
+    $description3 = $r2->description3;
+    $formatimg = $r2->formatimg;
 ?>
 <script>
-function RetourIndex3(){
-  window.location="https://administration.jam-mdm.fr/modifdespages.php?page=status&table=status"
+function RetourIndex4(){
+  window.location="https://administration.jam-mdm.fr/modifdespages.php?page=actualite&table=newsactus"
 }
 </script>
 
@@ -1336,30 +1341,46 @@ function RetourIndex3(){
         <div class="container-fluid">
             <div class="card">
                 <div class="card-content">
-                    <h2 class="card-title text-center">Modification des informations</h2>
+                    <h2 class="card-title text-center">Modification de l'actualitée</h2>
                     <form action="" method="post" id="myForm1" class="contact-form">
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="card-content">
                               <div class="form-group label-floating">
-                                  <label class="control-label">Article</label>
-                                  <input type="text" class="form-control" value="<?php echo $article; ?>" name="article" id="article">
-                              </div>
-
-                              <div class="form-group label-floating">
                                   <label class="control-label">Titre</label>
-                                  <input type="text" name="titre" value="<?php echo $titre; ?>"id="titre" class="form-control">
-                              </div>
-
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Sous Titre</label>
-                                  <input type="text" name="soustitre" value="<?php echo $soustitre; ?>" id="soustitre" class="form-control">
+                                  <input type="text" class="form-control" value="<?php echo $title; ?>" name="title" id="title">
                               </div>
 
                               <div class="form-group label-floating">
                                   <label class="control-label">Description</label>
-                                  <input type="text" name="description" value="<?php echo $description; ?>" id="description" class="form-control">
+                                  <input type="text" name="description" value="<?php echo $description; ?>"id="description" class="form-control">
                               </div>
+
+                              <div class="form-group label-floating">
+                                  <label class="control-label">Titre 2</label>
+                                  <input type="text" name="titre2" value="<?php echo $titre2; ?>" id="titre2" class="form-control">
+                              </div>
+
+                              <div class="form-group label-floating">
+                                  <label class="control-label">Description 2</label>
+                                  <input type="text" name="description2" value="<?php echo $description2; ?>" id="description2" class="form-control">
+                              </div>
+
+                              <div class="form-group label-floating">
+                                  <label class="control-label">Titre 3</label>
+                                  <input type="text" name="titre3" value="<?php echo $titre3; ?>" id="titre3" class="form-control">
+                              </div>
+
+                              <div class="form-group label-floating">
+                                  <label class="control-label">Description 3</label>
+                                  <input type="text" name="description3" value="<?php echo $description3; ?>" id="description3" class="form-control">
+                              </div>
+
+                              <div class="form-group label-floating">
+                                  <label class="control-label">Format Img</label>
+                                  <input type="text" name="formatimg" value="<?php echo $formatimg; ?>" id="formatimg" class="form-control">
+                              </div>
+
                              </div>
                           </div>
 
@@ -1368,7 +1389,7 @@ function RetourIndex3(){
 
                               <center>
                               <button id="SubmitFormDataModifStatus" onclick="SubmitFormDataModifStatus();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
-                              <button onclick="RetourIndex3();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
+                              <button onclick="RetourIndex4();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                               </center>
                              </div>
                           </div>
@@ -1378,7 +1399,7 @@ function RetourIndex3(){
             </div>
         </div>
 
-     <div id="results6"> <!-- TRES IMPORTANT -->
+     <div id="results11"> <!-- TRES IMPORTANT -->
     </div>
   </div>
   <?php
@@ -1534,7 +1555,7 @@ function RetourIndex3(){
 
 
 
-$result = raccourcirChaine($description, 40);
+$result = raccourcirChaine($description, 80);
 
           echo '
 
@@ -1545,6 +1566,9 @@ $result = raccourcirChaine($description, 40);
             <td>
             <a href="?page=actus&amp;table=newsactus&amp;modifactus='.$id.'">
             <button type="button" class="btn">Modifier</button>
+            </a>
+            <a href="?page=actus&amp;table=newsactus&amp;banactus='.$id.'">
+            <button type="button" class="btn">Désactiver</button>
             </a>
             </td>
           </tr>
