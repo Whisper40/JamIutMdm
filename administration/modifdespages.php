@@ -2108,7 +2108,7 @@ if (file_exists($target_dir)){
 }else if ($_GET['page']=='activitesvoyages'){
 
   if(isset($_GET['modifactus'])){
-  
+
 
   ?>
   <script>
@@ -2847,7 +2847,7 @@ if (file_exists($target_dir)){
   <?php
   //FIn Création
   }
-}
+
 }else if ($_GET['page']=='galerie'){
 
 
