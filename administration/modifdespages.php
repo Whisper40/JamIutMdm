@@ -1162,7 +1162,18 @@ function RetourIndex3(){
      });
 
   }
+<?php
+$selectinfosactuel40 = $db->prepare("SELECT * from photopage where nompage=:nompage");
+$selectinfosactuel40->execute(array(
+  "nompage"=>'Statuts'
+));
+$r40 = $selectinfosactuel40->fetch(PDO::FETCH_OBJ);
+$pagetitre = $r40->pagetitre;
+$image = $r40->image;
+$titre = $r40->titre;
 
+
+ ?>
   </script>
   <div class="content">
       <div class="container-fluid">
