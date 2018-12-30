@@ -1740,7 +1740,7 @@ function SubmitFormDataDeleteActu() {
 <div class="container-fluid">
     <div class="card">
         <div class="card-content">
-            <h2 class="card-title text-center">Modification page présentation membres</h2>
+            <h2 class="card-title text-center">Suppression d'actualité</h2>
             <form action="" method="post" id="myForm1" class="contact-form">
             <div class="row">
                 <div class="col-sm-6">
