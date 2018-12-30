@@ -1955,7 +1955,7 @@ $rname = $selectnom->fetch(PDO::FETCH_OBJ);
 $valnom = $rname->file_name;
 $dossier = $rname->title;
 
-$target_dir = '../../../JamFichiers/Photos';
+$target_dir = '../../../JamFichiers/Img/ImagesDuSite/Original';
 $original = 'Original';
 $affiche = 'Affiche';
 $thumb = 'Thumb';
@@ -1982,22 +1982,8 @@ echo 'esquive';
 <?php
 }
 
-    require_once('includes/navbar.php');
 
-    $head = $db->query("SELECT * FROM photopage WHERE nompage = '$nompage'");
-    $pagehead = $head->fetch(PDO::FETCH_OBJ);
 ?>
-
-    <div class="page-header page-header-small">
-      <div class="page-header-image" data-parallax="true" style="background-image: url('./assets/img/<?php echo $pagehead->image; ?>');">
-      </div>
-      <div class="content-center">
-        <div class="container">
-          <h1 class="title"><?php echo $pagehead->pagetitre; ?></h1>
-        </div>
-      </div>
-    </div>
-
     <?php
 
     $selectbanimg = $db->prepare("SELECT * FROM images WHERE status='0'");
