@@ -1566,6 +1566,7 @@ function RetourIndex4(){
         <th scope="col">Titre</th>
         <th scope="col">Description</th>
         <th scope="col">Status</th>
+        <th scope="col">Action</th>
         </tr>
         </thead>
         <tbody>
@@ -1576,6 +1577,7 @@ function RetourIndex4(){
           $title = $ligneactus->title;
           $description = $ligneactus->description;
           $status = $ligneactus->status;
+
 
 
 
@@ -1931,115 +1933,43 @@ $('#resultat').html(retour).fadeIn();
 
 <?php
 
-if($_GET['action']=='unban'){
+if($_GET['action']=='delete'){
 
 $id=$_GET['id'];
-$setunban = $db->prepare("UPDATE images SET status='1' WHERE id=$id");
-$setunban->execute();
-?>
-<script>window.location="https://administration.jam-mdm.fr/gestionimage.php"</script>
-<?php
-}else if($_GET['action']=='ban'){
-
-$id=$_GET['id'];
-$setban = $db->prepare("UPDATE images SET status='0' WHERE id=$id");
-$setban->execute();
-?>
-<script>window.location="https://administration.jam-mdm.fr/gestionimage.php"</script>
-<?php
-}else if($_GET['action']=='delete'){
-
-$id=$_GET['id'];
-$selectnom = $db->query("SELECT * FROM images WHERE id='$id'");
+$selectnom = $db->query("SELECT * FROM carousel WHERE id='$id'");
 $rname = $selectnom->fetch(PDO::FETCH_OBJ);
-$valnom = $rname->file_name;
-$dossier = $rname->title;
+$valnom = $rname->image;
+
 
 $target_dir = '../../../JamFichiers/Img/ImagesDuSite/Original';
-$original = 'Original';
-$affiche = 'Affiche';
-$thumb = 'Thumb';
-echo 'Jamesbond';
-echo "$target_dir.'/'.$original.'/'.$dossier";
 
-if (file_exists($target_dir.'/'.$original.'/'.$dossier)){
+echo 'Jamesbond';
+
+
+if (file_exists($target_dir)){
   echo 'Jesuisrnetré';
-  unlink("$target_dir/$original/$dossier/$valnom");
-  unlink("$target_dir/$affiche/$dossier/$valnom");
-  unlink("$target_dir/$thumb/$dossier/$valnom");
+  unlink("$target_dir/$valnom");
+  unlink("$target_dir/$valnom");
+  unlink("$target_dir/$valnom");
   echo 'deleted';
-  $updatedelete = $db->prepare("DELETE FROM images WHERE id=$id");
+  $updatedelete = $db->prepare("DELETE FROM carousel WHERE image=$valnom");
   $updatedelete->execute();
 
 }else{
   echo 'n extse pas';
   $error = 'Un problème de répertoire est présent, contacter votre administrateur !';
 }
-echo 'esquive';
+
 
 ?>
-<script>window.location="https://administration.jam-mdm.fr/gestionimage.php"</script>
+<script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=actualite&table=newsactus"</script>
 <?php
 }
 
 
 ?>
-    <?php
-
-    $selectbanimg = $db->prepare("SELECT * FROM images WHERE status='0'");
-    $selectbanimg->execute();
-    $countbanimg = $selectbanimg->rowCount();
-    if($countbanimg>'0'){
-    ?>
-    <h3> Images inactives </h3>
-    <table class="table">
-<thead>
-  <tr>
-    <th scope="col">Id</th>
-    <th scope="col">Nom</th>
-    <th scope="col">Catégorie</th>
-    <th scope="col">Album Actif</th>
-    <th scope="col">Action</th>
-  </tr>
-</thead>
-<tbody>
-<?php
 
 
-    while($sban=$selectbanimg->fetch(PDO::FETCH_OBJ)){
-      $idimg = $sban->id;
-      $file_name = $sban->file_name;
-      $title = $sban->title;
-      $albumactif = $sban->albumactif;
-?>
-    <tr>
-      <th scope="row"><?php echo $idimg;?></th>
-      <td><?php echo $file_name;?><td>
-      <td><?php echo $title;?></td>
-      <td><?php echo $albumactif;?></td>
-      <td>
-<a href="?action=unban&amp;id=<?php echo $idimg;?>">
-  <button type="button" class="btn">Activer</button>
-</a>
-<a href="?action=delete&amp;id=<?php echo $idimg;?>">
-  <button type="button" class="btn">Supprimer</button>
-</a>
-
-      </td>
-    </tr>
-<?php
-    }
-     ?>
-   </tbody>
- </table>
-
- <?php
-}else{
-  ?>
-<h3> Aucune image n'est actuellement bannie ! Inchallah </h3>
-  <?php
-}
- ?>
     <div class="section section-contact-us text-center">
       <div class="container">
         <h2 class="title">AUTRE</h2>
@@ -2053,7 +1983,7 @@ echo 'esquive';
     </div>
 
 <h3> Bannir une image :  </h3>
-  <input type='text' name="valeur" placeholder="Saisir son nom, id ou email">
+  <input type='text' name="valeur" placeholder="Saisir son nom ou la catégorie à laquelle elle appartient">
   <p id='resultat'></p>
 
 
