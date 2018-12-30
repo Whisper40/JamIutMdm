@@ -1280,7 +1280,7 @@ function SubmitFormDataCreateStatus() {
 //FIn Création
 }
 
-}else if ($_GET['page']=='status'){
+}else if ($_GET['page']=='actualite'){
 
   if(isset($_GET['modifstatus'])){
 
@@ -1388,45 +1388,148 @@ function RetourIndex3(){
 
 }else{
 
-      $selectnom = $db->prepare("SELECT * FROM status ORDER BY article ASC");
-      $selectnom->execute();
+  //Page newsactus
+
+?>
+  <script>
 
 
-      $table = $selectnom->fetchAll(PDO::FETCH_OBJ);
-      if(count($table)>0){
+   function SubmitFormDataModifActus() {
+      var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+      var image = $("#image").val();
+      var titre = $("#titre").val();
+      var pagetitre = $("#pagetitre").val();
+      var description = $("#description").val();
+      $.post("ajax/modifypageactus.php", { user_id:user_id, image: image, titre: titre, pagetitre: pagetitre, description: description},
+      function(data) {
+       $('#results10').html(data);
 
-        echo "<h3>".count($table)." status trouvés</h3>";
+      });
+
+  }
+
+  </script>
+  <?php
+
+
+  $selectinfosactuel9 = $db->prepare("SELECT * from photopage where nompage=:nompage");
+  $selectinfosactuel9->execute(array(
+      "nompage"=>'Actualité'
+      )
+  );
+  $r9 = $selectinfosactuel9->fetch(PDO::FETCH_OBJ);
+
+  $image = $r9->image;
+  $pagetitre = $r9->pagetitre;
+  $titre = $r9->titre;
+  $description = $r9->description;
+
+?>
+
+
+  <div class="content">
+      <div class="container-fluid">
+          <div class="card">
+              <div class="card-content">
+                  <h2 class="card-title text-center">Modification des informations</h2>
+                  <form action="" method="post" id="myForm1" class="contact-form">
+                  <div class="row">
+                      <div class="col-sm-6">
+                          <div class="card-content">
+
+                            <div class="form-group label-floating">
+                                <label class="control-label">Titre de la page</label>
+                                <input type="text" name="pagetitre" value="<?php echo $pagetitre; ?>" id="pagetitre" class="form-control">
+                            </div>
+
+                            <div class="form-group label-floating">
+                                <label class="control-label">Image</label>
+                                <input type="text" class="form-control" value="<?php echo $image; ?>" name="image" id="image">
+                            </div>
+
+                            <div class="form-group label-floating">
+                                <label class="control-label">Titre</label>
+                                <input type="text" name="titre" value="<?php echo $titre; ?>"id="titre" class="form-control">
+                            </div>
+
+                            <div class="form-group label-floating">
+                                <label class="control-label">Description</label>
+                                <input type="text" name="description" value="<?php echo $description; ?>" id="description" class="form-control">
+                            </div>
+                           </div>
+                        </div>
+
+                      <div class="col-sm-12">
+                          <div class="card-content">
+
+                            <center>
+                            <button id="SubmitFormDataModifActus" onclick="SubmitFormDataModifActus();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                            <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
+                            </center>
+                           </div>
+                        </div>
+                  </div>
+                </form>
+              </div>
+          </div>
+      </div>
+
+   <div id="results10"> <!-- TRES IMPORTANT -->
+  </div>
+</div>
+<?php
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  //Fin page news actus
+
+
+      $selectnomactus = $db->prepare("SELECT * FROM newsactus ORDER BY id DESC");
+      $selectnomactus->execute();
+
+
+      $tableactus = $selectnomactus->fetchAll(PDO::FETCH_OBJ);
+      if(count($tableactus)>0){
+
+        echo "<h3>".count($tableactus)." actus trouvés</h3>";
         echo '
         <table class="table">
         <thead>
         <tr>
-        <th scope="col">Article</th>
-        <th scope="col">Titre/Sous titre</th>
+        <th scope="col">Titre</th>
         <th scope="col">Description</th>
-        <th scope="col">Action</th>
-
-
+        <th scope="col">Status</th>
         </tr>
         </thead>
         <tbody>
 
         ';
-        foreach($table as $ligne){
-          $id = $ligne->id;
-          $article = $ligne->article;
-          $titre = $ligne->titre;
-          $soustitre = $ligne->soustitre;
-          $description = $ligne->description;
+        foreach($tableactus as $ligneactus){
+          $id = $ligneactus->id;
+          $title = $ligneactus->title;
+          $description = $ligneactus->description;
+
 
 
           echo '
 
           <tr>
-            <th scope="row">'.$article.'</th>
-            <td>'.$titre.'<td>
-            <td>'.$soustitre.'</td>
+            <th scope="row">'.$title.'</th>
+            <td>'.$description.'</td>
+            <td>'.$status.'</td>
             <td>
-            <a href="?page=status&amp;table=status&amp;modifstatus='.$id.'">
+            <a href="?page=actus&amp;table=newsactus&amp;modifactus='.$id.'">
             <button type="button" class="btn">Modifier</button>
             </a>
             </td>
@@ -1441,7 +1544,7 @@ function RetourIndex3(){
 
         ';
       }else{
-        $error = "Aucun status trouvé";
+        $error = "Aucune actualitée trouvée";
       }
 
 
