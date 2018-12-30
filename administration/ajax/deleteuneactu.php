@@ -46,6 +46,7 @@ require_once('../includes/connectBDD.php');
                 ?>
 
                     <script>
+                    demo.showSwal('warning-message-and-canceldeletefichier');
                     demo.showSwal('danger-message');
                     demo.showNotification('top','right','<b>Erreur</b> - Création non effectuée en raison de champs vides !');
                     </script>
