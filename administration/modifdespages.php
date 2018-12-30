@@ -1917,7 +1917,7 @@ var critere;
 $recherche.keyup(function(){
   critere = $.trim($recherche.val());
   if(critere!=''){
-    $.get('gestionrechercheimgactualite.php?critere='+critere,function(retour){
+    $.get('gestionrechercheimageactualite.php?critere='+critere,function(retour){
 
 $('#resultat').html(retour).fadeIn();
 
