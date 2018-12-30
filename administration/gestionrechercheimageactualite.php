@@ -6,7 +6,7 @@ if(isset($_GET['critere'])){
   $critere=$_GET['critere'];
 
   $select = $db->query("SELECT * FROM carousel WHERE image LIKE '%$critere%'");
-  $s = $select->fetch(PDO::FETCH_OBJ);
+  $s = $select->fetchAll(PDO::FETCH_OBJ);
   $idimg = $s->id;
 
 $requete=$db->prepare("SELECT * FROM carousel WHERE id LIKE ?");
