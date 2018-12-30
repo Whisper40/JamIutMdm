@@ -1301,10 +1301,10 @@ function RetourIndex2(){
         var description = $("#description").val();
         var title2 = $("#title2").val();
         var description2 = $("#description2").val();
-        var titre3 = $("#titre3").val();
+        var title3 = $("#titre3").val();
         var description3 = $("#description3").val();
         var formatimg = $("#formatimg").val();
-        $.post("ajax/modifypagestatus.php", { user_id:user_id, id:id, title: title, description: description, title2: title2, description2: description2, titre3: titre3, description3: description3, formatimg: formatimg},
+        $.post("ajax/modifyallactualite.php", { user_id:user_id, id:id, title: title, description: description, title2: title2, description2: description2, title3: title3, description3: description3, formatimg: formatimg},
         function(data) {
          $('#results11').html(data);
 
@@ -1358,7 +1358,7 @@ function RetourIndex4(){
 
                               <div class="form-group label-floating">
                                   <label class="control-label">Titre 2</label>
-                                  <input type="text" name="titre2" value="<?php echo $titre2; ?>" id="titre2" class="form-control">
+                                  <input type="text" name="title2" value="<?php echo $title2; ?>" id="title2" class="form-control">
                               </div>
 
                               <div class="form-group label-floating">
@@ -1368,7 +1368,7 @@ function RetourIndex4(){
 
                               <div class="form-group label-floating">
                                   <label class="control-label">Titre 3</label>
-                                  <input type="text" name="titre3" value="<?php echo $titre3; ?>" id="titre3" class="form-control">
+                                  <input type="text" name="title3" value="<?php echo $title3; ?>" id="title3" class="form-control">
                               </div>
 
                               <div class="form-group label-floating">
