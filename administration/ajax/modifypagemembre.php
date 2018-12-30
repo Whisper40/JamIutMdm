@@ -2,7 +2,6 @@
 require_once('../includes/connectBDD.php');
 
         $user_id = $_POST['user_id'];
-        $pagetitre = $_POST['id'];
         $pagetitre = $_POST['pagetitre'];
         $image = $_POST['image'];
         $titre = $_POST['titre'];
