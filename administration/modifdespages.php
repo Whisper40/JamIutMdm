@@ -1519,6 +1519,20 @@ function RetourIndex3(){
           $id = $ligneactus->id;
           $title = $ligneactus->title;
           $description = $ligneactus->description;
+          $status = $ligneactus->status;
+
+          function raccourcirChaine($chaine, $tailleMax)
+  {
+    // Variable locale
+    $positionDernierEspace = 0;
+    if( strlen($chaine) >= $tailleMax )
+    {
+      $chaine = substr($chaine,0,$tailleMax);
+      $positionDernierEspace = strrpos($chaine,' ');
+      $chaine = substr($chaine,0,$positionDernierEspace).'...';
+    }
+    return $chaine;
+  }
 
 
 
@@ -1526,7 +1540,7 @@ function RetourIndex3(){
 
           <tr>
             <th scope="row">'.$title.'</th>
-            <td>'.$description.'</td>
+            <td>'.raccourcirChaine($description, 40);.'</td>
             <td>'.$status.'</td>
             <td>
             <a href="?page=actus&amp;table=newsactus&amp;modifactus='.$id.'">
