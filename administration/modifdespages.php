@@ -2635,6 +2635,20 @@ function SubmitFormDataContactUs() {
 }
 
 </script>
+
+<?php
+$selectinfosactuel44 = $db->prepare("SELECT * from photopage where nompage=:nompage");
+$selectinfosactuel44->execute(array(
+  "nompage"=>'Nous Contacter'
+));
+$r44 = $selectinfosactuel44->fetch(PDO::FETCH_OBJ);
+$pagetitre = $r44->pagetitre;
+$image = $r44->image;
+$titre = $r44->titre;
+$description = $r44->description;
+
+
+?>
 <div class="content">
     <div class="container-fluid">
         <div class="card">
@@ -2715,6 +2729,19 @@ function SubmitFormDataFaireUnDon() {
 }
 
 </script>
+
+<?php
+$selectinfosactuel45 = $db->prepare("SELECT * from photopage where nompage=:nompage");
+$selectinfosactuel45->execute(array(
+  "nompage"=>'Faire un don'
+));
+$r45 = $selectinfosactuel45->fetch(PDO::FETCH_OBJ);
+$pagetitre = $r45->pagetitre;
+$image = $r45->image;
+$titre = $r45->titre;
+$description = $r45->description;
+
+?>
 <div class="content">
     <div class="container-fluid">
         <div class="card">
@@ -2798,6 +2825,19 @@ function SubmitFormDataFaireUnDonPaiement() {
 }
 
 </script>
+
+<?php
+$selectinfosactuel46 = $db->prepare("SELECT * from photopage where nompage=:nompage");
+$selectinfosactuel46->execute(array(
+  "nompage"=>'Faire un don paiement'
+));
+$r46 = $selectinfosactuel46->fetch(PDO::FETCH_OBJ);
+$pagetitre = $r46->pagetitre;
+$image = $r46->image;
+$titre = $r46->titre;
+$description = $r46->description;
+
+?>
 <div class="content">
     <div class="container-fluid">
         <div class="card">
