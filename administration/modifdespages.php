@@ -2426,6 +2426,19 @@ function SubmitFormDataCreateStatus() {
 }
 
 </script>
+
+<?php
+$selectinfosactuel42 = $db->prepare("SELECT * from photopage where nompage=:nompage");
+$selectinfosactuel42->execute(array(
+  "nompage"=>'Statuts'
+));
+$r42 = $selectinfosactuel42->fetch(PDO::FETCH_OBJ);
+$pagetitre = $r42->pagetitre;
+$image = $r42->image;
+$titre = $r42->titre;
+$description = $r42->description;
+
+?>
 <div class="content">
     <div class="container-fluid">
         <div class="card">
