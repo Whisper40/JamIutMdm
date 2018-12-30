@@ -2608,8 +2608,8 @@ $titre = $r43->titre;
 
 ?>
 <script>
-function RetourIndex21(){
-  window.location="https://administration.jam-mdm.fr/modifdespages.php?page=nouscontacter&table=none"
+function RetourIndex(){
+  window.location="https://administration.jam-mdm.fr/modifdespages.php"
 }
 </script>
   <?php
@@ -2687,7 +2687,7 @@ $description = $r44->description;
 
                           <center>
                           <button id="SubmitFormDataContactUs" onclick="SubmitFormDataContactUs();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
-                          <button onclick="RetourIndex21();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
+                          <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                           </center>
                          </div>
                       </div>
