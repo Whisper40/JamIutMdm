@@ -43,7 +43,7 @@ if(count($table)>0){
       <td>'.$titreimage.'</td>
       <td>
 
-  <a href="?action=delete&amp;id='.$idimg.'">
+  <a href="&amp;action=delete&amp;id='.$idimg.'">
   <button type="button" class="btn">Supprimer</button>
   </a>
 
