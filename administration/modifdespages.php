@@ -2502,8 +2502,8 @@ $description = $r42->description;
 
 ?>
 <script>
-function RetourIndex2(){
-  window.location="https://administration.jam-mdm.fr/modifdespages.php?page=galerie&table=images"
+function RetourIndex(){
+  window.location="https://administration.jam-mdm.fr/modifdespages.php"
 }
 </script>
   <?php
@@ -2576,7 +2576,7 @@ $titre = $r43->titre;
 
                           <center>
                           <button id="SubmitFormDataGallerie" onclick="SubmitFormDataGallerie();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
-                          <button onclick="RetourIndex2();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
+                          <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                           </center>
                          </div>
                       </div>
