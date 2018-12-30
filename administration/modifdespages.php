@@ -1341,7 +1341,7 @@ function RetourIndex4(){
         <div class="container-fluid">
             <div class="card">
                 <div class="card-content">
-                    <h2 class="card-title text-center">Modification de l'actualitée</h2>
+                    <h2 class="card-title text-center">Modification de l'actualité</h2>
                     <form action="" method="post" id="myForm1" class="contact-form">
                     <div class="row">
                         <div class="col-sm-6">
@@ -1401,6 +1401,28 @@ function RetourIndex4(){
 
      <div id="results11"> <!-- TRES IMPORTANT -->
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   </div>
   <?php
 
@@ -1671,10 +1693,227 @@ function SubmitFormDataCreateUneActu() {
     </div>
 
  <div id="results11"> <!-- TRES IMPORTANT -->
-
-
-
 </div>
+
+
+
+<!-- Ajoutd'images au site web (assets)-->
+<?php
+if(isset($_POST['submitphotoactualite'])){
+  $category = $_POST['catimage'];
+  $titreimage = $_POST['titreimage'];
+  if(!isset($titreimage)){
+    $uploadOk = 0;
+  }
+
+
+  $selectinfosactuel12 = $db->prepare("SELECT slug from newsactus where title=:title");
+  $selectinfosactuel12->execute(array(
+      "title"=>$category
+      )
+  );
+
+  $r12 = $selectinfosactuel12->fetch(PDO::FETCH_OBJ);
+
+  $slug = $r12->slug;
+
+      $target_dir = "../../../JamFichiers/Img/ImagesDuSite";
+
+      $original = 'Original';
+      if (file_exists($target_dir/$original)) {
+        $target_dirnew = "$target_dir/$original/";
+      }else{
+        mkdir("$target_dir/$original", 0700);
+        $target_dirnew = "$target_dir/$original/";
+      }
+
+      //Ajout thumb
+      $thumb = 'Thumb';
+      if (file_exists($target_dir/$thumb)) {
+        $target_dirnewthumb = "$target_dir/$thumb/";
+      }else{
+        mkdir("$target_dir/$thumb", 0700);
+        $target_dirnewthumb = "$target_dir/$thumb/";
+      }
+      //FIN
+
+
+$total = count($_FILES['fileToUpload']['name']);
+
+for( $i=0 ; $i < $total ; $i++ ) {
+$target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
+$uploadOk = 1;
+$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+// Check if file already exists
+if (file_exists($target_file)) {
+    $error = 'Désolé, le fichier existe déja.';
+    $uploadOk = 0;
+}
+// Check file size < 2mo
+if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
+    $error = 'Désolé, le fichier est trop grand.';
+    $uploadOk = 0;
+
+}
+// Allow certain file formats
+if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
+    $error = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+    $uploadOk = 0;
+}
+// Check if $uploadOk is set to 0 by an error
+if ($uploadOk == 0) {
+    $error = 'Désolé, une erreur est survenue.';
+// if everything is ok, try to upload file
+} else {
+  date_default_timezone_set('Europe/Paris');
+  setlocale(LC_TIME, 'fr_FR.utf8','fra');
+  $date = strftime('%d:%m:%y %H:%M:%S');
+
+  $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
+  $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
+  $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
+
+    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
+        $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+
+
+        $insert = $db->prepare("INSERT INTO carousel (slug, titre, image, titreimage) VALUES (:slug, :category, :target_filefile, :titreimage)");
+        $insert->execute(array(
+            "slug"=>$slug,
+            "category"=>$category,
+            "target_filefile"=>$target_filefile,
+            "titreimage"=>$titreimage
+            )
+        );
+
+        date_default_timezone_set('Europe/Paris');
+        setlocale(LC_TIME, 'fr_FR.utf8','fra');
+        $date = strftime('%d/%m/%Y %H:%M:%S');
+
+        $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
+        $insertlogs->execute(array(
+                            "user_id"=>$user_id,
+                            "type"=>'Ajout',
+                            "action"=>'Ajout d\'images aux actualités',
+                            "page"=>'actualitees.php',
+                            "date"=>$date
+                            )
+                        );
+
+
+
+        $status = '1';
+        date_default_timezone_set('Europe/Paris');
+        setlocale(LC_TIME, 'fr_FR.utf8','fra');
+        $date = strftime('%Y-%m-%d %H:%M:%S');
+
+        $img_tmp = $target_dirnew.$target_filefile;
+        $fin = $target_dirnewthumb.$target_filefile;
+
+
+          //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
+            $longueur = 300;
+            $largeur = 220;
+            //TAILLE DE L'IMAGE ACTUELLE
+            $taille = getimagesize($img_tmp);
+            //SI LE FICHIER EXISTE
+            if ($taille) {
+                //SI JPG
+                if ($taille['mime']=='image/jpeg' ) {
+                          //OUVERTURE DE L'IMAGE ORIGINALE
+                            $img_big = imagecreatefromjpeg($img_tmp);
+                            $img_new = imagecreate($longueur, $largeur);
+                          //CREATION DE LA MINIATURE
+                            $img_petite = imagecreatetruecolor($longueur, $largeur) or $img_petite = imagecreate($longueur, $largeur);
+                            //COPIE DE L'IMAGE REDIMENSIONNEE
+                            imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
+                            imagejpeg($img_petite,$fin);
+                }
+              //SI PNG
+            else if ($taille['mime']=='image/png' ) {
+                            //OUVERTURE DE L'IMAGE ORIGINALE
+                            $img_big = imagecreatefrompng($img_tmp); // On ouvre l'image d'origine
+                            $img_new = imagecreate($longueur, $largeur);
+                            //CREATION DE LA MINIATURE
+                            $img_petite = imagecreatetruecolor($longueur, $largeur) OR $img_petite = imagecreate($longueur, $largeur);
+                            //COPIE DE L'IMAGE REDIMENSIONNEE
+                            imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
+                            imagepng($img_petite,$fin);
+                        }
+
+
+                }
+
+
+    }else {
+        $error = 'Désolé, une erreur est survenue.';
+    } } }
+
+          } ?>
+
+
+
+
+<h1>Selectionner la catégorie à laquelle ajouter les photos</h1>
+
+
+<?php
+$selectcatimages=$db->query("SELECT DISTINCT title FROM newsactus");
+
+ ?>
+
+        <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+            Sélectionner la catégorie d'actualité<br>
+            <select name="catimage">
+              <?php
+                while($s = $selectcatimages->fetch(PDO::FETCH_OBJ)){
+                  $catimage=$s->title;
+                  ?>
+                <option value="<?php echo $catimage;?>"><?php echo $catimage; ?></option>
+              <?php
+            }
+            ?>
+
+
+            </select>
+
+            <div class="input-group input-lg">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="now-ui-icons users_circle-08"></i>
+                </span>
+              </div>
+              <input type="text" class="form-control" placeholder="Indiquez un nom commun à ces images"  name="titreimage">
+            </div>
+
+            <div class="form-group form-file-upload">
+                <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
+                <div class="input-group">
+                    <input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
+                    <span class="input-group-btn input-group-s">
+                        <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
+                            <i class="material-icons">layers</i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+
+            <input type="submit" name="submitphotoactualite" value="Envoyer les images !">
+        </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div>
 <?php
 //FIn Création
