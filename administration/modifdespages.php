@@ -1282,7 +1282,7 @@ function SubmitFormDataCreateStatus() {
 
 }else if ($_GET['page']=='actualite'){
 
-  if(isset($_GET['modifstatus'])){
+  if(isset($_GET['modifactus'])){
 
 
 ?>
@@ -1452,7 +1452,7 @@ function RetourIndex4(){
       <div class="container-fluid">
           <div class="card">
               <div class="card-content">
-                  <h2 class="card-title text-center">Modification des informations</h2>
+                  <h2 class="card-title text-center">Modification des informations de la page actualitée</h2>
                   <form action="" method="post" id="myForm1" class="contact-form">
                   <div class="row">
                       <div class="col-sm-6">
