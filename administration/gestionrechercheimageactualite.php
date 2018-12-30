@@ -5,12 +5,8 @@ require_once('includes/connectBDD.php');
 if(isset($_GET['critere'])){
   $critere=$_GET['critere'];
 
-  $select = $db->query("SELECT * FROM carousel WHERE image LIKE '%$critere%'");
-  $s = $select->fetchAll(PDO::FETCH_OBJ);
-  $idimg = $s->id;
-
-$requete=$db->prepare("SELECT * FROM carousel WHERE id LIKE ?");
-$requete->execute(array($idimg));
+$requete=$db->prepare("SELECT * FROM carousel WHERE image LIKE '%$critere%'");
+$requete->execute();
 $table=$requete->fetchAll(PDO::FETCH_OBJ);
 
 if(count($table)>0){
