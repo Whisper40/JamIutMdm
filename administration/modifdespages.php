@@ -2266,6 +2266,18 @@ function SubmitFormDataActivitesVoyages() {
 }
 
 </script>
+<?php
+$selectinfosactuel41 = $db->prepare("SELECT * from photopage where nompage=:nompage");
+$selectinfosactuel41->execute(array(
+  "nompage"=>'Activité / Voyage'
+));
+$r41 = $selectinfosactuel41->fetch(PDO::FETCH_OBJ);
+$pagetitre = $r41->pagetitre;
+$image = $r41->image;
+$titre = $r41->titre;
+$description = $r41->description;
+
+?>
 <div class="content">
     <div class="container-fluid">
         <div class="card">
