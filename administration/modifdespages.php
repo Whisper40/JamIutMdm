@@ -1947,15 +1947,13 @@ echo 'Jamesbond';
 
 
 if (file_exists($target_dir)){
-  echo 'Jesuisrnetré';
   unlink("$target_dir/$valnom");
-
-  echo 'deleted';
   $updatedelete = $db->prepare("DELETE FROM carousel WHERE image=:image");
   $updatedelete->execute(array(
     "image"=>$valnom
 
   ));
+  $succes = "Le fichier.$valnom. à bien été supprimé";
 
 }else{
   echo 'n extse pas';
@@ -1984,7 +1982,7 @@ if (file_exists($target_dir)){
       </div>
     </div>
 
-<h3> Bannir une image :  </h3>
+<h3> Supprimer :  </h3>
   <input type='text' name="valeur" placeholder="Saisir son nom ou la catégorie à laquelle elle appartient">
   <p id='resultat'></p>
 
