@@ -1534,13 +1534,13 @@ function RetourIndex3(){
     return $chaine;
   }
 
-
+$result = raccourcirChaine($description, 40);
 
           echo '
 
           <tr>
             <th scope="row">'.$title.'</th>
-            <td>'.raccourcirChaine($description, 40);.'</td>
+            <td>'.$result.'</td>
             <td>'.$status.'</td>
             <td>
             <a href="?page=actus&amp;table=newsactus&amp;modifactus='.$id.'">
