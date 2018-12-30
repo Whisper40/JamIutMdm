@@ -1635,6 +1635,26 @@ function slugify($text){
 
 
 ?>
+
+
+
+
+
+
+
+
+
+
+
+<div class="alert alert-info">
+    <div class="container-fluid">
+        <b>
+          <input type="button" onclick="demo.showSwal('warning-message-and-canceldeletefichier','<?php echo $identifiant ?>','<?php echo $ip ?>','<?php echo $port ?>');" value="Supprimer cette activitée" class="btn btn-primary btn-round"/>
+      </b>
+    </div>
+</div>
+
+
 <script>
 
 
@@ -1697,6 +1717,69 @@ function SubmitFormDataCreateUneActu() {
     </div>
 
  <div id="results11"> <!-- TRES IMPORTANT -->
+</div>
+
+
+
+
+<script>
+function SubmitFormDataDeleteActu() {
+   var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+   var title = $("#title").val();
+
+
+   $.post("ajax/deleteuneactu.php", { user_id:user_id, title: title},
+   function(data) {
+    $('#results20').html(data);
+
+   });
+
+}
+</script>
+
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-content">
+            <h2 class="card-title text-center">Modification page présentation membres</h2>
+            <form action="" method="post" id="myForm1" class="contact-form">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card-content">
+                      Sélectionner l'actualité à supprimer<br><?php
+
+                      $selectactuasupprimer=$db->query("SELECT DISTINCT title FROM newsactus");
+                      ?>
+
+                      <select name="catactu">
+                        <?php
+                          while($sa = $selectactuasupprimer->fetch(PDO::FETCH_OBJ)){
+                            $catactu=$sa->title;
+                            ?>
+                          <option value="<?php echo $catactu;?>"><?php echo $catactu; ?></option>
+                        <?php
+                      }
+                      ?>
+                      </select>
+                     </div>
+                  </div>
+
+                <div class="col-sm-12">
+                    <div class="card-content">
+                      <center>
+                      <button id="SubmitFormDataDeleteActu" onclick="SubmitFormDataDeleteActu();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                      <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
+                      </center>
+                     </div>
+                  </div>
+            </div>
+          </form>
+        </div>
+
+
+    </div>
+</div>
+
+<div id="results20"> <!-- TRES IMPORTANT -->
 </div>
 
 
