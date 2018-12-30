@@ -275,9 +275,11 @@ if($_GET['page']=='index'){
         var titre1 = $("#titre1").val();
         var description1 = $("#description1").val();
         var description2 = $("#description2").val();
+        var pagetitre = $("#pagetitre").val();
+        var image = $("#image").val();
 
 
-        $.post("ajax/modifypageassociation.php", { user_id:user_id, id:id, titre1: titre1, description1: description1, description2: description2},
+        $.post("ajax/modifypageassociation.php", { user_id:user_id, id:id, titre1: titre1, description1: description1, description2: description2, pagetitre:pagetitre, image:image},
         function(data) {
          $('#results3').html(data);
 
@@ -295,6 +297,14 @@ if($_GET['page']=='index'){
     $description1 = $r2->description1;
     $description2 = $r2->description2;
 
+    $selectinfosactuel2 = $db->prepare("SELECT * from photopage where nompage=:nompage");
+    $selectinfosactuel2->execute(array(
+      "nompage"=>'Présentation association'
+    ));
+    $r3 = $selectinfosactuel2->fetch(PDO::FETCH_OBJ);
+    $pagetitre = $r3->pagetitre;
+    $image = $r3->image;
+
   ?>
     <div class="content">
         <div class="container-fluid">
@@ -305,6 +315,18 @@ if($_GET['page']=='index'){
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="card-content">
+                              <div class="form-group label-floating">
+                                  <label class="control-label">Titre de la page</label>
+                                  <input type="text" class="form-control" value="<?php echo $pagetitre; ?>" name="pagetitre" id="pagetitre">
+                              </div>
+
+                              <div class="form-group label-floating">
+                                  <label class="control-label">Nom de l'image</label>
+                                  <input type="text" class="form-control" value="<?php echo $image; ?>" name="image" id="image">
+                              </div>
+
+
+
                               <div class="form-group label-floating">
                                   <label class="control-label">Titre 1</label>
                                   <input type="text" class="form-control" value="<?php echo $titre1; ?>" name="titre1" id="titre1">
@@ -533,7 +555,123 @@ if ($categorie == 'tres'){
 
 }else{
 
+//modif page membre
+?>
 
+<script>
+
+
+ function SubmitFormDataMembre() {
+    var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+    var pagetitre = $('#pagetitre').val();
+    var image = $('#image').val();
+    var titre = $("#titre").val();
+
+
+    $.post("ajax/modifypagemembre.php", { user_id:user_id, pagetitre: pagetitre, image: image, titre: titre},
+    function(data) {
+     $('#results10').html(data);
+
+    });
+
+}
+
+</script>
+
+
+<?php
+
+
+$selectinfosactuel4 = $db->prepare("SELECT * from photopage where nompage=:nompage");
+$selectinfosactuel4->execute(array(
+  "nompage"=>'Présentation des membres'
+));
+$r4 = $selectinfosactuel4->fetch(PDO::FETCH_OBJ);
+$pagetitre = $r4->pagetitre;
+$image = $r4->image;
+$titre = $r4->titre;
+
+
+ ?>
+<div class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-content">
+                <h2 class="card-title text-center">Modification page présentation membres</h2>
+                <form action="" method="post" id="myForm1" class="contact-form">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card-content">
+                          <div class="form-group label-floating">
+                              <label class="control-label">Titre de la page</label>
+                              <input type="text" class="form-control" value="<?php echo $pagetitre; ?>" name="pagetitre" id="pagetitre">
+                          </div>
+                          <div class="form-group label-floating">
+                              <label class="control-label">Image</label>
+                              <input type="text" name="image" value="<?php echo $image; ?>"id="image" class="form-control">
+                          </div>
+
+
+                          <div class="form-group label-floating">
+                              <label class="control-label">Titre</label>
+                              <input type="text" name="titre" value="<?php echo $titre; ?>" id="titre" class="form-control">
+                          </div>
+                         </div>
+                      </div>
+
+                    <div class="col-sm-12">
+                        <div class="card-content">
+
+                          <center>
+                          <button id="SubmitFormDataMembre" onclick="SubmitFormDataMembre();" type="button" class="btn btn-primary btn-round btn-rose">Créer</button>
+                          <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
+                          </center>
+                         </div>
+                      </div>
+                </div>
+              </form>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+
+ <div id="results10"> <!-- TRES IMPORTANT -->
+</div>
+<?php
+
+
+
+
+
+
+
+
+
+
+//Fin modif membres
 
 
 

@@ -2,32 +2,19 @@
 require_once('../includes/connectBDD.php');
 
         $user_id = $_POST['user_id'];
-        $id = $_POST['id'];
-        $titre1 = $_POST['titre1'];
-        $description1 = $_POST['description1'];
-        $description2 = $_POST['description2'];
-
+        $pagetitre = $_POST['id'];
         $pagetitre = $_POST['pagetitre'];
         $image = $_POST['image'];
+        $titre = $_POST['titre'];
 
-        if(!empty($user_id)&&!empty($id)&&!empty($titre1)&&!empty($description1)&&!empty($description2)&&!empty($pagetitre)&&!empty($image)){
+        if(!empty($user_id)&&!empty($pagetitre)&&!empty($image)&&!empty($titre)){
 
-
-                $update = $db->prepare("UPDATE pageasso SET titre1=:titre1, description1=:description1, description2=:description2, etape3=:etape3 WHERE id=:id");
+                $update = $db->prepare("UPDATE photopage SET pagetitre=:pagetitre, image=:image, titre=:titre WHERE nompage=:nompage");
                 $update->execute(array(
-                    "id"=>$id,
-                    "titre1"=>$titre1,
-                    "description1"=>$description1,
-                    "description2"=>$description2,
-                    "etape3"=>$etape3
-                    )
-                );
-
-                $update2 = $db->prepare("UPDATE photopage SET pagetitre=:pagetitre, image=:image WHERE nompage=:nompage");
-                $update2->execute(array(
-                    "nompage"=>'Présentation association',
+                    "nompage"=>'Présentation des membres',
                     "pagetitre"=>$pagetitre,
-                    "image"=>$image
+                    "image"=>$image,
+                    "titre"=>$titre
                     )
                 );
 
@@ -39,8 +26,8 @@ require_once('../includes/connectBDD.php');
                 $insertlogs->execute(array(
                                     "user_id"=>$user_id,
                                     "type"=>'Modification',
-                                    "action"=>'Modification page association',
-                                    "page"=>'association.php',
+                                    "action"=>'Modification page membre',
+                                    "page"=>'membre.php',
                                     "date"=>$date
                                     )
                                 );
