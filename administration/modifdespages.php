@@ -1493,7 +1493,18 @@ function RetourIndex3(){
 
 
   //Fin page news actus
-
+  function raccourcirChaine($chaine, $tailleMax)
+  {
+  // Variable locale
+  $positionDernierEspace = 0;
+  if( strlen($chaine) >= $tailleMax )
+  {
+  $chaine = substr($chaine,0,$tailleMax);
+  $positionDernierEspace = strrpos($chaine,' ');
+  $chaine = substr($chaine,0,$positionDernierEspace).'...';
+  }
+  return $chaine;
+  }
 
       $selectnomactus = $db->prepare("SELECT * FROM newsactus ORDER BY id DESC");
       $selectnomactus->execute();
@@ -1521,18 +1532,7 @@ function RetourIndex3(){
           $description = $ligneactus->description;
           $status = $ligneactus->status;
 
-          function raccourcirChaine($chaine, $tailleMax)
-  {
-    // Variable locale
-    $positionDernierEspace = 0;
-    if( strlen($chaine) >= $tailleMax )
-    {
-      $chaine = substr($chaine,0,$tailleMax);
-      $positionDernierEspace = strrpos($chaine,' ');
-      $chaine = substr($chaine,0,$positionDernierEspace).'...';
-    }
-    return $chaine;
-  }
+
 
 $result = raccourcirChaine($description, 40);
 
