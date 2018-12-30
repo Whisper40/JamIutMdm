@@ -1145,6 +1145,77 @@ function RetourIndex3(){
 
 
 }else{
+?>
+  <script>
+
+
+  function SubmitFormDataStatusPage() {
+     var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+     var pagetitre = $("#pagetitre").val();
+     var image = $("#image").val();
+     var titre = $("#titre").val();
+
+     $.post("ajax/modifypagestatusinfos.php", { user_id:user_id, pagetitre: pagetitre, image: image, titre: titre},
+     function(data) {
+      $('#results23').html(data);
+
+     });
+
+  }
+
+  </script>
+  <div class="content">
+      <div class="container-fluid">
+          <div class="card">
+              <div class="card-content">
+                  <h2 class="card-title text-center">Modification de la page Status</h2>
+                  <form action="" method="post" id="myForm1" class="contact-form">
+                  <div class="row">
+                      <div class="col-sm-6">
+                          <div class="card-content">
+                            <div class="form-group label-floating">
+                                <label class="control-label">Titre de la page</label>
+                                <input type="text" class="form-control" value="<?php echo $pagetitre; ?>" name="pagetitre" id="pagetitre">
+                            </div>
+                            <div class="form-group label-floating">
+                                <label class="control-label">Images</label>
+                                <input type="text" name="image" value="<?php echo $image;?>" id="image" class="form-control">
+                            </div>
+
+
+
+                          <div class="form-group label-floating">
+                          <label class="control-label">Titre</label>
+                          <input type="text" name="titre" value="<?php echo $titre;?>" id="titre" class="form-control">
+                          </div>
+
+
+
+                           </div>
+                        </div>
+
+                      <div class="col-sm-12">
+                          <div class="card-content">
+
+                            <center>
+                            <button id="SubmitFormDataStatusPage" onclick="SubmitFormDataStatusPage();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                            <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
+                            </center>
+                           </div>
+                        </div>
+                  </div>
+                </form>
+              </div>
+          </div>
+      </div>
+
+   <div id="results23"> <!-- TRES IMPORTANT -->
+  </div>
+  </div>
+  <?php
+
+
+
 
       $selectnom = $db->prepare("SELECT * FROM status ORDER BY article ASC");
       $selectnom->execute();
@@ -2059,9 +2130,7 @@ if (file_exists($target_dir)){
 
 }else if ($_GET['page']=='activitesvoyages'){
 
-  if(isset($_GET['modifstatus'])){
-
-
+  if(isset($_GET['modifactivitesvoyages'])){
 ?>
 <script>
 function RetourIndex2(){
@@ -2164,6 +2233,97 @@ function RetourIndex3(){
 
 
 }else{
+
+//Modif page activitesvoyages
+
+?>
+<script>
+
+
+function SubmitFormDataActivitesVoyages() {
+   var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+   var pagetitre = $("#pagetitre").val();
+   var image = $("#image").val();
+   var titre = $("#titre").val();
+   var description = $("#description").val();
+   $.post("ajax/modifypageactivitesvoyages.php", { user_id:user_id, pagetitre: pagetitre, image: image, titre: titre, description: description},
+   function(data) {
+    $('#results21').html(data);
+
+   });
+
+}
+
+</script>
+<div class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-content">
+                <h2 class="card-title text-center">Modification de la page Activités/Voyages</h2>
+                <form action="" method="post" id="myForm1" class="contact-form">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card-content">
+                          <div class="form-group label-floating">
+                              <label class="control-label">Titre de la page</label>
+                              <input type="text" class="form-control" value="<?php echo $pagetitre; ?>" name="pagetitre" id="pagetitre">
+                          </div>
+                          <div class="form-group label-floating">
+                              <label class="control-label">Images</label>
+                              <input type="text" name="image" value="<?php echo $image;?>" id="image" class="form-control">
+                          </div>
+
+
+
+                        <div class="form-group label-floating">
+                        <label class="control-label">Titre</label>
+                        <input type="text" name="titre" value="<?php echo $titre;?>" id="titre" class="form-control">
+                        </div>
+
+
+                          <div class="form-group label-floating">
+                              <label class="control-label">Description</label>
+                              <input type="text" name="description" value="<?php echo $description; ?>" id="description" class="form-control">
+                          </div>
+                         </div>
+                      </div>
+
+                    <div class="col-sm-12">
+                        <div class="card-content">
+
+                          <center>
+                          <button id="SubmitFormDataActivitesVoyages" onclick="SubmitFormDataActivitesVoyages();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                          <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
+                          </center>
+                         </div>
+                      </div>
+                </div>
+              </form>
+            </div>
+        </div>
+    </div>
+
+ <div id="results21"> <!-- TRES IMPORTANT -->
+
+
+
+</div>
+</div>
+<?php
+
+//Fin modif activitesvoyages
+
+
+
+
+
+
+
+
+
+
+
+
 
       $selectnom = $db->prepare("SELECT * FROM status ORDER BY article ASC");
       $selectnom->execute();
@@ -2301,6 +2461,196 @@ function SubmitFormDataCreateStatus() {
 //FIn Création
 }
 
+}else if ($_GET['page']=='galerie'){
+
+
+?>
+<script>
+function RetourIndex2(){
+  window.location="https://administration.jam-mdm.fr/modifdespages.php?page=galerie&table=images"
+}
+</script>
+  <?php
+//Modif page galerie
+
+?>
+<script>
+
+
+function SubmitFormDataGallerie() {
+   var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+   var pagetitre = $("#pagetitre").val();
+   var image = $("#image").val();
+   var titre = $("#titre").val();
+
+   $.post("ajax/modifypagegallerie.php", { user_id:user_id, pagetitre: pagetitre, image: image, titre: titre},
+   function(data) {
+    $('#results22').html(data);
+
+   });
+
+}
+
+</script>
+<div class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-content">
+                <h2 class="card-title text-center">Modification de la page Galerie</h2>
+                <form action="" method="post" id="myForm1" class="contact-form">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card-content">
+                          <div class="form-group label-floating">
+                              <label class="control-label">Titre de la page</label>
+                              <input type="text" class="form-control" value="<?php echo $pagetitre; ?>" name="pagetitre" id="pagetitre">
+                          </div>
+                          <div class="form-group label-floating">
+                              <label class="control-label">Images</label>
+                              <input type="text" name="image" value="<?php echo $image;?>" id="image" class="form-control">
+                          </div>
+
+
+
+                        <div class="form-group label-floating">
+                        <label class="control-label">Titre</label>
+                        <input type="text" name="titre" value="<?php echo $titre;?>" id="titre" class="form-control">
+                        </div>
+
+
+
+                         </div>
+                      </div>
+
+                    <div class="col-sm-12">
+                        <div class="card-content">
+
+                          <center>
+                          <button id="SubmitFormDataGallerie" onclick="SubmitFormDataGallerie();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                          <button onclick="RetourIndex2();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
+                          </center>
+                         </div>
+                      </div>
+                </div>
+              </form>
+            </div>
+        </div>
+    </div>
+
+ <div id="results22"> <!-- TRES IMPORTANT -->
+</div>
+</div>
+
+
+<h3> Pour ajouter des images concernant la galerie, c'est ici : </h3>
+<a href="https://administration.jam-mdm.fr/ajoutimage.php" target="_blank" class="w3-button w3-black">Ajouter des images</a>
+
+
+<h3> Pour gérer les images concernant la galerie, c'est ici : </h3>
+<a href="https://administration.jam-mdm.fr/gestionimage.php" target="_blank" class="w3-button w3-black">Gérer les images</a>
+
+
+<?php
+
+//Fin modif galerie
+
+}else if ($_GET['page']=='nouscontacter'){
+
+
+?>
+<script>
+function RetourIndex21(){
+  window.location="https://administration.jam-mdm.fr/modifdespages.php?page=nouscontacter&table=none"
+}
+</script>
+  <?php
+//Modif page galerie
+
+?>
+<script>
+
+
+function SubmitFormDataContactUs() {
+   var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+   var pagetitre = $("#pagetitre").val();
+   var image = $("#image").val();
+   var titre = $("#titre").val();
+   var description = $("#description").val();
+
+   $.post("ajax/modifypagecontactus.php", { user_id:user_id, pagetitre: pagetitre, image: image, titre: titre, description: description},
+   function(data) {
+    $('#results22').html(data);
+
+   });
+
+}
+
+</script>
+<div class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-content">
+                <h2 class="card-title text-center">Modification de la page Galerie</h2>
+                <form action="" method="post" id="myForm1" class="contact-form">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card-content">
+                          <div class="form-group label-floating">
+                              <label class="control-label">Titre de la page</label>
+                              <input type="text" class="form-control" value="<?php echo $pagetitre; ?>" name="pagetitre" id="pagetitre">
+                          </div>
+                          <div class="form-group label-floating">
+                              <label class="control-label">Images</label>
+                              <input type="text" name="image" value="<?php echo $image;?>" id="image" class="form-control">
+                          </div>
+
+
+
+                        <div class="form-group label-floating">
+                        <label class="control-label">Titre</label>
+                        <input type="text" name="titre" value="<?php echo $titre;?>" id="titre" class="form-control">
+                        </div>
+
+                        <div class="form-group label-floating">
+                        <label class="control-label">Description</label>
+                        <input type="text" name="description" value="<?php echo $description;?>" id="description" class="form-control">
+                        </div>
+
+                         </div>
+                      </div>
+
+                    <div class="col-sm-12">
+                        <div class="card-content">
+
+                          <center>
+                          <button id="SubmitFormDataContactUs" onclick="SubmitFormDataContactUs();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                          <button onclick="RetourIndex21();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
+                          </center>
+                         </div>
+                      </div>
+                </div>
+              </form>
+            </div>
+        </div>
+    </div>
+
+ <div id="results22"> <!-- TRES IMPORTANT -->
+</div>
+</div>
+
+
+<h3> Pour ajouter des images concernant la galerie, c'est ici : </h3>
+<a href="https://administration.jam-mdm.fr/ajoutimage.php" target="_blank" class="w3-button w3-black">Ajouter des images</a>
+
+
+<h3> Pour gérer les images concernant la galerie, c'est ici : </h3>
+<a href="https://administration.jam-mdm.fr/gestionimage.php" target="_blank" class="w3-button w3-black">Gérer les images</a>
+
+
+<?php
+
+//Fin modif galerie
+
 }
 
 
@@ -2338,6 +2688,14 @@ function SubmitFormDataCreateStatus() {
 
     <a href="?page=activitesvoyages&amp;table=activitesvoyages">
       <button type="button" class="btn">Page Activité/Voyages</button>
+    </a>
+
+    <a href="?page=galerie&amp;table=images">
+      <button type="button" class="btn">Page Galerie</button>
+    </a>
+
+    <a href="?page=nouscontacter&amp;table=none">
+      <button type="button" class="btn">Page Nous Contacter</button>
     </a>
 
 <?php
