@@ -2918,7 +2918,7 @@ if (file_exists($target_dir)){
 
         <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
             Sélectionner la catégorie d'activité<br>
-            <select name="catimage">
+            <select name="catactivitevoyage">
               <?php
                 while($s = $selectcatactivitesvoyages->fetch(PDO::FETCH_OBJ)){
                   $catactivitevoyage=$s->title;
