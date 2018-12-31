@@ -2968,7 +2968,7 @@ if (file_exists($target_dir)){
   $recherche.keyup(function(){
   critere = $.trim($recherche.val());
   if(critere!=''){
-    $.get('gestionrechercheimageactualite.php?critere='+critere,function(retour){
+    $.get('gestionrechercheimageactivite.php?critere='+critere,function(retour){
 
   $('#resultat').html(retour).fadeIn();
 
@@ -2991,6 +2991,7 @@ if (file_exists($target_dir)){
 
 
   $target_dir = '../../../JamFichiers/Img/ImagesDuSite/Original';
+  $target_dirthumb = '../../../JamFichiers/Img/ImagesDuSite/Thumb';
 
   echo 'Jamesbond';
 
@@ -3002,6 +3003,7 @@ if (file_exists($target_dir)){
     "image"=>$valnom
 
   ));
+  unlink("$target_dirthumb/$valnom");
   $succes = "Le fichier.$valnom. à bien été supprimé";
 
   }else{
@@ -3011,7 +3013,7 @@ if (file_exists($target_dir)){
 
 
   ?>
-  <script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=actualite&table=newsactus"</script>
+  <script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=activitesvoyages&table=activitesvoyages"</script>
   <?php
   }
   }
