@@ -2234,7 +2234,20 @@ if (file_exists($target_dir)){
 
 
 
-  }else{
+}else if(isset($_GET['banactivitesvoyages'])){
+  $id = $_GET['banactivitesvoyages'];
+
+  $banacti = $db->prepare("UPDATE activitesvoyages SET status=:status where id=:id");
+  $banacti->execute(array(
+      "status"=>'INACTIVE',
+      "id"=>$id
+      )
+  );
+  ?>
+    <script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=activitesvoyages&table=activitesvoyages"</script>
+<?php
+
+}else{
 
   //Page newsactus
 
