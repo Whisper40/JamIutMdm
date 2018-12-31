@@ -1492,7 +1492,35 @@ function RetourIndex4(){
 
 
 
-}else{
+}else if(isset($_GET['banactus'])){
+  $id = $_GET['banactus'];
+
+  $banactu = $db->prepare("UPDATE newsactus SET status=:status where id=:id");
+  $banactu->execute(array(
+      "status"=>'INACTIVE',
+      "id"=>$id
+      )
+  );
+  ?>
+    <script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=actualite&table=newsactus"</script>
+<?php
+
+}else if(isset($_GET['unbanactus'])){
+  $id = $_GET['unbanactus'];
+
+  $banactu = $db->prepare("UPDATE newsactus SET status=:status where id=:id");
+  $banactu->execute(array(
+      "status"=>'ACTIVE',
+      "id"=>$id
+      )
+  );
+  ?>
+    <script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=actualite&table=newsactus"</script>
+<?php
+
+}
+
+  else{
 
   //Page newsactus
 
