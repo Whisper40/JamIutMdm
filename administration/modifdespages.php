@@ -2397,16 +2397,21 @@ if (file_exists($target_dir)){
             <a href="?page=activitesvoyages&amp;table=activitesvoyages&amp;modifactivitesvoyages='.$id.'">
             <button type="button" class="btn">Modifier</button>
             </a>
+            <?php
             if($status == 'ACTIVE'){
+              ?>
             <a href="?page=activitesvoyages&amp;table=activitesvoyages&amp;banactivitesvoyages='.$id.'">
             <button type="button" class="btn">Désactiver</button>
             </a>
+            <?php
           }else{
+            ?>
             <a href="?page=activitesvoyages&amp;table=activitesvoyages&amp;unbanactivitesvoyages='.$id.'">
             <button type="button" class="btn">Activer</button>
             </a>
-
+<?php
           }
+          ?>
             </td>
           </tr>
           ';
