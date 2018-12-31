@@ -2119,7 +2119,7 @@ if (file_exists($target_dir)){
     <script>
 
 
-     function SubmitFormDataModifActualite() {
+     function SubmitFormDataModifActivite() {
         var user_id = "<?php echo $_SESSION['admin_id']; ?>";
         var id = "<?php echo $id; ?>";
         var title = $("#title").val();
@@ -2139,9 +2139,9 @@ if (file_exists($target_dir)){
 
     </script>
     <?php
-    $id = $_GET['modifactus'];
+    $id = $_GET['modifactivitesvoyages'];
 
-    $selectinfosactuel = $db->prepare("SELECT * from newsactus where id=:id");
+    $selectinfosactuel = $db->prepare("SELECT * from activitesvoyages where id=:id");
     $selectinfosactuel->execute(array(
         "id"=>$id
         )
@@ -2158,7 +2158,7 @@ if (file_exists($target_dir)){
   ?>
   <script>
   function RetourIndex4(){
-  window.location="https://administration.jam-mdm.fr/modifdespages.php?page=actualite&table=newsactus"
+  window.location="https://administration.jam-mdm.fr/modifdespages.php?page=activitesvoyages&table=activitesvoyages"
   }
   </script>
 
@@ -2213,7 +2213,7 @@ if (file_exists($target_dir)){
                             <div class="card-content">
 
                               <center>
-                              <button id="SubmitFormDataModifActualite" onclick="SubmitFormDataModifActualite();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                              <button id="SubmitFormDataModifActivite" onclick="SubmitFormDataModifActivite();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
                               <button onclick="RetourIndex4();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                               </center>
                              </div>
