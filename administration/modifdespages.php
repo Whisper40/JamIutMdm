@@ -2753,7 +2753,7 @@ if (file_exists($target_dir)){
   <!-- Ajoutd'images au site web (assets)-->
   <?php
   if(isset($_POST['submitphotoaactivitesvoyagescarousel'])){
-  $category = $_POST['catimage'];
+  $category = $_POST['catactivitevoyage'];
   $titreimage = $_POST['titreimage'];
   if(!isset($titreimage)){
     $uploadOk = 0;
