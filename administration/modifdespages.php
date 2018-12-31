@@ -2752,7 +2752,7 @@ if (file_exists($target_dir)){
 
   <!-- Ajoutd'images au site web (assets)-->
   <?php
-  if(isset($_POST['submitphotoactualite'])){
+  if(isset($_POST['submitphotoaactivitesvoyagescarousel'])){
   $category = $_POST['catimage'];
   $titreimage = $_POST['titreimage'];
   if(!isset($titreimage)){
@@ -2760,7 +2760,7 @@ if (file_exists($target_dir)){
   }
 
 
-  $selectinfosactuel12 = $db->prepare("SELECT slug from newsactus where title=:title");
+  $selectinfosactuel12 = $db->prepare("SELECT slug from activitesvoyages where title=:title");
   $selectinfosactuel12->execute(array(
       "title"=>$category
       )
@@ -2848,8 +2848,8 @@ if (file_exists($target_dir)){
         $insertlogs->execute(array(
                             "user_id"=>$user_id,
                             "type"=>'Ajout',
-                            "action"=>'Ajout d\'images aux actualités',
-                            "page"=>'actualitees.php',
+                            "action"=>'Ajout d\'images aux activités',
+                            "page"=>'activitees.php',
                             "date"=>$date
                             )
                         );
@@ -2952,7 +2952,7 @@ if (file_exists($target_dir)){
                 </div>
             </div>
 
-            <input type="submit" name="submitphotoactualite" value="Envoyer les images !">
+            <input type="submit" name="submitphotoaactivitesvoyagescarousel" value="Envoyer les images !">
         </form>
 
   </div>
