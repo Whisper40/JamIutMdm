@@ -2497,6 +2497,7 @@ if (file_exists($target_dir)){
 
     $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
     $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
+    $target_filefile3 = $slug.".".$formatimg;
     $target_file3 = $target_dirnew."".$slug.".".$formatimg;
 
       if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
@@ -2538,8 +2539,8 @@ if (file_exists($target_dir)){
           setlocale(LC_TIME, 'fr_FR.utf8','fra');
           $date = strftime('%Y-%m-%d %H:%M:%S');
 
-          $img_tmp = $target_dirnew.$target_filefile;
-          $fin = $target_dirnewthumb.$target_filefile;
+          $img_tmp = $target_file3;
+          $fin = $target_dirnewthumb.$target_filefile3;
 
 
             //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
