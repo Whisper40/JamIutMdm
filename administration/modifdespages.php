@@ -2912,18 +2912,18 @@ if (file_exists($target_dir)){
 
 
   <?php
-  $selectcatimages=$db->query("SELECT DISTINCT title FROM newsactus");
+  $selectcatactivitesvoyages=$db->query("SELECT DISTINCT title FROM activitesvoyages");
 
   ?>
 
         <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-            Sélectionner la catégorie d'actualité<br>
+            Sélectionner la catégorie d'activité<br>
             <select name="catimage">
               <?php
-                while($s = $selectcatimages->fetch(PDO::FETCH_OBJ)){
-                  $catimage=$s->title;
+                while($s = $selectcatactivitesvoyages->fetch(PDO::FETCH_OBJ)){
+                  $catactivitevoyage=$s->title;
                   ?>
-                <option value="<?php echo $catimage;?>"><?php echo $catimage; ?></option>
+                <option value="<?php echo $catactivitevoyage;?>"><?php echo $catactivitevoyage; ?></option>
               <?php
             }
             ?>
