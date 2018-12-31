@@ -2544,8 +2544,8 @@ if (file_exists($target_dir)){
 
 
             //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
-              $longueur = 540;
-              $largeur = 360;
+              $longueur = 539;
+              $largeur = 539;
               //TAILLE DE L'IMAGE ACTUELLE
               $taille = getimagesize($img_tmp);
               //SI LE FICHIER EXISTE
