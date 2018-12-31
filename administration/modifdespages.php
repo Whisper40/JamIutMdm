@@ -2921,9 +2921,9 @@ if (file_exists($target_dir)){
             <select name="catactivitevoyage">
               <?php
                 while($s = $selectcatactivitesvoyages->fetch(PDO::FETCH_OBJ)){
-                  $catactivitevoyage=$s->title;
+                  $catactivitesvoyages=$s->title;
                   ?>
-                <option value="<?php echo $catactivitevoyage;?>"><?php echo $catactivitevoyage; ?></option>
+                <option value="<?php echo $catactivitesvoyages;?>"><?php echo $catactivitesvoyages; ?></option>
               <?php
             }
             ?>
