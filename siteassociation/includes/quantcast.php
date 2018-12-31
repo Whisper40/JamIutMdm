@@ -98,7 +98,7 @@
 		'Post Consent Page': 'https://google.fr',
 		'Consent Scope': 'service',
 		'No Option': false,
-    'Display Persistent Consent Link': false,
+    'Display Persistent Consent Link': true,
     });
 </script>
 <!-- End Quantcast Choice. Consent Manager Tag -->
