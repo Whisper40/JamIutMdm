@@ -2427,7 +2427,7 @@ if (file_exists($target_dir)){
 
 
   if(isset($_POST['submitactivite'])){
-  
+
 
     $title = $_POST['title'];
     $description = $_POST['description'];
@@ -2497,13 +2497,13 @@ if (file_exists($target_dir)){
 
     $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
     $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
-    $target_file3 = $target_dirnew."".$slug;
+    $target_file3 = $target_dirnew."".$slug."".$formatimg;
 
       if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
           $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
 
 
-          $insert = $db->prepare("INSERT INTO newsactus (title, slug, description, surname, date, formatimg, status, stock, datesejour, price, payant) VALUES(:title, :slug, :description, :surname, :date, :formatimg, :status, :stock, :datesejour, :price, :payant)");
+          $insert = $db->prepare("INSERT INTO activitesvoyages (title, slug, description, surname, date, formatimg, status, stock, datesejour, price, payant) VALUES(:title, :slug, :description, :surname, :date, :formatimg, :status, :stock, :datesejour, :price, :payant)");
           $insert->execute(array(
                               "title"=>$title,
                               "slug"=>$slug,
