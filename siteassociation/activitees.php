@@ -132,7 +132,7 @@
                 <?php }else{ ?>
                   <div class="carousel-item">
                 <?php } ?>
-                    <img class="d-block" src="JamFichiers/Img/ImagesDuSite/Original/<?php echo $uneimg->image ?>">
+                    <img class="d-block" src="JamFichiers/Img/ImagesDuSite/Thumb/<?php echo $uneimg->image ?>">
                     <div class="carousel-caption d-none d-md-block">
                       <h5><?php echo $uneimg->titreimage ?></h5>
                     </div>
@@ -216,7 +216,7 @@
                 <?php }else{ ?>
                   <div class="carousel-item">
                 <?php } ?>
-                    <img class="d-block" src="JamFichiers/Img/ImagesDuSite/Original/<?php echo $uneimg->image ?>">
+                    <img class="d-block" src="JamFichiers/Img/ImagesDuSite/Thumb/<?php echo $uneimg->image ?>">
                     <div class="carousel-caption d-none d-md-block">
                       <h5><?php echo $uneimg->titreimage ?></h5>
                     </div>
@@ -301,7 +301,7 @@
                 <?php }else{ ?>
                   <div class="carousel-item">
                 <?php } ?>
-                    <img class="d-block" src="JamFichiers/Img/ImagesDuSite/Original/<?php echo $uneimg->image ?>">
+                    <img class="d-block" src="JamFichiers/Img/ImagesDuSite/Thumb/<?php echo $uneimg->image ?>">
                     <div class="carousel-caption d-none d-md-block">
                       <h5><?php echo $uneimg->titreimage ?></h5>
                     </div>
