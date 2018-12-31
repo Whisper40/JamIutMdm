@@ -2247,6 +2247,19 @@ if (file_exists($target_dir)){
     <script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=activitesvoyages&table=activitesvoyages"</script>
 <?php
 
+}else if(isset($_GET['unbanactivitesvoyages'])){
+  $id = $_GET['unbanactivitesvoyages'];
+
+  $banacti = $db->prepare("UPDATE activitesvoyages SET status=:status where id=:id");
+  $banacti->execute(array(
+      "status"=>'ACTIVE',
+      "id"=>$id
+      )
+  );
+  ?>
+    <script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=activitesvoyages&table=activitesvoyages"</script>
+<?php
+
 }else{
 
   //Page newsactus
