@@ -2129,7 +2129,8 @@ if (file_exists($target_dir)){
         var title3 = $("#titre3").val();
         var description3 = $("#description3").val();
         var formatimg = $("#formatimg").val();
-        $.post("ajax/modifyallactualite.php", { user_id:user_id, id:id, title: title, description: description, title2: title2, description2: description2, title3: title3, description3: description3, formatimg: formatimg},
+        var stock = $("#stock").val();
+        $.post("ajax/modifyallactualite.php", { user_id:user_id, id:id, title: title, description: description, title2: title2, description2: description2, title3: title3, description3: description3, formatimg: formatimg, stock: stock},
         function(data) {
          $('#results11').html(data);
 
@@ -2166,7 +2167,7 @@ if (file_exists($target_dir)){
         <div class="container-fluid">
             <div class="card">
                 <div class="card-content">
-                    <h2 class="card-title text-center">Modification de l'actualité</h2>
+                    <h2 class="card-title text-center">Modification de l'activite</h2>
                     <form action="" method="post" id="myForm1" class="contact-form">
                     <div class="row">
                         <div class="col-sm-6">
@@ -2204,6 +2205,11 @@ if (file_exists($target_dir)){
                               <div class="form-group label-floating">
                                   <label class="control-label">Format Img</label>
                                   <input type="text" name="formatimg" value="<?php echo $formatimg; ?>" id="formatimg" class="form-control">
+                              </div>
+
+                              <div class="form-group label-floating">
+                                  <label class="control-label">Stock</label>
+                                  <input type="number" name="stock" value="<?php echo $stock; ?>" id="stock" class="form-control">
                               </div>
 
                              </div>
