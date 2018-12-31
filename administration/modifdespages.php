@@ -1654,6 +1654,14 @@ function RetourIndex4(){
           $description = $ligneactus->description;
           $status = $ligneactus->status;
 
+          if($status == 'ACTIVE'){
+            $act = 'ban';
+            $message = 'Désactiver';
+          }else{
+            $act = 'unban';
+            $message = 'Activer';
+          }
+
 
 
 
@@ -1669,8 +1677,8 @@ $result = raccourcirChaine($description, 80);
             <a href="?page=actualite&amp;table=newsactus&amp;modifactus='.$id.'">
             <button type="button" class="btn">Modifier</button>
             </a>
-            <a href="?page=actualite&amp;table=newsactus&amp;banactus='.$id.'">
-            <button type="button" class="btn">Désactiver</button>
+            <a href="?page=actualite&amp;table=newsactus&amp;'.$act.'actus='.$id.'">
+            <button type="button" class="btn">'.$message.'</button>
             </a>
             </td>
           </tr>
@@ -2409,7 +2417,7 @@ if (file_exists($target_dir)){
       $tableactivitesvoyages = $selectnomactivitesvoyages->fetchAll(PDO::FETCH_OBJ);
       if(count($tableactivitesvoyages)>0){
 
-        echo "<h3>".count($tableactivitesvoyages)." actus trouvés</h3>";
+        echo "<h3>".count($tableactivitesvoyages)." activités trouvés</h3>";
         echo '
         <table class="table">
         <thead>
