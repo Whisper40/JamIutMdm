@@ -212,7 +212,7 @@
                                             </span>
                                             <div class="form-group label-floating">
                                                 <label class="control-label">Email</label>
-                                                <input type="email" name="email" class="form-control" placeholder="Email">
+                                                <input type="email" name="email" class="form-control">
                                             </div>
                                         </div>
                                         <div class="input-group">
@@ -221,7 +221,7 @@
                                             </span>
                                             <div class="form-group label-floating">
                                                 <label class="control-label">Mot de passe</label>
-                                                <input type="password" name="password" placeholder="Mot de passe" class="form-control">
+                                                <input type="password" name="password" class="form-control">
                                             </div>
                                         </div>
                                     </div>
