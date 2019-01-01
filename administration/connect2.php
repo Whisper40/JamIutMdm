@@ -25,7 +25,7 @@
   ?>
 <body>
     <div class="wrapper wrapper-full-page">
-        <div class="full-page login-page" filter-color="black" data-image="assets/img/IUTmdm.JPG">
+        <div class="full-page login-page" filter-color="black" data-image="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/IUTmdm.jpg">
             <div class="content">
                 <div class="container">
                     <div class="row">
@@ -212,7 +212,7 @@
                                             </span>
                                             <div class="form-group label-floating">
                                                 <label class="control-label">Email</label>
-                                                <input type="email" name="email" class="form-control" placeholder="Email" value="<?php echo $_POST['email'];?>">
+                                                <input type="email" name="email" class="form-control" placeholder="Email">
                                             </div>
                                         </div>
                                         <div class="input-group">
@@ -221,7 +221,7 @@
                                             </span>
                                             <div class="form-group label-floating">
                                                 <label class="control-label">Mot de passe</label>
-                                                <input type="password" name="password" placeholder="Mot de passe" class="form-control" class="form-control">
+                                                <input type="password" name="password" placeholder="Mot de passe" class="form-control">
                                             </div>
                                         </div>
                                     </div>
