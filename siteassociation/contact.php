@@ -67,6 +67,112 @@ $sitekey = "LESITEKEY";
         <p class="description"><?php echo $pagehead->description; ?></p>
         <div class="row">
           <div class="col-lg-6 text-center col-md-8 ml-auto mr-auto">
+
+
+                <?php
+                if(isset($_POST['submit'])){
+                  $owner_mail = "contact@jam-mdm.fr";
+                  $priority = $_POST['optionsRadios2'];
+                  $nom = $_POST['nom'];
+                  $email = $_POST['email'];
+
+                    $message = $_POST['message'];
+                    $subject = '['.$nom.']'.'[Contact]';
+                  if($subject&&$email&&$message&&$nom){
+                    $responseData = json_decode(file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$_POST['g-recaptcha-response']));
+                    if($responseData->success){
+                      if(!isset($_FILES['attachment'])){
+                        mail($owner_mail,$subject,$message);
+                      }else{
+                          $filename = $_FILES['attachment']['name'];
+                          $file = $_FILES['attachment']['tmp_name'];
+                        $content = file_get_contents( $file);
+                        $content = chunk_split(base64_encode($content));
+                        $uid = md5(uniqid(time()));
+                        $name = basename($file);
+
+                        // header
+                        $headers = "From: <".$email.">\r\n";
+                        $headers .= "MIME-Version: 1.0\r\n";
+                        $headers .= 'X-Priotity:'.$priority."\r\n";
+                        $headers .= "Content-Type: multipart/mixed; boundary=\"".$uid."\"\r\n\r\n";
+
+                        // message & attachment
+                        $nmessage = "--".$uid."\r\n";
+                        $nmessage .= "Content-type:text/plain; charset=iso-8859-1\r\n";
+                        $nmessage .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
+                        $nmessage .= $message."\r\n\r\n";
+                        $nmessage .= "--".$uid."\r\n";
+                        $nmessage .= "Content-Type: application/octet-stream; name=\"".$filename."\"\r\n";
+                        $nmessage .= "Content-Transfer-Encoding: base64\r\n";
+                        $nmessage .= "Content-Disposition: attachment; filename=\"".$filename."\"\r\n\r\n";
+                        $nmessage .= $content."\r\n\r\n";
+                        $nmessage .= "--".$uid."--";
+                          mail($owner_mail,$subject,$nmessage, $headers);
+                      }
+                      ?>
+
+                      <div class="container">
+                         <div class="row">
+                           <div class="col-sm-14 ml-auto mr-auto">
+                             <div class="alert alert-success">
+                               <div class="alert-icon">
+                                 <i class="now-ui-icons ui-1_bell-53"></i>
+                               </div>
+                               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                 <span aria-hidden="true"><i class="now-ui-icons ui-1_simple-remove"></i></span>
+                               </button>
+                               <b>Succès :</b> Votre message a bien été envoyé !
+                            </div>
+                          </div>
+                         </div>
+                      </div>
+
+                        <?php
+                    }else{
+                      ?>
+
+                      <div class="container">
+                         <div class="row">
+                           <div class="col-sm-14 ml-auto mr-auto">
+                             <div class="alert alert-warning">
+                               <div class="alert-icon">
+                                 <i class="now-ui-icons ui-1_bell-53"></i>
+                               </div>
+                               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                 <span aria-hidden="true"><i class="now-ui-icons ui-1_simple-remove"></i></span>
+                               </button>
+                               <b>Attention :</b> Votre inscription n'a pas pu aboutir. Merci de cocher la captcha.
+                            </div>
+                          </div>
+                         </div>
+                      </div>
+
+                      <?php
+                    }
+                  }else{
+                    ?>
+
+                    <div class="container">
+                       <div class="row">
+                         <div class="col-sm-14 ml-auto mr-auto">
+                          <div class="alert alert-warning">
+                             <div class="alert-icon">
+                               <i class="now-ui-icons ui-1_bell-53"></i>
+                             </div>
+                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                               <span aria-hidden="true"><i class="now-ui-icons ui-1_simple-remove"></i></span>
+                             </button>
+                                <b>Attention:</b> Merci de remplir tous les champs !
+                          </div>
+                        </div>
+                       </div>
+                    </div>
+
+                      <?php
+                  } }
+                   ?>
+
             <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
             <div class="input-group input-lg">
               <div class="input-group-prepend">
