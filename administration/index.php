@@ -1,6 +1,7 @@
 <?php
 require_once('includes/connectBDD.php');
 require_once('includes/checkconnection.php');
+$nompage = "Tableau de bord	";
 require_once('includes/head.php');
 ini_set('display_errors', 1);
 
@@ -13,7 +14,7 @@ ini_set('display_errors', 1);
 
             <?php
             require_once('includes/navbar.php');
-            
+
             $inscritsjam = $db->prepare("SELECT * FROM users WHERE status = 'MEMBRE'");
             $inscritsjam->execute();
             $countinscritsjam = $inscritsjam->rowCount();
