@@ -2,6 +2,7 @@
 ini_set('display_errors', 1);
 require_once('includes/connectBDD.php');
 require_once('includes/checkconnection.php');
+require_once('includes/checkdejamembre.php');
 $nompage = "Devenir Membre";
 require_once('includes/head.php');
 $secret = "LESECRET";
