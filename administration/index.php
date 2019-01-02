@@ -2,6 +2,7 @@
 require_once('includes/connectBDD.php');
 require_once('includes/checkconnection.php');
 $nompage = "Tableau de bord";
+$nomsouscat = "NULL";
 require_once('includes/head.php');
 ini_set('display_errors', 1);
 
