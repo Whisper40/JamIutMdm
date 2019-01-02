@@ -111,7 +111,8 @@ function SubmitFormDataCreerUnMembre() {
 
 
     <?php
-    if($_GET['action']=='unban'){
+    if(isset($_GET['action'])){
+    if($_GET['action']=='giveaccessmembre'){
     echo'bond';
     $id=$_GET['id'];
     $setunban = $db->prepare("UPDATE users SET ban='0' WHERE id=$id");
@@ -119,7 +120,7 @@ function SubmitFormDataCreerUnMembre() {
     ?>
     <script>window.location="https://administration.jam-mdm.fr/banuser.php"</script>
     <?php
-    }
+  }}
 ?>
 
 
