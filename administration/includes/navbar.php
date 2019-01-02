@@ -11,7 +11,7 @@
     <div class="sidebar-wrapper">
 			<ul class="nav">
 <?php
-$cat = $db->query("SELECT DISTINCT name, page, icon FROM admincat");
+$cat = $db->query("SELECT DISTINCT name, page, icon, hastag FROM admincat");
 while($unecat = $cat->fetch(PDO::FETCH_OBJ)){
   $nom = $unecat->name;
   $souscat = $db->query("SELECT nomsouscat, slug FROM admincat WHERE name='$nom'");
@@ -29,7 +29,7 @@ while($unecat = $cat->fetch(PDO::FETCH_OBJ)){
   >
   <?php }
   if($nbsouscat > 1){ ?>
-      <a data-toggle="collapse" href="#<?php echo $nom ?>" aria-expanded="true">
+      <a data-toggle="collapse" href="#<?php echo $unecat->hastag ?>" aria-expanded="true">
                             <i class="material-icons"><?php echo $unecat->icon;?></i>
                             <p><?php echo $unecat->name;?>
                                 <b class="caret"></b>
@@ -41,7 +41,7 @@ while($unecat = $cat->fetch(PDO::FETCH_OBJ)){
                               while($unesouscat = $souscat->fetch(PDO::FETCH_OBJ)){
                                 ?>
                                 <li>
-                                    <a href="<?php echo $unecat->page;?>.<?php echo $unesouscat->slug;?>"><?php echo $unesouscat->nomsouscat;?></a>
+                                    <a href="<?php echo $unecat->page echo $unesouscat->slug;?>"><?php echo $unesouscat->nomsouscat;?></a>
                                 </li>
                               <?php } ?>
                             </ul>
