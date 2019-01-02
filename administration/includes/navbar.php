@@ -31,8 +31,8 @@ while($unecat = $cat->fetch(PDO::FETCH_OBJ)){
       </li>
 
 		<?php } ?>
-    <li class="active">
-                        <a data-toggle="collapse" href="modifdespages.php" aria-expanded="true">
+    <li class="">
+                        <a data-toggle="collapse" href="#componentsExamples" aria-expanded="true">
                             <i class="material-icons">apps</i>
                             <p>Components
                                 <b class="caret"></b>
