@@ -1,5 +1,6 @@
 <?php
 require_once('includes/connectBDD.php');
+require_once('includes/checkconnection.php');
 
 
 if(isset($_GET['critere'])){
@@ -44,8 +45,6 @@ if(count($table)>0){
     </tr>
 
     ';
-
-
   }
 
   echo '
