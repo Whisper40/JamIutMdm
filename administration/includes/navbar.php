@@ -35,12 +35,21 @@ while($unecat = $cat->fetch(PDO::FETCH_OBJ)){
                                 <b class="caret"></b>
                             </p>
                         </a>
-                        <div class="collapse in" id="<?php echo $nom ?>">
+                        <div class="collapse in" id="<?php echo $unecat->hastag ?>">
                             <ul class="nav">
                               <?php
                               while($unesouscat = $souscat->fetch(PDO::FETCH_OBJ)){
                                 ?>
-                                <li>
+                                <li
+                                <?php
+                                if($unesouscat->nomsouscat == $nomsouscat){
+                                ?>
+
+                                class="active">
+
+                                <?php }else{ ?>
+                                >
+                              <?php } ?>
                                     <a href="<?php echo $unecat->page ?><?php echo $unesouscat->slug;?>"><?php echo $unesouscat->nomsouscat ?></a>
                                 </li>
                               <?php } ?>

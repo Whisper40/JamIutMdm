@@ -25,6 +25,7 @@ function RetourIndex(){
     <div class="wrapper">
 
     <?php
+    $nomsouscat = "Index Site";
     require_once('includes/navbar.php');
 
     if(isset($_GET['page'])){
