@@ -57,17 +57,17 @@ function SubmitFormDataCreerUnMembre() {
                               </div>
                               <div class="form-group label-floating">
                                   <label class="control-label">Prénom</label>
-                                  <input type="text" name="prenom" value="" id="Pierre" class="form-control">
+                                  <input type="text" name="prenom" value="Pierre" id="prenom" class="form-control">
                               </div>
 
                             <div class="form-group label-floating">
                             <label class="control-label">Code</label>
-                            <input type="number" min="1" name="code" value="07824" id="code" class="form-control">
+                            <input type="number" min="1000" name="code" value="07824" id="code" class="form-control">
                             </div>
 
                             <div class="form-group label-floating">
                             <label class="control-label">Raison</label>
-                            <input type="text" name="raison" value="<?php echo $raison;?>" id="raison" class="form-control">
+                            <input type="text" name="raison" value="Ancien étudiant de de Mdm" id="raison" class="form-control">
                             </div>
 
                              </div>
