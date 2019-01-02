@@ -6,7 +6,7 @@ require_once('includes/checkconnection.php');
 if(isset($_GET['critere'])){
   $critere=$_GET['critere'];
 
-$requete=$db->prepare("SELECT * FROM users WHERE username LIKE '%$critere%' OR email LIKE '%$critere%' OR id LIKE '$critere' and status <> 'MEMBRE'");
+$requete=$db->prepare("SELECT * FROM users WHERE username LIKE '%$critere%' and status <> 'MEMBRE' OR email LIKE '%$critere%' and status <> 'MEMBRE' OR id LIKE '$critere' and status <> 'MEMBRE'");
 $requete->execute();
 $table=$requete->fetchAll(PDO::FETCH_OBJ);
 
