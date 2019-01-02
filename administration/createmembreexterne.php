@@ -50,7 +50,10 @@ function SubmitFormDataCreerUnMembre() {
    });
 }
 </script>
+<?php
 
+$valeurcode = mt_rand(1000, 999999);
+ ?>
 
 <body class="landing-page sidebar-collapse">
   <div class="wrapper">
@@ -72,7 +75,10 @@ function SubmitFormDataCreerUnMembre() {
                                   <input type="text" name="prenom" value="Pierre" id="prenom" class="form-control">
                               </div>
 
-
+                            <div class="form-group label-floating">
+                            <label class="control-label">Code</label>
+                            <button value="<?php echo $valeurcode; ?>" class="form-control"><?php echo $valeurcode; ?></button>
+                            </div>
 
                             <div class="form-group label-floating">
                             <label class="control-label">Raison</label>
@@ -116,7 +122,7 @@ function SubmitFormDataCreerUnMembre() {
     $insertlogs->execute(array(
                         "user_id"=>$user_id,
                         "type"=>'Gestion',
-                        "action"=>'Passage à l'\état d'\un membre manuellement',
+                        "action"=>"Passage à l'\état d'\un membre manuellement",
                         "page"=>'createmembreexterne.php',
                         "date"=>$date
                         )
