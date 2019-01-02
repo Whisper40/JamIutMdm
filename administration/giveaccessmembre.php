@@ -11,7 +11,7 @@ $requete->execute();
 $table=$requete->fetchAll(PDO::FETCH_OBJ);
 
 if(count($table)>0){
-  echo "<h3>".count($table)." utilisateurs trouvées</h3>";
+  echo "<h3>".count($table)." utilisateurs trouvés</h3>";
   echo '
   <table class="table">
   <thead>

@@ -73,7 +73,7 @@ function SubmitFormDataCreerUnMembre() {
 
                             <div class="form-group label-floating">
                             <label class="control-label">Code</label>
-                            <input type="number" min="1000" name="code" value="07824" id="code" class="form-control">
+                            <input type="number" min="1000" name="code" value="<?php echo echo mt_rand(1000, 999999); ?>" id="code" class="form-control">
                             </div>
 
                             <div class="form-group label-floating">
@@ -112,6 +112,19 @@ function SubmitFormDataCreerUnMembre() {
     $setmembre->execute(array(
       "status"=>'MEMBRE'
     ));
+
+
+    $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
+    $insertlogs->execute(array(
+                        "user_id"=>$user_id,
+                        "type"=>'Gestion',
+                        "action"=>'Passage à l'\état d'\un membre manuellement',
+                        "page"=>'createmembreexterne.php',
+                        "date"=>$date
+                        )
+                    );
+
+
     ?>
     <script>window.location="https://administration.jam-mdm.fr/createmembreexterne.php"</script>
     <?php
