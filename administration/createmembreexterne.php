@@ -53,16 +53,16 @@ function SubmitFormDataCreerUnMembre() {
                             <div class="card-content">
                               <div class="form-group label-floating">
                                   <label class="control-label">Nom</label>
-                                  <input type="text" class="form-control" value="<?php echo $nom; ?>" name="nom" id="nom">
+                                  <input type="text" class="form-control" value="Dupont" name="nom" id="nom">
                               </div>
                               <div class="form-group label-floating">
                                   <label class="control-label">Prénom</label>
-                                  <input type="text" name="prenom" value="<?php echo $prenom;?>" id="prenom" class="form-control">
+                                  <input type="text" name="prenom" value="" id="Pierre" class="form-control">
                               </div>
 
                             <div class="form-group label-floating">
                             <label class="control-label">Code</label>
-                            <input type="number" name="code" value="<?php echo $code;?>" id="code" class="form-control">
+                            <input type="number" min="1" name="code" value="07824" id="code" class="form-control">
                             </div>
 
                             <div class="form-group label-floating">
