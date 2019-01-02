@@ -75,10 +75,7 @@ $valeurcode = mt_rand(1000, 999999);
                                   <input type="text" name="prenom" value="Pierre" id="prenom" class="form-control">
                               </div>
 
-                            <div class="form-group label-floating">
-                            <label class="control-label">Code</label>
-                            <button value="<?php echo $valeurcode; ?>" class="form-control"><?php echo $valeurcode; ?></button>
-                            </div>
+                            
 
                             <div class="form-group label-floating">
                             <label class="control-label">Raison</label>
