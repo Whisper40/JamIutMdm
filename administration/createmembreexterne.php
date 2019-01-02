@@ -21,7 +21,7 @@ var critere;
 $recherche.keyup(function(){
   critere = $.trim($recherche.val());
   if(critere!=''){
-    $.get('gestionrechercheimg.php?critere='+critere,function(retour){
+    $.get('giveaccessmembre.php?critere='+critere,function(retour){
 
 $('#resultat').html(retour).fadeIn();
 
