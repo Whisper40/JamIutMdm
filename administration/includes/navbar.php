@@ -11,18 +11,44 @@
     <div class="sidebar-wrapper">
 			<ul class="nav">
 <?php
-$cat = $db->query("SELECT * FROM admincat");
+$cat = $db->query("SELECT DISTINCT name, page, icon FROM admincat");
 while($unecat = $cat->fetch(PDO::FETCH_OBJ)){
+  $nom = $unecat->name;
+  $souscat = $db->query("SELECT nomsouscat, slug FROM admincat WHERE name='$nom'");
+  $nbsouscat = $souscat->rowCount();
   ?>
   <li
+
   <?php
   if($unecat->name == $nompage){
-
   ?>
+
   class="active">
+
   <?php }else{ ?>
   >
-<?php } ?>
+  <?php }
+  if($nbsouscat > 1){ ?>
+      <a data-toggle="collapse" href="#<?php echo $nom ?>" aria-expanded="true">
+                            <i class="material-icons"><?php echo $unecat->icon;?></i>
+                            <p><?php echo $unecat->name;?>
+                                <b class="caret"></b>
+                            </p>
+                        </a>
+                        <div class="collapse in" id="<?php echo $nom ?>">
+                            <ul class="nav">
+                              <?php
+                              while($unesouscat = $souscat->fetch(PDO::FETCH_OBJ)){
+                                ?>
+                                <li>
+                                    <a href="<?php echo $unecat->page;?>.<?php echo $unesouscat->slug;?>"><?php echo $unesouscat->nomsouscat;?></a>
+                                </li>
+                              <?php } ?>
+                            </ul>
+                        </div>
+                    </li>
+
+		<?php }else{ ?>
 
       <a href="<?php echo $unecat->page;?>">
           <i class="material-icons"><?php echo $unecat->icon;?></i>
@@ -30,55 +56,7 @@ while($unecat = $cat->fetch(PDO::FETCH_OBJ)){
       </a>
       </li>
 
-		<?php } ?>
-    <li class="">
-                        <a data-toggle="collapse" href="#componentsExamples" aria-expanded="true">
-                            <i class="material-icons">apps</i>
-                            <p>Components
-                                <b class="caret"></b>
-                            </p>
-                        </a>
-                        <div class="collapse in" id="componentsExamples">
-                            <ul class="nav">
-                                <li>
-                                    <a href="?page=index&amp;table=pageindex">Index Site</a>
-                                </li>
-                                <li>
-                                    <a href="?page=devenirmembre&amp;table=pagedevenirmembre">Devenir Membre</a>
-                                </li>
-                                <li>
-                                    <a href="?page=association&amp;table=pageasso">Présentation Association</a>
-                                </li>
-                                <li>
-                                    <a href="?page=membre&amp;table=membres">Présentation Membre</a>
-                                </li>
-                                <li>
-                                    <a href="?page=status&amp;table=status">Les Status</a>
-                                </li>
-                                <li>
-                                    <a href="?page=lienutiles&amp;table=lienutiles">Liens Utiles</a>
-                                </li>
-                                <li>
-                                    <a href="?page=actualite&amp;table=newsactus">Actualités</a>
-                                </li>
-                                <li>
-                                    <a href="?page=activitesvoyages&amp;table=activitesvoyages">Activités / Voyage</a>
-                                </li>
-                                <li>
-                                    <a href="?page=galerie&amp;table=images">Galerie</a>
-                                </li>
-                                <li>
-                                    <a href="?page=nouscontacter&amp;table=none">Nous contacter</a>
-                                </li>
-                                <li>
-                                    <a href="?page=faireundon&amp;table=none">Faire un don</a>
-                                </li>
-                                <li>
-                                    <a href="?page=faireundonpaiement&amp;table=none">Faire un don2</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
+    <?php } } ?>
 
             <li>
                 <a href="https://jam-mdm.fr/">
