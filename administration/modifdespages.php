@@ -2281,7 +2281,7 @@ if (file_exists($target_dir)){
 
     <div class="section section-contact-us text-center">
       <div class="container">
-        <h2 class="title">AUTRE</h2>
+        <h2 class="title">Suppression des photos liées au Caroussel ! </h2>
         <p class="description">AUTRE</p>
         <div class="row">
           <div class="col-lg-6 text-center col-md-8 ml-auto mr-auto">
@@ -2865,7 +2865,7 @@ if (file_exists($target_dir)){
 
                     <div class="col-sm-12">
                         <div class="card-content">
-                            <input type="submit" name="submitactivite" value="Envoyer les images !">
+                            <input type="submit" name="submitactivite" value="Crée l'activité!">
                          </div>
                       </div>
                 </div>
@@ -3215,7 +3215,7 @@ if (file_exists($target_dir)){
 
     <div class="section section-contact-us text-center">
       <div class="container">
-        <h2 class="title">AUTRE</h2>
+        <h2 class="title">Suppression des photos liés au Caroussel !</h2>
         <p class="description">AUTRE</p>
         <div class="row">
           <div class="col-lg-6 text-center col-md-8 ml-auto mr-auto">
