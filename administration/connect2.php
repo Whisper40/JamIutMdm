@@ -33,7 +33,7 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href=" ../dashboard.html ">Material Dashboard Pro</a>
+              <a class="navbar-brand">Portail Administateur du Site JAM</a>
           </div>
           <div class="collapse navbar-collapse">
               <ul class="nav navbar-nav navbar-right">
@@ -47,7 +47,7 @@
       </div>
   </nav>
     <div class="wrapper wrapper-full-page">
-        <div class="full-page login-page" filter-color="black" data-image="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/IUTmdm.jpg">
+        <div class="full-page login-page" data-image="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/IUTmdm.jpg">
             <div class="content">
                 <div class="container">
                     <div class="row">
@@ -316,3 +316,5 @@
         }, 700)
     });
 </script>
+
+</html>
