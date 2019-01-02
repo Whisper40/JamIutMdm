@@ -56,7 +56,7 @@ while($unecat = $cat->fetch(PDO::FETCH_OBJ)){
   $countvalidation = $selectpaiementcotisation->rowCount();
 
 
-  $selectstatusmembre = $db->prepare("SELECT * FROM users WHERE user_id=:user_id and status=:status");
+  $selectstatusmembre = $db->prepare("SELECT * FROM users WHERE id=:user_id and status=:status");
   $selectstatusmembre->execute(array(
     "user_id"=>$user_id,
     "status"=>'MEMBRE'
