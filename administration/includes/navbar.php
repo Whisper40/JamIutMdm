@@ -29,7 +29,7 @@ while($unecat = $cat->fetch(PDO::FETCH_OBJ)){
   >
   <?php }
   if($nbsouscat > 1){ ?>
-      <a data-toggle="collapse" href="#<?php echo $unecat->hastag ?>" aria-expanded="true">
+      <a data-toggle="collapse" href="#<?php echo $unecat->hastag ?>" <?php if($unecat->name == $nompage){ ?> aria-expanded="true" <?php } ?>>
                             <i class="material-icons"><?php echo $unecat->icon;?></i>
                             <p><?php echo $unecat->name;?>
                                 <b class="caret"></b>
