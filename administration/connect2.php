@@ -248,7 +248,7 @@
                                         </div>
                                     </div>
                                     <div class="footer text-center">
-                                        <button type="submit" name="submit" class="btn btn-rose btn-simple btn-wd btn-lg">Connexion</button>
+                                        <button type="submit" name="submit" class="btn btn-rose btn-round">Connexion</button>
                                     </div>
                                 </div>
                             </form>
@@ -264,6 +264,18 @@
             </div>
         </div>
     </div>
+    <footer class="footer">
+      <div class="container">
+        <center>
+        <div id="copyright">
+          &copy;
+          <script>
+            document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
+          </script>, Jam - Jeunesse Associative Montoise - Créée par Paul Boussard et Kévin Perez
+        </div>
+      </center>
+      </div>
+    </footer>
 </body>
 
 <!--   Core JS Files   -->
