@@ -27,7 +27,7 @@ if(count($table)>0){
   ';
   foreach($table as $ligne){
     $id=$ligne->id;
-    $nom=$ligne->pseudo;
+    $nom=$ligne->username;
     $status=$ligne->status;
 
     echo '

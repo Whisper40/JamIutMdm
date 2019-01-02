@@ -106,18 +106,17 @@ function SubmitFormDataCreerUnMembre() {
     <?php
     if(isset($_GET['action'])){
     if($_GET['action']=='giveaccessmembre'){
-    echo'bond';
+
     $id=$_GET['id'];
-    $setunban = $db->prepare("UPDATE users SET ban='0' WHERE id=$id");
-    $setunban->execute();
+    $setmembre = $db->prepare("UPDATE users SET status=:status WHERE id=$id");
+    $setmembre->execute(array(
+      "status"=>'MEMBRE'
+    ));
     ?>
-    <script>window.location="https://administration.jam-mdm.fr/banuser.php"</script>
+    <script>window.location="https://administration.jam-mdm.fr/createmembreexterne.php"</script>
     <?php
   }}
 ?>
-
-
-
 
 <h3> Donner le grade de membre :  </h3>
   <input type='text' name="valeur" placeholder="Saisir son nom, id ou email">
