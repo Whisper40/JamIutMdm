@@ -41,7 +41,7 @@ while($unecat = $cat->fetch(PDO::FETCH_OBJ)){
                               while($unesouscat = $souscat->fetch(PDO::FETCH_OBJ)){
                                 ?>
                                 <li>
-                                    <a href="<?php echo $unecat->page echo $unesouscat->slug;?>"><?php echo $unesouscat->nomsouscat;?></a>
+                                    <a href="<?php echo $unecat->page ?><?php echo $unesouscat->slug;?>"><?php echo $unesouscat->nomsouscat ?></a>
                                 </li>
                               <?php } ?>
                             </ul>
