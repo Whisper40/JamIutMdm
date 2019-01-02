@@ -32,10 +32,10 @@ while($unecat = $cat->fetch(PDO::FETCH_OBJ)){
       <a data-toggle="collapse" href="#<?php echo $unecat->hastag ?>" <?php if($unecat->name == $nompage){ ?> aria-expanded="true" <?php } ?>>
                             <i class="material-icons"><?php echo $unecat->icon;?></i>
                             <p><?php echo $unecat->name;?>
-                                <b class="caret"></b>
+                              <b class="caret"></b>
                             </p>
                         </a>
-                        <div class="collapse in" id="<?php echo $unecat->hastag ?>">
+                        <div class="collapse <?php if($unecat->name == $nompage){ ?>in<?php } ?>" id="<?php echo $unecat->hastag ?>">
                             <ul class="nav">
                               <?php
                               while($unesouscat = $souscat->fetch(PDO::FETCH_OBJ)){
