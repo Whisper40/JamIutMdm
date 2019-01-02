@@ -13,6 +13,24 @@ $sitekey = "LESITEKEY";
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src='https://www.google.com/recaptcha/api.js'></script>
 
+<script>
+$(document).ready(function(){
+
+var $recherche =$('input[name=valeur]');
+var critere;
+$recherche.keyup(function(){
+  critere = $.trim($recherche.val());
+  if(critere!=''){
+    $.get('giveaccessmembre.php?critere='+critere,function(retour){
+
+$('#resultat').html(retour).fadeIn();
+
+});
+
+}else $('#resultat').empty().fadeOut();
+});
+});
+</script>
 
 
 
@@ -92,11 +110,24 @@ function SubmitFormDataCreerUnMembre() {
     </div>
 
 
+    <?php
+    if($_GET['action']=='unban'){
+    echo'bond';
+    $id=$_GET['id'];
+    $setunban = $db->prepare("UPDATE users SET ban='0' WHERE id=$id");
+    $setunban->execute();
+    ?>
+    <script>window.location="https://administration.jam-mdm.fr/banuser.php"</script>
+    <?php
+    }
+?>
 
 
 
 
-
+<h3> Donner le grade de membre :  </h3>
+  <input type='text' name="valeur" placeholder="Saisir son nom, id ou email">
+  <p id='resultat'></p>
 
 
 
