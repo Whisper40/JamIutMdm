@@ -30,11 +30,11 @@ $('#resultat').html(retour).fadeIn();
 }else $('#resultat').empty().fadeOut();
 });
 });
-</script>
 
 
 
-<script>
+
+
 
 
 function SubmitFormDataCreerUnMembre() {
@@ -45,21 +45,14 @@ function SubmitFormDataCreerUnMembre() {
    var raison = $("#raison").val();
 
    $.post("ajax/createmembreexterne.php", { user_id:user_id, nom: nom, prenom: prenom, code: code, raison: raison},
-   function(data) raison
+   function(data) {
     $('#results23').html(data);
-
    });
-
 }
-
 </script>
 
 <body class="landing-page sidebar-collapse">
   <div class="wrapper">
-
-
-
-
     <div class="content">
         <div class="container-fluid">
             <div class="card">
