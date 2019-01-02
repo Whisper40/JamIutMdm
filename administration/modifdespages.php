@@ -25,10 +25,34 @@ function RetourIndex(){
     <div class="wrapper">
 
     <?php
-    $nomsouscat = "Index Site";
-    require_once('includes/navbar.php');
-
     if(isset($_GET['page'])){
+
+      if($_GET['page']=='index'){
+        $nomsouscat = "Index Site";
+      }else if ($_GET['page']=='devenirmembre'){
+        $nomsouscat = "Devenir Membre";
+      }else if ($_GET['page']=='association'){
+        $nomsouscat = "Présentation Association";
+      }else if ($_GET['page']=='membre'){
+        $nomsouscat = "Présentation Membre";
+      }else if ($_GET['page']=='status'){
+        $nomsouscat = "Les Status";
+      }else if ($_GET['page']=='actualite'){
+        $nomsouscat = "	Actualités";
+      }else if ($_GET['page']=='activitesvoyages'){
+        $nomsouscat = "Activités / Voyage";
+      }else if ($_GET['page']=='galerie'){
+        $nomsouscat = "Galerie";
+      }else if ($_GET['page']=='nouscontacter'){
+        $nomsouscat = "	Nous contacter";
+      }else if ($_GET['page']=='faireundon'){
+        $nomsouscat = "Faire un don";
+      }else if ($_GET['page']=='faireundonpaiement'){
+        $nomsouscat = "Faire un don2";
+      }
+
+      require_once('includes/navbar.php');
+
     if($_GET['page']=='index'){
       $table = $_GET['table'];
     ?>
