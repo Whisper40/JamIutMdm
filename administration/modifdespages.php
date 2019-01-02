@@ -1,15 +1,17 @@
 <?php
     require_once('includes/connectBDD.php');
     require_once('includes/checkconnection.php');
-    $nompage = "Nous Contacter";
+    $nompage = "Contenu des Pages du Site";
+    require_once('includes/head.php');
     ini_set('display_errors', 1);
     $user_id = $_SESSION['admin_id'];
-
 
 //Code de génératon du captcha fournie par GOOGLE
 $secret = "LESECRET";
 $sitekey = "LESITEKEY";
 ?>
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src='https://www.google.com/recaptcha/api.js'></script>
 <script>
@@ -18,16 +20,19 @@ function RetourIndex(){
 }
 </script>
 
-<body class="landing-page sidebar-collapse">
-  <div class="wrapper">
-<?php
-if(isset($_GET['page'])){
-if($_GET['page']=='index'){
-  $table = $_GET['table'];
-?>
+
+<body>
+    <div class="wrapper">
+
+    <?php
+    require_once('includes/navbar.php');
+
+    if(isset($_GET['page'])){
+    if($_GET['page']=='index'){
+      $table = $_GET['table'];
+    ?>
+
   <script>
-
-
    function SubmitFormDataIndex() {
       var user_id = "<?php echo $_SESSION['admin_id']; ?>";
       var id = "<?php echo $id ?>";
@@ -46,12 +51,10 @@ if($_GET['page']=='index'){
       $.post("ajax/modifypageindex.php", { user_id:user_id, id:id, img1: img1, logo1: logo1, titre1: titre1, description1: description1, bouton1: bouton1, lienbt1: lienbt1, bouton2: bouton2, lienbt2: lienbt2, logo2: logo2, titre2: titre2, description2: description2, fb: fb},
       function(data) {
        $('#results1').html(data);
-
       });
-
   }
-
   </script>
+
   <?php
   $selectinfosactuel = $db->prepare("SELECT * from pageindex");
   $selectinfosactuel->execute();
@@ -70,6 +73,7 @@ if($_GET['page']=='index'){
   $description2 = $r2->description2;
   $fb = $r2->fb;
 ?>
+
   <div class="content">
       <div class="container-fluid">
           <div class="card">
@@ -3690,7 +3694,7 @@ $description = $r46->description;
       <button type="button" class="btn">Page Faire Un Don Paiement</button>
     </a>
 
-    
+
 
 <?php
 

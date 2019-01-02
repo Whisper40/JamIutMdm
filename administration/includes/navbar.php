@@ -31,6 +31,21 @@ while($unecat = $cat->fetch(PDO::FETCH_OBJ)){
       </li>
 
 		<?php } ?>
+    <li class="active">
+                        <a data-toggle="collapse" href="modifdespages.php" aria-expanded="true">
+                            <i class="material-icons">apps</i>
+                            <p>Components
+                                <b class="caret"></b>
+                            </p>
+                        </a>
+                        <div class="collapse in" id="componentsExamples">
+                            <ul class="nav">
+                                <li>
+                                    <a href="?page=index&amp;table=pageindex">Buttons</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
 
             <li>
                 <a href="https://jam-mdm.fr/">

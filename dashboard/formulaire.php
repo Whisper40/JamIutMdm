@@ -3,6 +3,7 @@
     require_once('includes/checkconnection.php');
     $nompage = "Formulaire activitée";
     require_once('includes/head.php');
+    
 if(isset($_GET['type'])){
   $type=$_GET['type'];
   $cattitre = $_GET['type'];
