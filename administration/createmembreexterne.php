@@ -41,7 +41,7 @@ function SubmitFormDataCreerUnMembre() {
    var user_id = "<?php echo $_SESSION['admin_id']; ?>";
    var nom = $("#nom").val();
    var prenom = $("#prenom").val();
-   var code = $("#code").val();
+   var code = "<?php echo $valeurcode; ?>";
    var raison = $("#raison").val();
 
    $.post("ajax/createmembreexterne.php", { user_id:user_id, nom: nom, prenom: prenom, code: code, raison: raison},
@@ -77,7 +77,7 @@ $valeurcode = mt_rand(1000, 999999);
 
                             <div class="form-group label-floating">
                             <label class="control-label">Code</label>
-                            <button value="<?php echo $valeurcode; ?>" class="form-control"><?php echo $valeurcode; ?></button>
+                            <p> <?php echo $valeurcode; ?></p>
                             </div>
 
                             <div class="form-group label-floating">
