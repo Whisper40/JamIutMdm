@@ -67,7 +67,7 @@ function SubmitFormDataCreerUnMembre() {
 
                             <div class="form-group label-floating">
                             <label class="control-label">Raison</label>
-                            <input type="text" name="raison" value="Ancien étudiant de de Mdm" id="raison" class="form-control">
+                            <input type="text" name="raison" value="Ancien étudiant de Mdm" id="raison" class="form-control">
                             </div>
 
                              </div>

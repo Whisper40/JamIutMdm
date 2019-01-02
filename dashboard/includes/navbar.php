@@ -55,13 +55,22 @@ while($unecat = $cat->fetch(PDO::FETCH_OBJ)){
   $selectpaiementcotisation->execute();
   $countvalidation = $selectpaiementcotisation->rowCount();
 
+
+  $selectstatusmembre = $db->prepare("SELECT * FROM users WHERE user_id=:user_id and status=:status");
+  $selectstatusmembre->execute(array(
+    "user_id"=>$user_id,
+    "status"=>'MEMBRE'
+  ));
+  $countstatusmembre = $selectstatusmembre->rowCount();
+
   $namepage = $unecat->name;
 
   if($namepage == 'Devenir Membre'){
-
+if($countstatusmembre == '1'){
     if($countvalidation == '1'){
 
-    }else{
+
+    }}else{
       ?>
 
       <a href="<?php echo $unecat->page;?>">
