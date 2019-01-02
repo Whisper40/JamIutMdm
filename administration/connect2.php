@@ -24,6 +24,28 @@
 
   ?>
 <body>
+  <nav class="navbar navbar-primary navbar-transparent navbar-absolute">
+      <div class="container">
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                  <span class="sr-only">Portail Administateur du Site JAM</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href=" ../dashboard.html ">Material Dashboard Pro</a>
+          </div>
+          <div class="collapse navbar-collapse">
+              <ul class="nav navbar-nav navbar-right">
+                  <li class="">
+                      <a href="https://jam-mdm.fr/">
+                          <i class="material-icons">swap_horiz</i> Retour JAM
+                      </a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
     <div class="wrapper wrapper-full-page">
         <div class="full-page login-page" filter-color="black" data-image="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/IUTmdm.jpg">
             <div class="content">
