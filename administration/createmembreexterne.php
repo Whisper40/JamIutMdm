@@ -50,10 +50,7 @@ function SubmitFormDataCreerUnMembre() {
    });
 }
 </script>
-<?php
 
-$valeurcode = mt_rand(1000, 999999);
- ?>
 
 <body class="landing-page sidebar-collapse">
   <div class="wrapper">
@@ -75,7 +72,7 @@ $valeurcode = mt_rand(1000, 999999);
                                   <input type="text" name="prenom" value="Pierre" id="prenom" class="form-control">
                               </div>
 
-                            
+
 
                             <div class="form-group label-floating">
                             <label class="control-label">Raison</label>
