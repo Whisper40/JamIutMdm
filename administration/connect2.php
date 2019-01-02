@@ -47,7 +47,7 @@
       </div>
   </nav>
     <div class="wrapper wrapper-full-page">
-        <div class="full-page login-page" data-image="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/IUTmdm.jpg">
+        <div class="full-page login-page" filter-color="black" data-image="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/IUTmdm.jpg">
             <div class="content">
                 <div class="container">
                     <div class="row">
