@@ -41,7 +41,40 @@ while($unecat = $cat->fetch(PDO::FETCH_OBJ)){
                         <div class="collapse in" id="componentsExamples">
                             <ul class="nav">
                                 <li>
-                                    <a href="?page=index&amp;table=pageindex">Buttons</a>
+                                    <a href="?page=index&amp;table=pageindex">Index Site</a>
+                                </li>
+                                <li>
+                                    <a href="?page=devenirmembre&amp;table=pagedevenirmembre">Devenir Membre</a>
+                                </li>
+                                <li>
+                                    <a href="?page=association&amp;table=pageasso">Présentation Association</a>
+                                </li>
+                                <li>
+                                    <a href="?page=membre&amp;table=membres">Présentation Membre</a>
+                                </li>
+                                <li>
+                                    <a href="?page=status&amp;table=status">Les Status</a>
+                                </li>
+                                <li>
+                                    <a href="?page=lienutiles&amp;table=lienutiles">Liens Utiles</a>
+                                </li>
+                                <li>
+                                    <a href="?page=actualite&amp;table=newsactus">Actualités</a>
+                                </li>
+                                <li>
+                                    <a href="?page=activitesvoyages&amp;table=activitesvoyages">Activités / Voyage</a>
+                                </li>
+                                <li>
+                                    <a href="?page=galerie&amp;table=images">Galerie</a>
+                                </li>
+                                <li>
+                                    <a href="?page=nouscontacter&amp;table=none">Nous contacter</a>
+                                </li>
+                                <li>
+                                    <a href="?page=faireundon&amp;table=none">Faire un don</a>
+                                </li>
+                                <li>
+                                    <a href="?page=faireundonpaiement&amp;table=none">Faire un don2</a>
                                 </li>
                             </ul>
                         </div>
