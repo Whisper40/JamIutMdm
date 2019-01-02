@@ -3637,75 +3637,11 @@ $description = $r46->description;
 
 
 <?php
-
 //Fin modif paiement don
-
-}
-
-
-}else{//FIN $_GET
-
-?>
-
-    <a href="?page=index&amp;table=pageindex">
-      <button type="button" class="btn">Page Index</button>
-    </a>
-
-    <a href="?page=devenirmembre&amp;table=pagedevenirmembre">
-      <button type="button" class="btn">Page Devenir Membre</button>
-    </a>
-
-    <a href="?page=association&amp;table=pageasso">
-      <button type="button" class="btn">Page Association</button>
-    </a>
-
-    <a href="?page=membre&amp;table=membres">
-      <button type="button" class="btn">Page Membre</button>
-    </a>
-
-    <a href="?page=status&amp;table=status">
-      <button type="button" class="btn">Page Status</button>
-    </a>
-
-    <a href="?page=lienutiles&amp;table=lienutiles">
-      <button type="button" class="btn">Page Liens</button>
-    </a>
-
-    <a href="?page=actualite&amp;table=newsactus">
-      <button type="button" class="btn">Page Actualitée</button>
-    </a>
-
-    <a href="?page=activitesvoyages&amp;table=activitesvoyages">
-      <button type="button" class="btn">Page Activité/Voyages</button>
-    </a>
-
-    <a href="?page=galerie&amp;table=images">
-      <button type="button" class="btn">Page Galerie</button>
-    </a>
-
-    <a href="?page=nouscontacter&amp;table=none">
-      <button type="button" class="btn">Page Nous Contacter</button>
-    </a>
-
-    <a href="?page=faireundon&amp;table=none">
-      <button type="button" class="btn">Page Faire Un Don</button>
-    </a>
-
-    <a href="?page=faireundonpaiement&amp;table=none">
-      <button type="button" class="btn">Page Faire Un Don Paiement</button>
-    </a>
-
-
-
-<?php
-
-}
-?>
-
+} } ?>
 
   </div>
 
   <?php
-  require_once('includes/footer.php');
   require_once('includes/javascript.php');
   ?>

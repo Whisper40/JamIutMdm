@@ -143,6 +143,5 @@ function SubmitFormDataCreerUnMembre() {
   </div>
 </body>
 <?php
-require_once('includes/footer.php');
 require_once('includes/javascript.php');
 ?>

@@ -4,7 +4,7 @@
     $nompage = "Nous Contacter";
 
 
-  
+
 
 //Code de génératon du captcha fournie par GOOGLE
 $secret = "LESECRET";
@@ -335,6 +335,5 @@ $selectcatimages=$db->query("SELECT DISTINCT title FROM images");
   </div>
 
   <?php
-  require_once('includes/footer.php');
   require_once('includes/javascript.php');
   ?>

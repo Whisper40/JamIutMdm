@@ -176,6 +176,5 @@ $setban->execute();
   </div>
 
   <?php
-  require_once('includes/footer.php');
   require_once('includes/javascript.php');
   ?>

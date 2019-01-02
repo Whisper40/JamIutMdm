@@ -776,11 +776,6 @@ kevin = {
         md.startAnimationForBarChart(websiteViewsChart);
 
     },
-
-
-
-
-
 }
 
 </script>

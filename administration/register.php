@@ -284,7 +284,5 @@ if(!isset($_SESSION['user_id'])){
     header('Location:my_account.php');
 }
 
-require_once('includes/footer.php');
-
 require_once('includes/javascript.php');
 ?>
