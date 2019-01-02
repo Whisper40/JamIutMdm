@@ -73,7 +73,7 @@ function SubmitFormDataCreerUnMembre() {
 
                             <div class="form-group label-floating">
                             <label class="control-label">Code</label>
-                            <input type="number" min="1000" name="code" value="<?php echo echo mt_rand(1000, 999999); ?>" id="code" class="form-control">
+                            <input type="number" min="1000" name="code" value="<?php echo mt_rand(1000, 999999); ?>" id="code" class="form-control">
                             </div>
 
                             <div class="form-group label-floating">
