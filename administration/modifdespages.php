@@ -108,18 +108,27 @@ function RetourIndex(){
                   <div class="row">
                       <div class="col-sm-6">
                           <div class="card-content">
+                            <center>
+                            <h3 class="card-title">En tete de la page</h3>
+                            </center>
                             <div class="form-group label-floating">
                                 <label class="control-label">Image du fond</label>
                                 <input type="text" class="form-control" value="<?php echo $img1; ?>" name="img1" id="img1">
                             </div>
+                            <center>
+                            <h3 class="card-title">Corp de page</h3>
+                            </center>
                             <div class="form-group label-floating">
                                 <label class="control-label">Titre Principal</label>
                                 <input type="text" name="titre1" value="<?php echo $titre1; ?>" id="titre1" class="form-control">
                             </div>
                             <div class="form-group label-floating">
                                 <label class="control-label">Description</label>
-                                <textarea rows="10" name="description1" id="description1" class="form-control"><?php echo $description1; ?></textarea>
+                                <textarea rows="12" name="description1" id="description1" class="form-control"><?php echo $description1; ?></textarea>
                             </div>
+                            <center>
+                            <h3 class="card-title">Pied de page</h3>
+                            </center>
                             <div class="form-group label-floating">
                                 <label class="control-label">Description Secondaire</label>
                                 <textarea rows="5" name="description2" id="description2" class="form-control"><?php echo $description2; ?></textarea>
