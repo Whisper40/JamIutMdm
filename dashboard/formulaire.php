@@ -3,7 +3,7 @@
     require_once('includes/checkconnection.php');
     $nompage = "Formulaire activitée";
     require_once('includes/head.php');
-    
+
 if(isset($_GET['type'])){
   $type=$_GET['type'];
   $cattitre = $_GET['type'];
@@ -235,6 +235,23 @@ if ($type == 'ski'){
                                      </form>
                                      </div>
                                  </div>
+                                 <div class="col-sm-6">
+                                     <div class="card-content">
+                                       <br><br>
+                                       <center>
+                                       <h3 class="card-title">Annuler sa Participation</h3>
+                                       </center>
+                                        <div class="card-content">
+                                            <div class="info info-horizontal">
+                                                <div class="description">
+                                                    <center>
+                                                    <h4 class="info-title">Pour annuler votre participation à cette activitée pour laquelle vous avez déja payer, merci de prendre contact avec un membre de l'association</h4>
+                                                    </center>
+                                                </div>
+                                            </div>
+                                        </div>
+                                     </div>
+                                 </div>
                              </div>
                          </div>
                      </div>
@@ -289,8 +306,23 @@ if ($type == 'ski'){
                             <p align="justify"><?php echo $infoscomplementaires ?></p>
                         </div>
                       </div>
-
-
+                      <div class="col-sm-6">
+                          <div class="card-content">
+                            <br><br>
+                            <center>
+                            <h3 class="card-title">Annuler sa Participation</h3>
+                            </center>
+                             <div class="card-content">
+                                 <div class="info info-horizontal">
+                                     <div class="description">
+                                         <center>
+                                         <h4 class="info-title">Pour annuler votre participation à cette activitée pour laquelle vous avez déja payer, merci de prendre contact avec un membre de l'association</h4>
+                                         </center>
+                                     </div>
+                                 </div>
+                             </div>
+                          </div>
+                      </div>
                   </div>
               </div>
           </div>
