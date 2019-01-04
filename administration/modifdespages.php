@@ -123,13 +123,10 @@ function RetourIndex(){
                               </div>
                            </div>
                       </div>
+                    </div>
+                    <div class="row">
                       <div class="col-sm-6">
                           <div class="card-content">
-                            <h3 class="card-title">En tete de la page</h3>
-                            <div class="form-group label-floating">
-                                <label class="control-label">Image du fond</label>
-                                <input type="text" class="form-control" value="<?php echo $img1; ?>" name="img1" id="img1">
-                            </div>
                             <h3 class="card-title">Corp de page</h3>
                             <div class="form-group label-floating">
                                 <label class="control-label">Titre Principal</label>
@@ -139,19 +136,10 @@ function RetourIndex(){
                                 <label class="control-label">Description</label>
                                 <textarea rows="12" name="description1" id="description1" class="form-control"><?php echo $description1; ?></textarea>
                             </div>
-                            <h3 class="card-title">Pied de page</h3>
-                            <div class="form-group label-floating">
-                                <label class="control-label">Description Secondaire</label>
-                                <textarea rows="5" name="description2" id="description2" class="form-control"><?php echo $description2; ?></textarea>
-                            </div>
                            </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="card-content">
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Logo Central</label>
-                                  <input type="text" name="logo1" value="<?php echo $logo1; ?>"id="logo1" class="form-control">
-                              </div>
                               <div class="form-group label-floating">
                                   <label class="control-label">Logo</label>
                                   <input type="text" name="logo2" value="<?php echo $logo2; ?>" id="logo2" class="form-control">
@@ -172,32 +160,12 @@ function RetourIndex(){
                                   <label class="control-label">Lien bouton droite</label>
                                   <input type="text" name="lienbt2" value="<?php echo $lienbt2; ?>" id="lienbt2" class="form-control">
                               </div>
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Titre Secondaire</label>
-                                  <input type="text" name="titre2" value="<?php echo $titre2; ?>" id="titre2" class="form-control">
-                              </div>
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Lien Facebook</label>
-                                  <input type="text" name="fb" value="<?php echo $fb; ?>" id="fb" class="form-control">
-                              </div>
                            </div>
                       </div>
+                    </div>
+                    <div class="row">
                       <div class="col-sm-6">
                           <div class="card-content">
-                            <h3 class="card-title">En tete de la page</h3>
-                            <div class="form-group label-floating">
-                                <label class="control-label">Image du fond</label>
-                                <input type="text" class="form-control" value="<?php echo $img1; ?>" name="img1" id="img1">
-                            </div>
-                            <h3 class="card-title">Corp de page</h3>
-                            <div class="form-group label-floating">
-                                <label class="control-label">Titre Principal</label>
-                                <input type="text" name="titre1" value="<?php echo $titre1; ?>" id="titre1" class="form-control">
-                            </div>
-                            <div class="form-group label-floating">
-                                <label class="control-label">Description</label>
-                                <textarea rows="12" name="description1" id="description1" class="form-control"><?php echo $description1; ?></textarea>
-                            </div>
                             <h3 class="card-title">Pied de page</h3>
                             <div class="form-group label-floating">
                                 <label class="control-label">Description Secondaire</label>
@@ -208,30 +176,6 @@ function RetourIndex(){
                         <div class="col-sm-6">
                             <div class="card-content">
                               <div class="form-group label-floating">
-                                  <label class="control-label">Logo Central</label>
-                                  <input type="text" name="logo1" value="<?php echo $logo1; ?>"id="logo1" class="form-control">
-                              </div>
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Logo</label>
-                                  <input type="text" name="logo2" value="<?php echo $logo2; ?>" id="logo2" class="form-control">
-                              </div>
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Bouton Gauche</label>
-                                  <input type="text" name="bouton1" value="<?php echo $bouton1; ?>" id="bouton1" class="form-control">
-                              </div>
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Lien bouton gauche</label>
-                                  <input type="text" name="lienbt1" value="<?php echo $lienbt1; ?>" id="lienbt1" class="form-control">
-                              </div>
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Bouton Droite</label>
-                                  <input type="text" name="bouton2" value="<?php echo $bouton2; ?>" id="bouton2" class="form-control">
-                              </div>
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Lien bouton droite</label>
-                                  <input type="text" name="lienbt2" value="<?php echo $lienbt2; ?>" id="lienbt2" class="form-control">
-                              </div>
-                              <div class="form-group label-floating">
                                   <label class="control-label">Titre Secondaire</label>
                                   <input type="text" name="titre2" value="<?php echo $titre2; ?>" id="titre2" class="form-control">
                               </div>
@@ -241,6 +185,8 @@ function RetourIndex(){
                               </div>
                            </div>
                       </div>
+                    </div>
+                    <div class="row">
                       <div class="col-sm-12">
                           <div class="card-content">
                             <center>
