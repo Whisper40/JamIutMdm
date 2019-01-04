@@ -117,7 +117,7 @@ function RetourIndex(){
                         </div>
                         <div class="col-sm-6">
                             <div class="card-content">
-                              <h3 class="card-title"> </h3>
+                              <br>
                               <div class="form-group label-floating">
                                   <label class="control-label">Logo Central</label>
                                   <input type="text" name="logo1" value="<?php echo $logo1; ?>"id="logo1" class="form-control">
@@ -141,7 +141,7 @@ function RetourIndex(){
                         </div>
                         <div class="col-sm-6">
                             <div class="card-content">
-                              <h3 class="card-title"> </h3>
+                              <br><br>
                               <div class="form-group label-floating">
                                   <label class="control-label">Logo</label>
                                   <input type="text" name="logo2" value="<?php echo $logo2; ?>" id="logo2" class="form-control">
@@ -177,7 +177,7 @@ function RetourIndex(){
                         </div>
                         <div class="col-sm-6">
                             <div class="card-content">
-                              <h3 class="card-title"> </h3>
+                              <br><br>
                               <div class="form-group label-floating">
                                   <label class="control-label">Titre Secondaire</label>
                                   <input type="text" name="titre2" value="<?php echo $titre2; ?>" id="titre2" class="form-control">
