@@ -105,10 +105,16 @@ function RetourIndex(){
               <div class="card-content">
                   <h2 class="card-title text-center">Modification de l'index du site</h2>
                   <form action="" method="post" id="myForm1" class="contact-form">
+                    <div class="row">
+                      <div class="col-sm-12">
+                          <div class="card-content">
+                            <h3 class="card-title">En tete de la page</h3>
+                        </div>
+                      </div>
+                    </div>
                   <div class="row">
                       <div class="col-sm-6">
                           <div class="card-content">
-                            <h3 class="card-title">En tete de la page</h3>
                             <div class="form-group label-floating">
                                 <label class="control-label">Image du fond</label>
                                 <input type="text" class="form-control" value="<?php echo $img1; ?>" name="img1" id="img1">
@@ -117,7 +123,6 @@ function RetourIndex(){
                         </div>
                         <div class="col-sm-6">
                             <div class="card-content">
-                              <br>
                               <div class="form-group label-floating">
                                   <label class="control-label">Logo Central</label>
                                   <input type="text" name="logo1" value="<?php echo $logo1; ?>"id="logo1" class="form-control">
@@ -126,9 +131,15 @@ function RetourIndex(){
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-sm-6">
+                      <div class="col-sm-12">
                           <div class="card-content">
                             <h3 class="card-title">Corp de page</h3>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-6">
+                          <div class="card-content">
                             <div class="form-group label-floating">
                                 <label class="control-label">Titre Principal</label>
                                 <input type="text" name="titre1" value="<?php echo $titre1; ?>" id="titre1" class="form-control">
@@ -141,7 +152,6 @@ function RetourIndex(){
                         </div>
                         <div class="col-sm-6">
                             <div class="card-content">
-                              <br><br>
                               <div class="form-group label-floating">
                                   <label class="control-label">Logo</label>
                                   <input type="text" name="logo2" value="<?php echo $logo2; ?>" id="logo2" class="form-control">
@@ -166,9 +176,15 @@ function RetourIndex(){
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-sm-6">
+                      <div class="col-sm-12">
                           <div class="card-content">
                             <h3 class="card-title">Pied de page</h3>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-6">
+                          <div class="card-content">
                             <div class="form-group label-floating">
                                 <label class="control-label">Description Secondaire</label>
                                 <textarea rows="5" name="description2" id="description2" class="form-control"><?php echo $description2; ?></textarea>
@@ -177,7 +193,6 @@ function RetourIndex(){
                         </div>
                         <div class="col-sm-6">
                             <div class="card-content">
-                              <br><br>
                               <div class="form-group label-floating">
                                   <label class="control-label">Titre Secondaire</label>
                                   <input type="text" name="titre2" value="<?php echo $titre2; ?>" id="titre2" class="form-control">
