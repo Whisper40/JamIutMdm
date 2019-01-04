@@ -117,6 +117,7 @@ function RetourIndex(){
                         </div>
                         <div class="col-sm-6">
                             <div class="card-content">
+                              <h3 class="card-title"> </h3>
                               <div class="form-group label-floating">
                                   <label class="control-label">Logo Central</label>
                                   <input type="text" name="logo1" value="<?php echo $logo1; ?>"id="logo1" class="form-control">
@@ -134,12 +135,13 @@ function RetourIndex(){
                             </div>
                             <div class="form-group label-floating">
                                 <label class="control-label">Description</label>
-                                <textarea rows="12" name="description1" id="description1" class="form-control"><?php echo $description1; ?></textarea>
+                                <textarea rows="13" name="description1" id="description1" class="form-control"><?php echo $description1; ?></textarea>
                             </div>
                            </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="card-content">
+                              <h3 class="card-title"> </h3>
                               <div class="form-group label-floating">
                                   <label class="control-label">Logo</label>
                                   <input type="text" name="logo2" value="<?php echo $logo2; ?>" id="logo2" class="form-control">
@@ -175,6 +177,7 @@ function RetourIndex(){
                         </div>
                         <div class="col-sm-6">
                             <div class="card-content">
+                              <h3 class="card-title"> </h3>
                               <div class="form-group label-floating">
                                   <label class="control-label">Titre Secondaire</label>
                                   <input type="text" name="titre2" value="<?php echo $titre2; ?>" id="titre2" class="form-control">
