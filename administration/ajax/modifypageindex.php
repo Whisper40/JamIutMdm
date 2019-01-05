@@ -16,7 +16,7 @@ require_once('../includes/connectBDD.php');
         $fb = $_POST['fb'];
         ?>
 
-      
+
 
     <?php
 
@@ -59,7 +59,7 @@ require_once('../includes/connectBDD.php');
 
                     <script>
                     demo.showSwal('success-message');
-                    demo.showNotification('top','right','<b>Succès</b> - Modification effectuées !');
+                    demo.showNotification('top','right','<b>Succès</b> - Modifications effectuées !');
                     </script>
 
             <?php

@@ -227,26 +227,7 @@ function RetourIndex(){
 
 
   ?>
-    <script>
 
-
-     function SubmitFormDataDevenirMembre() {
-        var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-        var id = "<?php echo $id; ?>";
-        var introduction = $("#introduction").val();
-        var etape1 = $("#etape1").val();
-        var etape2 = $("#etape2").val();
-        var etape3 = $("#etape3").val();
-
-        $.post("ajax/modifypagedevenirmembre.php", { user_id:user_id, id:id, introduction: introduction, etape1: etape1, etape2: etape2, etape3: etape3},
-        function(data) {
-         $('#results2').html(data);
-
-        });
-
-    }
-
-    </script>
     <?php
     $selectinfosactuel = $db->prepare("SELECT * from pagedevenirmembre");
     $selectinfosactuel->execute();
@@ -258,6 +239,26 @@ function RetourIndex(){
     $etape3 = $r2->etape3;
 
   ?>
+  <script>
+
+
+   function SubmitFormDataDevenirMembre() {
+      var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+      var id = "<?php echo $id; ?>";
+      var introduction = $("#introduction").val();
+      var etape1 = $("#etape1").val();
+      var etape2 = $("#etape2").val();
+      var etape3 = $("#etape3").val();
+
+      $.post("ajax/modifypagedevenirmembre.php", { user_id:user_id, id:id, introduction: introduction, etape1: etape1, etape2: etape2, etape3: etape3},
+      function(data) {
+       $('#results2').html(data);
+
+      });
+
+  }
+
+  </script>
     <div class="content">
         <div class="container-fluid">
             <div class="card">
