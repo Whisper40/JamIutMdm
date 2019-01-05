@@ -454,29 +454,7 @@ function RetourIndex2(){
   window.location="https://administration.jam-mdm.fr/modifdespages.php?page=membre&table=membres"
 }
 </script>
-    <script>
 
-
-     function SubmitFormDataModifMembre() {
-        var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-        var id = "<?php echo $id; ?>";
-        var nom = $("#nom").val();
-        var image = $("#image").val();
-        var description = $("#description").val();
-        var grademembre = $('#grademembre').val();
-        var importancegrade = $('#importancegrade').val();
-        var fonction = $("#fonction").val();
-
-
-        $.post("ajax/modifypagemodifmembre.php", { user_id:user_id, id:id, nom: nom, image: image, description: description, grademembre: grademembre, importancegrade: importancegrade},
-        function(data) {
-         $('#results4').html(data);
-
-        });
-
-    }
-
-    </script>
     <?php
     $user_id = $_GET['modifmembre'];
 
@@ -495,7 +473,29 @@ function RetourIndex2(){
     $description = $r2->description;
 
 ?>
+<script>
 
+
+ function SubmitFormDataModifMembre() {
+    var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+    var id = "<?php echo $id; ?>";
+    var nom = $("#nom").val();
+    var image = $("#image").val();
+    var description = $("#description").val();
+    var grademembre = $('#grademembre').val();
+    var importancegrade = $('#importancegrade').val();
+    var fonction = $("#fonction").val();
+
+
+    $.post("ajax/modifypagemodifmembre.php", { user_id: user_id, id: id, nom: nom, image: image, description: description, grademembre: grademembre, importancegrade: importancegrade},
+    function(data) {
+     $('#results4').html(data);
+
+    });
+
+}
+
+</script>
     <div class="content">
         <div class="container-fluid">
             <div class="card">
@@ -511,7 +511,7 @@ function RetourIndex2(){
                               </div>
                               <div class="form-group label-floating">
                                   <label class="control-label">Image</label>
-                                  <input type="text" name="image" value="<?php echo $image; ?>"id="image" class="form-control">
+                                  <input type="text" name="image" value="<?php echo $image; ?>" id="image" class="form-control">
                               </div>
 
                               <div class="jquerysel"><!-- on s'en fout -->
@@ -598,7 +598,7 @@ if ($categorie == 'tres'){
                             <div class="card-content">
 
                               <center>
-                              <button id="SubmitFormDataModifMembre" onclick="SubmitFormDataModifMembre();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                              <button id="submitFormDataModifMembre" onclick="SubmitFormDataModifMembre();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
                               <button onclick="RetourIndex2();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                               </center>
                              </div>
