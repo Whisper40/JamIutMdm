@@ -250,7 +250,7 @@ function RetourIndex(){
       var etape2 = $("#etape2").val();
       var etape3 = $("#etape3").val();
 
-      $.post("ajax/modifypagedevenirmembre.php", { user_id:user_id, id:id, introduction: introduction, etape1: etape1, etape2: etape2, etape3: etape3},
+      $.post("ajax/modifypagedevenirmembre.php", { user_id: user_id, id:id, introduction: introduction, etape1: etape1, etape2: etape2, etape3: etape3},
       function(data) {
        $('#results2').html(data);
 
