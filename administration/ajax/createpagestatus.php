@@ -3,7 +3,7 @@ require_once('../includes/connectBDD.php');
 
         $user_id = $_POST['user_id'];
         $article = $_POST['article'];
-        $titre = $_POST['titre'];
+        $titre = $_POST['titrestatus'];
         $soustitre = $_POST['soustitre'];
         $description = $_POST['description'];
 

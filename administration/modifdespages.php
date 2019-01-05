@@ -1319,10 +1319,10 @@ $titre = $r40->titre;
 function SubmitFormDataCreateStatus() {
    var user_id = "<?php echo $_SESSION['admin_id']; ?>";
    var article = $("#article").val();
-   var titre = $("#titre").val();
+   var titrestatus = $("#titrestatus").val();
    var soustitre = $("#soustitre").val();
    var description = $("#description").val();
-   $.post("ajax/createpagestatus.php", { user_id: user_id, article: article, titre: titre, soustitre: soustitre, description: description},
+   $.post("ajax/createpagestatus.php", { user_id: user_id, article: article, titrestatus: titrestatus, soustitre: soustitre, description: description},
    function(data) {
     $('#results7').html(data);
 
@@ -1346,7 +1346,7 @@ function SubmitFormDataCreateStatus() {
                           </div>
                           <div class="form-group label-floating">
                               <label class="control-label">Titre</label>
-                              <input type="text" name="titre" value="Titre du status" id="titre" class="form-control">
+                              <input type="text" name="titrestatus" value="Titre du status" id="titrestatus" class="form-control">
                           </div>
 
 
