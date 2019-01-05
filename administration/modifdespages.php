@@ -60,7 +60,7 @@ function RetourIndex(){
   <script>
    function SubmitFormDataIndex() {
       var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-      var id = "<?php echo $id ?>";
+      var id = "<?php echo $id; ?>";
       var img1 = $("#img1").val();
       var logo1 = $("#logo1").val();
       var titre1 = $("#titre1").val();
