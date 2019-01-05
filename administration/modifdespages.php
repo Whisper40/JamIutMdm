@@ -2924,7 +2924,7 @@ if (file_exists($target_dir)){
    var title = $("#title").val();
 
 //AFAIRE
-   $.post("ajax/deleteuneactivitevoyage.php", { user_id:user_id, title: title},
+   $.post("ajax/deleteuneactivitevoyage.php", { user_id: user_id, title: title},
    function(data) {
     $('#results20').html(data);
 
@@ -2962,7 +2962,7 @@ if (file_exists($target_dir)){
                 <div class="col-sm-12">
                     <div class="card-content">
                       <center>
-                      <button id="SubmitFormDataDeleteActivitevoyages" onclick="SubmitFormDataDeleteActivitevoyages();" type="button" class="btn btn-primary btn-round btn-rose">Supprimer</button>
+                      <button id="submitFormDataDeleteActivitevoyages" onclick="SubmitFormDataDeleteActivitevoyages();" type="button" class="btn btn-primary btn-round btn-rose">Supprimer</button>
                       <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                       </center>
                      </div>
@@ -3286,24 +3286,7 @@ function RetourIndex(){
 //Modif page galerie
 
 ?>
-<script>
 
-
-function SubmitFormDataGallerie() {
-   var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-   var pagetitre = $("#pagetitre").val();
-   var image = $("#image").val();
-   var titre = $("#titre").val();
-
-   $.post("ajax/modifypagegallerie.php", { user_id:user_id, pagetitre: pagetitre, image: image, titre: titre},
-   function(data) {
-    $('#results22').html(data);
-
-   });
-
-}
-
-</script>
 
 <?php
 $selectinfosactuel43 = $db->prepare("SELECT * from photopage where nompage=:nompage");
@@ -3317,6 +3300,24 @@ $titre = $r43->titre;
 
 
 ?>
+<script>
+
+
+function SubmitFormDataGallerie() {
+   var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+   var pagetitre = $("#pagetitre").val();
+   var image = $("#image").val();
+   var titre = $("#titre").val();
+
+   $.post("ajax/modifypagegallerie.php", { user_id: user_id, pagetitre: pagetitre, image: image, titre: titre},
+   function(data) {
+    $('#results22').html(data);
+
+   });
+
+}
+
+</script>
 <div class="content">
     <div class="container-fluid">
         <div class="card">
@@ -3351,7 +3352,7 @@ $titre = $r43->titre;
                         <div class="card-content">
 
                           <center>
-                          <button id="SubmitFormDataGallerie" onclick="SubmitFormDataGallerie();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                          <button id="submitFormDataGallerie" onclick="SubmitFormDataGallerie();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
                           <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                           </center>
                          </div>
