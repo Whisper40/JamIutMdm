@@ -2493,24 +2493,7 @@ if (file_exists($target_dir)){
   //Page newsactus
 
   ?>
-  <script>
 
-
-   function SubmitFormDataModifActivitesVoyages() {
-      var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-      var image = $("#image").val();
-      var titre = $("#titre").val();
-      var pagetitre = $("#pagetitre").val();
-      var description = $("#description").val();
-      $.post("ajax/modifypageactivitesvoyages.php", { user_id:user_id, image: image, titre: titre, pagetitre: pagetitre, description: description},
-      function(data) {
-       $('#results18').html(data);
-
-      });
-
-  }
-
-  </script>
   <?php
 
 
@@ -2527,7 +2510,24 @@ if (file_exists($target_dir)){
   $description = $r9->description;
 
   ?>
+  <script>
 
+
+   function SubmitFormDataModifActivitesVoyages() {
+      var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+      var image = $("#image").val();
+      var titre = $("#titre").val();
+      var pagetitre = $("#pagetitre").val();
+      var description = $("#description").val();
+      $.post("ajax/modifypageactivitesvoyages.php", { user_id: user_id, image: image, titre: titre, pagetitre: pagetitre, description: description},
+      function(data) {
+       $('#results18').html(data);
+
+      });
+
+  }
+
+  </script>
 
   <div class="content">
       <div class="container-fluid">
@@ -2551,7 +2551,7 @@ if (file_exists($target_dir)){
 
                             <div class="form-group label-floating">
                                 <label class="control-label">Titre</label>
-                                <input type="text" name="titre" value="<?php echo $titre; ?>"id="titre" class="form-control">
+                                <input type="text" name="titre" value="<?php echo $titre; ?>" id="titre" class="form-control">
                             </div>
 
                             <div class="form-group label-floating">
@@ -2565,7 +2565,7 @@ if (file_exists($target_dir)){
                           <div class="card-content">
 
                             <center>
-                            <button id="SubmitFormDataModifActivitesVoyages" onclick="SubmitFormDataModifActivitesVoyages();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                            <button id="submitFormDataModifActivitesVoyages" onclick="SubmitFormDataModifActivitesVoyages();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
                             <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                             </center>
                            </div>
