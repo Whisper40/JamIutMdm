@@ -1400,28 +1400,7 @@ function RetourIndex2(){
   window.location="https://administration.jam-mdm.fr/modifdespages.php?page=membre&table=membres"
 }
 </script>
-    <script>
 
-
-     function SubmitFormDataModifActualite() {
-        var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-        var id = "<?php echo $id; ?>";
-        var title = $("#title").val();
-        var description = $("#description").val();
-        var title2 = $("#title2").val();
-        var description2 = $("#description2").val();
-        var title3 = $("#titre3").val();
-        var description3 = $("#description3").val();
-        var formatimg = $("#formatimg").val();
-        $.post("ajax/modifyallactualite.php", { user_id:user_id, id:id, title: title, description: description, title2: title2, description2: description2, title3: title3, description3: description3, formatimg: formatimg},
-        function(data) {
-         $('#results11').html(data);
-
-        });
-
-    }
-
-    </script>
     <?php
     $id = $_GET['modifactus'];
 
@@ -1445,7 +1424,28 @@ function RetourIndex4(){
   window.location="https://administration.jam-mdm.fr/modifdespages.php?page=actualite&table=newsactus"
 }
 </script>
+<script>
 
+
+ function SubmitFormDataModifActualite() {
+    var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+    var id = "<?php echo $id; ?>";
+    var title = $("#title").val();
+    var description = $("#description").val();
+    var title2 = $("#title2").val();
+    var description2 = $("#description2").val();
+    var title3 = $("#titre3").val();
+    var description3 = $("#description3").val();
+    var formatimg = $("#formatimg").val();
+    $.post("ajax/modifyallactualite.php", { user_id: user_id, id: id, title: title, description: description, title2: title2, description2: description2, title3: title3, description3: description3, formatimg: formatimg},
+    function(data) {
+     $('#results11').html(data);
+
+    });
+
+}
+
+</script>
     <div class="content">
         <div class="container-fluid">
             <div class="card">
@@ -1462,7 +1462,7 @@ function RetourIndex4(){
 
                               <div class="form-group label-floating">
                                   <label class="control-label">Description</label>
-                                  <input type="text" name="description" value="<?php echo $description; ?>"id="description" class="form-control">
+                                  <input type="text" name="description" value="<?php echo $description; ?>" id="description" class="form-control">
                               </div>
 
                               <div class="form-group label-floating">
