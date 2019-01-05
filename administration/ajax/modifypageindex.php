@@ -14,6 +14,14 @@ require_once('../includes/connectBDD.php');
         $titre2 = $_POST['titre2'];
         $description2 = $_POST['description2'];
         $fb = $_POST['fb'];
+        ?>
+
+            <script>
+            demo.showSwal('success-message');
+            demo.showNotification('top','right','<b>Succès</b> - Modification effectuées !');
+            </script>
+
+    <?php
 
 
         if(!empty($user_id)&&!empty($id)&&!empty($img1)&&!empty($logo1)&&!empty($titre1)&&!empty($description1)&&!empty($bouton1)&&!empty($lienbt1)&&!empty($bouton2)&&!empty($logo2)&&!empty($titre2)&&!empty($description2)&&!empty($fb)){
