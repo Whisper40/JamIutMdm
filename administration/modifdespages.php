@@ -57,28 +57,7 @@ function RetourIndex(){
       $table = $_GET['table'];
     ?>
 
-  <script>
-   function SubmitFormDataIndex() {
-      var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-      var id = "<?php echo $id; ?>";
-      var img1 = $("#img1").val();
-      var logo1 = $("#logo1").val();
-      var titre1 = $("#titre1").val();
-      var description1 = $("#description1").val();
-      var bouton1 = $("#bouton1").val();
-      var lienbt1 = $("#lienbt1").val();
-      var bouton2 = $("#bouton2").val();
-      var lienbt2 = $("#lienbt2").val();
-      var logo2 = $("#logo2").val();
-      var titre2 = $("#titre2").val();
-      var description2 = $("#description2").val();
-      var fb = $("#fb").val();
-      $.post("ajax/modifypageindex.php", { user_id:user_id, id:id, img1: img1, logo1: logo1, titre1: titre1, description1: description1, bouton1: bouton1, lienbt1: lienbt1, bouton2: bouton2, lienbt2: lienbt2, logo2: logo2, titre2: titre2, description2: description2, fb: fb},
-      function(data) {
-       $('#results1').html(data);
-      });
-  }
-  </script>
+
 
   <?php
   $selectinfosactuel = $db->prepare("SELECT * from pageindex");
@@ -98,7 +77,28 @@ function RetourIndex(){
   $description2 = $r2->description2;
   $fb = $r2->fb;
 ?>
-
+<script>
+ function SubmitFormDataIndex() {
+    var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+    var id = "<?php echo $id; ?>";
+    var img1 = $("#img1").val();
+    var logo1 = $("#logo1").val();
+    var titre1 = $("#titre1").val();
+    var description1 = $("#description1").val();
+    var bouton1 = $("#bouton1").val();
+    var lienbt1 = $("#lienbt1").val();
+    var bouton2 = $("#bouton2").val();
+    var lienbt2 = $("#lienbt2").val();
+    var logo2 = $("#logo2").val();
+    var titre2 = $("#titre2").val();
+    var description2 = $("#description2").val();
+    var fb = $("#fb").val();
+    $.post("ajax/modifypageindex.php", { user_id: user_id, id:id, img1: img1, logo1: logo1, titre1: titre1, description1: description1, bouton1: bouton1, lienbt1: lienbt1, bouton2: bouton2, lienbt2: lienbt2, logo2: logo2, titre2: titre2, description2: description2, fb: fb},
+    function(data) {
+     $('#results1').html(data);
+    });
+}
+</script>
   <div class="content">
       <div class="container-fluid">
           <div class="card">
