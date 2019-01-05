@@ -487,7 +487,7 @@ function RetourIndex2(){
     var fonction = $("#fonction").val();
 
 
-    $.post("ajax/modifypagemodifmembre.php", { user_id: user_id, id: id, nom: nom, image: image, description: description, grademembre: grademembre, importancegrade: importancegrade},
+    $.post("ajax/modifypagemodifmembre.php", { user_id: user_id, id: id, nom: nom, image: image, description: description, grademembre: grademembre, importancegrade: importancegrade, fonction: fonction},
     function(data) {
      $('#results4').html(data);
 
