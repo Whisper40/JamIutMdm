@@ -331,28 +331,7 @@ function RetourIndex(){
 
 
   ?>
-    <script>
 
-
-     function SubmitFormDataPageAsso() {
-        var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-        var id = "<?php echo $id; ?>";
-        var titre1 = $("#titre1").val();
-        var description1 = $("#description1").val();
-        var description2 = $("#description2").val();
-        var pagetitre = $("#pagetitre").val();
-        var image = $("#image").val();
-
-
-        $.post("ajax/modifypageassociation.php", { user_id:user_id, id:id, titre1: titre1, description1: description1, description2: description2, pagetitre:pagetitre, image:image},
-        function(data) {
-         $('#results3').html(data);
-
-        });
-
-    }
-
-    </script>
     <?php
     $selectinfosactuel = $db->prepare("SELECT * from pageasso");
     $selectinfosactuel->execute();
@@ -371,6 +350,29 @@ function RetourIndex(){
     $image = $r3->image;
 
   ?>
+
+  <script>
+
+
+   function SubmitFormDataPageAsso() {
+      var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+      var id = "<?php echo $id; ?>";
+      var titre1 = $("#titre1").val();
+      var description1 = $("#description1").val();
+      var description2 = $("#description2").val();
+      var pagetitre = $("#pagetitre").val();
+      var image = $("#image").val();
+
+
+      $.post("ajax/modifypageassociation.php", { user_id: user_id, id:id, titre1: titre1, description1: description1, description2: description2, pagetitre:pagetitre, image:image},
+      function(data) {
+       $('#results3').html(data);
+
+      });
+
+  }
+
+  </script>
     <div class="content">
         <div class="container-fluid">
             <div class="card">
@@ -411,7 +413,7 @@ function RetourIndex(){
                             <div class="card-content">
 
                               <center>
-                              <button id="SubmitFormDataPageAsso" onclick="SubmitFormDataPageAsso();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                              <button id="submitFormDataPageAsso" onclick="SubmitFormDataPageAsso();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
                               <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                               </center>
                              </div>
