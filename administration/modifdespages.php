@@ -1170,22 +1170,7 @@ function RetourIndex3(){
 
 }else{
 ?>
-  <script>
 
-
-  function SubmitFormDataStatusPage() {
-     var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-     var pagetitre = $("#pagetitre").val();
-     var image = $("#image").val();
-     var titre = $("#titre").val();
-
-     $.post("ajax/modifypagestatusinfos.php", { user_id:user_id, pagetitre: pagetitre, image: image, titre: titre},
-     function(data) {
-      $('#results23').html(data);
-
-     });
-
-  }
 <?php
 $selectinfosactuel40 = $db->prepare("SELECT * from photopage where nompage=:nompage");
 $selectinfosactuel40->execute(array(
@@ -1198,7 +1183,23 @@ $titre = $r40->titre;
 
 
  ?>
-  </script>
+ <script>
+
+
+ function SubmitFormDataStatusPage() {
+    var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+    var pagetitre = $("#pagetitre").val();
+    var image = $("#image").val();
+    var titre = $("#titre").val();
+
+    $.post("ajax/modifypagestatusinfos.php", { user_id: user_id, pagetitre: pagetitre, image: image, titre: titre},
+    function(data) {
+     $('#results23').html(data);
+
+    });
+
+ }
+ </script>
   <div class="content">
       <div class="container-fluid">
           <div class="card">
@@ -1233,7 +1234,7 @@ $titre = $r40->titre;
                           <div class="card-content">
 
                             <center>
-                            <button id="SubmitFormDataStatusPage" onclick="SubmitFormDataStatusPage();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                            <button id="submitFormDataStatusPage" onclick="SubmitFormDataStatusPage();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
                             <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                             </center>
                            </div>
