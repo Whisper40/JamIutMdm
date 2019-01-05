@@ -1322,7 +1322,7 @@ function SubmitFormDataCreateStatus() {
    var titre = $("#titre").val();
    var soustitre = $("#soustitre").val();
    var description = $("#description").val();
-   $.post("ajax/createpagestatus.php", { user_id:user_id, article: article, titre: titre, soustitre: soustitre, description: description},
+   $.post("ajax/createpagestatus.php", { user_id: user_id, article: article, titre: titre, soustitre: soustitre, description: description},
    function(data) {
     $('#results7').html(data);
 
@@ -1368,7 +1368,7 @@ function SubmitFormDataCreateStatus() {
                         <div class="card-content">
 
                           <center>
-                          <button id="SubmitFormDataCreateStatus" onclick="SubmitFormDataCreateStatus();" type="button" class="btn btn-primary btn-round btn-rose">Créer</button>
+                          <button id="submitFormDataCreateStatus" onclick="SubmitFormDataCreateStatus();" type="button" class="btn btn-primary btn-round btn-rose">Créer</button>
                           <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                           </center>
                          </div>
