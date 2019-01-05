@@ -2355,6 +2355,7 @@ if (file_exists($target_dir)){
     $title3 = $r2->title3;
     $description3 = $r2->description3;
     $formatimg = $r2->formatimg;
+    $stock = $r2->stock;
   ?>
   <script>
   function RetourIndex4(){
