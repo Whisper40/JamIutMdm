@@ -10,7 +10,15 @@ require_once('../includes/connectBDD.php');
 
         if(!empty($user_id)&&!empty($pagetitre)&&!empty($image)&&!empty($titre)&&!empty($description)){
 
-              
+                $update = $db->prepare("UPDATE photopage SET pagetitre=:pagetitre, image=:image, titre=:titre, description=:description WHERE nompage=:nompage");
+                $update->execute(array(
+                    "nompage"=>'Activité / Voyage',
+                    "pagetitre"=>$pagetitre,
+                    "image"=>$image,
+                    "titre"=>$titre,
+                    "description"=>$description
+                    )
+                );
 
                 date_default_timezone_set('Europe/Paris');
                 setlocale(LC_TIME, 'fr_FR.utf8','fra');
