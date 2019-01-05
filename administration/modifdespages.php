@@ -1073,25 +1073,7 @@ function RetourIndex2(){
   window.location="https://administration.jam-mdm.fr/modifdespages.php?page=membre&table=membres"
 }
 </script>
-    <script>
 
-
-     function SubmitFormDataModifStatus() {
-        var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-        var id = "<?php echo $id; ?>";
-        var article = $("#article").val();
-        var titre = $("#titre").val();
-        var soustitre = $("#soustitre").val();
-        var description = $("#description").val();
-        $.post("ajax/modifypagestatus.php", { user_id:user_id, id:id, article: article, titre: titre, soustitre: soustitre, description: description},
-        function(data) {
-         $('#results6').html(data);
-
-        });
-
-    }
-
-    </script>
     <?php
     $id = $_GET['modifstatus'];
 
@@ -1113,7 +1095,25 @@ function RetourIndex3(){
   window.location="https://administration.jam-mdm.fr/modifdespages.php?page=status&table=status"
 }
 </script>
+<script>
 
+
+ function SubmitFormDataModifStatus() {
+    var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+    var id = "<?php echo $id; ?>";
+    var article = $("#article").val();
+    var titre = $("#titre").val();
+    var soustitre = $("#soustitre").val();
+    var description = $("#description").val();
+    $.post("ajax/modifypagestatus.php", { user_id: user_id, id: id, article: article, titre: titre, soustitre: soustitre, description: description},
+    function(data) {
+     $('#results6').html(data);
+
+    });
+
+}
+
+</script>
     <div class="content">
         <div class="container-fluid">
             <div class="card">
@@ -1130,7 +1130,7 @@ function RetourIndex3(){
 
                               <div class="form-group label-floating">
                                   <label class="control-label">Titre</label>
-                                  <input type="text" name="titre" value="<?php echo $titre; ?>"id="titre" class="form-control">
+                                  <input type="text" name="titre" value="<?php echo $titre; ?>" id="titre" class="form-control">
                               </div>
 
                               <div class="form-group label-floating">
@@ -1149,7 +1149,7 @@ function RetourIndex3(){
                             <div class="card-content">
 
                               <center>
-                              <button id="SubmitFormDataModifStatus" onclick="SubmitFormDataModifStatus();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                              <button id="submitFormDataModifStatus" onclick="SubmitFormDataModifStatus();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
                               <button onclick="RetourIndex3();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                               </center>
                              </div>
