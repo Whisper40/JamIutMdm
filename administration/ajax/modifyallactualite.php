@@ -13,9 +13,9 @@ require_once('../includes/connectBDD.php');
         $stock = $_POST['stock'];
 
 
-        if(!empty($id)&&!empty($user_id)&&!empty($title)&&!empty($description)&&!empty($formatimg)&&!empty($stock)){
+        if(!empty($id)&&!empty($user_id)&&!empty($title)&&!empty($description)&&!empty($formatimg)){
 
-                $update = $db->prepare("UPDATE photopage SET title=:title, description=:description, title2=:title2, description2=:description2, title3=:title3, description3=:description3, formatimg=:formatimg, stock=:stock WHERE id=:id");
+                $update = $db->prepare("UPDATE newsactus SET title=:title, description=:description, title2=:title2, description2=:description2, title3=:title3, description3=:description3, formatimg=:formatimg, stock=:stock WHERE id=:id");
                 $update->execute(array(
                     "id"=>$id,
                     "title"=>$title,
