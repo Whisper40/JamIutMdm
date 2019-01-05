@@ -12,17 +12,8 @@ require_once('../includes/connectBDD.php');
         if(!empty($user_id)&&!empty($id)&&!empty($titre1)&&!empty($description1)&&!empty($description2)&&!empty($pagetitre)&&!empty($image)){
 
 
-                $update = $db->prepare("UPDATE pageasso SET titre1=:titre1, description1=:description1, description2=:description2, etape3=:etape3 WHERE id=:id");
-                $update->execute(array(
-                    "id"=>$id,
-                    "titre1"=>$titre1,
-                    "description1"=>$description1,
-                    "description2"=>$description2,
-                    "etape3"=>$etape3
-                    )
-                );
 
-                
+
 
                 ?>
 
