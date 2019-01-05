@@ -16,10 +16,7 @@ require_once('../includes/connectBDD.php');
         $fb = $_POST['fb'];
         ?>
 
-            <script>
-            demo.showSwal('success-message');
-            demo.showNotification('top','right','<b>Succès</b> - Modification effectuées !');
-            </script>
+      
 
     <?php
 
