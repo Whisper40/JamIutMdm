@@ -1755,7 +1755,7 @@ function SubmitFormDataCreateUneActu() {
    var description = $("#description").val();
    var formatimg = $("#formatimg").val();
 
-   $.post("ajax/createuneactu.php", { user_id:user_id, title: title, description: description, formatimg: formatimg},
+   $.post("ajax/createuneactu.php", { user_id: user_id, title: title, description: description, formatimg: formatimg},
    function(data) {
     $('#results11').html(data);
 
@@ -2017,7 +2017,7 @@ function SubmitFormDataDeleteActu() {
                 <div class="col-sm-12">
                     <div class="card-content">
                       <center>
-                      <button id="SubmitFormDataDeleteActu" onclick="SubmitFormDataDeleteActu();" type="button" class="btn btn-primary btn-round btn-rose">Supprimer</button>
+                      <button id="submitFormDataDeleteActu" onclick="SubmitFormDataDeleteActu();" type="button" class="btn btn-primary btn-round btn-rose">Supprimer</button>
                       <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                       </center>
                      </div>
