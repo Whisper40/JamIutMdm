@@ -2872,6 +2872,18 @@ if (file_exists($target_dir)){
                         <input type="text" name="formatimg" value="jpg" id="formatimg" class="form-control">
                         </div>
 
+                        <div class="form-group form-file-upload">
+                            <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
+                            <div class="input-group">
+                                <input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
+                                <span class="input-group-btn input-group-s">
+                                    <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
+                                        <i class="material-icons">layers</i>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+
                         <div class="form-group label-floating">
                         <label class="control-label">Stock</label>
                         <input type="number" name="stock" value="1" id="stock" class="form-control">
