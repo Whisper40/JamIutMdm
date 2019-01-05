@@ -3488,25 +3488,7 @@ function SubmitFormDataContactUs() {
 //Modif page faire un don
 
 ?>
-<script>
 
-
-function SubmitFormDataFaireUnDon() {
-   var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-   var pagetitre = $("#pagetitre").val();
-   var image = $("#image").val();
-   var titre = $("#titre").val();
-   var description = $("#description").val();
-
-   $.post("ajax/modifypagefaireundon.php", { user_id:user_id, pagetitre: pagetitre, image: image, titre: titre, description: description},
-   function(data) {
-    $('#results23').html(data);
-
-   });
-
-}
-
-</script>
 
 <?php
 $selectinfosactuel45 = $db->prepare("SELECT * from photopage where nompage=:nompage");
@@ -3520,6 +3502,26 @@ $titre = $r45->titre;
 $description = $r45->description;
 
 ?>
+
+<script>
+
+
+function SubmitFormDataFaireUnDon() {
+   var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+   var pagetitre = $("#pagetitre").val();
+   var image = $("#image").val();
+   var titre = $("#titre").val();
+   var description = $("#description").val();
+
+   $.post("ajax/modifypagefaireundon.php", { user_id: user_id, pagetitre: pagetitre, image: image, titre: titre, description: description},
+   function(data) {
+    $('#results23').html(data);
+
+   });
+
+}
+
+</script>
 <div class="content">
     <div class="container-fluid">
         <div class="card">
@@ -3557,7 +3559,7 @@ $description = $r45->description;
                         <div class="card-content">
 
                           <center>
-                          <button id="SubmitFormDataFaireUnDon" onclick="SubmitFormDataFaireUnDon();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                          <button id="submitFormDataFaireUnDon" onclick="SubmitFormDataFaireUnDon();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
                           <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                           </center>
                          </div>
@@ -3584,25 +3586,6 @@ $description = $r45->description;
 //Modif page faire un don paiement
 
 ?>
-<script>
-
-
-function SubmitFormDataFaireUnDonPaiement() {
-   var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-   var pagetitre = $("#pagetitre").val();
-   var image = $("#image").val();
-   var titre = $("#titre").val();
-   var description = $("#description").val();
-
-   $.post("ajax/modifypagefaireundonpaiement.php", { user_id:user_id, pagetitre: pagetitre, image: image, titre: titre, description: description},
-   function(data) {
-    $('#results23').html(data);
-
-   });
-
-}
-
-</script>
 
 <?php
 $selectinfosactuel46 = $db->prepare("SELECT * from photopage where nompage=:nompage");
@@ -3616,6 +3599,26 @@ $titre = $r46->titre;
 $description = $r46->description;
 
 ?>
+<script>
+
+
+function SubmitFormDataFaireUnDonPaiement() {
+   var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+   var pagetitre = $("#pagetitre").val();
+   var image = $("#image").val();
+   var titre = $("#titre").val();
+   var description = $("#description").val();
+
+   $.post("ajax/modifypagefaireundonpaiement.php", { user_id: user_id, pagetitre: pagetitre, image: image, titre: titre, description: description},
+   function(data) {
+    $('#results23').html(data);
+
+   });
+
+}
+
+</script>
+
 <div class="content">
     <div class="container-fluid">
         <div class="card">
@@ -3653,7 +3656,7 @@ $description = $r46->description;
                         <div class="card-content">
 
                           <center>
-                          <button id="SubmitFormDataFaireUnDonPaiement" onclick="SubmitFormDataFaireUnDonPaiement();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                          <button id="submitFormDataFaireUnDonPaiement" onclick="SubmitFormDataFaireUnDonPaiement();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
                           <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                           </center>
                          </div>
