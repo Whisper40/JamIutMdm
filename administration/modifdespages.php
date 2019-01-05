@@ -2337,29 +2337,7 @@ if (file_exists($target_dir)){
   window.location="https://administration.jam-mdm.fr/modifdespages.php?page=activitesvoyages&table=activitesvoyages"
   }
   </script>
-    <script>
 
-
-     function SubmitFormDataModifActivite() {
-        var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-        var id = "<?php echo $id; ?>";
-        var title = $("#title").val();
-        var description = $("#description").val();
-        var title2 = $("#title2").val();
-        var description2 = $("#description2").val();
-        var title3 = $("#titre3").val();
-        var description3 = $("#description3").val();
-        var formatimg = $("#formatimg").val();
-        var stock = $("#stock").val();
-        $.post("ajax/modifyallactualite.php", { user_id:user_id, id:id, title: title, description: description, title2: title2, description2: description2, title3: title3, description3: description3, formatimg: formatimg, stock: stock},
-        function(data) {
-         $('#results11').html(data);
-
-        });
-
-    }
-
-    </script>
     <?php
     $id = $_GET['modifactivitesvoyages'];
 
@@ -2383,7 +2361,29 @@ if (file_exists($target_dir)){
   window.location="https://administration.jam-mdm.fr/modifdespages.php?page=activitesvoyages&table=activitesvoyages"
   }
   </script>
+  <script>
 
+
+   function SubmitFormDataModifActivite() {
+      var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+      var id = "<?php echo $id; ?>";
+      var title = $("#title").val();
+      var description = $("#description").val();
+      var title2 = $("#title2").val();
+      var description2 = $("#description2").val();
+      var title3 = $("#titre3").val();
+      var description3 = $("#description3").val();
+      var formatimg = $("#formatimg").val();
+      var stock = $("#stock").val();
+      $.post("ajax/modifyallactualite.php", { user_id: user_id, id: id, title: title, description: description, title2: title2, description2: description2, title3: title3, description3: description3, formatimg: formatimg, stock: stock},
+      function(data) {
+       $('#results11').html(data);
+
+      });
+
+  }
+
+  </script>
     <div class="content">
         <div class="container-fluid">
             <div class="card">
@@ -2400,7 +2400,7 @@ if (file_exists($target_dir)){
 
                               <div class="form-group label-floating">
                                   <label class="control-label">Description</label>
-                                  <input type="text" name="description" value="<?php echo $description; ?>"id="description" class="form-control">
+                                  <input type="text" name="description" value="<?php echo $description; ?>" id="description" class="form-control">
                               </div>
 
                               <div class="form-group label-floating">
@@ -2440,7 +2440,7 @@ if (file_exists($target_dir)){
                             <div class="card-content">
 
                               <center>
-                              <button id="SubmitFormDataModifActivite" onclick="SubmitFormDataModifActivite();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                              <button id="submitFormDataModifActivite" onclick="SubmitFormDataModifActivite();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
                               <button onclick="RetourIndex4();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                               </center>
                              </div>
