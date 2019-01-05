@@ -625,25 +625,7 @@ if ($categorie == 'tres'){
 //modif page membre
 ?>
 
-<script>
 
-
- function SubmitFormDataMembre() {
-    var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-    var pagetitre = $('#pagetitre').val();
-    var image = $('#image').val();
-    var titre = $("#titre").val();
-
-
-    $.post("ajax/modifypagemembre.php", { user_id:user_id, pagetitre: pagetitre, image: image, titre: titre},
-    function(data) {
-     $('#results10').html(data);
-
-    });
-
-}
-
-</script>
 
 
 <?php
@@ -660,6 +642,26 @@ $titre = $r4->titre;
 
 
  ?>
+
+ <script>
+
+
+  function SubmitFormDataMembre() {
+     var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+     var pagetitre = $('#pagetitre').val();
+     var image = $('#image').val();
+     var titre = $("#titre").val();
+
+
+     $.post("ajax/modifypagemembre.php", { user_id: user_id, pagetitre: pagetitre, image: image, titre: titre},
+     function(data) {
+      $('#results10').html(data);
+
+     });
+
+ }
+
+ </script>
 <div class="content">
     <div class="container-fluid">
         <div class="card">
@@ -675,7 +677,7 @@ $titre = $r4->titre;
                           </div>
                           <div class="form-group label-floating">
                               <label class="control-label">Image</label>
-                              <input type="text" name="image" value="<?php echo $image; ?>"id="image" class="form-control">
+                              <input type="text" name="image" value="<?php echo $image; ?>" id="image" class="form-control">
                           </div>
 
 
@@ -690,7 +692,7 @@ $titre = $r4->titre;
                         <div class="card-content">
 
                           <center>
-                          <button id="SubmitFormDataMembre" onclick="SubmitFormDataMembre();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                          <button id="submitFormDataMembre" onclick="SubmitFormDataMembre();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
                           <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                           </center>
                          </div>
