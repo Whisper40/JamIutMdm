@@ -830,7 +830,7 @@ $titre = $r4->titre;
                           </div>
 
                           <div class="jquerysel"><!-- on s'en fout -->
-<label>Grade : </label><select id="grademembre">
+<label>Grade : </label><select id="grademembre" name="grademembre">
 <option value="pres">Président</option>
 <option value="tres">Trésorier</option>
 <option value="secr">Secrétaire</option>
@@ -839,7 +839,7 @@ $titre = $r4->titre;
 </div>
 
 <div class="jquerysel"><!-- on s'en fout -->
-<label>Spécification grade : </label><select id="importancegrade">
+<label>Spécification grade : </label><select id="importancegrade" name="importancegrade">
 <option value="1">Responsable</option>
 <option value="2">Vice</option>
 <option value="3">Honneur</option>
