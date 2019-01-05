@@ -702,28 +702,6 @@ $titre = $r4->titre;
             </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         </div>
     </div>
 
@@ -824,7 +802,7 @@ $titre = $r4->titre;
     var fonction = $("#fonction").val();
 
 
-    $.post("ajax/creationmembre.php", { user_id:user_id, nom: nom, image: image, description: description, grademembre: grademembre, importancegrade: importancegrade},
+    $.post("ajax/creationmembre.php", { user_id: user_id, nom: nom, image: image, description: description, grademembre: grademembre, importancegrade: importancegrade, fonction: fonction},
     function(data) {
      $('#results5').html(data);
 
@@ -848,7 +826,7 @@ $titre = $r4->titre;
                           </div>
                           <div class="form-group label-floating">
                               <label class="control-label">Image</label>
-                              <input type="text" name="image" value="monimage.jpg"id="image" class="form-control">
+                              <input type="text" name="image" value="monimage.jpg" id="image" class="form-control">
                           </div>
 
                           <div class="jquerysel"><!-- on s'en fout -->
@@ -885,7 +863,7 @@ $titre = $r4->titre;
                         <div class="card-content">
 
                           <center>
-                          <button id="SubmitFormDataCreationMembre" onclick="SubmitFormDataCreationMembre();" type="button" class="btn btn-primary btn-round btn-rose">Créer</button>
+                          <button id="submitFormDataCreationMembre" onclick="SubmitFormDataCreationMembre();" type="button" class="btn btn-primary btn-round btn-rose">Créer</button>
                           <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                           </center>
                          </div>
@@ -893,27 +871,6 @@ $titre = $r4->titre;
                 </div>
               </form>
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
