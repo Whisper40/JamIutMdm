@@ -2375,7 +2375,7 @@ if (file_exists($target_dir)){
       var description3 = $("#description3").val();
       var formatimg = $("#formatimg").val();
       var stock = $("#stock").val();
-      $.post("ajax/modifyallactualite.php", { user_id: user_id, id: id, title: title, description: description, title2: title2, description2: description2, title3: title3, description3: description3, formatimg: formatimg, stock: stock},
+      $.post("ajax/modifyallactivity.php", { user_id: user_id, id: id, title: title, description: description, title2: title2, description2: description2, title3: title3, description3: description3, formatimg: formatimg, stock: stock},
       function(data) {
        $('#results11').html(data);
 
