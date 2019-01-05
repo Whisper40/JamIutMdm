@@ -146,7 +146,7 @@ function RetourIndex(){
                             </div>
                             <div class="form-group label-floating">
                                 <label class="control-label">Description</label>
-                                <textarea rows="13" name="description1" id="description1" class="form-control"><?php echo $description1; ?></textarea>
+                                <textarea rows="12" name="description1" id="description1" class="form-control"><?php echo $description1; ?></textarea>
                             </div>
                            </div>
                         </div>
@@ -3698,6 +3698,7 @@ $description = $r46->description;
 } } ?>
 
   </div>
+</div>
 
   <?php
   require_once('includes/javascript.php');
