@@ -3393,25 +3393,7 @@ function RetourIndex(){
 //Modif page galerie
 
 ?>
-<script>
 
-
-function SubmitFormDataContactUs() {
-   var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-   var pagetitre = $("#pagetitre").val();
-   var image = $("#image").val();
-   var titre = $("#titre").val();
-   var description = $("#description").val();
-
-   $.post("ajax/modifypagecontactus.php", { user_id:user_id, pagetitre: pagetitre, image: image, titre: titre, description: description},
-   function(data) {
-    $('#results22').html(data);
-
-   });
-
-}
-
-</script>
 
 <?php
 $selectinfosactuel44 = $db->prepare("SELECT * from photopage where nompage=:nompage");
@@ -3426,6 +3408,25 @@ $description = $r44->description;
 
 
 ?>
+<script>
+
+
+function SubmitFormDataContactUs() {
+   var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+   var pagetitre = $("#pagetitre").val();
+   var image = $("#image").val();
+   var titre = $("#titre").val();
+   var description = $("#description").val();
+
+   $.post("ajax/modifypagecontactus.php", { user_id: user_id, pagetitre: pagetitre, image: image, titre: titre, description: description},
+   function(data) {
+    $('#results22').html(data);
+
+   });
+
+}
+
+</script>
 <div class="content">
     <div class="container-fluid">
         <div class="card">
@@ -3441,19 +3442,19 @@ $description = $r44->description;
                           </div>
                           <div class="form-group label-floating">
                               <label class="control-label">Images</label>
-                              <input type="text" name="image" value="<?php echo $image;?>" id="image" class="form-control">
+                              <input type="text" name="image" value="<?php echo $image; ?>" id="image" class="form-control">
                           </div>
 
 
 
                         <div class="form-group label-floating">
                         <label class="control-label">Titre</label>
-                        <input type="text" name="titre" value="<?php echo $titre;?>" id="titre" class="form-control">
+                        <input type="text" name="titre" value="<?php echo $titre; ?>" id="titre" class="form-control">
                         </div>
 
                         <div class="form-group label-floating">
                         <label class="control-label">Description</label>
-                        <input type="text" name="description" value="<?php echo $description;?>" id="description" class="form-control">
+                        <input type="text" name="description" value="<?php echo $description; ?>" id="description" class="form-control">
                         </div>
 
                          </div>
@@ -3463,7 +3464,7 @@ $description = $r44->description;
                         <div class="card-content">
 
                           <center>
-                          <button id="SubmitFormDataContactUs" onclick="SubmitFormDataContactUs();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                          <button id="submitFormDataContactUs" onclick="SubmitFormDataContactUs();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
                           <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                           </center>
                          </div>
