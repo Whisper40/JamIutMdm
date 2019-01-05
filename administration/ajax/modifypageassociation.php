@@ -12,8 +12,36 @@ require_once('../includes/connectBDD.php');
         if(!empty($user_id)&&!empty($id)&&!empty($titre1)&&!empty($description1)&&!empty($description2)&&!empty($pagetitre)&&!empty($image)){
 
 
+                $update = $db->prepare("UPDATE pageasso SET titre1=:titre1, description1=:description1, description2=:description2 WHERE id=:id");
+                $update->execute(array(
+                    "id"=>$id,
+                    "titre1"=>$titre1,
+                    "description1"=>$description1,
+                    "description2"=>$description2
+                    )
+                );
 
+                $update2 = $db->prepare("UPDATE photopage SET pagetitre=:pagetitre, image=:image WHERE nompage=:nompage");
+                $update2->execute(array(
+                    "nompage"=>'Présentation association',
+                    "pagetitre"=>$pagetitre,
+                    "image"=>$image
+                    )
+                );
 
+                date_default_timezone_set('Europe/Paris');
+                setlocale(LC_TIME, 'fr_FR.utf8','fra');
+                $date = strftime('%d/%m/%Y %H:%M:%S');
+
+                $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
+                $insertlogs->execute(array(
+                                    "user_id"=>$user_id,
+                                    "type"=>'Modification',
+                                    "action"=>'Modification page association',
+                                    "page"=>'association.php',
+                                    "date"=>$date
+                                    )
+                                );
 
                 ?>
 
