@@ -10,7 +10,7 @@ require_once('../includes/connectBDD.php');
         $title3 = $_POST['title3'];
         $description3 = $_POST['description3'];
         $formatimg = $_POST['formatimg'];
-  
+
 
 
         if(!empty($id)&&!empty($user_id)&&!empty($title)&&!empty($description)&&!empty($formatimg)){
@@ -24,8 +24,7 @@ require_once('../includes/connectBDD.php');
                     "description2"=>$description2,
                     "title3"=>$title3,
                     "description3"=>$description3,
-                    "formatimg"=>$formatimg,
-                    "stock"=>$stock
+                    "formatimg"=>$formatimg                    
                     )
                 );
 
