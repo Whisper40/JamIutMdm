@@ -364,7 +364,7 @@ function RetourIndex(){
       var image = $("#image").val();
 
 
-      $.post("ajax/modifypageassociation.php", { user_id: user_id, id:id, titre1: titre1, description1: description1, description2: description2, pagetitre:pagetitre, image:image},
+      $.post("ajax/modifypageassociation.php", { user_id: user_id, id: id, titre1: titre1, description1: description1, description2: description2, pagetitre: pagetitre, image: image},
       function(data) {
        $('#results3').html(data);
 
@@ -400,7 +400,7 @@ function RetourIndex(){
                               </div>
                               <div class="form-group label-floating">
                                   <label class="control-label">Description 1</label>
-                                  <input type="text" name="description1" value="<?php echo $description1; ?>"id="description1" class="form-control">
+                                  <input type="text" name="description1" value="<?php echo $description1; ?>" id="description1" class="form-control">
                               </div>
                               <div class="form-group label-floating">
                                   <label class="control-label">Description 2</label>

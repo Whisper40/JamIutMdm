@@ -1,13 +1,6 @@
 <?php
 require_once('../includes/connectBDD.php');
-?>
 
-    <script>
-    demo.showSwal('success-message');
-    demo.showNotification('top','right','<b>Succès</b> - Modifications effectuées !');
-    </script>
-
-<?php
         $user_id = $_POST['user_id'];
         $id = $_POST['id'];
         $titre1 = $_POST['titre1'];
