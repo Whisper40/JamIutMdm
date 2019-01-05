@@ -1,22 +1,32 @@
 <?php
 require_once('../includes/connectBDD.php');
 
+        $id = $_POST['id'];
         $user_id = $_POST['user_id'];
-        $pagetitre = $_POST['pagetitre'];
-        $image = $_POST['image'];
-        $titre = $_POST['titre'];
+        $title = $_POST['title'];
         $description = $_POST['description'];
+        $title2 = $_POST['title2'];
+        $description2 = $_POST['description2'];
+        $title3 = $_POST['title3'];
+        $description3 = $_POST['description3'];
+        $formatimg = $_POST['formatimg'];
+        $stock = $_POST['stock'];
 
 
-        if(!empty($user_id)&&!empty($pagetitre)&&!empty($image)&&!empty($titre)&&!empty($description)){
 
-                $update = $db->prepare("UPDATE photopage SET pagetitre=:pagetitre, image=:image, titre=:titre, description=:description WHERE nompage=:nompage");
+        if(!empty($id)&&!empty($user_id)&&!empty($title)&&!empty($description)&&!empty($formatimg)&&!empty($stock)){
+
+                $update = $db->prepare("UPDATE activitesvoyages SET title=:title, description=:description, title2=:title2, description2=:description2, title3=:title3, description3=:description3, formatimg=:formatimg, stock=:stock WHERE id=:id");
                 $update->execute(array(
-                    "nompage"=>'Activité / Voyage',
-                    "pagetitre"=>$pagetitre,
-                    "image"=>$image,
-                    "titre"=>$titre,
-                    "description"=>$description
+                    "id"=>$id,
+                    "title"=>$title,
+                    "description"=>$description,
+                    "title2"=>$title2,
+                    "description2"=>$description2,
+                    "title3"=>$title3,
+                    "description3"=>$description3,
+                    "formatimg"=>$formatimg,
+                    "stock"=>$stock
                     )
                 );
 
@@ -28,12 +38,11 @@ require_once('../includes/connectBDD.php');
                 $insertlogs->execute(array(
                                     "user_id"=>$user_id,
                                     "type"=>'Modification',
-                                    "action"=>'Modification page Activités/Voyages',
+                                    "action"=>'Modification d une activite',
                                     "page"=>'activitees.php',
                                     "date"=>$date
                                     )
                                 );
-
                 ?>
 
                     <script>

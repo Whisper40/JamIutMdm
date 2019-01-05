@@ -57,28 +57,7 @@ function RetourIndex(){
       $table = $_GET['table'];
     ?>
 
-  <script>
-   function SubmitFormDataIndex() {
-      var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-      var id = "<?php echo $id ?>";
-      var img1 = $("#img1").val();
-      var logo1 = $("#logo1").val();
-      var titre1 = $("#titre1").val();
-      var description1 = $("#description1").val();
-      var bouton1 = $("#bouton1").val();
-      var lienbt1 = $("#lienbt1").val();
-      var bouton2 = $("#bouton2").val();
-      var lienbt2 = $("#lienbt2").val();
-      var logo2 = $("#logo2").val();
-      var titre2 = $("#titre2").val();
-      var description2 = $("#description2").val();
-      var fb = $("#fb").val();
-      $.post("ajax/modifypageindex.php", { user_id:user_id, id:id, img1: img1, logo1: logo1, titre1: titre1, description1: description1, bouton1: bouton1, lienbt1: lienbt1, bouton2: bouton2, lienbt2: lienbt2, logo2: logo2, titre2: titre2, description2: description2, fb: fb},
-      function(data) {
-       $('#results1').html(data);
-      });
-  }
-  </script>
+
 
   <?php
   $selectinfosactuel = $db->prepare("SELECT * from pageindex");
@@ -98,7 +77,28 @@ function RetourIndex(){
   $description2 = $r2->description2;
   $fb = $r2->fb;
 ?>
-
+<script>
+ function SubmitFormDataIndex() {
+    var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+    var id = "<?php echo $id; ?>";
+    var img1 = $("#img1").val();
+    var logo1 = $("#logo1").val();
+    var titre1 = $("#titre1").val();
+    var description1 = $("#description1").val();
+    var bouton1 = $("#bouton1").val();
+    var lienbt1 = $("#lienbt1").val();
+    var bouton2 = $("#bouton2").val();
+    var lienbt2 = $("#lienbt2").val();
+    var logo2 = $("#logo2").val();
+    var titre2 = $("#titre2").val();
+    var description2 = $("#description2").val();
+    var fb = $("#fb").val();
+    $.post("ajax/modifypageindex.php", { user_id: user_id, id:id, img1: img1, logo1: logo1, titre1: titre1, description1: description1, bouton1: bouton1, lienbt1: lienbt1, bouton2: bouton2, lienbt2: lienbt2, logo2: logo2, titre2: titre2, description2: description2, fb: fb},
+    function(data) {
+     $('#results1').html(data);
+    });
+}
+</script>
   <div class="content">
       <div class="container-fluid">
           <div class="card">
@@ -227,26 +227,7 @@ function RetourIndex(){
 
 
   ?>
-    <script>
 
-
-     function SubmitFormDataDevenirMembre() {
-        var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-        var id = "<?php echo $id; ?>";
-        var introduction = $("#introduction").val();
-        var etape1 = $("#etape1").val();
-        var etape2 = $("#etape2").val();
-        var etape3 = $("#etape3").val();
-
-        $.post("ajax/modifypagedevenirmembre.php", { user_id:user_id, id:id, introduction: introduction, etape1: etape1, etape2: etape2, etape3: etape3},
-        function(data) {
-         $('#results2').html(data);
-
-        });
-
-    }
-
-    </script>
     <?php
     $selectinfosactuel = $db->prepare("SELECT * from pagedevenirmembre");
     $selectinfosactuel->execute();
@@ -258,6 +239,26 @@ function RetourIndex(){
     $etape3 = $r2->etape3;
 
   ?>
+  <script>
+
+
+   function SubmitFormDataDevenirMembre() {
+      var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+      var id = "<?php echo $id; ?>";
+      var introduction = $("#introduction").val();
+      var etape1 = $("#etape1").val();
+      var etape2 = $("#etape2").val();
+      var etape3 = $("#etape3").val();
+
+      $.post("ajax/modifypagedevenirmembre.php", { user_id: user_id, id:id, introduction: introduction, etape1: etape1, etape2: etape2, etape3: etape3},
+      function(data) {
+       $('#results2').html(data);
+
+      });
+
+  }
+
+  </script>
     <div class="content">
         <div class="container-fluid">
             <div class="card">
@@ -294,7 +295,7 @@ function RetourIndex(){
                             <div class="card-content">
 
                               <center>
-                              <button id="SubmitFormDataDevenirMembre" onclick="SubmitFormDataDevenirMembre();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                              <button id="submitFormDataDevenirMembre" onclick="SubmitFormDataDevenirMembre();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
                               <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                               </center>
                              </div>
@@ -330,28 +331,7 @@ function RetourIndex(){
 
 
   ?>
-    <script>
 
-
-     function SubmitFormDataPageAsso() {
-        var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-        var id = "<?php echo $id; ?>";
-        var titre1 = $("#titre1").val();
-        var description1 = $("#description1").val();
-        var description2 = $("#description2").val();
-        var pagetitre = $("#pagetitre").val();
-        var image = $("#image").val();
-
-
-        $.post("ajax/modifypageassociation.php", { user_id:user_id, id:id, titre1: titre1, description1: description1, description2: description2, pagetitre:pagetitre, image:image},
-        function(data) {
-         $('#results3').html(data);
-
-        });
-
-    }
-
-    </script>
     <?php
     $selectinfosactuel = $db->prepare("SELECT * from pageasso");
     $selectinfosactuel->execute();
@@ -370,6 +350,29 @@ function RetourIndex(){
     $image = $r3->image;
 
   ?>
+
+  <script>
+
+
+   function SubmitFormDataPageAsso() {
+      var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+      var id = "<?php echo $id; ?>";
+      var titre1 = $("#titre1").val();
+      var description1 = $("#description1").val();
+      var description2 = $("#description2").val();
+      var pagetitre = $("#pagetitre").val();
+      var image = $("#image").val();
+
+
+      $.post("ajax/modifypageassociation.php", { user_id: user_id, id: id, titre1: titre1, description1: description1, description2: description2, pagetitre: pagetitre, image: image},
+      function(data) {
+       $('#results3').html(data);
+
+      });
+
+  }
+
+  </script>
     <div class="content">
         <div class="container-fluid">
             <div class="card">
@@ -397,7 +400,7 @@ function RetourIndex(){
                               </div>
                               <div class="form-group label-floating">
                                   <label class="control-label">Description 1</label>
-                                  <input type="text" name="description1" value="<?php echo $description1; ?>"id="description1" class="form-control">
+                                  <input type="text" name="description1" value="<?php echo $description1; ?>" id="description1" class="form-control">
                               </div>
                               <div class="form-group label-floating">
                                   <label class="control-label">Description 2</label>
@@ -410,7 +413,7 @@ function RetourIndex(){
                             <div class="card-content">
 
                               <center>
-                              <button id="SubmitFormDataPageAsso" onclick="SubmitFormDataPageAsso();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                              <button id="submitFormDataPageAsso" onclick="SubmitFormDataPageAsso();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
                               <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                               </center>
                              </div>
@@ -451,29 +454,7 @@ function RetourIndex2(){
   window.location="https://administration.jam-mdm.fr/modifdespages.php?page=membre&table=membres"
 }
 </script>
-    <script>
 
-
-     function SubmitFormDataModifMembre() {
-        var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-        var id = "<?php echo $id; ?>";
-        var nom = $("#nom").val();
-        var image = $("#image").val();
-        var description = $("#description").val();
-        var grademembre = $('#grademembre').val();
-        var importancegrade = $('#importancegrade').val();
-        var fonction = $("#fonction").val();
-
-
-        $.post("ajax/modifypagemodifmembre.php", { user_id:user_id, id:id, nom: nom, image: image, description: description, grademembre: grademembre, importancegrade: importancegrade},
-        function(data) {
-         $('#results4').html(data);
-
-        });
-
-    }
-
-    </script>
     <?php
     $user_id = $_GET['modifmembre'];
 
@@ -492,7 +473,29 @@ function RetourIndex2(){
     $description = $r2->description;
 
 ?>
+<script>
 
+
+ function SubmitFormDataModifMembre() {
+    var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+    var id = "<?php echo $id; ?>";
+    var nom = $("#nom").val();
+    var image = $("#image").val();
+    var description = $("#description").val();
+    var grademembre = $('#grademembre').val();
+    var importancegrade = $('#importancegrade').val();
+    var fonction = $("#fonction").val();
+
+
+    $.post("ajax/modifypagemodifmembre.php", { user_id: user_id, id: id, nom: nom, image: image, description: description, grademembre: grademembre, importancegrade: importancegrade, fonction: fonction},
+    function(data) {
+     $('#results4').html(data);
+
+    });
+
+}
+
+</script>
     <div class="content">
         <div class="container-fluid">
             <div class="card">
@@ -508,7 +511,7 @@ function RetourIndex2(){
                               </div>
                               <div class="form-group label-floating">
                                   <label class="control-label">Image</label>
-                                  <input type="text" name="image" value="<?php echo $image; ?>"id="image" class="form-control">
+                                  <input type="text" name="image" value="<?php echo $image; ?>" id="image" class="form-control">
                               </div>
 
                               <div class="jquerysel"><!-- on s'en fout -->
@@ -595,7 +598,7 @@ if ($categorie == 'tres'){
                             <div class="card-content">
 
                               <center>
-                              <button id="SubmitFormDataModifMembre" onclick="SubmitFormDataModifMembre();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                              <button id="submitFormDataModifMembre" onclick="SubmitFormDataModifMembre();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
                               <button onclick="RetourIndex2();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                               </center>
                              </div>
@@ -622,25 +625,7 @@ if ($categorie == 'tres'){
 //modif page membre
 ?>
 
-<script>
 
-
- function SubmitFormDataMembre() {
-    var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-    var pagetitre = $('#pagetitre').val();
-    var image = $('#image').val();
-    var titre = $("#titre").val();
-
-
-    $.post("ajax/modifypagemembre.php", { user_id:user_id, pagetitre: pagetitre, image: image, titre: titre},
-    function(data) {
-     $('#results10').html(data);
-
-    });
-
-}
-
-</script>
 
 
 <?php
@@ -657,6 +642,26 @@ $titre = $r4->titre;
 
 
  ?>
+
+ <script>
+
+
+  function SubmitFormDataMembre() {
+     var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+     var pagetitre = $('#pagetitre').val();
+     var image = $('#image').val();
+     var titre = $("#titre").val();
+
+
+     $.post("ajax/modifypagemembre.php", { user_id: user_id, pagetitre: pagetitre, image: image, titre: titre},
+     function(data) {
+      $('#results10').html(data);
+
+     });
+
+ }
+
+ </script>
 <div class="content">
     <div class="container-fluid">
         <div class="card">
@@ -672,7 +677,7 @@ $titre = $r4->titre;
                           </div>
                           <div class="form-group label-floating">
                               <label class="control-label">Image</label>
-                              <input type="text" name="image" value="<?php echo $image; ?>"id="image" class="form-control">
+                              <input type="text" name="image" value="<?php echo $image; ?>" id="image" class="form-control">
                           </div>
 
 
@@ -687,7 +692,7 @@ $titre = $r4->titre;
                         <div class="card-content">
 
                           <center>
-                          <button id="SubmitFormDataMembre" onclick="SubmitFormDataMembre();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                          <button id="submitFormDataMembre" onclick="SubmitFormDataMembre();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
                           <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                           </center>
                          </div>
@@ -695,28 +700,6 @@ $titre = $r4->titre;
                 </div>
               </form>
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         </div>
@@ -819,7 +802,7 @@ $titre = $r4->titre;
     var fonction = $("#fonction").val();
 
 
-    $.post("ajax/creationmembre.php", { user_id:user_id, nom: nom, image: image, description: description, grademembre: grademembre, importancegrade: importancegrade},
+    $.post("ajax/creationmembre.php", { user_id: user_id, nom: nom, image: image, description: description, grademembre: grademembre, importancegrade: importancegrade, fonction: fonction},
     function(data) {
      $('#results5').html(data);
 
@@ -843,11 +826,11 @@ $titre = $r4->titre;
                           </div>
                           <div class="form-group label-floating">
                               <label class="control-label">Image</label>
-                              <input type="text" name="image" value="monimage.jpg"id="image" class="form-control">
+                              <input type="text" name="image" value="monimage.jpg" id="image" class="form-control">
                           </div>
 
                           <div class="jquerysel"><!-- on s'en fout -->
-<label>Grade : </label><select id="grademembre">
+<label>Grade : </label><select id="grademembre" name="grademembre">
 <option value="pres">Président</option>
 <option value="tres">Trésorier</option>
 <option value="secr">Secrétaire</option>
@@ -856,7 +839,7 @@ $titre = $r4->titre;
 </div>
 
 <div class="jquerysel"><!-- on s'en fout -->
-<label>Spécification grade : </label><select id="importancegrade">
+<label>Spécification grade : </label><select id="importancegrade" name="importancegrade">
 <option value="1">Responsable</option>
 <option value="2">Vice</option>
 <option value="3">Honneur</option>
@@ -880,7 +863,7 @@ $titre = $r4->titre;
                         <div class="card-content">
 
                           <center>
-                          <button id="SubmitFormDataCreationMembre" onclick="SubmitFormDataCreationMembre();" type="button" class="btn btn-primary btn-round btn-rose">Créer</button>
+                          <button id="submitFormDataCreationMembre" onclick="SubmitFormDataCreationMembre();" type="button" class="btn btn-primary btn-round btn-rose">Créer</button>
                           <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                           </center>
                          </div>
@@ -888,27 +871,6 @@ $titre = $r4->titre;
                 </div>
               </form>
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1111,25 +1073,7 @@ function RetourIndex2(){
   window.location="https://administration.jam-mdm.fr/modifdespages.php?page=membre&table=membres"
 }
 </script>
-    <script>
 
-
-     function SubmitFormDataModifStatus() {
-        var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-        var id = "<?php echo $id; ?>";
-        var article = $("#article").val();
-        var titre = $("#titre").val();
-        var soustitre = $("#soustitre").val();
-        var description = $("#description").val();
-        $.post("ajax/modifypagestatus.php", { user_id:user_id, id:id, article: article, titre: titre, soustitre: soustitre, description: description},
-        function(data) {
-         $('#results6').html(data);
-
-        });
-
-    }
-
-    </script>
     <?php
     $id = $_GET['modifstatus'];
 
@@ -1151,7 +1095,25 @@ function RetourIndex3(){
   window.location="https://administration.jam-mdm.fr/modifdespages.php?page=status&table=status"
 }
 </script>
+<script>
 
+
+ function SubmitFormDataModifStatus() {
+    var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+    var id = "<?php echo $id; ?>";
+    var article = $("#article").val();
+    var titre = $("#titre").val();
+    var soustitre = $("#soustitre").val();
+    var description = $("#description").val();
+    $.post("ajax/modifypagestatus.php", { user_id: user_id, id: id, article: article, titre: titre, soustitre: soustitre, description: description},
+    function(data) {
+     $('#results6').html(data);
+
+    });
+
+}
+
+</script>
     <div class="content">
         <div class="container-fluid">
             <div class="card">
@@ -1168,7 +1130,7 @@ function RetourIndex3(){
 
                               <div class="form-group label-floating">
                                   <label class="control-label">Titre</label>
-                                  <input type="text" name="titre" value="<?php echo $titre; ?>"id="titre" class="form-control">
+                                  <input type="text" name="titre" value="<?php echo $titre; ?>" id="titre" class="form-control">
                               </div>
 
                               <div class="form-group label-floating">
@@ -1187,7 +1149,7 @@ function RetourIndex3(){
                             <div class="card-content">
 
                               <center>
-                              <button id="SubmitFormDataModifStatus" onclick="SubmitFormDataModifStatus();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                              <button id="submitFormDataModifStatus" onclick="SubmitFormDataModifStatus();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
                               <button onclick="RetourIndex3();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                               </center>
                              </div>
@@ -1208,22 +1170,7 @@ function RetourIndex3(){
 
 }else{
 ?>
-  <script>
 
-
-  function SubmitFormDataStatusPage() {
-     var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-     var pagetitre = $("#pagetitre").val();
-     var image = $("#image").val();
-     var titre = $("#titre").val();
-
-     $.post("ajax/modifypagestatusinfos.php", { user_id:user_id, pagetitre: pagetitre, image: image, titre: titre},
-     function(data) {
-      $('#results23').html(data);
-
-     });
-
-  }
 <?php
 $selectinfosactuel40 = $db->prepare("SELECT * from photopage where nompage=:nompage");
 $selectinfosactuel40->execute(array(
@@ -1236,7 +1183,23 @@ $titre = $r40->titre;
 
 
  ?>
-  </script>
+ <script>
+
+
+ function SubmitFormDataStatusPage() {
+    var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+    var pagetitre = $("#pagetitre").val();
+    var image = $("#image").val();
+    var titre = $("#titre").val();
+
+    $.post("ajax/modifypagestatusinfos.php", { user_id: user_id, pagetitre: pagetitre, image: image, titre: titre},
+    function(data) {
+     $('#results23').html(data);
+
+    });
+
+ }
+ </script>
   <div class="content">
       <div class="container-fluid">
           <div class="card">
@@ -1271,7 +1234,7 @@ $titre = $r40->titre;
                           <div class="card-content">
 
                             <center>
-                            <button id="SubmitFormDataStatusPage" onclick="SubmitFormDataStatusPage();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                            <button id="submitFormDataStatusPage" onclick="SubmitFormDataStatusPage();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
                             <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                             </center>
                            </div>
@@ -1356,10 +1319,10 @@ $titre = $r40->titre;
 function SubmitFormDataCreateStatus() {
    var user_id = "<?php echo $_SESSION['admin_id']; ?>";
    var article = $("#article").val();
-   var titre = $("#titre").val();
+   var titrestatus = $("#titrestatus").val();
    var soustitre = $("#soustitre").val();
    var description = $("#description").val();
-   $.post("ajax/createpagestatus.php", { user_id:user_id, article: article, titre: titre, soustitre: soustitre, description: description},
+   $.post("ajax/createpagestatus.php", { user_id: user_id, article: article, titrestatus: titrestatus, soustitre: soustitre, description: description},
    function(data) {
     $('#results7').html(data);
 
@@ -1383,7 +1346,7 @@ function SubmitFormDataCreateStatus() {
                           </div>
                           <div class="form-group label-floating">
                               <label class="control-label">Titre</label>
-                              <input type="text" name="titre" value="Titre du status" id="titre" class="form-control">
+                              <input type="text" name="titrestatus" value="Titre du status" id="titrestatus" class="form-control">
                           </div>
 
 
@@ -1405,7 +1368,7 @@ function SubmitFormDataCreateStatus() {
                         <div class="card-content">
 
                           <center>
-                          <button id="SubmitFormDataCreateStatus" onclick="SubmitFormDataCreateStatus();" type="button" class="btn btn-primary btn-round btn-rose">Créer</button>
+                          <button id="submitFormDataCreateStatus" onclick="SubmitFormDataCreateStatus();" type="button" class="btn btn-primary btn-round btn-rose">Créer</button>
                           <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                           </center>
                          </div>
@@ -1437,28 +1400,7 @@ function RetourIndex2(){
   window.location="https://administration.jam-mdm.fr/modifdespages.php?page=membre&table=membres"
 }
 </script>
-    <script>
 
-
-     function SubmitFormDataModifActualite() {
-        var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-        var id = "<?php echo $id; ?>";
-        var title = $("#title").val();
-        var description = $("#description").val();
-        var title2 = $("#title2").val();
-        var description2 = $("#description2").val();
-        var title3 = $("#titre3").val();
-        var description3 = $("#description3").val();
-        var formatimg = $("#formatimg").val();
-        $.post("ajax/modifyallactualite.php", { user_id:user_id, id:id, title: title, description: description, title2: title2, description2: description2, title3: title3, description3: description3, formatimg: formatimg},
-        function(data) {
-         $('#results11').html(data);
-
-        });
-
-    }
-
-    </script>
     <?php
     $id = $_GET['modifactus'];
 
@@ -1482,7 +1424,28 @@ function RetourIndex4(){
   window.location="https://administration.jam-mdm.fr/modifdespages.php?page=actualite&table=newsactus"
 }
 </script>
+<script>
 
+
+ function SubmitFormDataModifActualite() {
+    var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+    var id = "<?php echo $id; ?>";
+    var title = $("#title").val();
+    var description = $("#description").val();
+    var title2 = $("#title2").val();
+    var description2 = $("#description2").val();
+    var title3 = $("#titre3").val();
+    var description3 = $("#description3").val();
+    var formatimg = $("#formatimg").val();
+    $.post("ajax/modifyallactualite.php", { user_id: user_id, id: id, title: title, description: description, title2: title2, description2: description2, title3: title3, description3: description3, formatimg: formatimg},
+    function(data) {
+     $('#results11').html(data);
+
+    });
+
+}
+
+</script>
     <div class="content">
         <div class="container-fluid">
             <div class="card">
@@ -1499,7 +1462,7 @@ function RetourIndex4(){
 
                               <div class="form-group label-floating">
                                   <label class="control-label">Description</label>
-                                  <input type="text" name="description" value="<?php echo $description; ?>"id="description" class="form-control">
+                                  <input type="text" name="description" value="<?php echo $description; ?>" id="description" class="form-control">
                               </div>
 
                               <div class="form-group label-floating">
@@ -1534,7 +1497,7 @@ function RetourIndex4(){
                             <div class="card-content">
 
                               <center>
-                              <button id="SubmitFormDataModifActualite" onclick="SubmitFormDataModifActualite();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                              <button id="submitFormDataModifActualite" onclick="SubmitFormDataModifActualite();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
                               <button onclick="RetourIndex4();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                               </center>
                              </div>
@@ -1587,24 +1550,7 @@ function RetourIndex4(){
   //Page newsactus
 
 ?>
-  <script>
 
-
-   function SubmitFormDataModifActus() {
-      var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-      var image = $("#image").val();
-      var titre = $("#titre").val();
-      var pagetitre = $("#pagetitre").val();
-      var description = $("#description").val();
-      $.post("ajax/modifypageactus.php", { user_id:user_id, image: image, titre: titre, pagetitre: pagetitre, description: description},
-      function(data) {
-       $('#results10').html(data);
-
-      });
-
-  }
-
-  </script>
   <?php
 
 
@@ -1622,7 +1568,24 @@ function RetourIndex4(){
 
 ?>
 
+<script>
 
+
+ function SubmitFormDataModifActus() {
+    var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+    var image = $("#image").val();
+    var titre = $("#titre").val();
+    var pagetitre = $("#pagetitre").val();
+    var description = $("#description").val();
+    $.post("ajax/modifypageactus.php", { user_id: user_id, image: image, titre: titre, pagetitre: pagetitre, description: description},
+    function(data) {
+     $('#results10').html(data);
+
+    });
+
+}
+
+</script>
   <div class="content">
       <div class="container-fluid">
           <div class="card">
@@ -1645,7 +1608,7 @@ function RetourIndex4(){
 
                             <div class="form-group label-floating">
                                 <label class="control-label">Titre</label>
-                                <input type="text" name="titre" value="<?php echo $titre; ?>"id="titre" class="form-control">
+                                <input type="text" name="titre" value="<?php echo $titre; ?>" id="titre" class="form-control">
                             </div>
 
                             <div class="form-group label-floating">
@@ -1659,7 +1622,7 @@ function RetourIndex4(){
                           <div class="card-content">
 
                             <center>
-                            <button id="SubmitFormDataModifActus" onclick="SubmitFormDataModifActus();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                            <button id="submitFormDataModifActus" onclick="SubmitFormDataModifActus();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
                             <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                             </center>
                            </div>
@@ -1792,7 +1755,7 @@ function SubmitFormDataCreateUneActu() {
    var description = $("#description").val();
    var formatimg = $("#formatimg").val();
 
-   $.post("ajax/createuneactu.php", { user_id:user_id, title: title, description: description, formatimg: formatimg},
+   $.post("ajax/createuneactu.php", { user_id: user_id, title: title, description: description, formatimg: formatimg},
    function(data) {
     $('#results11').html(data);
 
@@ -2054,7 +2017,7 @@ function SubmitFormDataDeleteActu() {
                 <div class="col-sm-12">
                     <div class="card-content">
                       <center>
-                      <button id="SubmitFormDataDeleteActu" onclick="SubmitFormDataDeleteActu();" type="button" class="btn btn-primary btn-round btn-rose">Supprimer</button>
+                      <button id="submitFormDataDeleteActu" onclick="SubmitFormDataDeleteActu();" type="button" class="btn btn-primary btn-round btn-rose">Supprimer</button>
                       <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                       </center>
                      </div>
@@ -2374,29 +2337,7 @@ if (file_exists($target_dir)){
   window.location="https://administration.jam-mdm.fr/modifdespages.php?page=activitesvoyages&table=activitesvoyages"
   }
   </script>
-    <script>
 
-
-     function SubmitFormDataModifActivite() {
-        var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-        var id = "<?php echo $id; ?>";
-        var title = $("#title").val();
-        var description = $("#description").val();
-        var title2 = $("#title2").val();
-        var description2 = $("#description2").val();
-        var title3 = $("#titre3").val();
-        var description3 = $("#description3").val();
-        var formatimg = $("#formatimg").val();
-        var stock = $("#stock").val();
-        $.post("ajax/modifyallactualite.php", { user_id:user_id, id:id, title: title, description: description, title2: title2, description2: description2, title3: title3, description3: description3, formatimg: formatimg, stock: stock},
-        function(data) {
-         $('#results11').html(data);
-
-        });
-
-    }
-
-    </script>
     <?php
     $id = $_GET['modifactivitesvoyages'];
 
@@ -2414,13 +2355,36 @@ if (file_exists($target_dir)){
     $title3 = $r2->title3;
     $description3 = $r2->description3;
     $formatimg = $r2->formatimg;
+    $stock = $r2->stock;
   ?>
   <script>
   function RetourIndex4(){
   window.location="https://administration.jam-mdm.fr/modifdespages.php?page=activitesvoyages&table=activitesvoyages"
   }
   </script>
+  <script>
 
+
+   function SubmitFormDataModifActivite() {
+      var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+      var id = "<?php echo $id; ?>";
+      var title = $("#title").val();
+      var description = $("#description").val();
+      var title2 = $("#title2").val();
+      var description2 = $("#description2").val();
+      var title3 = $("#titre3").val();
+      var description3 = $("#description3").val();
+      var formatimg = $("#formatimg").val();
+      var stock = $("#stock").val();
+      $.post("ajax/modifyallactivity.php", { user_id: user_id, id: id, title: title, description: description, title2: title2, description2: description2, title3: title3, description3: description3, formatimg: formatimg, stock: stock},
+      function(data) {
+       $('#results11').html(data);
+
+      });
+
+  }
+
+  </script>
     <div class="content">
         <div class="container-fluid">
             <div class="card">
@@ -2437,7 +2401,7 @@ if (file_exists($target_dir)){
 
                               <div class="form-group label-floating">
                                   <label class="control-label">Description</label>
-                                  <input type="text" name="description" value="<?php echo $description; ?>"id="description" class="form-control">
+                                  <input type="text" name="description" value="<?php echo $description; ?>" id="description" class="form-control">
                               </div>
 
                               <div class="form-group label-floating">
@@ -2477,7 +2441,7 @@ if (file_exists($target_dir)){
                             <div class="card-content">
 
                               <center>
-                              <button id="SubmitFormDataModifActivite" onclick="SubmitFormDataModifActivite();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                              <button id="submitFormDataModifActivite" onclick="SubmitFormDataModifActivite();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
                               <button onclick="RetourIndex4();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                               </center>
                              </div>
@@ -2529,24 +2493,7 @@ if (file_exists($target_dir)){
   //Page newsactus
 
   ?>
-  <script>
 
-
-   function SubmitFormDataModifActivitesVoyages() {
-      var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-      var image = $("#image").val();
-      var titre = $("#titre").val();
-      var pagetitre = $("#pagetitre").val();
-      var description = $("#description").val();
-      $.post("ajax/modifypageactivitesvoyages.php", { user_id:user_id, image: image, titre: titre, pagetitre: pagetitre, description: description},
-      function(data) {
-       $('#results18').html(data);
-
-      });
-
-  }
-
-  </script>
   <?php
 
 
@@ -2563,7 +2510,24 @@ if (file_exists($target_dir)){
   $description = $r9->description;
 
   ?>
+  <script>
 
+
+   function SubmitFormDataModifActivitesVoyages() {
+      var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+      var image = $("#image").val();
+      var titre = $("#titre").val();
+      var pagetitre = $("#pagetitre").val();
+      var description = $("#description").val();
+      $.post("ajax/modifypageactivitesvoyages.php", { user_id: user_id, image: image, titre: titre, pagetitre: pagetitre, description: description},
+      function(data) {
+       $('#results18').html(data);
+
+      });
+
+  }
+
+  </script>
 
   <div class="content">
       <div class="container-fluid">
@@ -2587,7 +2551,7 @@ if (file_exists($target_dir)){
 
                             <div class="form-group label-floating">
                                 <label class="control-label">Titre</label>
-                                <input type="text" name="titre" value="<?php echo $titre; ?>"id="titre" class="form-control">
+                                <input type="text" name="titre" value="<?php echo $titre; ?>" id="titre" class="form-control">
                             </div>
 
                             <div class="form-group label-floating">
@@ -2601,7 +2565,7 @@ if (file_exists($target_dir)){
                           <div class="card-content">
 
                             <center>
-                            <button id="SubmitFormDataModifActivitesVoyages" onclick="SubmitFormDataModifActivitesVoyages();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                            <button id="submitFormDataModifActivitesVoyages" onclick="SubmitFormDataModifActivitesVoyages();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
                             <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                             </center>
                            </div>
@@ -2905,6 +2869,18 @@ if (file_exists($target_dir)){
                         <input type="text" name="formatimg" value="jpg" id="formatimg" class="form-control">
                         </div>
 
+                        <div class="form-group form-file-upload">
+                            <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
+                            <div class="input-group">
+                                <input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
+                                <span class="input-group-btn input-group-s">
+                                    <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
+                                        <i class="material-icons">layers</i>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+
                         <div class="form-group label-floating">
                         <label class="control-label">Stock</label>
                         <input type="number" name="stock" value="1" id="stock" class="form-control">
@@ -2948,7 +2924,7 @@ if (file_exists($target_dir)){
    var title = $("#title").val();
 
 //AFAIRE
-   $.post("ajax/deleteuneactivitevoyage.php", { user_id:user_id, title: title},
+   $.post("ajax/deleteuneactivitevoyage.php", { user_id: user_id, title: title},
    function(data) {
     $('#results20').html(data);
 
@@ -2986,7 +2962,7 @@ if (file_exists($target_dir)){
                 <div class="col-sm-12">
                     <div class="card-content">
                       <center>
-                      <button id="SubmitFormDataDeleteActivitevoyages" onclick="SubmitFormDataDeleteActivitevoyages();" type="button" class="btn btn-primary btn-round btn-rose">Supprimer</button>
+                      <button id="submitFormDataDeleteActivitevoyages" onclick="SubmitFormDataDeleteActivitevoyages();" type="button" class="btn btn-primary btn-round btn-rose">Supprimer</button>
                       <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                       </center>
                      </div>
@@ -3310,24 +3286,7 @@ function RetourIndex(){
 //Modif page galerie
 
 ?>
-<script>
 
-
-function SubmitFormDataGallerie() {
-   var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-   var pagetitre = $("#pagetitre").val();
-   var image = $("#image").val();
-   var titre = $("#titre").val();
-
-   $.post("ajax/modifypagegallerie.php", { user_id:user_id, pagetitre: pagetitre, image: image, titre: titre},
-   function(data) {
-    $('#results22').html(data);
-
-   });
-
-}
-
-</script>
 
 <?php
 $selectinfosactuel43 = $db->prepare("SELECT * from photopage where nompage=:nompage");
@@ -3341,6 +3300,24 @@ $titre = $r43->titre;
 
 
 ?>
+<script>
+
+
+function SubmitFormDataGallerie() {
+   var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+   var pagetitre = $("#pagetitre").val();
+   var image = $("#image").val();
+   var titre = $("#titre").val();
+
+   $.post("ajax/modifypagegallerie.php", { user_id: user_id, pagetitre: pagetitre, image: image, titre: titre},
+   function(data) {
+    $('#results22').html(data);
+
+   });
+
+}
+
+</script>
 <div class="content">
     <div class="container-fluid">
         <div class="card">
@@ -3375,7 +3352,7 @@ $titre = $r43->titre;
                         <div class="card-content">
 
                           <center>
-                          <button id="SubmitFormDataGallerie" onclick="SubmitFormDataGallerie();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                          <button id="submitFormDataGallerie" onclick="SubmitFormDataGallerie();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
                           <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                           </center>
                          </div>
@@ -3416,25 +3393,7 @@ function RetourIndex(){
 //Modif page galerie
 
 ?>
-<script>
 
-
-function SubmitFormDataContactUs() {
-   var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-   var pagetitre = $("#pagetitre").val();
-   var image = $("#image").val();
-   var titre = $("#titre").val();
-   var description = $("#description").val();
-
-   $.post("ajax/modifypagecontactus.php", { user_id:user_id, pagetitre: pagetitre, image: image, titre: titre, description: description},
-   function(data) {
-    $('#results22').html(data);
-
-   });
-
-}
-
-</script>
 
 <?php
 $selectinfosactuel44 = $db->prepare("SELECT * from photopage where nompage=:nompage");
@@ -3449,6 +3408,25 @@ $description = $r44->description;
 
 
 ?>
+<script>
+
+
+function SubmitFormDataContactUs() {
+   var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+   var pagetitre = $("#pagetitre").val();
+   var image = $("#image").val();
+   var titre = $("#titre").val();
+   var description = $("#description").val();
+
+   $.post("ajax/modifypagecontactus.php", { user_id: user_id, pagetitre: pagetitre, image: image, titre: titre, description: description},
+   function(data) {
+    $('#results22').html(data);
+
+   });
+
+}
+
+</script>
 <div class="content">
     <div class="container-fluid">
         <div class="card">
@@ -3464,19 +3442,19 @@ $description = $r44->description;
                           </div>
                           <div class="form-group label-floating">
                               <label class="control-label">Images</label>
-                              <input type="text" name="image" value="<?php echo $image;?>" id="image" class="form-control">
+                              <input type="text" name="image" value="<?php echo $image; ?>" id="image" class="form-control">
                           </div>
 
 
 
                         <div class="form-group label-floating">
                         <label class="control-label">Titre</label>
-                        <input type="text" name="titre" value="<?php echo $titre;?>" id="titre" class="form-control">
+                        <input type="text" name="titre" value="<?php echo $titre; ?>" id="titre" class="form-control">
                         </div>
 
                         <div class="form-group label-floating">
                         <label class="control-label">Description</label>
-                        <input type="text" name="description" value="<?php echo $description;?>" id="description" class="form-control">
+                        <input type="text" name="description" value="<?php echo $description; ?>" id="description" class="form-control">
                         </div>
 
                          </div>
@@ -3486,7 +3464,7 @@ $description = $r44->description;
                         <div class="card-content">
 
                           <center>
-                          <button id="SubmitFormDataContactUs" onclick="SubmitFormDataContactUs();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                          <button id="submitFormDataContactUs" onclick="SubmitFormDataContactUs();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
                           <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                           </center>
                          </div>
@@ -3510,25 +3488,7 @@ $description = $r44->description;
 //Modif page faire un don
 
 ?>
-<script>
 
-
-function SubmitFormDataFaireUnDon() {
-   var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-   var pagetitre = $("#pagetitre").val();
-   var image = $("#image").val();
-   var titre = $("#titre").val();
-   var description = $("#description").val();
-
-   $.post("ajax/modifypagefaireundon.php", { user_id:user_id, pagetitre: pagetitre, image: image, titre: titre, description: description},
-   function(data) {
-    $('#results23').html(data);
-
-   });
-
-}
-
-</script>
 
 <?php
 $selectinfosactuel45 = $db->prepare("SELECT * from photopage where nompage=:nompage");
@@ -3542,6 +3502,26 @@ $titre = $r45->titre;
 $description = $r45->description;
 
 ?>
+
+<script>
+
+
+function SubmitFormDataFaireUnDon() {
+   var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+   var pagetitre = $("#pagetitre").val();
+   var image = $("#image").val();
+   var titre = $("#titre").val();
+   var description = $("#description").val();
+
+   $.post("ajax/modifypagefaireundon.php", { user_id: user_id, pagetitre: pagetitre, image: image, titre: titre, description: description},
+   function(data) {
+    $('#results23').html(data);
+
+   });
+
+}
+
+</script>
 <div class="content">
     <div class="container-fluid">
         <div class="card">
@@ -3579,7 +3559,7 @@ $description = $r45->description;
                         <div class="card-content">
 
                           <center>
-                          <button id="SubmitFormDataFaireUnDon" onclick="SubmitFormDataFaireUnDon();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                          <button id="submitFormDataFaireUnDon" onclick="SubmitFormDataFaireUnDon();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
                           <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                           </center>
                          </div>
@@ -3606,25 +3586,6 @@ $description = $r45->description;
 //Modif page faire un don paiement
 
 ?>
-<script>
-
-
-function SubmitFormDataFaireUnDonPaiement() {
-   var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-   var pagetitre = $("#pagetitre").val();
-   var image = $("#image").val();
-   var titre = $("#titre").val();
-   var description = $("#description").val();
-
-   $.post("ajax/modifypagefaireundonpaiement.php", { user_id:user_id, pagetitre: pagetitre, image: image, titre: titre, description: description},
-   function(data) {
-    $('#results23').html(data);
-
-   });
-
-}
-
-</script>
 
 <?php
 $selectinfosactuel46 = $db->prepare("SELECT * from photopage where nompage=:nompage");
@@ -3638,6 +3599,26 @@ $titre = $r46->titre;
 $description = $r46->description;
 
 ?>
+<script>
+
+
+function SubmitFormDataFaireUnDonPaiement() {
+   var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+   var pagetitre = $("#pagetitre").val();
+   var image = $("#image").val();
+   var titre = $("#titre").val();
+   var description = $("#description").val();
+
+   $.post("ajax/modifypagefaireundonpaiement.php", { user_id: user_id, pagetitre: pagetitre, image: image, titre: titre, description: description},
+   function(data) {
+    $('#results23').html(data);
+
+   });
+
+}
+
+</script>
+
 <div class="content">
     <div class="container-fluid">
         <div class="card">
@@ -3675,7 +3656,7 @@ $description = $r46->description;
                         <div class="card-content">
 
                           <center>
-                          <button id="SubmitFormDataFaireUnDonPaiement" onclick="SubmitFormDataFaireUnDonPaiement();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                          <button id="submitFormDataFaireUnDonPaiement" onclick="SubmitFormDataFaireUnDonPaiement();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
                           <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                           </center>
                          </div>
