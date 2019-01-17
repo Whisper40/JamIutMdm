@@ -861,8 +861,7 @@ if ($uploadOk == 0) {
 
                     $update2 = $db->prepare("UPDATE photopage SET image=:image WHERE nompage=:nompage");
                     $update2->execute(array(
-                        "nompage"=>'Présentation association',
-                        "pagetitre"=>$pagetitre,
+                        "nompage"=>'Présentation association',                        
                         "image"=>$target_filefile
                         )
                     );
