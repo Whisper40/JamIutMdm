@@ -81,8 +81,7 @@ function RetourIndex(){
  function SubmitFormDataIndex() {
     var user_id = "<?php echo $_SESSION['admin_id']; ?>";
     var id = "<?php echo $id; ?>";
-    var img1 = $("#img1").val();
-    var logo1 = $("#logo1").val();
+
     var titre1 = $("#titre1").val();
     var description1 = $("#description1").val();
     var bouton1 = $("#bouton1").val();
@@ -93,7 +92,7 @@ function RetourIndex(){
     var titre2 = $("#titre2").val();
     var description2 = $("#description2").val();
     var fb = $("#fb").val();
-    $.post("ajax/modifypageindex.php", { user_id: user_id, id:id, img1: img1, logo1: logo1, titre1: titre1, description1: description1, bouton1: bouton1, lienbt1: lienbt1, bouton2: bouton2, lienbt2: lienbt2, logo2: logo2, titre2: titre2, description2: description2, fb: fb},
+    $.post("ajax/modifypageindex.php", { user_id: user_id, id:id, titre1: titre1, description1: description1, bouton1: bouton1, lienbt1: lienbt1, bouton2: bouton2, lienbt2: lienbt2, logo2: logo2, titre2: titre2, description2: description2, fb: fb},
     function(data) {
      $('#results1').html(data);
     });
@@ -104,32 +103,80 @@ function RetourIndex(){
           <div class="card">
               <div class="card-content">
                   <h2 class="card-title text-center">Modification de l'index du site</h2>
-                  <form action="" method="post" id="myForm1" class="contact-form">
-                    <div class="row">
-                      <div class="col-sm-12">
-                          <div class="card-content">
-                            <h3 class="card-title">En tete de la page</h3>
-                        </div>
-                      </div>
-                    </div>
-                  <div class="row">
-                      <div class="col-sm-6">
-                          <div class="card-content">
-                            <div class="form-group label-floating">
-                                <label class="control-label">Image du fond</label>
-                                <input type="text" class="form-control" value="<?php echo $img1; ?>" name="img1" id="img1">
+
+
+                  <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="card-content">
+
+                                    <div class="form-group label-floating">
+                                    <label class="control-label">Image du Fond</label>
+                                    <input type="text" name="img1" value="<?php echo $img1; ?>" class="form-control">
+                                    </div>
+
+                                     </div>
+
+                                     <div class="form-group form-file-upload">
+                                         <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
+                                         <div class="input-group">
+                                             <input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
+                                             <span class="input-group-btn input-group-s">
+                                                 <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
+                                                     <i class="material-icons">layers</i>
+                                                 </button>
+                                             </span>
+                                         </div>
+                                     </div>
+                                  </div>
+
+                                  <div class="col-sm-12">
+                                      <div class="card-content">
+                                          <input type="submit" name="envoieimagefond" value="Modifier l'image du fond">
+                                       </div>
+                                    </div>
                             </div>
-                           </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="card-content">
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Logo Central</label>
-                                  <input type="text" name="logo1" value="<?php echo $logo1; ?>"id="logo1" class="form-control">
-                              </div>
-                           </div>
-                      </div>
-                    </div>
+                          </form>
+
+
+
+                          <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="card-content">
+
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Logo Central</label>
+                                                <input type="text" name="logo1" value="<?php echo $logo1; ?>" class="form-control">
+                                            </div>
+
+                                             </div>
+
+                                             <div class="form-group form-file-upload">
+                                                 <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
+                                                 <div class="input-group">
+                                                     <input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
+                                                     <span class="input-group-btn input-group-s">
+                                                         <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
+                                                             <i class="material-icons">layers</i>
+                                                         </button>
+                                                     </span>
+                                                 </div>
+                                             </div>
+                                          </div>
+
+                                          <div class="col-sm-12">
+                                              <div class="card-content">
+                                                  <input type="submit" name="envoieimagecentrale" value="Modifier l'image centrale">
+                                               </div>
+                                            </div>
+                                    </div>
+                                  </form>
+
+
+
+
+                  <form action="" method="post" id="myForm1" class="contact-form">
                     <div class="row">
                       <div class="col-sm-12">
                           <div class="card-content">

@@ -3,8 +3,7 @@ require_once('../includes/connectBDD.php');
 
         $user_id = $_POST['user_id'];
         $id = $_POST['id'];
-        $img1 = $_POST['img1'];
-        $logo1 = $_POST['logo1'];
+
         $titre1 = $_POST['titre1'];
         $description1 = $_POST['description1'];
         $bouton1 = $_POST['bouton1'];
@@ -21,14 +20,12 @@ require_once('../includes/connectBDD.php');
     <?php
 
 
-        if(!empty($user_id)&&!empty($id)&&!empty($img1)&&!empty($logo1)&&!empty($titre1)&&!empty($description1)&&!empty($bouton1)&&!empty($lienbt1)&&!empty($bouton2)&&!empty($logo2)&&!empty($titre2)&&!empty($description2)&&!empty($fb)){
+        if(!empty($user_id)&&!empty($id)&&!empty($titre1)&&!empty($description1)&&!empty($bouton1)&&!empty($lienbt1)&&!empty($bouton2)&&!empty($logo2)&&!empty($titre2)&&!empty($description2)&&!empty($fb)){
 
 
-                $update = $db->prepare("UPDATE pageindex SET img1=:img1, logo1=:logo1, titre1=:titre1, description1=:description1, bouton1=:bouton1, lienbt1=:lienbt1, bouton2=:bouton2, logo2=:logo2, titre2=:titre2, description2=:description2, fb=:fb WHERE id=:id");
+                $update = $db->prepare("UPDATE pageindex SET titre1=:titre1, description1=:description1, bouton1=:bouton1, lienbt1=:lienbt1, bouton2=:bouton2, logo2=:logo2, titre2=:titre2, description2=:description2, fb=:fb WHERE id=:id");
                 $update->execute(array(
                     "id"=>$id,
-                    "img1"=>$img1,
-                    "logo1"=>$logo1,
                     "titre1"=>$titre1,
                     "description1"=>$description1,
                     "bouton1"=>$bouton1,
