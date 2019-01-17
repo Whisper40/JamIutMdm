@@ -798,7 +798,7 @@ if ($uploadOk == 0) {
 
             <!-- Ajoutd'images au site web (assets)-->
             <?php
-            if(isset($_POST['envoieimagecentrale'])){
+            if(isset($_POST['envoieimageprezasso'])){
                   $target_dir = "../../../JamFichiers/Img/ImagesDuSite";
 
                   $original = 'Original';
