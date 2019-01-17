@@ -367,20 +367,12 @@ if ($uploadOk == 0) {
 
                   <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
                             <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="card-content">
-
-                                    <div class="form-group label-floating">
-                                    <label class="control-label">Image du Fond</label>
-                                    <input type="text" name="img1" value="<?php echo $img1; ?>" class="form-control">
-                                    </div>
-
-                                     </div>
+                                <div class="col-sm-6">                     
 
                                      <div class="form-group form-file-upload">
                                          <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
                                          <div class="input-group">
-                                             <input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
+                                             <input type="text" readonly="" class="form-control" placeholder="<?php echo $img1; ?>">
                                              <span class="input-group-btn input-group-s">
                                                  <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
                                                      <i class="material-icons">layers</i>
@@ -403,14 +395,6 @@ if ($uploadOk == 0) {
                           <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <div class="card-content">
-
-                                            <div class="form-group label-floating">
-                                                <label class="control-label">Logo Central</label>
-                                                <input type="text" name="logo1" value="<?php echo $logo1; ?>" class="form-control">
-                                            </div>
-
-                                             </div>
 
                                              <div class="form-group form-file-upload">
                                                  <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
