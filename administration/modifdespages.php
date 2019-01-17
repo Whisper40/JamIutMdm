@@ -415,7 +415,7 @@ if ($uploadOk == 0) {
                                              <div class="form-group form-file-upload">
                                                  <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
                                                  <div class="input-group">
-                                                     <input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
+                                                     <input type="text" readonly="" class="form-control" placeholder="<?php echo $logo1; ?>">
                                                      <span class="input-group-btn input-group-s">
                                                          <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
                                                              <i class="material-icons">layers</i>
