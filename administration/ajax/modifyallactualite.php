@@ -33,13 +33,13 @@ require_once('../includes/connectBDD.php');
             );
             $update2 = $db->prepare("UPDATE carousel SET titre=:title2 WHERE titre=:titreancien2");
             $update2->execute(array(
-                "titreancien2"=>$titleancien2,
+                "titreancien2"=>$title2ancien,
                 "title2"=>$title2
                 )
             );
             $update3 = $db->prepare("UPDATE carousel SET titre=:title3 WHERE titre=:titreancien3");
             $update3->execute(array(
-                "titreancien3"=>$titleancien3,
+                "titreancien3"=>$title3ancien,
                 "title3"=>$title3
                 )
             );
