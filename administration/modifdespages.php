@@ -3249,7 +3249,33 @@ if ($uploadOk == 0) {
           } ?>
 
 
+<!-- TEST -->
 
+
+<script>
+$(document).ready(function(){
+
+var $recherche =$('input[name=valeur]');
+var critere;
+$recherche.keyup(function(){
+  critere = $.trim($recherche.val());
+  if(critere!=''){
+    $.get('rechercheactus.php?critere='+critere,function(retour){
+
+$('#resultat').html(retour).fadeIn();
+
+});
+
+}else $('#resultat').empty().fadeOut();
+});
+});
+</script>
+
+
+
+
+
+<!-- TEST -->
 
 <h1>Selectionner la catégorie à laquelle ajouter les photos</h1>
 
@@ -3261,18 +3287,19 @@ $selectcatimages=$db->query("SELECT DISTINCT title FROM newsactus");
 
         <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
             Sélectionner la catégorie d'actualité<br>
-            <select name="catimage">
+            <select name="catactualite">
               <?php
                 while($s = $selectcatimages->fetch(PDO::FETCH_OBJ)){
-                  $catimage=$s->title;
+                  $catactualite=$s->title;
                   ?>
-                <option value="<?php echo $catimage;?>"><?php echo $catimage; ?></option>
+                <option value="<?php echo $catactualite;?>"><?php echo $catactualite; ?></option>
               <?php
             }
             ?>
 
 
             </select>
+            <p id='resultat'></p>
 
             <div class="input-group input-lg">
               <div class="input-group-prepend">
