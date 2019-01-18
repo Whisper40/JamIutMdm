@@ -3324,7 +3324,7 @@ var post_id = 'id='+ id;
 $.ajax
 ({
 type: "POST",
-url: "rechercheactus.php",
+url: "rechercheactuspourcarrousel.php",
 data: post_id,
 cache: false,
 success: function(cities)
