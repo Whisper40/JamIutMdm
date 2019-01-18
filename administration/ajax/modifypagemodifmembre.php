@@ -4,21 +4,19 @@ require_once('../includes/connectBDD.php');
         $user_id = $_POST['user_id'];
         $id = $_POST['id'];
         $nom = $_POST['nom'];
-        $image = $_POST['image'];
         $description = $_POST['description'];
         $grademembre = $_POST['grademembre'];
         $importancegrade = $_POST['importancegrade'];
         $fonction = $_POST['fonction'];
 
 
-        if(!empty($user_id)&&!empty($id)&&!empty($nom)&&!empty($image)&&!empty($description)&&!empty($grademembre)&&!empty($importancegrade)&&!empty($fonction)){
+        if(!empty($user_id)&&!empty($id)&&!empty($nom)&&!empty($description)&&!empty($grademembre)&&!empty($importancegrade)&&!empty($fonction)){
 
 
-                $update = $db->prepare("UPDATE membres SET nom=:nom, image=:image, description=:description, categorie=:grademembre, importance=:importancegrade, fonction=:fonction WHERE id=:id");
+                $update = $db->prepare("UPDATE membres SET nom=:nom, description=:description, categorie=:grademembre, importance=:importancegrade, fonction=:fonction WHERE id=:id");
                 $update->execute(array(
                     "id"=>$id,
                     "nom"=>$nom,
-                    "image"=>$image,
                     "description"=>$description,
                     "grademembre"=>$grademembre,
                     "importancegrade"=>$importancegrade,
