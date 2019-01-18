@@ -25,20 +25,20 @@ require_once('../includes/connectBDD.php');
             $title2ancien = $r2->title2;
             $title3ancien = $r3->title3;
 
-            $update = $db->prepare("UPDATE carousel SET titre=:title WHERE titre=:titreancien");
-            $update->execute(array(
+            $update1 = $db->prepare("UPDATE carousel SET titre=:title WHERE titre=:titreancien");
+            $update1->execute(array(
                 "titreancien"=>$titleancien,
                 "title"=>$title
                 )
             );
-            $update = $db->prepare("UPDATE carousel SET titre=:title2 WHERE titre=:titreancien2");
-            $update->execute(array(
+            $update2 = $db->prepare("UPDATE carousel SET titre=:title2 WHERE titre=:titreancien2");
+            $update2->execute(array(
                 "titreancien2"=>$titleancien2,
                 "title2"=>$title2
                 )
             );
-            $update = $db->prepare("UPDATE carousel SET titre=:title3 WHERE titre=:titreancien3");
-            $update->execute(array(
+            $update3 = $db->prepare("UPDATE carousel SET titre=:title3 WHERE titre=:titreancien3");
+            $update3->execute(array(
                 "titreancien3"=>$titleancien3,
                 "title3"=>$title3
                 )
@@ -46,8 +46,8 @@ require_once('../includes/connectBDD.php');
 
 
 
-                $update = $db->prepare("UPDATE newsactus SET title=:title, description=:description, title2=:title2, description2=:description2, title3=:title3, description3=:description3, formatimg=:formatimg WHERE id=:id");
-                $update->execute(array(
+                $update4 = $db->prepare("UPDATE newsactus SET title=:title, description=:description, title2=:title2, description2=:description2, title3=:title3, description3=:description3, formatimg=:formatimg WHERE id=:id");
+                $update4->execute(array(
                     "id"=>$id,
                     "title"=>$title,
                     "description"=>$description,
