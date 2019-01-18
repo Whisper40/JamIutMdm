@@ -2337,7 +2337,7 @@ function RetourIndex4(){
     var description = $("#description").val();
     var title2 = $("#title2").val();
     var description2 = $("#description2").val();
-    var title3 = $("#titre3").val();
+    var title3 = $("#title3").val();
     var description3 = $("#description3").val();
     var formatimg = $("#formatimg").val();
     $.post("ajax/modifyallactualite.php", { user_id: user_id, id: id, title: title, description: description, title2: title2, description2: description2, title3: title3, description3: description3, formatimg: formatimg},
