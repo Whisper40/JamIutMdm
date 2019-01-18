@@ -2476,11 +2476,10 @@ function RetourIndex4(){
 
  function SubmitFormDataModifActus() {
     var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-    var image = $("#image").val();
     var titre = $("#titre").val();
     var pagetitre = $("#pagetitre").val();
     var description = $("#description").val();
-    $.post("ajax/modifypageactus.php", { user_id: user_id, image: image, titre: titre, pagetitre: pagetitre, description: description},
+    $.post("ajax/modifypageactus.php", { user_id: user_id, titre: titre, pagetitre: pagetitre, description: description},
     function(data) {
      $('#results10').html(data);
 
@@ -2663,11 +2662,6 @@ if ($uploadOk == 0) {
                             <div class="form-group label-floating">
                                 <label class="control-label">Titre de la page</label>
                                 <input type="text" name="pagetitre" value="<?php echo $pagetitre; ?>" id="pagetitre" class="form-control">
-                            </div>
-
-                            <div class="form-group label-floating">
-                                <label class="control-label">Image</label>
-                                <input type="text" class="form-control" value="<?php echo $image; ?>" name="image" id="image">
                             </div>
 
                             <div class="form-group label-floating">
