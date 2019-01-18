@@ -3295,12 +3295,14 @@ $selectcatimages=$db->query("SELECT * FROM newsactus");
             <select name="catactualite">
               <?php
                 while($s = $selectcatimages->fetch(PDO::FETCH_OBJ)){
-                  $catactualite=$s->title;
-                  echo '<option value="'.$s['id'].'">'.$s['title'].'</option>';
+                  $title =$s->title;
+                  $id = $s->id;
+                  echo '<option value="'.$id.'">'.$title.'</option>';
             }
             ?>
             </select>
-            <label>City :</label><select name="souscatactualite">
+            <label>City :</label>
+            <select name="souscatactualite">
 <option>Select City</option>
 </select>
 
