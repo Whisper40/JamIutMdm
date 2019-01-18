@@ -3096,7 +3096,8 @@ function SubmitFormDataDeleteActu() {
 <!-- Ajoutd'images au site web (assets)-->
 <?php
 if(isset($_POST['submitphotoactualite'])){
-  $category = $_POST['catimage'];
+  $category = $_POST['catactualite'];
+  $souscategory = $_POST['souscatactualite'];
   $titreimage = $_POST['titreimage'];
   if(!isset($titreimage)){
     $uploadOk = 0;
@@ -3172,20 +3173,17 @@ if ($uploadOk == 0) {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
         $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
 
-
-        $insert = $db->prepare("INSERT INTO carousel (slug, titre, image, titreimage) VALUES (:slug, :category, :target_filefile, :titreimage)");
+        $insert = $db->prepare("INSERT INTO carousel (slug, titre, image, titreimage) VALUES (:slug, :souscatactualite, :target_filefile, :titreimage)");
         $insert->execute(array(
             "slug"=>$slug,
-            "category"=>$category,
+            "souscatactualite"=>$souscatactualite,
             "target_filefile"=>$target_filefile,
             "titreimage"=>$titreimage
             )
         );
-
         date_default_timezone_set('Europe/Paris');
         setlocale(LC_TIME, 'fr_FR.utf8','fra');
         $date = strftime('%d/%m/%Y %H:%M:%S');
-
 
         $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
         $insertlogs->execute(array(
