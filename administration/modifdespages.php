@@ -3268,6 +3268,7 @@ $selectcatimages=$db->query("SELECT * FROM newsactus");
         <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
             Sélectionner la catégorie d'actualité
             <select name="catactualite" class="catactualite">
+              <option value="0">Selectionner la catégorie</option>
               <?php
                 while($s = $selectcatimages->fetch(PDO::FETCH_OBJ)){
                   $title =$s->title;
@@ -3276,7 +3277,7 @@ $selectcatimages=$db->query("SELECT * FROM newsactus");
             }
             ?>
           </select></br>
-            Sous Catégorie : 
+            Sous Catégorie :
             <select name="souscatactualite" class="souscatactualite">
 <option>Sélectionner la sous catégorie</option>
 </select>
