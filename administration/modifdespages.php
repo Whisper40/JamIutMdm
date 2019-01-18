@@ -3249,32 +3249,7 @@ if ($uploadOk == 0) {
           } ?>
 
 
-<!-- TEST -->
 
-
-<script type="text/javascript">
-$(document).ready(function()
-{
-$(".catactualite").change(function()
-{
-var id=$(this).val();
-var post_id = 'id='+ id;
-
-$.ajax
-({
-type: "POST",
-url: "rechercheactus.php",
-data: post_id,
-cache: false,
-success: function(cities)
-{
-$(".souscatactualite").html(cities);
-}
-});
-
-});
-});
-</script>
 
 
 
@@ -3330,10 +3305,37 @@ $selectcatimages=$db->query("SELECT * FROM newsactus");
             <input type="submit" name="submitphotoactualite" value="Envoyer les images !">
         </form>
 
+
+
 </div>
 
 
+<!-- TEST -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+<script type="text/javascript">
+$(document).ready(function()
+{
+$(".catactualite").change(function()
+{
+var id=$(this).val();
+var post_id = 'id='+ id;
+
+$.ajax
+({
+type: "POST",
+url: "rechercheactus.php",
+data: post_id,
+cache: false,
+success: function(cities)
+{
+$(".souscatactualite").html(cities);
+}
+});
+
+});
+});
+</script>
 
 <script>
 $(document).ready(function(){
