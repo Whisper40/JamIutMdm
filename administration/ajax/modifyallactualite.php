@@ -23,7 +23,7 @@ require_once('../includes/connectBDD.php');
             $r2 = $selectancien->fetch(PDO::FETCH_OBJ);
             $titleancien = $r2->title;
             $title2ancien = $r2->title2;
-            $title3ancien = $r3->title3;
+            $title3ancien = $r2->title3;
 
             $update1 = $db->prepare("UPDATE carousel SET titre=:title WHERE titre=:titreancien");
             $update1->execute(array(
