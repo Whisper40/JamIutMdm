@@ -3276,9 +3276,9 @@ $selectcatimages=$db->query("SELECT * FROM newsactus");
             }
             ?>
           </select></br>
-            <label>Sous Catégorie : </label>
+            Sous Catégorie : 
             <select name="souscatactualite" class="souscatactualite">
-<option>Select Sous Catégorie</option>
+<option>Sélectionner la sous catégorie</option>
 </select>
 
             <div class="input-group input-lg">
