@@ -19,4 +19,3 @@ if($_POST['id']){
         echo '<option value="'.$title3.'">'.$title3.'</option>';
 				}
 			}
-		}
