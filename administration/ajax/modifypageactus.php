@@ -2,17 +2,15 @@
 require_once('../includes/connectBDD.php');
 
         $user_id = $_POST['user_id'];
-        $image = $_POST['image'];
         $titre = $_POST['titre'];
         $pagetitre = $_POST['pagetitre'];
         $description = $_POST['description'];
 
-        if(!empty($user_id)&&!empty($image)&&!empty($pagetitre)&&!empty($titre)&&!empty($description)){
+        if(!empty($user_id)&&!empty($pagetitre)&&!empty($titre)&&!empty($description)){
 
-                $update = $db->prepare("UPDATE photopage SET image=:image, titre=:titre, pagetitre=:pagetitre, description=:description WHERE nompage=:nompage");
+                $update = $db->prepare("UPDATE photopage SET titre=:titre, pagetitre=:pagetitre, description=:description WHERE nompage=:nompage");
                 $update->execute(array(
                     "nompage"=>"Actualité",
-                    "image"=>$image,
                     "titre"=>$titre,
                     "pagetitre"=>$pagetitre,
                     "description"=>$description
