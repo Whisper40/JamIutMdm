@@ -4209,10 +4209,8 @@ $titre = $r43->titre;
 function SubmitFormDataGallerie() {
    var user_id = "<?php echo $_SESSION['admin_id']; ?>";
    var pagetitre = $("#pagetitre").val();
-   var image = $("#image").val();
    var titre = $("#titre").val();
-
-   $.post("ajax/modifypagegallerie.php", { user_id: user_id, pagetitre: pagetitre, image: image, titre: titre},
+   $.post("ajax/modifypagegallerie.php", { user_id: user_id, pagetitre: pagetitre, titre: titre},
    function(data) {
     $('#results22').html(data);
 
@@ -4221,11 +4219,175 @@ function SubmitFormDataGallerie() {
 }
 
 </script>
+
+
+<!-- Ajoutd'images au site web (assets)-->
+<?php
+if(isset($_POST['modifphotogalerie'])){
+      $target_dir = "../../../JamFichiers/Img/ImagesDuSite";
+
+      $original = 'Original';
+      if (file_exists($target_dir/$original)) {
+        $target_dirnew = "$target_dir/$original/";
+      }else{
+        mkdir("$target_dir/$original", 0700);
+        $target_dirnew = "$target_dir/$original/";
+      }
+
+      //Ajout thumb
+      $thumb = 'Thumb';
+      if (file_exists($target_dir/$thumb)) {
+        $target_dirnewthumb = "$target_dir/$thumb/";
+      }else{
+        mkdir("$target_dir/$thumb", 0700);
+        $target_dirnewthumb = "$target_dir/$thumb/";
+      }
+      //FIN
+
+$total = count($_FILES['fileToUpload']['name']);
+
+for( $i=0 ; $i < $total ; $i++ ) {
+$target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
+$uploadOk = 1;
+$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+// Check if file already exists
+if (file_exists($target_file)) {
+    $error = 'Désolé, le fichier existe déja.';
+    $uploadOk = 0;
+}
+// Check file size < 2mo
+if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
+    $error = 'Désolé, le fichier est trop grand.';
+    $uploadOk = 0;
+
+}
+// Allow certain file formats
+if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
+    $error = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+    $uploadOk = 0;
+}
+// Check if $uploadOk is set to 0 by an error
+if ($uploadOk == 0) {
+    $error = 'Désolé, une erreur est survenue.';
+// if everything is ok, try to upload file
+} else {
+  date_default_timezone_set('Europe/Paris');
+  setlocale(LC_TIME, 'fr_FR.utf8','fra');
+  $date = strftime('%d:%m:%y %H:%M:%S');
+
+  $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
+  $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
+  $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
+
+    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
+        $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+        $status = '1';
+        $update = $db->prepare("UPDATE photopage SET image=:image WHERE nompage=:nompage");
+        $update->execute(array(
+            "nompage"=>'Galerie',
+            "image"=>$target_filefile
+            )
+        );
+
+        $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
+        $insertlogs->execute(array(
+                            "user_id"=>$user_id,
+                            "type"=>'Modification',
+                            "action"=>'Modification page Activités/Voyages',
+                            "page"=>'activitees.php',
+                            "date"=>$date
+                            )
+                        );
+
+        date_default_timezone_set('Europe/Paris');
+        setlocale(LC_TIME, 'fr_FR.utf8','fra');
+        $date = strftime('%Y-%m-%d %H:%M:%S');
+
+        $img_tmp = $target_dirnew.$target_filefile;
+        $fin = $target_dirnewthumb.$target_filefile;
+
+
+          //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
+            $longueur = 300;
+            $largeur = 220;
+            //TAILLE DE L'IMAGE ACTUELLE
+            $taille = getimagesize($img_tmp);
+            //SI LE FICHIER EXISTE
+            if ($taille) {
+                //SI JPG
+                if ($taille['mime']=='image/jpeg' ) {
+                          //OUVERTURE DE L'IMAGE ORIGINALE
+                            $img_big = imagecreatefromjpeg($img_tmp);
+                            $img_new = imagecreate($longueur, $largeur);
+                          //CREATION DE LA MINIATURE
+                            $img_petite = imagecreatetruecolor($longueur, $largeur) or $img_petite = imagecreate($longueur, $largeur);
+                            //COPIE DE L'IMAGE REDIMENSIONNEE
+                            imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
+                            imagejpeg($img_petite,$fin);
+                }
+              //SI PNG
+            else if ($taille['mime']=='image/png' ) {
+                            //OUVERTURE DE L'IMAGE ORIGINALE
+                            $img_big = imagecreatefrompng($img_tmp); // On ouvre l'image d'origine
+                            $img_new = imagecreate($longueur, $largeur);
+                            //CREATION DE LA MINIATURE
+                            $img_petite = imagecreatetruecolor($longueur, $largeur) OR $img_petite = imagecreate($longueur, $largeur);
+                            //COPIE DE L'IMAGE REDIMENSIONNEE
+                            imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
+                            imagepng($img_petite,$fin);
+                        }
+
+
+                }
+
+
+    }else {
+        $error = 'Désolé, une erreur est survenue.';
+    } } }
+
+          } ?>
+
+
+
 <div class="content">
     <div class="container-fluid">
         <div class="card">
             <div class="card-content">
                 <h2 class="card-title text-center">Modification de la page Galerie</h2>
+
+
+
+
+
+
+
+<form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+                              <div class="row">
+                                  <div class="col-sm-6">
+
+                                       <div class="form-group form-file-upload">
+                                           <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
+                                           <div class="input-group">
+                                               <input type="text" readonly="" class="form-control" placeholder="<?php echo $image; ?>">
+                                               <span class="input-group-btn input-group-s">
+                                                   <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
+                                                       <i class="material-icons">layers</i>
+                                                   </button>
+                                               </span>
+                                           </div>
+                                       </div>
+                                    </div>
+
+                                    <div class="col-sm-12">
+                                        <div class="card-content">
+                                            <input type="submit" name="modifphotogalerie" value="Modifier l'image">
+                                         </div>
+                                      </div>
+                              </div>
+                            </form>
+
+
+
                 <form action="" method="post" id="myForm1" class="contact-form">
                 <div class="row">
                     <div class="col-sm-6">
@@ -4234,12 +4396,6 @@ function SubmitFormDataGallerie() {
                               <label class="control-label">Titre de la page</label>
                               <input type="text" class="form-control" value="<?php echo $pagetitre; ?>" name="pagetitre" id="pagetitre">
                           </div>
-                          <div class="form-group label-floating">
-                              <label class="control-label">Images</label>
-                              <input type="text" name="image" value="<?php echo $image;?>" id="image" class="form-control">
-                          </div>
-
-
 
                         <div class="form-group label-floating">
                         <label class="control-label">Titre</label>
