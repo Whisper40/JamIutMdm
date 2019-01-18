@@ -3097,16 +3097,18 @@ function SubmitFormDataDeleteActu() {
 <?php
 if(isset($_POST['submitphotoactualite'])){
   $category = $_POST['catactualite'];
+  echo $category;
   $souscategory = $_POST['souscatactualite'];
+  echo $souscategory;
   $titreimage = $_POST['titreimage'];
   if(!isset($titreimage)){
     $uploadOk = 0;
   }
 
 
-  $selectinfosactuel12 = $db->prepare("SELECT slug from newsactus where title=:title");
+  $selectinfosactuel12 = $db->prepare("SELECT slug from newsactus where id=:id");
   $selectinfosactuel12->execute(array(
-      "title"=>$category
+      "id"=>$category
       )
   );
 
@@ -3269,7 +3271,7 @@ $selectcatimages=$db->query("SELECT * FROM newsactus");
               <option value="0">Selectionner la catégorie</option>
               <?php
                 while($s = $selectcatimages->fetch(PDO::FETCH_OBJ)){
-                  $title =$s->title;
+                  $title = $s->title;
                   $id = $s->id;
                   echo '<option value="'.$id.'">'.$title.'</option>';
             }
