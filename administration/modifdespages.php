@@ -2020,7 +2020,7 @@ if ($uploadOk == 0) {
         $update = $db->prepare("UPDATE photopage SET image=:image WHERE nompage=:nompage");
         $update->execute(array(
             "nompage"=>'Statuts',
-            "image"=>$image
+            "image"=>$target_filefile
             )
         );
 
