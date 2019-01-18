@@ -3097,9 +3097,7 @@ function SubmitFormDataDeleteActu() {
 <?php
 if(isset($_POST['submitphotoactualite'])){
   $category = $_POST['catactualite'];
-  echo $category;
   $souscategory = $_POST['souscatactualite'];
-  echo $souscategory;
   $titreimage = $_POST['titreimage'];
   if(!isset($titreimage)){
     $uploadOk = 0;
@@ -4234,15 +4232,16 @@ if ($uploadOk == 0) {
   <?php
   if(isset($_POST['submitphotoaactivitesvoyagescarousel'])){
   $category = $_POST['catactivitevoyage'];
+  $souscategory = $_POST['souscatactivitevoyage'];
   $titreimage = $_POST['titreimage'];
   if(!isset($titreimage)){
     $uploadOk = 0;
   }
 
 
-  $selectinfosactuel12 = $db->prepare("SELECT slug from activitesvoyages where title=:title");
+  $selectinfosactuel12 = $db->prepare("SELECT slug from activitesvoyages where id=:id");
   $selectinfosactuel12->execute(array(
-      "title"=>$category
+      "id"=>$category
       )
   );
 
@@ -4310,10 +4309,10 @@ if ($uploadOk == 0) {
         $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
 
 
-        $insert = $db->prepare("INSERT INTO carousel (slug, titre, image, titreimage) VALUES (:slug, :category, :target_filefile, :titreimage)");
+        $insert = $db->prepare("INSERT INTO carousel (slug, titre, image, titreimage) VALUES (:slug, :souscatactivitevoyage, :target_filefile, :titreimage)");
         $insert->execute(array(
             "slug"=>$slug,
-            "category"=>$category,
+            "souscatactivitevoyage"=>$souscategory,
             "target_filefile"=>$target_filefile,
             "titreimage"=>$titreimage
             )
@@ -4392,24 +4391,30 @@ if ($uploadOk == 0) {
 
 
   <?php
-  $selectcatactivitesvoyages=$db->query("SELECT DISTINCT title FROM activitesvoyages");
+  $selectcatactivitesvoyages=$db->query("SELECT * FROM activitesvoyages");
 
   ?>
 
         <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-            Sélectionner la catégorie d'activité<br>
-            <select name="catactivitevoyage">
+            Sélectionner la catégorie d'activité
+            <select name="catactivitevoyage" class="catactivitevoyage">
+              <option value="0">Selectionner la catégorie</option>
               <?php
                 while($s = $selectcatactivitesvoyages->fetch(PDO::FETCH_OBJ)){
-                  $catactivitesvoyages=$s->title;
-                  ?>
-                <option value="<?php echo $catactivitesvoyages;?>"><?php echo $catactivitesvoyages; ?></option>
-              <?php
+                  $title = $s->title;
+                  $id = $s->id;
+
+                echo '<option value="'.$id.'">'.$title.'</option>';
+
             }
             ?>
 
 
-            </select>
+          </select><br>
+          Sous Catégorie :
+          <select name="souscatactivitevoyage" class="souscatactivitevoyage">
+<option>Sélectionner la sous catégorie</option>
+</select>
 
             <div class="input-group input-lg">
               <div class="input-group-prepend">
@@ -4437,7 +4442,32 @@ if ($uploadOk == 0) {
 
   </div>
 
+  <!-- TEST -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+  <script type="text/javascript">
+  $(document).ready(function()
+  {
+  $(".catactivitevoyage").change(function()
+  {
+  var id=$(this).val();
+  var post_id = 'id='+ id;
+
+  $.ajax
+  ({
+  type: "POST",
+  url: "rechercheactivitevoyagepourcarrousel.php",
+  data: post_id,
+  cache: false,
+  success: function(cities)
+  {
+  $(".souscatactivitevoyage").html(cities);
+  }
+  });
+
+  });
+  });
+  </script>
 
 
   <script>
