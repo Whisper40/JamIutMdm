@@ -3255,7 +3255,7 @@ if ($uploadOk == 0) {
 <script>
 $(document).ready(function(){
 
-var $recherche =$('input[name=valeur]');
+var $recherche =$('input[name=catactualite]');
 var critere;
 $recherche.keyup(function(){
   critere = $.trim($recherche.val());
