@@ -3176,7 +3176,7 @@ if ($uploadOk == 0) {
         $insert = $db->prepare("INSERT INTO carousel (slug, titre, image, titreimage) VALUES (:slug, :souscatactualite, :target_filefile, :titreimage)");
         $insert->execute(array(
             "slug"=>$slug,
-            "souscatactualite"=>$souscatactualite,
+            "souscatactualite"=>$souscategory,
             "target_filefile"=>$target_filefile,
             "titreimage"=>$titreimage
             )
