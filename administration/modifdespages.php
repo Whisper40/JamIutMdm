@@ -3297,7 +3297,7 @@ $selectcatimages=$db->query("SELECT * FROM newsactus");
                 while($s = $selectcatimages->fetch(PDO::FETCH_OBJ)){
                   $title =$s->title;
                   $id = $s->id;
-                  echo '<option value="'.$id.'">'.$title.'</option>';
+                  echo '<option value="'.$id.'">'.$id.'</option>';
             }
             ?>
             </select>
