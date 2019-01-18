@@ -3252,21 +3252,26 @@ if ($uploadOk == 0) {
 <!-- TEST -->
 
 
-<script>
-$(document).ready(function(){
+<script type="text/javascript">
+$(document).ready(function()
+{
+$(".catactualite").change(function()
+{
+var id=$(this).val();
+var post_id = 'id='+ id;
 
-var $recherche =$('input[name=catactualite]');
-var critere;
-$recherche.keyup(function(){
-  critere = $.trim($recherche.val());
-  if(critere!=''){
-    $.get('rechercheactus.php?critere='+critere,function(retour){
-
-$('#resultat').html(retour).fadeIn();
-
+$.ajax
+({
+type: "POST",
+url: "rechercheactus.php",
+data: post_id,
+cache: false,
+success: function(cities)
+{
+$(".souscatactualite").html(cities);
+}
 });
 
-}else $('#resultat').empty().fadeOut();
 });
 });
 </script>
@@ -3281,7 +3286,7 @@ $('#resultat').html(retour).fadeIn();
 
 
 <?php
-$selectcatimages=$db->query("SELECT DISTINCT title FROM newsactus");
+$selectcatimages=$db->query("SELECT * FROM newsactus");
 
  ?>
 
@@ -3291,15 +3296,13 @@ $selectcatimages=$db->query("SELECT DISTINCT title FROM newsactus");
               <?php
                 while($s = $selectcatimages->fetch(PDO::FETCH_OBJ)){
                   $catactualite=$s->title;
-                  ?>
-                <option value="<?php echo $catactualite;?>"><?php echo $catactualite; ?></option>
-              <?php
+                  echo '<option value="'.$s['id'].'">'.$s['title'].'</option>';
             }
             ?>
-
-
             </select>
-            <p id='resultat'></p>
+            <label>City :</label><select name="souscatactualite">
+<option>Select City</option>
+</select>
 
             <div class="input-group input-lg">
               <div class="input-group-prepend">

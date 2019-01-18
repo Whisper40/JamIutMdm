@@ -2,56 +2,21 @@
 require_once('includes/connectBDD.php');
 require_once('includes/checkconnection.php');
 
-if(isset($_GET['critere'])){
-  $critere=$_GET['critere'];
 
-  $select = $db->query("SELECT * FROM newsactus WHERE title LIKE '%$critere%'");
-  $table = $select->fetchAll(PDO::FETCH_OBJ);
+if($_POST['id']){
+	$id=$_POST['id'];
+	if($id==0){
+		echo "<option>Select Sous Catégorie</option>";
+		}else{
 
-
-if(count($table)>0){
-  echo "<h3>".count($table)." documents trouvés</h3>";
-  echo '
-  <table class="table">
-  <thead>
-  <tr>
-  <th scope="col">Id</th>
-  <th scope="col">Pseudo</th>
-  <th scope="col">Dernière connexion</th>
-
-  </tr>
-  </thead>
-  <tbody>
-
-  ';
-  foreach($table as $ligne){
-    $title=$ligne->title;
-    $title2=$ligne->title2;
-    $title3=$ligne->title3;
-
-
-    echo '
-    <tr>
-      <th scope="row">'.$title.'</th>
-      <td>'.$title2.'<td>
-      <td>'.$title3.'</td>
-
-
-    </tr>
-<hr>
-    ';
-
-
-  }
-
-  echo '
-</tbody>
-</table>
-
-
-  ';
-}else echo"<p class='rouge'> Pas de résultats</p>";
-
-
-
-}else echo"<p class='rouge'> Aucun critere de recherche n'a été fournis </p>";
+      $s5=$db->query("SELECT * FROM newsactus where id='$id'");
+      $row = $s5->fetch(PDO::FETCH_OBJ);
+      $title = $row->title;
+      $title2 = $row->title2;
+      $title3 = $row->title3;
+				echo '<option value="'.$title.'">'.$title.'</option>';
+        echo '<option value="'.$title2.'">'.$title2.'</option>';
+        echo '<option value="'.$title3.'">'.$title3.'</option>';
+				}
+			}
+		}
