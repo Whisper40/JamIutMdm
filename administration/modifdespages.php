@@ -3463,7 +3463,7 @@ if (file_exists($target_dir)){
       var description = $("#description").val();
       var title2 = $("#title2").val();
       var description2 = $("#description2").val();
-      var title3 = $("#titre3").val();
+      var title3 = $("#title3").val();
       var description3 = $("#description3").val();
       var formatimg = $("#formatimg").val();
       var stock = $("#stock").val();
