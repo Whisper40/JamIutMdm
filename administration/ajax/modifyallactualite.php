@@ -15,7 +15,7 @@ require_once('../includes/connectBDD.php');
 
         if(!empty($id)&&!empty($user_id)&&!empty($title)&&!empty($description)&&!empty($formatimg)){
 
-          $selectancien = $db->prepare("SELECT * FROM newsactus WHERE id=:id and slug=:slug");
+          $selectancien = $db->prepare("SELECT * FROM newsactus WHERE id=:id");
           $selectancien->execute(array(
               "id"=>$id
               )
