@@ -1039,7 +1039,7 @@ require_once('includes/head.php');
                         <div class="col-md-4">
                             <div class="card card-product">
                                 <div class="card-image" data-header-animation="false">
-                                        <img class="img" src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/<?php echo $row['slug']; ?>.<?php echo $row['formatimg']; ?>" height="300" width="280">
+                                        <img class="img" src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/<?php echo $row['slug']; ?>.<?php echo $row['formatimg']; ?>" height="100">
                                 </div>
                                 <div class="card-content">
                                     <h3 class="card-title">
