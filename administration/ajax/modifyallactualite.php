@@ -15,32 +15,36 @@ require_once('../includes/connectBDD.php');
 
         if(!empty($id)&&!empty($user_id)&&!empty($title)&&!empty($description)&&!empty($formatimg)){
 
-          $selectancien = $db->prepare("SELECT * FROM newsactus WHERE id=:id");
+          $selectancien = $db->prepare("SELECT * FROM newsactus WHERE id=:id and slug=:slug");
           $selectancien->execute(array(
               "id"=>$id
               )
           );
             $r2 = $selectancien->fetch(PDO::FETCH_OBJ);
+            $slug = $r2->slug;
             $titleancien = $r2->title;
             $title2ancien = $r2->title2;
             $title3ancien = $r2->title3;
 
-            $update1 = $db->prepare("UPDATE carousel SET titre=:title WHERE titre=:titreancien");
+            $update1 = $db->prepare("UPDATE carousel SET titre=:title WHERE titre=:titreancien and slug=:slug");
             $update1->execute(array(
                 "titreancien"=>$titleancien,
-                "title"=>$title
+                "title"=>$title,
+                "slug"=>$slug
                 )
             );
-            $update2 = $db->prepare("UPDATE carousel SET titre=:title2 WHERE titre=:titreancien2");
+            $update2 = $db->prepare("UPDATE carousel SET titre=:title2 WHERE titre=:titreancien2 and slug=:slug");
             $update2->execute(array(
                 "titreancien2"=>$title2ancien,
-                "title2"=>$title2
+                "title2"=>$title2,
+                "slug"=>$slug
                 )
             );
-            $update3 = $db->prepare("UPDATE carousel SET titre=:title3 WHERE titre=:titreancien3");
+            $update3 = $db->prepare("UPDATE carousel SET titre=:title3 WHERE titre=:titreancien3 and slug=:slug");
             $update3->execute(array(
                 "titreancien3"=>$title3ancien,
-                "title3"=>$title3
+                "title3"=>$title3,
+                "slug"=>$slug
                 )
             );
 
