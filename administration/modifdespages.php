@@ -2861,11 +2861,12 @@ if(isset($_POST['submitactualite'])){
 $total = count($_FILES['fileToUpload']['name']);
 
 for( $i=0 ; $i < $total ; $i++ ) {
+$target_file3 = $target_dirnew."".$slug.".".$formatimg;
 $target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 // Check if file already exists
-if (file_exists($target_file)) {
+if (file_exists($target_file3)) {
     $error = 'Désolé, le fichier existe déja.';
     $uploadOk = 0;
 }
@@ -2892,11 +2893,11 @@ if ($uploadOk == 0) {
   $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
   $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
   $target_filefile3 = $slug.".".$formatimg;
-  $target_file3 = $target_dirnew."".$slug.".".$formatimg;
+
 
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
         $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
-
+$target_file3 = $target_dirnew."".$slug.".".$formatimg;
 
         $insert = $db->prepare("INSERT INTO newsactus (title, slug, description, surname, date, formatimg, status) VALUES(:title, :slug, :description, :surname, :date, :formatimg, :status)");
         $insert->execute(array(
@@ -3030,7 +3031,6 @@ if ($uploadOk == 0) {
 
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <div class="container-fluid">
     <div class="card">
