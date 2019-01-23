@@ -701,11 +701,6 @@ demo = {
 
 
 
-
-
-
-
-
             }else if(type == 'warning-message-and-canceldeleteactu'){
             swal({
                     title: 'Êtes vous certain ?',
@@ -720,7 +715,7 @@ demo = {
                 }).then(function() {
                   swal({
                     title: 'Supprimée !',
-                    text: 'L\activité est désormais supprimée !',
+                    text: "L'activité est désormais supprimée !",
                     type: 'success',
                     confirmButtonClass: "btn btn-success",
                     buttonsStyling: false
