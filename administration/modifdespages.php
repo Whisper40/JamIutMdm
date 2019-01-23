@@ -3028,10 +3028,20 @@ $target_file3 = $target_dirnew."".$slug.".".$formatimg;
 
  <div id="results11"> <!-- TRES IMPORTANT -->
 </div>
+<script>
+
+function SubmitFormDataTEST() {
+   var catactu = $("#catactu").val();
 
 
+   $.post("modifdespages.php", { catactu: catactu},
+   function(data) {
+    $('#results34').html(data);
 
+   });
 
+}
+</script>
 <div class="container-fluid">
     <div class="card">
         <div class="card-content">
@@ -3045,7 +3055,7 @@ $target_file3 = $target_dirnew."".$slug.".".$formatimg;
                       $selectactuasupprimer=$db->query("SELECT DISTINCT title FROM newsactus");
                       ?>
 
-                      <select name="catactu">
+                      <select name="catactu" id="catactu">
                         <?php
                           while($sa = $selectactuasupprimer->fetch(PDO::FETCH_OBJ)){
                             $catactu=$sa->title;
@@ -3055,13 +3065,6 @@ $target_file3 = $target_dirnew."".$slug.".".$formatimg;
                       }
                       ?>
                       </select>
-                      <script>
-
-                      var selectElmt = document.getElementById("catactu");
-var valeurselectionnee = selectElmt.options[selectElmt.selectedIndex].value;
-var textselectionne = selectElmt.options[selectElmt.selectedIndex].text;
-
-</script>
 
                      </div>
                   </div>
@@ -3069,7 +3072,7 @@ var textselectionne = selectElmt.options[selectElmt.selectedIndex].text;
                 <div class="col-sm-12">
                     <div class="card-content">
                       <center>
-                      <button onclick="demo.showSwal('testmo','<?php echo $user_id; ?>',valeurselectionnee);" type="button" class="btn btn-primary btn-round btn-rose">Supprimer</button>
+                      <button onclick="SubmitFormDataTEST();demo.showSwal('testmo','<?php echo $user_id; ?>',<?php echo $catactu; ?>);" type="button" class="btn btn-primary btn-round btn-rose">Supprimer</button>
                       <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                       </center>
                      </div>
