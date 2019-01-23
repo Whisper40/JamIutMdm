@@ -720,7 +720,7 @@ demo = {
                 }).then(function() {
                   swal({
                     title: 'Supprimée !',
-                    text: 'L\activité est désormais supprimée !',
+                    text: 'Lactivité est désormais supprimée !',
                     type: 'success',
                     confirmButtonClass: "btn btn-success",
                     buttonsStyling: false
