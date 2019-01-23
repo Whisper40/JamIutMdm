@@ -10,7 +10,7 @@ require_once('../includes/connectBDD.php');
           setlocale(LC_TIME, 'fr_FR.utf8','fra');
           $date = strftime('%d/%m/%Y %H:%M:%S');
 
-          $select = $db->prepare("SELECT slug FROM newsactus WHERE catactu=:catactu");
+          $select = $db->prepare("SELECT slug FROM newsactus WHERE title=:catactu");
           $select->execute(array(
                               "catactu"=>$catactu
                               )
