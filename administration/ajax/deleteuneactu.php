@@ -12,7 +12,7 @@ require_once('../includes/connectBDD.php');
 
           $select = $db->prepare("SELECT slug FROM newsactus WHERE catactu=:catactu");
           $select->execute(array(
-                              "catactu"=>$catactu,
+                              "catactu"=>$catactu
                               )
                           );
           $sa = $select->fetch(PDO::FETCH_OBJ);
@@ -22,13 +22,13 @@ require_once('../includes/connectBDD.php');
 
           $delete = $db->prepare("DELETE * FROM newsactus WHERE slug=:slug");
           $delete->execute(array(
-                              "slug"=>$slug,
+                              "slug"=>$slug
                               )
                           );
 
                           $delete2 = $db->prepare("DELETE * FROM carousel WHERE slug=:slug");
                           $delete2->execute(array(
-                                              "slug"=>$slug,
+                                              "slug"=>$slug
                                               )
                                           );
 
