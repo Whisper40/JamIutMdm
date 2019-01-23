@@ -3031,20 +3031,6 @@ if ($uploadOk == 0) {
 
 
 
-<script>
-function SubmitFormDataDeleteActu() {
-   var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-   var title = $("#title").val();
-
-
-   $.post("ajax/deleteuneactu.php", { user_id:user_id, title: title},
-   function(data) {
-    $('#results20').html(data);
-
-   });
-
-}
-</script>
 
 <div class="container-fluid">
     <div class="card">
@@ -3075,7 +3061,7 @@ function SubmitFormDataDeleteActu() {
                 <div class="col-sm-12">
                     <div class="card-content">
                       <center>
-                      <button id="submitFormDataDeleteActu" onclick="SubmitFormDataDeleteActu();" type="button" class="btn btn-primary btn-round btn-rose">Supprimer</button>
+                      <button onclick="demo.showSwal('warning-message-and-canceldeletefichier','<?php echo $user_id; ?>','<?php echo $catactu; ?>');" type="button" class="btn btn-primary btn-round btn-rose">Supprimer</button>
                       <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                       </center>
                      </div>

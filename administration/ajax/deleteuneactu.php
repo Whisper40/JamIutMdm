@@ -1,53 +1,52 @@
 <?php
 require_once('../includes/connectBDD.php');
 
-
         $user_id = $_POST['user_id'];
-        $title = $_POST['title'];
+        $catactu = $_POST['catactu'];
 
+        if(!empty($user_id)&&!empty($catactu){
 
-//A FAIRE//A FAIRE//A FAIRE//A FAIRE//A FAIRE//A FAIRE//A FAIRE//A FAIRE//A FAIRE//A FAIRE
-
-        if(!empty($user_id)&&!empty($title){
           date_default_timezone_set('Europe/Paris');
           setlocale(LC_TIME, 'fr_FR.utf8','fra');
           $date = strftime('%d/%m/%Y %H:%M:%S');
 
-          $insert = $db->prepare("INSERT INTO newsactus (title, slug, description, surname, date, formatimg, status) VALUES(:title, :slug, :description, :surname, :date, :formatimg, :status)");
-          $insert->execute(array(
-                              "title"=>$title,
+          $select = $db->prepare("SELECT slug FROM newsactus WHERE catactu=:catactu");
+          $select->execute(array(
+                              "catactu"=>$catactu,
+                              )
+                          );
+          $sa = $select->fetch(PDO::FETCH_OBJ);
+          $slug=$sa->slug;
+
+
+
+          $delete = $db->prepare("DELETE * FROM newsactus WHERE slug=:slug");
+          $delete->execute(array(
                               "slug"=>$slug,
-                              "description"=>$description,
-                              "surname"=>'Actualité',
-                              "date"=>$date,
-                              "formatimg"=>$formatimg,
-                              "status"=>'ACTIVE'
                               )
                           );
 
-                $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
-                $insertlogs->execute(array(
-                                    "user_id"=>$user_id,
-                                    "type"=>'Ajout',
-                                    "action"=>'Ajout d\'une actualité',
-                                    "page"=>'actualitees.php',
-                                    "date"=>$date
-                                    )
-                                );
-                ?>
+                          $delete2 = $db->prepare("DELETE * FROM carousel WHERE slug=:slug");
+                          $delete2->execute(array(
+                                              "slug"=>$slug,
+                                              )
+                                          );
 
-                    <script>
-                    demo.showSwal('success-message');
-                    demo.showNotification('top','right','<b>Succès</b> - L\'actualité à été crée !');
-                    </script>
 
-            <?php
+                                          $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
+                                          $insertlogs->execute(array(
+                                                              "user_id"=>$user_id,
+                                                              "type"=>'Suppression',
+                                                              "action"=>'Suppression d une activite',
+                                                              "page"=>'activitees.php',
+                                                              "date"=>$date
+                                                              )
+                                                          );
+
             }else{
                 ?>
 
                     <script>
-                    demo.showSwal('warning-message-and-canceldeletefichier');
-                    demo.showSwal('danger-message');
                     demo.showNotification('top','right','<b>Erreur</b> - Création non effectuée en raison de champs vides !');
                     </script>
             <?php

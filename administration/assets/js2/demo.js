@@ -569,7 +569,7 @@ demo = {
 
     },
 
-    showSwal: function(type,identifiant,ip,port){
+    showSwal: function(type,user_id,catactu){
 
         if(type == 'basic'){
         	swal({
@@ -706,7 +706,7 @@ demo = {
 
 
 
-            }else if(type == 'warning-message-and-canceldeletefichier'){
+            }else if(type == 'warning-message-and-canceldeleteactu'){
             swal({
                     title: 'Êtes vous certain ?',
                     text: 'Cette action est irréversible !',
@@ -719,16 +719,16 @@ demo = {
                     buttonsStyling: false
                 }).then(function() {
                   swal({
-                    title: 'Supprimé !',
-                    text: 'Vos fichiers sont désormais supprimés !',
+                    title: 'Supprimée !',
+                    text: 'L\activité est désormais supprimée !',
                     type: 'success',
                     confirmButtonClass: "btn btn-success",
                     buttonsStyling: false
                     })
 
-                  $.post("deletedonnee.php", { identifiant: identifiant, ip:ip, port:port},
+                  $.post("deleteuneactu.php", { user_id: user_id, catactu:catactu},
     function(data) {
-     $('#results2').html(data);
+     $('#results20').html(data);
 
     });
                 }, function(dismiss) {
@@ -736,7 +736,7 @@ demo = {
                   if (dismiss === 'cancel') {
                     swal({
                       title: 'Annulé !',
-                      text: 'Vos fichiers sont préservés',
+                      text: 'Aucun changement effectué',
                       type: 'error',
                       confirmButtonClass: "btn btn-info",
                       buttonsStyling: false
