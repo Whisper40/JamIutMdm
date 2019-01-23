@@ -726,7 +726,7 @@ demo = {
                     buttonsStyling: false
                     })
 
-                  $.post("../ajax/deleteuneactu.php", { user_id: user_id, catactu: catactu},
+                  $.post("ajax/deleteuneactu.php", { user_id: user_id, catactu: catactu},
     function(data) {
      $('#results20').html(data);
 
