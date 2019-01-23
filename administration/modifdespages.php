@@ -3055,13 +3055,23 @@ $target_file3 = $target_dirnew."".$slug.".".$formatimg;
                       }
                       ?>
                       </select>
+                      <script>
+
+                      var selectElmt = document.getElementById("catactu");
+var valeurselectionnee = selectElmt.options[selectElmt.selectedIndex].value;
+var textselectionne = selectElmt.options[selectElmt.selectedIndex].text;
+<?php
+$fin = valeurselectionnee;
+ ?>
+</script>
+
                      </div>
                   </div>
 
                 <div class="col-sm-12">
                     <div class="card-content">
                       <center>
-                      <button onclick="demo.showSwal('testmo','<?php echo $user_id; ?>','<?php echo $_POST['catactu'];?>');" type="button" class="btn btn-primary btn-round btn-rose">Supprimer</button>
+                      <button onclick="demo.showSwal('testmo','<?php echo $user_id; ?>','<?php echo $fin; ?>');" type="button" class="btn btn-primary btn-round btn-rose">Supprimer</button>
                       <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                       </center>
                      </div>
