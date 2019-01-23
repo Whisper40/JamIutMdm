@@ -3061,7 +3061,7 @@ $target_file3 = $target_dirnew."".$slug.".".$formatimg;
                 <div class="col-sm-12">
                     <div class="card-content">
                       <center>
-                      <button onclick="demo.showSwal('testmo','8','9');" type="button" class="btn btn-primary btn-round btn-rose">Supprimer</button>
+                      <button onclick="demo.showSwal('testmo','<?php echo json_encode($user_id); ?>','<?php echo json_encode($catactu); ?>');" type="button" class="btn btn-primary btn-round btn-rose">Supprimer</button>
                       <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                       </center>
                      </div>
