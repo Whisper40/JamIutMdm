@@ -20,13 +20,13 @@ require_once('../includes/connectBDD.php');
 
 
 
-          $delete = $db->prepare("DELETE * FROM newsactus WHERE slug=:slug");
+          $delete = $db->prepare("DELETE FROM newsactus WHERE slug=:slug");
           $delete->execute(array(
                               "slug"=>$slug
                               )
                           );
 
-                          $delete2 = $db->prepare("DELETE * FROM carousel WHERE slug=:slug");
+                          $delete2 = $db->prepare("DELETE FROM carousel WHERE slug=:slug");
                           $delete2->execute(array(
                                               "slug"=>$slug
                                               )
