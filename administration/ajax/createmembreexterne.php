@@ -10,12 +10,11 @@ require_once('../includes/connectBDD.php');
       if(!empty($user_id)&&!empty($nom)&&!empty($prenom)&&!empty($code)&&!empty($raison)){
 
 
-                $insert = $db->prepare("INSERT INTO status (nom, prenom, numero, raison) VALUES (:nom, :prenom, :code, :raison)");
+                $insert = $db->prepare("INSERT INTO etud (numero, nom, prenom) VALUES (:numero, :nom, :prenom)");
                 $insert->execute(array(
+                    "numero"=>$numero,
                     "nom"=>$nom,
-                    "prenom"=>$prenom,
-                    "code"=>$code,
-                    "raison"=>$raison
+                    "prenom"=>$prenom
                     )
                 );
 
@@ -28,7 +27,7 @@ require_once('../includes/connectBDD.php');
                                     "user_id"=>$user_id,
                                     "type"=>'Ajout',
                                     "action"=>'Ajout d\'un utilisateur externe',
-                                    "page"=>'N/A',
+                                    "page"=>$raison,
                                     "date"=>$date
                                     )
                                 );
@@ -37,7 +36,7 @@ require_once('../includes/connectBDD.php');
 
                     <script>
                     demo.showSwal('success-message');
-                    demo.showNotification('top','right','<b>Succès</b> - Modification effectuées !');
+                    demo.showNotification('top','right','<b>Succès</b> - Modification effectués !');
                     </script>
 
             <?php
@@ -46,7 +45,7 @@ require_once('../includes/connectBDD.php');
 
                     <script>
                     demo.showSwal('danger-message');
-                    demo.showNotification('top','right','<b>Erreur</b> - Modification non effectuées en raison de champs vides !');
+                    demo.showNotification('top','right','<b>Erreur</b> - Modification non effectués en raison de champs vides !');
                     </script>
             <?php
             }
