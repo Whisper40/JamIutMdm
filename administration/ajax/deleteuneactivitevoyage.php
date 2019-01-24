@@ -5,13 +5,14 @@ require_once('../includes/connectBDD.php');
         $user_id = $_POST['user_id'];
         $catactivitevoyage = $_POST['catactivitevoyage'];
 
-        $selectslug = $db->prepare("SELECT slug FROM activitesvoyages WHERE title=:catactivitevoyage");
+        $selectslug = $db->prepare("SELECT slug, formatimg FROM activitesvoyages WHERE title=:catactivitevoyage");
         $selectslug->execute(array(
                             "catactivitevoyage"=>$catactivitevoyage
                             )
                         );
         $s = $selectslug->fetch(PDO::FETCH_OBJ);
         $slug = $s->slug;
+        $formatimg = $s->formatimg;
 
 //A FAIRE//A FAIRE//A FAIRE//A FAIRE//A FAIRE//A FAIRE//A FAIRE//A FAIRE//A FAIRE//A FAIRE
 
@@ -19,6 +20,30 @@ require_once('../includes/connectBDD.php');
           date_default_timezone_set('Europe/Paris');
           setlocale(LC_TIME, 'fr_FR.utf8','fra');
           $date = strftime('%d/%m/%Y %H:%M:%S');
+
+
+
+          $target_dir = '../../../../JamFichiers/Img/ImagesDuSite/Original';
+          $target_dirthumb = '../../../../JamFichiers/Img/ImagesDuSite/Thumb';
+
+
+
+
+          if (file_exists($target_dir)){
+          unlink("$target_dir/$slug.$formatimg");
+          unlink("$target_dirthumb/$slug.$formatimg");
+
+          }else{
+          $error = 'Un problème de répertoire est présent, contacter votre administrateur !';
+          }
+
+
+
+          $deletecarousel = $db->prepare("DELETE FROM carousel WHERE slug=:slug");
+          $deletecarousel->execute(array(
+                              "slug"=>$slug
+                              )
+                          );
 
           $del0 = $db->prepare("DELETE FROM activitesvoyages WHERE title=:catactivitevoyage");
           $del0->execute(array(
