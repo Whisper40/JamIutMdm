@@ -267,7 +267,7 @@ removeDirectory("$target_dir/$original/$dossier");
 removeDirectory("$target_dir/$affiche/$dossier");
 removeDirectory("$target_dir/$thumb/$dossier");
 
-    echo 'deleted';
+
     $updatedelete = $db->prepare("DELETE FROM images WHERE title=:title");
     $updatedelete->execute(array(
         "title"=>$cat
