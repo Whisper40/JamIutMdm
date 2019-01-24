@@ -5,7 +5,9 @@
     $nompage = "Nous Contacter";
     ini_set('display_errors', 1);
     $user_id = $_SESSION['admin_id'];
-
+    date_default_timezone_set('Europe/Paris');
+    setlocale(LC_TIME, 'fr_FR.utf8','fra');
+    $date = strftime('%d/%m/%Y %H:%M:%S');
 
 //Code de génératon du captcha fournie par GOOGLE
 $secret = "LESECRET";
