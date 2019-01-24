@@ -3029,17 +3029,12 @@ $target_file3 = $target_dirnew."".$slug.".".$formatimg;
  <div id="results11"> <!-- TRES IMPORTANT -->
 </div>
 <script>
-
-function SubmitFormDataTEST() {
-   var catactu = $("#catactu").val();
-
-
-   $.post("modifdespages.php", { catactu: catactu},
-   function(data) {
-    $('#results34').html(data);
-
-   });
-
+function myFunction() {
+  var x = document.getElementById("catactu").value;
+  document.getElementById("demo").innerHTML = x;
+  <?php
+$test = x;
+  ?>
 }
 </script>
 <div class="container-fluid">
@@ -3072,7 +3067,7 @@ function SubmitFormDataTEST() {
                 <div class="col-sm-12">
                     <div class="card-content">
                       <center>
-                      <button onclick="SubmitFormDataTEST();demo.showSwal('testmo','<?php echo $user_id; ?>','<?php echo $catactu; ?>');" type="button" class="btn btn-primary btn-round btn-rose">Supprimer</button>
+                      <button onclick="demo.showSwal('warningdeleteactu','<?php echo $user_id; ?>','<?php echo $test; ?>');" type="button" class="btn btn-primary btn-round btn-rose">Supprimer</button>
                       <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                       </center>
                      </div>
