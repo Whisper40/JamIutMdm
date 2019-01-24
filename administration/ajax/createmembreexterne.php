@@ -12,7 +12,7 @@ require_once('../includes/connectBDD.php');
 
                 $insert = $db->prepare("INSERT INTO etud (numero, nom, prenom) VALUES (:numero, :nom, :prenom)");
                 $insert->execute(array(
-                    "numero"=>$numero,
+                    "numero"=>$code,
                     "nom"=>$nom,
                     "prenom"=>$prenom
                     )
