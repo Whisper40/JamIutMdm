@@ -37,6 +37,25 @@ require_once('../includes/connectBDD.php');
           $error = 'Un problème de répertoire est présent, contacter votre administrateur !';
           }
 
+          $deleteallimages = $db->prepare("SELECT image FROM carousel WHERE slug=:slug");
+          $deleteallimages->execute(array(
+            "slug"=>$slug
+          )
+          );
+
+              while($sa = $deleteallimages->fetch(PDO::FETCH_OBJ)){
+                $image=$sa->image;
+
+
+                if (file_exists($target_dir)){
+                unlink("$target_dir/$image");
+                unlink("$target_dirthumb/$image");
+
+                }else{
+                $error = 'Un problème de répertoire est présent, contacter votre administrateur !';
+                }
+          }
+
 
 
           $deletecarousel = $db->prepare("DELETE FROM carousel WHERE slug=:slug");
