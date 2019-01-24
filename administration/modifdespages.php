@@ -3032,7 +3032,9 @@ $target_file3 = $target_dirnew."".$slug.".".$formatimg;
 function myFunction() {
   var x = document.getElementById("catactu").value;
   document.getElementById("demo").innerHTML = x;
-
+  <?php
+$test = x;
+  ?>
 }
 </script>
 <div class="container-fluid">
