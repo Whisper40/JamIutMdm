@@ -112,7 +112,12 @@ require_once('../includes/connectBDD.php');
                                     "date"=>$date
                                     )
                                 );
+                                ?>
+                                <script>
 
+                                window.setTimeout("location=('https://administration.jam-mdm.fr/modifdespages.php?page=activitesvoyages&table=activitesvoyages');",3000);
+                                </script>
+<?php
             }else{
                 ?>
 
