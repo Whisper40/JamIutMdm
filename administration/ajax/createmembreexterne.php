@@ -2,8 +2,8 @@
 require_once('../includes/connectBDD.php');
 
         $user_id = $_POST['user_id'];
-        $nom = $_POST['nom'];
-        $prenom = $_POST['prenom'];
+        $nom = mb_strtoupper($_POST['nom']);
+        $prenom = mb_strtoupper($_POST['prenom']);
         $code = $_POST['code'];
         $raison = $_POST['raison'];
 
