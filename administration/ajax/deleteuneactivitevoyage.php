@@ -15,7 +15,7 @@ require_once('../includes/connectBDD.php');
 
 //A FAIRE//A FAIRE//A FAIRE//A FAIRE//A FAIRE//A FAIRE//A FAIRE//A FAIRE//A FAIRE//A FAIRE
 
-        if(!empty($user_id)&&!empty($catactivitevoyage){
+        if(!empty($user_id)&&!empty($catactivitevoyage)){
           date_default_timezone_set('Europe/Paris');
           setlocale(LC_TIME, 'fr_FR.utf8','fra');
           $date = strftime('%d/%m/%Y %H:%M:%S');
