@@ -3064,7 +3064,7 @@ function myFunction() {
                 <div class="col-sm-12">
                     <div class="card-content">
                       <center>
-                      <button onclick="demo.showSwal('warningdeleteactu','<?php echo $user_id; ?>','jamesbond');" type="button" class="btn btn-primary btn-round btn-rose">Supprimer</button>
+                      <button onclick="demo.showSwal('warningdeleteactu','<?php echo $user_id; ?>',+x+);" type="button" class="btn btn-primary btn-round btn-rose">Supprimer</button>
                       <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                       </center>
                      </div>
