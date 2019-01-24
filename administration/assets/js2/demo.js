@@ -569,7 +569,7 @@ demo = {
 
     },
 
-    showSwal: function(type,user_id,catactu){
+    showSwal: function(type,user_id){
 
         if(type == 'basic'){
         	swal({
@@ -707,6 +707,7 @@ demo = {
 
 
             }else if(type == 'warningdeleteactu'){
+            const catactu = document.getElementById("catactu").value
             swal({
                     title: 'Êtes vous certain ?',
                     text: 'Cette action est irréversible !',

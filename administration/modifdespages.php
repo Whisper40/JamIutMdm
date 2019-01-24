@@ -3028,13 +3028,7 @@ $target_file3 = $target_dirnew."".$slug.".".$formatimg;
 
  <div id="results11"> <!-- TRES IMPORTANT -->
 </div>
-<script>
-function myFunction() {
-  var x = document.getElementById("catactu").value;
-  document.getElementById("demo").innerHTML = x;
-  return x;
-}
-</script>
+
 <div class="container-fluid">
     <div class="card">
         <div class="card-content">
@@ -3065,7 +3059,7 @@ function myFunction() {
                 <div class="col-sm-12">
                     <div class="card-content">
                       <center>
-                      <button onclick="demo.showSwal('warningdeleteactu','<?php echo $user_id; ?>', myFunction())" type="button" class="btn btn-primary btn-round btn-rose">Supprimer</button>
+                      <button onclick="demo.showSwal('warningdeleteactu','<?php echo $user_id; ?>')" type="button" class="btn btn-primary btn-round btn-rose">Supprimer</button>
                       <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                       </center>
                      </div>
