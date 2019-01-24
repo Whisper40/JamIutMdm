@@ -10,13 +10,28 @@ require_once('../includes/connectBDD.php');
           setlocale(LC_TIME, 'fr_FR.utf8','fra');
           $date = strftime('%d/%m/%Y %H:%M:%S');
 
-          $select = $db->prepare("SELECT slug FROM newsactus WHERE title=:catactu");
+          $select = $db->prepare("SELECT slug, formatimg FROM newsactus WHERE title=:catactu");
           $select->execute(array(
                               "catactu"=>$catactu
                               )
                           );
           $sa = $select->fetch(PDO::FETCH_OBJ);
           $slug=$sa->slug;
+          $formatimg=$sa->formatimg;
+
+
+          $target_dir = '../../../../JamFichiers/Img/ImagesDuSite/Original';
+          $target_dirthumb = '../../../../JamFichiers/Img/ImagesDuSite/Thumb';
+
+
+
+          if (file_exists($target_dir)){
+          unlink("$target_dir/$slug.$formatimg");
+          unlink("$target_dirthumb/$slug.$formatimg");
+
+          }else{
+          $error = 'Un problème de répertoire est présent, contacter votre administrateur !';
+          }
 
 
 
@@ -26,7 +41,27 @@ require_once('../includes/connectBDD.php');
                               )
                           );
 
-                          $delete2 = $db->prepare("DELETE  FROM carousel WHERE slug=:slug");
+
+                          $deleteallimages = $db->prepare("SELECT image FROM carousel WHERE slug=:slug");
+                          $deleteallimages->execute(array(
+                            "slug"=>$slug
+                          )
+                        );
+
+                              while($sa = $deleteallimages->fetch(PDO::FETCH_OBJ)){
+                                $image=$sa->image;
+
+
+                                if (file_exists($target_dir)){
+                                unlink("$target_dir/$image");
+                                unlink("$target_dirthumb/$image");
+
+                                }else{
+                                $error = 'Un problème de répertoire est présent, contacter votre administrateur !';
+                                }
+                          }
+
+                          $delete2 = $db->prepare("DELETE FROM carousel WHERE slug=:slug");
                           $delete2->execute(array(
                                               "slug"=>$slug
                                               )
@@ -42,6 +77,12 @@ require_once('../includes/connectBDD.php');
                                                               "date"=>$date
                                                               )
                                                           );
+
+                                                          ?>
+                                                          <script>
+                                                          window.setTimeout("location=('https://administration.jam-mdm.fr/modifdespages.php?page=actualite&table=newsactus');",3000);
+                                                          </script>
+                          <?php
 
             }else{
                 ?>

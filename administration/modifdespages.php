@@ -4473,7 +4473,7 @@ if ($uploadOk == 0) {
   $target_dir = '../../../JamFichiers/Img/ImagesDuSite/Original';
   $target_dirthumb = '../../../JamFichiers/Img/ImagesDuSite/Thumb';
 
-  echo 'Jamesbond';
+
 
 
   if (file_exists($target_dir)){
@@ -4487,7 +4487,7 @@ if ($uploadOk == 0) {
   $succes = "Le fichier.$valnom. à bien été supprimé";
 
   }else{
-  echo 'n extse pas';
+
   $error = 'Un problème de répertoire est présent, contacter votre administrateur !';
   }
 
