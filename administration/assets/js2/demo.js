@@ -706,7 +706,7 @@ demo = {
 
 
 
-            }else if(type == 'testmo'){
+            }else if(type == 'warningdeleteactu'){
             swal({
                     title: 'Êtes vous certain ?',
                     text: 'Cette action est irréversible !',
