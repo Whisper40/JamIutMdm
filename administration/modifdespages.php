@@ -4164,7 +4164,7 @@ if ($uploadOk == 0) {
                       $selectactivitevoyagesupprimer=$db->query("SELECT DISTINCT title FROM activitesvoyages");
                       ?>
 
-                      <select name="catactivitevoyage">
+                      <select name="catactivitevoyage" id="catactivitevoyage">
                         <?php
                           while($sa = $selectactivitevoyagesupprimer->fetch(PDO::FETCH_OBJ)){
                             $catactivitevoyage=$sa->title;
