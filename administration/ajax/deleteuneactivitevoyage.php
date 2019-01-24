@@ -20,6 +20,12 @@ require_once('../includes/connectBDD.php');
           setlocale(LC_TIME, 'fr_FR.utf8','fra');
           $date = strftime('%d/%m/%Y %H:%M:%S');
 
+          $del0 = $db->prepare("DELETE FROM activitesvoyages WHERE title=:catactivitevoyage");
+          $del0->execute(array(
+                          "catactivitevoyage"=>$catactivitevoyage
+                        )
+          );
+
 
               $del00 = $db->prepare("DELETE FROM participe WHERE activity_name=:slug");
               $del00->execute(array(
