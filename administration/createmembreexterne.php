@@ -44,7 +44,7 @@ function SubmitFormDataCreerUnMembre() {
    var code = "<?php echo $valeurcode; ?>";
    var raison = $("#raison").val();
 
-   $.post("ajax/createmembreexterne.php", { user_id:user_id, nom: nom, prenom: prenom, code: code, raison: raison},
+   $.post("ajax/createmembreexterne.php", { user_id: user_id, nom: nom, prenom: prenom, code: code, raison: raison},
    function(data) {
     $('#results23').html(data);
    });
@@ -92,7 +92,7 @@ $valeurcode = mt_rand(1000, 999999);
                             <div class="card-content">
 
                               <center>
-                              <button id="SubmitFormDataCreerUnMembre" onclick="SubmitFormDataCreerUnMembre();" type="button" class="btn btn-primary btn-round btn-rose">Créer</button>
+                              <button id="submitFormDataCreerUnMembre" onclick="SubmitFormDataCreerUnMembre();" type="button" class="btn btn-primary btn-round btn-rose">Créer</button>
                               </center>
                              </div>
                           </div>
