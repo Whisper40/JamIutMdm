@@ -21,7 +21,11 @@ require_once('../includes/connectBDD.php');
           $date = strftime('%d/%m/%Y %H:%M:%S');
 
 
-            
+              $del00 = $db->prepare("DELETE FROM participe WHERE activity_name=:slug");
+              $del00->execute(array(
+                              "slug"=>$slug
+                            )
+              );
 
               $del5 = $db->prepare("DELETE FROM communicationactivite WHERE slug=:slug");
               $del5->execute(array(
@@ -31,7 +35,7 @@ require_once('../includes/connectBDD.php');
                 //Suivant l'activité
 
                 if (stripos($slug, 'ski') !== FALSE) {
-                    //L'insulte est présente
+                    //Le texte est present
                     $del2 = $db->prepare("DELETE FROM formulaireski");
                     $del2->execute();
 
