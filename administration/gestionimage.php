@@ -230,7 +230,7 @@ if($action == 'defaut'){
       )
   );
 
-  $success = "L\'album à été définis comme album par défaut";
+  $success = "L'album à été définis comme album par défaut";
 
 }else if ($action == 'ban'){
 
@@ -242,7 +242,7 @@ if($action == 'defaut'){
       )
   );
 
-  $success = "L\'album à été définis comme album par défaut";
+  $success = "L'album à été définis comme album par défaut";
 }else if ($action == 'delete'){
 
   $dossier = $cat;
