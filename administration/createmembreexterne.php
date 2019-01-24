@@ -10,7 +10,10 @@
 //Code de génératon du captcha fournie par GOOGLE
 $secret = "LESECRET";
 $sitekey = "LESITEKEY";
-?>
+
+
+$valeurcode = mt_rand(1000, 999999);
+ ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src='https://www.google.com/recaptcha/api.js'></script>
 
@@ -51,10 +54,7 @@ function SubmitFormDataCreerUnMembre() {
    });
 }
 </script>
-<?php
 
-$valeurcode = mt_rand(1000, 999999);
- ?>
 
 <body class="landing-page sidebar-collapse">
   <div class="wrapper">
