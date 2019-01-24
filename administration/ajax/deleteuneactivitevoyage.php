@@ -34,7 +34,7 @@ require_once('../includes/connectBDD.php');
               );
                 //Suivant l'activité
 
-                if (stripos($texte, 'ski') !== FALSE) {
+                if (stripos($slug, 'ski') !== FALSE) {
                     //L'insulte est présente
                     $del2 = $db->prepare("DELETE FROM formulaireski");
                     $del2->execute();
@@ -43,7 +43,7 @@ require_once('../includes/connectBDD.php');
                     $del6->execute(array(
                       "slug"=>'%ski%'
                     ));
-                }else if (stripos($texte, 'sportive') !== FALSE){
+                }else if (stripos($slug, 'sportive') !== FALSE){
                   $del2 = $db->prepare("DELETE FROM formulairesportive");
                   $del2->execute();
 
@@ -52,7 +52,7 @@ require_once('../includes/connectBDD.php');
                     "slug"=>'%sportive%'
                   ));
 
-                }else if (stripos($texte, 'rugby') !== FALSE){
+                }else if (stripos($slug, 'rugby') !== FALSE){
                   $del3 = $db->prepare("DELETE FROM formulairerugby");
                   $del3->execute();
 
@@ -61,7 +61,7 @@ require_once('../includes/connectBDD.php');
                     "slug"=>'%rugby%'
                   ));
 
-                }else if (stripos($texte, 'orientation') !== FALSE){
+                }else if (stripos($slug, 'orientation') !== FALSE){
                   $del4 = $db->prepare("DELETE FROM formulaireorientation");
                   $del4->execute();
 
