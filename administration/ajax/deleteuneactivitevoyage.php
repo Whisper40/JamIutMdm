@@ -3,11 +3,11 @@ require_once('../includes/connectBDD.php');
 
 
         $user_id = $_POST['user_id'];
-        $title = $_POST['title'];
+        $catactivitevoyage = $_POST['catactivitevoyage'];
 
-        $selectslug = $db->prepare("SELECT slug FROM activitesvoyages WHERE title=:title");
+        $selectslug = $db->prepare("SELECT slug FROM activitesvoyages WHERE title=:catactivitevoyage");
         $selectslug->execute(array(
-                            "title"=>$title
+                            "catactivitevoyage"=>$catactivitevoyage
                             )
                         );
         $s = $selectslug->fetch(PDO::FETCH_OBJ);
@@ -15,7 +15,7 @@ require_once('../includes/connectBDD.php');
 
 //A FAIRE//A FAIRE//A FAIRE//A FAIRE//A FAIRE//A FAIRE//A FAIRE//A FAIRE//A FAIRE//A FAIRE
 
-        if(!empty($user_id)&&!empty($title){
+        if(!empty($user_id)&&!empty($catactivitevoyage){
           date_default_timezone_set('Europe/Paris');
           setlocale(LC_TIME, 'fr_FR.utf8','fra');
           $date = strftime('%d/%m/%Y %H:%M:%S');
@@ -72,32 +72,22 @@ require_once('../includes/connectBDD.php');
                 }
 
 
-
-
                 $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
                 $insertlogs->execute(array(
                                     "user_id"=>$user_id,
                                     "type"=>'Suppression',
-                                    "action"=>'Suppression d\'une actualité',
+                                    "action"=>'Suppression d\'une activité',
                                     "page"=>'activitees.php',
                                     "date"=>$date
                                     )
                                 );
-                ?>
 
-                    <script>
-                    demo.showSwal('success-message');
-                    demo.showNotification('top','right','<b>Succès</b> - L\'actualité à été crée !');
-                    </script>
-
-            <?php
             }else{
                 ?>
 
                     <script>
-                    demo.showSwal('warning-message-and-canceldeletefichier');
                     demo.showSwal('danger-message');
-                    demo.showNotification('top','right','<b>Erreur</b> - Création non effectuée en raison de champs vides !');
+                    demo.showNotification('top','right','<b>Erreur</b> - Suppression non effectuée en raison de champs vides !');
                     </script>
             <?php
             }

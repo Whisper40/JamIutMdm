@@ -4150,35 +4150,21 @@ if ($uploadOk == 0) {
 
 
 
-  <script>
-  function SubmitFormDataDeleteActivitevoyages() {
-   var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-   var title = $("#title").val();
-
-//AFAIRE
-   $.post("ajax/deleteuneactivitevoyage.php", { user_id: user_id, title: title},
-   function(data) {
-    $('#results20').html(data);
-
-   });
-
-  }
-  </script>
 
   <div class="container-fluid">
     <div class="card">
         <div class="card-content">
-            <h2 class="card-title text-center">Suppression d'activité/voyages</h2>
+            <h2 class="card-title text-center">Suppression d'activités/voyages</h2>
             <form action="" method="post" id="myForm1" class="contact-form">
             <div class="row">
                 <div class="col-sm-6">
                     <div class="card-content">
-                      Sélectionner l'activitée à supprimer<br><?php
+                      Sélectionner l'activité à supprimer<br><?php
 
                       $selectactivitevoyagesupprimer=$db->query("SELECT DISTINCT title FROM activitesvoyages");
                       ?>
 
-                      <select name="catactu">
+                      <select name="catactivitevoyage">
                         <?php
                           while($sa = $selectactivitevoyagesupprimer->fetch(PDO::FETCH_OBJ)){
                             $catactivitevoyage=$sa->title;
@@ -4194,7 +4180,7 @@ if ($uploadOk == 0) {
                 <div class="col-sm-12">
                     <div class="card-content">
                       <center>
-                      <button id="submitFormDataDeleteActivitevoyages" onclick="SubmitFormDataDeleteActivitevoyages();" type="button" class="btn btn-primary btn-round btn-rose">Supprimer</button>
+                      <button onclick="demo.showSwal('warningdeleteacti','<?php echo $user_id; ?>')" type="button" class="btn btn-primary btn-round btn-rose">Supprimer</button>
                       <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                       </center>
                      </div>
@@ -4207,7 +4193,7 @@ if ($uploadOk == 0) {
     </div>
   </div>
 
-  <div id="results20"> <!-- TRES IMPORTANT -->
+  <div id="results21"> <!-- TRES IMPORTANT -->
   </div>
 
 

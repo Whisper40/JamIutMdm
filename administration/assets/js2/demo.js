@@ -721,7 +721,7 @@ demo = {
                 }).then(function() {
                   swal({
                     title: 'Supprimée !',
-                    text: "L'activité est désormais supprimée !",
+                    text: "L'actualité est désormais supprimée !",
                     type: 'success',
                     confirmButtonClass: "btn btn-success",
                     buttonsStyling: false
@@ -748,7 +748,49 @@ demo = {
 
 
 
-                }else if(type == 'warning-message-and-canceldeleteparams'){
+              }else if(type == 'warningdeleteacti'){
+                const catactivitevoyage = document.getElementById("catactivitevoyage").value
+                swal({
+                        title: 'Êtes vous certain ?',
+                        text: 'Cette action est irréversible !',
+                        type: 'warning',
+                        showCancelButton: true,
+                        confirmButtonText: 'Oui ! Supprimer',
+                        cancelButtonText: 'Non ! Annuler',
+                        confirmButtonClass: "btn btn-success",
+                        cancelButtonClass: "btn btn-danger",
+                        buttonsStyling: false
+                    }).then(function() {
+                      swal({
+                        title: 'Supprimée !',
+                        text: "L'activité est désormais supprimée !",
+                        type: 'success',
+                        confirmButtonClass: "btn btn-success",
+                        buttonsStyling: false
+                        })
+
+                      $.post("ajax/deleteuneactivitevoyage.php", { user_id: user_id, catactivitevoyage: catactivitevoyage},
+        function(data) {
+         $('#results21').html(data);
+
+        });
+                    }, function(dismiss) {
+                      // dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+                      if (dismiss === 'cancel') {
+                        swal({
+                          title: 'Annulé !',
+                          text: 'Aucun changement effectué',
+                          type: 'error',
+                          confirmButtonClass: "btn btn-info",
+                          buttonsStyling: false
+                        })
+                      }
+                    })
+
+
+
+
+                    }else if(type == 'warning-message-and-canceldeleteparams'){
             swal({
                     title: 'Êtes vous certain ?',
                     text: 'Cette action est irréversible !',
