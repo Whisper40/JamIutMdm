@@ -55,18 +55,22 @@ if(isset($_POST['submit'])){
      }
 
      $messagenotif = "Le mail à été envoyé à son destinataire !";
+     $type = "success";
 
    }else{
 
       $messagenotif = "Erreur Captcha";
+      $type = "warning";
+
    } }else{
 
      $messagenotif = "Erreur Champs: Les champs sont incorrects ou manquants !";
+     $type = "warning";
  }
 }
   ?>
 
-<body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>')" <?php } ?> >
+<body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
   <div class="wrapper">
 
     <?php
@@ -283,7 +287,7 @@ if($countid2>'0'){
   <div class="col-sm-12">
     <div class="card-content">
       <center>
-        <button type="submit" name="submit" value="Envoyer un message" class="btn btn-rose btn-round" onclick="demo.showNotification('top','right','Salut')">Envoyer le message</button>
+        <button type="submit" name="submit" value="Envoyer un message" class="btn btn-rose btn-round">Envoyer le message</button>
       </center>
     </div>
   </div>
