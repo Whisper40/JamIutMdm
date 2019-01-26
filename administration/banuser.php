@@ -62,9 +62,6 @@ $('#resultat').html(retour).fadeIn();
 });
 </script>
 
-<body>
-    <div class="wrapper">
-
 <?php
 
 if($_GET['action']=='unban'){
@@ -94,59 +91,60 @@ $setban->execute();
 
  ?>
 
-
-<div class="content">
-<div class="container-fluid">
-    <div class="card">
-        <div class="card-content">
+<body>
+  <div class="wrapper">
+    <div class="content">
+      <div class="container-fluid">
+        <div class="card">
+          <div class="card-content">
             <h2 class="card-title text-center">Banir / Débanir un Utilisateur</h2>
             <br>
             <div class="row">
               <div class="col-sm-12">
-                  <div class="card-content">
-                    <h3 class="card-title">Rechercher un utilisateur pour banissemet</h3>
+                <div class="card-content">
+                  <h3 class="card-title">Rechercher un utilisateur pour banissemet</h3>
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col-md-6 col-md-offset-3">
-                  <div class="card-content">
-                      <input type="text" class="form-control"  name="valeur" placeholder="Recherche par Nom, Identifiant ou Email">
-                  </div>
+                <div class="card-content">
+                  <input type="text" class="form-control"  name="valeur" placeholder="Recherche par Nom, Identifiant ou Email">
                 </div>
-                <div class="col-sm-12">
-                    <div class="card-content">
-                      <p id='resultat'></p>
-                  </div>
+              </div>
+              <div class="col-sm-12">
+                <div class="card-content">
+                  <p id='resultat'></p>
                 </div>
+              </div>
             </div>
 
             <?php
             if($countban>'0'){
             ?>
+
             <div class="row">
               <div class="col-sm-12">
-                  <div class="card-content">
-                    <h3 class="card-title">Liste des Utilisateur Banis</h3>
+                <div class="card-content">
+                  <h3 class="card-title">Liste des Utilisateur Banis</h3>
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col-sm-12">
-                  <div class="card-content">
+                <div class="card-content">
                   <div class="table-responsive">
                     <table class="table">
-                        <thead class="text-primary">
-                            <th class="text-center">Identifiant</th>
-                            <th class="text-center">Pseudo</th>
-                            <th class="text-center">Dernière connexion</th>
-                            <th class="text-center">Statuts</th>
-                            <th class="text-center">Débanir</th>
-                        </thead>
-                        <tbody>
+                      <thead class="text-primary">
+                        <th class="text-center">Identifiant</th>
+                        <th class="text-center">Pseudo</th>
+                        <th class="text-center">Dernière connexion</th>
+                        <th class="text-center">Statuts</th>
+                        <th class="text-center">Débanir</th>
+                      </thead>
+                      <tbody>
 
                           <?php
-
                               while($sban=$selectban->fetch(PDO::FETCH_OBJ)){
                                 $iduser = $sban->id;
                                 $pseudo = $sban->username;
@@ -154,27 +152,29 @@ $setban->execute();
                                 $attempts = $sban->numberofattempts;
                           ?>
 
-                          <tr>
-                            <td class="text-center"><?php echo $iduser;?></td>
-                            <td class="text-center"><?php echo $pseudo;?></td>
-                            <td class="text-center"><?php echo $last_connect;?></td>
-                            <td class="text-center"><?php echo $attempts;?></td>
-                            <td class="text-center"><a href="?action=unban&amp;id=<?php echo $iduser;?>"><button type="button" class="btn btn-rose btn-round btn-sm">Débanir</button></a></td>
-                          </tr>
+                        <tr>
+                          <td class="text-center"><?php echo $iduser;?></td>
+                          <td class="text-center"><?php echo $pseudo;?></td>
+                          <td class="text-center"><?php echo $last_connect;?></td>
+                          <td class="text-center"><?php echo $attempts;?></td>
+                          <td class="text-center"><a href="?action=unban&amp;id=<?php echo $iduser;?>"><button type="button" class="btn btn-rose btn-round btn-sm">Débanir</button></a></td>
+                        </tr>
 
                         <?php } ?>
-                        </tbody>
 
+                      </tbody>
                     </table>
                   </div>
-                    </div>
                 </div>
+              </div>
             </div>
-            <?php } ?>
+
+          <?php } ?>
+
         </div>
+      </div>
     </div>
-</div>
-</div>
+  </div>
 </div>
 
   <?php
