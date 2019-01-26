@@ -92,44 +92,58 @@ $setban->execute();
     $countban = $selectban->rowCount();
     if($countban>'0'){
     ?>
-    <h3> Utilisateurs bannis </h3>
-    <table class="table">
-<thead>
-  <tr>
-    <th scope="col">Id</th>
-    <th scope="col">Pseudo</th>
-    <th scope="col">Dernière connexion</th>
-    <th scope="col">Status</th>
-    <th scope="col">Status</th>
-  </tr>
-</thead>
-<tbody>
-<?php
 
-    while($sban=$selectban->fetch(PDO::FETCH_OBJ)){
-      $iduser = $sban->id;
-      $pseudo = $sban->username;
-      $last_connect = $sban->last_connect;
-      $attempts = $sban->numberofattempts;
-?>
+<div class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-content">
+                <h2 class="card-title text-center">Banir / Débanir un Utilisateur</h2>
+                <div class="row">
+                  <div class="col-sm-12">
+                      <div class="card-content">
+                        <table class="table">
+                            <thead class="text-primary">
+                                <th>Id</th>
+                                <th>Pseudo</th>
+                                <th>Dernière connexion</th>
+                                <th>Statuts</th>
+                            </thead>
+                            <tbody>
 
-    <tr>
-      <th scope="row"><?php echo $iduser;?></th>
-      <td><?php echo $pseudo;?><td>
-      <td><?php echo $last_connect;?></td>
-      <td><?php echo $attempts;?></td>
-      <td>
-<a href="?action=unban&amp;id=<?php echo $iduser;?>">
-  <button type="button" class="btn">Unban</button>
-</a>
+                              <?php
 
-      </td>
-    </tr>
-<?php
-    }
-     ?>
-   </tbody>
- </table>
+                                  while($sban=$selectban->fetch(PDO::FETCH_OBJ)){
+                                    $iduser = $sban->id;
+                                    $pseudo = $sban->username;
+                                    $last_connect = $sban->last_connect;
+                                    $attempts = $sban->numberofattempts;
+                              ?>
+
+                              <tr>
+                                <th scope="row"><?php echo $iduser;?></th>
+                                <td><?php echo $pseudo;?><td>
+                                <td><?php echo $last_connect;?></td>
+                                <td><?php echo $attempts;?></td>
+                                <td>
+                          <a href="?action=unban&amp;id=<?php echo $iduser;?>">
+                            <button type="button" class="btn">Unban</button>
+                          </a>
+
+                                </td>
+                              </tr>
+
+                            <?php } ?>
+                            </tbody>
+
+                        </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
 
  <?php
 }else{
