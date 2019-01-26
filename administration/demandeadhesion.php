@@ -206,6 +206,7 @@ if($countid2>'0'){
   </div>
   <div class="col-sm-6">
     <div class="card-content">
+      <br>
       <div class="form-group form-file-upload">
           <input type="file" id="attachment" name="attachment[]" multiple="">
           <div class="input-group">
@@ -229,7 +230,7 @@ if($countid2>'0'){
   <div class="col-sm-12">
     <div class="card-content">
       <center>
-      <input type="submit" name="submit" value="Envoyer un message" class="btn btn-primary btn-round" />
+        <button type="submit" name="submit" value="Envoyer un message" class="btn btn-rose btn-round">Envoyer le message</button>
       </center>
     </div>
   </div>
