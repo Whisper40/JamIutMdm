@@ -1,7 +1,7 @@
 <?php
     require_once('includes/connectBDD.php');
     require_once('includes/checkconnection.php');
-    $nompage = "Demande d'Adhésion";
+    $nompage = "Demande Adhésion";
     require_once('includes/head.php');
     ini_set('display_errors', 1);
 
@@ -136,8 +136,6 @@ if($countid2>'0'){
 <div class="row">
   <div class="col-sm-12">
     <div class="card-content">
-
-
       <div class="table-responsive">
         <table class="table">
           <thead class="text-primary">
@@ -192,75 +190,89 @@ if($countid2>'0'){
 </div>
 
 <?php } ?>
-<div class="col-md-12">
-                                                 <div class="card">
-                                                     <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-
-                                                         <div class="card-header card-header-text" data-background-color="rose">
-                                                             <h4 class="card-title">Contacter la personne</h4>
-                                                         </div>
-                                                         <div class="card-content">
 
 
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card-content">
+      <h3 class="card-title">Contacter la personne par Email</h3>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card-content">
+      <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
 
-
-                                         <div class="row">
-                                             <label class="col-sm-2 label-on-left">Message : </label>
-                                             <div class="col-sm-10">
-                                                 <div class="form-group label-floating is-empty">
-
-
-                                                     <textarea name="message" class="form-control" rows="6">
-
-                                                 </textarea>
-                                             <span class="help-block">Merci de décrire précisémement le problème rencontré avec le document.</span></div>
-                                             </div>
-                                         </div>
+          <div class="card-header card-header-text" data-background-color="rose">
+              <h4 class="card-title">Contacter la personne</h4>
+          </div>
+          <div class="card-content">
 
 
 
 
-                                          <div class="row">
-                                             <label class="col-sm-2 label-on-left"> </label>
-                                             <div class="col-sm-10">
-                                                 <div class="form-group label-floating is-empty">
+<div class="row">
+<label class="col-sm-2 label-on-left">Message : </label>
+<div class="col-sm-10">
+  <div class="form-group label-floating is-empty">
 
 
-                                                     <div class="form-group form-file-upload">
-               <input type="file" id="attachment" name="attachment" multiple="">
-               <div class="input-group">
-                 <input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
-                 <span class="input-group-btn input-group-s">
-                   <button type="button" class="btn btn-just-icon btn-round btn-info">
-                     <i class="material-icons">layers</i>
-                   </button>
-                 </span>
-               </div>
-             </div>
-                                           </div>
-                                             </div>
-                                         </div>
+      <textarea name="message" class="form-control" rows="6">
+
+  </textarea>
+<span class="help-block">Merci de décrire précisémement le problème rencontré avec le document.</span></div>
+</div>
+</div>
 
 
 
 
+<div class="row">
+<label class="col-sm-2 label-on-left"> </label>
+<div class="col-sm-10">
+  <div class="form-group label-floating is-empty">
+
+
+      <div class="form-group form-file-upload">
+<input type="file" id="attachment" name="attachment" multiple="">
+<div class="input-group">
+<input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
+<span class="input-group-btn input-group-s">
+<button type="button" class="btn btn-just-icon btn-round btn-info">
+<i class="material-icons">layers</i>
+</button>
+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 
 
-                                         <center>
-                                         <div class="g-recaptcha" data-sitekey="<?= $sitekey; ?>"></div>
-                                       </center>
-                                     </div>
-                                     <center>
-                                       <input type="submit" name="submit" value="Envoyer un message" class="btn btn-primary btn-round" />
+
+
+
+
+<center>
+<div class="g-recaptcha" data-sitekey="<?= $sitekey; ?>"></div>
+</center>
+</div>
+<center>
+<input type="submit" name="submit" value="Envoyer un message" class="btn btn-primary btn-round" />
 
 </center>
 
 
-                                                     </form>
-                                                 </div>
+      </form>
 
-                                             </div>
+
+
+    </div>
+  </div>
+</div>
+
 
 <?php
 if(isset($_POST['submit'])){
