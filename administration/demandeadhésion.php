@@ -1,7 +1,7 @@
 <?php
     require_once('includes/connectBDD.php');
     require_once('includes/checkconnection.php');
-    $nompage = "Devenir Membre";
+    $nompage = "Demande d'Adhésion";
     require_once('includes/head.php');
     ini_set('display_errors', 1);
 
@@ -99,7 +99,7 @@ if($_GET['action']=='gestionfichier'){
 
                       <tr>
                         <td class="text-center"><?php echo $nom;?></td>
-                        <td class="text-center"><a href="./download.php?nom=<?php echo $filenamesystem;?>&amp;id=<?php echo $idutilisateur;?>"><?php echo $filename;?></a></td>
+                        <td><a href="./download.php?nom=<?php echo $filenamesystem;?>&amp;id=<?php echo $idutilisateur;?>"><?php echo $filename;?></a></td>
                         <td class="text-center"><?php echo $message;?></td>
                         <td class="text-center"><?php echo $datefile;?></td>
                         <td class="text-center"><a href="?action=validefichier&amp;id=<?php echo $idfichier;?>"><button type="button" class="btn btn-rose btn-round btn-sm">Valider</button></a>
@@ -172,7 +172,7 @@ if($countid2>'0'){
 
             <tr>
               <td class="text-center"><?php echo $nom;?></td>
-              <td class="text-center"><a href="./download.php?nom=<?php echo $filenamesystem;?>&amp;id=<?php echo $idutilisateur;?>"><?php echo $filename;?></a></td>
+              <td><a href="./download.php?nom=<?php echo $filenamesystem;?>&amp;id=<?php echo $idutilisateur;?>"><?php echo $filename;?></a></td>
               <td class="text-center"><?php echo $message;?></td>
               <td class="text-center"><?php echo $datefile;?></td>
               <td class="text-center"><?php echo $status;?></td>
