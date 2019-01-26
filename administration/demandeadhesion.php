@@ -14,6 +14,8 @@
 <script src='https://www.google.com/recaptcha/api.js'></script>
 
 <?php
+$messagenotif = "";
+
 if(isset($_POST['submit'])){
  //owner = le mail de la personne
    $priority = '3';
@@ -51,75 +53,20 @@ if(isset($_POST['submit'])){
        $nmessage .= "--".$uid."--";
          mail($owner_mail,$subject,$nmessage, $headers);
      }
-     ?>
 
-     <div class="content">
-                 <div class="container-fluid">
-                     <div class="row">
-                         <div class="col-md-6 col-md-offset-3">
+     $messagenotif = "Le mail à été envoyé à son destinataire !";
 
-
-
-     <div class="alert alert-success">
-             <div class="container">
-         <div class="alert-icon">
-           <i class="material-icons">info_outline</i>
-         </div>
-
-
-               <b>Succès :</b> Le mail à été envoyé à son destinataire !
-             </div>
-         </div>
-       </div></div></div></div>
-       <?php
    }else{
-     ?>
-     <div class="content">
-                 <div class="container-fluid">
-                     <div class="row">
-                         <div class="col-md-6 col-md-offset-3">
 
+      $messagenotif = "Erreur Captcha";
+   } }else{
 
-
-     <div class="alert alert-danger">
-             <div class="container">
-         <div class="alert-icon">
-           <i class="material-icons">info_outline</i>
-         </div>
-
-
-               <b>Erreur Captcha:</b> BipBoup BoupBip BIPPPP ! Robot détecté !
-             </div>
-         </div>
-       </div></div></div></div>
-     <?php
-   }
- }else{
-   ?>
-     <div class="content">
-                 <div class="container-fluid">
-                     <div class="row">
-                         <div class="col-md-6 col-md-offset-3">
-
-
-
-     <div class="alert alert-danger">
-             <div class="container">
-         <div class="alert-icon">
-           <i class="material-icons">info_outline</i>
-         </div>
-
-
-               <b>Erreur Champs:</b> Les champs sont incorrects ou manquants !
-             </div>
-         </div>
-       </div></div></div></div>
-     <?php
+     $messagenotif = "Erreur Champs: Les champs sont incorrects ou manquants !";
  }
 }
   ?>
 
-<body onload="demo.showNotification('top','right','Salut')">
+<body onload="demo.showNotification('top','right','<?php echo $messagenotif ?>')">
   <div class="wrapper">
 
     <?php
