@@ -169,6 +169,7 @@ $setban->execute();
                     </div>
                 </div>
             </div>
+          <?php } ?>
         </div>
     </div>
   </div>
