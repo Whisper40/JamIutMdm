@@ -218,7 +218,9 @@ if($countid2>'0'){
           </div>
       </div>
       <center>
-      <div class="g-recaptcha" data-sitekey="<?= $sitekey; ?>"></div>
+        <div class="form-group label-floating">
+            <div class="g-recaptcha" data-sitekey="<?= $sitekey; ?>"></div>
+        </div>
       </center>
     </div>
   </div>
