@@ -1,13 +1,21 @@
 <?php
     require_once('includes/connectBDD.php');
-    $nompage = "Actualité";
+    require_once('includes/checkconnection.php');
+    $nompage = "Devenir Membre";
     require_once('includes/head.php');
-    require_once('includes/quantcast.php');
     ini_set('display_errors', 1);
+
+
+    //Code de génératon du captcha fournie par GOOGLE
     $secret = "LESECRET";
     $sitekey = "LESITEKEY";
     ?>
+
 <script src='https://www.google.com/recaptcha/api.js'></script>
+
+<body>
+  <div class="wrapper">
+
     <?php
     if(isset($_GET['action'])){
     if($_GET['action']=='validefichier'){
@@ -359,71 +367,81 @@ if(isset($_POST['submit'])){
     $selectid->execute();
     $countid = $selectid->rowCount();
 
-    if($countid>'0'){
-      while($uneselectid = $selectid->fetch(PDO::FETCH_OBJ)){
+    ?>
 
-        $user_id = $uneselectid->user_id;
-        $selectnom = $db->prepare("SELECT username, email, status FROM users WHERE id=:user_id ORDER BY id ASC");
-        $selectnom->execute(array(
-            "user_id"=>$user_id
-            )
-        );
-        $table = $selectnom->fetchAll(PDO::FETCH_OBJ);
-        if(count($table)>0){
-          echo "<h3>".count($table)." documents trouvés</h3>";
-          echo '
-          <table class="table">
-          <thead>
-          <tr>
-          <th scope="col">Pseudo</th>
-          <th scope="col">Email</th>
-          <th scope="col">Status</th>
-          <th scope="col">Action</th>
-          </tr>
-          </thead>
-          <tbody>
+    <div class="content">
+      <div class="container-fluid">
+        <div class="card">
+          <div class="card-content">
+            <h2 class="card-title text-center">Demande d'Adhésion</h2>
+            <br>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="card-content">
+                  <h3 class="card-title">Liste des personnes ayant transmis des documents</h3>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="card-content">
 
-          ';
-          foreach($table as $ligne){
-            $username = $ligne->username;
-            $email = $ligne->email;
-            $status = $ligne->status;
+            <?php
+              if($countid>'0'){
+                while($uneselectid = $selectid->fetch(PDO::FETCH_OBJ)){
 
-            echo '
+                  $user_id = $uneselectid->user_id;
+                  $selectnom = $db->prepare("SELECT username, email, status FROM users WHERE id=:user_id ORDER BY id ASC");
+                  $selectnom->execute(array(
+                      "user_id"=>$user_id
+                      )
+                  );
+                  $table = $selectnom->fetchAll(PDO::FETCH_OBJ);
+                  if(count($table)>0){
+                    echo '
 
-            <tr>
-              <th scope="row">'.$username.'</th>
-              <td>'.$email.'<td>
-              <td>'.$status.'</td>
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class="text-primary">
+                        <th class="text-center">Pseudo</th>
+                        <th class="text-center">Email</th>
+                        <th class="text-center">Statuts</th>
+                        <th class="text-center">Action</th>
+                      </thead>
+                      <tbody>
+                        ';
 
-              <td>
-          <a href="?action=gestionfichier&amp;id='.$user_id.'">
-          <button type="button" class="btn">Afficher</button>
-          </a>
-              </td>
-            </tr>
-        <hr>
-            ';
-          }
+                        foreach($table as $ligne){
+                          $username = $ligne->username;
+                          $email = $ligne->email;
+                          $status = $ligne->status;
+                          echo '
 
-          echo '
-        </tbody>
-        </table>
+                        <tr>
+                          <td class="text-center">'.$username.'</td>
+                          <td class="text-center">'.$email.'</td>
+                          <td class="text-center">'.$status.'</td>
+                          <td class="text-center"><a href="?action=gestionfichier&amp;id='.$user_id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Afficher</button></a></td>
+                        </tr>';
+                      }
 
+                      echo '
+                    </tbody>
+                    </table>
+                    </div>
+                      ';
+                    }   }   }
+                      ?>
 
-          ';
-
-}
-}
-}
-
-
-
-}
-
-
-
-
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <?php }
 
 require_once('includes/javascript.php');
 ?>
