@@ -16,17 +16,19 @@ $table=$requete->fetchAll(PDO::FETCH_OBJ);
 if(count($table)>0){
   echo "<h3>".count($table)." documents trouvés</h3>";
   echo '
-  <table class="table">
-  <thead>
-  <tr>
-  <th scope="col">Id</th>
-  <th scope="col">Pseudo</th>
-  <th scope="col">Dernière connexion</th>
-  <th scope="col">Nombre de Tentative</th>
-  <th scope="col">Status</th>
-  </tr>
-  </thead>
-  <tbody>
+
+  <div class="table-responsive">
+    <table class="table">
+        <thead class="text-primary">
+            <th class="text-center">Identifiant</th>
+            <th class="text-center">Pseudo</th>
+            <th class="text-center">Dernière connexion</th>
+            <th class="text-center">Nombre de Tentative</th>
+            <th class="text-center">Statuts</th>
+            <th class="text-center">Débanir</th>
+        </thead>
+        <tbody>
+
 
   ';
   foreach($table as $ligne){
@@ -36,27 +38,23 @@ if(count($table)>0){
     $attempts=$ligne->numberofattempts;
 
     echo '
+
     <tr>
-      <th scope="row">'.$iduser.'</th>
-      <td>'.$pseudo.'<td>
-      <td>'.$last_connect.'</td>
-      <td>'.$attempts.'</td>
-      <td>
-  <a href="?action=ban&amp;id='.$iduser.'">
-  <button type="button" class="btn">ban</button>
-  </a>
-      </td>
+      <td class="text-center">'.$iduser.'</td>
+      <td class="text-center">'.$pseudo.'</td>
+      <td class="text-center">'.$last_connect.'</td>
+      <td class="text-center"> ??? </td>
+      <td class="text-center">'.$attempts.'</td>
+      <td class="text-center"><a href="?action=unban&amp;id='.$iduser.'"><button type="button" class="btn btn-rose btn-round btn-sm">Banir</button></a></td>
     </tr>
-<hr>
     ';
-
-
   }
 
   echo '
-</tbody>
-</table>
+  </tbody>
 
+</table>
+</div>
 
   ';
 }else echo"<p class='rouge'> Pas de résultats</p>";
