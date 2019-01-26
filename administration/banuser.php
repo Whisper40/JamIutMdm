@@ -93,10 +93,6 @@ $setban->execute();
 
  ?>
 
-<h3> Bannir un utilisateur :  </h3>
-  <input type='text' name="valeur" placeholder="Saisir son nom, id ou email">
-  <p id='resultat'></p>
-
 
 <div class="content">
 <div class="container-fluid">
@@ -111,13 +107,16 @@ $setban->execute();
               </div>
             </div>
             <div class="row">
-              <div class="col-sm-12">
+              <div class="col-md-6 col-md-offset-3">
                   <div class="card-content">
-                  <div class="table-responsive">
-
-
+                      <input type="text" class="form-control"  name="valeur" placeholder="Saisir son nom, id ou email">
+                      <span class="material-input"></span>
                   </div>
-                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="card-content">
+                      <p id='resultat'></p>
+                  </div>
                 </div>
             </div>
 
