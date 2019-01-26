@@ -194,85 +194,52 @@ if($countid2>'0'){
     </div>
   </div>
 </div>
+<form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card-content">
+      <div class="form-group label-floating">
+          <textarea name="message" class="form-control" rows="8" placeholder="Votre message"></textarea>
+          <span class="help-block">Le message sera transmis par mail à l'utilisateur</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card-content">
+      <div class="form-group form-file-upload">
+          <input type="file" id="attachment" name="attachment[]" multiple="">
+          <div class="input-group">
+              <input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
+              <span class="input-group-btn input-group-s">
+                  <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
+                      <i class="material-icons">layers</i>
+                  </button>
+              </span>
+          </div>
+      </div>
+      <center>
+      <div class="g-recaptcha" data-sitekey="<?= $sitekey; ?>"></div>
+      </center>
+    </div>
+  </div>
+</div>
 <div class="row">
   <div class="col-sm-12">
     <div class="card-content">
-      <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-
-          <div class="card-header card-header-text" data-background-color="rose">
-              <h4 class="card-title">Contacter la personne</h4>
-          </div>
-          <div class="card-content">
-
-
-
-
-<div class="row">
-<label class="col-sm-2 label-on-left">Message : </label>
-<div class="col-sm-10">
-  <div class="form-group label-floating is-empty">
-
-
-      <textarea name="message" class="form-control" rows="6">
-
-  </textarea>
-<span class="help-block">Merci de décrire précisémement le problème rencontré avec le document.</span></div>
+      <center>
+      <input type="submit" name="submit" value="Envoyer un message" class="btn btn-primary btn-round" />
+      </center>
+    </div>
+  </div>
 </div>
-</div>
-
-
-
-
-<div class="row">
-<label class="col-sm-2 label-on-left"> </label>
-<div class="col-sm-10">
-  <div class="form-group label-floating is-empty">
-
-
-      <div class="form-group form-file-upload">
-<input type="file" id="attachment" name="attachment" multiple="">
-<div class="input-group">
-<input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
-<span class="input-group-btn input-group-s">
-<button type="button" class="btn btn-just-icon btn-round btn-info">
-<i class="material-icons">layers</i>
-</button>
-</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-
-
-
-
-
-
-<center>
-<div class="g-recaptcha" data-sitekey="<?= $sitekey; ?>"></div>
-</center>
-</div>
-<center>
-<input type="submit" name="submit" value="Envoyer un message" class="btn btn-primary btn-round" />
-
-</center>
-
-
-      </form>
-
-
+</form>
 
     </div>
   </div>
 </div>
+</div>
 
 
-</div>
-</div>
-</div>
-</div>
 
 
 <?php
@@ -381,10 +348,6 @@ if(isset($_POST['submit'])){
 }
   ?>
 
-
-
-
- </body>
  <?php
 
 
@@ -475,7 +438,10 @@ if(isset($_POST['submit'])){
     </div>
   </div>
 
-  <?php }
+<?php } ?>
+
+</div>
+</body>
 
 require_once('includes/javascript.php');
 ?>
