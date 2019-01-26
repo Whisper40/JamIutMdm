@@ -101,6 +101,7 @@ $setban->execute();
                 <div class="row">
                   <div class="col-sm-12">
                       <div class="card-content">
+                        <center>
                         <table class="table">
                             <thead class="text-primary">
                                 <th>Id</th>
@@ -132,7 +133,7 @@ $setban->execute();
                             </tbody>
 
                         </table>
-
+                      </center>
                         </div>
                     </div>
                 </div>
