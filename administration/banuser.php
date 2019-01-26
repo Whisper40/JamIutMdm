@@ -99,6 +99,7 @@ $setban->execute();
     <div class="card">
         <div class="card-content">
             <h2 class="card-title text-center">Banir / Débanir un Utilisateur</h2>
+            <br>
             <div class="row">
               <div class="col-sm-12">
                   <div class="card-content">

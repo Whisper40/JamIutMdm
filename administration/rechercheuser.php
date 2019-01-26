@@ -14,7 +14,6 @@ $requete->execute(array($iduser));
 $table=$requete->fetchAll(PDO::FETCH_OBJ);
 
 if(count($table)>0){
-  echo "<h3>".count($table)." documents trouvés</h3>";
   echo '
 
   <div class="table-responsive">
