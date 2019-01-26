@@ -184,11 +184,6 @@ if($countid2>'0'){
   </div>
 </div>
 
-</div>
-</div>
-</div>
-</div>
-
 <?php } ?>
 
 
@@ -271,6 +266,12 @@ if($countid2>'0'){
 
     </div>
   </div>
+</div>
+
+
+</div>
+</div>
+</div>
 </div>
 
 
