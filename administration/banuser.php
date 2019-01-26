@@ -101,14 +101,14 @@ $setban->execute();
                 <div class="row">
                   <div class="col-sm-12">
                       <div class="card-content">
-                        <center>
+                      <div class="table-responsive">
                         <table class="table">
                             <thead class="text-primary">
-                                <th>Id</th>
-                                <th>Pseudo</th>
-                                <th>Dernière connexion</th>
-                                <th>Statuts</th>
-                                <th>Débanir</th>
+                                <th class="text-center">Id</th>
+                                <th class="text-center">Pseudo</th>
+                                <th class="text-center">Dernière connexion</th>
+                                <th class="text-center">Statuts</th>
+                                <th class="text-center">Débanir</th>
                             </thead>
                             <tbody>
 
@@ -122,18 +122,18 @@ $setban->execute();
                               ?>
 
                               <tr>
-                                <td><?php echo $iduser;?></td>
-                                <td><?php echo $pseudo;?></td>
-                                <td><?php echo $last_connect;?></td>
-                                <td><?php echo $attempts;?></td>
-                                <td><a href="?action=unban&amp;id=<?php echo $iduser;?>"><button type="button" class="btn btn-rose btn-round">Débanir</button></a></td>
+                                <td class="text-center"><?php echo $iduser;?></td>
+                                <td class="text-center"><?php echo $pseudo;?></td>
+                                <td class="text-center"><?php echo $last_connect;?></td>
+                                <td class="text-center"><?php echo $attempts;?></td>
+                                <td class="text-center"><a href="?action=unban&amp;id=<?php echo $iduser;?>"><button type="button" class="btn btn-rose btn-round">Débanir</button></a></td>
                               </tr>
 
                             <?php } ?>
                             </tbody>
 
                         </table>
-                      </center>
+                      </div>
                         </div>
                     </div>
                 </div>
