@@ -60,12 +60,12 @@ if(isset($_POST['submit'])){
    }else{
 
       $messagenotif = "Erreur Captcha";
-      $type = "info";
+      $type = "rose";
 
    } }else{
 
      $messagenotif = "Erreur Champs: Les champs sont incorrects ou manquants !";
-     $type = "info";
+     $type = "rose";
  }
 }
   ?>
