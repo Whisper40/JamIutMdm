@@ -109,10 +109,7 @@ $setban->execute();
             <div class="row">
               <div class="col-md-6 col-md-offset-3">
                   <div class="card-content">
-                    <div class="form-group form-search is-empty">
-                      <input type="text" class="form-control"  name="valeur" placeholder="Saisir son nom, id ou email">
-                      <span class="material-input"></span>
-                    </div>
+                      <input type="text" class="form-control"  name="valeur" placeholder="Recherche par Nom, Identifiant ou Email">
                   </div>
                 </div>
                 <div class="col-sm-12">

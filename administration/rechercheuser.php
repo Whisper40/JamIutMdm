@@ -45,7 +45,7 @@ if(count($table)>0){
       <td class="text-center">'.$last_connect.'</td>
       <td class="text-center"> ??? </td>
       <td class="text-center">'.$attempts.'</td>
-      <td class="text-center"><a href="?action=unban&amp;id='.$iduser.'"><button type="button" class="btn btn-rose btn-round btn-sm">Banir</button></a></td>
+      <td class="text-center"><a href="?action=ban&amp;id='.$iduser.'"><button type="button" class="btn btn-rose btn-round btn-sm">Banir</button></a></td>
     </tr>
     ';
   }
