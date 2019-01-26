@@ -62,6 +62,9 @@ $('#resultat').html(retour).fadeIn();
 });
 </script>
 
+<body>
+  <div class="wrapper">
+    
 <?php
 
 if($_GET['action']=='unban'){
@@ -91,8 +94,6 @@ $setban->execute();
 
  ?>
 
-<body>
-  <div class="wrapper">
     <div class="content">
       <div class="container-fluid">
         <div class="card">
