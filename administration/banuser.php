@@ -168,20 +168,12 @@ $setban->execute();
                     </div>
                 </div>
             </div>
+            <?php } ?>
         </div>
     </div>
 </div>
 </div>
-<?php
-}else{
-?>
-<h3> Aucun utilisateur n'est actuellement bannis ! Inchallah </h3>
-<?php
-}
-
- ?>
-
-  </div>
+</div>
 
   <?php
   require_once('includes/javascript.php');
