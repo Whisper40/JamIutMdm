@@ -13,6 +13,112 @@
 
 <script src='https://www.google.com/recaptcha/api.js'></script>
 
+<?php
+if(isset($_POST['submit'])){
+ //owner = le mail de la personne
+   $priority = '3';
+
+   $email = 'contact@jam-mdm.fr';
+   $message = $_POST['message'];
+   $subject = '[JAM]'.'[Problème de document]';
+ if($subject&&$email&&$message){
+   $responseData = json_decode(file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$_POST['g-recaptcha-response']));
+   if($responseData->success){
+     if(!isset($_FILES['attachment'])){
+       mail($owner_mail,$subject,$message);
+     }else{
+         $filename = $_FILES['attachment']['name'];
+         $file = $_FILES['attachment']['tmp_name'];
+       $content = file_get_contents( $file);
+       $content = chunk_split(base64_encode($content));
+       $uid = md5(uniqid(time()));
+       $name = basename($file);
+       // header
+       $headers = "From: <".$email.">\r\n";
+       $headers .= "MIME-Version: 1.0\r\n";
+       $headers .= 'X-Priotity:'.$priority."\r\n";
+       $headers .= "Content-Type: multipart/mixed; boundary=\"".$uid."\"\r\n\r\n";
+       // message & attachment
+       $nmessage = "--".$uid."\r\n";
+       $nmessage .= "Content-type:text/plain; charset=iso-8859-1\r\n";
+       $nmessage .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
+       $nmessage .= $message."\r\n\r\n";
+       $nmessage .= "--".$uid."\r\n";
+       $nmessage .= "Content-Type: application/octet-stream; name=\"".$filename."\"\r\n";
+       $nmessage .= "Content-Transfer-Encoding: base64\r\n";
+       $nmessage .= "Content-Disposition: attachment; filename=\"".$filename."\"\r\n\r\n";
+       $nmessage .= $content."\r\n\r\n";
+       $nmessage .= "--".$uid."--";
+         mail($owner_mail,$subject,$nmessage, $headers);
+     }
+     ?>
+
+     <div class="content">
+                 <div class="container-fluid">
+                     <div class="row">
+                         <div class="col-md-6 col-md-offset-3">
+
+
+
+     <div class="alert alert-success">
+             <div class="container">
+         <div class="alert-icon">
+           <i class="material-icons">info_outline</i>
+         </div>
+
+
+               <b>Succès :</b> Le mail à été envoyé à son destinataire !
+             </div>
+         </div>
+       </div></div></div></div>
+       <?php
+   }else{
+     ?>
+     <div class="content">
+                 <div class="container-fluid">
+                     <div class="row">
+                         <div class="col-md-6 col-md-offset-3">
+
+
+
+     <div class="alert alert-danger">
+             <div class="container">
+         <div class="alert-icon">
+           <i class="material-icons">info_outline</i>
+         </div>
+
+
+               <b>Erreur Captcha:</b> BipBoup BoupBip BIPPPP ! Robot détecté !
+             </div>
+         </div>
+       </div></div></div></div>
+     <?php
+   }
+ }else{
+   ?>
+     <div class="content">
+                 <div class="container-fluid">
+                     <div class="row">
+                         <div class="col-md-6 col-md-offset-3">
+
+
+
+     <div class="alert alert-danger">
+             <div class="container">
+         <div class="alert-icon">
+           <i class="material-icons">info_outline</i>
+         </div>
+
+
+               <b>Erreur Champs:</b> Les champs sont incorrects ou manquants !
+             </div>
+         </div>
+       </div></div></div></div>
+     <?php
+ }
+}
+  ?>
+
 <body onload="demo.showNotification('top','right','Salut')">
   <div class="wrapper">
 
@@ -241,115 +347,6 @@ if($countid2>'0'){
   </div>
 </div>
 </div>
-
-
-
-
-<?php
-if(isset($_POST['submit'])){
- //owner = le mail de la personne
-   $priority = '3';
-
-   $email = 'contact@jam-mdm.fr';
-   $message = $_POST['message'];
-   $subject = '[JAM]'.'[Problème de document]';
- if($subject&&$email&&$message){
-   $responseData = json_decode(file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$_POST['g-recaptcha-response']));
-   if($responseData->success){
-     if(!isset($_FILES['attachment'])){
-       mail($owner_mail,$subject,$message);
-     }else{
-         $filename = $_FILES['attachment']['name'];
-         $file = $_FILES['attachment']['tmp_name'];
-       $content = file_get_contents( $file);
-       $content = chunk_split(base64_encode($content));
-       $uid = md5(uniqid(time()));
-       $name = basename($file);
-       // header
-       $headers = "From: <".$email.">\r\n";
-       $headers .= "MIME-Version: 1.0\r\n";
-       $headers .= 'X-Priotity:'.$priority."\r\n";
-       $headers .= "Content-Type: multipart/mixed; boundary=\"".$uid."\"\r\n\r\n";
-       // message & attachment
-       $nmessage = "--".$uid."\r\n";
-       $nmessage .= "Content-type:text/plain; charset=iso-8859-1\r\n";
-       $nmessage .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
-       $nmessage .= $message."\r\n\r\n";
-       $nmessage .= "--".$uid."\r\n";
-       $nmessage .= "Content-Type: application/octet-stream; name=\"".$filename."\"\r\n";
-       $nmessage .= "Content-Transfer-Encoding: base64\r\n";
-       $nmessage .= "Content-Disposition: attachment; filename=\"".$filename."\"\r\n\r\n";
-       $nmessage .= $content."\r\n\r\n";
-       $nmessage .= "--".$uid."--";
-         mail($owner_mail,$subject,$nmessage, $headers);
-     }
-     ?>
-
-     <div class="content">
-                 <div class="container-fluid">
-                     <div class="row">
-                         <div class="col-md-6 col-md-offset-3">
-
-
-
-     <div class="alert alert-success">
-             <div class="container">
-         <div class="alert-icon">
-           <i class="material-icons">info_outline</i>
-         </div>
-
-
-               <b>Succès :</b> Le mail à été envoyé à son destinataire !
-             </div>
-         </div>
-       </div></div></div></div>
-       <?php
-   }else{
-     ?>
-     <div class="content">
-                 <div class="container-fluid">
-                     <div class="row">
-                         <div class="col-md-6 col-md-offset-3">
-
-
-
-     <div class="alert alert-danger">
-             <div class="container">
-         <div class="alert-icon">
-           <i class="material-icons">info_outline</i>
-         </div>
-
-
-               <b>Erreur Captcha:</b> BipBoup BoupBip BIPPPP ! Robot détecté !
-             </div>
-         </div>
-       </div></div></div></div>
-     <?php
-   }
- }else{
-   ?>
-     <div class="content">
-                 <div class="container-fluid">
-                     <div class="row">
-                         <div class="col-md-6 col-md-offset-3">
-
-
-
-     <div class="alert alert-danger">
-             <div class="container">
-         <div class="alert-icon">
-           <i class="material-icons">info_outline</i>
-         </div>
-
-
-               <b>Erreur Champs:</b> Les champs sont incorrects ou manquants !
-             </div>
-         </div>
-       </div></div></div></div>
-     <?php
- }
-}
-  ?>
 
  <?php
 
