@@ -122,10 +122,10 @@ $setban->execute();
 
                               <tr>
                                 <td><?php echo $iduser;?></td>
-                                <td><?php echo $pseudo;?><td>
+                                <td><?php echo $pseudo;?></td>
                                 <td><?php echo $last_connect;?></td>
                                 <td><?php echo $attempts;?></td>
-                                <td><a href="?action=unban&amp;id=<?php echo $iduser;?>"><button type="button" class="btn">Débanir</button></a></td>
+                                <td><a href="?action=unban&amp;id=<?php echo $iduser;?>"><button type="button" class="btn btn-rose btn-round">Débanir</button></a></td>
                               </tr>
 
                             <?php } ?>
