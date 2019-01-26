@@ -107,6 +107,7 @@ $setban->execute();
                                 <th>Pseudo</th>
                                 <th>Dernière connexion</th>
                                 <th>Statuts</th>
+                                <th>Débanir</th>
                             </thead>
                             <tbody>
 
@@ -120,16 +121,11 @@ $setban->execute();
                               ?>
 
                               <tr>
-                                <th scope="row"><?php echo $iduser;?></th>
+                                <td><?php echo $iduser;?></td>
                                 <td><?php echo $pseudo;?><td>
                                 <td><?php echo $last_connect;?></td>
                                 <td><?php echo $attempts;?></td>
-                                <td>
-                          <a href="?action=unban&amp;id=<?php echo $iduser;?>">
-                            <button type="button" class="btn">Unban</button>
-                          </a>
-
-                                </td>
+                                <td><a href="?action=unban&amp;id=<?php echo $iduser;?>"><button type="button" class="btn">Débanir</button></a></td>
                               </tr>
 
                             <?php } ?>
