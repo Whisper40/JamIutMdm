@@ -287,8 +287,46 @@ $status = $s->status;?>
           <?php
         }else{
           ?>
-<h3> Tu peut payer </h3>
-<div align="center" id="paypal-button"></div>
+
+          <div class="content">
+              <div class="container-fluid">
+                  <div class="card">
+                      <div class="card-content">
+                          <h2 class="card-title text-center">Devenir Membre de l'association</h2>
+                          <div class="row">
+                            <div class="col-sm-6">
+
+
+                                 <div class="card-content">
+                                     <div class="info info-horizontal">
+                                         <div class="description">
+                                             <center>
+                                             <h4 class="info-title">Pour devenir membre de l'association, il ne reste plusq'une étape : payer ta cotisation annuel</h4>
+                                             </center>
+                                         </div>
+                                     </div>
+                                 </div>
+
+                              </div>
+                              <div class="col-sm-6">
+                                <div class="card-content">
+
+                                          <div class="info info-horizontal">
+                                              <div class="description">
+                                                <center>
+                                                  <h4 class="info-title">Prix Total : 2 €</h4>
+                                                    <div align="center" id="paypal-button"></div>
+                                                  </center>
+                                              </div>
+                                          </div>
+
+                                </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
 
 <script>
     paypal.Button.render({
