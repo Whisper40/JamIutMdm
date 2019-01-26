@@ -163,7 +163,7 @@ $sitekey = "LESITEKEY";
                              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                <span aria-hidden="true"><i class="now-ui-icons ui-1_simple-remove"></i></span>
                              </button>
-                                <b>Attention:</b> Merci de remplir tous les<br>champs !
+                                <b>Attention:</b> Merci de remplir tous les champs !   
                           </div>
                         </div>
                        </div>
