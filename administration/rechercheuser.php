@@ -24,7 +24,7 @@ if(count($table)>0){
             <th class="text-center">Dernière connexion</th>
             <th class="text-center">Nombre de Tentative</th>
             <th class="text-center">Statuts</th>
-            <th class="text-center">Débanir</th>
+            <th class="text-center">Banir</th>
         </thead>
         <tbody>
 
