@@ -100,7 +100,7 @@ if($_GET['action']=='gestionfichier'){
                       <tr>
                         <td class="text-center"><?php echo $nom;?></td>
                         <td><a href="./download.php?nom=<?php echo $filenamesystem;?>&amp;id=<?php echo $idutilisateur;?>"><?php echo $filename;?></a></td>
-                        <td class="text-center"><?php echo $message;?></td>
+                        <td><?php echo $message;?></td>
                         <td class="text-center"><?php echo $datefile;?></td>
                         <td class="text-center"><a href="?action=validefichier&amp;id=<?php echo $idfichier;?>"><button type="button" class="btn btn-rose btn-round btn-sm">Valider</button></a>
                                                 <a href="?action=refusfichier&amp;id=<?php echo $idfichier;?>"><button type="button" class="btn btn-rose btn-round btn-sm">Refuser</button></a>
@@ -171,7 +171,7 @@ if($countid2>'0'){
             <tr>
               <td class="text-center"><?php echo $nom;?></td>
               <td><a href="./download.php?nom=<?php echo $filenamesystem;?>&amp;id=<?php echo $idutilisateur;?>"><?php echo $filename;?></a></td>
-              <td class="text-center"><?php echo $message;?></td>
+              <td><?php echo $message;?></td>
               <td class="text-center"><?php echo $datefile;?></td>
               <td class="text-center"><?php echo $status;?></td>
             </tr>
@@ -200,7 +200,7 @@ if($countid2>'0'){
     <div class="card-content">
       <div class="form-group label-floating">
           <textarea name="message" class="form-control" rows="8" placeholder="Votre message"></textarea>
-          <span class="help-block">Le message sera transmis par mail à l'utilisateur</span>
+          <span class="help-block">Merci de décrire précisément votre message</span>
       </div>
     </div>
   </div>
