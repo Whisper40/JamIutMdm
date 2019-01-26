@@ -443,5 +443,6 @@ if(isset($_POST['submit'])){
 </div>
 </body>
 
+<?php
 require_once('includes/javascript.php');
 ?>
