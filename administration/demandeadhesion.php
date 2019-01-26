@@ -13,7 +13,7 @@
 
 <script src='https://www.google.com/recaptcha/api.js'></script>
 
-<body>
+<body onload="demo.showNotification('top','right','Salut')">
   <div class="wrapper">
 
     <?php
