@@ -57,8 +57,11 @@ if(count($table)>0){
 </div>
 
   ';
-}else echo"<p class='rouge'> Pas de résultats</p>";
+}else echo"<center>
+            <h4 class="info-title"><font color="red">Aucun résultats à votre recherche</font></h4>
+           </center>";
 
 
-
-}else echo"<p class='rouge'> Aucun critere de recherche n'a été fournis </p>";
+}else echo"<center>
+             <h4 class="info-title"><font color="red">Aucun critere de recherche n'a été fournis</font></h4>
+           </center>";
