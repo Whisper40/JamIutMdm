@@ -99,7 +99,6 @@ $setban->execute();
     <div class="card">
         <div class="card-content">
             <h2 class="card-title text-center">Banir / Débanir un Utilisateur</h2>
-            <br>
             <div class="row">
               <div class="col-sm-12">
                   <div class="card-content">
@@ -172,8 +171,16 @@ $setban->execute();
           <?php } ?>
         </div>
     </div>
-  </div>
 </div>
+</div>
+<?php
+}else{
+?>
+<h3> Aucun utilisateur n'est actuellement bannis ! Inchallah </h3>
+<?php
+}
+
+ ?>
 
   </div>
 
