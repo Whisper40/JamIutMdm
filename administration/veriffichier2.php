@@ -38,7 +38,16 @@
     <script>window.location="https://administration.jam-mdm.fr/veriffichier2.php"</script>
     <?php
     }
+    ?>
 
+    <div class="content">
+      <div class="container-fluid">
+        <div class="card">
+          <div class="card-content">
+            <h2 class="card-title text-center">Demande d'Adhésion</h2>
+            <br>
+
+    <?php
 
 if($_GET['action']=='gestionfichier'){
   $user_id=$_GET['id'];
@@ -47,133 +56,142 @@ if($_GET['action']=='gestionfichier'){
   $countid = $selectfichieratraiter->rowCount();
   if($countid>'0'){
   ?>
-<h2> Les fichiers en attente de validation : </h2>
-<table class="table">
-<thead>
-<tr>
-<th scope="col">Utilisateur</th>
-<th scope="col">Nom du fichier</th>
-<th scope="col">Message</th>
-<th scope="col">Date d'ajout</th>
-<th scope="col">Action</th>
-</tr>
-</thead>
-<tbody>
+
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="card-content">
+                <h3 class="card-title">Documents en attente de validation</h3>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="card-content">
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead class="text-primary">
+                      <th class="text-center">Pseudo</th>
+                      <th class="text-center">Nom du fichier</th>
+                      <th class="text-center">Message</th>
+                      <th class="text-center">Date d'ajout</th>
+                      <th class="text-center">Action</th>
+                    </thead>
+                    <tbody>
+
+                      <?php
+                      while($fichier = $selectfichieratraiter->fetch(PDO::FETCH_OBJ)){
+
+                        $idfichier = $fichier->id;
+                        $idutilisateur = $fichier->user_id;
+
+                        $selectnom = $db->prepare("SELECT username FROM users WHERE id='$idutilisateur' ORDER BY id ASC");
+                        $selectnom->execute();
+
+                        $s = $selectnom->fetch(PDO::FETCH_OBJ);
+                        $nom = $s->username;
+
+                        $filename = $fichier->filename;
+                        $filenamesystem = $fichier->filenamesystem;
+                        $message = $fichier->message;
+                        $datefile = $fichier->date;
+                      ?>
+
+
+                      <tr>
+                        <td class="text-center"><?php echo $nom;?></td>
+                        <td class="text-center"><a href="./download.php?nom=<?php echo $filenamesystem;?>&amp;id=<?php echo $idutilisateur;?>"><?php echo $filename;?></a></td>
+                        <td class="text-center"><?php echo $message;?></td>
+                        <td class="text-center"><?php echo $datefile;?></td>
+                        <td class="text-center"><a href="?action=validefichier&amp;id=<?php echo $idfichier;?>"><button type="button" class="btn btn-rose btn-round btn-sm">Valider</button></a>
+                                                <a href="?action=refusfichier&amp;id=<?php echo $idfichier;?>"><button type="button" class="btn btn-rose btn-round btn-sm">Refuser</button></a>
+                        </td>
+                      </tr>
+
+                      <?php  } ?>
+
+                  </tbody>
+                  </table>
+                  </div>
+              </div>
+            </div>
+          </div>
+
+        <?php } ?>
+
 <?php
-
-
-
-
- ?>
-  <?php
-  while($fichier = $selectfichieratraiter->fetch(PDO::FETCH_OBJ)){
-
-    $idfichier = $fichier->id;
-    $idutilisateur = $fichier->user_id;
-
-    $selectnom = $db->prepare("SELECT username FROM users WHERE id='$idutilisateur' ORDER BY id ASC");
-    $selectnom->execute();
-
-    $s = $selectnom->fetch(PDO::FETCH_OBJ);
-    $nom = $s->username;
-
-    $filename = $fichier->filename;
-    $filenamesystem = $fichier->filenamesystem;
-    $message = $fichier->message;
-    $datefile = $fichier->date;
-  ?>
-
-  <tr>
-    <th scope="row"><?php echo $nom;?></th>
-    <td><a href="./download.php?nom=<?php echo $filenamesystem;?>&amp;id=<?php echo $idutilisateur;?>"><?php echo $filename;?></a></td>
-    <td><?php echo $message;?></td>
-    <td><?php echo $datefile;?></td>
-    <td>
-<a href="?action=validefichier&amp;id=<?php echo $idfichier;?>">
-<button type="button" class="btn">Valider</button>
-</a>
-<a href="?action=refusfichier&amp;id=<?php echo $idfichier;?>">
-<button type="button" class="btn">Refuser</button>
-</a>
-
-
-    </td>
-  </tr>
-
-<?php
-}
-
-?>
-</tbody>
-</table>
-<?php
-}
-
-
-
 
 $selectfichierdejatraiter = $db->prepare("SELECT * FROM validationfichiers WHERE status <> 'EN ATTENTE DE VALIDATION' and user_id='$user_id' ORDER BY id ASC");
 $selectfichierdejatraiter->execute();
 $countid2 = $selectfichierdejatraiter->rowCount();
 if($countid2>'0'){
 ?>
-<h2> Les fichiers déja traités : </h2>
-<table class="table">
-<thead>
-<tr>
-<th scope="col">Utilisateur</th>
-<th scope="col">Nom du fichier</th>
-<th scope="col">Message</th>
-<th scope="col">Date d'ajout</th>
-<th scope="col">Status</th>
 
-</tr>
-</thead>
-<tbody>
-<?php
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card-content">
+      <h3 class="card-title">Liste des documents déja traités</h3>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card-content">
 
 
+      <div class="table-responsive">
+        <table class="table">
+          <thead class="text-primary">
+            <th class="text-center">Pseudo</th>
+            <th class="text-center">Nom du fichier</th>
+            <th class="text-center">Message</th>
+            <th class="text-center">Date d'ajout</th>
+            <th class="text-center">Status</th>
+          </thead>
+          <tbody>
+
+            <?php
+            while($fichier2 = $selectfichierdejatraiter->fetch(PDO::FETCH_OBJ)){
+
+              $idfichier = $fichier2->id;
+              $idutilisateur = $fichier2->user_id;
+
+              $selectnom = $db->prepare("SELECT username, email FROM users WHERE id='$idutilisateur' ORDER BY id ASC");
+              $selectnom->execute();
+
+              $s = $selectnom->fetch(PDO::FETCH_OBJ);
+              $nom = $s->username;
+              $owner_mail = $s->email;
 
 
-?>
-<?php
-while($fichier2 = $selectfichierdejatraiter->fetch(PDO::FETCH_OBJ)){
+              $filename = $fichier2->filename;
+              $filenamesystem = $fichier2->filenamesystem;
+              $message = $fichier2->message;
+              $datefile = $fichier2->date;
+              $status = $fichier2->status;
+            ?>
 
-  $idfichier = $fichier2->id;
-  $idutilisateur = $fichier2->user_id;
+            <tr>
+              <td class="text-center"><?php echo $nom;?></td>
+              <td class="text-center"><a href="./download.php?nom=<?php echo $filenamesystem;?>&amp;id=<?php echo $idutilisateur;?>"><?php echo $filename;?></a></td>
+              <td class="text-center"><?php echo $message;?></td>
+              <td class="text-center"><?php echo $datefile;?></td>
+              <td class="text-center"><?php echo $status;?></td>
+            </tr>
 
-  $selectnom = $db->prepare("SELECT username, email FROM users WHERE id='$idutilisateur' ORDER BY id ASC");
-  $selectnom->execute();
+          <?php  } ?>
+        </tbody>
+        </table>
+        </div>
+    </div>
+  </div>
+</div>
 
-  $s = $selectnom->fetch(PDO::FETCH_OBJ);
-  $nom = $s->username;
-  $owner_mail = $s->email;
+</div>
+</div>
+</div>
+</div>
 
-
-  $filename = $fichier2->filename;
-  $filenamesystem = $fichier2->filenamesystem;
-  $message = $fichier2->message;
-  $datefile = $fichier2->date;
-  $status = $fichier2->status;
-?>
-
-<tr>
-  <th scope="row"><?php echo $nom;?></th>
-  <td><a href="./download.php?nom=<?php echo $filenamesystem;?>&amp;id=<?php echo $idutilisateur;?>"><?php echo $filename;?></a></td>
-  <td><?php echo $message;?></td>
-  <td><?php echo $datefile;?></td>
-  <td><?php echo $status;?></td>
-</tr>
-
-<?php
-}
-
-?>
-</tbody>
-</table>
-<?php
-}
-?>
+<?php } ?>
 <div class="col-md-12">
                                                  <div class="card">
                                                      <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
