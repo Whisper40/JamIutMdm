@@ -61,8 +61,9 @@ $('#resultat').html(retour).fadeIn();
 });
 });
 </script>
-<body class="landing-page sidebar-collapse">
-  <div class="wrapper">
+
+<body>
+    <div class="wrapper">
 
 <?php
 
