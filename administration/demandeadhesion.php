@@ -66,7 +66,7 @@ if(isset($_POST['submit'])){
 }
   ?>
 
-<body onload="demo.showNotification('top','right','<?php echo $messagenotif ?>')">
+<body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>')" <?php } ?> >
   <div class="wrapper">
 
     <?php
