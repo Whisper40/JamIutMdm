@@ -17,6 +17,9 @@
   <div class="wrapper">
 
     <?php
+    require_once('includes/navbar.php');
+
+
     if(isset($_GET['action'])){
     if($_GET['action']=='validefichier'){
       echo"bond";
@@ -440,7 +443,7 @@ if(isset($_POST['submit'])){
       </div>
     </div>
   </div>
-  
+
   <?php }
 
 require_once('includes/javascript.php');
