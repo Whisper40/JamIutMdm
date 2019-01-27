@@ -955,7 +955,7 @@ demo = {
         	message: messages
 
         },{
-            type: 'success',
+            type: 'warning',
             timer: 3000,
             placement: {
                 from: from,
