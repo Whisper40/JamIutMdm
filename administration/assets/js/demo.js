@@ -955,7 +955,7 @@ demo = {
         	message: messages
 
         },{
-            type: type[color],
+            type: 'success',
             timer: 3000,
             placement: {
                 from: from,
