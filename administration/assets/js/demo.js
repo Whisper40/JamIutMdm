@@ -946,9 +946,9 @@ demo = {
     },
 
 	showNotification: function(from, align, messages){
-        type = ['success','warning','danger'];
+        type = ['','info','success','warning','danger','rose','primary'];
 
-        color = 2;
+        color = Math.floor((Math.random() * 6) + 1);
 
     	$.notify({
         	icon: "notifications",
