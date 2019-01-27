@@ -58,8 +58,8 @@ if(isset($_POST['submit'])){
      $color = 1;
    }else{
       $messagenotif = "Erreur Captcha";
-      $type = "warning";
-      $color = 2;
+      $type = "success";
+      $color = 4;
    } }else{
      $messagenotif = "Erreur Champs: Les champs sont incorrects ou manquants !";
      $type = "warning";
