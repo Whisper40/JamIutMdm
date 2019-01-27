@@ -55,15 +55,15 @@ if(isset($_POST['submit'])){
      }
      $messagenotif = "Le mail à été envoyé à son destinataire !";
      $type = "success";
-     $color = 1
+     $color = 3
    }else{
       $messagenotif = "Erreur Captcha";
       $type = "warning";
-      $color = 2
+      $color = 4
    } }else{
      $messagenotif = "Erreur Champs: Les champs sont incorrects ou manquants !";
      $type = "warning";
-     $color = 2
+     $color = 4
    } }
   ?>
 
