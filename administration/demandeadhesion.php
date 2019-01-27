@@ -55,7 +55,7 @@ if(isset($_POST['submit'])){
      }
      $messagenotif = "Le mail à été envoyé à son destinataire !";
      $type = "success";
-     $color = 3
+     $color = 0
    }else{
       $messagenotif = "Erreur Captcha";
       $type = "warning";
