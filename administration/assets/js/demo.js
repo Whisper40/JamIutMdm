@@ -945,14 +945,17 @@ demo = {
 		});
     },
 
-	showNotification: function(from, align, messages){
+	showNotification: function(from, align, message){
+        type = ['','info','success','warning','danger','rose','primary'];
+
+        color = Math.floor((Math.random() * 6) + 1);
 
     	$.notify({
         	icon: "notifications",
-        	message: messages
+        	message: message
 
         },{
-            type: 'warning',
+            type: 'success',
             timer: 3000,
             placement: {
                 from: from,
