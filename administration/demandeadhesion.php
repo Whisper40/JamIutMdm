@@ -54,13 +54,13 @@ if(isset($_POST['submit'])){
          mail($owner_mail,$subject,$nmessage, $headers);
      }
      $messagenotif = "Le mail à été envoyé à son destinataire !";
-     $type = "success";
+     $type = 'success';
    }else{
       $messagenotif = "Erreur Captcha";
-      $type = "warning";
+      $type = 'warning';
    } }else{
      $messagenotif = "Erreur Champs: Les champs sont incorrects ou manquants !";
-     $type = "warning";
+     $type = 'warning';
    } }
   ?>
 
