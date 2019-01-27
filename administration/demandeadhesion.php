@@ -54,20 +54,17 @@ if(isset($_POST['submit'])){
          mail($owner_mail,$subject,$nmessage, $headers);
      }
      $messagenotif = "Le mail à été envoyé à son destinataire !";
-     $type = "success";
-     $color = 3;
+     //$type = "success";
    }else{
       $messagenotif = "Erreur Captcha";
-      $type = "warning";
-      $color = 4;
+      //$type = "warning";
    } }else{
      $messagenotif = "Erreur Champs: Les champs sont incorrects ou manquants !";
-     $type = "warning";
-     $color = 4;
+     //$type = "warning";
    } }
   ?>
 
-<body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $color ?>')" <?php } ?> >
+<body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>')" <?php } ?> >
   <div class="wrapper">
 
     <?php
