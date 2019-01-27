@@ -945,10 +945,10 @@ demo = {
 		});
     },
 
-	showNotification: function(from, align, messages, type, color){
-        //type = ['','info','success','warning','danger','rose','primary'];
+	showNotification: function(from, align, messages){
+        type = ['','info','success','warning','danger','rose','primary'];
 
-        //color = Math.floor((Math.random() * 6) + 1);
+        color = Math.floor((Math.random() * 6) + 1);
 
     	$.notify({
         	icon: "notifications",
