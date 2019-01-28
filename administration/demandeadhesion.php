@@ -327,14 +327,11 @@ if($countid2>'0'){
 
             <?php
               if($countid>'0'){
-                while($uneselectid = $selectid->fetch(PDO::FETCH_OBJ)){
 
-                  $user_id = $uneselectid->user_id;
-                  $selectnom = $db->prepare("SELECT username, email, status FROM users WHERE id=:user_id ORDER BY id ASC");
-                  $selectnom->execute(array(
-                      "user_id"=>$user_id
-                      )
-                  );
+
+
+                  $selectnom = $db->prepare("SELECT user_id, username, email, status FROM users ORDER BY id ASC");
+                  $selectnom->execute();
                   $table = $selectnom->fetchAll(PDO::FETCH_OBJ);
                   if(count($table)>0){
                     echo '
@@ -351,6 +348,7 @@ if($countid2>'0'){
                         ';
 
                         foreach($table as $ligne){
+                          $user_id = $ligne->user_id;
                           $username = $ligne->username;
                           $email = $ligne->email;
                           $status = $ligne->status;
@@ -369,7 +367,7 @@ if($countid2>'0'){
                     </table>
                     </div>
                       ';
-                    }   }   }
+                    }      }
                       ?>
 
                 </div>
