@@ -337,9 +337,8 @@ if($countid2>'0'){
                     "user_id"=>$user_id
                   ));
 
-                  while($table = $selectnom->fetchAll(PDO::FETCH_OBJ)) {
 
-                  if(count($table)>0){
+
                     echo '
 
                   <div class="table-responsive">
@@ -353,11 +352,11 @@ if($countid2>'0'){
                       <tbody>
                         ';
 
-                        foreach($table as $ligne){
-                          $user_id = $ligne->id;
-                          $username = $ligne->username;
-                          $email = $ligne->email;
-                          $status = $ligne->status;
+                        while($table = $selectnom->fetch(PDO::FETCH_OBJ)) {
+                          $user_id = $table->id;
+                          $username = $table->username;
+                          $email = $table->email;
+                          $status = $table->status;
                           echo '
 
                         <tr>
@@ -373,7 +372,7 @@ if($countid2>'0'){
                     </table>
                     </div>
                       ';
-                    }      }}}
+                          }}
                       ?>
 
                 </div>
