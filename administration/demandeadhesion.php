@@ -328,18 +328,7 @@ if($countid2>'0'){
             <?php
               if($countid>'0'){
 
-                echo '
 
-                <div class="table-responsive">
-                <table class="table">
-                  <thead class="text-primary">
-                    <th class="text-center">Pseudo</th>
-                    <th class="text-center">Email</th>
-                    <th class="text-center">Statuts</th>
-                    <th class="text-center">Action</th>
-                  </thead>
-                  <tbody>
-                    ';
                 while($r19 = $selectid->fetch(PDO::FETCH_OBJ)){
                   $user_id = $r19->user_id;
 
@@ -348,10 +337,21 @@ if($countid2>'0'){
                     "user_id"=>$user_id
                   ));
 
+                  while($table = $selectnom->fetchAll(PDO::FETCH_OBJ)) {
 
-                  $table = $selectnom->fetchAll(PDO::FETCH_OBJ);
                   if(count($table)>0){
+                    echo '
 
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class="text-primary">
+                        <th class="text-center">Pseudo</th>
+                        <th class="text-center">Email</th>
+                        <th class="text-center">Statuts</th>
+                        <th class="text-center">Action</th>
+                      </thead>
+                      <tbody>
+                        ';
 
                         foreach($table as $ligne){
                           $user_id = $ligne->id;
@@ -373,7 +373,7 @@ if($countid2>'0'){
                     </table>
                     </div>
                       ';
-                    }      }}
+                    }      }}}
                       ?>
 
                 </div>
