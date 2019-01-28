@@ -351,11 +351,12 @@ if($countid2>'0'){
                           $selectnom->execute(array(
                             "user_id"=>$user_id
                           ));
+                          $table2 = $selectnom->fetch(PDO::FETCH_OBJ);
 
-                          $user_id = $table->id;
-                          $username = $table->username;
-                          $email = $table->email;
-                          $status = $table->status;
+                          $user_id = $table2->id;
+                          $username = $table2->username;
+                          $email = $table2->email;
+                          $status = $table2->status;
                           echo '
 
                         <tr>
