@@ -13,21 +13,23 @@ $user_id = $_SESSION['admin_id'];
 
 
 <?php
-$selectid = $db->prepare("SELECT distinct user_id FROM validationfichiers WHERE status='EN ATTENTE DE VALIDATION' ORDER BY date");
-$selectid->execute();
-$countid = $selectid->rowCount();
+
+  $selectid = $db->prepare("SELECT * FROM activitesvoyages");
+  $selectid->execute();
+  $countid = $selectid->rowCount();
 
   ?>
+
   <div class="content">
     <div class="container-fluid">
       <div class="card">
         <div class="card-content">
-          <h2 class="card-title text-center">Demande d'Adhésion</h2>
+          <h2 class="card-title text-center">Toutes les activités/voyages</h2>
           <br>
           <div class="row">
             <div class="col-sm-12">
               <div class="card-content">
-                <h3 class="card-title">Liste des personnes ayant transmis des documents</h3>
+                <h3 class="card-title">Toutes les activités/voyages</h3>
               </div>
             </div>
           </div>
@@ -37,40 +39,36 @@ $countid = $selectid->rowCount();
 
           <?php
             if($countid>'0'){
-              while($uneselectid = $selectid->fetch(PDO::FETCH_OBJ)){
 
-                $user_id = $uneselectid->user_id;
-                $selectnom = $db->prepare("SELECT username, email, status FROM users WHERE id=:user_id ORDER BY id ASC");
-                $selectnom->execute(array(
-                    "user_id"=>$user_id
-                    )
-                );
-                $table = $selectnom->fetchAll(PDO::FETCH_OBJ);
+                $table = $selectid->fetchAll(PDO::FETCH_OBJ);
                 if(count($table)>0){
                   echo '
 
                 <div class="table-responsive">
                   <table class="table">
                     <thead class="text-primary">
-                      <th class="text-center">Pseudo</th>
-                      <th class="text-center">Email</th>
-                      <th class="text-center">Statuts</th>
-                      <th class="text-center">Action</th>
+                      <th class="text-center">Titre</th>
+                      <th class="text-center">Date du Séjour</th>
+                      <th class="text-center">Prix</th>
+                      <th class="text-center">Status</th>
+                      <th class="text-center">Voir</th>
                     </thead>
                     <tbody>
                       ';
 
                       foreach($table as $ligne){
-                        $username = $ligne->username;
-                        $email = $ligne->email;
+                        $title = $ligne->title;
+                        $price = $ligne->price;
                         $status = $ligne->status;
+                        $datesejour = $ligne->datesejour;
                         echo '
 
                       <tr>
-                        <td class="text-center">'.$username.'</td>
-                        <td class="text-center">'.$email.'</td>
+                        <td class="text-center">'.$title.'</td>
+                        <td class="text-center">'.$datesejour.'</td>
+                        <td class="text-center">'.$price.'</td>
                         <td class="text-center">'.$status.'</td>
-                        <td class="text-center"><a href="?action=gestionfichier&amp;id='.$user_id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Afficher</button></a></td>
+                        <td class="text-center"><a href="?action=afficheactivite&amp;id='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Afficher</button></a></td>
                       </tr>';
                     }
 
@@ -79,7 +77,7 @@ $countid = $selectid->rowCount();
                   </table>
                   </div>
                     ';
-                  }   }   }
+                  }      }
                     ?>
 
               </div>
@@ -89,6 +87,7 @@ $countid = $selectid->rowCount();
     </div>
   </div>
 </div>
+
 
 <?php
 require_once('includes/javascript.php');
