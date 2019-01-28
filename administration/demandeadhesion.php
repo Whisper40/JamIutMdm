@@ -302,7 +302,7 @@ if($countid2>'0'){
 
 }else{
 
-    $selectid = $db->prepare("SELECT * FROM users WHERE id=(SELECT distinct user_id FROM validationfichiers WHERE status='EN ATTENTE DE VALIDATION' ORDER BY date)");
+    $selectid = $db->prepare("SELECT distinct user_id FROM validationfichiers WHERE status='EN ATTENTE DE VALIDATION' ORDER BY date");
     $selectid->execute();
     $countid = $selectid->rowCount();
 
@@ -329,6 +329,15 @@ if($countid2>'0'){
               if($countid>'0'){
 
 
+                while($r19 = $selectid->fetch(PDO::FETCH_OBJ)){
+                  $user_id = $r19->user_id;
+
+                  $selectnom = $db->prepare("SELECT username, email, status FROM users WHERE id=:user_id ORDER BY id ASC");
+                  $selectnom->execute(array(
+                    "user_id"=>$user_id
+                  ));
+
+
 
                     echo '
 
@@ -343,7 +352,7 @@ if($countid2>'0'){
                       <tbody>
                         ';
 
-                        while($table = $selectid->fetch(PDO::FETCH_OBJ)) {
+                        while($table = $selectnom->fetchAll(PDO::FETCH_OBJ)) {
                           $user_id = $table->id;
                           $username = $table->username;
                           $email = $table->email;
@@ -363,7 +372,7 @@ if($countid2>'0'){
                     </table>
                     </div>
                       ';
-                          }
+                          }}
                       ?>
 
                 </div>
