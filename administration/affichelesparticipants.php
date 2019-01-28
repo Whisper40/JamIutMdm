@@ -6,7 +6,13 @@ $nompage = "Modification Contenu Site";
 require_once('includes/head.php');
 ini_set('display_errors', 1);
 $user_id = $_SESSION['admin_id'];
-if(isset($_GET['critere'])){
+?>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
+
+
+<?php
 
   $selectid = $db->prepare("SELECT * FROM activitesvoyages");
   $selectid->execute();
@@ -88,9 +94,6 @@ if(isset($_GET['critere'])){
     </div>
   </div>
 </div>
-
 <?php
-
-
-}
+require_once('includes/javascript.php');
 ?>
