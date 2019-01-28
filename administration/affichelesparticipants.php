@@ -19,17 +19,16 @@ $user_id = $_SESSION['admin_id'];
   $countid = $selectid->rowCount();
 
   ?>
-
   <div class="content">
     <div class="container-fluid">
       <div class="card">
         <div class="card-content">
-          <h2 class="card-title text-center">Toutes les activités/voyages</h2>
+          <h2 class="card-title text-center">Demande d'Adhésion</h2>
           <br>
           <div class="row">
             <div class="col-sm-12">
               <div class="card-content">
-                <h3 class="card-title">Toutes les activités/voyages</h3>
+                <h3 class="card-title">Liste des personnes ayant transmis des documents</h3>
               </div>
             </div>
           </div>
@@ -41,10 +40,10 @@ $user_id = $_SESSION['admin_id'];
             if($countid>'0'){
               while($uneselectid = $selectid->fetch(PDO::FETCH_OBJ)){
 
-                $id = $uneselectid->id;
-                $selectnom = $db->prepare("SELECT title, price, datesejour, status FROM activitesvoyages WHERE id=:id");
+                $user_id = $uneselectid->user_id;
+                $selectnom = $db->prepare("SELECT username, email, status FROM users WHERE id=:user_id ORDER BY id ASC");
                 $selectnom->execute(array(
-                    "id"=>$id
+                    "user_id"=>$user_id
                     )
                 );
                 $table = $selectnom->fetchAll(PDO::FETCH_OBJ);
@@ -54,28 +53,25 @@ $user_id = $_SESSION['admin_id'];
                 <div class="table-responsive">
                   <table class="table">
                     <thead class="text-primary">
-                      <th class="text-center">Titre</th>
-                      <th class="text-center">Date du Séjour</th>
-                      <th class="text-center">Prix</th>
-                      <th class="text-center">Status</th>
-                      <th class="text-center">Voir</th>
+                      <th class="text-center">Pseudo</th>
+                      <th class="text-center">Email</th>
+                      <th class="text-center">Statuts</th>
+                      <th class="text-center">Action</th>
                     </thead>
                     <tbody>
                       ';
 
                       foreach($table as $ligne){
-                        $title = $ligne->title;
-                        $price = $ligne->price;
+                        $username = $ligne->username;
+                        $email = $ligne->email;
                         $status = $ligne->status;
-                        $datesejour = $ligne->datesejour;
                         echo '
 
                       <tr>
-                        <td class="text-center">'.$title.'</td>
-                        <td class="text-center">'.$datesejour.'</td>
-                        <td class="text-center">'.$price.'</td>
+                        <td class="text-center">'.$username.'</td>
+                        <td class="text-center">'.$email.'</td>
                         <td class="text-center">'.$status.'</td>
-                        <td class="text-center"><a href="?action=afficheactivite&amp;id='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Afficher</button></a></td>
+                        <td class="text-center"><a href="?action=gestionfichier&amp;id='.$user_id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Afficher</button></a></td>
                       </tr>';
                     }
 
@@ -94,7 +90,6 @@ $user_id = $_SESSION['admin_id'];
     </div>
   </div>
 </div>
-
 
 <?php
 require_once('includes/javascript.php');
