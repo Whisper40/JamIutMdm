@@ -42,7 +42,7 @@ $user_id = $_SESSION['admin_id'];
               while($uneselectid = $selectid->fetch(PDO::FETCH_OBJ)){
 
                 $id = $uneselectid->id;
-                $selectnom = $db->prepare("SELECT title, price, datesejour, status FROM activitesvoyages WHERE id=:id ORDER BY id ASC");
+                $selectnom = $db->prepare("SELECT title, price, datesejour, status FROM activitesvoyages WHERE id=:id");
                 $selectnom->execute(array(
                     "id"=>$id
                     )
@@ -79,12 +79,12 @@ $user_id = $_SESSION['admin_id'];
                       </tr>';
                     }
 
-
-                  }echo '
-                </tbody>
-                </table>
-                </div>
-                  ';   }   }
+                    echo '
+                  </tbody>
+                  </table>
+                  </div>
+                    ';
+                  }   }   }
                     ?>
 
               </div>
@@ -94,8 +94,8 @@ $user_id = $_SESSION['admin_id'];
     </div>
   </div>
 </div>
-</div>
-</body>
+
+
 <?php
 require_once('includes/javascript.php');
 ?>
