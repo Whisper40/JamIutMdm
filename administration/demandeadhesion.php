@@ -330,7 +330,7 @@ if($countid2>'0'){
 
 
 
-                  $selectnom = $db->prepare("SELECT user_id, username, email, status FROM users ORDER BY id ASC");
+                  $selectnom = $db->prepare("SELECT id, username, email, status FROM users ORDER BY id ASC");
                   $selectnom->execute();
                   $table = $selectnom->fetchAll(PDO::FETCH_OBJ);
                   if(count($table)>0){
@@ -348,7 +348,7 @@ if($countid2>'0'){
                         ';
 
                         foreach($table as $ligne){
-                          $user_id = $ligne->user_id;
+                          $user_id = $ligne->id;
                           $username = $ligne->username;
                           $email = $ligne->email;
                           $status = $ligne->status;
