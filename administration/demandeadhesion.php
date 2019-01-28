@@ -353,7 +353,7 @@ if($countid2>'0'){
                           ));
                           $table2 = $selectnom->fetch(PDO::FETCH_OBJ);
 
-                          $user_id = $table2->id;
+                          
                           $username = $table2->username;
                           $email = $table2->email;
                           $status = $table2->status;
