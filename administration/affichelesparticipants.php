@@ -57,6 +57,7 @@ $user_id = $_SESSION['admin_id'];
                       ';
 
                       foreach($table as $ligne){
+                        $id = $ligne->id;
                         $title = $ligne->title;
                         $price = $ligne->price;
                         $status = $ligne->status;
