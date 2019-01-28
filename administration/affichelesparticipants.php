@@ -94,6 +94,8 @@ $user_id = $_SESSION['admin_id'];
     </div>
   </div>
 </div>
+</div>
+</body>
 <?php
 require_once('includes/javascript.php');
 ?>
