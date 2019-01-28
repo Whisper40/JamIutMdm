@@ -79,12 +79,12 @@ $user_id = $_SESSION['admin_id'];
                       </tr>';
                     }
 
-                    echo '
-                  </tbody>
-                  </table>
-                  </div>
-                    ';
-                  }   }   }
+
+                  }echo '
+                </tbody>
+                </table>
+                </div>
+                  ';   }   }
                     ?>
 
               </div>
