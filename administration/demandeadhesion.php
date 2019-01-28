@@ -336,6 +336,7 @@ if($countid2>'0'){
                   $selectnom->execute(array(
                     "user_id"=>$user_id
                   ));
+                  $table = $selectnom->fetchAll(PDO::FETCH_OBJ);
 
 
 
@@ -352,7 +353,7 @@ if($countid2>'0'){
                       <tbody>
                         ';
 
-                        while($table = $selectnom->fetchAll(PDO::FETCH_OBJ)) {
+                        foreach($table as $ligne){
                           $user_id = $table->id;
                           $username = $table->username;
                           $email = $table->email;
