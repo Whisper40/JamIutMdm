@@ -358,7 +358,7 @@
                     if (isset($user_id)){
                       ?>
                       <div class="send-button">
-                        <a href="https://dashboard.jam-mdm.fr/activiteesencours.php?activityname=<?php echo $s->slug;?>" class="btn btn-primary btn-round btn-block btn-lg">Je Participe à l'évenement</a>
+                        <a href="https://dashboard.jam-mdm.fr/activitees.php?activityname=<?php echo $s->slug;?>" class="btn btn-primary btn-round btn-block btn-lg">Je Participe à l'évenement</a>
                       </div>
                       <?php
                     }else{
