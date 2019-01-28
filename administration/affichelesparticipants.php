@@ -13,10 +13,9 @@ $user_id = $_SESSION['admin_id'];
 
 
 <?php
-
-  $selectid = $db->prepare("SELECT * FROM activitesvoyages");
-  $selectid->execute();
-  $countid = $selectid->rowCount();
+$selectid = $db->prepare("SELECT distinct user_id FROM validationfichiers WHERE status='EN ATTENTE DE VALIDATION' ORDER BY date");
+$selectid->execute();
+$countid = $selectid->rowCount();
 
   ?>
   <div class="content">
