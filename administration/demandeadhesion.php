@@ -166,6 +166,16 @@ if($_GET['action']=='gestionfichier'){
 
         <?php } ?>
 
+
+        <td class="text-center">
+          <button onclick="demo.showSwal('givememberaccess','<?php echo $user_id; ?>','<?php echo $_GET['id']; ?>')" type="button" class="btn btn-primary btn-round btn-rose">Donner le rôle de membre</button>
+          <button onclick="demo.showSwal('givepaiementaccess','<?php echo $user_id; ?>','<?php echo $_GET['id']; ?>')" type="button" class="btn btn-primary btn-round btn-rose">Confirmer la réception du paiement</button>
+        </td>
+        <div id="results28"> <!-- TRES IMPORTANT -->
+        </div>
+        <div id="results29"> <!-- TRES IMPORTANT -->
+        </div>
+
 <?php
 
 $selectfichierdejatraiter = $db->prepare("SELECT * FROM validationfichiers WHERE status <> 'EN ATTENTE DE VALIDATION' and user_id='$user_id' ORDER BY id ASC");
@@ -353,7 +363,7 @@ if($countid2>'0'){
                           ));
                           $table2 = $selectnom->fetch(PDO::FETCH_OBJ);
 
-                          
+
                           $username = $table2->username;
                           $email = $table2->email;
                           $status = $table2->status;
