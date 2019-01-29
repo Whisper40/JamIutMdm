@@ -14,11 +14,10 @@ require_once('../includes/connectBDD.php');
               )
           );
 
-          $update2 = $db->prepare("UPDATE validationfichiers SET status=:status WHERE id=:id and status=:status2");
+          $update2 = $db->prepare("UPDATE validationfichiers SET status=:status WHERE id=:id");
           $update2->execute(array(
               "status"=>'VALIDE',
-              "id"=>$id,
-              "status2"=>'EN ATTENTE DE VALIDATION'
+              "id"=>$id              
               )
           );
 
