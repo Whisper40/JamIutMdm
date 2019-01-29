@@ -836,24 +836,24 @@ demo = {
                               const catactivitevoyage = document.getElementById("catactivitevoyage").value
                               swal({
                                       title: 'Êtes vous certain ?',
-                                      text: 'Cette action est irréversible !',
+                                      text: 'Vous confirmez avoir reçu le montant de la cotisation !',
                                       type: 'warning',
                                       showCancelButton: true,
-                                      confirmButtonText: 'Oui ! Supprimer',
-                                      cancelButtonText: 'Non ! Annuler',
+                                      confirmButtonText: 'Oui !',
+                                      cancelButtonText: 'Non !',
                                       confirmButtonClass: "btn btn-success",
                                       cancelButtonClass: "btn btn-danger",
                                       buttonsStyling: false
                                   }).then(function() {
                                     swal({
-                                      title: 'Supprimée !',
-                                      text: "L'activité est désormais supprimée !",
+                                      title: 'Nickel !',
+                                      text: "C'est confirmé !",
                                       type: 'success',
                                       confirmButtonClass: "btn btn-success",
                                       buttonsStyling: false
                                       })
 
-                                    $.post("ajax/deleteuneactivitevoyage.php", { user_id: user_id, catactivitevoyage: catactivitevoyage},
+                                    $.post("ajax/givepaiementaccess.php", { user_id: user_id, id: id},
                       function(data) {
                        $('#results29').html(data);
 
