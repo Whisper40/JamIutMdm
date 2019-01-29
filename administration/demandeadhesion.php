@@ -444,7 +444,7 @@ if($countid2>'0'){
                       ';
 
                       foreach($table2 as $ligne2){
-                        $user_id = $ligne2->user_id;
+                        $user_id = $ligne2->id;
 
                         $selectnom2 = $db->prepare("SELECT username, email, status FROM users WHERE id=:user_id ORDER BY id ASC");
                         $selectnom2->execute(array(
