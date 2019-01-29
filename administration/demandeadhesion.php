@@ -401,7 +401,7 @@ if($countid2>'0'){
   </div>
 <?php
 
-  $selectid2 = $db->prepare("SELECT id FROM users WHERE status='EN ATTENTE DE PAIEMENT' ORDER BY date ASC");
+  $selectid2 = $db->prepare("SELECT id FROM users WHERE status='EN ATTENTE DE PAIEMENT' ORDER BY id ASC");
   $selectid2->execute();
   $countid2 = $selectid2->rowCount();
 
