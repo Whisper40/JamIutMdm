@@ -396,16 +396,99 @@ if($countid2>'0'){
               </div>
             </div>
         </div>
-
-
       </div>
-
-
-      <td class="text-center">
-        <button onclick="demo.showSwal('givepaiementaccess','<?php echo $user_id; ?>','<?php echo $_GET['id']; ?>')" type="button" class="btn btn-primary btn-round btn-rose">Confirmer le paiement manuel</button>
-      </td>
     </div>
   </div>
+<?php
+
+  $selectid2 = $db->prepare("SELECT user_id FROM users WHERE status='EN ATTENTE DE PAIEMENT' ORDER BY date ASC");
+  $selectid2->execute();
+  $countid2 = $selectid2->rowCount();
+
+  ?>
+
+  <div class="content">
+    <div class="container-fluid">
+      <div class="card">
+        <div class="card-content">
+          <h2 class="card-title text-center">Demande d'Adhésion</h2>
+          <br>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="card-content">
+                <h3 class="card-title">Liste des personnes en attente de paiement</h3>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="card-content">
+
+          <?php
+            if($countid2>'0'){
+                $table = $selectid->fetchAll(PDO::FETCH_OBJ);
+
+
+
+                  echo '
+
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead class="text-primary">
+                      <th class="text-center">Pseudo</th>
+                      <th class="text-center">Email</th>
+                      <th class="text-center">Statuts</th>
+                      <th class="text-center">Action</th>
+                    </thead>
+                    <tbody>
+                      ';
+
+                      foreach($table as $ligne){
+                        $user_id = $ligne->user_id;
+
+                        $selectnom = $db->prepare("SELECT username, email, status FROM users WHERE id=:user_id ORDER BY id ASC");
+                        $selectnom->execute(array(
+                          "user_id"=>$user_id
+                        ));
+                        $table2 = $selectnom->fetch(PDO::FETCH_OBJ);
+
+
+                        $username = $table2->username;
+                        $email = $table2->email;
+                        $status = $table2->status;
+                        echo '
+
+                      <tr>
+                        <td class="text-center">'.$username.'</td>
+                        <td class="text-center">'.$email.'</td>
+                        <td class="text-center">'.$status.'</td>
+                        <td class="text-center"><a href="?action=gestionfichier&amp;id='.$user_id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Afficher</button></a></td>
+                      </tr>';
+                    }
+
+                    echo '
+                  </tbody>
+                  </table>
+                  </div>
+                    ';
+                        }
+                    ?>
+
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+
+
+
+
+
+    <td class="text-center">
+      <button onclick="demo.showSwal('givepaiementaccess','<?php echo $user_id; ?>','<?php echo $_GET['id']; ?>')" type="button" class="btn btn-primary btn-round btn-rose">Confirmer le paiement manuel</button>
+    </td>
+  </div>
+</div>
 
 <?php } ?>
 
