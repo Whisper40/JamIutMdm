@@ -168,8 +168,8 @@ if($_GET['action']=='gestionfichier'){
 
 
         <td class="text-center">
-          <button onclick="demo.showSwal('givememberaccess','<?php echo $user_id; ?>','<?php echo $_GET['id']; ?>')" type="button" class="btn btn-primary btn-round btn-rose">Donner le rôle de membre</button>
-          <button onclick="demo.showSwal('givepaiementaccess','<?php echo $user_id; ?>','<?php echo $_GET['id']; ?>')" type="button" class="btn btn-primary btn-round btn-rose">Confirmer la réception du paiement</button>
+          <button onclick="demo.showSwal('givememberaccess','<?php echo $user_id; ?>','<?php echo $_GET['id']; ?>')" type="button" class="btn btn-primary btn-round btn-rose">Confirmer le dossier et autoriser le paiement</button>
+
         </td>
         <div id="results28"> <!-- TRES IMPORTANT -->
         </div>
@@ -296,6 +296,13 @@ if($countid2>'0'){
 </form>
 
     </div>
+
+
+
+    <td class="text-center">
+      <button onclick="demo.showSwal('givepaiementaccess','<?php echo $user_id; ?>','<?php echo $_GET['id']; ?>')" type="button" class="btn btn-primary btn-round btn-rose">Confirmer le paiement manuel</button>
+    </td>
+
   </div>
 </div>
 </div>

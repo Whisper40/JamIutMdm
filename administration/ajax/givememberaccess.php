@@ -9,7 +9,7 @@ require_once('../includes/connectBDD.php');
 
           $update1 = $db->prepare("UPDATE users SET status=:status WHERE id=:id");
           $update1->execute(array(
-              "status"=>'MEMBRE',
+              "status"=>'EN ATTENTE DE PAIEMENT',
               "id"=>$id
               )
           );
@@ -35,7 +35,11 @@ require_once('../includes/connectBDD.php');
                                     "date"=>$date
                                     )
                                 );
-
+?>
+                                <script>
+                                window.setTimeout("location=('https://administration.jam-mdm.fr/demandeadhesion.php');",3000);
+                                </script>
+<?php
 
             }else{
                 ?>
