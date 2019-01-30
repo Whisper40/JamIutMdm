@@ -1112,7 +1112,7 @@ if ($uploadOk == 0) {
                               </div>
                             </form>
 
-
+<h3> Le Carousel </h3>
                             <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
                                       <div class="row">
                                           <div class="col-sm-6">
