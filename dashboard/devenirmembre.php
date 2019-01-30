@@ -314,11 +314,18 @@ $status = $s->status;?>
                                 <div class="card-content">
                                   <br>
                                   <br>
+<?php
+                                  $selectprice = $db->prepare("SELECT price FROM cotisation");
+                                  $selectprice->execute();
+                                  $r2 = $selectprice->fetch(PDO::FETCH_OBJ);
+                                  $price = $r2->price;
+
+                                    ?>
 
                                           <div class="info info-horizontal">
                                               <div class="description">
                                                 <center>
-                                                  <h4 class="info-title">Prix Total : 2 €</h4>
+                                                  <h4 class="info-title">Prix Total : <?php echo $price; ?> €</h4>
                                                     <div align="center" id="paypal-button"></div>
                                                   </center>
                                               </div>
