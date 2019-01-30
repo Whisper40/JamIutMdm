@@ -811,7 +811,7 @@ demo = {
                               buttonsStyling: false
                               })
 
-                            $.post("ajax/givememberaccess.php", { user_id: user_id, id: id},
+                            $.post("ajax/givepaiementaccess.php", { user_id: user_id, id: id},
               function(data) {
                $('#results28').html(data);
 
