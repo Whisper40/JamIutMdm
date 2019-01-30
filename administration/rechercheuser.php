@@ -5,7 +5,7 @@ require_once('includes/checkconnection.php');
 if(isset($_GET['critere'])){
   $critere=$_GET['critere'];
 
-  $select = $db->query("SELECT * FROM users WHERE username LIKE '%$critere%' OR id LIKE '$critere' OR email LIKE '%$critere%' and ban='0'");
+  $select = $db->query("SELECT * FROM users WHERE username LIKE '%$critere%' and ban='0' OR id LIKE '$critere' and ban='0' OR email LIKE '%$critere%' and ban='0'");
   $table=$select->fetchAll(PDO::FETCH_OBJ);
 
 if(count($table)>0){
