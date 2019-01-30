@@ -1942,7 +1942,7 @@ $titre = $r4->titre;
 if(isset($_POST['submitnewmembre'])){
       $target_dir = "../../../JamFichiers/Img/Membres";
 
-      $user_id = $_POST['user_id'];
+      
       $nom = $_POST['nom'];
 
       $description = $_POST['description'];
