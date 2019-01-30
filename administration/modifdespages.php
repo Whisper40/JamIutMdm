@@ -1228,7 +1228,7 @@ if ($uploadOk == 0) {
     $updatedelete->execute(array(
       "image"=>$valnom
 
-    ));
+    ));Création d'un membre
     unlink("$target_dirthumb/$valnom");
     $succes = "Le fichier.$valnom. à bien été supprimé";
 
@@ -1949,7 +1949,7 @@ $grademembre = $_POST['grademembre'];
 $importancegrade = $_POST['importancegrade'];
 $fonction = $_POST['fonction'];
 
-if(!empty($user_id)&&!empty($nom)!empty($description)&&!empty($grademembre)&&!empty($importancegrade)&&!empty($fonction)){
+if(!empty($user_id)&&!empty($nom)&&!empty($image)&&!empty($description)&&!empty($grademembre)&&!empty($importancegrade)&&!empty($fonction)){
 
       $target_dir = "../../../JamFichiers/Img/ImagesDuSite";
 
