@@ -1332,7 +1332,7 @@ function RetourIndex2(){
 <!-- Ajoutd'images au site web (assets)-->
 <?php
 if(isset($_POST['modifphotomembre'])){
-      $target_dir = "../../../JamFichiers/Img/ImagesDuSite";
+      $target_dir = "../../../JamFichiers/Img/Membres";
 
       $original = 'Original';
       if (file_exists($target_dir/$original)) {
@@ -1394,7 +1394,7 @@ if ($uploadOk == 0) {
         $update = $db->prepare("UPDATE membres SET image=:image WHERE id=:id");
         $update->execute(array(
             "id"=>$id,
-            "image"=>$image
+            "image"=>$target_filefile
             )
         );
 
