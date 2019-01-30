@@ -790,7 +790,7 @@ demo = {
 
 
 
-                  }else if(type == 'givememberaccess'){
+                  }else if(type == 'givepaiementaccess'){
 
                       swal({
                               title: 'Êtes vous certain ?',
@@ -832,7 +832,7 @@ demo = {
 
 
 
-                        }else if(type == 'givepaiementaccess'){
+                        }else if(type == 'AUTREE'){
                               const catactivitevoyage = document.getElementById("catactivitevoyage").value
                               swal({
                                       title: 'Êtes vous certain ?',
