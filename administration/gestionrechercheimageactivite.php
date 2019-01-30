@@ -24,6 +24,7 @@ if(count($table)>0){
   <thead>
   <tr>
   <th scope="col">Id</th>
+  <th scope="col">Activité/Voyage</th>
   <th scope="col">Catégorie</th>
   <th scope="col">Nom</th>
   <th scope="col">Titre</th>
@@ -35,6 +36,16 @@ if(count($table)>0){
   ';
   foreach($table as $ligne){
     $idimg=$ligne->id;
+    $slug=$ligne->slug;
+
+
+    $select2 = $db->prepare("SELECT title FROM activitesvoyages WHERE slug=:slug");
+    $select2->execute(array(
+      "slug"=>$slug
+    ));
+    $s2 = $select2->fetch(PDO::FETCH_OBJ);
+    $nomactvivoyage = $s2->title;
+
     $categorie=$ligne->titre;
     $nom=$ligne->image;
     $titreimage=$ligne->titreimage;
@@ -42,6 +53,7 @@ if(count($table)>0){
     echo '
     <tr>
       <th scope="row">'.$idimg.'</th>
+      <th scope="row">'.$nomactvivoyage.'</th>
       <td>'.$categorie.'<td>
       <td>'.$nom.'</td>
       <td>'.$titreimage.'</td>
