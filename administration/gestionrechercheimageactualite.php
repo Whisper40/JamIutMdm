@@ -5,7 +5,16 @@ require_once('includes/connectBDD.php');
 if(isset($_GET['critere'])){
   $critere=$_GET['critere'];
 
-$requete=$db->prepare("SELECT * FROM carousel WHERE image LIKE '%$critere%' OR titreimage LIKE '$critere%' OR titre LIKE '%$critere%'");
+  $select = $db->prepare("SELECT slug FROM activitesvoyages WHERE title LIKE '$critere' and status='1'");
+  $select->execute();
+  $s = $select->fetch(PDO::FETCH_OBJ);
+  $nomreel = $s->slug;
+
+
+
+
+
+$requete=$db->prepare("SELECT * FROM carousel WHERE slug LIKE '%$nomreel%' OR image LIKE '%$critere%' OR titreimage LIKE '$critere%' OR titre LIKE '%$critere%'");
 $requete->execute();
 $table=$requete->fetchAll(PDO::FETCH_OBJ);
 
@@ -16,6 +25,7 @@ if(count($table)>0){
   <thead>
   <tr>
   <th scope="col">Id</th>
+  <th scope="col">Actualité</th>
   <th scope="col">Catégorie</th>
   <th scope="col">Nom</th>
   <th scope="col">Titre</th>
@@ -27,6 +37,19 @@ if(count($table)>0){
   ';
   foreach($table as $ligne){
     $idimg=$ligne->id;
+
+
+    $slug=$ligne->slug;
+
+
+    $select2 = $db->prepare("SELECT title FROM newsactus WHERE slug=:slug");
+    $select2->execute(array(
+      "slug"=>$slug
+    ));
+    $s2 = $select2->fetch(PDO::FETCH_OBJ);
+    $nomacti = $s2->title;
+
+
     $categorie=$ligne->titre;
     $nom=$ligne->image;
     $titreimage=$ligne->titreimage;
@@ -34,6 +57,7 @@ if(count($table)>0){
     echo '
     <tr>
       <th scope="row">'.$idimg.'</th>
+      <th scope="row">'.$nomacti.'</th>
       <td>'.$categorie.'<td>
       <td>'.$nom.'</td>
       <td>'.$titreimage.'</td>
