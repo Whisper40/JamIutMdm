@@ -1940,7 +1940,15 @@ $titre = $r4->titre;
 <!-- Ajoutd'images au site web (assets)-->
 <?php
 if(isset($_POST['submitnewmembre'])){
-      $target_dir = "../../../JamFichiers/Img/ImagesDuSite";
+      $target_dir = "../../../JamFichiers/Img/Membres";
+
+      $user_id = $_POST['user_id'];
+      $nom = $_POST['nom'];
+
+      $description = $_POST['description'];
+      $grademembre = $_POST['grademembre'];
+      $importancegrade = $_POST['importancegrade'];
+      $fonction = $_POST['fonction'];
 
       $original = 'Original';
       if (file_exists($target_dir/$original)) {
@@ -1999,20 +2007,23 @@ if ($uploadOk == 0) {
         $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
         $status = '1';
 
-        $update = $db->prepare("UPDATE photopage SET image=:image WHERE nompage=:nompage");
-        $update->execute(array(
-            "nompage"=>'Présentation des membres',
-            "image"=>$target_filefile
+        $insert = $db->prepare("INSERT INTO membres (nom, image, description, categorie, importance, fonction) VALUES (:nom, :image, :description, :grademembre, :importancegrade, :fonction)");
+        $insert->execute(array(
+            "nom"=>$nom,
+            "image"=>$target_filefile,
+            "description"=>$description,
+            "grademembre"=>$grademembre,
+            "importancegrade"=>$importancegrade,
+            "fonction"=>$fonction
             )
         );
-
 
 
         $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
         $insertlogs->execute(array(
                             "user_id"=>$user_id,
-                            "type"=>'Modification',
-                            "action"=>'Modification page membre',
+                            "type"=>'Ajout',
+                            "action"=>'Ajout de membres',
                             "page"=>'membre.php',
                             "date"=>$date
                             )
