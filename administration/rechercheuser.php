@@ -6,12 +6,7 @@ if(isset($_GET['critere'])){
   $critere=$_GET['critere'];
 
   $select = $db->query("SELECT * FROM users WHERE username LIKE '%$critere%' OR id LIKE '$critere' OR email LIKE '%$critere%'");
-  $s = $select->fetch(PDO::FETCH_OBJ);
-  $iduser = $s->id;
-
-$requete=$db->prepare("SELECT * FROM users WHERE id LIKE ?");
-$requete->execute(array($iduser));
-$table=$requete->fetchAll(PDO::FETCH_OBJ);
+  $table=$select->fetchAll(PDO::FETCH_OBJ);
 
 if(count($table)>0){
   echo '
