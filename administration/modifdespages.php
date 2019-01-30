@@ -1182,10 +1182,86 @@ if ($uploadOk == 0) {
         </div>
 
      <div id="results3"> <!-- TRES IMPORTANT -->
-
-
-
     </div>
+
+
+
+    <script>
+    $(document).ready(function(){
+
+    var $recherche =$('input[name=valeur]');
+    var critere;
+    $recherche.keyup(function(){
+    critere = $.trim($recherche.val());
+    if(critere!=''){
+      $.get('gestionrechercheimagecarouselpageasso.php?critere='+critere,function(retour){
+
+    $('#resultat').html(retour).fadeIn();
+
+    });
+
+    }else $('#resultat').empty().fadeOut();
+    });
+    });
+    </script>
+
+
+    <?php
+    if(isset($_GET['action'])){
+    if($_GET['action']=='delete'){
+
+    $id=$_GET['id'];
+    $selectnom = $db->query("SELECT * FROM carousel WHERE id='$id'");
+    $rname = $selectnom->fetch(PDO::FETCH_OBJ);
+    $valnom = $rname->image;
+
+
+    $target_dir = '../../../JamFichiers/Img/ImagesDuSite/Original';
+    $target_dirthumb = '../../../JamFichiers/Img/ImagesDuSite/Thumb';
+
+
+
+
+    if (file_exists($target_dir)){
+    unlink("$target_dir/$valnom");
+    $updatedelete = $db->prepare("DELETE FROM carousel WHERE image=:image");
+    $updatedelete->execute(array(
+      "image"=>$valnom
+
+    ));
+    unlink("$target_dirthumb/$valnom");
+    $succes = "Le fichier.$valnom. à bien été supprimé";
+
+    }else{
+
+    $error = 'Un problème de répertoire est présent, contacter votre administrateur !';
+    }
+
+
+    ?>
+    <script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=activitesvoyages&table=activitesvoyages"</script>
+    <?php
+    }
+    }
+
+    ?>
+
+    <div class="section section-contact-us text-center">
+      <div class="container">
+        <h2 class="title">Suppression des photos liés au Caroussel !</h2>
+        <p class="description">AUTRE</p>
+        <div class="row">
+          <div class="col-lg-6 text-center col-md-8 ml-auto mr-auto">
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <h3> Supprimer :  </h3>
+  <input type='text' name="valeur" placeholder="Saisir son nom ou la catégorie à laquelle elle appartient">
+  <p id='resultat'></p>
+
   </div>
 
 
