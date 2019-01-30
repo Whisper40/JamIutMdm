@@ -1932,14 +1932,8 @@ $titre = $r4->titre;
       }
 
 
-//Création membres
 
-?>
-
-
-
-<?php
-//Création actualite
+//Création new membre
 if(isset($_POST['submitnewmembre'])){
 
 $user_id = $_SESSION['admin_id'];
@@ -2084,14 +2078,15 @@ $insertlogs->execute(array(
         $error = 'Désolé, une erreur est survenue.';
     } } }
 
-  } }?>
+  } }
+  ?>
 
 <div class="content">
     <div class="container-fluid">
         <div class="card">
             <div class="card-content">
                 <h2 class="card-title text-center">Création d'un membre</h2>
-                <form action="" method="post" id="myForm1" class="contact-form">
+                <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="card-content">
@@ -2099,9 +2094,16 @@ $insertlogs->execute(array(
                               <label class="control-label">Nom/Prénom</label>
                               <input type="text" class="form-control" value="Nom Prenom" name="nom" id="nom">
                           </div>
-                          <div class="form-group label-floating">
-                              <label class="control-label">Image</label>
-                              <input type="text" name="image" value="Insérer votre image" id="image" class="form-control">
+                          <div class="form-group form-file-upload">
+                              <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
+                              <div class="input-group">
+                                  <input type="text" readonly="" class="form-control" placeholder="Insérer vos pièces jointes">
+                                  <span class="input-group-btn input-group-s">
+                                      <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
+                                          <i class="material-icons">layers</i>
+                                      </button>
+                                  </span>
+                              </div>
                           </div>
 
                           <div class="jquerysel"><!-- on s'en fout -->
@@ -2155,8 +2157,6 @@ $insertlogs->execute(array(
         </div>
     </div>
 
- <div id="results5"> <!-- TRES IMPORTANT -->
-</div>
 
 <?php
 
