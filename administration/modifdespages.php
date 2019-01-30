@@ -1228,7 +1228,7 @@ if ($uploadOk == 0) {
     $updatedelete->execute(array(
       "image"=>$valnom
 
-    ));Création d'un membre
+    ));
     unlink("$target_dirthumb/$valnom");
     $succes = "Le fichier.$valnom. à bien été supprimé";
 
@@ -1239,7 +1239,7 @@ if ($uploadOk == 0) {
 
 
     ?>
-    <script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=association&table=pageasso"</script>
+    <script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=activitesvoyages&table=activitesvoyages"</script>
     <?php
     }
     }
@@ -2009,11 +2009,8 @@ $titre = $r4->titre;
                         <div class="card-content">
 
                           <center>
-                            <div class="col-sm-12">
-                                <div class="card-content">
-                                    <input type="submit" name="submitnewmembre" value="Créer un membre !">
-                                 </div>
-                              </div>
+                          <button id="submitFormDataCreationMembre" onclick="SubmitFormDataCreationMembre();" type="button" class="btn btn-primary btn-round btn-rose">Créer</button>
+                          <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                           </center>
                          </div>
                       </div>
