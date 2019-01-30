@@ -560,12 +560,6 @@ if($countid2>'0'){
     </div>
 
 
-
-
-
-    <td class="text-center">
-      <button onclick="demo.showSwal('givepaiementaccess','<?php echo $user_id; ?>','<?php echo $_GET['id']; ?>')" type="button" class="btn btn-primary btn-round btn-rose">Confirmer le paiement manuel</button>
-    </td>
   </div>
 </div>
 

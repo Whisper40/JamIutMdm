@@ -22,7 +22,7 @@ require_once('../includes/connectBDD.php');
           $selectprice = $db->prepare("SELECT price FROM cotisation");
           $selectprice->execute();
           $r2 = $selectprice->fetch(PDO::FETCH_OBJ);
-          $price= $r2->price;
+          $price = $r2->price;
           $currency_code = 'EUR';
           $raison = 'Cotisation Annuelle';
 
