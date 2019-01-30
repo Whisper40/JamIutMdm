@@ -64,13 +64,13 @@ $('#resultat').html(retour).fadeIn();
 
 <body>
   <div class="wrapper">
-    
+
 <?php
 
 if($_GET['action']=='unban'){
 echo'bond';
 $id=$_GET['id'];
-$setunban = $db->prepare("UPDATE users SET ban='0' WHERE id=$id");
+$setunban = $db->prepare("UPDATE users SET ban='0' and numberofattempts='0' WHERE id=$id");
 $setunban->execute();
 ?>
 <script>window.location="https://administration.jam-mdm.fr/banuser.php"</script>
