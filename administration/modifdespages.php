@@ -1239,7 +1239,7 @@ if ($uploadOk == 0) {
 
 
     ?>
-    <script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=activitesvoyages&table=activitesvoyages"</script>
+    <script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=association&table=pageasso"</script>
     <?php
     }
     }
@@ -2009,8 +2009,11 @@ $titre = $r4->titre;
                         <div class="card-content">
 
                           <center>
-                          <button id="submitFormDataCreationMembre" onclick="SubmitFormDataCreationMembre();" type="button" class="btn btn-primary btn-round btn-rose">Créer</button>
-                          <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
+                            <div class="col-sm-12">
+                                <div class="card-content">
+                                    <input type="submit" name="submitactualite" value="Créer une actualité !">
+                                 </div>
+                              </div>
                           </center>
                          </div>
                       </div>
