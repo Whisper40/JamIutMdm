@@ -1935,28 +1935,157 @@ $titre = $r4->titre;
 //Création membres
 
 ?>
-<script>
 
 
- function SubmitFormDataCreationMembre() {
-    var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-    var nom = $("#nom").val();
-    var image = $("#image").val();
-    var description = $("#description").val();
-    var grademembre = $('#grademembre').val();
-    var importancegrade = $('#importancegrade').val();
-    var fonction = $("#fonction").val();
+
+<?php
+//Création actualite
+if(isset($_POST['submitnewmembre'])){
+
+$user_id = $_SESSION['admin_id'];
+$nom = $_POST['nom'];
+$description = $_POST['description'];
+$grademembre = $_POST['grademembre'];
+$importancegrade = $_POST['importancegrade'];
+$fonction = $_POST['fonction'];
+
+if(!empty($user_id)&&!empty($nom)!empty($description)&&!empty($grademembre)&&!empty($importancegrade)&&!empty($fonction)){
+
+      $target_dir = "../../../JamFichiers/Img/Membres";
+
+      $original = 'Original';
+      if (file_exists($target_dir/$original)) {
+        $target_dirnew = "$target_dir/$original/";
+      }else{
+        mkdir("$target_dir/$original", 0700);
+        $target_dirnew = "$target_dir/$original/";
+      }
+
+      //Ajout thumb
+      $thumb = 'Thumb';
+      if (file_exists($target_dir/$thumb)) {
+        $target_dirnewthumb = "$target_dir/$thumb/";
+      }else{
+        mkdir("$target_dir/$thumb", 0700);
+        $target_dirnewthumb = "$target_dir/$thumb/";
+      }
+      //FIN
 
 
-    $.post("ajax/creationmembre.php", { user_id: user_id, nom: nom, image: image, description: description, grademembre: grademembre, importancegrade: importancegrade, fonction: fonction},
-    function(data) {
-     $('#results5').html(data);
+$total = count($_FILES['fileToUpload']['name']);
 
-    });
+for( $i=0 ; $i < $total ; $i++ ) {
+$target_file3 = $target_dirnew."".$slug.".".$formatimg;
+$target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
+$uploadOk = 1;
+$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+// Check if file already exists
+if (file_exists($target_file3)) {
+    $error = 'Désolé, le fichier existe déja.';
+    $uploadOk = 0;
+}
+// Check file size < 2mo
+if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
+    $error = 'Désolé, le fichier est trop grand.';
+    $uploadOk = 0;
 
 }
+// Allow certain file formats
+if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
+    $error = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+    $uploadOk = 0;
+}
+// Check if $uploadOk is set to 0 by an error
+if ($uploadOk == 0) {
+    $error = 'Désolé, une erreur est survenue.';
+// if everything is ok, try to upload file
+} else {
+  date_default_timezone_set('Europe/Paris');
+  setlocale(LC_TIME, 'fr_FR.utf8','fra');
+  $date = strftime('%d:%m:%y %H:%M:%S');
 
-</script>
+  $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
+  $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
+  $target_filefile3 = $slug.".".$formatimg;
+
+
+    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
+        $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+$target_file3 = $target_dirnew."".$slug.".".$formatimg;
+
+$insert = $db->prepare("INSERT INTO membres (nom, image, description, categorie, importance, fonction) VALUES (:nom, :image, :description, :grademembre, :importancegrade, :fonction)");
+$insert->execute(array(
+    "nom"=>$nom,
+    "image"=>$target_filefile,
+    "description"=>$description,
+    "grademembre"=>$grademembre,
+    "importancegrade"=>$importancegrade,
+    "fonction"=>$fonction
+    )
+);
+
+
+
+$insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
+$insertlogs->execute(array(
+                    "user_id"=>$user_id,
+                    "type"=>'Ajout',
+                    "action"=>'Modification page membre',
+                    "page"=>'membre.php',
+                    "date"=>$date
+                    )
+                );
+
+
+        $status = '1';
+        date_default_timezone_set('Europe/Paris');
+        setlocale(LC_TIME, 'fr_FR.utf8','fra');
+        $date = strftime('%Y-%m-%d %H:%M:%S');
+
+        $img_tmp = $target_file3;
+        $fin = $target_dirnewthumb.$target_filefile3;
+
+
+          //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
+            $longueur = 539;
+            $largeur = 539;
+            //TAILLE DE L'IMAGE ACTUELLE
+            $taille = getimagesize($img_tmp);
+            //SI LE FICHIER EXISTE
+            if ($taille) {
+                //SI JPG
+                if ($taille['mime']=='image/jpeg' ) {
+                          //OUVERTURE DE L'IMAGE ORIGINALE
+                            $img_big = imagecreatefromjpeg($img_tmp);
+                            $img_new = imagecreate($longueur, $largeur);
+                          //CREATION DE LA MINIATURE
+                            $img_petite = imagecreatetruecolor($longueur, $largeur) or $img_petite = imagecreate($longueur, $largeur);
+                            //COPIE DE L'IMAGE REDIMENSIONNEE
+                            imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
+                            imagejpeg($img_petite,$fin);
+                }
+              //SI PNG
+            else if ($taille['mime']=='image/png' ) {
+                            //OUVERTURE DE L'IMAGE ORIGINALE
+                            $img_big = imagecreatefrompng($img_tmp); // On ouvre l'image d'origine
+                            $img_new = imagecreate($longueur, $largeur);
+                            //CREATION DE LA MINIATURE
+                            $img_petite = imagecreatetruecolor($longueur, $largeur) OR $img_petite = imagecreate($longueur, $largeur);
+                            //COPIE DE L'IMAGE REDIMENSIONNEE
+                            imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
+                            imagepng($img_petite,$fin);
+                        }
+
+
+                }
+
+
+    }else {
+        $error = 'Désolé, une erreur est survenue.';
+    } } }
+
+  } }?>
+
 <div class="content">
     <div class="container-fluid">
         <div class="card">
@@ -1972,7 +2101,7 @@ $titre = $r4->titre;
                           </div>
                           <div class="form-group label-floating">
                               <label class="control-label">Image</label>
-                              <input type="text" name="image" value="monimage.jpg" id="image" class="form-control">
+                              <input type="text" name="image" value="Insérer votre image" id="image" class="form-control">
                           </div>
 
                           <div class="jquerysel"><!-- on s'en fout -->
@@ -2009,8 +2138,11 @@ $titre = $r4->titre;
                         <div class="card-content">
 
                           <center>
-                          <button id="submitFormDataCreationMembre" onclick="SubmitFormDataCreationMembre();" type="button" class="btn btn-primary btn-round btn-rose">Créer</button>
-                          <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
+                            <div class="col-sm-12">
+                                <div class="card-content">
+                                    <input type="submit" name="submitnewmembre" value="Créer un membre !">
+                                 </div>
+                              </div>
                           </center>
                          </div>
                       </div>
