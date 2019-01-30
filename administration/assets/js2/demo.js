@@ -1215,8 +1215,7 @@ demo = {
     },
 
 	showNotification: function(from, align, message){
-        type = ['info','rose'];
-        //type = ['','info','success','warning','danger','rose','primary'];
+        type = ['','info','success','warning','danger','rose','primary'];
 
         color = Math.floor((Math.random() * 6) + 1);
 
@@ -1225,13 +1224,13 @@ demo = {
         	message: message
 
         },{
-            type: type[color],
+            type: 'success',
             timer: 3000,
             placement: {
                 from: from,
                 align: align
             }
         });
-	}
+}
 
 }
