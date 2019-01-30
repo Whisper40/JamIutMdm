@@ -2352,11 +2352,26 @@ $error = 'Un problème de répertoire est présent, contacter votre administrate
 
 
 
+?>
+<div class="section section-contact-us text-center">
+  <div class="container">
+    <h2 class="title">Suppression des photos des membres</h2>
+    <p class="description">AUTRE</p>
+    <div class="row">
+      <div class="col-lg-6 text-center col-md-8 ml-auto mr-auto">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<h3> Supprimer :  </h3>
+<input type='text' name="valeur" placeholder="Saisir son nom ou la catégorie à laquelle elle appartient">
+<p id='resultat'></p>
 
 
 
-
-
+<?php
 
 
 
