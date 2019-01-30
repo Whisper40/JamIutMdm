@@ -34,9 +34,9 @@ $inserttransac->execute(array(
 );
 
 
-$insertuser = $db->prepare("INSERT INTO users (status) VALUES (:membre) WHERE id=:user_id");
-$insertuser->execute(array(
+$updateuser = $db->prepare("UPDATE users SET status=:status WHERE id=:user_id");
+$updateuser->execute(array(
     "user_id"=>$_SESSION['user_id'],
-    "membre"=>'MEMBRE'
+    "status"=>'MEMBRE'
     )
 );
