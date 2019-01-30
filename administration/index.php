@@ -318,7 +318,7 @@ $valyear0 = date("Y");
 
 
 $maxvalue = max($countmonth5,$countmonth4,$countmonth3,$countmonth2,$countmonth1,$countmonth0);
-$maxavecmarge = round($maxvalue + 100);
+$maxavecmarge = round($maxvalue + '100');
 
 
 //simpleBarChart
