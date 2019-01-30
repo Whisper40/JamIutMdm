@@ -310,6 +310,85 @@ if($countid2>'0'){
  <?php
 
 
+}else if($_GET['action']=='gestionpaiement'){
+  $user_id=$_GET['id'];
+  ?>
+
+        <td class="text-center">
+          <button onclick="demo.showSwal('confirmpaiementaccess','<?php echo $user_id; ?>','<?php echo $_GET['id']; ?>')" type="button" class="btn btn-primary btn-round btn-rose">Confirmer le paiement manuel</button>
+
+        </td>
+
+        <div id="results29"> <!-- TRES IMPORTANT -->
+        </div>
+
+
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card-content">
+      <h3 class="card-title">Contacter la personne par Email</h3>
+    </div>
+  </div>
+</div>
+<form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card-content">
+      <div class="form-group label-floating">
+          <textarea name="message" class="form-control" rows="8" placeholder="Votre message"></textarea>
+          <span class="help-block">Merci de décrire précisément votre message</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card-content">
+      <br>
+      <div class="form-group form-file-upload">
+          <input type="file" id="attachment" name="attachment[]" multiple="">
+          <div class="input-group">
+              <input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
+              <span class="input-group-btn input-group-s">
+                  <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
+                      <i class="material-icons">layers</i>
+                  </button>
+              </span>
+          </div>
+      </div>
+      <center>
+        <div class="form-group label-floating">
+            <div class="g-recaptcha" data-sitekey="<?= $sitekey; ?>"></div>
+        </div>
+      </center>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card-content">
+      <center>
+        <button type="submit" name="submit" value="Envoyer un message" class="btn btn-rose btn-round">Envoyer le message</button>
+      </center>
+    </div>
+  </div>
+</div>
+</form>
+
+    </div>
+
+
+
+
+
+  </div>
+
+
+</div>
+</div>
+
+ <?php
+
+
 }
 
 
@@ -462,7 +541,7 @@ if($countid2>'0'){
                         <td class="text-center">'.$username.'</td>
                         <td class="text-center">'.$email.'</td>
                         <td class="text-center">'.$status.'</td>
-                        <td class="text-center"><a href="?action=gestionfichier&amp;id='.$user_id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Afficher</button></a></td>
+                        <td class="text-center"><a href="?action=gestionpaiement&amp;id='.$user_id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Afficher</button></a></td>
                       </tr>';
                     }
 

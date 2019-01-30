@@ -832,8 +832,8 @@ demo = {
 
 
 
-                        }else if(type == 'AUTREE'){
-                              const catactivitevoyage = document.getElementById("catactivitevoyage").value
+                        }else if(type == 'confirmpaiementaccess'){
+                              
                               swal({
                                       title: 'Êtes vous certain ?',
                                       text: 'Vous confirmez avoir reçu le montant de la cotisation !',
@@ -853,7 +853,7 @@ demo = {
                                       buttonsStyling: false
                                       })
 
-                                    $.post("ajax/givepaiementaccess.php", { user_id: user_id, id: id},
+                                    $.post("ajax/confirmpaiementaccess.php", { user_id: user_id, id: id},
                       function(data) {
                        $('#results29').html(data);
 
@@ -863,7 +863,7 @@ demo = {
                                     if (dismiss === 'cancel') {
                                       swal({
                                         title: 'Annulé !',
-                                        text: 'Aucun changement effectué',
+                                        text: 'Paiement non reçu',
                                         type: 'error',
                                         confirmButtonClass: "btn btn-info",
                                         buttonsStyling: false
