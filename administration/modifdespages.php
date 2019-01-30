@@ -2278,62 +2278,97 @@ if ($uploadOk == 0) {
         $error = 'Désolé, une erreur est survenue.';
     } } }
 
-          } ?>
-
-
-
-
-
-
-            <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-
-              <h3> Ajouter des photos de membres </h3>
-
-                <div class="form-group form-file-upload">
-                    <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
-                    <div class="input-group">
-                        <input type="text" readonly="" class="form-control" placeholder="Insérer vos pièces jointes">
-                        <span class="input-group-btn input-group-s">
-                            <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
-                                <i class="material-icons">layers</i>
-                            </button>
-                        </span>
-                    </div>
-                </div>
-
-                <input type="submit" name="submitphotomembre" value="Envoyer les images !">
-            </form>
-            <?php
-
-            if(!empty($error)){
-
-
-            // CODE HTML ICI
-               echo '
-              <button>'.$error.'</button>'; }
-
-
-            if(!empty($succes)){
-
-
-            // CODE HTML ICI
-               echo '
-              <button>'.$succes.'</button>'; }?>
-</div>
-<?php
-//FIn Création
-
-
-//Modif d'images filemanager
-?>
-<h3> Modification et suppression des images </h3>
-
-<a href="https://administration.jam-mdm.fr/filemanager.php?id=administrationjam&password=J@MAdministration" target="_blank" class="w3-button w3-black">Accèder à l'interface de gestion</a>
-
-
-<?php
-
+          }
 }
+
+
+
+
+?>
+
+
+
+<script>
+$(document).ready(function(){
+
+var $recherche =$('input[name=valeur]');
+var critere;
+$recherche.keyup(function(){
+critere = $.trim($recherche.val());
+if(critere!=''){
+  $.get('gestionrechercheimagemembres.php?critere='+critere,function(retour){
+
+$('#resultat').html(retour).fadeIn();
+
+});
+
+}else $('#resultat').empty().fadeOut();
+});
+});
+</script>
+
+
+<?php
+if(isset($_GET['action'])){
+if($_GET['action']=='delete'){
+
+$id=$_GET['id'];
+$selectnom = $db->query("SELECT * FROM membres WHERE id='$id'");
+$rname = $selectnom->fetch(PDO::FETCH_OBJ);
+$valnom = $rname->image;
+
+
+$target_dir = '../../../JamFichiers/Img/Membres/Original';
+$target_dirthumb = '../../../JamFichiers/Img/Membres/Thumb';
+
+
+
+
+if (file_exists($target_dir)){
+unlink("$target_dir/$valnom");
+$updatedelete = $db->prepare("DELETE FROM carousel WHERE image=:image");
+$updatedelete->execute(array(
+  "image"=>$valnom
+
+));
+unlink("$target_dirthumb/$valnom");
+$succes = "Le fichier.$valnom. à bien été supprimé";
+
+}else{
+
+$error = 'Un problème de répertoire est présent, contacter votre administrateur !';
+}
+
+
+?>
+<script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=membre&table=membres"</script>
+<?php
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
