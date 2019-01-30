@@ -118,10 +118,10 @@ $status = $s->status;?>
           $selectaccesautorise->execute();
           $countaccesautorise = $selectaccesautorise->rowCount();
           if($countaccesautorise == 0){
-          $selectnumbervalidation = $db->prepare("SELECT * FROM validationfichiers WHERE user_id='$user_id' AND status='VALIDE'");
+          $selectnumbervalidation = $db->prepare("SELECT * FROM users WHERE user_id='$user_id' and status <> 'MEMBRE'");
           $selectnumbervalidation->execute();
           $countvalidation = $selectnumbervalidation->rowCount();
-          if($countvalidation<3){
+          if($countvalidation == 1){
               ?>
 
               <div class="content">
