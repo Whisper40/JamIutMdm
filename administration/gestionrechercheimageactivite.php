@@ -13,7 +13,7 @@ if(isset($_GET['critere'])){
 
 
 
-$requete=$db->prepare("SELECT * FROM carousel WHERE slug LIKE '%$nomreel%' OR image LIKE '%$critere%' OR titreimage LIKE '$critere%' OR titre LIKE '%$critere%'");
+$requete=$db->prepare("SELECT * FROM carousel WHERE slug LIKE '%$nomreel%'");
 $requete->execute();
 $table=$requete->fetchAll(PDO::FETCH_OBJ);
 
