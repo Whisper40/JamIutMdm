@@ -1215,15 +1215,16 @@ demo = {
     },
 
 	showNotification: function(from, align, message){
-        type = ['success'];
-        //type = ['','info','success','warning','danger','rose','primary'];
- 
+        type = ['','info','success','warning','danger','rose','primary'];
+
+        color = Math.floor((Math.random() * 6) + 1);
+
     	$.notify({
         	icon: "notifications",
         	message: message
 
         },{
-            type: type[0],
+            type: 'success',
             timer: 3000,
             placement: {
                 from: from,
