@@ -6,7 +6,7 @@ if(isset($_GET['critere'])){
   $critere=$_GET['critere'];
 
 
-  $select = $db->prepare("SELECT slug FROM activitesvoyages WHERE title LIKE '$critere' and status='1'");
+  $select = $db->prepare("SELECT slug FROM activitesvoyages WHERE title LIKE '%$critere%'");
   $select->execute();
   $s = $select->fetch(PDO::FETCH_OBJ);
   $nomreel = $s->slug;
