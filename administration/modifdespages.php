@@ -1239,7 +1239,7 @@ if ($uploadOk == 0) {
 
 
     ?>
-    <script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=activitesvoyages&table=activitesvoyages"</script>
+    <script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=association&table=pageasso"</script>
     <?php
     }
     }
