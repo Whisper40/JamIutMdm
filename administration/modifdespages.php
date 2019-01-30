@@ -1951,7 +1951,7 @@ $fonction = $_POST['fonction'];
 
 if(!empty($user_id)&&!empty($nom)!empty($description)&&!empty($grademembre)&&!empty($importancegrade)&&!empty($fonction)){
 
-      $target_dir = "../../../JamFichiers/Img/Membres";
+      $target_dir = "../../../JamFichiers/Img/ImagesDuSite";
 
       $original = 'Original';
       if (file_exists($target_dir/$original)) {
@@ -2013,28 +2013,29 @@ if ($uploadOk == 0) {
         $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
 $target_file3 = $target_dirnew."".$slug.".".$formatimg;
 
-$insert = $db->prepare("INSERT INTO membres (nom, image, description, categorie, importance, fonction) VALUES (:nom, :image, :description, :grademembre, :importancegrade, :fonction)");
-$insert->execute(array(
-    "nom"=>$nom,
-    "image"=>$target_filefile,
-    "description"=>$description,
-    "grademembre"=>$grademembre,
-    "importancegrade"=>$importancegrade,
-    "fonction"=>$fonction
-    )
-);
+        $insert = $db->prepare("INSERT INTO newsactus (title, slug, description, surname, date, formatimg, status) VALUES(:title, :slug, :description, :surname, :date, :formatimg, :status)");
+        $insert->execute(array(
+                            "title"=>$title,
+                            "slug"=>$slug,
+                            "description"=>$description,
+                            "surname"=>'Actualité',
+                            "date"=>$date,
+                            "formatimg"=>$formatimg,
+                            "status"=>'ACTIVE'
+                            )
+                        );
 
 
 
-$insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
-$insertlogs->execute(array(
-                    "user_id"=>$user_id,
-                    "type"=>'Modification',
-                    "action"=>'Modification page membre',
-                    "page"=>'membre.php',
-                    "date"=>$date
-                    )
-                );
+                        $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
+                        $insertlogs->execute(array(
+                                            "user_id"=>$user_id,
+                                            "type"=>'Ajout',
+                                            "action"=>'Ajout d\'une actualité',
+                                            "page"=>'actualitees.php',
+                                            "date"=>$date
+                                            )
+                                        );
 
 
         $status = '1';
