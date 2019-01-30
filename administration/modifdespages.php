@@ -1935,6 +1935,28 @@ $titre = $r4->titre;
 //Création membres
 
 ?>
+<script>
+
+
+ function SubmitFormDataCreationMembre() {
+    var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+    var nom = $("#nom").val();
+    var image = $("#image").val();
+    var description = $("#description").val();
+    var grademembre = $('#grademembre').val();
+    var importancegrade = $('#importancegrade').val();
+    var fonction = $("#fonction").val();
+
+
+    $.post("ajax/creationmembre.php", { user_id: user_id, nom: nom, image: image, description: description, grademembre: grademembre, importancegrade: importancegrade, fonction: fonction},
+    function(data) {
+     $('#results5').html(data);
+
+    });
+
+}
+
+</script>
 
 
 
@@ -1949,7 +1971,7 @@ $grademembre = $_POST['grademembre'];
 $importancegrade = $_POST['importancegrade'];
 $fonction = $_POST['fonction'];
 
-if(!empty($user_id)&&!empty($nom)&&!empty($image)&&!empty($description)&&!empty($grademembre)&&!empty($importancegrade)&&!empty($fonction)){
+
 
       $target_dir = "../../../JamFichiers/Img/ImagesDuSite";
 
@@ -2085,7 +2107,7 @@ $target_file3 = $target_dirnew."".$slug.".".$formatimg;
         $error = 'Désolé, une erreur est survenue.';
     } } }
 
-  } }?>
+          } ?>
 
 <div class="content">
     <div class="container-fluid">
