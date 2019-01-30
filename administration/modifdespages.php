@@ -1942,7 +1942,7 @@ $titre = $r4->titre;
 if(isset($_POST['submitnewmembre'])){
       $target_dir = "../../../JamFichiers/Img/Membres";
 
-      
+
       $nom = $_POST['nom'];
 
       $description = $_POST['description'];
@@ -5580,10 +5580,7 @@ if ($uploadOk == 0) {
                               <label class="control-label">Titre de la page</label>
                               <input type="text" class="form-control" value="<?php echo $pagetitre; ?>" name="pagetitre" id="pagetitre">
                           </div>
-                          <div class="form-group label-floating">
-                              <label class="control-label">Images</label>
-                              <input type="text" name="image" value="<?php echo $image; ?>" id="image" class="form-control">
-                          </div>
+
 
 
 
