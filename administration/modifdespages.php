@@ -1011,17 +1011,12 @@ if ($uploadOk == 0) {
                               $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
                               $status = '1';
 
-                              $selecttitrepageasso = $db->prepare("SELECT pagetitre FROM photopage WHERE nompage=:nompage");
-                              $selecttitrepageasso->execute(array(
-                                "nompage"=>"Présentation association"
-                              ));
-                              $r2 = $selecttitrepageasso->fetch(PDO::FETCH_OBJ);
-                              $pagetitre = $r2->pagetitre;
+
 
 
                               $update2 = $db->prepare("INSERT INTO carousel (slug, image, titreimage) VALUES(:pagetitre, :image, :titreimage)");
                               $update2->execute(array(
-                                  "pagetitre"=>$pagetitre,
+                                  "pagetitre"=>"Présentation association",
                                   "image"=>$target_filefile,
                                   "titreimage"=>"Association"
                                   )
