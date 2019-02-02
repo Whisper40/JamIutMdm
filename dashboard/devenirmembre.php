@@ -342,7 +342,7 @@ $status = $s->status;?>
 <script>
     paypal.Button.render({
 <?php
-  $total = '3';
+  $total = $price;
 ?>
 env: 'sandbox',
 client: {
