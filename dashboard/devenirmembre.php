@@ -118,7 +118,7 @@ $status = $s->status;?>
           $selectaccesautorise->execute();
           $countaccesautorise = $selectaccesautorise->rowCount();
           if($countaccesautorise == 0){
-          $selectnumbervalidation = $db->prepare("SELECT * FROM users WHERE id='$user_id' and status <> 'EN ATTENTE DE PAIEMENT' OR status <> 'MEMBRE'");
+          $selectnumbervalidation = $db->prepare("SELECT * FROM users WHERE id='$user_id' and status <> 'EN ATTENTE DE PAIEMENT' OR id = '$user_id' and status <> 'MEMBRE'");
           $selectnumbervalidation->execute();
           $countvalidation = $selectnumbervalidation->rowCount();
           if($countvalidation == 1){
