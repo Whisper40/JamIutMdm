@@ -2,9 +2,6 @@
 
 require_once('includes/connectBDD.php');
 require_once('includes/checkconnection.php');
-$nompage = "Modification Contenu Site";
-require_once('includes/head.php');
-
 
 $id = $_GET['id'];
 $slug = 'voyage-ski-2018';
@@ -62,21 +59,7 @@ while($s0=$selectid->fetch(PDO::FETCH_OBJ)){
       $ville=$s2->ville;
       $telurgence=$s2->telurgence;
 
-      echo '
 
-      <tr>
-      <td class="text-center">'.$nom.'</td>
-      <td class="text-center">'.$poids.'</td>
-      <td class="text-center">'.$taille.'</td>
-      <td class="text-center">'.$pointure.'</td>
-      <td class="text-center">'.$allergie.'</td>
-      <td class="text-center">'.$adresse.'</td>
-      <td class="text-center">'.$codepostal.'</td>
-      <td class="text-center">'.$ville.'</td>
-      <td class="text-center">'.$telurgence.'</td>
-      <td class="text-center">'.$optionmateriel.'</td>
-      <td class="text-center">'.$optionrepas.'</td>
-      </tr>';
 
       $tableau[] = array($nom.','.$poids);
 
