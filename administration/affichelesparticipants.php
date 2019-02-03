@@ -21,7 +21,7 @@ if(isset($_GET['action'])){
     $title = 'Séjour Ski Cauteret';
 
     if (stripos($title, 'ski') != FALSE){
-      $tableau = array("nom","id");
+      $tableau = array();
 
 
       echo '
@@ -51,6 +51,7 @@ if(isset($_GET['action'])){
     $selectid->execute(array(
       "name"=>$title
     ));
+    $nbr = $selectid->rowCount();
 
     while($s0=$selectid->fetch(PDO::FETCH_OBJ)){
       $iddelapersonne=$s0->user_id;
@@ -105,8 +106,7 @@ if(isset($_GET['action'])){
           <td class="text-center">'.$optionrepas.'</td>
           </tr>';
 
-          $tableau = array($nom);
-          
+          $tableau[] = array($nom.','.$poids);
 
 
 
