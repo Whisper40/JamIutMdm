@@ -21,6 +21,7 @@ if(isset($_GET['action'])){
     $title = 'Séjour Ski Cauteret';
 
     if (stripos($title, 'ski') != FALSE){
+      $tableau = array();
 
 
       echo '
@@ -104,6 +105,7 @@ if(isset($_GET['action'])){
           <td class="text-center">'.$optionrepas.'</td>
           </tr>';
 
+          $tableau = ($nom, $poids, $taille, $pointure, $allergie, $adresse, $codepostal, $ville, $telurgence, $optionmateriel, $optionrepas);
 
 
 
@@ -117,6 +119,8 @@ if(isset($_GET['action'])){
   </table>
   </div>
     ';
+
+    var_dump($tableau);
   }
 }
 
