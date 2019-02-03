@@ -2,23 +2,25 @@
 
 require_once('includes/connectBDD.php');
 require_once('includes/checkconnection.php');
-date_default_timezone_set('Europe/Paris');
-setlocale(LC_TIME, 'fr_FR.utf8','fra');
-$date = strftime('%d:%m:%y %H:%M:%S');
-header('Content-Encoding: UTF-8');
-header('Content-type: text/csv; charset=UTF-8');
-header('Content-Disposition: attachment; filename=Customers_Export.csv');
-echo "\xEF\xBB\xBF"; // UTF-8 BOM
 
 $id = $_GET['id'];
 $slug = 'voyage-ski-2018';
 $title = 'Séjour Ski Cauteret';
 
-
+date_default_timezone_set('Europe/Paris');
+setlocale(LC_TIME, 'fr_FR.utf8','fra');
+$date = strftime('%d:%m:%y %H:%M:%S');
 
 $tableau = array();
 
-
+header('Content-Description: File Transfer');
+header('Content-Type: application/octet-stream');
+header('Content-Disposition: attachment; filename=file.csv');
+header('Content-Transfer-Encoding: binary');
+header('Expires: 0');
+header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+header('Pragma: public');
+echo "\xEF\xBB\xBF"; // UTF-8 BOM
 // Création de la ligne d'en-tête
 
 
