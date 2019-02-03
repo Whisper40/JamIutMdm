@@ -41,7 +41,7 @@ if(isset($_GET['action'])){
     $selectid->execute(array(
       "name"=>$title
     ));
-
+echo '0';
     while($s0=$selectid->fetch(PDO::FETCH_OBJ)){
       $iddelapersonne=$s0->user_id;
 
@@ -50,7 +50,7 @@ if(isset($_GET['action'])){
         "id"=>$iddelapersonne,
         "name"=>$title
       ));
-
+echo '1';
       while($s1=$selectinfos->fetch(PDO::FETCH_OBJ)){
 
         $optionmateriel=$s0->optionmateriel;
@@ -61,7 +61,7 @@ if(isset($_GET['action'])){
         $selectinfospersonnelles->execute(array(
           "id"=>$iddelapersonne
         ));
-
+echo '2';
         while($s2=$selectinfospersonnelles->fetch(PDO::FETCH_OBJ)){
           $poids=$s2->poids;
           $taille=$s2->taille;
@@ -71,7 +71,7 @@ if(isset($_GET['action'])){
           $ville=$s2->ville;
           $telurgence=$s2->telurgence;
 
-
+echo '3';
           echo '
 
           <tr>
@@ -83,7 +83,7 @@ if(isset($_GET['action'])){
 
 
 
-
+echo '4';
 
 
 
