@@ -13,7 +13,7 @@ $date = strftime('%d:%m:%y %H:%M:%S');
 
 $tableau = array();
 
-header("Content-Type: text/csv; charset=UTF-8");
+header("Content-Type: text/csv");
 header("Content-disposition: filename=Tableau-Ski-$date.csv");
 // Création de la ligne d'en-tête
 
