@@ -65,7 +65,7 @@ while($s0=$selectid->fetch(PDO::FETCH_OBJ)){
 
 
 
-      $tableau[] = array($nom.','.$poids.','.$taille.','.$pointure.','.$allergie.','.$adresse.','.$codepostal.','.$ville.','.$telurgence);
+      $tableau[] = array($nom,$poids);
 
 
 
