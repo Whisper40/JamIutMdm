@@ -105,7 +105,7 @@ if(isset($_GET['action'])){
           <td class="text-center">'.$optionrepas.'</td>
           </tr>';
 
-          $tableau[] = $nom, $poids, $taille, $pointure, $allergie, $adresse, $codepostal, $ville, $telurgence, $optionmateriel, $optionrepas;
+          $tableau[] = $nom;
 
 
 
