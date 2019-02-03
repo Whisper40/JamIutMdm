@@ -122,6 +122,11 @@ if(isset($_GET['action'])){
     ';
 
     var_dump($tableau);
+    $fp = fopen('file.csv', 'w');
+    foreach ($tableau as $fields) {
+      fputcsv($fp, $fields);
+    }
+    fclose($fp);
   }
 }
 
