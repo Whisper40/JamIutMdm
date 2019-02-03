@@ -7,10 +7,14 @@ $id = $_GET['id'];
 $slug = 'voyage-ski-2018';
 $title = 'Séjour Ski Cauteret';
 
+date_default_timezone_set('Europe/Paris');
+setlocale(LC_TIME, 'fr_FR.utf8','fra');
+$date = strftime('%d:%m:%y %H:%M:%S');
+
 $tableau = array();
 
 header("Content-Type: text/csv; charset=UTF-8");
-header("Content-disposition: filename=mon-tableau.csv");
+header("Content-disposition: filename=Tableau-Ski-'.$date.'.csv");
 // Création de la ligne d'en-tête
 
 
@@ -61,7 +65,7 @@ while($s0=$selectid->fetch(PDO::FETCH_OBJ)){
 
 
 
-      $tableau[] = array($nom.','.$poids);
+      $tableau[] = array($nom.','.$poids.','.$taille.','.$pointure.','.$allergie.','.$adresse.','.$codepostal.','.$ville.','.$telurgence);
 
 
 
@@ -70,11 +74,8 @@ while($s0=$selectid->fetch(PDO::FETCH_OBJ)){
   }
 }
 
-
-
-$entete = array("Nom", "Id");
+$entete = array("Nom", "Poids", "Taille", "Pointure", "Allergie", "Adresse", "Code Postale", "Ville", "Teléphone Urgence");
 $separateur = ";";
-
 // Affichage de la ligne de titre, terminée par un retour chariot
 echo implode($separateur, $entete)."\r\n";
 
