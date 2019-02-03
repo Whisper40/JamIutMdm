@@ -2,17 +2,19 @@
 
 require_once('includes/connectBDD.php');
 require_once('includes/checkconnection.php');
+date_default_timezone_set('Europe/Paris');
+setlocale(LC_TIME, 'fr_FR.utf8','fra');
+$date = strftime('%d:%m:%y %H:%M:%S');
 header('Content-Encoding: UTF-8');
 header('Content-type: text/csv; charset=UTF-8');
-header("Content-disposition: filename=Tableau-Ski-$date.csv");
+header('Content-Disposition: attachment; filename=Customers_Export.csv');
+echo "\xEF\xBB\xBF"; // UTF-8 BOM
 
 $id = $_GET['id'];
 $slug = 'voyage-ski-2018';
 $title = 'Séjour Ski Cauteret';
 
-date_default_timezone_set('Europe/Paris');
-setlocale(LC_TIME, 'fr_FR.utf8','fra');
-$date = strftime('%d:%m:%y %H:%M:%S');
+
 
 $tableau = array();
 
