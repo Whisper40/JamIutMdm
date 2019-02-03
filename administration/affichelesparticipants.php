@@ -4,6 +4,8 @@ require_once('includes/connectBDD.php');
 require_once('includes/checkconnection.php');
 $nompage = "Modification Contenu Site";
 require_once('includes/head.php');
+header("Content-Type: text/csv; charset=UTF-8");
+header("Content-disposition: filename=mon-tableau.csv");
 ini_set('display_errors', 1);
 $user_id = $_SESSION['admin_id'];
 ?>
@@ -122,27 +124,14 @@ if(isset($_GET['action'])){
     ';
 
     var_dump($tableau);
-    $fp = fopen('file.csv', 'w');
-    foreach ($tableau as $fields) {
-      fputcsv($fp, $fields);
-    }
-    fclose($fp);
 
-
-
-    $list = array (
-    array('aaa', 'bbb', 'ccc', 'dddd'),
-    array('123', '456', '789'),
-    array('"aaa"', '"bbb"')
-);
-
-$fp = fopen('file.csv', 'w');
-
-foreach ($list as $fields) {
-    fputcsv($fp, $fields);
+$separateur = ";";
+$entete = array("Nom", "Id");
+echo implode($separateur, $entete)."\r\n";
+// Affichage du contenu du tableau
+foreach ($tableau as $ligne) {
+	echo implode($separateur, $ligne)."\r\n";
 }
-
-fclose($fp);
 
   }
 }
