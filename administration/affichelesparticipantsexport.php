@@ -3,7 +3,6 @@
 require_once('includes/connectBDD.php');
 require_once('includes/checkconnection.php');
 header('Content-Type: text/csv; charset=utf-8');
-
 header("Content-disposition: filename=Tableau-Ski-$date.csv");
 
 $id = $_GET['id'];
