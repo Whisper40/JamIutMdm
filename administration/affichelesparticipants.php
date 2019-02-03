@@ -106,7 +106,7 @@ if(isset($_GET['action'])){
           <td class="text-center">'.$optionrepas.'</td>
           </tr>';
 
-          $tableau[] = array(".$nom."','".$poids.");
+          $tableau[] = array($nom.','.$poids);
 
 
 
