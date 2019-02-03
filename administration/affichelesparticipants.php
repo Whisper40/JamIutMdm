@@ -53,8 +53,8 @@ echo '0';
 echo '1';
       while($s1=$selectinfos->fetch(PDO::FETCH_OBJ)){
 
-        $optionmateriel=$s0->optionmateriel;
-        $optionrepas=$s0->optionrepas;
+        $optionmateriel=$s1->optionmateriel;
+        $optionrepas=$s1->optionrepas;
 
 
         $selectinfospersonnelles = $db->prepare("SELECT * FROM formulaireski WHERE user_id=:id");
