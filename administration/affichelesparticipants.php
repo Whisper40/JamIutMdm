@@ -31,6 +31,7 @@ if(isset($_GET['action'])){
           <th class="text-center">Nom</th>
           <th class="text-center">Poids</th>
           <th class="text-center">Taille</th>
+          <th class="text-center">Pointure</th>
           <th class="text-center">Allergies</th>
           <th class="text-center">Adresse</th>
           <th class="text-center">Code Postal</th>
@@ -80,6 +81,7 @@ if(isset($_GET['action'])){
         while($s2=$selectinfospersonnelles->fetch(PDO::FETCH_OBJ)){
           $poids=$s2->poids;
           $taille=$s2->taille;
+          $pointure=$s2->pointure;
           $allergie=$s2->allergie;
           $adresse=$s2->adresse;
           $codepostal=$s2->codepostal;
@@ -92,6 +94,7 @@ if(isset($_GET['action'])){
           <td class="text-center">'.$nom.'</td>
           <td class="text-center">'.$poids.'</td>
           <td class="text-center">'.$taille.'</td>
+          <td class="text-center">'.$pointure.'</td>
           <td class="text-center">'.$allergie.'</td>
           <td class="text-center">'.$adresse.'</td>
           <td class="text-center">'.$codepostal.'</td>
