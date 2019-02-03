@@ -49,16 +49,23 @@ if(isset($_GET['action'])){
     $selectid->execute(array(
       "name"=>$title
     ));
-echo '0';
+
     while($s0=$selectid->fetch(PDO::FETCH_OBJ)){
       $iddelapersonne=$s0->user_id;
+
+      $selectnom = $db->prepare("SELECT username FROM users WHERE id=:id");
+      $selectnom->execute(array(
+        "id"=>$iddelapersonne
+      ));
+      $snom=$selectnom->fetch(PDO::FETCH_OBJ);
+      $nom=$snom->username;
 
       $selectinfos = $db->prepare("SELECT * FROM participe WHERE user_id=:id and activity_name=:name");
       $selectinfos->execute(array(
         "id"=>$iddelapersonne,
         "name"=>$slug
       ));
-echo '1';
+
       while($s1=$selectinfos->fetch(PDO::FETCH_OBJ)){
 
         $optionmateriel=$s1->optionmateriel;
@@ -69,7 +76,7 @@ echo '1';
         $selectinfospersonnelles->execute(array(
           "id"=>$iddelapersonne
         ));
-echo '2';
+
         while($s2=$selectinfospersonnelles->fetch(PDO::FETCH_OBJ)){
           $poids=$s2->poids;
           $taille=$s2->taille;
@@ -79,19 +86,21 @@ echo '2';
           $ville=$s2->ville;
           $telurgence=$s2->telurgence;
 
-echo '3';
           echo '
 
           <tr>
-          <td class="text-center">'.$iddelapersonne.'</td>
+          <td class="text-center">'.$nom.'</td>
+          <td class="text-center">'.$poids.'</td>
           <td class="text-center">'.$taille.'</td>
           <td class="text-center">'.$allergie.'</td>
           <td class="text-center">'.$adresse.'</td>
+          <td class="text-center">'.$codepostal.'</td>
+          <td class="text-center">'.$ville.'</td>
+          <td class="text-center">'.$telurgence.'</td>
+          <td class="text-center">'.$optionmateriel.'</td>
+          <td class="text-center">'.$optionrepas.'</td>
           </tr>';
 
-
-
-echo '4';
 
 
 
