@@ -72,6 +72,15 @@ if(isset($_GET['action'])){
           $telurgence=$s2->telurgence;
 
 
+          echo '
+
+          <tr>
+          <td class="text-center">'.$iddelapersonne.'</td>
+          <td class="text-center">'.$taille.'</td>
+          <td class="text-center">'.$allergie.'</td>
+          <td class="text-center">'.$adresse.'</td>
+          </tr>';
+
 
 
 
@@ -82,6 +91,12 @@ if(isset($_GET['action'])){
         }
       }
     }
+
+    echo '
+  </tbody>
+  </table>
+  </div>
+    ';
   }
 }
 
