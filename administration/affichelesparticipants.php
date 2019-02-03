@@ -143,7 +143,7 @@ foreach ($list as $fields) {
 }
 
 fclose($fp);
-?>
+
   }
 }
 
