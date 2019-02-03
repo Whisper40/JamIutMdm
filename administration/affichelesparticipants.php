@@ -18,7 +18,7 @@ if(isset($_GET['action'])){
   if($_GET['action'] == 'afficheactivite'){
     $id = $_GET['id'];
     $slug = $_GET['slug'];
-    $title = $_GET['title'];
+    $title = 'Séjour Ski Cauteret';
 
     if (stripos($title, 'ski') != FALSE){
 
