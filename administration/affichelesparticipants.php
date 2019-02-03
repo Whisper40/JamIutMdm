@@ -105,8 +105,8 @@ if(isset($_GET['action'])){
           <td class="text-center">'.$optionrepas.'</td>
           </tr>';
 
-          $tableau[0] = $nom;
-          $tableau[1] = $poids;
+          $tableau = array($nom);
+          
 
 
 
