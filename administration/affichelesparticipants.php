@@ -151,7 +151,7 @@ if(isset($_GET['action'])){
                         <td class="text-center">'.$datesejour.'</td>
                         <td class="text-center">'.$price.'</td>
                         <td class="text-center">'.$status.'</td>
-                        <td class="text-center"><a href="?action=afficheactivite&amp;id='.$id.';slug='.$slug.';title='.$title.'"><button type="button" class="btn btn-rose btn-round btn-sm">Afficher</button></a></td>
+                        <td class="text-center"><a href="?action=afficheactivite&amp;id='.$id.'&amp;slug='.$slug.'&amp;title='.$title.'"><button type="button" class="btn btn-rose btn-round btn-sm">Afficher</button></a></td>
                       </tr>';
                     }
 
