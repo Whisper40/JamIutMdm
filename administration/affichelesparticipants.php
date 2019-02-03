@@ -4,8 +4,7 @@ require_once('includes/connectBDD.php');
 require_once('includes/checkconnection.php');
 $nompage = "Modification Contenu Site";
 require_once('includes/head.php');
-header("Content-Type: text/csv; charset=UTF-8");
-header("Content-disposition: filename=mon-tableau.csv");
+
 ini_set('display_errors', 1);
 $user_id = $_SESSION['admin_id'];
 ?>
@@ -124,6 +123,9 @@ if(isset($_GET['action'])){
     ';
 
     var_dump($tableau);
+
+    header("Content-Type: text/csv; charset=UTF-8");
+    header("Content-disposition: filename=mon-tableau.csv");
     // Création de la ligne d'en-tête
     $entete = array("Nom", "Prénom", "Age");
 
