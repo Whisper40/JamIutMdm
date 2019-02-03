@@ -48,7 +48,7 @@ echo '0';
       $selectinfos = $db->prepare("SELECT * FROM participe WHERE user_id=:id and activity_name=:name");
       $selectinfos->execute(array(
         "id"=>$iddelapersonne,
-        "name"=>$title
+        "name"=>$slug
       ));
 echo '1';
       while($s1=$selectinfos->fetch(PDO::FETCH_OBJ)){
