@@ -7,7 +7,7 @@ require_once('includes/head.php');
 
 
 $id = $_GET['id'];
-$slug = $_GET['slug'];
+$slug = 'voyage-ski-2018';
 $title = 'Séjour Ski Cauteret';
 
 $tableau = array();
