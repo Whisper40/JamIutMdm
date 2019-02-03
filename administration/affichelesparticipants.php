@@ -16,14 +16,78 @@ $user_id = $_SESSION['admin_id'];
 <?php
 if(isset($_GET['action'])){
   if($_GET['action'] == 'afficheactivite'){
+    $id = $_GET['id'];
+    $slug = $_GET['slug'];
+    $title = $_GET['title'];
+
+    if (stripos($title, 'ski') != FALSE){
 
 
-    echo 'ok';
+      echo '
+
+    <div class="table-responsive">
+      <table class="table">
+        <thead class="text-primary">
+          <th class="text-center">Titre</th>
+          <th class="text-center">Date du Séjour</th>
+          <th class="text-center">Prix</th>
+          <th class="text-center">Status</th>
+          <th class="text-center">Voir</th>
+        </thead>
+        <tbody>
+          ';
+
+    $selectid = $db->prepare("SELECT user_id FROM catparticipe WHERE name=:name");
+    $selectid->execute(array(
+      "name"=>$title
+    ));
+
+    while($s0=$selectid->fetch(PDO::FETCH_OBJ)){
+      $iddelapersonne=$s0->user_id;
+
+      $selectinfos = $db->prepare("SELECT * FROM participe WHERE user_id=:id and activity_name=:name");
+      $selectinfos->execute(array(
+        "id"=>$iddelapersonne,
+        "name"=>$title
+      ));
+
+      while($s1=$selectinfos->fetch(PDO::FETCH_OBJ)){
+
+        $optionmateriel=$s0->optionmateriel;
+        $optionrepas=$s0->optionrepas;
+
+
+        $selectinfospersonnelles = $db->prepare("SELECT * FROM formulaireski WHERE user_id=:id");
+        $selectinfospersonnelles->execute(array(
+          "id"=>$iddelapersonne
+        ));
+
+        while($s2=$selectinfospersonnelles->fetch(PDO::FETCH_OBJ)){
+          $poids=$s2->poids;
+          $taille=$s2->taille;
+          $allergie=$s2->allergie;
+          $adresse=$s2->adresse;
+          $codepostal=$s2->codepostal;
+          $ville=$s2->ville;
+          $telurgence=$s2->telurgence;
+
+
+
+
+
+
+
+
+
+        }
+      }
+    }
   }
-
-
-
 }
+
+
+
+}else{
 
  ?>
 
@@ -76,6 +140,7 @@ if(isset($_GET['action'])){
                       foreach($table as $ligne){
                         $id = $ligne->id;
                         $title = $ligne->title;
+                        $slug = $ligne->slug;
                         $price = $ligne->price;
                         $status = $ligne->status;
                         $datesejour = $ligne->datesejour;
@@ -86,7 +151,7 @@ if(isset($_GET['action'])){
                         <td class="text-center">'.$datesejour.'</td>
                         <td class="text-center">'.$price.'</td>
                         <td class="text-center">'.$status.'</td>
-                        <td class="text-center"><a href="?action=afficheactivite&amp;id='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Afficher</button></a></td>
+                        <td class="text-center"><a href="?action=afficheactivite&amp;id='.$id.';slug='.$slug.';title='.$title.'"><button type="button" class="btn btn-rose btn-round btn-sm">Afficher</button></a></td>
                       </tr>';
                     }
 
@@ -108,5 +173,6 @@ if(isset($_GET['action'])){
 
 
 <?php
+}
 require_once('includes/javascript.php');
 ?>
