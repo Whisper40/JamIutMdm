@@ -28,11 +28,19 @@ if(isset($_GET['action'])){
     <div class="table-responsive">
       <table class="table">
         <thead class="text-primary">
-          <th class="text-center">Titre</th>
-          <th class="text-center">Date du Séjour</th>
-          <th class="text-center">Prix</th>
-          <th class="text-center">Status</th>
-          <th class="text-center">Voir</th>
+          <th class="text-center">Nom</th>
+          <th class="text-center">Poids</th>
+          <th class="text-center">Taille</th>
+          <th class="text-center">Allergies</th>
+          <th class="text-center">Adresse</th>
+          <th class="text-center">Code Postal</th>
+          <th class="text-center">Ville</th>
+          <th class="text-center">A contacter</th>
+          <th class="text-center">Option Matériel</th>
+          <th class="text-center">Option Repas</th>
+
+
+
         </thead>
         <tbody>
           ';
