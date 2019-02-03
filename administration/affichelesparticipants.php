@@ -12,6 +12,23 @@ $user_id = $_SESSION['admin_id'];
 <script src='https://www.google.com/recaptcha/api.js'></script>
 
 
+
+<?php
+if(isset($_GET['action'])){
+  if($_GET['action'] == 'afficheactivite'){
+
+
+    echo 'ok';
+  }
+
+
+
+}
+
+ ?>
+
+
+
 <?php
 
   $selectid = $db->prepare("SELECT * FROM activitesvoyages");
