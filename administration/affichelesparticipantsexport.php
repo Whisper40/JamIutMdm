@@ -2,6 +2,9 @@
 
 require_once('includes/connectBDD.php');
 require_once('includes/checkconnection.php');
+header('Content-Encoding: UTF-8');
+header('Content-type: text/csv; charset=UTF-8');
+header("Content-disposition: filename=Tableau-Ski-$date.csv");
 
 $id = $_GET['id'];
 $slug = 'voyage-ski-2018';
@@ -13,8 +16,7 @@ $date = strftime('%d:%m:%y %H:%M:%S');
 
 $tableau = array();
 
-header("Content-Type: text/csv");
-header("Content-disposition: filename=Tableau-Ski-$date.csv");
+
 // Création de la ligne d'en-tête
 
 
