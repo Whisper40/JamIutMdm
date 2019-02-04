@@ -267,7 +267,7 @@ echo '
 
 
 
-  }else if (stripos($title, 'cinema') != FALSE){
+  }else if (stripos($title, 'cinéma') != FALSE){
 
 
 
@@ -317,7 +317,7 @@ echo '
             <tr>
             <td class="text-center">'.$nom.'</td>
             <td class="text-center">'.$prenom.'</td>
-            
+
 
             </tr>';
 

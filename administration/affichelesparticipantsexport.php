@@ -189,29 +189,6 @@ foreach ($tableau as $ligne) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }else if (stripos($title, 'cinema') != FALSE){
 
 
