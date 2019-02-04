@@ -6,8 +6,8 @@ header('Content-Type: text/csv; charset=utf-8');
 header("Content-disposition: filename=Tableau-Ski-$date.csv");
 
 $id = $_GET['id'];
-$slug = 'voyage-ski-2018';
-$title = 'Séjour Ski Cauteret';
+$slug = $_GET['slug'];
+$title = $_GET['title'];
 
 date_default_timezone_set('Europe/Paris');
 setlocale(LC_TIME, 'fr_FR.utf8','fra');
