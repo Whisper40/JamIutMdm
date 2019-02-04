@@ -273,7 +273,7 @@ echo '
 
 
 
-  }else if (stripos($title, $arraycinema) != FALSE){
+  }else if (stripos($title, 'cinema') != FALSE) OR (stripos($title, 'cinéma')){
 
 
 
