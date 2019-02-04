@@ -6,18 +6,25 @@
 //PAS DE CODE HTML
 require_once('includes/connectBDD.php');
 require_once('includes/checkconnection.php');
-header('Content-Type: text/csv; charset=utf-8');
-header("Content-disposition: filename=Tableau-Ski-$date.csv");
+
 
 $id = $_GET['id'];
 $slug = $_GET['slug'];
 $title = $_GET['title'];
+
+
+if (stripos($title, 'ski') != FALSE){
+
+header('Content-Type: text/csv; charset=utf-8');
+header("Content-disposition: filename=Tableau-Ski-$date.csv");
 
 date_default_timezone_set('Europe/Paris');
 setlocale(LC_TIME, 'fr_FR.utf8','fra');
 $date = strftime('%d:%m:%y %H:%M:%S');
 
 $tableau = array();
+
+
 
 header("Content-Type: text/csv");
 header("Content-disposition: filename=Tableau-Ski-$date.csv");
@@ -91,6 +98,12 @@ echo implode($separateur, $entete)."\r\n";
 // Affichage du contenu du tableau
 foreach ($tableau as $ligne) {
   echo implode($separateur, $ligne)."\r\n";
+}
+
+
+}else if (stripos($title, 'rugby') != FALSE){
+
+
 }
 
 ?>
