@@ -69,10 +69,11 @@ while($s0=$selectid->fetch(PDO::FETCH_OBJ)){
       $adresse=$s2->adresse;
       $codepostal=$s2->codepostal;
       $ville=$s2->ville;
+      $tel=$s2->tel;
       $telurgence=$s2->telurgence;
       $regroupement = $codepostal.' '.$ville;
 
-      $tableau[] = array($nom,$prenom,$email,$poids,$taille,$pointure,$allergie,$adresse,$regroupement,$telurgence);
+      $tableau[] = array($nom,$prenom,$email,$poids,$taille,$pointure,$allergie,$adresse,$regroupement,$tel,$telurgence);
 
 
     }
@@ -80,7 +81,7 @@ while($s0=$selectid->fetch(PDO::FETCH_OBJ)){
 }
 
 
-$entete = array("Nom", "Prenom", "Email", "Poids", "Taille", "Pointure", "Allergie", "Adresse", "CP", "Telephone Urgence");
+$entete = array("Nom", "Prenom", "Email", "Poids", "Taille", "Pointure", "Allergie", "Adresse", "CP", "Telephone", "Telephone Urgence");
 
 
 $separateur = ";";
