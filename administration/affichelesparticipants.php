@@ -24,7 +24,7 @@ if(isset($_GET['action'])){
     $selecttitle->execute(array(
       "slug"=>$slug
     ));
-    $srien = $selectitle->fetch(PDO::FETCH_OBJ);
+    $srien = $selecttitle->fetch(PDO::FETCH_OBJ);
     $title = $srien->title;
     if (stripos($title, 'ski') != FALSE){
 
