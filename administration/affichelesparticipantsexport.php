@@ -13,6 +13,19 @@ $slug = $_GET['slug'];
 $title = $_GET['title'];
 
 
+function strpos_arr($haystack, $needle) {
+    if(!is_array($needle)) $needle = array($needle);
+    foreach($needle as $what) {
+        if(($pos = strpos($haystack, $what))!==false) return $pos;
+    }
+    return false;
+}
+
+//SPECIAL
+$arraycinema = array("cinema", "cinéma", "cinèma");
+
+//FIN
+
 if (stripos($title, 'ski') != FALSE){
 
 header('Content-Type: text/csv; charset=utf-8');
@@ -189,7 +202,7 @@ foreach ($tableau as $ligne) {
 
 
 
-}else if (stripos($title, 'cinema') != FALSE){
+}else if (strpos_arr($title, $arraycinema) != TRUE){
 
 
 
@@ -226,7 +239,7 @@ foreach ($tableau as $ligne) {
 
 
 
-      $tableau[] = array($nom,$prenom,$email,$adresse);
+      $tableau[] = array($nom,$prenom,$email);
 
 
 
