@@ -98,6 +98,7 @@ if ($type == 'ski'){
           $adresse = $r2->adresse;
           $codepostal = $r2->codepostal;
           $ville = $r2->ville;
+          $tel = $r2->tel;
           $telurgence = $r2->telurgence;
 
            ?>
