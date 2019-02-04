@@ -143,7 +143,8 @@ foreach ($tableau as $ligne) {
 
     while($s1=$selectinfos->fetch(PDO::FETCH_OBJ)){
 
-        utf8_decode($optionaccompagnement)=$s1->optionaccompagnement;
+        $optionaccompagnement2=$s1->optionaccompagnement;
+        $optionaccompagnement = utf8_decode($optionaccompagnement2);
 
 
       $selectinfospersonnelles = $db->prepare("SELECT * FROM formulairerugby WHERE user_id=:id");
