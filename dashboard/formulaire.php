@@ -64,12 +64,14 @@ if ($type == 'ski'){
              var user_id = "<?php echo $_SESSION['user_id']; ?>";
               var poids = $("#poids").val();
               var taille = $("#taille").val();
+              var pointure = $("#pointure").val();
               var allergie = $("#allergie").val();
               var adresse = $("#adresse").val();
               var codepostal = $("#codepostal").val();
               var ville = $("#ville").val();
+              var tel = $("#tel").val();
               var telurgence = $("#telurgence").val();
-              $.post("ajax/modifyformulaireski.php", { user_id:user_id, poids: poids, taille: taille, allergie: allergie, adresse: adresse, codepostal: codepostal, ville: ville, telurgence: telurgence},
+              $.post("ajax/modifyformulaireski.php", { user_id:user_id, poids: poids, taille: taille, pointure: pointure, allergie: allergie, adresse: adresse, codepostal: codepostal, ville: ville, tel: tel, telurgence: telurgence},
               function(data) {
                $('#results1').html(data);
 
@@ -91,6 +93,7 @@ if ($type == 'ski'){
           $r2 = $selectformulaireremplis->fetch(PDO::FETCH_OBJ);
           $poids = $r2->poids;
           $taille = $r2->taille;
+          $pointure = $r2->pointure;
           $allergie = $r2->allergie;
           $adresse = $r2->adresse;
           $codepostal = $r2->codepostal;
@@ -114,7 +117,15 @@ if ($type == 'ski'){
                                      </div>
                                      <div class="form-group label-floating">
                                          <label class="control-label">Taille (cm)</label>
-                                         <input type="number" name="taille" value="<?php echo $taille; ?>"id="taille" class="form-control">
+                                         <input type="number" name="taille" value="<?php echo $taille; ?>" id="taille" class="form-control">
+                                     </div>
+                                     <div class="form-group label-floating">
+                                         <label class="control-label">Pointure</label>
+                                         <input type="number" name="pointure" value="<?php echo $pointure; ?>" id="pointure" class="form-control">
+                                     </div>
+                                     <div class="form-group label-floating">
+                                         <label class="control-label">Votre numéro</label>
+                                         <input type="number" name="tel" value="<?php echo $tel; ?>" id="tel" class="form-control">
                                      </div>
                                      <div class="form-group label-floating">
                                          <label class="control-label">Téléphone d'urgence</label>
@@ -126,7 +137,7 @@ if ($type == 'ski'){
                                      <div class="card-content">
                                        <div class="form-group label-floating">
                                            <label class="control-label">Adresse</label>
-                                           <input type="text" name="adresse" value="<?php echo $adresse; ?>"id="adresse" class="form-control">
+                                           <input type="text" name="adresse" value="<?php echo $adresse; ?>" id="adresse" class="form-control">
                                        </div>
                                        <div class="form-group label-floating">
                                            <label class="control-label">Code Postal</label>

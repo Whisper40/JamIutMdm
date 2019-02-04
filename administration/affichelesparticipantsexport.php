@@ -35,12 +35,13 @@ $nbr = $selectid->rowCount();
 while($s0=$selectid->fetch(PDO::FETCH_OBJ)){
   $iddelapersonne=$s0->user_id;
 
-  $selectnom = $db->prepare("SELECT username FROM users WHERE id=:id");
+  $selectnom = $db->prepare("SELECT username, email FROM users WHERE id=:id");
   $selectnom->execute(array(
     "id"=>$iddelapersonne
   ));
   $snom=$selectnom->fetch(PDO::FETCH_OBJ);
   $nom=$snom->username;
+  $email=$snom->email;
 
   $selectinfos = $db->prepare("SELECT * FROM participe WHERE user_id=:id and activity_name=:name");
   $selectinfos->execute(array(
@@ -68,12 +69,9 @@ while($s0=$selectid->fetch(PDO::FETCH_OBJ)){
       $codepostal=$s2->codepostal;
       $ville=$s2->ville;
       $telurgence=$s2->telurgence;
+      $regroupement = $codepostal.' '.$ville
 
-
-
-      $tableau[] = array($nom,$poids,$taille,$pointure,$allergie,$adresse,$codepostal,$ville,$telurgence);
-
-
+      $tableau[] = array($nom,$email,$poids,$taille,$pointure,$allergie,$adresse,$regroupement,$telurgence);
 
 
     }
@@ -81,19 +79,8 @@ while($s0=$selectid->fetch(PDO::FETCH_OBJ)){
 }
 
 
-function utf8_converter($entete)
-{
-    array_walk_recursive($array, function(&$item, $key){
-        if(!mb_detect_encoding($item, 'utf-8', true)){
-                $item = utf8_encode($item);
-        }
-    });
+$entete = array("Nom", "Email", "Poids", "Taille", "Pointure", "Allergie", "Adresse", "CP", "Telephone Urgence");
 
-    return $entete;
-}
-
-$entete = array("Nom", "Poids", "Taille", "Pointure", "Allergie", "Adresse", "Code Postale", "Ville", "Teléphone Urgence");
-utf8_converter($entete);
 
 $separateur = ";";
 // Affichage de la ligne de titre, terminée par un retour chariot
