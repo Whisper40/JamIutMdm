@@ -21,6 +21,14 @@ if(isset($_GET['action'])){
     $slug = $_GET['slug'];
 
 
+    function strpos_arr($haystack, $needle) {
+        if(!is_array($needle)) $needle = array($needle);
+        foreach($needle as $what) {
+            if(($pos = strpos($haystack, $what))!==false) return $pos;
+        }
+        return false;
+    }
+
     //SPECIAL
     $arraycinema = array("cinema", "cinéma", "cinèma");
 
@@ -273,7 +281,7 @@ echo '
 
 
 
-  }else if (stripos($title, 'cinema') != FALSE) OR (stripos($title, 'cinéma')){
+  }else if (strpos_arr($title, $arraycinema) != FALSE){
 
 
 
