@@ -81,7 +81,7 @@ while($s0=$selectid->fetch(PDO::FETCH_OBJ)){
 }
 
 
-function utf8_converter($array)
+function utf8_converter($entete)
 {
     array_walk_recursive($array, function(&$item, $key){
         if(!mb_detect_encoding($item, 'utf-8', true)){
@@ -89,7 +89,7 @@ function utf8_converter($array)
         }
     });
 
-    return $array;
+    return $entete;
 }
 
 $entete = array("Nom", "Poids", "Taille", "Pointure", "Allergie", "Adresse", "Code Postale", "Ville", "Teléphone Urgence");
