@@ -69,7 +69,7 @@ while($s0=$selectid->fetch(PDO::FETCH_OBJ)){
       $codepostal=$s2->codepostal;
       $ville=$s2->ville;
       $telurgence=$s2->telurgence;
-      $regroupement = $codepostal.' '.$ville
+      $regroupement = $codepostal.' '.$ville;
 
       $tableau[] = array($nom,$email,$poids,$taille,$pointure,$allergie,$adresse,$regroupement,$telurgence);
 
