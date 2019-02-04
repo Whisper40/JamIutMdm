@@ -19,10 +19,15 @@ if(isset($_GET['action'])){
   if($_GET['action'] == 'afficheactivite'){
     $id = $_GET['id'];
     $slug = $_GET['slug'];
-    $title = 'Séjour Ski Cauteret';
 
+    $selecttitle = $db->prepare("SELECT title FROM activitesvoyages WHERE slug=:slug");
+    $selecttitle->execute(array(
+      "slug"=>$slug
+    ));
+    $srien = $selectitle->fetch(PDO::FETCH_OBJ);
+    $title = $srien->title;
     if (stripos($title, 'ski') != FALSE){
-      $tableau = array();
+
 
 
       echo '
@@ -52,7 +57,7 @@ if(isset($_GET['action'])){
     $selectid->execute(array(
       "name"=>$title
     ));
-    $nbr = $selectid->rowCount();
+
 
     while($s0=$selectid->fetch(PDO::FETCH_OBJ)){
       $iddelapersonne=$s0->user_id;
@@ -107,7 +112,7 @@ if(isset($_GET['action'])){
           <td class="text-center">'.$optionrepas.'</td>
           </tr>';
 
-          $tableau[] = array($nom.','.$poids);
+
 
 
 
@@ -122,27 +127,12 @@ if(isset($_GET['action'])){
   </div>
     ';
 
-    var_dump($tableau);
+echo '
 
-    header("Content-Type: text/csv; charset=UTF-8");
-    header("Content-disposition: filename=mon-tableau.csv");
-    // Création de la ligne d'en-tête
-    $entete = array("Nom", "Prénom", "Age");
+    <a href="https://administration.jam-mdm.fr/affichelesparticipantsexport.php"> Télécharger le fichier Excel </a>
+    ';
 
-    // Création du contenu du tableau
-    $lignes = array();
-    $lignes[] = array("Jean", "Martin", "20");
-    $lignes[] = array("Pierre", "Dupond", "30");
 
-    $separateur = ";";
-
-    // Affichage de la ligne de titre, terminée par un retour chariot
-    echo implode($separateur, $entete)."\r\n";
-
-    // Affichage du contenu du tableau
-    foreach ($lignes as $ligne) {
-    	echo implode($separateur, $ligne)."\r\n";
-    }
   }
 }
 
