@@ -36,6 +36,7 @@ if(isset($_GET['action'])){
       <table class="table">
         <thead class="text-primary">
           <th class="text-center">Nom</th>
+          <th class="text-center">Prénom</th>
           <th class="text-center">Poids</th>
           <th class="text-center">Taille</th>
           <th class="text-center">Pointure</th>
@@ -62,12 +63,13 @@ if(isset($_GET['action'])){
     while($s0=$selectid->fetch(PDO::FETCH_OBJ)){
       $iddelapersonne=$s0->user_id;
 
-      $selectnom = $db->prepare("SELECT username FROM users WHERE id=:id");
+      $selectnom = $db->prepare("SELECT username, prenom FROM users WHERE id=:id");
       $selectnom->execute(array(
         "id"=>$iddelapersonne
       ));
       $snom=$selectnom->fetch(PDO::FETCH_OBJ);
       $nom=$snom->username;
+      $prenom=$snom->prenom;
 
       $selectinfos = $db->prepare("SELECT * FROM participe WHERE user_id=:id and activity_name=:name");
       $selectinfos->execute(array(
@@ -100,6 +102,7 @@ if(isset($_GET['action'])){
 
           <tr>
           <td class="text-center">'.$nom.'</td>
+          <td class="text-center">'.$prenom.'</td>
           <td class="text-center">'.$poids.'</td>
           <td class="text-center">'.$taille.'</td>
           <td class="text-center">'.$pointure.'</td>
