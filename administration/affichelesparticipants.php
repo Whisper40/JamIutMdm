@@ -281,7 +281,7 @@ echo '
 
 
 
-  }else if (strpos_arr($title, $arraycinema) != FALSE){
+  }else if (strpos_arr($title, $arraycinema) != TRUE){
 
 
 
