@@ -1,5 +1,9 @@
 <?php
-
+//PAS DE CODE HTML
+//PAS DE CODE HTML
+//PAS DE CODE HTML
+//PAS DE CODE HTML
+//PAS DE CODE HTML
 require_once('includes/connectBDD.php');
 require_once('includes/checkconnection.php');
 header('Content-Type: text/csv; charset=utf-8');
@@ -17,7 +21,7 @@ $tableau = array();
 
 header("Content-Type: text/csv");
 header("Content-disposition: filename=Tableau-Ski-$date.csv");
-// Création de la ligne d'en-tête
+
 
 
 
@@ -76,7 +80,21 @@ while($s0=$selectid->fetch(PDO::FETCH_OBJ)){
   }
 }
 
+
+function utf8_converter($array)
+{
+    array_walk_recursive($array, function(&$item, $key){
+        if(!mb_detect_encoding($item, 'utf-8', true)){
+                $item = utf8_encode($item);
+        }
+    });
+
+    return $array;
+}
+
 $entete = array("Nom", "Poids", "Taille", "Pointure", "Allergie", "Adresse", "Code Postale", "Ville", "Teléphone Urgence");
+utf8_converter($entete);
+
 $separateur = ";";
 // Affichage de la ligne de titre, terminée par un retour chariot
 echo implode($separateur, $entete)."\r\n";
