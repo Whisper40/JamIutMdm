@@ -20,6 +20,12 @@ if(isset($_GET['action'])){
     $id = $_GET['id'];
     $slug = $_GET['slug'];
 
+
+    //SPECIAL
+    $arraycinema = array("cinema", "cinéma", "cinèma");
+
+    //FIN
+
     $selecttitle = $db->prepare("SELECT title FROM activitesvoyages WHERE slug=:slug");
     $selecttitle->execute(array(
       "slug"=>$slug
@@ -267,7 +273,7 @@ echo '
 
 
 
-  }else if (stripos($title, 'cinéma', 'cinema') != FALSE){
+  }else if (stripos($title, $arraycinema) != FALSE){
 
 
 
