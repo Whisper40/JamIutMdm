@@ -160,6 +160,8 @@ echo '
         <th class="text-center">Ville</th>
         <th class="text-center">Numéro</th>
         <th class="text-center">Urgence</th>
+        <th class="text-center">Option Accompagnement</th>
+
 
 
 
@@ -219,6 +221,7 @@ echo '
         <td class="text-center">'.$ville.'</td>
         <td class="text-center">'.$tel.'</td>
         <td class="text-center">'.$telurgence.'</td>
+        <td class="text-center">'.$optionaccompagnement.'</td>
 
         </tr>';
 
