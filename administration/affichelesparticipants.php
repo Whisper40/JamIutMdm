@@ -267,7 +267,7 @@ echo '
 
 
 
-  }else if (stripos($title, 'cinéma') != FALSE){
+  }else if (stripos($title, 'cinéma', 'cinema') != FALSE){
 
 
 
