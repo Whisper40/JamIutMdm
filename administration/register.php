@@ -72,11 +72,12 @@ if(!isset($_SESSION['user_id'])){
                 $datesystem = strftime('%Y-%m-%d');
                 $subscribe = $datesystem;
 
-                $register= $db->prepare("INSERT INTO users (username, email, password, last_connect, datesystem, subscribe) VALUES(:username, :email, :param_password, :date, :datesystem, :subscribe)");
+                $register= $db->prepare("INSERT INTO users (username, prenom, email, password, last_connect, datesystem, subscribe) VALUES(:username, :prenom, :email, :param_password, :date, :datesystem, :subscribe)");
                 $register->execute(array(
                   //On insert la date à laquelle s'est connecté l'utilisateur afin d'avoir un suivi d'activitée du site.
 
                     "username"=>$username,
+                    "prenom"=>$prenom,
                     "email"=>$email,
                     "param_password"=>$param_password,
                     "date"=>$date,
