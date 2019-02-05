@@ -261,18 +261,6 @@ foreach ($tableau as $ligne) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
     header('Content-Type: text/csv; charset=utf-8');
     header("Content-disposition: filename=Tableau-Sportive-$date.csv");
 
@@ -398,6 +386,81 @@ foreach ($tableau as $ligne) {
     foreach ($tableau as $ligne) {
       echo implode($separateur, $ligne)."\r\n";
     }
+
+
+
+
+
+}else if (stripos($title, 'orientation') != FALSE){
+
+
+
+
+
+    header('Content-Type: text/csv; charset=utf-8');
+    header("Content-disposition: filename=Tableau-Sportive-$date.csv");
+
+    date_default_timezone_set('Europe/Paris');
+    setlocale(LC_TIME, 'fr_FR.utf8','fra');
+    $date = strftime('%d:%m:%y %H:%M:%S');
+
+    $tableau = array();
+
+
+
+    $selectid = $db->prepare("SELECT user_id FROM catparticipe WHERE name=:name");
+    $selectid->execute(array(
+      "name"=>$title
+    ));
+    $nbr = $selectid->rowCount();
+
+    while($s0=$selectid->fetch(PDO::FETCH_OBJ)){
+      $iddelapersonne=$s0->user_id;
+
+      $selectnom = $db->prepare("SELECT username, prenom, email FROM users WHERE id=:id");
+      $selectnom->execute(array(
+        "id"=>$iddelapersonne
+      ));
+      $snom=$selectnom->fetch(PDO::FETCH_OBJ);
+      $nom=$snom->username;
+      $email=$snom->email;
+      $prenom=$snom->prenom;
+
+
+
+        $selectinfospersonnelles = $db->prepare("SELECT * FROM formulaireorientation WHERE user_id=:id");
+        $selectinfospersonnelles->execute(array(
+          "id"=>$iddelapersonne
+        ));
+
+        while($s2=$selectinfospersonnelles->fetch(PDO::FETCH_OBJ)){
+          $adresse=$s2->adresse;
+          $codepostal=$s2->codepostal;
+          $ville=$s2->ville;
+          $tel=$s2->tel;
+          $telurgence=$s2->telurgence;
+          $regroupement = $codepostal.' '.$ville;
+
+          $tableau[] = array($nom,$prenom,$email,$adresse,$regroupement,$tel,$telurgence);
+
+
+        }
+
+    }
+
+
+    $entete = array("Nom", "Prenom", "Email", "Adresse", "CP", "Telephone", "Telephone Urgence");
+
+
+    $separateur = ";";
+    // Affichage de la ligne de titre, terminée par un retour chariot
+    echo implode($separateur, $entete)."\r\n";
+
+    // Affichage du contenu du tableau
+    foreach ($tableau as $ligne) {
+      echo implode($separateur, $ligne)."\r\n";
+    }
+
 
 
 
