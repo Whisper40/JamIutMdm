@@ -30,7 +30,7 @@ if(isset($_GET['action'])){
     function mystrip($titre, $chaineatester){
       $erreur = false;
       foreach($chaineatester as $mot){
-        if(strpos($titre, $mot))===false){
+        if(strpos($titre, $mot)) == false){
           $erreur = true;
           break;
         }
