@@ -195,13 +195,6 @@ foreach ($tableau as $ligne) {
 
 
 
-
-
-
-
-
-
-
 }else if (strpos_arr($title, $arraycinema) != TRUE){
 
 

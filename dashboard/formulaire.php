@@ -491,8 +491,9 @@ if ($type == 'ski'){
                 var adresse = $("#adresse").val();
                 var codepostal = $("#codepostal").val();
                 var ville = $("#ville").val();
+                var tel = $("#tel").val();
                 var telurgence = $("#telurgence").val();
-                $.post("ajax/modifyformulairesportive.php", { user_id:user_id, adresse: adresse, codepostal: codepostal, ville: ville, telurgence: telurgence},
+                $.post("ajax/modifyformulairesportive.php", { user_id:user_id, adresse: adresse, codepostal: codepostal, ville: ville, tel:tel, telurgence: telurgence},
                 function(data) {
                  $('#results3').html(data);
 
@@ -513,6 +514,7 @@ if ($type == 'ski'){
             $adresse = $r2->adresse;
             $codepostal = $r2->codepostal;
             $ville = $r2->ville;
+            $tel = $r2->tel;
             $telurgence = $r2->telurgence;
 
              ?>
@@ -537,6 +539,11 @@ if ($type == 'ski'){
                                          <div class="form-group label-floating">
                                              <label class="control-label">Ville</label>
                                              <input type="text" name="ville" value="<?php echo $ville; ?>" id="ville" class="form-control">
+                                         </div>
+
+                                         <div class="form-group label-floating">
+                                             <label class="control-label">Téléphone</label>
+                                             <input type="number" name="tel" value="<?php echo $tel; ?>" id="tel" class="form-control">
                                          </div>
                                          <div class="form-group label-floating">
                                              <label class="control-label">Téléphone d'urgence</label>
