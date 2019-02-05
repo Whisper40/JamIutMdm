@@ -279,7 +279,7 @@ echo '
             <a href="https://administration.jam-mdm.fr/affichelesparticipantsexport.php?id='.$id.'&amp;slug='.$slug.'&amp;title='.$title.'"> Télécharger le fichier Excel </a>
             ';
 }
-}
+
 }else{
  ?>
 
