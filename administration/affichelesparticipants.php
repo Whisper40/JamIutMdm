@@ -184,7 +184,7 @@ echo '
     echo '
     <a href="https://administration.jam-mdm.fr/affichelesparticipantsexport.php?id='.$id.'&amp;slug='.$slug.'&amp;title='.$title.'"> Télécharger le fichier Excel </a>
     ';
-  }else if (strpos_arr($title, $arraycinema) != TRUE){
+  }else if (strpos_arr($title, $arraycinema) != FALSE){
         echo '
         <div class="table-responsive">
         <table class="table">
