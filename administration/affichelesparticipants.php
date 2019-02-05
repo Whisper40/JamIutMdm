@@ -1,10 +1,8 @@
-
 <?php
 require_once('includes/connectBDD.php');
 require_once('includes/checkconnection.php');
 $nompage = "Modification Contenu Site";
 require_once('includes/head.php');
-
 ini_set('display_errors', 1);
 $user_id = $_SESSION['admin_id'];
 ?>
@@ -19,8 +17,6 @@ if(isset($_GET['action'])){
   if($_GET['action'] == 'afficheactivite'){
     $id = $_GET['id'];
     $slug = $_GET['slug'];
-
-
     function strpos_arr($haystack, $needle) {
         if(!is_array($needle)) $needle = array($needle);
         foreach($needle as $what) {
@@ -28,12 +24,9 @@ if(isset($_GET['action'])){
         }
         return false;
     }
-
     //SPECIAL
     $arraycinema = array("cinema", "cinéma", "cinèma");
-
     //FIN
-
     $selecttitle = $db->prepare("SELECT title FROM activitesvoyages WHERE slug=:slug");
     $selecttitle->execute(array(
       "slug"=>$slug
@@ -41,11 +34,7 @@ if(isset($_GET['action'])){
     $srien = $selecttitle->fetch(PDO::FETCH_OBJ);
     $title = $srien->title;
     if (stripos($title, 'ski') != FALSE){
-
-
-
       echo '
-
     <div class="table-responsive">
       <table class="table">
         <thead class="text-primary">
@@ -62,22 +51,15 @@ if(isset($_GET['action'])){
           <th class="text-center">Urgence</th>
           <th class="text-center">Option Matériel</th>
           <th class="text-center">Option Repas</th>
-
-
-
         </thead>
         <tbody>
           ';
-
     $selectid = $db->prepare("SELECT user_id FROM catparticipe WHERE name=:name");
     $selectid->execute(array(
       "name"=>$title
     ));
-
-
     while($s0=$selectid->fetch(PDO::FETCH_OBJ)){
       $iddelapersonne=$s0->user_id;
-
       $selectnom = $db->prepare("SELECT username, prenom FROM users WHERE id=:id");
       $selectnom->execute(array(
         "id"=>$iddelapersonne
@@ -85,24 +67,18 @@ if(isset($_GET['action'])){
       $snom=$selectnom->fetch(PDO::FETCH_OBJ);
       $nom=$snom->username;
       $prenom=$snom->prenom;
-
       $selectinfos = $db->prepare("SELECT * FROM participe WHERE user_id=:id and activity_name=:name");
       $selectinfos->execute(array(
         "id"=>$iddelapersonne,
         "name"=>$slug
       ));
-
       while($s1=$selectinfos->fetch(PDO::FETCH_OBJ)){
-
         $optionmateriel=$s1->optionmateriel;
         $optionrepas=$s1->optionrepas;
-
-
         $selectinfospersonnelles = $db->prepare("SELECT * FROM formulaireski WHERE user_id=:id");
         $selectinfospersonnelles->execute(array(
           "id"=>$iddelapersonne
         ));
-
         while($s2=$selectinfospersonnelles->fetch(PDO::FETCH_OBJ)){
           $poids=$s2->poids;
           $taille=$s2->taille;
@@ -113,9 +89,7 @@ if(isset($_GET['action'])){
           $ville=$s2->ville;
           $tel=$s2->tel;
           $telurgence=$s2->telurgence;
-
           echo '
-
           <tr>
           <td class="text-center">'.$nom.'</td>
           <td class="text-center">'.$prenom.'</td>
@@ -131,42 +105,19 @@ if(isset($_GET['action'])){
           <td class="text-center">'.$optionmateriel.'</td>
           <td class="text-center">'.$optionrepas.'</td>
           </tr>';
-
-
-
-
-
-
         }
       }
     }
-
     echo '
   </tbody>
   </table>
   </div>
     ';
-
 echo '
-
     <a href="https://administration.jam-mdm.fr/affichelesparticipantsexport.php?id='.$id.'&amp;slug='.$slug.'&amp;title='.$title.'"> Télécharger le fichier Excel </a>
     ';
-
-
-<<<<<<< HEAD
-  }else{
-=======
   }else if (stripos($title, 'rugby') != FALSE){
-
-
-
-
-
-
-
-
     echo '
-
     <div class="table-responsive">
     <table class="table">
       <thead class="text-primary">
@@ -178,23 +129,15 @@ echo '
         <th class="text-center">Numéro</th>
         <th class="text-center">Urgence</th>
         <th class="text-center">Option Accompagnement</th>
-
-
-
-
       </thead>
       <tbody>
         ';
-
     $selectid = $db->prepare("SELECT user_id FROM catparticipe WHERE name=:name");
     $selectid->execute(array(
     "name"=>$title
     ));
-
-
     while($s0=$selectid->fetch(PDO::FETCH_OBJ)){
     $iddelapersonne=$s0->user_id;
-
     $selectnom = $db->prepare("SELECT username, prenom FROM users WHERE id=:id");
     $selectnom->execute(array(
       "id"=>$iddelapersonne
@@ -202,34 +145,24 @@ echo '
     $snom=$selectnom->fetch(PDO::FETCH_OBJ);
     $nom=$snom->username;
     $prenom=$snom->prenom;
-
     $selectinfos = $db->prepare("SELECT * FROM participe WHERE user_id=:id and activity_name=:name");
     $selectinfos->execute(array(
       "id"=>$iddelapersonne,
       "name"=>$slug
     ));
-
     while($s1=$selectinfos->fetch(PDO::FETCH_OBJ)){
-
       $optionaccompagnement=$s1->optionaccompagnement;
-
-
-
       $selectinfospersonnelles = $db->prepare("SELECT * FROM formulairerugby WHERE user_id=:id");
       $selectinfospersonnelles->execute(array(
         "id"=>$iddelapersonne
       ));
-
       while($s2=$selectinfospersonnelles->fetch(PDO::FETCH_OBJ)){
-
         $adresse=$s2->adresse;
         $codepostal=$s2->codepostal;
         $ville=$s2->ville;
         $tel=$s2->tel;
         $telurgence=$s2->telurgence;
-
         echo '
-
         <tr>
         <td class="text-center">'.$nom.'</td>
         <td class="text-center">'.$prenom.'</td>
@@ -239,86 +172,34 @@ echo '
         <td class="text-center">'.$tel.'</td>
         <td class="text-center">'.$telurgence.'</td>
         <td class="text-center">'.$optionaccompagnement.'</td>
-
         </tr>';
-
-
-
-
-
-
       }
     }
     }
-
     echo '
     </tbody>
     </table>
     </div>
     ';
-
     echo '
-
     <a href="https://administration.jam-mdm.fr/affichelesparticipantsexport.php?id='.$id.'&amp;slug='.$slug.'&amp;title='.$title.'"> Télécharger le fichier Excel </a>
     ';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  }else if (strpos_arr($title, $arraycinema) != FALSE){
-
-
-
-
-
-
-
-
-
+  }else if (strpos_arr($title, $arraycinema) != TRUE){
         echo '
-
         <div class="table-responsive">
         <table class="table">
           <thead class="text-primary">
             <th class="text-center">Nom</th>
             <th class="text-center">Prénom</th>
-
-
-
-
-
           </thead>
           <tbody>
             ';
-
         $selectid = $db->prepare("SELECT user_id FROM catparticipe WHERE name=:name");
         $selectid->execute(array(
         "name"=>$title
         ));
-
-
         while($s0=$selectid->fetch(PDO::FETCH_OBJ)){
         $iddelapersonne=$s0->user_id;
-
         $selectnom = $db->prepare("SELECT username, prenom FROM users WHERE id=:id");
         $selectnom->execute(array(
           "id"=>$iddelapersonne
@@ -326,79 +207,31 @@ echo '
         $snom=$selectnom->fetch(PDO::FETCH_OBJ);
         $nom=$snom->username;
         $prenom=$snom->prenom;
-
-
-
             echo '
-
             <tr>
             <td class="text-center">'.$nom.'</td>
             <td class="text-center">'.$prenom.'</td>
-
-
             </tr>';
-
-
-
-
-
-
-
-
         }
-
         echo '
         </tbody>
         </table>
         </div>
         ';
-
         echo '
-
         <a href="https://administration.jam-mdm.fr/affichelesparticipantsexport.php?id='.$id.'&amp;slug='.$slug.'&amp;title='.$title.'"> Télécharger le fichier Excel </a>
         ';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   }
 }
-
-
-
 }else{
->>>>>>> parent of d56164e... Update affichelesparticipants.php
-
  ?>
 
 
 
 <?php
-
   $selectid = $db->prepare("SELECT * FROM activitesvoyages");
   $selectid->execute();
   $countid = $selectid->rowCount();
-
   ?>
 
   <div class="content">
@@ -420,11 +253,9 @@ echo '
 
           <?php
             if($countid>'0'){
-
                 $table = $selectid->fetchAll(PDO::FETCH_OBJ);
                 if(count($table)>0){
                   echo '
-
                 <div class="table-responsive">
                   <table class="table">
                     <thead class="text-primary">
@@ -436,7 +267,6 @@ echo '
                     </thead>
                     <tbody>
                       ';
-
                       foreach($table as $ligne){
                         $id = $ligne->id;
                         $title = $ligne->title;
@@ -445,7 +275,6 @@ echo '
                         $status = $ligne->status;
                         $datesejour = $ligne->datesejour;
                         echo '
-
                       <tr>
                         <td class="text-center">'.$title.'</td>
                         <td class="text-center">'.$datesejour.'</td>
@@ -454,7 +283,6 @@ echo '
                         <td class="text-center"><a href="?action=afficheactivite&amp;id='.$id.'&amp;slug='.$slug.'&amp;title='.$title.'"><button type="button" class="btn btn-rose btn-round btn-sm">Afficher</button></a></td>
                       </tr>';
                     }
-
                     echo '
                   </tbody>
                   </table>
