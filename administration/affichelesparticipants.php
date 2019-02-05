@@ -26,7 +26,7 @@ if(isset($_GET['action'])){
 
     //SPECIAL
     $arraycinema = array("cinema", "cinéma", "cinèma");
-    $mystring = implode("",$arraycinema);
+    $mystring = implode(" ",$arraycinema);
 
 
     //FIN
@@ -187,7 +187,7 @@ echo '
     echo '
     <a href="https://administration.jam-mdm.fr/affichelesparticipantsexport.php?id='.$id.'&amp;slug='.$slug.'&amp;title='.$title.'"> Télécharger le fichier Excel </a>
     ';
-  }else if (stripos($title, "cinéma") != FALSE){
+  }else if (stripos($title, $mystring) != FALSE){
         echo '
         <div class="table-responsive">
         <table class="table">
