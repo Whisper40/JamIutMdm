@@ -27,6 +27,15 @@ if(isset($_GET['action'])){
     //SPECIAL
     $arraycinema = array("cinema", "cinéma", "cinèma");
 
+    function mystrip($titre, $chaineatester){
+      $erreur = false;
+      foreach($chaineatester as $mot){
+        if(strpos($titre, $mot)) == false){
+          return true;
+          break;
+        }
+      }
+    }
     //FIN
     $selecttitle = $db->prepare("SELECT title FROM activitesvoyages WHERE slug=:slug");
     $selecttitle->execute(array(
