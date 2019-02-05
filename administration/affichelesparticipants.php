@@ -43,7 +43,7 @@ if(isset($_GET['action'])){
 
   $replace = explode(",","c,ae,oe,a,e,i,o,u,a,e,i,o,u,a,e,i,o,u,y,a,e,i,o,u,a,o,O,A,A,A,A,A,E,E,E,E,I,I,I,I,O,O,O,O,U,U,U,U,Y,C,AE,OE");
 
-  return str_replace($search, $replace, $str);
+  return str_replace($str);
 }
 
 $newtitle = str_replace($title);
