@@ -302,6 +302,8 @@ echo '
 
 
 
+  }else{
+    echo 'AUCUNE CAT';
   }
 }
 }else{
