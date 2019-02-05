@@ -25,8 +25,7 @@ if(isset($_GET['action'])){
 
 
     //SPECIAL
-    $arraycinema = array("cinema", "cinéma", "cinèma");
-    $mystring = implode(" ",$arraycinema);
+
 
 
     //FIN
@@ -36,6 +35,20 @@ if(isset($_GET['action'])){
     ));
     $srien = $selecttitle->fetch(PDO::FETCH_OBJ);
     $title = $srien->title;
+
+
+    function replaceAccents($str) {
+
+  $search = explode(",","ç,æ,œ,á,é,í,ó,ú,à,è,ì,ò,ù,ä,ë,ï,ö,ü,ÿ,â,ê,î,ô,û,å,ø,Ø,Å,Á,À,Â,Ä,È,É,Ê,Ë,Í,Î,Ï,Ì,Ò,Ó,Ô,Ö,Ú,Ù,Û,Ü,Ÿ,Ç,Æ,Œ");
+
+  $replace = explode(",","c,ae,oe,a,e,i,o,u,a,e,i,o,u,a,e,i,o,u,y,a,e,i,o,u,a,o,O,A,A,A,A,A,E,E,E,E,I,I,I,I,O,O,O,O,U,U,U,U,Y,C,AE,OE");
+
+  return str_replace($search, $replace, $str);
+}
+
+$newtitle = str_replace($title);
+
+
     if (stripos($title, 'ski') != FALSE){
       echo '
     <div class="table-responsive">
@@ -187,7 +200,7 @@ echo '
     echo '
     <a href="https://administration.jam-mdm.fr/affichelesparticipantsexport.php?id='.$id.'&amp;slug='.$slug.'&amp;title='.$title.'"> Télécharger le fichier Excel </a>
     ';
-  }else if (strpos($title, $mystring) != FALSE){
+  }else if (strpos($newtitle, 'cinema') != FALSE){
         echo '
         <div class="table-responsive">
         <table class="table">
