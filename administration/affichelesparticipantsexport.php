@@ -342,6 +342,67 @@ foreach ($tableau as $ligne) {
 
 
 
+}else if (stripos($title, 'nettoyage') != FALSE){
+
+
+
+
+
+    header('Content-Type: text/csv; charset=utf-8');
+    header("Content-disposition: filename=Tableau-Nettoyage-$date.csv");
+
+    date_default_timezone_set('Europe/Paris');
+    setlocale(LC_TIME, 'fr_FR.utf8','fra');
+    $date = strftime('%d:%m:%y %H:%M:%S');
+
+    $tableau = array();
+
+
+
+    $selectid = $db->prepare("SELECT user_id FROM catparticipe WHERE name=:name");
+    $selectid->execute(array(
+      "name"=>$title
+    ));
+    $nbr = $selectid->rowCount();
+
+    while($s0=$selectid->fetch(PDO::FETCH_OBJ)){
+      $iddelapersonne=$s0->user_id;
+
+      $selectnom = $db->prepare("SELECT username, prenom, email FROM users WHERE id=:id");
+      $selectnom->execute(array(
+        "id"=>$iddelapersonne
+      ));
+      $snom=$selectnom->fetch(PDO::FETCH_OBJ);
+      $nom=$snom->username;
+      $email=$snom->email;
+      $prenom=$snom->prenom;
+
+
+
+      $tableau[] = array($nom,$prenom,$email);
+
+
+
+
+    }
+
+
+    $entete = array("Nom", "Prenom", "Email");
+
+
+    $separateur = ";";
+    // Affichage de la ligne de titre, terminée par un retour chariot
+    echo implode($separateur, $entete)."\r\n";
+
+    // Affichage du contenu du tableau
+    foreach ($tableau as $ligne) {
+      echo implode($separateur, $ligne)."\r\n";
+    }
+
+
+
+
+
 }
 
 ?>
