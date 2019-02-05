@@ -17,15 +17,25 @@ if(isset($_GET['action'])){
   if($_GET['action'] == 'afficheactivite'){
     $id = $_GET['id'];
     $slug = $_GET['slug'];
-    function strpos_arr($haystack, $needle) {
-        if(!is_array($needle)) $needle = array($needle);
-        foreach($needle as $what) {
-            if(($pos = strpos($haystack, $what))!==false) return $pos;
-        }
-        return false;
-    }
+
+
+
+
+
+
+
     //SPECIAL
     $arraycinema = array("cinema", "cinéma", "cinèma");
+
+    function mystrip($titre, $chaineatester){
+      $erreur = false;
+      foreach($chaineatester as $mot){
+        if(strpos($titre, $mot))===false){
+          $erreur = true;
+          break;
+        }
+      }
+    }
     //FIN
     $selecttitle = $db->prepare("SELECT title FROM activitesvoyages WHERE slug=:slug");
     $selecttitle->execute(array(
@@ -184,7 +194,7 @@ echo '
     echo '
     <a href="https://administration.jam-mdm.fr/affichelesparticipantsexport.php?id='.$id.'&amp;slug='.$slug.'&amp;title='.$title.'"> Télécharger le fichier Excel </a>
     ';
-  }else if (stripos($title, 'cinema') != FALSE){
+  }else if (mystrip($title, $arraycinema) = TRUE){
         echo '
         <div class="table-responsive">
         <table class="table">
