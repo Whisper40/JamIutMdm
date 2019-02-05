@@ -153,7 +153,241 @@ echo '
     ';
 
 
+<<<<<<< HEAD
   }else{
+=======
+  }else if (stripos($title, 'rugby') != FALSE){
+
+
+
+
+
+
+
+
+    echo '
+
+    <div class="table-responsive">
+    <table class="table">
+      <thead class="text-primary">
+        <th class="text-center">Nom</th>
+        <th class="text-center">Prénom</th>
+        <th class="text-center">Adresse</th>
+        <th class="text-center">Code Postal</th>
+        <th class="text-center">Ville</th>
+        <th class="text-center">Numéro</th>
+        <th class="text-center">Urgence</th>
+        <th class="text-center">Option Accompagnement</th>
+
+
+
+
+      </thead>
+      <tbody>
+        ';
+
+    $selectid = $db->prepare("SELECT user_id FROM catparticipe WHERE name=:name");
+    $selectid->execute(array(
+    "name"=>$title
+    ));
+
+
+    while($s0=$selectid->fetch(PDO::FETCH_OBJ)){
+    $iddelapersonne=$s0->user_id;
+
+    $selectnom = $db->prepare("SELECT username, prenom FROM users WHERE id=:id");
+    $selectnom->execute(array(
+      "id"=>$iddelapersonne
+    ));
+    $snom=$selectnom->fetch(PDO::FETCH_OBJ);
+    $nom=$snom->username;
+    $prenom=$snom->prenom;
+
+    $selectinfos = $db->prepare("SELECT * FROM participe WHERE user_id=:id and activity_name=:name");
+    $selectinfos->execute(array(
+      "id"=>$iddelapersonne,
+      "name"=>$slug
+    ));
+
+    while($s1=$selectinfos->fetch(PDO::FETCH_OBJ)){
+
+      $optionaccompagnement=$s1->optionaccompagnement;
+
+
+
+      $selectinfospersonnelles = $db->prepare("SELECT * FROM formulairerugby WHERE user_id=:id");
+      $selectinfospersonnelles->execute(array(
+        "id"=>$iddelapersonne
+      ));
+
+      while($s2=$selectinfospersonnelles->fetch(PDO::FETCH_OBJ)){
+
+        $adresse=$s2->adresse;
+        $codepostal=$s2->codepostal;
+        $ville=$s2->ville;
+        $tel=$s2->tel;
+        $telurgence=$s2->telurgence;
+
+        echo '
+
+        <tr>
+        <td class="text-center">'.$nom.'</td>
+        <td class="text-center">'.$prenom.'</td>
+        <td class="text-center">'.$adresse.'</td>
+        <td class="text-center">'.$codepostal.'</td>
+        <td class="text-center">'.$ville.'</td>
+        <td class="text-center">'.$tel.'</td>
+        <td class="text-center">'.$telurgence.'</td>
+        <td class="text-center">'.$optionaccompagnement.'</td>
+
+        </tr>';
+
+
+
+
+
+
+      }
+    }
+    }
+
+    echo '
+    </tbody>
+    </table>
+    </div>
+    ';
+
+    echo '
+
+    <a href="https://administration.jam-mdm.fr/affichelesparticipantsexport.php?id='.$id.'&amp;slug='.$slug.'&amp;title='.$title.'"> Télécharger le fichier Excel </a>
+    ';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  }else if (strpos_arr($title, $arraycinema) != FALSE){
+
+
+
+
+
+
+
+
+
+        echo '
+
+        <div class="table-responsive">
+        <table class="table">
+          <thead class="text-primary">
+            <th class="text-center">Nom</th>
+            <th class="text-center">Prénom</th>
+
+
+
+
+
+          </thead>
+          <tbody>
+            ';
+
+        $selectid = $db->prepare("SELECT user_id FROM catparticipe WHERE name=:name");
+        $selectid->execute(array(
+        "name"=>$title
+        ));
+
+
+        while($s0=$selectid->fetch(PDO::FETCH_OBJ)){
+        $iddelapersonne=$s0->user_id;
+
+        $selectnom = $db->prepare("SELECT username, prenom FROM users WHERE id=:id");
+        $selectnom->execute(array(
+          "id"=>$iddelapersonne
+        ));
+        $snom=$selectnom->fetch(PDO::FETCH_OBJ);
+        $nom=$snom->username;
+        $prenom=$snom->prenom;
+
+
+
+            echo '
+
+            <tr>
+            <td class="text-center">'.$nom.'</td>
+            <td class="text-center">'.$prenom.'</td>
+
+
+            </tr>';
+
+
+
+
+
+
+
+
+        }
+
+        echo '
+        </tbody>
+        </table>
+        </div>
+        ';
+
+        echo '
+
+        <a href="https://administration.jam-mdm.fr/affichelesparticipantsexport.php?id='.$id.'&amp;slug='.$slug.'&amp;title='.$title.'"> Télécharger le fichier Excel </a>
+        ';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  }
+}
+
+
+
+}else{
+>>>>>>> parent of d56164e... Update affichelesparticipants.php
 
  ?>
 
