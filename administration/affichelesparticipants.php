@@ -184,7 +184,7 @@ echo '
     echo '
     <a href="https://administration.jam-mdm.fr/affichelesparticipantsexport.php?id='.$id.'&amp;slug='.$slug.'&amp;title='.$title.'"> Télécharger le fichier Excel </a>
     ';
-  }else if (strpos_arr($title, 'cinema') != FALSE){
+  }else if (stripos($title, 'cinema') != FALSE){
         echo '
         <div class="table-responsive">
         <table class="table">
@@ -221,7 +221,7 @@ echo '
         echo '
         <a href="https://administration.jam-mdm.fr/affichelesparticipantsexport.php?id='.$id.'&amp;slug='.$slug.'&amp;title='.$title.'"> Télécharger le fichier Excel </a>
         ';
-  }else if (strpos_arr($title, 'sportive') != FALSE){
+  }else if (stripos($title, 'sportive') != FALSE){
 
 
 
