@@ -46,7 +46,7 @@ if(isset($_GET['action'])){
   return str_replace($str);
 }
 
-$newtitle = str_replace($title);
+$newtitle = replaceAccents($title);
 
 
     if (stripos($title, 'ski') != FALSE){
