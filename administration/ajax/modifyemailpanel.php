@@ -12,7 +12,7 @@ require_once('../includes/connectBDD.php');
 
 
 
-                $user_id = $_SESSION['user_id'];
+                $user_id = $_SESSION['admin_id'];
                 $update = $db->query("UPDATE admin SET email='$mailpetit' WHERE id='$user_id' and email='$email'");
                 ?>
             <script>

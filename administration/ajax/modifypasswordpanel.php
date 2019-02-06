@@ -9,7 +9,7 @@ require_once('../includes/connectBDD.php');
         if(!empty($email)&&(!empty($password))&&(!empty($repeatpassword))){
             if($password==$repeatpassword){
                  if (preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{10,}$#', $password)){
-                $user_id = $_SESSION['user_id'];
+                $user_id = $_SESSION['admin_id'];
                 date_default_timezone_set('Europe/Paris');
                 setlocale(LC_TIME, 'fr_FR.utf8','fra');
                 $date = strftime('%Y/%m/%d %H:%M:%S');
