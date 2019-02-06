@@ -1,30 +1,11 @@
 <?php
     require_once('includes/connectBDD.php');
     require_once('includes/checkconnection.php');
-    $nompage = "Mon Profil";
+
     require_once('includes/head.php');
 
 
-//Fonction de vérification des données entrées
-function slugify($text){
-        $text = preg_replace('~[^\pL\d]+~u', '-', $text);
 
-        $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
-
-        $text = preg_replace('~[^-\w]+~', '', $text);
-
-        $text = trim($text, '-');
-
-        $text = preg_replace('~-+~', '-', $text);
-
-        $text = strtolower($text);
-
-        if (empty($text)) {
-          return 'n-a';
-        }
-
-        return $text;
-    }
 ?>
 
 <body>
@@ -51,8 +32,8 @@ function slugify($text){
                                       <label class="control-label"></label>
                                       <input type="text" class="form-control" value="
 <?php
-$admin_id = $_SESSION['admin_id'];
-$sql = "SELECT * FROM users WHERE id = '$admin_id'";
+$user_id = $_SESSION['admin_id'];
+$sql = "SELECT * FROM admin WHERE id = '$user_id'";
 $req = $db->query($sql);
 $req->setFetchMode(PDO::FETCH_ASSOC);
 
@@ -73,8 +54,8 @@ echo $row['username'];
                                       <label class="control-label"></label>
                                       <input type="text" class="form-control" value="
 <?php
-$admin_id = $_SESSION['admin_id'];
-$sql = "SELECT * FROM users WHERE id = '$admin_id'";
+
+$sql = "SELECT * FROM admin WHERE id = '$user_id'";
 $req = $db->query($sql);
 $req->setFetchMode(PDO::FETCH_ASSOC);
 
@@ -176,5 +157,5 @@ foreach($req as $row)
 
 </body>
 <?php
-    require_once('includes/javascriptdashboard.php');
+    require_once('includes/javascript.php');
 ?>
