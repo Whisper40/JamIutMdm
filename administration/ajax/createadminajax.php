@@ -10,7 +10,7 @@ require_once('../includes/connectBDD.php');
         if(!empty($email)&&!empty($nom)&&!empty($password)){
 
                  if (preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{10,}$#', $password)){
-                $user_id = $_SESSION['user_id'];
+
                 date_default_timezone_set('Europe/Paris');
                 setlocale(LC_TIME, 'fr_FR.utf8','fra');
                 $date = strftime('%Y/%m/%d %H:%M:%S');
@@ -19,16 +19,7 @@ require_once('../includes/connectBDD.php');
 
 
 
-                $insertlogs = $db->prepare("INSERT INTO admin (nom, email, password, grade, subscribe) VALUES(:nom, :email, :password, :grade, :subscribe)");
-                $insertlogs->execute(array(
-                                    "nom"=>$nom,
-                                    "email"=>$email,
-                                    "password"=>$param_password,
-                                    "grade"=>$grade,
-                                    "subscribe"=>$datesystem
-                                    )
-                                );
-
+              
 
 
 
