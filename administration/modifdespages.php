@@ -1628,9 +1628,9 @@ if ($categorie == 'tres'){
   if (file_exists($target_dir)){
   unlink("$target_dir/$valnom");
   unlink("$target_dirthumb/$valnom");
-  $updatedelete = $db->prepare("DELETE FROM carousel WHERE image=:image");
+  $updatedelete = $db->prepare("DELETE FROM membres WHERE id=:user_id");
   $updatedelete->execute(array(
-    "image"=>$valnom
+    "user_id"=>$user_id
 
   ));
 
