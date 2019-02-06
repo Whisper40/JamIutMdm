@@ -129,7 +129,7 @@ function SubmitFormDataCreerUnAdmin() {
                       <thead class="text-primary">
                         <th class="text-center">Pseudo</th>
                         <th class="text-center">Email</th>
-                        <th class="text-center">Date d'inscriptiob</th>
+                        <th class="text-center">Date d'inscription</th>
                         <th class="text-center">Grade</th>
                         <th class="text-center">Action</th>
 
