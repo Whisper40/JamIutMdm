@@ -49,8 +49,9 @@ function SubmitFormDataCreerUnMembre() {
    var prenom = $("#prenom").val();
    var code = "<?php echo $valeurcode; ?>";
    var raison = $("#raison").val();
+   var email = $("#email").val();
 
-   $.post("ajax/createmembreexterne.php", { user_id: user_id, nom: nom, prenom: prenom, code: code, raison: raison},
+   $.post("ajax/createmembreexterne.php", { user_id: user_id, nom: nom, prenom: prenom, email:email, code: code, raison: raison},
    function(data) {
     $('#results23').html(data);
    });
@@ -81,6 +82,12 @@ function SubmitFormDataCreerUnMembre() {
                             <div class="form-group label-floating">
                             <label class="control-label">Code</label>
                             <p> <?php echo $valeurcode; ?></p>
+                            </div>
+
+
+                            <div class="form-group label-floating">
+                                <label class="control-label">Email</label>
+                                <input type="email" name="email" value="monemail@hotmail.fr" id="email" class="form-control">
                             </div>
 
                             <div class="form-group label-floating">
