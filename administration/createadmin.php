@@ -30,9 +30,11 @@ $sitekey = "LESITEKEY";
 function SubmitFormDataCreerUnAdmin() {
    var user_id = "<?php echo $_SESSION['admin_id']; ?>";
    var nom = $("#nom").val();
+   var password = $("#password").val();
    var email = $("#email").val();
+   var grade = $("#grade").val();
 
-   $.post("ajax/createadmin.php", { user_id: user_id, nom: nom, email:email},
+   $.post("ajax/createadminajax.php", { user_id: user_id, nom: nom, password: password, email: email, grade: grade},
    function(data) {
     $('#results23').html(data);
    });
@@ -63,10 +65,15 @@ function SubmitFormDataCreerUnAdmin() {
                                 <input type="email" name="email" value="monemail@hotmail.fr" id="email" class="form-control">
                             </div>
 
+                            <div class="form-group label-floating">
+                                <label class="control-label">Mot de Passe</label>
+                                <input type="text" name="password" value="Mot de Passe" id="password" class="form-control">
+                            </div>
+
                             <select name="grade" class="grade">
-                            <option>Sélectionner son grade</option>
-                            <option>NORMAL</option>
-                            <option>SUPREME</option>
+                            <option value="NORMAL">Sélectionner son grade</option>
+                            <option value="NORMAL">NORMAL</option>
+                            <option value="SUPREME">SUPREME</option>
                             </select>
 
                              </div>
