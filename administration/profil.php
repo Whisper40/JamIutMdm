@@ -51,7 +51,7 @@ function slugify($text){
                                       <label class="control-label"></label>
                                       <input type="text" class="form-control" value="
 <?php
-$user_id = $_SESSION['user_id'];
+$user_id = $_SESSION['admin_id'];
 $sql = "SELECT * FROM admin WHERE id = '$user_id'";
 $req = $db->query($sql);
 $req->setFetchMode(PDO::FETCH_ASSOC);
