@@ -1635,7 +1635,11 @@ if ($categorie == 'tres'){
   ));
 
   $succes = "Le fichier.$valnom. à bien été supprimé";
-
+?>
+  <script>
+    window.location="https://administration.jam-mdm.fr/modifdespages.php?page=membre&table=membres"
+  </script>
+<?php
   }else{
 
   $error = 'Un problème de répertoire est présent, contacter votre administrateur !';
