@@ -1960,7 +1960,7 @@ $titre = $r4->titre;
             <button type="button" class="btn">Modifier</button>
             </a>
             <a href="?page=membre&amp;table=membres&amp;deletemembre='.$id.'">
-            <button type="button" class="btn">Modifier</button>
+            <button type="button" class="btn">Supprimer</button>
             </a>
 
             </td>
@@ -2477,7 +2477,43 @@ $titre = $r40->titre;
  </script>
  <!-- Ajoutd'images au site web (assets)-->
 <?php
-if(isset($_POST['modifphotopagestatus'])){
+
+
+if(isset($_GET['deletemembre'])){
+
+  $user_id = $_GET['deletemembre'];
+
+  $selectinfosactuel = $db->prepare("SELECT * from membres where id=:user_id");
+  $selectinfosactuel->execute(array(
+      "user_id"=>$user_id
+      )
+  );
+  $r2 = $selectinfosactuel->fetch(PDO::FETCH_OBJ);
+  $valnom = $r2->image;
+
+  $target_dir = '../../../JamFichiers/Img/Membres/Original';
+  $target_dirthumb = '../../../JamFichiers/Img/Membres/Thumb';
+
+
+  if (file_exists($target_dir)){
+  unlink("$target_dir/$valnom");
+  unlink("$target_dirthumb/$valnom");
+  $updatedelete = $db->prepare("DELETE FROM membres WHERE id=:user_id");
+  $updatedelete->execute(array(
+    "user_id"=>$user_id
+
+  ));
+
+  $succes = "Le fichier.$valnom. à bien été supprimé";
+?>
+  <script>
+    window.location="https://administration.jam-mdm.fr/modifdespages.php?page=membre&table=membres"
+  </script>
+<?php
+  }else{
+
+  $error = 'Un problème de répertoire est présent, contacter votre administrateur !';
+}else if(isset($_POST['modifphotopagestatus'])){
       $target_dir = "../../../JamFichiers/Img/ImagesDuSite";
 
       $original = 'Original';
@@ -2715,6 +2751,9 @@ if ($uploadOk == 0) {
             <td>
             <a href="?page=status&amp;table=status&amp;modifstatus='.$id.'">
             <button type="button" class="btn">Modifier</button>
+            </a>
+            <a href="?page=status&amp;table=status&amp;deletestatus='.$id.'">
+            <button type="button" class="btn">Supprimer</button>
             </a>
             </td>
           </tr>
