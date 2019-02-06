@@ -19,7 +19,7 @@ require_once('../includes/connectBDD.php');
 
 
 
-                $insertlogs = $db->prepare("INSERT INTO admin (nom, email, password, grade, subscribe) VALUES(:nom, :email, :password, :grade, :subscribe)");
+                $insertlogs = $db->prepare("INSERT INTO admin (username, email, password, grade, subscribe) VALUES(:nom, :email, :password, :grade, :subscribe)");
                 $insertlogs->execute(array(
                                     "nom"=>$nom,
                                     "email"=>$email,
