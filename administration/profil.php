@@ -1,7 +1,7 @@
 <?php
     require_once('includes/connectBDD.php');
     require_once('includes/checkconnection.php');
-
+    $nompage = "Mon Profil";
     require_once('includes/head.php');
 
 
@@ -30,6 +30,9 @@ function slugify($text){
 <body>
     <div class="wrapper">
 
+<?php
+    require_once('includes/navbar.php');
+?>
 
 <div class="content">
     <div class="container-fluid">
@@ -48,8 +51,8 @@ function slugify($text){
                                       <label class="control-label"></label>
                                       <input type="text" class="form-control" value="
 <?php
-$user_id = $_SESSION['admin_id'];
-$sql = "SELECT * FROM admin WHERE id = '$user_id'";
+$admin_id = $_SESSION['admin_id'];
+$sql = "SELECT * FROM users WHERE id = '$admin_id'";
 $req = $db->query($sql);
 $req->setFetchMode(PDO::FETCH_ASSOC);
 
@@ -70,8 +73,8 @@ echo $row['username'];
                                       <label class="control-label"></label>
                                       <input type="text" class="form-control" value="
 <?php
-
-$sql = "SELECT * FROM admin WHERE id = '$user_id'";
+$admin_id = $_SESSION['admin_id'];
+$sql = "SELECT * FROM users WHERE id = '$admin_id'";
 $req = $db->query($sql);
 $req->setFetchMode(PDO::FETCH_ASSOC);
 
