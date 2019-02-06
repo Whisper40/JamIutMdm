@@ -1609,6 +1609,46 @@ if ($categorie == 'tres'){
 
 
 
+}else if(isset($_GET['deletemembre'])){
+
+  $user_id = $_GET['deletemembre'];
+
+  $selectinfosactuel = $db->prepare("SELECT * from membres where id=:user_id");
+  $selectinfosactuel->execute(array(
+      "user_id"=>$user_id
+      )
+  );
+  $r2 = $selectinfosactuel->fetch(PDO::FETCH_OBJ);
+  $valnom = $r2->image;
+
+  $target_dir = '../../../JamFichiers/Img/Membres/Original';
+  $target_dirthumb = '../../../JamFichiers/Img/Membres/Thumb';
+
+
+  if (file_exists($target_dir)){
+  unlink("$target_dir/$valnom");
+  unlink("$target_dirthumb/$valnom");
+  $updatedelete = $db->prepare("DELETE FROM carousel WHERE image=:image");
+  $updatedelete->execute(array(
+    "image"=>$valnom
+
+  ));
+
+  $succes = "Le fichier.$valnom. à bien été supprimé";
+
+  }else{
+
+  $error = 'Un problème de répertoire est présent, contacter votre administrateur !';
+  }
+
+
+
+
+
+
+
+
+
 }else{
 
 //modif page membre
@@ -1657,6 +1697,7 @@ $titre = $r4->titre;
  <?php
  if(isset($_POST['envoieimagemembre'])){
        $target_dir = "../../../JamFichiers/Img/ImagesDuSite";
+
 
        $original = 'Original';
        if (file_exists($target_dir/$original)) {
@@ -1912,6 +1953,9 @@ $titre = $r4->titre;
             <td>
 
             <a href="?page=membre&amp;table=membres&amp;modifmembre='.$id.'">
+            <button type="button" class="btn">Modifier</button>
+            </a>
+            <a href="?page=membre&amp;table=membres&amp;deletemembre='.$id.'">
             <button type="button" class="btn">Modifier</button>
             </a>
 
