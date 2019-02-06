@@ -2640,7 +2640,7 @@ if ($uploadOk == 0) {
 
             $error = 'Un problème de répertoire est présent, contacter votre administrateur !';
           }
-
+}
 
           ?>
 
