@@ -20,22 +20,7 @@ $valeurcode = mt_rand(1000, 999999);
 <script src='https://www.google.com/recaptcha/api.js'></script>
 
 <script>
-$(document).ready(function(){
 
-var $recherche =$('input[name=valeur]');
-var critere;
-$recherche.keyup(function(){
-  critere = $.trim($recherche.val());
-  if(critere!=''){
-    $.get('giveaccessmembre.php?critere='+critere,function(retour){
-
-$('#resultat').html(retour).fadeIn();
-
-});
-
-}else $('#resultat').empty().fadeOut();
-});
-});
 
 
 
@@ -115,47 +100,6 @@ function SubmitFormDataCreerUnMembre() {
      <div id="results23"> <!-- TRES IMPORTANT -->
     </div>
     </div>
-
-
-    <?php
-    if(isset($_GET['action'])){
-    if($_GET['action']=='giveaccessmembre'){
-
-    $id=$_GET['id'];
-    $setmembre = $db->prepare("UPDATE users SET status=:status WHERE id=$id");
-    $setmembre->execute(array(
-      "status"=>'MEMBRE'
-    ));
-
-
-    $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
-    $insertlogs->execute(array(
-                        "user_id"=>$user_id,
-                        "type"=>'Gestion',
-                        "action"=>"Passage à l'\état d'\un membre manuellement",
-                        "page"=>'createmembreexterne.php',
-                        "date"=>$date
-                        )
-                    );
-
-
-    ?>
-    <script>window.location="https://administration.jam-mdm.fr/createmembreexterne.php"</script>
-    <?php
-  }}
-?>
-
-<h3> Donner le grade de membre :  </h3>
-  <input type='text' name="valeur" placeholder="Saisir son nom, id ou email">
-  <p id='resultat'></p>
-
-
-
-
-
-
-
-
 
 
 
