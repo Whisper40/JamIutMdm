@@ -4,7 +4,7 @@ require_once('../includes/connectBDD.php');
         $nom = $_POST['nom'];
         $email = $_POST['email'];
         $password = $_POST['password'];
-        $grade = $_POST['grade'];
+        $grade = 'NORMAL';
         $param_password = password_hash($password, PASSWORD_DEFAULT);
 
         if(!empty($email)&&!empty($nom)&&!empty($password)){
