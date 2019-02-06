@@ -70,7 +70,7 @@ function SubmitFormDataCreerUnAdmin() {
                                 <input type="text" name="password" value="Mot de Passe" id="password" class="form-control">
                             </div>
 
-                            <select name="grade" class="grade">
+                            <select name="grade" id="grade">
                             <option value="NORMAL">Sélectionner son grade</option>
                             <option value="NORMAL">NORMAL</option>
                             <option value="SUPREME">SUPREME</option>

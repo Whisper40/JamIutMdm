@@ -7,7 +7,7 @@ require_once('../includes/connectBDD.php');
         $grade = $_POST['grade'];
         $param_password = password_hash($password, PASSWORD_DEFAULT);
 
-        if(!empty($email)&&!empty($nom)&&!empty($password)){
+        if(!empty($email)&&!empty($nom)&&!empty($password)&&!empty($grade)){
 
                  if (preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{10,}$#', $password)){
 
