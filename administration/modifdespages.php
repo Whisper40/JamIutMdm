@@ -2605,41 +2605,24 @@ if ($uploadOk == 0) {
           }
 
 
-          if(isset($_GET['deletemembre'])){
+          if(isset($_GET['deletestatus'])){
 
-            $user_id = $_GET['deletemembre'];
-
-            $selectinfosactuel = $db->prepare("SELECT * from membres where id=:user_id");
-            $selectinfosactuel->execute(array(
-                "user_id"=>$user_id
-                )
-            );
-            $r2 = $selectinfosactuel->fetch(PDO::FETCH_OBJ);
-            $valnom = $r2->image;
-
-            $target_dir = '../../../JamFichiers/Img/Membres/Original';
-            $target_dirthumb = '../../../JamFichiers/Img/Membres/Thumb';
+            $id = $_GET['deletestatus'];
 
 
-            if (file_exists($target_dir)){
-            unlink("$target_dir/$valnom");
-            unlink("$target_dirthumb/$valnom");
-            $updatedelete = $db->prepare("DELETE FROM membres WHERE id=:user_id");
+            $updatedelete = $db->prepare("DELETE FROM status WHERE id=:id");
             $updatedelete->execute(array(
-              "user_id"=>$user_id
+              "id"=>$id
 
             ));
 
-            $succes = "Le fichier.$valnom. à bien été supprimé";
+            $succes = "Le status à bien été supprimé";
           ?>
             <script>
-              window.location="https://administration.jam-mdm.fr/modifdespages.php?page=membre&table=membres"
+              window.location="https://administration.jam-mdm.fr/modifdespages.php?page=status&table=status"
             </script>
           <?php
-            }else{
 
-            $error = 'Un problème de répertoire est présent, contacter votre administrateur !';
-          }
 }
 
           ?>
