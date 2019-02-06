@@ -95,6 +95,102 @@ function SubmitFormDataCreerUnAdmin() {
 
      <div id="results23"> <!-- TRES IMPORTANT -->
     </div>
+
+
+
+
+
+
+
+
+
+<?php
+
+
+
+    $selectadmin= $db->prepare("SELECT * FROM admin ORDER BY id ASC");
+    $selectadmin->execute();
+    $countid = $selectadmin->rowCount();
+    if($countid>'0'){
+    ?>
+
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="card-content">
+                  <h3 class="card-title">Liste des administrateurs</h3>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="card-content">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class="text-primary">
+                        <th class="text-center">Pseudo</th>
+                        <th class="text-center">Email</th>
+                        <th class="text-center">Date d'inscriptiob</th>
+                        <th class="text-center">Grade</th>
+                        <th class="text-center">Action</th>
+
+                      </thead>
+                      <tbody>
+
+                        <?php
+                        while($admin = $selectadmin->fetch(PDO::FETCH_OBJ)){
+
+                          $username = $admin->username;
+                          $email = $admin->email;
+                          $subscribe = $admin->subscribe;
+                          $grade = $admin->grade;
+                        ?>
+
+
+                        <tr>
+                          <td class="text-center"><?php echo $username;?></td>
+                          <td class="text-center"><?php echo $email;?></td>
+                          <td class="text-center"><?php echo $subscribe;?></td>
+                          <td class="text-center"><?php echo $grade;?></td>
+                          <td class="text-center"><a href="?action=validefichier&amp;id=<?php echo $idfichier;?>"><button type="button" class="btn btn-rose btn-round btn-sm">Modifier</button></a>
+                                                  <a href="?action=refusfichier&amp;id=<?php echo $idfichier;?>"><button type="button" class="btn btn-rose btn-round btn-sm">Supprimer</button></a>
+                          </td>
+                        </tr>
+
+                        <?php  } ?>
+
+                    </tbody>
+                    </table>
+                    </div>
+                </div>
+              </div>
+            </div>
+
+          <?php } ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </div>
 
 
