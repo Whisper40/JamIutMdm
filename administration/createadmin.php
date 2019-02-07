@@ -1,6 +1,7 @@
 <?php
     require_once('includes/connectBDD.php');
     require_once('includes/checkconnection.php');
+    require_once('includes/checksupreme.php');
       require_once('includes/head.php');
     $nompage = "Nous Contacter";
     ini_set('display_errors', 1);
@@ -129,7 +130,7 @@ if(isset($_GET['action'])){
 
 
   }else{
-    
+
     $id = $_GET['id'];
     $deleteadmin= $db->prepare("DELETE FROM admin where id=:id");
     $deleteadmin->execute(array(
