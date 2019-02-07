@@ -599,10 +599,7 @@ if ($uploadOk == 0) {
                             </div>
                             <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<br />'" type="button" name="sautbr" id="sautbr" value="Saut de ligne" class="btn btn-primary btn-round btn-rose"/>
                             <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<u>Votre texte</u>'" type="button" name="souligne" id="souligne" value="Souligne" class="btn btn-primary btn-round btn-rose"/>
-                            <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<ul>
-  <li>Element 1</li>
-  <li>Element 2</li>
-</ul>'" type="button" name="liste" id="liste" value="liste" class="btn btn-primary btn-round btn-rose"/>
+                            <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<ul><li>Element 1</li> <li>Element 2</li> </ul>'" type="button" name="liste" id="liste" value="liste" class="btn btn-primary btn-round btn-rose"/>
 
                            </div>
                         </div>
