@@ -598,6 +598,7 @@ if ($uploadOk == 0) {
                                 <textarea rows="12" name="description1" id="description1" class="form-control"><?php echo $description1; ?></textarea>
                             </div>
                             <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<br />'" type="button" name="sautbr" id="sautbr" value="Saut de ligne" class="btn btn-primary btn-round btn-rose"/>
+                            <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<u>Votre texte</u>'" type="button" name="souligne" id="souligne" value="Souligne" class="btn btn-primary btn-round btn-rose"/>
 
                            </div>
                         </div>
