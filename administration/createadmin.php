@@ -117,7 +117,8 @@ if(isset($_GET['action'])){
     );
 
 
-  }else{
+  }else if ($_GET['action'] == 'gradesupreme'){
+
     $id = $_GET['id'];
     $updateadmin= $db->prepare("UPDATE admin SET grade=:grade where id=:id");
     $updateadmin->execute(array(
@@ -125,6 +126,18 @@ if(isset($_GET['action'])){
       "id"=>$id
     )
     );
+
+
+  }else{
+    
+    $id = $_GET['id'];
+    $deleteadmin= $db->prepare("DELETE FROM admin where id=:id");
+    $deleteadmin->execute(array(
+      "id"=>$id
+    )
+    );
+
+
   }
 }
 
