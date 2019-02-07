@@ -118,7 +118,7 @@ if(isset($_GET['action'])){
 
 
   }else{
-
+    $id = $_GET['id'];
     $updateadmin= $db->prepare("UPDATE admin SET grade=:grade where id=:id");
     $updateadmin->execute(array(
       "grade"=>'SUPREME',
