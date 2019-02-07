@@ -601,6 +601,8 @@ if ($uploadOk == 0) {
                             <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<u>Texte souligné</u>'" type="button" name="souligne" id="souligne" value="Souligner" class="btn btn-primary btn-round btn-rose"/>
                             <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>'" type="button" name="liste" id="liste" value="Créer une liste" class="btn btn-primary btn-round btn-rose"/>
                             <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<strong>Texte en gras</strong>'" type="button" name="Gras" id="Gras" value="Gras" class="btn btn-primary btn-round btn-rose"/>
+                            <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<i>Texte en Italic</i>'" type="button" name="Italic" id="Italic" value="Italic" class="btn btn-primary btn-round btn-rose"/>
+                            <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<sub>Texte en Indice</sub>'" type="button" name="Indice" id="Indice" value="Indice" class="btn btn-primary btn-round btn-rose"/>
 
                            </div>
                         </div>
