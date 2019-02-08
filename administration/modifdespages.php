@@ -2125,7 +2125,7 @@ if ($uploadOk == 0) {
 
               <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
                 <div class="row">
-                    <div class="col-sm-4">
+                    <div class="col-sm-5">
                       <div class="card-content">
                         <div class="form-group label-floating">
                           <label class="control-label">Prénom et Nom</label>
@@ -2141,7 +2141,7 @@ if ($uploadOk == 0) {
                       <div class="card-content">
                         <br>
                         <div class="jquerysel">
-                          <select class="selectpicker" data-style="select-with-transition" multiple title="Fonction" data-size="7" id="grademembre" name="grademembre">
+                          <select class="selectpicker" data-style="select-with-transition" title="Fonction" data-size="7" id="grademembre" name="grademembre">
                             <option value="pres">Présidence</option>
                             <option value="tres">Secrétaire</option>
                             <option value="secr">Trésorier</option>
@@ -2150,7 +2150,7 @@ if ($uploadOk == 0) {
                         </div>
                         <br>
                         <div class="jquerysel">
-                          <select class="selectpicker" data-style="select-with-transition" multiple title="Grade" data-size="7" id="importancegrade" name="importancegrade">
+                          <select class="selectpicker" data-style="select-with-transition" title="Grade" data-size="7" id="importancegrade" name="importancegrade">
                             <option value="1">Responsable</option>
                             <option value="2">Vice</option>
                             <option value="3">Honneur</option>
@@ -2163,12 +2163,13 @@ if ($uploadOk == 0) {
                         </div>
                       </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                       <div class="card-content">
+                        <br><br>
                         <center>
                         <div class="fileinput fileinput-new text-center" data-provides="fileinput">
                           <div class="fileinput-new thumbnail img-circle">
-                            <img src="../../assets/img/placeholder.jpg" alt="...">
+                            <img src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/placeholder.jpg" alt="...">
                           </div>
                           <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
                           <div>
