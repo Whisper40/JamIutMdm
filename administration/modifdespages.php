@@ -2147,7 +2147,6 @@ if ($uploadOk == 0) {
                           </select>
                         </div>
                         <div class="jquerysel">
-                          <label class="control-label">Fonction : </label>
                           <select class="selectpicker" data-style="select-with-transition" multiple title="Grade" data-size="7" id="importancegrade" name="importancegrade">
                             <option value="1">Responsable</option>
                             <option value="2">Vice</option>
@@ -2156,7 +2155,7 @@ if ($uploadOk == 0) {
                         </div>
                         <div class="form-group label-floating">
                           <label class="control-label">Nom complet de la Fonction</label>
-                          <input type="text" name="fonction" value="Vice Trésorier" id="fonction" class="form-control">
+                          <input type="text" name="fonction" id="fonction" class="form-control">
                         </div>
                       </div>
                     </div>
