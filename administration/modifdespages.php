@@ -1466,157 +1466,114 @@ if ($uploadOk == 0) {
 
           } ?>
 
-
-
-    <div class="content">
-        <div class="container-fluid">
-            <div class="card">
-                <div class="card-content">
-                    <h2 class="card-title text-center">Modification des informations</h2>
-
-                    <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-                              <div class="row">
-                                  <div class="col-sm-6">
-
-                                       <div class="form-group form-file-upload">
-                                           <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
-                                           <div class="input-group">
-                                               <input type="text" readonly="" class="form-control" placeholder="<?php echo $image; ?>">
-                                               <span class="input-group-btn input-group-s">
-                                                   <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
-                                                       <i class="material-icons">layers</i>
-                                                   </button>
-                                               </span>
-                                           </div>
-                                       </div>
-                                    </div>
-
-                                    <div class="col-sm-12">
-                                        <div class="card-content">
-                                            <input type="submit" name="modifphotomembre" value="Modifier l'image">
-                                         </div>
-                                      </div>
-                              </div>
-                            </form>
-
-
-
-
-                    <form action="" method="post" id="myForm1" class="contact-form">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="card-content">
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Nom</label>
-                                  <input type="text" class="form-control" value="<?php echo $nom; ?>" name="nom" id="nom">
-                              </div>
-
-
-                              <div class="jquerysel"><!-- on s'en fout -->
-<label>Grade : </label><select id="grademembre">
-  <?php
-if ($categorie == 'pres'){
-  ?>
-  <option selected value="pres">Président</option>
-<?php
-}else{
-  ?>
-    <option value="pres">Président</option>
-<?php }
-
-if ($categorie == 'tres'){
-  ?>
-    <option selected value="tres">Trésorier</option>
-    <?php
-  }else{ ?>
-    <option value="tres">Trésorier</option>
-  <?php }
-  if ($categorie == 'secr'){
-    ?>
-    <option selected value="secr">Secrétaire</option>
-  <?php }else{ ?>
-    <option value="secr">Secrétaire</option>
-  <?php }
-  if ($categorie == 'com'){
-    ?>
-    <option selected value="com">Communication</option>
-  <?php }else{ ?>
-    <option value="com">Communication</option>
-  <?php } ?>
-
-
-</select>
-</div>
-
-<div class="jquerysel"><!-- on s'en fout -->
-<label>Spécification grade : </label><select id="importancegrade">
-  <?php
-  if ($importance == '1'){
-    ?>
-<option selected value="1">Responsable</option>
-<?php }else{
-  ?>
-  <option value="1">Responsable</option>
-  <?php
-}
-  if ($importance == '2'){
-    ?>
-<option selected value="2">Vice</option>
-<?php }else{
-  ?>
-  <option value="2">Vice</option>
-  <?php
-}
-  if ($importance == '3'){
-    ?>
-    <option selected value="3">Honneur</option>
-  <?php }else{ ?>
-<option value="3">Honneur</option>
-<?php } ?>
-
-
-
-</select>
-</div>
-
-<div class="form-group label-floating">
-    <label class="control-label">Fonction</label>
-    <input type="text" name="fonction" value="<?php echo $fonction; ?>" id="fonction" class="form-control">
-</div>
-
-
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Description</label>
-                                  <input type="text" name="description" value="<?php echo $description; ?>" id="description" class="form-control">
-                              </div>
-                             </div>
-                          </div>
-
-                        <div class="col-sm-12">
-                            <div class="card-content">
-
-                              <center>
-                              <button id="submitFormDataModifMembre" onclick="SubmitFormDataModifMembre();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
-                              <button onclick="RetourIndex2();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
-                              </center>
-                             </div>
-                          </div>
+  <div class="content">
+    <div class="container-fluid">
+      <div class="card">
+        <div class="card-content">
+          <h2 class="card-title text-center">Modification des informations d'un membre</h2>
+          <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-sm-5">
+                  <div class="card-content">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Prénom et Nom</label>
+                      <input type="text" class="form-control" value="<?php echo $nom; ?>" name="nom" id="nom">
                     </div>
-                  </form>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Description</label>
+                      <textarea rows="6" type="text" name="description" value="<?php echo $description; ?>" id="description" class="form-control"></textarea>
+                    </div>
+                  </div>
                 </div>
-            </div>
-        </div>
-
-     <div id="results4"> <!-- TRES IMPORTANT -->
-
-
-
+                <div class="col-sm-4">
+                  <div class="card-content">
+                    <br>
+                    <div class="jquerysel">
+                      <select class="selectpicker" data-style="select-with-transition" title="Fonction" data-size="7" id="grademembre" name="grademembre">
+                        <?php if ($categorie == 'pres'){ ?>
+                        <option selected value="pres">Président</option>
+                        <?php  }else{ ?>
+                        <option value="pres">Président</option>
+                        <?php } if ($categorie == 'tres'){ ?>
+                        <option selected value="tres">Trésorier</option>
+                        <?php }else{ ?>
+                        <option value="tres">Trésorier</option>
+                        <?php } if ($categorie == 'secr'){ ?>
+                        <option selected value="secr">Secrétaire</option>
+                        <?php }else{ ?>
+                        <option value="secr">Secrétaire</option>
+                        <?php } if ($categorie == 'com'){ ?>
+                        <option selected value="com">Communication</option>
+                        <?php }else{ ?>
+                        <option value="com">Communication</option>
+                        <?php } ?>
+                      </select>
+                    </div>
+                    <br>
+                    <div class="jquerysel">
+                      <select class="selectpicker" data-style="select-with-transition" title="Grade" data-size="7" id="importancegrade" name="importancegrade">
+                        <?php if ($importance == '1'){ ?>
+                        <option selected value="1">Responsable</option>
+                        <?php }else{ ?>
+                        <option value="1">Responsable</option>
+                        <?php } if ($importance == '2'){ ?>
+                        <option selected value="2">Vice</option>
+                        <?php }else{ ?>
+                        <option value="2">Vice</option>
+                        <?php } if ($importance == '3'){ ?>
+                        <option selected value="3">Honneur</option>
+                        <?php }else{ ?>
+                        <option value="3">Honneur</option>
+                        <?php } ?>
+                      </select>
+                    </div>
+                    <br>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Nom complet de la Fonction</label>
+                      <input type="text" name="fonction" value="<?php echo $fonction; ?>" id="fonction" class="form-control">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="card-content">
+                    <br><br>
+                    <center>
+                    <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                      <div class="fileinput-new thumbnail img-circle">
+                        <img src="https://jam-mdm.fr/JamFichiers/Img/Membres/Original/<?php echo $image; ?>" alt="...">
+                      </div>
+                      <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
+                      <div>
+                        <span class="btn btn-round btn-rose btn-file">
+                          <span class="fileinput-new">Selection Image</span>
+                          <span class="fileinput-exists">Changer</span>
+                          <input  type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple" />
+                        </span>
+                        <br>
+                        <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
+                      </div>
+                    </div>
+                  </center>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="card-content">
+                    <center>
+                      <button id="submitFormDataModifMembre" onclick="SubmitFormDataModifMembre();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                    </center>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div id="results4"></div>
+      </div>
     </div>
   </div>
+
   <?php
-
-
-
 
 }else if(isset($_GET['deletemembre'])){
 
@@ -2308,27 +2265,12 @@ if ($uploadOk == 0) {
 
                 }
 
-
-
-
-
-
-
     }else {
         $error = 'Désolé, une erreur est survenue.';
     } } }
 
           }
 }
-
-
-
-
-
-
-
-
-
 
 }else if ($_GET['page']=='status'){
 
