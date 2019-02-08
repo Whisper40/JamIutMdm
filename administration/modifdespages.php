@@ -1854,7 +1854,8 @@ $titre = $r4->titre;
             <div class="col-sm-6">
               <div class="card-content">
                 <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-                  <h4 class="card-title text-center">Image d'Arrière plan</h4>
+                  <h3 class="card-title text-center">Image d'Arrière plan</h3>
+                  <br>
                   <center>
                 <div class="fileinput fileinput-new text-center" data-provides="fileinput">
                   <div class="fileinput-new thumbnail">
@@ -1868,11 +1869,9 @@ $titre = $r4->titre;
                       <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple" />
                     </span>
                     <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
+                    <button type="submit" name="envoieimagemembre" class="btn btn-primary btn-round btn-rose">Modifier l'image</button>
                   </div>
                 </div>
-                <div class="form-group label-floating">
-                  <button type="submit" name="envoieimagemembre" class="btn btn-primary btn-round btn-rose">Modifier l'image</button>
-              </div>
             </center>
             </form>
               </div>
