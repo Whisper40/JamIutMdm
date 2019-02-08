@@ -1087,24 +1087,20 @@ demo = {
 		});
     },
 
-	showNotification: function(from, align, message){
-        type = ['info','rose'];
-        //type = ['','info','success','warning','danger','rose','primary'];
+    showNotification: function(from, align, message, type){
 
-        color = Math.floor((Math.random() * 6) + 1);
+      	$.notify({
+          	icon: "notifications",
+          	message: message
 
-    	$.notify({
-        	icon: "notifications",
-        	message: message
+          },{
+              type: type,
+              timer: 3000,
+              placement: {
+                  from: from,
+                  align: align
+              }
+          });
+  }
 
-        },{
-            type: type[color],
-            timer: 3000,
-            placement: {
-                from: from,
-                align: align
-            }
-        });
-	}
-
-}
+  }

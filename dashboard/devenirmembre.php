@@ -5,6 +5,7 @@ require_once('includes/checkconnection.php');
 require_once('includes/checkdejamembre.php');
 $nompage = "Devenir Membre";
 require_once('includes/head.php');
+
 $secret = "LESECRET";
 $sitekey = "LESITEKEY";
 ?>
@@ -18,13 +19,10 @@ $user_id = $_SESSION['user_id'];
 $selectstatus = $db->prepare("SELECT status FROM users WHERE id='$user_id'");
 $selectstatus->execute();
 $s = $selectstatus->fetch(PDO::FETCH_OBJ);
-$status = $s->status;?>
+$status = $s->status;
 
+$messagenotif = "";
 
-
-
-
-      <?php
       if(isset($_POST['submit'])){
         if(isset($_POST['message'])){
           $message = $_POST['message'];
@@ -48,24 +46,28 @@ $status = $s->status;?>
       $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
       // Check if file already exists
       if (file_exists($target_file)) {
-          $erreur = "<b>Erreur : </b> Le fichier existe déja !";
+          $messagenotif = "<b>Erreur : </b>le fichier existe déja !";
+          $type = "warning";
           $uploadOk = 0;
       }
       // Check file size < 2mo
       if ($_FILES["fileToUpload"]["size"][$i] > 2000000) {
-          $erreur = "<b>Erreur : </b> La Taille de votre est supérieur à 2 Mo !";
+          $messagenotif = "<b>Erreur : </b>la Taille de votre est supérieur à 2 Mo !";
+          $type = "warning";
           $uploadOk = 0;
       }
       // Allow certain file formats
       if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
       && $imageFileType != "gif" && $imageFileType != "pdf" && $imageFileType != "zip" && $imageFileType != "rar") {
 
-          $erreur = "<b>Erreur : </b> Désolé, seuls les formats JPG, PDF, GIF, ZIP et RAR sont autorisés !";
+          $messagenotif = "<b>Erreur : </b>désolé, seuls les formats JPG, PDF, GIF, ZIP et RAR sont autorisés !";
+          $type = "warning";
           $uploadOk = 0;
       }
       // Check if $uploadOk is set to 0 by an error
       if ($uploadOk == 0) {
-          $erreur = "<b>Erreur : </b> Désolé votre fichier n'a pas été transmis !";
+          $messagenotif = "<b>Erreur : </b>désolé votre fichier n'a pas été transmis !";
+          $type = "warning";
       // if everything is ok, try to upload file
       } else {
         date_default_timezone_set('Europe/Paris');
@@ -75,7 +77,8 @@ $status = $s->status;?>
         $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
           if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file2)) {
 
-              $success = "<b>Succès : </b> Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à été transmis.";
+              $messagenotif = "<b>Succès : </b>le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à été transmis.";
+              $type = "success";
               $status = "EN ATTENTE DE VALIDATION";
               date_default_timezone_set('Europe/Paris');
               setlocale(LC_TIME, 'fr_FR.utf8','fra');
@@ -92,24 +95,20 @@ $status = $s->status;?>
                   )
               );
           }else {
-
-               $erreur = "<b>Erreur : </b> Fichiers non uploadés !";
-
-
-
+               $messagenotif = "<b>Erreur : </b>fichiers non uploadés !";
+               $type = "warning";
           } } }
           }else{
-            $erreur = "<b>Erreur : </b> Captcha non valide !";
-
+            $messagenotif = "<b>Erreur : </b>captcha non valide !";
+            $type = "warning";
           }  }
-
 
           $page = $db->prepare("SELECT * FROM pagedevenirmembre");
           $page->execute();
           $lapage = $page->fetch(PDO::FETCH_OBJ);
           ?>
 
-<body>
+<body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
     <div class="wrapper">
 
       <?php
@@ -176,7 +175,6 @@ $status = $s->status;?>
                                                   <div class="content">
                                                       <div class="container-fluid">
                                                           <div class="row">
-                                                              <center>
                                                                   <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
                                                                       <div class="form-group label-floating">
                                                                           <textarea name="message" class="form-control" rows="4" placeholder="Vous avez un message ? (optionel)"></textarea>
@@ -198,26 +196,6 @@ $status = $s->status;?>
                                                                       </div>
                                                                       <button type="submit" name="submit" value="Envoyer un fichier" class="btn btn-rose btn-round">Envoyer le fichier</button>
                                                                   </form>
-                                                              </center>
-
-<?php if(!empty($erreur)){
-
-
-// CODE HTML ICI
-   echo '
-  <button type="submit" name="jamesbond" value="Envoyer un message" class="btn btn-rose btn-round">'.$erreur.'</button>'; }
-
-?>
-<?php if(!empty($success)){
-
-
-// CODE HTML ICI
-   echo '
-  <button type="submit" name="jamesbond" value="Envoyer un message" class="btn btn-rose btn-round">'.$success.'</button>'; }
-
-?>
-
-
                                                           </div>
                                                       </div>
                                                   </div>
