@@ -1482,7 +1482,7 @@ if ($uploadOk == 0) {
                     </div>
                     <div class="form-group label-floating">
                       <label class="control-label">Description</label>
-                      <textarea rows="6" type="text" name="description" value="<?php echo $description; ?>" id="description" class="form-control"></textarea>
+                      <textarea rows="6" type="text" name="description" id="description" class="form-control"><?php echo $description; ?></textarea>
                     </div>
                   </div>
                 </div>
