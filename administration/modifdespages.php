@@ -1861,7 +1861,7 @@ $titre = $r4->titre;
                   <div class="fileinput-new thumbnail">
                     <img src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/<?php echo $image; ?>" alt="...">
                   </div>
-                  <div class="fileinput-preview fileinput-exists thumbnail"></div><br>
+                  <div class="fileinput-preview fileinput-exists thumbnail"></div><br><br><br><br>
                   <div>
                     <span class="btn btn-rose btn-round btn-file">
                       <span class="fileinput-new">Selection image</span>
