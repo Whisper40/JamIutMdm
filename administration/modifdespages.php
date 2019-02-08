@@ -2122,76 +2122,83 @@ if ($uploadOk == 0) {
 
           } ?>
 
-
+              <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
                 <div class="row">
-                    <div class="col-sm-6">
-                        <div class="card-content">
-                          <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-                          <div class="form-group label-floating">
-                              <label class="control-label">Prénom et Nom</label>
-                              <input type="text" class="form-control" name="nom" id="nom">
-                          </div>
-                          <div class="fileinput fileinput-new text-center" data-provides="fileinput">
-                            <div class="fileinput-new thumbnail img-circle">
-                              <img src="../../assets/img/placeholder.jpg" alt="...">
-                            </div>
-                            <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
-                            <div>
-                              <span class="btn btn-round btn-rose btn-file">
-                                <span class="fileinput-new">Selection Image</span>
-                                <span class="fileinput-exists">Changer</span>
-                                <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple" />
-                              </span>
-                              <br>
-                              <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
-                            </div>
-                          </div>
-                          <div class="jquerysel">
-                            <label class="control-label">Grade : </label>
-                            <select class="selectpicker" data-style="select-with-transition" multiple title="Choose City" data-size="7" id="grademembre" name="grademembre">
-                              <option disabled> Choose city</option>
-                              <option value="pres">Président</option>
-                              <option value="tres">Trésorier</option>
-                              <option value="secr">Secrétaire</option>
-                              <option value="com">Communication</option>
-                            </select>
-                          </div>
-                          <div class="jquerysel">
-                            <label class="control-label">Fonction : </label>
-                            <select class="selectpicker" data-style="select-with-transition" multiple title="Choose City" data-size="7" id="importancegrade" name="importancegrade">
-                              <option value="1">Responsable</option>
-                              <option value="2">Vice</option>
-                              <option value="3">Honneur</option>
-                            </select>
-                          </div>
-                          <div class="form-group label-floating">
-                            <label class="control-label">Fonction</label>
-                            <input type="text" name="fonction" value="Vice Trésorier" id="fonction" class="form-control">
-                          </div>
-                          <div class="form-group label-floating">
-                              <label class="control-label">Description</label>
-                              <input type="text" name="description" value="Ma description" id="description" class="form-control">
-                          </div>
+                    <div class="col-sm-4">
+                      <div class="card-content">
+                        <div class="form-group label-floating">
+                          <label class="control-label">Prénom et Nom</label>
+                          <input type="text" class="form-control" name="nom" id="nom">
                         </div>
-                      </div>
-                      <div class="col-sm-12">
-                        <div class="card-content">
-                          <center>
-                            <div class="col-sm-12">
-                              <div class="card-content">
-                                <input type="submit" name="submitnewmembre" value="Créer un membre!">
-                              </div>
-                            </div>
-                          </center>
+                        <div class="form-group label-floating">
+                          <label class="control-label">Description</label>
+                          <textarea rows="6" type="text" name="description" value="Description du Membre" id="description" class="form-control"></textarea>
                         </div>
                       </div>
                     </div>
-                  </form>
-                </div>
+                    <div class="col-sm-4">
+                      <div class="card-content">
+                        <div class="jquerysel">
+                          <select class="selectpicker" data-style="select-with-transition" multiple title="Fonction" data-size="7" id="grademembre" name="grademembre">
+                            <option value="pres">Présidence</option>
+                            <option value="tres">Secrétaire</option>
+                            <option value="secr">Trésorier</option>
+                            <option value="com">Communication</option>
+                          </select>
+                        </div>
+                        <div class="jquerysel">
+                          <label class="control-label">Fonction : </label>
+                          <select class="selectpicker" data-style="select-with-transition" multiple title="Grade" data-size="7" id="importancegrade" name="importancegrade">
+                            <option value="1">Responsable</option>
+                            <option value="2">Vice</option>
+                            <option value="3">Honneur</option>
+                          </select>
+                        </div>
+                        <div class="form-group label-floating">
+                          <label class="control-label">Nom complet de la Fonction</label>
+                          <input type="text" name="fonction" value="Vice Trésorier" id="fonction" class="form-control">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="card-content">
+                        <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                          <div class="fileinput-new thumbnail img-circle">
+                            <img src="../../assets/img/placeholder.jpg" alt="...">
+                          </div>
+                          <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
+                          <div>
+                            <span class="btn btn-round btn-rose btn-file">
+                              <span class="fileinput-new">Selection Image</span>
+                              <span class="fileinput-exists">Changer</span>
+                              <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple" />
+                            </span>
+                            <br>
+                            <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="card-content">
+                        <center>
+                          <div class="col-sm-12">
+                            <div class="card-content">
+                              <input type="submit" name="submitnewmembre" value="Créer un membre!">
+                            </div>
+                          </div>
+                        </center>
+                      </div>
+                    </div>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
         </div>
+      </div>
 
 <?php
 
