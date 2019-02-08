@@ -1869,9 +1869,11 @@ $titre = $r4->titre;
             </div>
             <div class="col-sm-6">
               <div class="card-content">
+                <div class="form-group label-floating">
                 <center>
                   <button type="submit" name="envoieimagemembre" class="btn btn-primary btn-round btn-rose">Modifier l'image</button>
                 </center>
+              </div>
               </div>
             </div>
           </div>
