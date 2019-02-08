@@ -1889,7 +1889,7 @@ $titre = $r4->titre;
                           <div class="form-group label-floating">
                               <label class="control-label">Titre</label>
                               <input type="text" name="titre" value="<?php echo $titre; ?>" id="titre" class="form-control">
-                          </div>
+                          </div><br>
                             <center>
                             <button id="submitFormDataMembre" onclick="SubmitFormDataMembre();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
                             </center>
