@@ -2139,7 +2139,7 @@ if ($uploadOk == 0) {
                     <div class="col-sm-4">
                       <div class="card-content">
                         <div class="jquerysel">
-                          <select class="selectpicker" data-style="btn btn-primary btn-round" title="Single Select" data-size="7" id="grademembre" name="grademembre">
+                          <select class="selectpicker" data-style="select-with-transition" multiple title="Fonction" data-size="7" id="grademembre" name="grademembre">
                             <option value="pres">Présidence</option>
                             <option value="tres">Secrétaire</option>
                             <option value="secr">Trésorier</option>
@@ -2147,7 +2147,7 @@ if ($uploadOk == 0) {
                           </select>
                         </div>
                         <div class="jquerysel">
-                          <select class="selectpicker" data-style="btn btn-primary btn-round" title="Single Select" data-size="7" id="importancegrade" name="importancegrade">
+                          <select class="selectpicker" data-style="select-with-transition" multiple title="Grade" data-size="7" id="importancegrade" name="importancegrade">
                             <option value="1">Responsable</option>
                             <option value="2">Vice</option>
                             <option value="3">Honneur</option>
