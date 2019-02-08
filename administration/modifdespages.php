@@ -2124,7 +2124,7 @@ if ($uploadOk == 0) {
 
               <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
                 <div class="row">
-                    <div class="col-sm-4">
+                    <div class="col-sm-5">
                       <div class="card-content">
                         <div class="form-group label-floating">
                           <label class="control-label">Prénom et Nom</label>
@@ -2162,8 +2162,9 @@ if ($uploadOk == 0) {
                         </div>
                       </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                       <div class="card-content">
+                        <br><br>
                         <center>
                         <div class="fileinput fileinput-new text-center" data-provides="fileinput">
                           <div class="fileinput-new thumbnail img-circle">
