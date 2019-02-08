@@ -2138,6 +2138,7 @@ if ($uploadOk == 0) {
                     </div>
                     <div class="col-sm-4">
                       <div class="card-content">
+                        <br>
                         <div class="jquerysel">
                           <select class="selectpicker" data-style="select-with-transition" multiple title="Fonction" data-size="7" id="grademembre" name="grademembre">
                             <option value="pres">Présidence</option>
@@ -2163,6 +2164,7 @@ if ($uploadOk == 0) {
                     </div>
                     <div class="col-sm-4">
                       <div class="card-content">
+                        <center>
                         <div class="fileinput fileinput-new text-center" data-provides="fileinput">
                           <div class="fileinput-new thumbnail img-circle">
                             <img src="../../assets/img/placeholder.jpg" alt="...">
@@ -2178,6 +2180,7 @@ if ($uploadOk == 0) {
                             <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
                           </div>
                         </div>
+                      </center>
                       </div>
                     </div>
                   </div>
@@ -2185,11 +2188,7 @@ if ($uploadOk == 0) {
                     <div class="col-sm-12">
                       <div class="card-content">
                         <center>
-                          <div class="col-sm-12">
-                            <div class="card-content">
-                              <input type="submit" name="submitnewmembre" value="Créer un membre!">
-                            </div>
-                          </div>
+                          <button type="submit" name="submitnewmembre" class="btn btn-primary btn-round btn-rose">Créer un membre</button>
                         </center>
                       </div>
                     </div>
