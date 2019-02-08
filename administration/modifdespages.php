@@ -1921,8 +1921,8 @@ $titre = $r4->titre;
 
       $table = $selectnom->fetchAll(PDO::FETCH_OBJ);
       if(count($table)>0){
+      echo '
 
- ?>
      <div class="table-responsive">
        <table class="table">
          <thead class="text-primary">
@@ -1933,14 +1933,15 @@ $titre = $r4->titre;
          </thead>
          <tbody>
 
-    <?php
+         ';
+
         foreach($table as $ligne){
           $id = $ligne->id;
           $nom = $ligne->nom;
           $image = $ligne->image;
           $fonction = $ligne->fonction;
 
-          ?>
+          echo '
 
           <tr>
             <td class="text-center"><?php echo $nom;?></td>
@@ -1952,16 +1953,16 @@ $titre = $r4->titre;
             </td>
           </tr>
 
-<?php
+          ';
         }
 
-?>
+        echo'
 
         </tbody>
       </table>
     </div>
 
-<?php
+    ';
 
       }else{
         $error = "Aucune personne trouvée";
