@@ -1857,131 +1857,112 @@ $titre = $r4->titre;
                   <h3 class="card-title text-center">Image d'Arrière plan</h3>
                   <br>
                   <center>
-                <div class="fileinput fileinput-new text-center" data-provides="fileinput">
-                  <div class="fileinput-new thumbnail">
-                    <img src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/<?php echo $image; ?>" alt="...">
-                  </div>
-                  <div class="fileinput-preview fileinput-exists thumbnail"></div><br><br>
-                  <div>
-                    <span class="btn btn-rose btn-round btn-file">
-                      <span class="fileinput-new">Selection image</span>
-                      <span class="fileinput-exists">Changer</span>
-                      <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple" />
-                    </span>
-                    <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
-                    <button type="submit" name="envoieimagemembre" class="btn btn-primary btn-round btn-rose">Modifier l'image</button>
-                  </div>
-                </div>
-            </center>
-            </form>
+                    <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                      <div class="fileinput-new thumbnail">
+                        <img src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/<?php echo $image; ?>" alt="...">
+                      </div>
+                      <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                      <br><br>
+                      <div>
+                        <span class="btn btn-rose btn-round btn-file">
+                          <span class="fileinput-new">Selection image</span>
+                          <span class="fileinput-exists">Changer</span>
+                          <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple" />
+                        </span>
+                        <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
+                        <button type="submit" name="envoieimagemembre" class="btn btn-primary btn-round btn-rose">Modifier l'image</button>
+                      </div>
+                    </div>
+                  </center>
+                </form>
               </div>
             </div>
-                    <div class="col-sm-6">
-                        <div class="card-content">
-                          <form action="" method="post" id="myForm1" class="contact-form">
-                            <h3 class="card-title text-center">Titres de la page</h3>
-                            <br><br>
-
-                          <div class="form-group label-floating">
-                              <label class="control-label">Titre de la page</label>
-                              <input type="text" class="form-control" value="<?php echo $pagetitre; ?>" name="pagetitre" id="pagetitre">
-                          </div>
-                          <div class="form-group label-floating">
-                              <label class="control-label">Titre</label>
-                              <input type="text" name="titre" value="<?php echo $titre; ?>" id="titre" class="form-control">
-                          </div><br>
-                            <center>
-                            <button id="submitFormDataMembre" onclick="SubmitFormDataMembre();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
-                            </center>
-                           </div>
-                         </form>
-
-                      </div>
+          <div class="col-sm-6">
+            <div class="card-content">
+              <form action="" method="post" id="myForm1" class="contact-form">
+                <h3 class="card-title text-center">Titres de la page</h3>
+                <br><br>
+                <div class="form-group label-floating">
+                  <label class="control-label">Titre de la page</label>
+                  <input type="text" class="form-control" value="<?php echo $pagetitre; ?>" name="pagetitre" id="pagetitre">
                 </div>
+                <div class="form-group label-floating">
+                  <label class="control-label">Titre</label>
+                  <input type="text" name="titre" value="<?php echo $titre; ?>" id="titre" class="form-control">
+                </div>
+                <br>
+                <center>
+                  <button id="submitFormDataMembre" onclick="SubmitFormDataMembre();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                </center>
+              </form>
             </div>
-
-
+          </div>
         </div>
-    </div>
+        <div id="results10"></div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="card-content">
+              <h3 class="card-title">Liste des Membres du Bureau</h3>
+            </div>
+          </div>
+        </div>
 
- <div id="results10"> <!-- TRES IMPORTANT -->
-</div>
+
+
+
+
+
+
+
 <?php
-
-
-
-
-
-
-
-
-
-//Fin modif membres
-
-
-
-
-
-
 
       $selectnom = $db->prepare("SELECT id, image, nom, categorie, importance, fonction, description FROM membres");
       $selectnom->execute();
 
-
       $table = $selectnom->fetchAll(PDO::FETCH_OBJ);
       if(count($table)>0){
 
-        echo "<h3>".count($table)." Personnes trouvées</h3>";
-        echo '
-        <table class="table">
-        <thead>
-        <tr>
-        <th scope="col">Nom</th>
-        <th scope="col">Image</th>
-        <th scope="col">Fonction</th>
-        <th scope="col">Action</th>
+ ?>
+     <div class="table-responsive">
+       <table class="table">
+         <thead class="text-primary">
+           <th class="text-center">Nom</th>
+           <th class="text-center">Image</th>
+           <th class="text-center">Fonction</th>
+           <th class="text-center">Action</th>
+         </thead>
+         <tbody>
 
-
-        </tr>
-        </thead>
-        <tbody>
-
-        ';
+    <?php
         foreach($table as $ligne){
           $id = $ligne->id;
           $nom = $ligne->nom;
           $image = $ligne->image;
           $fonction = $ligne->fonction;
 
-
-          echo '
+          ?>
 
           <tr>
-            <th scope="row">'.$nom.'</th>
-            <td>'.$image.'<td>
-            <td>'.$fonction.'</td>
-
-            <td>
-
-            <a href="?page=membre&amp;table=membres&amp;modifmembre='.$id.'">
-            <button type="button" class="btn">Modifier</button>
-            </a>
-            <a href="?page=membre&amp;table=membres&amp;deletemembre='.$id.'">
-            <button type="button" class="btn">Supprimer</button>
-            </a>
-
+            <td class="text-center"><?php echo $nom;?></td>
+            <td class="text-center"><?php echo $image;?></td>
+            <td class="text-center"><?php echo $fonction,;?></td>
+            <td class="text-center">
+              <a href="?page=membre&amp;table=membres&amp;modifmembre='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Modifier</button></a>
+              <a href="?page=membre&amp;table=membres&amp;deletemembre='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Supprimer</button></a>
             </td>
           </tr>
 
-          ';
+<?php
         }
 
-        echo '
-      </tbody>
+?>
+
+        </tbody>
       </table>
+    </div>
 
+<?php
 
-        ';
       }else{
         $error = "Aucune personne trouvée";
       }
@@ -1991,6 +1972,9 @@ $titre = $r4->titre;
 
 ?>
 
+</div>
+</div>
+</div>
 
 <!-- Ajoutd'images au site web (assets)-->
 <?php
