@@ -1472,6 +1472,7 @@ if ($uploadOk == 0) {
       <div class="card">
         <div class="card-content">
           <h2 class="card-title text-center">Modification des informations d'un membre</h2>
+          <br><br>
           <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
             <div class="row">
                 <div class="col-sm-5">
@@ -1564,6 +1565,7 @@ if ($uploadOk == 0) {
                     <center>
                       <button id="submitFormDataModifMembre" onclick="SubmitFormDataModifMembre();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
                     </center>
+                    <br>
                   </div>
                 </div>
               </div>
