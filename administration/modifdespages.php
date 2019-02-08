@@ -712,6 +712,7 @@ if ($uploadOk == 0) {
   }
 
   </script>
+
     <div class="content">
         <div class="container-fluid">
             <div class="card">
@@ -1838,35 +1839,43 @@ $titre = $r4->titre;
 
 
 <div class="content">
-    <div class="container-fluid">
-        <div class="card">
-            <div class="card-content">
-                <h2 class="card-title text-center">Modification page présentation membres</h2>
-
-                <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-                          <div class="row">
-                              <div class="col-sm-6">
-
-                                   <div class="form-group form-file-upload">
-                                       <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
-                                       <div class="input-group">
-                                           <input type="text" readonly="" class="form-control" placeholder="<?php echo $image; ?>">
-                                           <span class="input-group-btn input-group-s">
-                                               <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
-                                                   <i class="material-icons">layers</i>
-                                               </button>
-                                           </span>
-                                       </div>
-                                   </div>
-                                </div>
-
-                                <div class="col-sm-12">
-                                    <div class="card-content">
-                                        <input type="submit" name="envoieimagemembre" value="Modifier l'image">
-                                     </div>
-                                  </div>
-                          </div>
-                        </form>
+  <div class="container-fluid">
+    <div class="card">
+      <div class="card-content">
+        <h2 class="card-title text-center">Modification page présentation membres</h2>
+        <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="card-content">
+                <h3 class="card-title">Image de fond</h3>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="card-content">
+                <div class="form-group form-file-upload">
+                  <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
+                  <div class="input-group">
+                    <input type="text" readonly="" class="form-control" placeholder="<?php echo $image; ?>">
+                    <span class="input-group-btn input-group-s">
+                      <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
+                        <i class="material-icons">layers</i>
+                      </button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="card-content">
+                <center>
+                  <button type="submit" name="envoieimagemembre" class="btn btn-primary btn-round btn-rose">Modifier l'image</button>
+                </center>
+              </div>
+            </div>
+          </div>
+        </form>
 
 
                 <form action="" method="post" id="myForm1" class="contact-form">
