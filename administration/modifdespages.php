@@ -1861,13 +1861,22 @@ $titre = $r4->titre;
                   <div class="fileinput-preview fileinput-exists thumbnail"></div>
                   <div>
                     <span class="btn btn-rose btn-round btn-file">
-                      <span class="fileinput-new">Select image</span>
-                      <span class="fileinput-exists">Change</span>
+                      <span class="fileinput-new">Selectionner image</span>
+                      <span class="fileinput-exists">Changer</span>
                       <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple" />
                     </span>
-                    <atype="submit" name="envoieimagemembre" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i>Modifier l'image</a>
+                    <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
                   </div>
                 </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="card-content">
+                <div class="form-group label-floating">
+                <center>
+                  <button type="submit" name="envoieimagemembre" class="btn btn-primary btn-round btn-rose">Modifier l'image</button>
+                </center>
+              </div>
               </div>
             </div>
           </div>
