@@ -1854,6 +1854,7 @@ $titre = $r4->titre;
             <div class="col-sm-6">
               <div class="card-content">
                 <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+                  <h2 class="card-title text-center">Image d'Arrière plan</h2>
                 <div class="fileinput fileinput-new text-center" data-provides="fileinput">
                   <div class="fileinput-new thumbnail">
                     <img src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/<?php echo $image; ?>" alt="...">
@@ -1889,7 +1890,6 @@ $titre = $r4->titre;
                           </div>
                             <center>
                             <button id="submitFormDataMembre" onclick="SubmitFormDataMembre();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
-                            <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                             </center>
                            </div>
                          </form>
