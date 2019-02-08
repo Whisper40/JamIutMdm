@@ -1864,7 +1864,7 @@ $titre = $r4->titre;
                   <div class="fileinput-preview fileinput-exists thumbnail"></div>
                   <div>
                     <span class="btn btn-rose btn-round btn-file">
-                      <span class="fileinput-new">Selectionner image</span>
+                      <span class="fileinput-new">Selection image</span>
                       <span class="fileinput-exists">Changer</span>
                       <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple" />
                     </span>
@@ -1879,6 +1879,9 @@ $titre = $r4->titre;
                     <div class="col-sm-6">
                         <div class="card-content">
                           <form action="" method="post" id="myForm1" class="contact-form">
+                            <h3 class="card-title text-center">Titres de la page</h3>
+                            <br><br>
+
                           <div class="form-group label-floating">
                               <label class="control-label">Titre de la page</label>
                               <input type="text" class="form-control" value="<?php echo $pagetitre; ?>" name="pagetitre" id="pagetitre">
