@@ -1854,26 +1854,20 @@ $titre = $r4->titre;
           <div class="row">
             <div class="col-sm-6">
               <div class="card-content">
-                <div class="form-group form-file-upload">
-                  <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
-                  <div class="input-group">
-                    <input type="text" readonly="" class="form-control" placeholder="<?php echo $image; ?>">
-                    <span class="input-group-btn input-group-s">
-                      <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
-                        <i class="material-icons">layers</i>
-                      </button>
+                <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                  <div class="fileinput-new thumbnail">
+                    <img src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/<?php echo $image; ?>" alt="...">
+                  </div>
+                  <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                  <div>
+                    <span class="btn btn-rose btn-round btn-file">
+                      <span class="fileinput-new">Select image</span>
+                      <span class="fileinput-exists">Change</span>
+                      <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple" />
                     </span>
+                    <atype="submit" name="envoieimagemembre" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i>Modifier l'image</a>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="card-content">
-                <div class="form-group label-floating">
-                <center>
-                  <button type="submit" name="envoieimagemembre" class="btn btn-primary btn-round btn-rose">Modifier l'image</button>
-                </center>
-              </div>
               </div>
             </div>
           </div>
