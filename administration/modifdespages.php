@@ -2167,7 +2167,7 @@ if ($uploadOk == 0) {
                         <center>
                         <div class="fileinput fileinput-new text-center" data-provides="fileinput">
                           <div class="fileinput-new thumbnail img-circle">
-                            <img src="../../assets/img/placeholder.jpg" alt="...">
+                            <img src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/placeholder.jpg" alt="...">
                           </div>
                           <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
                           <div>
