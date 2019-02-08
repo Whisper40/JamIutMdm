@@ -1944,9 +1944,9 @@ $titre = $r4->titre;
           echo '
 
           <tr>
-            <td class="text-center">'.$nom.'</td>
-            <td class="text-center">'.$image.'</td>
-            <td class="text-center">'.$fonction.'</td>
+            <td class="text-left">'.$nom.'</td>
+            <td class="text-left">'.$image.'</td>
+            <td class="text-left">'.$fonction.'</td>
             <td class="text-center">
               <a href="?page=membre&amp;table=membres&amp;modifmembre='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Modifier</button></a>
               <a href="?page=membre&amp;table=membres&amp;deletemembre='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Supprimer</button></a>
