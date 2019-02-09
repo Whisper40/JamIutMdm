@@ -2646,16 +2646,13 @@ if ($uploadOk == 0) {
       $table = $selectnom->fetchAll(PDO::FETCH_OBJ);
       if(count($table)>0){
 
-        echo "<h3>".count($table)." status trouvés</h3>";
         echo '
-
-
         <div class="table-responsive">
           <table class="table">
             <thead class="text-primary">
               <th class="text-center">Article</th>
-              <th class="text-center">Titre/Sous titre</th>
-              <th class="text-center">Description</th>
+              <th class="text-center">Titre</th>
+              <th class="text-center">Sous titre</th>
               <th class="text-center">Action</th>
             </thead>
             <tbody>
@@ -2668,12 +2665,11 @@ if ($uploadOk == 0) {
           $soustitre = $ligne->soustitre;
           $description = $ligne->description;
 
-
           echo '
           <tr>
             <td class="text-center">'.$article.'</td>
-            <td class="text-center">'.$titre.'</td>
-            <td class="text-center">'.$soustitre.'</td>
+            <td class="text-left">'.$titre.'</td>
+            <td class="text-left">'.$soustitre.'</td>
             <td class="text-center">
               <a href="?page=status&amp;table=status&amp;modifstatus='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Modifier</button></a>
               <a href="?page=status&amp;table=status&amp;deletestatus='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Supprimer</button></a>
