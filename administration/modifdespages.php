@@ -2651,8 +2651,8 @@ if ($uploadOk == 0) {
           <table class="table">
             <thead class="text-primary">
               <th class="text-center">Article</th>
-              <th class="text-center">Titre</th>
-              <th class="text-center">Sous titre</th>
+              <th class="text-left">Titre</th>
+              <th class="text-left">Sous titre</th>
               <th class="text-center">Action</th>
             </thead>
             <tbody>
@@ -2690,6 +2690,15 @@ if ($uploadOk == 0) {
       }
 
 ?>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card-content">
+          <h3 class="card-title">Création d'un statuts</h3>
+        </div>
+      </div>
+    </div>
+
 <script>
 
 
@@ -2706,62 +2715,52 @@ function SubmitFormDataCreateStatus() {
    });
 
 }
-
 </script>
-<div class="content">
-    <div class="container-fluid">
-        <div class="card">
-            <div class="card-content">
-                <h2 class="card-title text-center">Création d'un status</h2>
-                <form action="" method="post" id="myForm1" class="contact-form">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="card-content">
-                          <div class="form-group label-floating">
-                              <label class="control-label">Article</label>
-                              <input type="text" class="form-control" value="Numéro de l'article" name="article" id="article">
-                          </div>
-                          <div class="form-group label-floating">
-                              <label class="control-label">Titre</label>
-                              <input type="text" name="titrestatus" value="Titre du status" id="titrestatus" class="form-control">
-                          </div>
 
-
-
-                        <div class="form-group label-floating">
-                        <label class="control-label">Sous Titre</label>
-                        <input type="text" name="soustitre" value="Sous titre" id="soustitre" class="form-control">
-                        </div>
-
-
-                          <div class="form-group label-floating">
-                              <label class="control-label">Description</label>
-                              <input type="text" name="description" value="La description" id="description" class="form-control">
-                          </div>
-                         </div>
-                      </div>
-
-                    <div class="col-sm-12">
-                        <div class="card-content">
-
-                          <center>
-                          <button id="submitFormDataCreateStatus" onclick="SubmitFormDataCreateStatus();" type="button" class="btn btn-primary btn-round btn-rose">Créer</button>
-                          <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
-                          </center>
-                         </div>
-                      </div>
+          <form action="" method="post" id="myForm1" class="contact-form">
+            <div class="row">
+                <div class="col-sm-6">
+                  <div class="card-content">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Article</label>
+                      <input type="text" class="form-control" value="Numéro de l'article" name="article" id="article">
+                    </div>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Titre</label>
+                      <input type="text" name="titrestatus" value="Titre du status" id="titrestatus" class="form-control">
+                    </div>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Sous Titre</label>
+                      <input type="text" name="soustitre" value="Sous titre" id="soustitre" class="form-control">
+                    </div>
+                  </div>
                 </div>
-              </form>
-            </div>
+                <div class="col-sm-6">
+                  <div class="card-content">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Description</label>
+                      <textarea rows="10" type="text" name="description" value="Description du Status" id="description" class="form-control"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="card-content">
+                    <center>
+                      <button id="submitFormDataCreateStatus" onclick="SubmitFormDataCreateStatus();" class="btn btn-primary btn-round btn-rose">Créer un statuts</button>
+                    </center>
+                  </div>
+                </div>
+              </div>
+            </form>
+          <div id="results7"></div>
+          </div>
         </div>
+      </div>
     </div>
-
- <div id="results7"> <!-- TRES IMPORTANT -->
-
-
-
-</div>
-</div>
+  </div>
+  
 <?php
 //FIn Création
 }
