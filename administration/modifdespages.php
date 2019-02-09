@@ -3102,7 +3102,7 @@ if ($uploadOk == 0) {
                         <div class="card-content">
                           <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
                             <h3 class="card-title text-center">Image d'Arrière plan</h3>
-                            <br><br><br><br>
+                            <br><br><br>
                             <center>
                               <div class="fileinput fileinput-new text-center" data-provides="fileinput">
                                 <div class="fileinput-new thumbnail">
@@ -3186,8 +3186,8 @@ if ($uploadOk == 0) {
           <table class="table">
             <thead class="text-primary">
               <th class="text-center">Titre</th>
-              <th class="text-left">Description</th>
-              <th class="text-left">Status</th>
+              <th class="text-center">Description</th>
+              <th class="text-center">Status</th>
               <th class="text-center">Action</th>
             </thead>
             <tbody>
@@ -3214,8 +3214,8 @@ $result = raccourcirChaine($description, 80);
 
               <tr>
                 <td class="text-center">'.$title.'</td>
-                <td class="text-left">'.$result.'</td>
-                <td class="text-left">'.$status.'</td>
+                <td class="text-center">'.$result.'</td>
+                <td class="text-center">'.$status.'</td>
                 <td class="text-center">
                   <a href="?page=actualite&amp;table=newsactus&amp;modifactus='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Modifier</button></a>
                   <a href="?page=actualite&amp;table=newsactus&amp;'.$act.'actus='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Supprimer</button></a>
