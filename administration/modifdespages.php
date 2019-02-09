@@ -38,7 +38,7 @@ function RetourIndex(){
       }else if ($_GET['page']=='status'){
         $nomsouscat = "Les Status";
       }else if ($_GET['page']=='actualite'){
-        $nomsouscat = "	Actualités";
+        $nomsouscat = "Actualités";
       }else if ($_GET['page']=='activitesvoyages'){
         $nomsouscat = "Activités / Voyage";
       }else if ($_GET['page']=='galerie'){
@@ -3218,7 +3218,7 @@ $result = raccourcirChaine($description, 80);
                 <td class="text-center">'.$status.'</td>
                 <td class="text-center">
                   <a href="?page=actualite&amp;table=newsactus&amp;modifactus='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Modifier</button></a>
-                  <a href="?page=actualite&amp;table=newsactus&amp;'.$act.'actus='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Supprimer</button></a>
+                  <a href="?page=actualite&amp;table=newsactus&amp;'.$act.'actus='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">'.$message.'</button></a>
                 </td>
               </tr>
           ';
@@ -5411,96 +5411,76 @@ if ($uploadOk == 0) {
 
     }else {
         $error = 'Désolé, une erreur est survenue.';
-    } } }
+    } } } } ?>
 
-          } ?>
-
-
-
-
-
-
-
-<div class="content">
-    <div class="container-fluid">
-        <div class="card">
-            <div class="card-content">
-                <h2 class="card-title text-center">Modification de la page Contactez-nous</h2>
-
-
-
-
-
-<form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-                              <div class="row">
-                                  <div class="col-sm-6">
-
-                                       <div class="form-group form-file-upload">
-                                           <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
-                                           <div class="input-group">
-                                               <input type="text" readonly="" class="form-control" placeholder="<?php echo $image; ?>">
-                                               <span class="input-group-btn input-group-s">
-                                                   <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
-                                                       <i class="material-icons">layers</i>
-                                                   </button>
-                                               </span>
-                                           </div>
-                                       </div>
-                                    </div>
-
-                                    <div class="col-sm-12">
-                                        <div class="card-content">
-                                            <input type="submit" name="modifphotocontacteznous" value="Modifier l'image">
-                                         </div>
-                                      </div>
+          <div class="content">
+            <div class="container-fluid">
+              <div class="card">
+                <div class="card-content">
+                  <h2 class="card-title text-center">Modification page nous-contacter</h2>
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <div class="card-content">
+                          <h3 class="card-title">En-tête de page</h3>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="card-content">
+                          <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+                            <h3 class="card-title text-center">Image d'Arrière plan</h3>
+                            <br><br><br>
+                            <center>
+                              <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                                <div class="fileinput-new thumbnail">
+                                  <img src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/<?php echo $image; ?>" alt="...">
+                                </div>
+                                <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                                <br><br>
+                                <div>
+                                  <span class="btn btn-rose btn-round btn-file">
+                                    <span class="fileinput-new">Selection image</span>
+                                    <span class="fileinput-exists">Changer</span>
+                                    <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
+                                  </span>
+                                  <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
+                                  <button type="submit" name="modifphotocontacteznous" class="btn btn-primary btn-round btn-rose">Modifier l'image</button>
+                                </div>
                               </div>
-                            </form>
-
-
-
-                <form action="" method="post" id="myForm1" class="contact-form">
-                <div class="row">
+                            </center>
+                          </form>
+                        </div>
+                      </div>
                     <div class="col-sm-6">
-                        <div class="card-content">
+                      <div class="card-content">
+                        <form action="" method="post" id="myForm1" class="contact-form">
+                          <h3 class="card-title text-center">Titres de la page</h3>
                           <div class="form-group label-floating">
-                              <label class="control-label">Titre de la page</label>
-                              <input type="text" class="form-control" value="<?php echo $pagetitre; ?>" name="pagetitre" id="pagetitre">
+                            <label class="control-label">Titre de la page</label>
+                            <input type="text" value="<?php echo $pagetitre; ?>" name="pagetitre" id="pagetitre" class="form-control">
                           </div>
-
-
-
-
-                        <div class="form-group label-floating">
-                        <label class="control-label">Titre</label>
-                        <input type="text" name="titre" value="<?php echo $titre; ?>" id="titre" class="form-control">
-                        </div>
-
-                        <div class="form-group label-floating">
-                        <label class="control-label">Description</label>
-                        <input type="text" name="description" value="<?php echo $description; ?>" id="description" class="form-control">
-                        </div>
-
-                         </div>
-                      </div>
-
-                    <div class="col-sm-12">
-                        <div class="card-content">
-
+                          <div class="form-group label-floating">
+                            <label class="control-label">Titre</label>
+                            <input type="text" name="titre" value="<?php echo $titre; ?>" id="titre" class="form-control">
+                          </div>
+                          <div class="form-group label-floating">
+                              <label class="control-label">Description</label>
+                              <textarea rows="5" name="description" id="description" class="form-control"><?php echo $description; ?></textarea>
+                          </div>
+                          <br>
                           <center>
-                          <button id="submitFormDataContactUs" onclick="SubmitFormDataContactUs();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
-                          <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
+                            <button id="submitFormDataContactUs" onclick="SubmitFormDataContactUs();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
                           </center>
-                         </div>
+                        </form>
                       </div>
+                    </div>
+                  </div>
+                  <div id="results22"></div>
                 </div>
-              </form>
+              </div>
             </div>
-        </div>
-    </div>
-
- <div id="results22"> <!-- TRES IMPORTANT -->
-</div>
-</div>
+          </div>
 
 <?php
 
