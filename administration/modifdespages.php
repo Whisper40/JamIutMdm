@@ -2723,15 +2723,15 @@ function SubmitFormDataCreateStatus() {
                   <div class="card-content">
                     <div class="form-group label-floating">
                       <label class="control-label">Article</label>
-                      <input type="text" class="form-control" value="Numéro de l'article" name="article" id="article">
+                      <input type="text" class="form-control" name="article" id="article">
                     </div>
                     <div class="form-group label-floating">
                       <label class="control-label">Titre</label>
-                      <input type="text" name="titrestatus" value="Titre du status" id="titrestatus" class="form-control">
+                      <input type="text" name="titrestatus" id="titrestatus" class="form-control">
                     </div>
                     <div class="form-group label-floating">
                       <label class="control-label">Sous Titre</label>
-                      <input type="text" name="soustitre" value="Sous titre" id="soustitre" class="form-control">
+                      <input type="text" name="soustitre" id="soustitre" class="form-control">
                     </div>
                   </div>
                 </div>
@@ -2739,7 +2739,7 @@ function SubmitFormDataCreateStatus() {
                   <div class="card-content">
                     <div class="form-group label-floating">
                       <label class="control-label">Description</label>
-                      <textarea rows="10" type="text" name="description" value="Description du Status" id="description" class="form-control"></textarea>
+                      <textarea rows="9" type="text" name="description" value="Description du Status" id="description" class="form-control"></textarea>
                     </div>
                   </div>
                 </div>
@@ -2760,7 +2760,7 @@ function SubmitFormDataCreateStatus() {
       </div>
     </div>
   </div>
-  
+
 <?php
 //FIn Création
 }
