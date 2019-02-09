@@ -2344,7 +2344,7 @@ function RetourIndex3(){
                       </div>
                       <div class="form-group label-floating">
                         <label class="control-label">Titre</label>
-                        <input type="text" name="titrestatus" value="<?php echo $titre; ?>" id="titrestatus" class="form-control">
+                        <input type="text" name="titrestatus" value="<?php echo $titre; ?>" id="titre" class="form-control">
                       </div>
                       <div class="form-group label-floating">
                         <label class="control-label">Sous Titre (Optionel)</label>
