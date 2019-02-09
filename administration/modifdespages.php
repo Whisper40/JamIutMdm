@@ -2333,6 +2333,7 @@ function RetourIndex3(){
       <div class="card">
         <div class="card-content">
           <h2 class="card-title text-center">Modification d'un statuts</h2>
+          <br><br>
             <form action="" method="post" id="myForm1" class="contact-form">
               <div class="row">
                   <div class="col-sm-6">
@@ -2366,6 +2367,7 @@ function RetourIndex3(){
                       <center>
                         <button id="submitFormDataModifStatus" onclick="SubmitFormDataModifStatus();" class="btn btn-primary btn-round btn-rose">Créer un statuts</button>
                       </center>
+                      <br><br>
                     </div>
                   </div>
                 </div>
