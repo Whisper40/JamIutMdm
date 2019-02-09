@@ -2355,7 +2355,7 @@ function RetourIndex3(){
                     <div class="card-content">
                       <div class="form-group label-floating">
                         <label class="control-label">Description</label>
-                        <textarea rows="9" type="text" name="description" value="<?php echo $description; ?>" value="Description du Status" id="description" class="form-control"></textarea>
+                        <textarea rows="9" type="text" name="description" value="Description du Status" id="description" class="form-control"><?php echo $description; ?></textarea>
                       </div>
                     </div>
                   </div>
