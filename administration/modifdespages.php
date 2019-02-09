@@ -2356,7 +2356,7 @@ function RetourIndex3(){
                     <div class="card-content">
                       <div class="form-group label-floating">
                         <label class="control-label">Description</label>
-                        <textarea rows="9" type="text" name="description" value="Description du Status" id="description" class="form-control"><?php echo $description; ?></textarea>
+                        <textarea rows="9" type="text" name="description" value="<?php echo $description; ?>" value="Description du Status" id="description" class="form-control"></textarea>
                       </div>
                     </div>
                   </div>
@@ -2365,7 +2365,7 @@ function RetourIndex3(){
                   <div class="col-sm-12">
                     <div class="card-content">
                       <center>
-                        <button id="submitFormDataModifStatus" onclick="SubmitFormDataModifStatus();" class="btn btn-primary btn-round btn-rose">Créer un statuts</button>
+                        <button id="submitFormDataModifStatus" onclick="SubmitFormDataModifStatus();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
                       </center>
                       <br><br>
                     </div>
@@ -2377,8 +2377,68 @@ function RetourIndex3(){
           </div>
         </div>
       </div>
+    </div>
 
-  <?php }else{ ?>
+
+
+
+
+    <div class="content">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-content">
+                    <h2 class="card-title text-center">Modification des informations</h2>
+                    <form action="" method="post" id="myForm1" class="contact-form">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="card-content">
+                              <div class="form-group label-floating">
+                                  <label class="control-label">Article</label>
+                                  <input type="text" class="form-control" value="<?php echo $article; ?>" name="article" id="article">
+                              </div>
+
+                              <div class="form-group label-floating">
+                                  <label class="control-label">Titre</label>
+                                  <input type="text" name="titre" value="<?php echo $titre; ?>" id="titre" class="form-control">
+                              </div>
+
+                              <div class="form-group label-floating">
+                                  <label class="control-label">Sous Titre</label>
+                                  <input type="text" name="soustitre" value="<?php echo $soustitre; ?>" id="soustitre" class="form-control">
+                              </div>
+
+                              <div class="form-group label-floating">
+                                  <label class="control-label">Description</label>
+                                  <input type="text" name="description" value="<?php echo $description; ?>" id="description" class="form-control">
+                              </div>
+                             </div>
+                          </div>
+
+                        <div class="col-sm-12">
+                            <div class="card-content">
+
+                              <center>
+                              <button id="submitFormDataModifStatus" onclick="SubmitFormDataModifStatus();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                              <button onclick="RetourIndex3();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
+                              </center>
+                             </div>
+                          </div>
+                    </div>
+                  </form>
+                </div>
+            </div>
+        </div>
+
+     <div id="results6"> <!-- TRES IMPORTANT -->
+    </div>
+  </div>
+  <?php
+
+
+
+
+}else{
+?>
 
 <?php
 $selectinfosactuel40 = $db->prepare("SELECT * from photopage where nompage=:nompage");
