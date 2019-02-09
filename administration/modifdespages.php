@@ -2629,7 +2629,7 @@ if ($uploadOk == 0) {
                   <div class="row">
                     <div class="col-sm-12">
                       <div class="card-content">
-                        <h3 class="card-title">Liste des Membres du Bureau</h3>
+                        <h3 class="card-title">Liste des statuts</h3>
                       </div>
                     </div>
                   </div>
@@ -2648,20 +2648,19 @@ if ($uploadOk == 0) {
 
         echo "<h3>".count($table)." status trouvés</h3>";
         echo '
-        <table class="table">
-        <thead>
-        <tr>
-        <th scope="col">Article</th>
-        <th scope="col">Titre/Sous titre</th>
-        <th scope="col">Description</th>
-        <th scope="col">Action</th>
 
 
-        </tr>
-        </thead>
-        <tbody>
-
+        <div class="table-responsive">
+          <table class="table">
+            <thead class="text-primary">
+              <th class="text-center">Article</th>
+              <th class="text-center">Titre/Sous titre</th>
+              <th class="text-center">Description</th>
+              <th class="text-center">Action</th>
+            </thead>
+            <tbody>
         ';
+
         foreach($table as $ligne){
           $id = $ligne->id;
           $article = $ligne->article;
@@ -2671,35 +2670,28 @@ if ($uploadOk == 0) {
 
 
           echo '
-
           <tr>
-            <th scope="row">'.$article.'</th>
-            <td>'.$titre.'<td>
-            <td>'.$soustitre.'</td>
-            <td>
-            <a href="?page=status&amp;table=status&amp;modifstatus='.$id.'">
-            <button type="button" class="btn">Modifier</button>
-            </a>
-            <a href="?page=status&amp;table=status&amp;deletestatus='.$id.'">
-            <button type="button" class="btn">Supprimer</button>
-            </a>
+            <td class="text-center">'.$article.'</td>
+            <td class="text-center">'.$titre.'</td>
+            <td class="text-center">'.$soustitre.'</td>
+            <td class="text-center">
+              <a href="?page=status&amp;table=status&amp;modifstatus='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Modifier</button></a>
+              <a href="?page=status&amp;table=status&amp;deletestatus='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Supprimer</button></a>
             </td>
           </tr>
           ';
+
         }
 
         echo '
-      </tbody>
+        </tbody>
       </table>
-
-
+    </div>
         ';
+
       }else{
         $error = "Aucun status trouvé";
       }
-
-
-//Création membres
 
 ?>
 <script>
