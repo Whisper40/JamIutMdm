@@ -317,94 +317,70 @@ if($countid2>'0'){
   $user_id=$_GET['id'];
   ?>
 
-        <td class="text-center">
-          <button onclick="demo.showSwal('confirmpaiementaccess','<?php echo $user_id; ?>','<?php echo $_GET['id']; ?>')" type="button" class="btn btn-primary btn-round btn-rose">Confirmer le paiement manuel</button>
-
-        </td>
-
-        <div id="results29"> <!-- TRES IMPORTANT -->
-        </div>
-
-
-
-<div class="row">
-  <div class="col-sm-12">
-    <div class="card-content">
-      <h3 class="card-title">Contacter la personne par Email</h3>
-    </div>
-  </div>
-</div>
-<form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-<div class="row">
-  <div class="col-sm-6">
-    <div class="card-content">
-      <div class="form-group label-floating">
-          <textarea name="message" class="form-control" rows="8" placeholder="Votre message"></textarea>
-          <span class="help-block">Merci de décrire précisément votre message</span>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6">
-    <div class="card-content">
-      <br>
-      <div class="form-group form-file-upload">
-          <input type="file" id="attachment" name="attachment[]" multiple="">
-          <div class="input-group">
-              <input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
-              <span class="input-group-btn input-group-s">
-                  <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
-                      <i class="material-icons">layers</i>
-                  </button>
-              </span>
+            <td class="text-center">
+              <button onclick="demo.showSwal('confirmpaiementaccess','<?php echo $user_id; ?>','<?php echo $_GET['id']; ?>')" type="button" class="btn btn-primary btn-round btn-rose">Confirmer le paiement manuel</button>
+            </td>
+              <div id="results29"></div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="card-content">
+                    <h3 class="card-title">Contacter la personne par Email</h3>
+                  </div>
+                </div>
+              </div>
+              <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="card-content">
+                    <div class="form-group label-floating">
+                      <textarea name="message" class="form-control" rows="8" placeholder="Votre message"></textarea>
+                      <span class="help-block">Merci de décrire précisément votre message</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="card-content">
+                    <br>
+                    <div class="form-group form-file-upload">
+                      <input type="file" id="attachment" name="attachment[]" multiple="">
+                      <div class="input-group">
+                        <input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
+                        <span class="input-group-btn input-group-s">
+                          <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
+                            <i class="material-icons">layers</i>
+                          </button>
+                        </span>
+                      </div>
+                    </div>
+                    <center>
+                      <div class="form-group label-floating">
+                        <div class="g-recaptcha" data-sitekey="<?= $sitekey; ?>"></div>
+                      </div>
+                    </center>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="card-content">
+                    <center>
+                      <button type="submit" name="submit" value="Envoyer un message" class="btn btn-rose btn-round">Envoyer le message</button>
+                    </center>
+                  </div>
+                </div>
+              </div>
+            </form>
           </div>
-      </div>
-      <center>
-        <div class="form-group label-floating">
-            <div class="g-recaptcha" data-sitekey="<?= $sitekey; ?>"></div>
         </div>
-      </center>
+      </div>
     </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-sm-12">
-    <div class="card-content">
-      <center>
-        <button type="submit" name="submit" value="Envoyer un message" class="btn btn-rose btn-round">Envoyer le message</button>
-      </center>
-    </div>
-  </div>
-</div>
-</form>
-
-    </div>
-
-
-
-
-
-  </div>
-
-
-</div>
-</div>
 
  <?php
-
-
-}
-
-
-
-
-
-
-}else{
+    } }else{
 
     $selectid = $db->prepare("SELECT distinct user_id FROM validationfichiers WHERE status='EN ATTENTE DE VALIDATION' ORDER BY date");
     $selectid->execute();
     $countid = $selectid->rowCount();
-
     ?>
 
     <div class="content">
@@ -428,10 +404,7 @@ if($countid2>'0'){
               if($countid>'0'){
                   $table = $selectid->fetchAll(PDO::FETCH_OBJ);
 
-
-
                     echo '
-
                   <div class="table-responsive">
                     <table class="table">
                       <thead class="text-primary">
@@ -452,49 +425,39 @@ if($countid2>'0'){
                           ));
                           $table2 = $selectnom->fetch(PDO::FETCH_OBJ);
 
-
                           $username = $table2->username;
                           $email = $table2->email;
                           $status = $table2->status;
-                          echo '
 
+                          echo '
                         <tr>
                           <td class="text-center">'.$username.'</td>
                           <td class="text-center">'.$email.'</td>
                           <td class="text-center">'.$status.'</td>
                           <td class="text-center"><a href="?action=gestionfichier&amp;id='.$user_id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Afficher</button></a></td>
-                        </tr>';
+                        </tr>
+                        ';
                       }
 
                       echo '
-                    </tbody>
+                      </tbody>
                     </table>
-                    </div>
+                  </div>
                       ';
-                          }
+
+                        }
                       ?>
 
-                </div>
               </div>
             </div>
-        </div>
-      </div>
-    </div>
-  </div>
-<?php
+          </div>
 
+  <?php
   $selectid2 = $db->prepare("SELECT id FROM users WHERE status='EN ATTENTE DE PAIEMENT' ORDER BY id ASC");
   $selectid2->execute();
   $countid2 = $selectid2->rowCount();
-
   ?>
 
-  <div class="content">
-    <div class="container-fluid">
-      <div class="card">
-        <div class="card-content">
-          <h2 class="card-title text-center">Demande d'Adhésion</h2>
-          <br>
           <div class="row">
             <div class="col-sm-12">
               <div class="card-content">
@@ -510,19 +473,16 @@ if($countid2>'0'){
             if($countid2>'0'){
                 $table2 = $selectid2->fetchAll(PDO::FETCH_OBJ);
 
-
-
                   echo '
-
-                <div class="table-responsive">
-                  <table class="table">
-                    <thead class="text-primary">
-                      <th class="text-center">Pseudo</th>
-                      <th class="text-center">Email</th>
-                      <th class="text-center">Statuts</th>
-                      <th class="text-center">Action</th>
-                    </thead>
-                    <tbody>
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class="text-primary">
+                        <th class="text-center">Pseudo</th>
+                        <th class="text-center">Email</th>
+                        <th class="text-center">Statuts</th>
+                        <th class="text-center">Action</th>
+                      </thead>
+                      <tbody>
                       ';
 
                       foreach($table2 as $ligne2){
@@ -534,41 +494,41 @@ if($countid2>'0'){
                         ));
                         $table3 = $selectnom2->fetch(PDO::FETCH_OBJ);
 
-
                         $username = $table3->username;
                         $email = $table3->email;
                         $status = $table3->status;
-                        echo '
 
-                      <tr>
-                        <td class="text-center">'.$username.'</td>
-                        <td class="text-center">'.$email.'</td>
-                        <td class="text-center">'.$status.'</td>
-                        <td class="text-center"><a href="?action=gestionpaiement&amp;id='.$user_id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Afficher</button></a></td>
-                      </tr>';
+                        echo '
+                        <tr>
+                          <td class="text-center">'.$username.'</td>
+                          <td class="text-center">'.$email.'</td>
+                          <td class="text-center">'.$status.'</td>
+                          <td class="text-center"><a href="?action=gestionpaiement&amp;id='.$user_id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Afficher</button></a></td>
+                        </tr>
+                        ';
+
                     }
 
                     echo '
-                  </tbody>
-                  </table>
+                      </tbody>
+                    </table>
                   </div>
                     ';
-                        }
+
+                    }
                     ?>
 
+                </div>
               </div>
             </div>
           </div>
+        </div>
       </div>
     </div>
 
-
-  </div>
-</div>
-
 <?php } ?>
 
-</div>
+  </div>
 </body>
 
 <?php
