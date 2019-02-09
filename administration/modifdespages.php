@@ -3102,7 +3102,7 @@ if ($uploadOk == 0) {
                         <div class="card-content">
                           <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
                             <h3 class="card-title text-center">Image d'Arrière plan</h3>
-                            <br>
+                            <br><br><br><br>
                             <center>
                               <div class="fileinput fileinput-new text-center" data-provides="fileinput">
                                 <div class="fileinput-new thumbnail">
@@ -3152,7 +3152,7 @@ if ($uploadOk == 0) {
                   <div class="row">
                     <div class="col-sm-12">
                       <div class="card-content">
-                        <h3 class="card-title">Liste des adtualités</h3>
+                        <h3 class="card-title">Liste des actualités</h3>
                       </div>
                     </div>
                   </div>
@@ -3180,20 +3180,19 @@ if ($uploadOk == 0) {
       $tableactus = $selectnomactus->fetchAll(PDO::FETCH_OBJ);
       if(count($tableactus)>0){
 
-        echo "<h3>".count($tableactus)." actus trouvés</h3>";
         echo '
-        <table class="table">
-        <thead>
-        <tr>
-        <th scope="col">Titre</th>
-        <th scope="col">Description</th>
-        <th scope="col">Status</th>
-        <th scope="col">Action</th>
-        </tr>
-        </thead>
-        <tbody>
 
+        <div class="table-responsive">
+          <table class="table">
+            <thead class="text-primary">
+              <th class="text-center">Titre</th>
+              <th class="text-left">Description</th>
+              <th class="text-left">Status</th>
+              <th class="text-center">Action</th>
+            </thead>
+            <tbody>
         ';
+
         foreach($tableactus as $ligneactus){
           $id = $ligneactus->id;
           $title = $ligneactus->title;
@@ -3208,39 +3207,32 @@ if ($uploadOk == 0) {
             $message = 'Activer';
           }
 
-
-
-
 $result = raccourcirChaine($description, 80);
 
           echo '
 
-          <tr>
-            <th scope="row">'.$title.'</th>
-            <td>'.$result.'</td>
-            <td>'.$status.'</td>
-            <td>
-            <a href="?page=actualite&amp;table=newsactus&amp;modifactus='.$id.'">
-            <button type="button" class="btn">Modifier</button>
-            </a>
-            <a href="?page=actualite&amp;table=newsactus&amp;'.$act.'actus='.$id.'">
-            <button type="button" class="btn">'.$message.'</button>
-            </a>
-            </td>
-          </tr>
+
+              <tr>
+                <td class="text-center">'.$title.'</td>
+                <td class="text-left">'.$result.'</td>
+                <td class="text-left">'.$status.'</td>
+                <td class="text-center">
+                  <a href="?page=actualite&amp;table=newsactus&amp;modifactus='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Modifier</button></a>
+                  <a href="?page=actualite&amp;table=newsactus&amp;'.$act.'actus='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Supprimer</button></a>
+                </td>
+              </tr>
           ';
         }
 
         echo '
-      </tbody>
-      </table>
-
-
+            </tbody>
+          </table>
+        </div>
         ';
+
       }else{
         $error = "Aucune actualitée trouvée";
       }
-
 
 //Création membres
 function slugify($text){
