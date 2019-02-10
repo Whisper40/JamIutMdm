@@ -76,17 +76,19 @@ if(isset($_POST['submit'])){
       echo"bond";
 
     $id=$_GET['id'];
+    $idutilisateur = $_GET['user_id'];
     $setvalide = $db->prepare("UPDATE validationfichiers SET status='VALIDE' WHERE id=$id");
     $setvalide->execute();
     ?>
-    <script>window.location="https://administration.jam-mdm.fr/veriffichier2.php"</script>
+    <script>window.location="https://administration.jam-mdm.fr/demandeadhesion.php?action=gestionfichier&id=<?php echo $idutilisateur; ?>"</script>
     <?php
     }else if($_GET['action']=='refusfichier'){
     $id=$_GET['id'];
+    $idutilisateur = $_GET['user_id'];
     $setrefus = $db->prepare("UPDATE validationfichiers SET status='REFUS' WHERE id=$id");
     $setrefus->execute();
     ?>
-    <script>window.location="https://administration.jam-mdm.fr/veriffichier2.php"</script>
+    <script>window.location="https://administration.jam-mdm.fr/demandeadhesion.php?action=gestionfichier&id=<?php echo $idutilisateur; ?>"</script>
     <?php
     }
     ?>
@@ -153,8 +155,8 @@ if($_GET['action']=='gestionfichier'){
                         <td><a href="./download.php?nom=<?php echo $filenamesystem;?>&amp;id=<?php echo $idutilisateur;?>"><?php echo $filename;?></a></td>
                         <td><?php echo $message;?></td>
                         <td class="text-center"><?php echo $datefile;?></td>
-                        <td class="text-center"><a href="?action=validefichier&amp;id=<?php echo $idfichier;?>"><button type="button" class="btn btn-rose btn-round btn-sm">Valider</button></a>
-                                                <a href="?action=refusfichier&amp;id=<?php echo $idfichier;?>"><button type="button" class="btn btn-rose btn-round btn-sm">Refuser</button></a>
+                        <td class="text-center"><a href="?action=validefichier&amp;id=<?php echo $idfichier;?>&amp;user_id=<?php echo $idutilisateur;?>"><button type="button" class="btn btn-rose btn-round btn-sm">Valider</button></a>
+                                                <a href="?action=refusfichier&amp;id=<?php echo $idfichier;?>&amp;user_id=<?php echo $idutilisateur;?>"><button type="button" class="btn btn-rose btn-round btn-sm">Refuser</button></a>
                         </td>
                       </tr>
 
@@ -404,16 +406,10 @@ if($countid2>'0'){
             <?php
 
 
-while($suser = $selectuserid->fetch(PDO::FETCH_OBJ)){
-  $id=$suser->id;
 
-            $selectid = $db->prepare("SELECT distinct user_id FROM validationfichiers WHERE user_id=:id ORDER BY date");
-            $selectid->execute(array(
-              "id"=>$id
-            ));
-            $countid = $selectid->rowCount();
               if($countuserid>'0'){
-                  $table = $selectid->fetchAll(PDO::FETCH_OBJ);
+                $table = $selectuserid->fetchAll(PDO::FETCH_OBJ);
+
 
                     echo '
                   <div class="table-responsive">
@@ -428,7 +424,7 @@ while($suser = $selectuserid->fetch(PDO::FETCH_OBJ)){
                         ';
 
                         foreach($table as $ligne){
-                          $user_id = $ligne->user_id;
+                          $user_id = $ligne->id;
 
                           $selectnom = $db->prepare("SELECT username, email, status FROM users WHERE id=:user_id ORDER BY id ASC");
                           $selectnom->execute(array(
@@ -449,14 +445,14 @@ while($suser = $selectuserid->fetch(PDO::FETCH_OBJ)){
                         </tr>
                         ';
                       }
-}
+
                       echo '
                       </tbody>
                     </table>
                   </div>
                       ';
+}
 
-                        }
                       ?>
 
               </div>
