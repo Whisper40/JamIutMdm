@@ -378,9 +378,10 @@ if($countid2>'0'){
  <?php
     } }else{
 
-      $selectid = $db->prepare("SELECT distinct id FROM users WHERE status='EN ATTENTE DE VALIDATION' ORDER BY id");
-      $selectid->execute();
-      $countid = $selectid->rowCount();
+      $selectuserid = $db->prepare("SELECT distinct id FROM users WHERE status='EN ATTENTE DE VALIDATION' ORDER BY id");
+      $selectuserid->execute();
+      $countuserid = $selectuserid->rowCount();
+
     ?>
 
     <div class="content">
@@ -401,7 +402,17 @@ if($countid2>'0'){
                 <div class="card-content">
 
             <?php
-              if($countid>'0'){
+
+
+while($suser = $selectuserid->fetch(PDO::FETCH_OBJ)){
+  $id=$suser->id;
+
+            $selectid = $db->prepare("SELECT distinct user_id FROM validationfichiers WHERE user_id=:id ORDER BY date");
+            $selectid->execute(array(
+              "id"=>$id
+            ));
+            $countid = $selectid->rowCount();
+              if($countuserid>'0'){
                   $table = $selectid->fetchAll(PDO::FETCH_OBJ);
 
                     echo '
@@ -438,7 +449,7 @@ if($countid2>'0'){
                         </tr>
                         ';
                       }
-
+}
                       echo '
                       </tbody>
                     </table>
