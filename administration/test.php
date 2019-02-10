@@ -404,13 +404,53 @@ if($countid2>'0'){
             <?php
 
 
+
+              if($countuserid>'0'){
+                $table = $selectuserid->fetchAll(PDO::FETCH_OBJ);
+
+
+                    echo '
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class="text-primary">
+                        <th class="text-center">Pseudo</th>
+                        <th class="text-center">Email</th>
+                        <th class="text-center">Statuts</th>
+                        <th class="text-center">Action</th>
+                      </thead>
+                      <tbody>
+                        ';
+
+                        foreach($table as $ligne){
+                          $user_id = $ligne->id;
+
+                          $selectnom = $db->prepare("SELECT username, email, status FROM users WHERE id=:user_id ORDER BY id ASC");
+                          $selectnom->execute(array(
+                            "user_id"=>$user_id
+                          ));
+                          $table2 = $selectnom->fetch(PDO::FETCH_OBJ);
+
+                          $username = $table2->username;
+                          $email = $table2->email;
+                          $status = $table2->status;
+
+                          echo '
+                        <tr>
+                          <td class="text-center">'.$username.'</td>
+                          <td class="text-center">'.$email.'</td>
+                          <td class="text-center">'.$status.'</td>
+                          <td class="text-center"><a href="?action=gestionfichier&amp;id='.$user_id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Afficher</button></a></td>
+                        </tr>
+                        ';
+                      }
+
                       echo '
                       </tbody>
                     </table>
                   </div>
                       ';
-
-                    }
+}
+                    
                       ?>
 
               </div>
