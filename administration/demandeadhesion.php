@@ -378,9 +378,9 @@ if($countid2>'0'){
  <?php
     } }else{
 
-    $selectid = $db->prepare("SELECT distinct user_id FROM validationfichiers WHERE status='EN ATTENTE DE VALIDATION' ORDER BY date");
-    $selectid->execute();
-    $countid = $selectid->rowCount();
+      $selectid = $db->prepare("SELECT distinct id FROM users WHERE status='EN ATTENTE DE VALIDATION' ORDER BY id");
+      $selectid->execute();
+      $countid = $selectid->rowCount();
     ?>
 
     <div class="content">
