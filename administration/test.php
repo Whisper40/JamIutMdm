@@ -406,6 +406,7 @@ if($countid2>'0'){
 
 
               if($countuserid>'0'){
+                $table = $selectuserid->fetchAll(PDO::FETCH_OBJ);
 
 
                     echo '
@@ -420,9 +421,8 @@ if($countid2>'0'){
                       <tbody>
                         ';
 
-                        while($suser = $selectuserid->fetch(PDO::FETCH_OBJ)){
-                          $user_id=$suser->id;
-
+                        foreach($table as $ligne){
+                          $user_id = $ligne->id;
 
                           $selectnom = $db->prepare("SELECT username, email, status FROM users WHERE id=:user_id ORDER BY id ASC");
                           $selectnom->execute(array(
@@ -443,7 +443,7 @@ if($countid2>'0'){
                         </tr>
                         ';
                       }
-}
+                      }
                       echo '
                       </tbody>
                     </table>
