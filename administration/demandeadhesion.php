@@ -73,7 +73,7 @@ if(isset($_POST['submit'])){
 
     if(isset($_GET['action'])){
     if($_GET['action']=='validefichier'){
-      echo"bond";
+
 
     $id=$_GET['id'];
     $idutilisateur = $_GET['user_id'];
