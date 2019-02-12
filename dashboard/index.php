@@ -111,7 +111,7 @@
                                                 <i class="material-icons">assignment_late</i>
                                             </div>
                                             <div class="card-content">
-                                                <p class="category">Factures</p>
+                                                <p class="category">Total Activités/Voyages Participés</p>
                                             <h3 class="card-title">
 
                         <?php
@@ -121,9 +121,7 @@
                             )
                         );
 
-                        $donnees = $req->fetch();
-                        $req->closeCursor();
-                        echo $donnees['id'];?>
+                        ?>
 
 
                                                                                     </h3>
@@ -166,26 +164,20 @@
                             <?php
                                 $user_id = $_SESSION['user_id'];
 
-                                $select = $db->prepare("SELECT * FROM products_transactions WHERE user_id = :user_id");
-                                $select->execute(array(
+                                $selectcountacti = $db->prepare("SELECT countactivite FROM users WHERE id = :user_id");
+                                $selectcountacti->execute(array(
                                     "user_id"=>$user_id
                                     )
                                 );
 
-                                while($s = $select->fetch(PDO::FETCH_OBJ)){
+                              $s = $selectcountacti->fetch(PDO::FETCH_OBJ)){
 
                                     ?>
                                     <div class="media-footer">
-                                 <a href="my_seedbox.php" class="btn btn-primary btn-wd pull-right">Commande
-                                    <?php echo $s->product; ?>
-                                    <?php echo $s->status; ?>
-
-
-                                      </a>
+                                 <a href="#" class="btn btn-primary btn-wd pull-right">Commande
+                                    <?php echo $s->countactivite; ?>
+                                    </a>
                                     </div>
-
-
-
                                     <?php
                                 }
 
