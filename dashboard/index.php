@@ -123,7 +123,7 @@
                                                       )
                                                   );
 
-                                                $s = $selectcountacti->fetch(PDO::FETCH_OBJ)
+                                                $s = $selectcountacti->fetch(PDO::FETCH_OBJ);
                                                 $countacti = $s->countactivite;
                                                 echo $countacti;
 
@@ -132,7 +132,7 @@
 
                                                                                     </h3>
                                             </div>
-                                          
+
                                         </div>
                                     </div>
 
