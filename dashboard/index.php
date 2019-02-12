@@ -111,30 +111,43 @@
                                                 <i class="material-icons">assignment_late</i>
                                             </div>
                                             <div class="card-content">
-                                                <p class="category">Activités/Voyages Participés</p>
+                                                <p class="category">Factures</p>
                                             <h3 class="card-title">
 
-                                              <?php
-                                                  $user_id = $_SESSION['user_id'];
+                        <?php
+                        $req = $db->prepare("SELECT  COUNT(*) as id FROM transactions WHERE user_id = :user_id");
+                        $req->execute(array(
+                            "user_id"=>$user_id
+                            )
+                        );
 
-                                                  $selectcountacti = $db->prepare("SELECT countactivite FROM users WHERE id = :user_id");
-                                                  $selectcountacti->execute(array(
-                                                      "user_id"=>$user_id
-                                                      )
-                                                  );
-
-                                                $s = $selectcountacti->fetch(PDO::FETCH_OBJ)
-                                                $countacti = $s->countactivite;
-
-                                                      ?>
+                        $donnees = $req->fetch();
+                        $req->closeCursor();
+                        echo $donnees['id'];?>
 
 
                                                                                     </h3>
                                             </div>
                                             <div class="card-footer">
                                                 <div class="stats">
-                                                    <i class="material-icons">date_range</i> Total :
-                                                    <?php echo $countacti; ?>
+                                                    <i class="material-icons">date_range</i> Dernière facture :
+
+
+
+
+            <?php
+            $user_id = $_SESSION['user_id'];
+            $sql = "SELECT DISTINCT transaction_id FROM transactions WHERE date= (SELECT MAX(date) FROM transactions where user_id='$user_id') AND user_id = '$user_id'";
+            $req = $db->query($sql);
+            $req->setFetchMode(PDO::FETCH_ASSOC);
+
+            foreach($req as $row)
+            {
+                echo $row['transaction_id'];
+
+            }
+
+            ?>
 
 
                                                                                  </div>
@@ -148,6 +161,35 @@
 
 
 
+
+
+                            <?php
+                                $user_id = $_SESSION['user_id'];
+
+                                $select = $db->prepare("SELECT * FROM products_transactions WHERE user_id = :user_id");
+                                $select->execute(array(
+                                    "user_id"=>$user_id
+                                    )
+                                );
+
+                                while($s = $select->fetch(PDO::FETCH_OBJ)){
+
+                                    ?>
+                                    <div class="media-footer">
+                                 <a href="my_seedbox.php" class="btn btn-primary btn-wd pull-right">Commande
+                                    <?php echo $s->product; ?>
+                                    <?php echo $s->status; ?>
+
+
+                                      </a>
+                                    </div>
+
+
+
+                                    <?php
+                                }
+
+                            ?>
 
                                 <div class="row">
                                     <div class="col-md-12">
