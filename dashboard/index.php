@@ -170,7 +170,7 @@
                                     )
                                 );
 
-                              $s = $selectcountacti->fetch(PDO::FETCH_OBJ)){
+                              $s = $selectcountacti->fetch(PDO::FETCH_OBJ)
 
                                     ?>
                                     <div class="media-footer">
@@ -178,10 +178,7 @@
                                     <?php echo $s->countactivite; ?>
                                     </a>
                                     </div>
-                                    <?php
-                                }
-
-                            ?>
+                                  
 
                                 <div class="row">
                                     <div class="col-md-12">
