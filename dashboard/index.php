@@ -84,10 +84,10 @@
                                             </div>
                                             <div class="card-content">
                                                 <p class="category"> Date de fin d'adhésion</p>
-                                            <h3 class="card-title">
+                                            <h4 class="card-title">
 
-                                              01/07/2019
-                                                                                    </h3>
+                                              2019-07-01
+                                            </h4>
                                             </div>
 
                                         </div>
