@@ -68,6 +68,7 @@ $newtitle = replaceAccents($title);
           <th class="text-center">Urgence</th>
           <th class="text-center">Option Matériel</th>
           <th class="text-center">Option Repas</th>
+          <th class="text-center">Option Casque</th>
         </thead>
         <tbody>
           ';
@@ -92,6 +93,7 @@ $newtitle = replaceAccents($title);
       while($s1=$selectinfos->fetch(PDO::FETCH_OBJ)){
         $optionmateriel=$s1->optionmateriel;
         $optionrepas=$s1->optionrepas;
+        $optioncasque=$s1->optionadditionnelles;
         $selectinfospersonnelles = $db->prepare("SELECT * FROM formulaireski WHERE user_id=:id");
         $selectinfospersonnelles->execute(array(
           "id"=>$iddelapersonne
@@ -121,6 +123,7 @@ $newtitle = replaceAccents($title);
           <td class="text-center">'.$telurgence.'</td>
           <td class="text-center">'.$optionmateriel.'</td>
           <td class="text-center">'.$optionrepas.'</td>
+          <td class="text-center">'.$optionadditionnelles.'</td>
           </tr>';
         }
       }

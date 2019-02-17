@@ -70,6 +70,7 @@ while($s0=$selectid->fetch(PDO::FETCH_OBJ)){
 
     $optionmateriel=$s1->optionmateriel;
     $optionrepas=$s1->optionrepas;
+    $optioncasque=$s1->optionadditionnelles;
 
 
     $selectinfospersonnelles = $db->prepare("SELECT * FROM formulaireski WHERE user_id=:id");
@@ -89,7 +90,7 @@ while($s0=$selectid->fetch(PDO::FETCH_OBJ)){
       $telurgence=$s2->telurgence;
       $regroupement = $codepostal.' '.$ville;
 
-      $tableau[] = array($nom,$prenom,$email,$poids,$taille,$pointure,$allergie,$adresse,$regroupement,$tel,$telurgence,$optionmateriel,$optionrepas);
+      $tableau[] = array($nom,$prenom,$email,$poids,$taille,$pointure,$allergie,$adresse,$regroupement,$tel,$telurgence,$optionmateriel,$optionrepas,$optionadditionnelles);
 
 
     }
@@ -97,7 +98,7 @@ while($s0=$selectid->fetch(PDO::FETCH_OBJ)){
 }
 
 
-$entete = array("Nom", "Prenom", "Email", "Poids", "Taille", "Pointure", "Allergie", "Adresse", "CP", "Telephone", "Telephone Urgence", "Option Materiel", "Option Repas");
+$entete = array("Nom", "Prenom", "Email", "Poids", "Taille", "Pointure", "Allergie", "Adresse", "CP", "Telephone", "Telephone Urgence", "Option Materiel", "Option Repas", "Option Casque");
 
 
 $separateur = ";";
