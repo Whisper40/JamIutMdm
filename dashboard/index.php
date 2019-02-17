@@ -17,6 +17,36 @@
             <div class="content">
                             <div class="container-fluid">
                                 <div class="row">
+
+
+                                  <div class="col-lg-4 col-md-6 col-sm-6">
+                                      <div class="card card-stats">
+                                          <div class="card-header" data-background-color="green">
+                                              <i class="material-icons">euro_symbole</i>
+                                          </div>
+                                          <div class="card-content">
+                                              <p class="category">Date d'inscription</p>
+                                              <h3 class="card-title">
+
+                                                <?php
+
+
+                                                    $selectsubscribe = $db->prepare("SELECT subscribe FROM users WHERE id = :user_id");
+                                                    $selectsubscribe->execute(array(
+                                                        "user_id"=>$user_id
+                                                        )
+                                                    );
+
+                                                  $s2 = $selectsubscribe->fetch(PDO::FETCH_OBJ);
+                                                  $subscribe = $s2->subscribe;
+                                                  echo $subscribe;
+                                                        ?>
+
+                                              </h3>
+                                          </div>
+
+                                      </div>
+                                  </div>
                                     <div class="col-lg-4 col-md-6 col-sm-6">
                                         <div class="card card-stats">
                                             <div class="card-header" data-background-color="orange">
@@ -46,56 +76,17 @@
 
                                         </div>
                                     </div>
-                                    <div class="col-lg-4 col-md-6 col-sm-6">
-                                        <div class="card card-stats">
-                                            <div class="card-header" data-background-color="green">
-                                                <i class="material-icons">euro_symbole</i>
-                                            </div>
-                                            <div class="card-content">
-                                                <p class="category">Date d'inscription</p>
-                                                <h3 class="card-title">
 
-                                                  <?php
-
-
-                                                      $selectsubscribe = $db->prepare("SELECT subscribe FROM users WHERE id = :user_id");
-                                                      $selectsubscribe->execute(array(
-                                                          "user_id"=>$user_id
-                                                          )
-                                                      );
-
-                                                    $s2 = $selectsubscribe->fetch(PDO::FETCH_OBJ);
-                                                    $subscribe = $s2->subscribe;
-                                                    echo $subscribe;
-                                                          ?>
-
-                                                </h3>
-                                            </div>
-
-                                        </div>
-                                    </div>
                                     <div class="col-lg-4 col-md-6 col-sm-6">
                                         <div class="card card-stats">
                                             <div class="card-header" data-background-color="red">
                                                 <i class="material-icons">assignment_late</i>
                                             </div>
                                             <div class="card-content">
-                                                <p class="category"> Nombre d'Activités/Voyages participés</p>
+                                                <p class="category"> Date de fin d'adhésion</p>
                                             <h3 class="card-title">
 
-                                              <?php
-                                                  $user_id = $_SESSION['user_id'];
-
-                                                  $selectcountacti = $db->prepare("SELECT countactivite FROM users WHERE id = :user_id");
-                                                  $selectcountacti->execute(array(
-                                                      "user_id"=>$user_id
-                                                      )
-                                                  );
-
-                                                $s = $selectcountacti->fetch(PDO::FETCH_OBJ);
-                                                $countacti = $s->countactivite;
-                                                echo $countacti;
-                                                      ?>
+                                              01/07/2019
                                                                                     </h3>
                                             </div>
 
