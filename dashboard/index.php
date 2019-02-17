@@ -111,7 +111,7 @@
                                                 <i class="material-icons">assignment_late</i>
                                             </div>
                                             <div class="card-content">
-                                                <p class="category">Activités/Voyages</p>
+                                                <p class="category"> Nombre d'Activités/Voyages participés</p>
                                             <h3 class="card-title">
 
                                               <?php
@@ -126,10 +126,7 @@
                                                 $s = $selectcountacti->fetch(PDO::FETCH_OBJ);
                                                 $countacti = $s->countactivite;
                                                 echo $countacti;
-
                                                       ?>
-
-
                                                                                     </h3>
                                             </div>
 
