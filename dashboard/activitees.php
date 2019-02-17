@@ -124,7 +124,7 @@ require_once('includes/head.php');
                                             <?php
                                               $select0 = $db->prepare("SELECT * FROM activityradio WHERE slug LIKE :activity_slug and type=:materiel");
                                               $select0->execute(array(
-                                                  "activity_slug"=>'%SKI%',
+                                                  "activity_slug"=>'%ski%',
                                                   "materiel"=>'materiel'
                                                   )
                                               );
@@ -197,23 +197,23 @@ require_once('includes/head.php');
 
 
                                                   <?php
-                                                    $select1 = $db->prepare("SELECT * FROM activityradio WHERE slug LIKE :activity_slug and type=:repas");
+                                                    $select3 = $db->prepare("SELECT * FROM activityradio WHERE slug LIKE :activity_slug and type=:additionnelles");
 
-                                                    $select1->execute(array(
+                                                    $select3->execute(array(
                                                         "activity_slug"=>'%ski%',
-                                                        "repas"=>'repas'
+                                                        "additionnelles"=>'additionnelles'
                                                         )
                                                     );
 
-                                                    while($s1=$select1->fetch(PDO::FETCH_OBJ)){
-                                                      $type1 = $s1->type;
-                                                      $price1 = $s1->price;
-                                                      $packname1 = $s1->packname;
+                                                    while($s3=$select3->fetch(PDO::FETCH_OBJ)){
+                                                      $type3 = $s3->type;
+                                                      $price3 = $s3->price;
+                                                      $packname3 = $s3->packname;
                                                       ?>
 
                                                       <div class="radio">
                                                         <label>
-                                                          <input type="radio" name="option<?php echo $type1;?>" value="<?php echo $packname1; ?>"> <?php echo $packname1; ?> (<?php echo $price1; ?>€)
+                                                          <input type="radio" name="option<?php echo $type3;?>" value="<?php echo $packname3; ?>"> <?php echo $packname3; ?> (<?php echo $price3; ?>€)
                                                         </label>
                                                       </div>
                                                       <?php } ?>
