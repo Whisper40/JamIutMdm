@@ -65,33 +65,13 @@
                                                       );
 
                                                     $s2 = $selectsubscribe->fetch(PDO::FETCH_OBJ);
-                                                    $countsubscribe = $s2->countsubscribe;
-                                                    echo $countsubscribe;
+                                                    $subscribe = $s2->subscribe;
+                                                    echo $subscribe;
                                                           ?>
 
                                                 </h3>
                                             </div>
-                                            <div class="card-footer">
-                                                <div class="stats">
-                                                    <i class="material-icons">add</i>Dernier ajout le :
 
-
-
-            <?php
-            $user_id = $_SESSION['user_id'];
-            $sql = "SELECT DISTINCT date FROM transactions WHERE date= (SELECT MAX(date) FROM transactions where user_id='$user_id') AND user_id = '$user_id'";
-            $req = $db->query($sql);
-            $req->setFetchMode(PDO::FETCH_ASSOC);
-
-            foreach($req as $row)
-            {
-                echo $row['date'];
-            }
-
-            ?>
-
-                                                                                   </div>
-                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-6">
