@@ -122,9 +122,9 @@ require_once('includes/head.php');
 
 
                                             <?php
-                                              $select0 = $db->prepare("SELECT * FROM activityradio WHERE slug=:activity_slug and type=:materiel");
+                                              $select0 = $db->prepare("SELECT * FROM activityradio WHERE slug LIKE :activity_slug and type=:materiel");
                                               $select0->execute(array(
-                                                  "activity_slug"=>$activity_slug,
+                                                  "activity_slug"=>'%SKI%',
                                                   "materiel"=>'materiel'
                                                   )
                                               );
@@ -157,10 +157,10 @@ require_once('includes/head.php');
 
 
                                                   <?php
-                                                    $select1 = $db->prepare("SELECT * FROM activityradio WHERE slug=:activity_slug and type=:repas");
+                                                    $select1 = $db->prepare("SELECT * FROM activityradio WHERE slug LIKE :activity_slug and type=:repas");
 
                                                     $select1->execute(array(
-                                                        "activity_slug"=>$activity_slug,
+                                                        "activity_slug"=>'%ski%',
                                                         "repas"=>'repas'
                                                         )
                                                     );
@@ -182,6 +182,49 @@ require_once('includes/head.php');
                                                   </div>
 
                                               </div>
+
+
+
+
+                                              <div class="col-md-6">
+                                                <div class="info info-horizontal">
+                                                    <div class="description">
+                                                      <center>
+                                                        <h4 class="info-title">Options Additionnelles</h4>
+                                                      </center>
+                                                        <p class="description">
+
+
+
+                                                  <?php
+                                                    $select1 = $db->prepare("SELECT * FROM activityradio WHERE slug LIKE :activity_slug and type=:repas");
+
+                                                    $select1->execute(array(
+                                                        "activity_slug"=>'%ski%',
+                                                        "repas"=>'repas'
+                                                        )
+                                                    );
+
+                                                    while($s1=$select1->fetch(PDO::FETCH_OBJ)){
+                                                      $type1 = $s1->type;
+                                                      $price1 = $s1->price;
+                                                      $packname1 = $s1->packname;
+                                                      ?>
+
+                                                      <div class="radio">
+                                                        <label>
+                                                          <input type="radio" name="option<?php echo $type1;?>" value="<?php echo $packname1; ?>"> <?php echo $packname1; ?> (<?php echo $price1; ?>€)
+                                                        </label>
+                                                      </div>
+                                                      <?php } ?>
+                                                          </p>
+                                                      </div>
+                                                  </div>
+
+                                              </div>
+
+
+
                                             </div>
                                       </div>
                                       <div class="footer text-center">
