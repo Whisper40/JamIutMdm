@@ -36,6 +36,9 @@ $newstock = $stock - 1;
 if (stripos($activity_name, 'ski') != FALSE){
 $optionmateriel = $_SESSION['optionmateriel'];
 $optionrepas = $_SESSION['optionrepas'];
+$optionadditionnelles = $_SESSION['optionadditionnelles'];
+
+
 $pageformulaire = 'formulaire.php?type=ski';
 $icon = 'dns';
 
@@ -45,7 +48,8 @@ $insertparticipe->execute(array(
     "activity_name"=>$activity_name,
     "date"=>$date,
     "optionmateriel"=>$optionmateriel,
-    "optionrepas"=>$optionrepas
+    "optionrepas"=>$optionrepas,
+    "optionadditionnelles"=>$optionadditionnelles
     )
 );
 
@@ -149,5 +153,6 @@ $insertcatparticipe3->execute(array(
 
 unset($_SESSION['activity_name']);
 unset($_SESSION['optionmateriel']);
+unset($_SESSION['optionadditionnelles']);
 unset($_SESSION['optionrepas']);
 unset($_SESSION['optionaccompagnement']);

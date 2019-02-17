@@ -17,141 +17,79 @@
             <div class="content">
                             <div class="container-fluid">
                                 <div class="row">
+
+
+                                  <div class="col-lg-4 col-md-6 col-sm-6">
+                                      <div class="card card-stats">
+                                          <div class="card-header" data-background-color="green">
+                                              <i class="material-icons">euro_symbole</i>
+                                          </div>
+                                          <div class="card-content">
+                                              <p class="category">Date d'inscription</p>
+                                              <h4 class="card-title">
+
+                                                <?php
+
+
+                                                    $selectsubscribe = $db->prepare("SELECT subscribe FROM users WHERE id = :user_id");
+                                                    $selectsubscribe->execute(array(
+                                                        "user_id"=>$user_id
+                                                        )
+                                                    );
+
+                                                  $s2 = $selectsubscribe->fetch(PDO::FETCH_OBJ);
+                                                  $subscribe = $s2->subscribe;
+                                                  echo $subscribe;
+                                                        ?>
+
+                                              </h4>
+                                          </div>
+
+                                      </div>
+                                  </div>
                                     <div class="col-lg-4 col-md-6 col-sm-6">
                                         <div class="card card-stats">
                                             <div class="card-header" data-background-color="orange">
                                                 <i class="material-icons">dns</i>
                                             </div>
+
+
                                             <div class="card-content">
-                                                <p class="category">Nombre de services</p>
-                                                                                    <h3 class="card-title">
+                                                <p class="category">Nombre de participation</p>
+                                            <h4 class="card-title">
 
-            <?php
+                                              <?php
+                                                  $user_id = $_SESSION['user_id'];
 
-                        $req = $db->prepare("SELECT  COUNT(*) as id FROM products_transactions WHERE user_id = :user_id");
-                        $req->execute(array(
-                            "user_id"=>$user_id
-                            )
-                        );
+                                                  $selectcountacti = $db->prepare("SELECT countactivite FROM users WHERE id = :user_id");
+                                                  $selectcountacti->execute(array(
+                                                      "user_id"=>$user_id
+                                                      )
+                                                  );
 
-                        $donnees = $req->fetch();
-                        $req->closeCursor();
-                        echo $donnees['id'];?>
-
-
-                                                                                    </h3>
+                                                $s = $selectcountacti->fetch(PDO::FETCH_OBJ);
+                                                $countacti = $s->countactivite;
+                                                echo $countacti;
+                                                      ?>
+                                                    </h4>
                                             </div>
-                                            <div class="card-footer">
-                                                <div class="stats">
-                                                   <i class="material-icons text-danger">shopping_cart</i>
 
-
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4 col-md-6 col-sm-6">
-                                        <div class="card card-stats">
-                                            <div class="card-header" data-background-color="green">
-                                                <i class="material-icons">euro_symbole</i>
-                                            </div>
-                                            <div class="card-content">
-                                                <p class="category">Solde</p>
-                                                <h3 class="card-title">
 
-            <?php
-            $user_id = $_SESSION['user_id'];
-
-            $select = $db->prepare("SELECT * FROM users WHERE id = :user_id");
-            $select->execute(array(
-                "user_id"=>$user_id
-                )
-            );
-
-            while($s = $select->fetch(PDO::FETCH_OBJ)){
-                ?>
-                <?php echo $s->solde.€; ?>
-
-
-
-
-                <?php
-            }
-
-            ?>
-
-                                                </h3>
-                                            </div>
-                                            <div class="card-footer">
-                                                <div class="stats">
-                                                    <i class="material-icons">add</i>Dernier ajout le :
-
-
-
-            <?php
-            $user_id = $_SESSION['user_id'];
-            $sql = "SELECT DISTINCT date FROM transactions WHERE date= (SELECT MAX(date) FROM transactions where user_id='$user_id') AND user_id = '$user_id'";
-            $req = $db->query($sql);
-            $req->setFetchMode(PDO::FETCH_ASSOC);
-
-            foreach($req as $row)
-            {
-                echo $row['date'];
-            }
-
-            ?>
-
-                                                                                   </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div class="col-lg-4 col-md-6 col-sm-6">
                                         <div class="card card-stats">
                                             <div class="card-header" data-background-color="red">
                                                 <i class="material-icons">assignment_late</i>
                                             </div>
                                             <div class="card-content">
-                                                <p class="category">Factures</p>
-                                            <h3 class="card-title">
+                                                <p class="category"> Date de fin d'adhésion</p>
+                                            <h4 class="card-title">
 
-                        <?php
-                        $req = $db->prepare("SELECT  COUNT(*) as id FROM transactions WHERE user_id = :user_id");
-                        $req->execute(array(
-                            "user_id"=>$user_id
-                            )
-                        );
-
-                        $donnees = $req->fetch();
-                        $req->closeCursor();
-                        echo $donnees['id'];?>
-
-
-                                                                                    </h3>
+                                              2019-07-01
+                                            </h4>
                                             </div>
-                                            <div class="card-footer">
-                                                <div class="stats">
-                                                    <i class="material-icons">date_range</i> Dernière facture :
 
-
-
-
-            <?php
-            $user_id = $_SESSION['user_id'];
-            $sql = "SELECT DISTINCT transaction_id FROM transactions WHERE date= (SELECT MAX(date) FROM transactions where user_id='$user_id') AND user_id = '$user_id'";
-            $req = $db->query($sql);
-            $req->setFetchMode(PDO::FETCH_ASSOC);
-
-            foreach($req as $row)
-            {
-                echo $row['transaction_id'];
-
-            }
-
-            ?>
-
-
-                                                                                 </div>
-                                            </div>
                                         </div>
                                     </div>
 

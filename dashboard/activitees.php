@@ -122,9 +122,9 @@ require_once('includes/head.php');
 
 
                                             <?php
-                                              $select0 = $db->prepare("SELECT * FROM activityradio WHERE slug=:activity_slug and type=:materiel");
+                                              $select0 = $db->prepare("SELECT * FROM activityradio WHERE slug LIKE :activity_slug and type=:materiel");
                                               $select0->execute(array(
-                                                  "activity_slug"=>$activity_slug,
+                                                  "activity_slug"=>'%ski%',
                                                   "materiel"=>'materiel'
                                                   )
                                               );
@@ -157,10 +157,10 @@ require_once('includes/head.php');
 
 
                                                   <?php
-                                                    $select1 = $db->prepare("SELECT * FROM activityradio WHERE slug=:activity_slug and type=:repas");
+                                                    $select1 = $db->prepare("SELECT * FROM activityradio WHERE slug LIKE :activity_slug and type=:repas");
 
                                                     $select1->execute(array(
-                                                        "activity_slug"=>$activity_slug,
+                                                        "activity_slug"=>'%ski%',
                                                         "repas"=>'repas'
                                                         )
                                                     );
@@ -182,6 +182,49 @@ require_once('includes/head.php');
                                                   </div>
 
                                               </div>
+
+
+
+
+                                              <div class="col-md-6">
+                                                <div class="info info-horizontal">
+                                                    <div class="description">
+                                                      <center>
+                                                        <h4 class="info-title">Options Additionnelles</h4>
+                                                      </center>
+                                                        <p class="description">
+
+
+
+                                                  <?php
+                                                    $select3 = $db->prepare("SELECT * FROM activityradio WHERE slug LIKE :activity_slug and type=:additionnelles");
+
+                                                    $select3->execute(array(
+                                                        "activity_slug"=>'%ski%',
+                                                        "additionnelles"=>'additionnelles'
+                                                        )
+                                                    );
+
+                                                    while($s3=$select3->fetch(PDO::FETCH_OBJ)){
+                                                      $type3 = $s3->type;
+                                                      $price3 = $s3->price;
+                                                      $packname3 = $s3->packname;
+                                                      ?>
+
+                                                      <div class="radio">
+                                                        <label>
+                                                          <input type="radio" name="option<?php echo $type3;?>" value="<?php echo $packname3; ?>"> <?php echo $packname3; ?> (<?php echo $price3; ?>€)
+                                                        </label>
+                                                      </div>
+                                                      <?php } ?>
+                                                          </p>
+                                                      </div>
+                                                  </div>
+
+                                              </div>
+
+
+
                                             </div>
                                       </div>
                                       <div class="footer text-center">
@@ -195,6 +238,8 @@ require_once('includes/head.php');
                           <?php
                           $optionmaterielform = $_POST['optionmateriel'];
                           $optionrepasform = $_POST['optionrepas'];
+                          $optionadditionnellesform = $_POST['optionadditionnelles'];
+
                           $selectpricemateriel = $db->prepare("SELECT price FROM activityradio WHERE packname=:optionmaterielform");
                           $selectpricemateriel->execute(array(
                               "optionmaterielform"=>$optionmaterielform
@@ -211,7 +256,16 @@ require_once('includes/head.php');
                           $r2 = $selectpricerepas->fetch(PDO::FETCH_OBJ);
                           $prixrepas = $r2->price;
 
-                          if(isset($prixmateriel) && isset($prixrepas)){
+
+                          $selectpriceadditionnelles= $db->prepare("SELECT price FROM activityradio WHERE packname=:optionadditionnellesform");
+                          $selectpriceadditionnelles->execute(array(
+                              "optionadditionnellesform"=>$optionadditionnellesform
+                              )
+                          );
+                          $r3 = $selectpriceadditionnelles->fetch(PDO::FETCH_OBJ);
+                          $prixadditionnelles = $r3->price;
+
+                          if(isset($prixmateriel) && isset($prixrepas) && isset($prixadditionnelles)){
                               //27/11/2018
                           $activity_name = $_GET['activityname'];
 
@@ -242,7 +296,7 @@ require_once('includes/head.php');
                                                     <?php
                                                     }else{
 
-                                                    $total = $prixactivite + $prixmateriel + $prixrepas;
+                                                    $total = $prixactivite + $prixmateriel + $prixrepas + $prixadditionnelles;
                                                     ?>
                                                       <h4 class="info-title">Prix Total : <?php echo $total;?>€</h4>
                                                         <?php
@@ -290,9 +344,9 @@ require_once('includes/head.php');
                                                                                     <p class="description">
 
                                                   <?php
-                                                    $select4 = $db->prepare("SELECT * FROM activityradio WHERE slug=:activity_slug and type=:accompagnement");
+                                                    $select4 = $db->prepare("SELECT * FROM activityradio WHERE slug LIKE :activity_slug and type=:accompagnement");
                                                     $select4->execute(array(
-                                                        "activity_slug"=>$activity_slug,
+                                                        "activity_slug"=>'%rugby%',
                                                         "accompagnement"=>'accompagnement'
                                                         )
                                                     );
@@ -492,9 +546,9 @@ require_once('includes/head.php');
                                                   <p class="description">
 
                                                     <?php
-                                                      $select4 = $db->prepare("SELECT * FROM activityradio WHERE slug=:activity_slug and type=:organisation");
+                                                      $select4 = $db->prepare("SELECT * FROM activityradio WHERE slug LIKE :activity_slug and type=:organisation");
                                                       $select4->execute(array(
-                                                          "activity_slug"=>$activity_slug,
+                                                          "activity_slug"=>'%sportive%',
                                                           "organisation"=>'organisation'
                                                           )
                                                       );
@@ -927,6 +981,7 @@ require_once('includes/head.php');
                     $_SESSION['activity_name'] = $activity_slug;
                     $_SESSION['optionmateriel'] = $optionmaterielform;
                     $_SESSION['optionrepas'] = $optionrepasform;
+                    $_SESSION['optionadditionnelles'] = $optionadditionnellesform;
           }else if (stripos($activity_slug, 'rugby') !== FALSE){
 
             $total = $prixactivite + $prixaccompagnement;
