@@ -43,13 +43,7 @@
                                                       ?>
                                                                                     </h3>
                                             </div>
-                                            <div class="card-footer">
-                                                <div class="stats">
-                                                   <i class="material-icons text-danger">shopping_cart</i>
 
-
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-6">
@@ -58,29 +52,22 @@
                                                 <i class="material-icons">euro_symbole</i>
                                             </div>
                                             <div class="card-content">
-                                                <p class="category">Solde</p>
+                                                <p class="category">Date d'inscription</p>
                                                 <h3 class="card-title">
 
-            <?php
-            $user_id = $_SESSION['user_id'];
-
-            $select = $db->prepare("SELECT * FROM users WHERE id = :user_id");
-            $select->execute(array(
-                "user_id"=>$user_id
-                )
-            );
-
-            while($s = $select->fetch(PDO::FETCH_OBJ)){
-                ?>
-                <?php echo $s->solde.€; ?>
+                                                  <?php
 
 
+                                                      $selectsubscribe = $db->prepare("SELECT subscribe FROM users WHERE id = :user_id");
+                                                      $selectsubscribe->execute(array(
+                                                          "user_id"=>$user_id
+                                                          )
+                                                      );
 
-
-                <?php
-            }
-
-            ?>
+                                                    $s2 = $selectsubscribe->fetch(PDO::FETCH_OBJ);
+                                                    $countsubscribe = $s2->countsubscribe;
+                                                    echo $countsubscribe;
+                                                          ?>
 
                                                 </h3>
                                             </div>
