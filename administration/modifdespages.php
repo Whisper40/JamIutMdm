@@ -727,52 +727,48 @@ if ($uploadOk == 0) {
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="card-content">
-                                  <h3 class="card-title">Intruduction</h3>
-                                  <br><br>
-                                      <div class="form-group label-floating">
-                                          <label class="control-label">Introduction</label>
-                                          <textarea rows="6" type="text" class="form-control" name="introduction" id="introduction"><?php echo $introduction; ?></textarea>
-                                      </div>
-                                      <h3 class="card-title">Les Etapes</h3>
-                                      <br><br>
-                                      <div class="form-group label-floating">
-                                          <label class="control-label">Etape 1</label>
-                                          <textarea rows="6" type="text" name="etape1" id="etape1" class="form-control"><?php echo $etape1; ?></textarea>
-                                      </div>
-                                      <div class="form-group label-floating">
-                                          <label class="control-label">Etape 2</label>
-                                          <textarea rows="6" type="text" name="etape2" id="etape2" class="form-control"><?php echo $etape2; ?></textarea>
-                                      </div>
-                                      <div class="form-group label-floating">
-                                          <label class="control-label">Etape 3</label>
-                                          <textarea rows="6" type="text" name="etape3" id="etape3" class="form-control"><?php echo $etape3; ?></textarea>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="col-sm-12">
-                                  <div class="card-content">
-                                      <center>
-                                          <button id="submitFormDataDevenirMembre" onclick="SubmitFormDataDevenirMembre();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
-                                      </center>
-                                  </div>
-                              </div>
-                          </div>
-                      </form>
-                  </div>
-              </div>
-          </div>
-          <div id="results2"></div>
-      </div>
+                                    <h3 class="card-title">Intruduction</h3>
+                                    <br>
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Introduction</label>
+                                        <textarea rows="6" type="text" class="form-control" name="introduction" id="introduction"><?php echo $introduction; ?></textarea>
+                                    </div>
+                                    <h3 class="card-title">Les Etapes</h3>
+                                    <br>
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Etape 1</label>
+                                        <textarea rows="6" type="text" name="etape1" id="etape1" class="form-control"><?php echo $etape1; ?></textarea>
+                                    </div>
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Etape 2</label>
+                                        <textarea rows="6" type="text" name="etape2" id="etape2" class="form-control"><?php echo $etape2; ?></textarea>
+                                    </div>
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Etape 3</label>
+                                        <textarea rows="6" type="text" name="etape3" id="etape3" class="form-control"><?php echo $etape3; ?></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="card-content">
+                                    <center>
+                                        <button id="submitFormDataDevenirMembre" onclick="SubmitFormDataDevenirMembre();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                                    </center>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="results2"></div>
+    </div>
 
 <?php
 
 }else if ($_GET['page']=='association'){
   $table = $_GET['table'];
 
-
-  ?>
-
-    <?php
     $selectinfosactuel = $db->prepare("SELECT * from pageasso");
     $selectinfosactuel->execute();
     $r2 = $selectinfosactuel->fetch(PDO::FETCH_OBJ);
@@ -792,8 +788,6 @@ if ($uploadOk == 0) {
   ?>
 
   <script>
-
-
    function SubmitFormDataPageAsso() {
       var user_id = "<?php echo $_SESSION['admin_id']; ?>";
       var id = "<?php echo $id; ?>";
@@ -802,16 +796,11 @@ if ($uploadOk == 0) {
       var description2 = $("#description2").val();
       var pagetitre = $("#pagetitre").val();
 
-
-
       $.post("ajax/modifypageassociation.php", { user_id: user_id, id: id, titre1: titre1, description1: description1, description2: description2, pagetitre: pagetitre},
       function(data) {
        $('#results3').html(data);
-
       });
-
   }
-
   </script>
 
             <!-- Ajoutd'images au site web (assets)-->
@@ -893,7 +882,6 @@ if ($uploadOk == 0) {
                                         )
                                     );
 
-
                     date_default_timezone_set('Europe/Paris');
                     setlocale(LC_TIME, 'fr_FR.utf8','fra');
                     $date = strftime('%Y-%m-%d %H:%M:%S');
@@ -931,18 +919,13 @@ if ($uploadOk == 0) {
                                         imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
                                         imagepng($img_petite,$fin);
                                     }
-
-
                             }
-
 
                 }else {
                     $error = 'Désolé, une erreur est survenue.';
                 } } }
 
                       } ?>
-
-
 
                       <!-- Ajoutd'images au site web (assets)-->
                       <?php
