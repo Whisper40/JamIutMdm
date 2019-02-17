@@ -731,21 +731,21 @@ if ($uploadOk == 0) {
                                     <br>
                                     <div class="form-group label-floating">
                                         <label class="control-label">Introduction</label>
-                                        <textarea rows="6" type="text" class="form-control" name="introduction" id="introduction"><?php echo $introduction; ?></textarea>
+                                        <textarea rows="4" type="text" class="form-control" name="introduction" id="introduction"><?php echo $introduction; ?></textarea>
                                     </div>
                                     <h3 class="card-title">Les Etapes</h3>
                                     <br>
                                     <div class="form-group label-floating">
                                         <label class="control-label">Etape 1</label>
-                                        <textarea rows="6" type="text" name="etape1" id="etape1" class="form-control"><?php echo $etape1; ?></textarea>
+                                        <textarea rows="4" type="text" name="etape1" id="etape1" class="form-control"><?php echo $etape1; ?></textarea>
                                     </div>
                                     <div class="form-group label-floating">
                                         <label class="control-label">Etape 2</label>
-                                        <textarea rows="6" type="text" name="etape2" id="etape2" class="form-control"><?php echo $etape2; ?></textarea>
+                                        <textarea rows="4" type="text" name="etape2" id="etape2" class="form-control"><?php echo $etape2; ?></textarea>
                                     </div>
                                     <div class="form-group label-floating">
                                         <label class="control-label">Etape 3</label>
-                                        <textarea rows="6" type="text" name="etape3" id="etape3" class="form-control"><?php echo $etape3; ?></textarea>
+                                        <textarea rows="4" type="text" name="etape3" id="etape3" class="form-control"><?php echo $etape3; ?></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -989,9 +989,6 @@ if ($uploadOk == 0) {
                               $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
                               $status = '1';
 
-
-
-
                               $update2 = $db->prepare("INSERT INTO carousel (slug, image, titreimage) VALUES(:pagetitre, :image, :titreimage)");
                               $update2->execute(array(
                                   "pagetitre"=>"Présentation association",
@@ -1009,14 +1006,12 @@ if ($uploadOk == 0) {
                                                   )
                                               );
 
-
                               date_default_timezone_set('Europe/Paris');
                               setlocale(LC_TIME, 'fr_FR.utf8','fra');
                               $date = strftime('%Y-%m-%d %H:%M:%S');
 
                               $img_tmp = $target_dirnew.$target_filefile;
                               $fin = $target_dirnewthumb.$target_filefile;
-
 
                                 //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
                                   $longueur = 300;
@@ -1047,10 +1042,7 @@ if ($uploadOk == 0) {
                                                   imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
                                                   imagepng($img_petite,$fin);
                                               }
-
-
                                       }
-
 
                           }else {
                               $error = 'Désolé, une erreur est survenue.';
