@@ -55,7 +55,7 @@
 
 
                                             <div class="card-content">
-                                                <p class="category"> Nombre d'Activités/Voyages participés</p>
+                                                <p class="category">Nombre de participation</p>
                                             <h4 class="card-title">
 
                                               <?php
