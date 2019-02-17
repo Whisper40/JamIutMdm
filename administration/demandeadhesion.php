@@ -316,7 +316,13 @@ if($countid2>'0'){
 }else if($_GET['action']=='gestionpaiement'){
   $user_id=$_GET['id'];
   ?>
-
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="card-content">
+                <h3 class="card-title">Contacter la personne par Email</h3>
+              </div>
+            </div>
+          </div>
             <td class="text-center">
               <button onclick="demo.showSwal('confirmpaiementaccess','<?php echo $user_id; ?>','<?php echo $_GET['id']; ?>')" type="button" class="btn btn-primary btn-round btn-rose">Confirmer le paiement manuel</button>
             </td>
