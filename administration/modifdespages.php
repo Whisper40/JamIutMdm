@@ -3259,24 +3259,6 @@ function slugify($text){
 ?>
 
 
-<script>
-
-
-function SubmitFormDataCreateUneActu() {
-   var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-   var title = $("#title").val();
-   var description = $("#description").val();
-   var formatimg = $("#formatimg").val();
-
-   $.post("ajax/createuneactu.php", { user_id: user_id, title: title, description: description, formatimg: formatimg},
-   function(data) {
-    $('#results11').html(data);
-
-   });
-
-}
-
-</script>
 <?php
 //Création actualite
 if(isset($_POST['submitactualite'])){
@@ -3425,6 +3407,21 @@ $target_file3 = $target_dirnew."".$slug.".".$formatimg;
     }else {
         $error = 'Désolé, une erreur est survenue.';
     } } }
+
+
+
+    $selectidactu = $db->prepare("SELECT id FROM newsactus WHERE title = :title");
+    $selectidactu->execute(array(
+        "title"=>$title
+        )
+    );
+
+  $sactu = $selectidactu->fetch(PDO::FETCH_OBJ);
+  $idactu = $sactu->id;
+
+?>
+    <script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=actualite&table=newsactus&modifactus=<?php echo $idactu;?>"</script>
+<?php
 
           } ?>
 
