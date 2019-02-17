@@ -1124,7 +1124,7 @@ if ($uploadOk == 0) {
                                             <div class="card-content">
                                               <div class="form-group label-floating">
                                                 <label class="control-label">Description</label>
-                                                <textarea rows="6" type="text" name="description1" id="description1" class="form-control"><?php echo $description1; ?></textarea>
+                                                <textarea rows="12" type="text" name="description1" id="description1" class="form-control"><?php echo $description1; ?></textarea>
                                               </div>
                                             </div>
                                           </div>
@@ -1132,7 +1132,7 @@ if ($uploadOk == 0) {
                                           <div class="card-content">
                                             <div class="form-group label-floating">
                                               <label class="control-label">Description</label>
-                                              <textarea rows="6" type="text" name="description2" id="description2" class="form-control"><?php echo $description2; ?></textarea>
+                                              <textarea rows="12" type="text" name="description2" id="description2" class="form-control"><?php echo $description2; ?></textarea>
                                             </div>
                                           </div>
                                         </div>
@@ -1142,6 +1142,39 @@ if ($uploadOk == 0) {
                                           <div class="card-content">
                                             <center>
                                               <button id="submitFormDataPageAsso" onclick="SubmitFormDataPageAsso();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                                            </center>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </form>
+                                    <div class="row">
+                                      <div class="col-sm-12">
+                                        <div class="card-content">
+                                          <h3 class="card-title">Carousel</h3>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+                                      <div class="row">
+                                        <div class="col-sm-6">
+                                          <div class="form-group form-file-upload">
+                                            <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
+                                            <div class="input-group">
+                                              <input type="text" readonly="" class="form-control" placeholder="Sélectionner les images à importer">
+                                              <span class="input-group-btn input-group-s">
+                                                <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
+                                                  <i class="material-icons">layers</i>
+                                                </button>
+                                              </span>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-sm-12">
+                                          <div class="card-content">
+                                            <center>
+                                              <button type="submit" name="envoieimageprezassocarousel" class="btn btn-primary btn-round btn-rose">Envoyer les images</button>
                                             </center>
                                           </div>
                                         </div>
