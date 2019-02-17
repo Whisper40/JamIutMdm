@@ -344,9 +344,9 @@ require_once('includes/head.php');
                                                                                     <p class="description">
 
                                                   <?php
-                                                    $select4 = $db->prepare("SELECT * FROM activityradio WHERE slug=:activity_slug and type=:accompagnement");
+                                                    $select4 = $db->prepare("SELECT * FROM activityradio WHERE slug LIKE :activity_slug and type=:accompagnement");
                                                     $select4->execute(array(
-                                                        "activity_slug"=>$activity_slug,
+                                                        "activity_slug"=>'%rugby%',
                                                         "accompagnement"=>'accompagnement'
                                                         )
                                                     );
@@ -546,9 +546,9 @@ require_once('includes/head.php');
                                                   <p class="description">
 
                                                     <?php
-                                                      $select4 = $db->prepare("SELECT * FROM activityradio WHERE slug=:activity_slug and type=:organisation");
+                                                      $select4 = $db->prepare("SELECT * FROM activityradio WHERE slug LIKE :activity_slug and type=:organisation");
                                                       $select4->execute(array(
-                                                          "activity_slug"=>$activity_slug,
+                                                          "activity_slug"=>'%sportive%',
                                                           "organisation"=>'organisation'
                                                           )
                                                       );
