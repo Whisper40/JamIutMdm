@@ -719,71 +719,50 @@ if ($uploadOk == 0) {
   </script>
 
     <div class="content">
-        <div class="container-fluid">
-            <div class="card">
-                <div class="card-content">
-                    <h2 class="card-title text-center">Modification de la page devenir membre</h2>
-                    <form action="" method="post" id="myForm1" class="contact-form">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="card-content">
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Introduction</label>
-                                  <input type="text" class="form-control" value="<?php echo $introduction; ?>" name="introduction" id="introduction">
-                              </div>
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Etape 1</label>
-                                  <input type="text" name="etape1" value="<?php echo $etape1; ?>"id="etape1" class="form-control">
-                              </div>
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Etape 2</label>
-                                  <input type="text" name="etape2" value="<?php echo $etape2; ?>" id="etape2" class="form-control">
-                              </div>
-                             </div>
-                          </div>
-                          <div class="col-sm-12">
-                              <div class="card-content">
-                                <div class="form-group label-floating">
-                                    <label class="control-label">Etape 3</label>
-                                    <input type="text" name="etape3" value="<?php echo $etape3; ?>"id="etape3" class="form-control">
-                                </div>
-
-                             </div>
+      <div class="container-fluid">
+        <div class="card">
+          <div class="card-content">
+            <h2 class="card-title text-center">Modification de la page devenir membre</h2>
+              <form action="" method="post" id="myForm1" class="contact-form">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="card-content">
+                      <h3 class="card-title">Intruduction</h3>
+                        <div class="form-group label-floating">
+                          <label class="control-label">Introduction</label>
+                          <textarea rows="6" type="text" class="form-control" name="introduction" id="introduction"><?php echo $introduction; ?></textarea>
                         </div>
-                        <div class="col-sm-12">
-                            <div class="card-content">
-
-                              <center>
-                              <button id="submitFormDataDevenirMembre" onclick="SubmitFormDataDevenirMembre();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
-                              <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
-                              </center>
-                             </div>
-                          </div>
+                        <h3 class="card-title">Les Etapes</h3>
+                        <div class="form-group label-floating">
+                          <label class="control-label">Etape 1</label>
+                          <textarea rows="6" type="text" name="etape1" id="etape1" class="form-control"><?php echo $etape1; ?></textarea>
+                        </div>
+                        <div class="form-group label-floating">
+                          <label class="control-label">Etape 2</label>
+                          <textarea rows="6" type="text" name="etape2" id="etape2" class="form-control"><?php echo $etape2; ?></textarea>
+                        </div>
+                        <div class="form-group label-floating">
+                          <label class="control-label">Etape 3</label>
+                          <textarea rows="6" type="text" name="etape3" id="etape3" class="form-control"><?php echo $etape3; ?></textarea>
+                        </div>
+                      </div>
                     </div>
-                  </form>
-                </div>
+                    <div class="col-sm-12">
+                      <div class="card-content">
+                        <center>
+                          <button id="submitFormDataDevenirMembre" onclick="SubmitFormDataDevenirMembre();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                        </center>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
             </div>
+          </div>
+          <div id="results2"></div>
         </div>
 
-     <div id="results2"> <!-- TRES IMPORTANT -->
-
-
-
-    </div>
-  </div>
-
-
 <?php
-
-
-
-
-
-
-
-
-
-
 
 }else if ($_GET['page']=='association'){
   $table = $_GET['table'];
