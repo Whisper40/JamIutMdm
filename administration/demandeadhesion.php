@@ -395,7 +395,7 @@ if($countid2>'0'){
             <div class="row">
               <div class="col-sm-12">
                 <div class="card-content">
-                  <h3 class="card-title">Liste des personnes ayant transmis des documents</h3>
+                  <h3 class="card-title">Liste des personnes ayant transmis des documents/non membres</h3>
                 </div>
               </div>
             </div>
