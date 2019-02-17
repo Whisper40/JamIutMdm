@@ -123,7 +123,7 @@ $newtitle = replaceAccents($title);
           <td class="text-center">'.$telurgence.'</td>
           <td class="text-center">'.$optionmateriel.'</td>
           <td class="text-center">'.$optionrepas.'</td>
-          <td class="text-center">'.$optionadditionnelles.'</td>
+          <td class="text-center">'.$optioncasque.'</td>
           </tr>';
         }
       }
