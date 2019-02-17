@@ -238,7 +238,7 @@ require_once('includes/head.php');
                           <?php
                           $optionmaterielform = $_POST['optionmateriel'];
                           $optionrepasform = $_POST['optionrepas'];
-                          $optionadditionnellesform = $_POST['additionnelles'];
+                          $optionadditionnellesform = $_POST['optionadditionnelles'];
 
                           $selectpricemateriel = $db->prepare("SELECT price FROM activityradio WHERE packname=:optionmaterielform");
                           $selectpricemateriel->execute(array(
