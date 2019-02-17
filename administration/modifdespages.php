@@ -1050,6 +1050,106 @@ if ($uploadOk == 0) {
 
                                 } ?>
 
+                                <div class="content">
+                                  <div class="container-fluid">
+                                    <div class="card">
+                                      <div class="card-content">
+                                        <h2 class="card-title text-center">Modification page présentation association</h2>
+                                          <div class="row">
+                                            <div class="col-sm-12">
+                                              <div class="card-content">
+                                                <h3 class="card-title">En-tête de page</h3>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="row">
+                                            <div class="col-sm-6">
+                                              <div class="card-content">
+                                                <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+                                                  <h3 class="card-title text-center">Image d'Arrière plan</h3>
+                                                  <br>
+                                                  <center>
+                                                    <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                                                      <div class="fileinput-new thumbnail">
+                                                        <img src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/<?php echo $image; ?>" alt="...">
+                                                      </div>
+                                                      <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                                                      <br><br>
+                                                      <div>
+                                                        <span class="btn btn-rose btn-round btn-file">
+                                                          <span class="fileinput-new">Selection image</span>
+                                                          <span class="fileinput-exists">Changer</span>
+                                                          <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple" />
+                                                        </span>
+                                                        <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
+                                                        <button type="submit" name="envoieimageprezasso" class="btn btn-primary btn-round btn-rose">Modifier l'image</button>
+                                                      </div>
+                                                    </div>
+                                                  </center>
+                                                </form>
+                                              </div>
+                                            </div>
+                                          <div class="col-sm-6">
+                                            <div class="card-content">
+                                              <form action="" method="post" id="myForm1" class="contact-form">
+                                                <h3 class="card-title text-center">Titres de la page</h3>
+                                                <br><br>
+                                                <div class="form-group label-floating">
+                                                  <label class="control-label">Titre de la page</label>
+                                                  <input type="text" class="form-control" value="<?php echo $pagetitre; ?>" name="pagetitre" id="pagetitre">
+                                                </div>
+                                                <div class="form-group label-floating">
+                                                  <label class="control-label">Titre</label>
+                                                  <input type="text" class="form-control" value="<?php echo $titre1; ?>" name="titre1" id="titre1">
+                                                </div>
+                                                <br>
+                                                <center>
+                                                  <button id="submitFormDataMembre" onclick="SubmitFormDataMembre();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                                                </center>
+                                              </form>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div id="results10"></div>
+                                        <div class="row">
+                                          <div class="col-sm-12">
+                                            <div class="card-content">
+                                              <h3 class="card-title">Corp de page</h3>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+                                        <div class="row">
+                                          <div class="col-sm-6">
+                                            <div class="card-content">
+                                              <div class="form-group label-floating">
+                                                <label class="control-label">Description</label>
+                                                <textarea rows="6" type="text" name="description1" id="description1" class="form-control"><?php echo $description1; ?></textarea>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        <div class="col-sm-6">
+                                          <div class="card-content">
+                                            <div class="form-group label-floating">
+                                              <label class="control-label">Description</label>
+                                              <textarea rows="6" type="text" name="description2" id="description2" class="form-control"><?php echo $description2; ?></textarea>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-sm-12">
+                                          <div class="card-content">
+                                            <center>
+                                              <button id="submitFormDataPageAsso" onclick="SubmitFormDataPageAsso();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                                            </center>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </form>
+
+
+
 
     <div class="content">
         <div class="container-fluid">
