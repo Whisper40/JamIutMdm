@@ -592,15 +592,12 @@ if ($uploadOk == 0) {
                     </div>
                     <div class="row">
                       <div class="col-sm-6">
-                          <div class="card-content">
-                            <div class="form-group label-floating">
-                                <label class="control-label">Titre Principal</label>
-                                <input type="text" name="titre1" value="<?php echo $titre1; ?>" id="titre1" class="form-control">
-                            </div>
-                            <div class="form-group label-floating">
-                                <label class="control-label">Description</label>
-                                <textarea rows="12" name="description1" id="description1" class="form-control"><?php echo $description1; ?></textarea>
-                            </div>
+                        <div class="card-content">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Description</label>
+                            <textarea rows="12" name="description1" id="description1" class="form-control"><?php echo $description1; ?></textarea>
+                          </div>
+                          <center>
                             <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<br />'" type="button" name="sautbr" id="sautbr" value="Saut de ligne" class="btn btn-rose btn-round btn-sm"/>
                             <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<u>Texte souligné</u>'" type="button" name="souligne" id="souligne" value="Souligner" class="btn btn-rose btn-round btn-sm"/>
                             <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>'" type="button" name="liste" id="liste" value="Créer une liste" class="btn btn-rose btn-round btn-sm"/>
@@ -608,12 +605,15 @@ if ($uploadOk == 0) {
                             <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<i>Texte en Italic</i>'" type="button" name="Italic" id="Italic" value="Italic" class="btn btn-rose btn-round btn-sm"/>
                             <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<sub>Texte en Indice</sub>'" type="button" name="Indice" id="Indice" value="Indice" class="btn btn-rose btn-round btn-sm"/>
                             <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>'" type="button" name="Surligné" id="Surligné" value="Surligné" class="btn btn-rose btn-round btn-sm"/>
-
-                           </div>
+                          </center>
                         </div>
+                      </div>
                         <div class="col-sm-6">
                             <div class="card-content">
-
+                              <div class="form-group label-floating">
+                                  <label class="control-label">Titre Principal</label>
+                                  <input type="text" name="titre1" value="<?php echo $titre1; ?>" id="titre1" class="form-control">
+                              </div>
                               <div class="form-group label-floating">
                                   <label class="control-label">Bouton Gauche</label>
                                   <input type="text" name="bouton1" value="<?php echo $bouton1; ?>" id="bouton1" class="form-control">
