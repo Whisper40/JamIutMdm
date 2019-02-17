@@ -238,6 +238,8 @@ require_once('includes/head.php');
                           <?php
                           $optionmaterielform = $_POST['optionmateriel'];
                           $optionrepasform = $_POST['optionrepas'];
+                          $optionadditionnellesform = $_POST['additionnelles'];
+
                           $selectpricemateriel = $db->prepare("SELECT price FROM activityradio WHERE packname=:optionmaterielform");
                           $selectpricemateriel->execute(array(
                               "optionmaterielform"=>$optionmaterielform
@@ -254,7 +256,16 @@ require_once('includes/head.php');
                           $r2 = $selectpricerepas->fetch(PDO::FETCH_OBJ);
                           $prixrepas = $r2->price;
 
-                          if(isset($prixmateriel) && isset($prixrepas)){
+
+                          $selectpriceadditionnelles= $db->prepare("SELECT price FROM activityradio WHERE packname=:optionadditionnellesform");
+                          $selectpriceadditionnelles->execute(array(
+                              "optionadditionnellesform"=>$optionadditionnellesform
+                              )
+                          );
+                          $r3 = $selectpriceadditionnelles->fetch(PDO::FETCH_OBJ);
+                          $prixadditionnelles = $r3->price;
+
+                          if(isset($prixmateriel) && isset($prixrepas) && isset($prixadditionnelles)){
                               //27/11/2018
                           $activity_name = $_GET['activityname'];
 
@@ -285,7 +296,7 @@ require_once('includes/head.php');
                                                     <?php
                                                     }else{
 
-                                                    $total = $prixactivite + $prixmateriel + $prixrepas;
+                                                    $total = $prixactivite + $prixmateriel + $prixrepas + $prixadditionnelles;
                                                     ?>
                                                       <h4 class="info-title">Prix Total : <?php echo $total;?>€</h4>
                                                         <?php
@@ -970,6 +981,7 @@ require_once('includes/head.php');
                     $_SESSION['activity_name'] = $activity_slug;
                     $_SESSION['optionmateriel'] = $optionmaterielform;
                     $_SESSION['optionrepas'] = $optionrepasform;
+                    $_SESSION['optionadditionnelles'] = $optionadditionnellesform;
           }else if (stripos($activity_slug, 'rugby') !== FALSE){
 
             $total = $prixactivite + $prixaccompagnement;
