@@ -1169,9 +1169,7 @@ if ($uploadOk == 0) {
                                             </div>
                                           </div>
                                         </div>
-                                      </div>
-                                      <div class="row">
-                                        <div class="col-sm-12">
+                                        <div class="col-sm-6">
                                           <div class="card-content">
                                             <center>
                                               <button type="submit" name="envoieimageprezassocarousel" class="btn btn-primary btn-round btn-rose">Envoyer les images</button>
