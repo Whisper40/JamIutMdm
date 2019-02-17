@@ -495,88 +495,93 @@ if ($uploadOk == 0) {
           <div class="card">
               <div class="card-content">
                   <h2 class="card-title text-center">Modification de l'index du site</h2>
-
-
-                  <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-                            <div class="row">
-                                <div class="col-sm-6">
-
-                                     <div class="form-group form-file-upload">
-                                         <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
-                                         <div class="input-group">
-                                             <input type="text" readonly="" class="form-control" placeholder="<?php echo $img1; ?>">
-                                             <span class="input-group-btn input-group-s">
-                                                 <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
-                                                     <i class="material-icons">layers</i>
-                                                 </button>
-                                             </span>
-                                         </div>
-                                     </div>
-                                  </div>
-
-                                  <div class="col-sm-12">
-                                      <div class="card-content">
-                                          <input type="submit" name="envoieimagefond" value="Modifier l'image du fond">
-                                       </div>
-                                    </div>
+                  <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card-content">
+                          <h3 class="card-title">Images de la page</h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <div class="card-content">
+                        <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+                          <h3 class="card-title text-center">Arrière plan</h3>
+                          <br>
+                          <center>
+                            <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                              <div class="fileinput-new thumbnail">
+                                <img src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/<?php echo $img1; ?>" alt="...">
+                              </div>
+                              <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                              <br><br>
+                              <div>
+                                <span class="btn btn-rose btn-round btn-file">
+                                  <span class="fileinput-new">Selection image</span>
+                                  <span class="fileinput-exists">Changer</span>
+                                  <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple" />
+                                </span>
+                                <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
+                                <button type="submit" name="envoieimagefond" class="btn btn-primary btn-round btn-rose">Modifier l'image</button>
+                              </div>
                             </div>
-                          </form>
-
-
-
-                          <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-                                    <div class="row">
-                                        <div class="col-sm-6">
-
-                                             <div class="form-group form-file-upload">
-                                                 <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
-                                                 <div class="input-group">
-                                                     <input type="text" readonly="" class="form-control" placeholder="<?php echo $logo1; ?>">
-                                                     <span class="input-group-btn input-group-s">
-                                                         <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
-                                                             <i class="material-icons">layers</i>
-                                                         </button>
-                                                     </span>
-                                                 </div>
-                                             </div>
-                                          </div>
-
-                                          <div class="col-sm-12">
-                                              <div class="card-content">
-                                                  <input type="submit" name="envoieimagecentrale" value="Modifier l'image centrale">
-                                               </div>
-                                            </div>
-                                    </div>
-                                  </form>
-
-                                  <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-                                            <div class="row">
-                                                <div class="col-sm-6">
-
-                                                     <div class="form-group form-file-upload">
-                                                         <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
-                                                         <div class="input-group">
-                                                             <input type="text" readonly="" class="form-control" placeholder="<?php echo $logo2; ?>">
-                                                             <span class="input-group-btn input-group-s">
-                                                                 <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
-                                                                     <i class="material-icons">layers</i>
-                                                                 </button>
-                                                             </span>
-                                                         </div>
-                                                     </div>
-                                                  </div>
-
-                                                  <div class="col-sm-12">
-                                                      <div class="card-content">
-                                                          <input type="submit" name="envoieimagelogo2" value="Modifier le logo">
-                                                       </div>
-                                                    </div>
-                                            </div>
-                                          </form>
-
-
-
-
+                          </center>
+                        </form>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="card-content">
+                        <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+                          <h3 class="card-title text-center">Logo centrale</h3>
+                          <br>
+                          <center>
+                            <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                              <div class="fileinput-new thumbnail">
+                                <img src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/<?php echo $logo1; ?>" alt="...">
+                              </div>
+                              <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                              <br><br>
+                              <div>
+                                <span class="btn btn-rose btn-round btn-file">
+                                  <span class="fileinput-new">Selection image</span>
+                                  <span class="fileinput-exists">Changer</span>
+                                  <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple" />
+                                </span>
+                                <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
+                                <button type="submit" name="envoieimagecentrale" class="btn btn-primary btn-round btn-rose">Modifier le logo</button>
+                              </div>
+                            </div>
+                          </center>
+                        </form>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="card-content">
+                        <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+                          <h3 class="card-title text-center">Image Introduction</h3>
+                          <br>
+                          <center>
+                            <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                              <div class="fileinput-new thumbnail">
+                                <img src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/<?php echo $logo2; ?>" alt="...">
+                              </div>
+                              <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                              <br><br>
+                              <div>
+                                <span class="btn btn-rose btn-round btn-file">
+                                  <span class="fileinput-new">Selection image</span>
+                                  <span class="fileinput-exists">Changer</span>
+                                  <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple" />
+                                </span>
+                                <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
+                                <button type="submit" name="envoieimagelogo2" class="btn btn-primary btn-round btn-rose">Modifier l'image</button>
+                              </div>
+                            </div>
+                          </center>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
                   <form action="" method="post" id="myForm1" class="contact-form">
                     <div class="row">
                       <div class="col-sm-12">
@@ -592,18 +597,17 @@ if ($uploadOk == 0) {
                                 <label class="control-label">Titre Principal</label>
                                 <input type="text" name="titre1" value="<?php echo $titre1; ?>" id="titre1" class="form-control">
                             </div>
-
                             <div class="form-group label-floating">
                                 <label class="control-label">Description</label>
                                 <textarea rows="12" name="description1" id="description1" class="form-control"><?php echo $description1; ?></textarea>
                             </div>
-                            <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<br />'" type="button" name="sautbr" id="sautbr" value="Saut de ligne" class="btn btn-primary btn-round btn-rose"/>
-                            <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<u>Texte souligné</u>'" type="button" name="souligne" id="souligne" value="Souligner" class="btn btn-primary btn-round btn-rose"/>
-                            <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>'" type="button" name="liste" id="liste" value="Créer une liste" class="btn btn-primary btn-round btn-rose"/>
-                            <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<strong>Texte en gras</strong>'" type="button" name="Gras" id="Gras" value="Gras" class="btn btn-primary btn-round btn-rose"/>
-                            <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<i>Texte en Italic</i>'" type="button" name="Italic" id="Italic" value="Italic" class="btn btn-primary btn-round btn-rose"/>
-                            <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<sub>Texte en Indice</sub>'" type="button" name="Indice" id="Indice" value="Indice" class="btn btn-primary btn-round btn-rose"/>
-                            <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>'" type="button" name="Surligné" id="Surligné" value="Surligné" class="btn btn-primary btn-round btn-rose"/>
+                            <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<br />'" type="button" name="sautbr" id="sautbr" value="Saut de ligne" class="btn btn-rose btn-round btn-sm"/>
+                            <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<u>Texte souligné</u>'" type="button" name="souligne" id="souligne" value="Souligner" class="btn btn-rose btn-round btn-sm"/>
+                            <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>'" type="button" name="liste" id="liste" value="Créer une liste" class="btn btn-rose btn-round btn-sm"/>
+                            <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<strong>Texte en gras</strong>'" type="button" name="Gras" id="Gras" value="Gras" class="btn btn-rose btn-round btn-sm"/>
+                            <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<i>Texte en Italic</i>'" type="button" name="Italic" id="Italic" value="Italic" class="btn btn-rose btn-round btn-sm"/>
+                            <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<sub>Texte en Indice</sub>'" type="button" name="Indice" id="Indice" value="Indice" class="btn btn-rose btn-round btn-sm"/>
+                            <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>'" type="button" name="Surligné" id="Surligné" value="Surligné" class="btn btn-rose btn-round btn-sm"/>
 
                            </div>
                         </div>
