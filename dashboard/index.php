@@ -26,7 +26,7 @@
                                           </div>
                                           <div class="card-content">
                                               <p class="category">Date d'inscription</p>
-                                              <h3 class="card-title">
+                                              <h4 class="card-title">
 
                                                 <?php
 
@@ -42,7 +42,7 @@
                                                   echo $subscribe;
                                                         ?>
 
-                                              </h3>
+                                              </h4>
                                           </div>
 
                                       </div>
@@ -56,7 +56,7 @@
 
                                             <div class="card-content">
                                                 <p class="category"> Nombre d'Activités/Voyages participés</p>
-                                            <h3 class="card-title">
+                                            <h4 class="card-title">
 
                                               <?php
                                                   $user_id = $_SESSION['user_id'];
@@ -71,7 +71,7 @@
                                                 $countacti = $s->countactivite;
                                                 echo $countacti;
                                                       ?>
-                                                                                    </h3>
+                                                    </h4>
                                             </div>
 
                                         </div>
