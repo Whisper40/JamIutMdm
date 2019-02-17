@@ -22,23 +22,25 @@
                                             <div class="card-header" data-background-color="orange">
                                                 <i class="material-icons">dns</i>
                                             </div>
+
+
                                             <div class="card-content">
-                                                <p class="category">Nombre de services</p>
-                                                                                    <h3 class="card-title">
+                                                <p class="category"> Nombre d'Activités/Voyages participés</p>
+                                            <h3 class="card-title">
 
-            <?php
+                                              <?php
+                                                  $user_id = $_SESSION['user_id'];
 
-                        $req = $db->prepare("SELECT  COUNT(*) as id FROM products_transactions WHERE user_id = :user_id");
-                        $req->execute(array(
-                            "user_id"=>$user_id
-                            )
-                        );
+                                                  $selectcountacti = $db->prepare("SELECT countactivite FROM users WHERE id = :user_id");
+                                                  $selectcountacti->execute(array(
+                                                      "user_id"=>$user_id
+                                                      )
+                                                  );
 
-                        $donnees = $req->fetch();
-                        $req->closeCursor();
-                        echo $donnees['id'];?>
-
-
+                                                $s = $selectcountacti->fetch(PDO::FETCH_OBJ);
+                                                $countacti = $s->countactivite;
+                                                echo $countacti;
+                                                      ?>
                                                                                     </h3>
                                             </div>
                                             <div class="card-footer">
