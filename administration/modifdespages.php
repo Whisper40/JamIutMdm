@@ -4026,7 +4026,7 @@ if (file_exists($target_dir)){
                                   <label class="control-label">Description 3</label>
                                   <input type="text" name="description3" value="<?php echo $description3; ?>" id="description3" class="form-control">
                               </div>
-                            
+
 
                               <div class="form-group label-floating">
                                   <label class="control-label">Stock</label>
@@ -5760,15 +5760,13 @@ if ($uploadOk == 0) {
 
 <?php
 
-//Fin modif don
 
-}else if ($_GET['page']=='faireundonpaiement'){
 
 //Modif page faire un don paiement
 
-?>
 
-<?php
+
+
 $selectinfosactuel46 = $db->prepare("SELECT * from photopage where nompage=:nompage");
 $selectinfosactuel46->execute(array(
   "nompage"=>'Faire un don paiement'
@@ -6010,6 +6008,20 @@ if ($uploadOk == 0) {
 
 <?php
 //Fin modif paiement don
+
+
+
+
+
+
+
+
+
+
+
+
+//Fin modif don
+
 } } ?>
 
   </div>
