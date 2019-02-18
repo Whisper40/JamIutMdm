@@ -9,11 +9,11 @@ require_once('../includes/connectBDD.php');
         $description2 = $_POST['description2'];
         $title3 = $_POST['title3'];
         $description3 = $_POST['description3'];
-        $formatimg = $_POST['formatimg'];
 
 
 
-        if(!empty($id)&&!empty($user_id)&&!empty($title)&&!empty($description)&&!empty($formatimg)){
+
+        if(!empty($id)&&!empty($user_id)&&!empty($title)&&!empty($description)){
 
           $selectancien = $db->prepare("SELECT * FROM newsactus WHERE id=:id");
           $selectancien->execute(array(
@@ -50,7 +50,7 @@ require_once('../includes/connectBDD.php');
 
 
 
-                $update4 = $db->prepare("UPDATE newsactus SET title=:title, description=:description, title2=:title2, description2=:description2, title3=:title3, description3=:description3, formatimg=:formatimg WHERE id=:id");
+                $update4 = $db->prepare("UPDATE newsactus SET title=:title, description=:description, title2=:title2, description2=:description2, title3=:title3, description3=:description3 WHERE id=:id");
                 $update4->execute(array(
                     "id"=>$id,
                     "title"=>$title,
@@ -58,8 +58,8 @@ require_once('../includes/connectBDD.php');
                     "title2"=>$title2,
                     "description2"=>$description2,
                     "title3"=>$title3,
-                    "description3"=>$description3,
-                    "formatimg"=>$formatimg
+                    "description3"=>$description3
+
                     )
                 );
 
