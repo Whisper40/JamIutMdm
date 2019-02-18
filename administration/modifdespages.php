@@ -3613,54 +3613,6 @@ $target_file3 = $target_dirnew."".$slug.".".$formatimg;
  <div id="results11"> <!-- TRES IMPORTANT -->
 </div>
 
-<div class="container-fluid">
-    <div class="card">
-        <div class="card-content">
-            <h2 class="card-title text-center">Suppression d'actualité</h2>
-            <form action="" method="post" id="myForm1" class="contact-form">
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="card-content">
-                      Sélectionner l'actualité à supprimer<br><?php
-
-                      $selectactuasupprimer=$db->query("SELECT DISTINCT title FROM newsactus");
-                      ?>
-
-                      <select name="catactu" id="catactu">
-                        <?php
-                          while($sa = $selectactuasupprimer->fetch(PDO::FETCH_OBJ)){
-                            $catactu=$sa->title;
-                            ?>
-                          <option value="<?php echo $catactu;?>"><?php echo $catactu; ?></option>
-                        <?php
-                      }
-                      ?>
-                      </select>
-
-                     </div>
-                  </div>
-
-                <div class="col-sm-12">
-                    <div class="card-content">
-                      <center>
-                      <button onclick="demo.showSwal('warningdeleteactu','<?php echo $user_id; ?>')" type="button" class="btn btn-primary btn-round btn-rose">Supprimer</button>
-                      <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
-                      </center>
-                     </div>
-                  </div>
-            </div>
-          </form>
-        </div>
-
-
-    </div>
-</div>
-
-<div id="results20"> <!-- TRES IMPORTANT -->
-</div>
-
-
-
 <!-- Ajoutd'images au site web (assets)-->
 <?php
 if(isset($_POST['submitphotoactualite'])){
@@ -4464,9 +4416,14 @@ if ($uploadOk == 0) {
             <a href="?page=activitesvoyages&amp;table=activitesvoyages&amp;'.$act.'activitesvoyages='.$id.'">
             <button type="button" class="btn">'.$message.'</button>
             </a>
+            ';
+            ?>
             </td>
           </tr>
-          ';
+
+
+          <button onclick="demo.showSwal('warningdeleteacti','<?php echo $user_id; ?>','<?php echo $id; ?>')" type="button" class="btn btn-primary btn-round btn-rose">Supprimer</button>
+<?php
         }
 
         echo '
@@ -4732,53 +4689,6 @@ if ($uploadOk == 0) {
   </div>
 
 
-
-
-
-  <div class="container-fluid">
-    <div class="card">
-        <div class="card-content">
-            <h2 class="card-title text-center">Suppression d'activités/voyages</h2>
-            <form action="" method="post" id="myForm1" class="contact-form">
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="card-content">
-                      Sélectionner l'activité à supprimer<br><?php
-
-                      $selectactivitevoyagesupprimer=$db->query("SELECT DISTINCT title FROM activitesvoyages");
-                      ?>
-
-                      <select name="catactivitevoyage" id="catactivitevoyage">
-                        <?php
-                          while($sa = $selectactivitevoyagesupprimer->fetch(PDO::FETCH_OBJ)){
-                            $catactivitevoyage=$sa->title;
-                            ?>
-                          <option value="<?php echo $catactivitevoyage;?>"><?php echo $catactivitevoyage; ?></option>
-                        <?php
-                      }
-                      ?>
-                      </select>
-                     </div>
-                  </div>
-
-                <div class="col-sm-12">
-                    <div class="card-content">
-                      <center>
-                      <button onclick="demo.showSwal('warningdeleteacti','<?php echo $user_id; ?>')" type="button" class="btn btn-primary btn-round btn-rose">Supprimer</button>
-                      <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
-                      </center>
-                     </div>
-                  </div>
-            </div>
-          </form>
-        </div>
-
-
-    </div>
-  </div>
-
-  <div id="results21"> <!-- TRES IMPORTANT -->
-  </div>
 
 
 

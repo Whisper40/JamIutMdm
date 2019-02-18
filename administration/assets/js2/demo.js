@@ -749,7 +749,7 @@ demo = {
 
 
               }else if(type == 'warningdeleteacti'){
-                const catactivitevoyage = document.getElementById("catactivitevoyage").value
+
                 swal({
                         title: 'Êtes vous certain ?',
                         text: 'Cette action est irréversible !',
@@ -769,7 +769,7 @@ demo = {
                         buttonsStyling: false
                         })
 
-                      $.post("ajax/deleteuneactivitevoyage.php", { user_id: user_id, catactivitevoyage: catactivitevoyage},
+                      $.post("ajax/deleteuneactivitevoyage.php", { user_id: user_id, id: id},
         function(data) {
          $('#results21').html(data);
 

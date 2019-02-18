@@ -3,11 +3,11 @@ require_once('../includes/connectBDD.php');
 
 
         $user_id = $_POST['user_id'];
-        $catactivitevoyage = $_POST['catactivitevoyage'];
+        $id = $_POST['id'];
 
-        $selectslug = $db->prepare("SELECT slug, formatimg FROM activitesvoyages WHERE title=:catactivitevoyage");
+        $selectslug = $db->prepare("SELECT slug, formatimg FROM activitesvoyages WHERE id=:id");
         $selectslug->execute(array(
-                            "catactivitevoyage"=>$catactivitevoyage
+                            "id"=>$id
                             )
                         );
         $s = $selectslug->fetch(PDO::FETCH_OBJ);
