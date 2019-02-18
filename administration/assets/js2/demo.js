@@ -707,7 +707,7 @@ demo = {
 
 
             }else if(type == 'warningdeleteactu'){
-            const catactu = document.getElementById("catactu").value
+
             swal({
                     title: 'Êtes vous certain ?',
                     text: 'Cette action est irréversible !',
@@ -727,7 +727,7 @@ demo = {
                     buttonsStyling: false
                     })
 
-                  $.post("ajax/deleteuneactu.php", { user_id: user_id, catactu: catactu},
+                  $.post("ajax/deleteuneactu.php", { user_id: user_id, id: id},
     function(data) {
      $('#results20').html(data);
 

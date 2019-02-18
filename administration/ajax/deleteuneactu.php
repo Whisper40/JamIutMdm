@@ -2,17 +2,17 @@
 require_once('../includes/connectBDD.php');
 
         $user_id = $_POST['user_id'];
-        $catactu = $_POST['catactu'];
+        $id = $_POST['id'];
 
-        if(!empty($user_id)&&!empty($catactu)){
+        if(!empty($user_id)&&!empty($id)){
 
           date_default_timezone_set('Europe/Paris');
           setlocale(LC_TIME, 'fr_FR.utf8','fra');
           $date = strftime('%d/%m/%Y %H:%M:%S');
 
-          $select = $db->prepare("SELECT slug, formatimg FROM newsactus WHERE title=:catactu");
+          $select = $db->prepare("SELECT slug, formatimg FROM newsactus WHERE id=:id");
           $select->execute(array(
-                              "catactu"=>$catactu
+                              "id"=>$id
                               )
                           );
           $sa = $select->fetch(PDO::FETCH_OBJ);
