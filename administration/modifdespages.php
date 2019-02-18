@@ -3430,10 +3430,11 @@ if(isset($_POST['submitactualite'])){
 $total = count($_FILES['fileToUpload']['name']);
 
 for( $i=0 ; $i < $total ; $i++ ) {
-$target_file3 = $target_dirnew."".$slug.".".$formatimg;
+
 $target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+$target_file3 = $target_dirnew."".$slug.".".$imageFileType;
 // Check if file already exists
 if (file_exists($target_file3)) {
     $error = 'Désolé, le fichier existe déja.';
@@ -3461,7 +3462,7 @@ if ($uploadOk == 0) {
 
   $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
   $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
-  $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
   $target_filefile3 = $slug.".".$imageFileType;
 
 
