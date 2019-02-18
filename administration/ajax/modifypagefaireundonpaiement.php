@@ -9,9 +9,9 @@ require_once('../includes/connectBDD.php');
 
         if(!empty($user_id)&&!empty($pagetitre)&&!empty($titre)&&!empty($description)){
 
-                $update = $db->prepare("UPDATE photopage SET pagetitre=:pagetitre, titre=:titre, description=:description WHERE nompage=:nompage");
+                $update = $db->prepare("UPDATE photopage SET pagetitre=:pagetitre, titre=:titre, description=:description WHERE id=:id");
                 $update->execute(array(
-                    "nompage"=>'Faire un don paiement',
+                    "id"=>'10',
                     "pagetitre"=>$pagetitre,
                     "titre"=>$titre,
                     "description"=>$description
