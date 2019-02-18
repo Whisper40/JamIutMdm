@@ -5910,11 +5910,11 @@ if ($uploadOk == 0) {
 
           function SubmitFormDataFaireUnDonPaiement() {
              var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-             var pagetitre = $("#pagetitre2").val();
-             var titre = $("#titre2").val();
-             var description = $("#description2").val();
+             var pagetitre2 = $("#pagetitre2").val();
+             var titre2 = $("#titre2").val();
+             var description2 = $("#description2").val();
 
-             $.post("ajax/modifypagefaireundonpaiement.php", { user_id: user_id, pagetitre: pagetitre, titre: titre, description: description},
+             $.post("ajax/modifypagefaireundonpaiement.php", { user_id: user_id, pagetitre2: pagetitre2, titre2: titre2, description2: description2},
              function(data) {
               $('#results44').html(data);
 
