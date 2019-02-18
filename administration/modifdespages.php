@@ -4418,11 +4418,12 @@ if ($uploadOk == 0) {
             </a>
             ';
             ?>
+              <button onclick="demo.showSwal('warningdeleteacti','<?php echo $user_id; ?>','<?php echo $id; ?>')" type="button" class="btn btn-primary btn-round btn-rose">Supprimer</button>
             </td>
           </tr>
 
 
-          <button onclick="demo.showSwal('warningdeleteacti','<?php echo $user_id; ?>','<?php echo $id; ?>')" type="button" class="btn btn-primary btn-round btn-rose">Supprimer</button>
+
 <?php
         }
 
