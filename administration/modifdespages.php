@@ -4616,6 +4616,21 @@ if ($uploadOk == 0) {
           $error = 'Désolé, une erreur est survenue.';
       } } }
 
+      $selectidacti = $db->prepare("SELECT id FROM activitesvoyages WHERE title=:title");
+      $selectidacti->execute(array(
+          "title"=>$title
+          )
+      );
+
+      $sacti = $selectidacti->fetch(PDO::FETCH_OBJ);
+      $idacti = $sacti->id;
+
+
+      ?>
+          <script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=actualite&table=newsactus&modifactus=<?php echo $idacti;?>"</script>
+      <?php
+
+
             } ?>
 
   <div class="content">
