@@ -5756,46 +5756,9 @@ if ($uploadOk == 0) {
                 </div>
               </div>
             </div>
-          </div>
-
-<?php
 
 
 
-//Modif page faire un don paiement
-
-
-
-
-$selectinfosactuel46 = $db->prepare("SELECT * from photopage where nompage=:nompage");
-$selectinfosactuel46->execute(array(
-  "nompage"=>'Faire un don paiement'
-));
-$r46 = $selectinfosactuel46->fetch(PDO::FETCH_OBJ);
-$pagetitre = $r46->pagetitre;
-$image = $r46->image;
-$titre = $r46->titre;
-$description = $r46->description;
-
-?>
-<script>
-
-
-function SubmitFormDataFaireUnDonPaiement() {
-   var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-   var pagetitre = $("#pagetitre").val();
-   var titre = $("#titre").val();
-   var description = $("#description").val();
-
-   $.post("ajax/modifypagefaireundonpaiement.php", { user_id: user_id, pagetitre: pagetitre, titre: titre, description: description},
-   function(data) {
-    $('#results23').html(data);
-
-   });
-
-}
-
-</script>
 
 
 <!-- Ajoutd'images au site web (assets)-->
@@ -5923,14 +5886,47 @@ if ($uploadOk == 0) {
         $error = 'Désolé, une erreur est survenue.';
     } } }
 
-          } ?>
+          }
+
+
+          //Modif page faire un don paiement
 
 
 
 
+          $selectinfosactuel46 = $db->prepare("SELECT * from photopage where nompage=:nompage");
+          $selectinfosactuel46->execute(array(
+            "nompage"=>'Faire un don paiement'
+          ));
+          $r46 = $selectinfosactuel46->fetch(PDO::FETCH_OBJ);
+          $pagetitre = $r46->pagetitre;
+          $image = $r46->image;
+          $titre = $r46->titre;
+          $description = $r46->description;
+
+          ?>
+          <script>
 
 
-<div class="content">
+          function SubmitFormDataFaireUnDonPaiement() {
+             var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+             var pagetitre = $("#pagetitre").val();
+             var titre = $("#titre").val();
+             var description = $("#description").val();
+
+             $.post("ajax/modifypagefaireundonpaiement.php", { user_id: user_id, pagetitre: pagetitre, titre: titre, description: description},
+             function(data) {
+              $('#results23').html(data);
+
+             });
+
+          }
+
+          </script>
+
+
+
+
     <div class="container-fluid">
         <div class="card">
             <div class="card-content">
@@ -5973,12 +5969,12 @@ if ($uploadOk == 0) {
 
                         <div class="form-group label-floating">
                         <label class="control-label">Titre</label>
-                        <input type="text" name="titre" value="<?php echo $titre;?>" id="titre" class="form-control">
+                        <input type="text" name="titre" value="<?php echo $titre; ?>" id="titre" class="form-control">
                         </div>
 
                         <div class="form-group label-floating">
                         <label class="control-label">Description</label>
-                        <input type="text" name="description" value="<?php echo $description;?>" id="description" class="form-control">
+                        <input type="text" name="description" value="<?php echo $description; ?>" id="description" class="form-control">
                         </div>
 
                          </div>
@@ -6001,7 +5997,7 @@ if ($uploadOk == 0) {
 
  <div id="results23"> <!-- TRES IMPORTANT -->
 </div>
-</div>
+
 
 
 
