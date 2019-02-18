@@ -5916,7 +5916,7 @@ if ($uploadOk == 0) {
 
              $.post("ajax/modifypagefaireundonpaiement.php", { user_id: user_id, pagetitre: pagetitre, titre: titre, description: description},
              function(data) {
-              $('#results23').html(data);
+              $('#results44').html(data);
 
              });
 
@@ -5995,7 +5995,7 @@ if ($uploadOk == 0) {
         </div>
     </div>
 
- <div id="results23"> <!-- TRES IMPORTANT -->
+ <div id="results44"> <!-- TRES IMPORTANT -->
 </div>
 
 
