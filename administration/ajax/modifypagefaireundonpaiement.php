@@ -11,7 +11,7 @@ require_once('../includes/connectBDD.php');
 
           $update4 = $db->prepare("UPDATE photopage SET titre=:titre, description=:description, pagetitre=:pagetitre WHERE id=:id");
           $update4->execute(array(
-              "id"=>10,
+              "id"=>'10',
               "titre"=>$titre,
               "description"=>$description,
               "pagetitre"=>$pagetitre
