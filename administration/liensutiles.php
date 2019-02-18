@@ -25,7 +25,7 @@ function RetourIndex(){
 
  function TOTO() {
     var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-    var nom = "<?php echo $nom; ?>";
+    var nom = $("#nom").val();
     var description = $("#description").val();
     var lienimage = $("#lienimage").val();
     var lien = $("#lien").val();
