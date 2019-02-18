@@ -64,9 +64,9 @@ require_once('../includes/connectBDD.php');
                               )
                           );
 
-          $del0 = $db->prepare("DELETE FROM activitesvoyages WHERE title=:catactivitevoyage");
+          $del0 = $db->prepare("DELETE FROM activitesvoyages WHERE id=:id");
           $del0->execute(array(
-                          "catactivitevoyage"=>$catactivitevoyage
+                          "id"=>$id
                         )
           );
 
