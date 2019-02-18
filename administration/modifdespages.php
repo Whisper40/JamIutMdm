@@ -5894,9 +5894,9 @@ if ($uploadOk == 0) {
 
 
 
-          $selectinfosactuel462 = $db->prepare("SELECT * from photopage where nompage=:nompage");
+          $selectinfosactuel462 = $db->prepare("SELECT * from photopage where id=:id");
           $selectinfosactuel462->execute(array(
-            "nompage"=>'Faire un don paiement'
+            "id"=>'10'
           ));
           $r462 = $selectinfosactuel462->fetch(PDO::FETCH_OBJ);
           $pagetitre2 = $r462->pagetitre;
