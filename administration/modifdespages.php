@@ -5894,15 +5894,15 @@ if ($uploadOk == 0) {
 
 
 
-          $selectinfosactuel46 = $db->prepare("SELECT * from photopage where nompage=:nompage");
-          $selectinfosactuel46->execute(array(
+          $selectinfosactuel462 = $db->prepare("SELECT * from photopage where nompage=:nompage");
+          $selectinfosactuel462->execute(array(
             "nompage"=>'Faire un don paiement'
           ));
-          $r46 = $selectinfosactuel46->fetch(PDO::FETCH_OBJ);
-          $pagetitre = $r46->pagetitre;
-          $image = $r46->image;
-          $titre = $r46->titre;
-          $description = $r46->description;
+          $r462 = $selectinfosactuel462->fetch(PDO::FETCH_OBJ);
+          $pagetitre2 = $r462->pagetitre;
+          $image2 = $r462->image;
+          $titre2 = $r462->titre;
+          $description2 = $r462->description;
 
           ?>
           <script>
@@ -5910,9 +5910,9 @@ if ($uploadOk == 0) {
 
           function SubmitFormDataFaireUnDonPaiement() {
              var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-             var pagetitre = $("#pagetitre").val();
-             var titre = $("#titre").val();
-             var description = $("#description").val();
+             var pagetitre = $("#pagetitre2").val();
+             var titre = $("#titre2").val();
+             var description = $("#description2").val();
 
              $.post("ajax/modifypagefaireundonpaiement.php", { user_id: user_id, pagetitre: pagetitre, titre: titre, description: description},
              function(data) {
@@ -5939,7 +5939,7 @@ if ($uploadOk == 0) {
                                        <div class="form-group form-file-upload">
                                            <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
                                            <div class="input-group">
-                                               <input type="text" readonly="" class="form-control" placeholder="<?php echo $image; ?>">
+                                               <input type="text" readonly="" class="form-control" placeholder="<?php echo $image2; ?>">
                                                <span class="input-group-btn input-group-s">
                                                    <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
                                                        <i class="material-icons">layers</i>
@@ -5964,17 +5964,17 @@ if ($uploadOk == 0) {
                         <div class="card-content">
                           <div class="form-group label-floating">
                               <label class="control-label">Titre de la page</label>
-                              <input type="text" class="form-control" value="<?php echo $pagetitre; ?>" name="pagetitre" id="pagetitre">
+                              <input type="text" class="form-control" value="<?php echo $pagetitre2; ?>" name="pagetitre2" id="pagetitre">
                           </div>
 
                         <div class="form-group label-floating">
                         <label class="control-label">Titre</label>
-                        <input type="text" name="titre" value="<?php echo $titre; ?>" id="titre" class="form-control">
+                        <input type="text" name="titre" value="<?php echo $titre2; ?>" id="titre2" class="form-control">
                         </div>
 
                         <div class="form-group label-floating">
                         <label class="control-label">Description</label>
-                        <input type="text" name="description" value="<?php echo $description; ?>" id="description" class="form-control">
+                        <input type="text" name="description" value="<?php echo $description2; ?>" id="description2" class="form-control">
                         </div>
 
                          </div>
