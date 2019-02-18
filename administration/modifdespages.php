@@ -5903,6 +5903,8 @@ if ($uploadOk == 0) {
           $image2 = $r462->image;
           $titre2 = $r462->titre;
           $description2 = $r462->description;
+          echo $pagetitre2;
+          echo $titre2;
 
           ?>
           <script>
