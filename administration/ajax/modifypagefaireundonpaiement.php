@@ -6,7 +6,7 @@ require_once('../includes/connectBDD.php');
         $titre = $_POST['titre2'];
         $description = $_POST['description2'];
 
-    
+
 
 
         if(!empty($user_id)&&!empty($pagetitre)&&!empty($titre)&&!empty($description)){
@@ -38,7 +38,7 @@ require_once('../includes/connectBDD.php');
 
                     <script>
                     demo.showSwal('success-message');
-                    demo.showNotification('top','right','<b>Succès</b> - Modifications effectuées !');
+                    demo.showNotification('top','right','<b>Succès</b> - Modifications effectués !');
                     </script>
 
             <?php
@@ -47,7 +47,7 @@ require_once('../includes/connectBDD.php');
 
                     <script>
                     demo.showSwal('danger-message');
-                    demo.showNotification('top','right','<b>Erreur</b> - Modifications non effectuées en raison de champs vides !');
+                    demo.showNotification('top','right','<b>Erreur</b> - Modifications non effectués en raison de champs vides !');
                     </script>
             <?php
             }

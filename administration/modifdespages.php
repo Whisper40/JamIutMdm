@@ -5894,17 +5894,16 @@ if ($uploadOk == 0) {
 
 
 
-          $selectinfosactuel462 = $db->prepare("SELECT * from photopage where id=:id");
+          $selectinfosactuel462 = $db->prepare("SELECT * from photopage where nompage=:nompage");
           $selectinfosactuel462->execute(array(
-            "id"=>'10'
+            "nompage"=>'Faire un don paiement'
           ));
           $r462 = $selectinfosactuel462->fetch(PDO::FETCH_OBJ);
           $pagetitre2 = $r462->pagetitre;
           $image2 = $r462->image;
           $titre2 = $r462->titre;
           $description2 = $r462->description;
-          echo $pagetitre2;
-          echo $titre2;
+
 
           ?>
 
