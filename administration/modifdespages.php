@@ -5907,6 +5907,8 @@ if ($uploadOk == 0) {
           echo $titre2;
 
           ?>
+
+
           <script>
 
 
@@ -5925,8 +5927,6 @@ if ($uploadOk == 0) {
           }
 
           </script>
-
-
 
 
     <div class="container-fluid">
@@ -5966,7 +5966,7 @@ if ($uploadOk == 0) {
                         <div class="card-content">
                           <div class="form-group label-floating">
                               <label class="control-label">Titre de la page</label>
-                              <input type="text" class="form-control" value="<?php echo $pagetitre2; ?>" name="pagetitre2" id="pagetitre">
+                              <input type="text" class="form-control" value="<?php echo $pagetitre2; ?>" name="pagetitre2" id="pagetitre2">
                           </div>
 
                         <div class="form-group label-floating">

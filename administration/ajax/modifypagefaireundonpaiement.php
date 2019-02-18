@@ -6,31 +6,7 @@ require_once('../includes/connectBDD.php');
         $titre = $_POST['titre2'];
         $description = $_POST['description2'];
 
-        if(empty($pagetitre)){
-
-          ?>
-
-          <script>
-          demo.showSwal('success-message');
-          demo.showNotification('top','right','<b>Succès</b> - 11111Modifications effectuées !');
-          </script>
-          <?php
-        }else if(empty($titre)){
-          ?>
-          <script>
-          demo.showSwal('success-message');
-          demo.showNotification('top','right','<b>Succès</b> -2222 Modifications effectuées !');
-          </script>
-          <?php
-        }else{
-          ?>
-
-          <script>
-          demo.showSwal('success-message');
-          demo.showNotification('top','right','<b>Succès</b> - 333Modifications effectuées !');
-          </script>
-          <?php
-        }
+    
 
 
         if(!empty($user_id)&&!empty($pagetitre)&&!empty($titre)&&!empty($description)){
