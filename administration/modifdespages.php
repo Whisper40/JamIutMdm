@@ -4627,7 +4627,7 @@ if ($uploadOk == 0) {
 
 
       ?>
-          <script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=actualite&table=newsactus&modifactus=<?php echo $idacti;?>"</script>
+          <script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=activitesvoyages&table=activitesvoyages&modifactivitesvoyages=<?php echo $idacti;?>"</script>
       <?php
 
 
