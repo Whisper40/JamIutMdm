@@ -47,8 +47,6 @@ function RetourIndex(){
         $nomsouscat = "Nous contacter";
       }else if ($_GET['page']=='faireundon'){
         $nomsouscat = "Faire un don";
-      }else if ($_GET['page']=='faireundonpaiement'){
-        $nomsouscat = "Faire un don2";
       }
 
       require_once('includes/navbar.php');
