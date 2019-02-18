@@ -4458,7 +4458,7 @@ if ($uploadOk == 0) {
 
     $title = $_POST['title'];
     $description = $_POST['description'];
-    $formatimg = $_POST['formatimg'];
+
     $stock = $_POST['stock'];
     $datesejour = $_POST['datesejour'];
     $price = $_POST['price'];
@@ -4524,8 +4524,8 @@ if ($uploadOk == 0) {
 
     $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
     $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
-    $target_filefile3 = $slug.".".$formatimg;
-    $target_file3 = $target_dirnew."".$slug.".".$formatimg;
+    $target_filefile3 = $slug.".".$imageFileType;
+    $target_file3 = $target_dirnew."".$slug.".".$imageFileType;
 
       if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
           $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
@@ -4538,7 +4538,7 @@ if ($uploadOk == 0) {
                               "description"=>$description,
                               "surname"=>'Activités / Voyages',
                               "date"=>$date,
-                              "formatimg"=>$formatimg,
+                              "formatimg"=>$imageFileType,
                               "status"=>'ACTIVE',
                               "stock"=>$stock,
                               "datesejour"=>$datesejour,
@@ -4642,13 +4642,6 @@ if ($uploadOk == 0) {
                               <label class="control-label">Description</label>
                               <input type="text" name="description" value="Sa description" id="description" class="form-control">
                           </div>
-
-
-
-                        <div class="form-group label-floating">
-                        <label class="control-label">Format Image</label>
-                        <input type="text" name="formatimg" value="jpg" id="formatimg" class="form-control">
-                        </div>
 
                         <div class="form-group form-file-upload">
                             <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
