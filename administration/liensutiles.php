@@ -23,7 +23,7 @@ function RetourIndex(){
 <script>
 
 
- function SubmitFormDataModifliens() {
+ function TOTO() {
     var user_id = "<?php echo $_SESSION['admin_id']; ?>";
     var nom = "<?php echo $nom; ?>";
     var description = $("#description").val();
@@ -94,7 +94,7 @@ function RetourIndex(){
                 <div class="col-sm-12">
                     <div class="card-content">
                       <center>
-                        <button id="submitFormDataModifliens" onclick="SubmitFormDataModifliens();" type="button" class="btn btn-primary btn-round btn-rose">Ajouter</button>
+                        <button id="submitFormDataModifliens" onclick="TOTO();" type="button" class="btn btn-primary btn-round btn-rose">Ajouter</button>
                       <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                       </center>
                      </div>
