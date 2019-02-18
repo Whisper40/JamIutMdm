@@ -3347,7 +3347,11 @@ $result = raccourcirChaine($description, 80);
                 <td class="text-center">
                   <a href="?page=actualite&amp;table=newsactus&amp;modifactus='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Modifier</button></a>
                   <a href="?page=actualite&amp;table=newsactus&amp;'.$act.'actus='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">'.$message.'</button></a>
-                  <button onclick="demo.showSwal('warningdeleteactu','<?php echo $user_id; ?>')" type="button" class="btn btn-primary btn-round btn-rose">Supprimer</button>
+                  <?php
+                  echo '
+                  <button onclick="demo.showSwal('warningdeleteactu','<?php echo $user_id; ?>')" type="button" class="btn btn-primary btn-round btn-rose">Supprimer</button>';
+                  ?>
+
                 </td>
               </tr>
           ';
