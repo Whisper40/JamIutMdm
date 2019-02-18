@@ -7,10 +7,9 @@ require_once('../includes/connectBDD.php');
         $lienimage = $_POST['lienimage'];
         $lien = $_POST['lien'];
         $catslug = $_POST['catlien'];
-    
+
 
         if(!empty($user_id)&&!empty($nom)&&!empty($description)&&!empty($lienimage)&&!empty($lien)&&!empty($catslug)){
-
 
                 $insert = $db->prepare("INSERT INTO liensutiles (slug, name, description, lienimage, lien) VALUES (:catslug, :nom, :description, :lienimage, :lien)");
                 $insert->execute(array(
