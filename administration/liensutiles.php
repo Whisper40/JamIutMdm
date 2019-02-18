@@ -1,20 +1,38 @@
+<?php
+    require_once('includes/connectBDD.php');
+    require_once('includes/checkconnection.php');
+    $nompage = "Modification Contenu Site";
+    require_once('includes/head.php');
+    ini_set('display_errors', 1);
+    $user_id = $_SESSION['admin_id'];
+
+//Code de génératon du captcha fournie par GOOGLE
+$secret = "LESECRET";
+$sitekey = "LESITEKEY";
+?>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
+<script>
+function RetourIndex(){
+  window.location="https://administration.jam-mdm.fr/modifdespages.php"
+}
+</script>
+
 <script>
 
 
  function SubmitFormDataModifliens() {
     var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-    var id = "<?php echo $id; ?>";
-    var title = $("#title").val();
+    var nom = "<?php echo $nom; ?>";
     var description = $("#description").val();
-    var title2 = $("#title2").val();
-    var description2 = $("#description2").val();
-    var title3 = $("#title3").val();
-    var description3 = $("#description3").val();
-    var formatimg = $("#formatimg").val();
-    var stock = $("#stock").val();
-    $.post("ajax/modifyallactivity.php", { user_id: user_id, id: id, title: title, description: description, title2: title2, description2: description2, title3: title3, description3: description3, formatimg: formatimg, stock: stock},
+    var lienimage = $("#lienimage").val();
+    var lien = $("#lien").val();
+
+    $.post("ajax/modifyallactivity.php", { user_id: user_id, nom: nom, description: description, lienimage: lienimage, lien: lien},
     function(data) {
-     $('#results11').html(data);
+     $('#results33').html(data);
 
     });
 
@@ -87,5 +105,8 @@
     </div>
 </div>
 
-<div id="results20"> <!-- TRES IMPORTANT -->
+<div id="results33"> <!-- TRES IMPORTANT -->
 </div>
+<?php
+require_once('includes/javascript.php');
+?>
