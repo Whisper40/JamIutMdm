@@ -3,23 +3,27 @@ require_once('../includes/connectBDD.php');
 
         $user_id = $_POST['user_id'];
         $id = $_POST['id'];
-        $description1 = $_POST['description1'];
-        $description2 = $_POST['description2'];
+        $titre1 = $_POST['titre1'];
+        $pagetitre = $_POST['pagetitre'];
 
 
+        if(!empty($user_id)&&!empty($id)&&!empty($titre1)&&!empty($pagetitre)){
 
-        if(!empty($user_id)&&!empty($id)&&!empty($description1)&&!empty($description2)){
 
-
-                $update = $db->prepare("UPDATE pageasso SET description1=:description1, description2=:description2 WHERE id=:id");
+                $update = $db->prepare("UPDATE pageasso SET titre1=:titre1 WHERE id=:id");
                 $update->execute(array(
                     "id"=>$id,
-                    "description1"=>$description1,
-                    "description2"=>$description2
+                    "titre1"=>$titre1
                     )
                 );
 
-              
+                $update2 = $db->prepare("UPDATE photopage SET pagetitre=:pagetitre WHERE nompage=:nompage");
+                $update2->execute(array(
+                    "nompage"=>'Présentation association',
+                    "pagetitre"=>$pagetitre
+                    )
+                );
+
                 date_default_timezone_set('Europe/Paris');
                 setlocale(LC_TIME, 'fr_FR.utf8','fra');
                 $date = strftime('%d/%m/%Y %H:%M:%S');

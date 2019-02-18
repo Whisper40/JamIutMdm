@@ -791,12 +791,24 @@ if ($uploadOk == 0) {
    function SubmitFormDataPageAsso() {
       var user_id = "<?php echo $_SESSION['admin_id']; ?>";
       var id = "<?php echo $id; ?>";
-      var titre1 = $("#titre1").val();
       var description1 = $("#description1").val();
       var description2 = $("#description2").val();
+
+      $.post("ajax/modifypageassociation.php", { user_id: user_id, id: id, description1: description1, description2: description2},
+      function(data) {
+       $('#results3').html(data);
+      });
+  }
+  </script>
+
+  <script>
+   function SubmitFormDataPageAsso2() {
+      var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+      var id = "<?php echo $id; ?>";
+      var titre1 = $("#titre1").val();
       var pagetitre = $("#pagetitre").val();
 
-      $.post("ajax/modifypageassociation.php", { user_id: user_id, id: id, titre1: titre1, description1: description1, description2: description2, pagetitre: pagetitre},
+      $.post("ajax/modifypageassociation2.php", { user_id: user_id, id: id, titre1: titre1, pagetitre: pagetitre},
       function(data) {
        $('#results3').html(data);
       });
@@ -1104,7 +1116,7 @@ if ($uploadOk == 0) {
                                                 </div>
                                                 <br>
                                                 <center>
-                                                  <button id="submitFormDataMembre" onclick="SubmitFormDataMembre();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                                                  <button id="submitFormDataPageAsso2" onclick="SubmitFormDataPageAsso2();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
                                                 </center>
                                               </form>
                                             </div>
@@ -1114,7 +1126,7 @@ if ($uploadOk == 0) {
                                         <div class="row">
                                           <div class="col-sm-12">
                                             <div class="card-content">
-                                              <h3 class="card-title">Corp de page</h3>
+                                              <h3 class="card-title">Corps de page</h3>
                                             </div>
                                           </div>
                                         </div>
@@ -1159,7 +1171,7 @@ if ($uploadOk == 0) {
                                           </center>
                                         </div>
 
-                                      
+
 
                                       </div>
                                       <div class="row">
