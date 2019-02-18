@@ -2984,10 +2984,7 @@ function RetourIndex4(){
                                   <input type="text" name="description3" value="<?php echo $description3; ?>" id="description3" class="form-control">
                               </div>
 
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Format Img</label>
-                                  <input type="text" name="formatimg" value="<?php echo $formatimg; ?>" id="formatimg" class="form-control">
-                              </div>
+
 
                              </div>
                           </div>
