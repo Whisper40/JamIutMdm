@@ -9,14 +9,14 @@ require_once('../includes/connectBDD.php');
 
         if(!empty($user_id)&&!empty($pagetitre)&&!empty($titre)&&!empty($description)){
 
-                $update = $db->prepare("UPDATE photopage SET pagetitre=:pagetitre, titre=:titre WHERE id=:id");
-                $update->execute(array(
-                    "id"=>'10',
-                    "pagetitre"=>$pagetitre,
-                    "titre"=>$titre
-
-                    )
-                );
+          $update4 = $db->prepare("UPDATE photopage SET titre=:titre, description=:description, pagetitre=:pagetitre WHERE id=:id");
+          $update4->execute(array(
+              "id"=>10,
+              "titre"=>$titre,
+              "description"=>$description,
+              "pagetitre"=>$pagetitre
+              )
+          );
 
                 date_default_timezone_set('Europe/Paris');
                 setlocale(LC_TIME, 'fr_FR.utf8','fra');
