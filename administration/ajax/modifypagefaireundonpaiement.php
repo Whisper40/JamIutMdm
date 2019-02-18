@@ -12,7 +12,8 @@ require_once('../includes/connectBDD.php');
                 $update = $db->prepare("UPDATE weights SET name=:pagetitre WHERE id=:id");
                 $update->execute(array(
                     "id"=>'1',
-                    "pagetitre"=>$pagetitre
+                    "pagetitre"=>$pagetitre,
+                    "price"=>$titre
 
                     )
                 );
