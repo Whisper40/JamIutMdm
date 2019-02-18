@@ -3461,6 +3461,7 @@ if ($uploadOk == 0) {
 
   $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
   $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
+  $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
   $target_filefile3 = $slug.".".$imageFileType;
 
 
