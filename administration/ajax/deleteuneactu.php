@@ -88,7 +88,7 @@ require_once('../includes/connectBDD.php');
                 ?>
 
                     <script>
-                    demo.showNotification('top','right','<b>Erreur</b> - Création non effectuée en raison de champs vides !');
+                    demo.showNotification('top','right','<b>Erreur</b> - Suppression non effectué en raison de champs vides !');
                     </script>
             <?php
             }
