@@ -29,8 +29,9 @@ function RetourIndex(){
     var description = $("#description").val();
     var lienimage = $("#lienimage").val();
     var lien = $("#lien").val();
+    var catlien = $("#catlien").val();
 
-    $.post("ajax/modifyallactivity.php", { user_id: user_id, nom: nom, description: description, lienimage: lienimage, lien: lien},
+    $.post("ajax/createliensutiles.php", { user_id: user_id, nom: nom, catlien: catlien, description: description, lienimage: lienimage, lien: lien},
     function(data) {
      $('#results33').html(data);
 
@@ -57,8 +58,9 @@ function RetourIndex(){
                         <?php
                           while($sa = $selectliencat->fetch(PDO::FETCH_OBJ)){
                             $catlien=$sa->namecat;
+                            $catslug=$sa->slug;
                             ?>
-                          <option value="<?php echo $catlien;?>"><?php echo $catlien; ?></option>
+                          <option value="<?php echo $catslug;?>"><?php echo $catlien; ?></option>
                         <?php
                       }
                       ?>
@@ -69,22 +71,22 @@ function RetourIndex(){
 
                      <div class="form-group label-floating">
                          <label class="control-label">Nom</label>
-                         <input type="text" class="form-control" value="<?php echo $nom; ?>" name="nom" id="nom">
+                         <input type="text" class="form-control" value="" name="nom" id="nom">
                      </div>
 
                      <div class="form-group label-floating">
                          <label class="control-label">Description</label>
-                         <input type="text" class="form-control" value="<?php echo $description; ?>" name="description" id="description">
+                         <input type="text" class="form-control" value="" name="description" id="description">
                      </div>
 
                      <div class="form-group label-floating">
                          <label class="control-label">Lien de l'image</label>
-                         <input type="text" class="form-control" value="<?php echo $lienimage; ?>" name="lienimage" id="lienimage">
+                         <input type="text" class="form-control" value="" name="lienimage" id="lienimage">
                      </div>
 
                      <div class="form-group label-floating">
                          <label class="control-label">Lien vers le partenaire</label>
-                         <input type="text" class="form-control" value="<?php echo $lien; ?>" name="lien" id="lien">
+                         <input type="text" class="form-control" value="" name="lien" id="lien">
                      </div>
 
                   </div>
