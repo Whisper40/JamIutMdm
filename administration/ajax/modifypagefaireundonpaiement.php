@@ -9,11 +9,11 @@ require_once('../includes/connectBDD.php');
 
         if(!empty($user_id)&&!empty($pagetitre)&&!empty($titre)&&!empty($description)){
 
-                $update = $db->prepare("UPDATE weights SET name=:pagetitre, price=:price WHERE id=:id");
+                $update = $db->prepare("UPDATE photopage SET pagetitre=:pagetitre, titre=:titre WHERE id=:id");
                 $update->execute(array(
-                    "id"=>'1',
+                    "id"=>'10',
                     "pagetitre"=>$pagetitre,
-                    "price"=>$titre
+                    "titre"=>$titre
 
                     )
                 );
