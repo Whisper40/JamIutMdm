@@ -51,7 +51,7 @@ function RetourIndex(){
                     <div class="card-content">
                       Sélectionner la catégorie<br><?php
 
-                      $selectliencat=$db->query("SELECT DISTINCT namecat FROM catliensutiles");
+                      $selectliencat=$db->query("SELECT namecat, slug FROM catliensutiles");
                       ?>
 
                       <select name="catlien" id="catlien">
