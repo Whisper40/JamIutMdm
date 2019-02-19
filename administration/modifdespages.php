@@ -19,18 +19,52 @@ function RetourIndex(){
   window.location="https://administration.jam-mdm.fr/modifdespages.php"
 }
 
-
-
-
-
-
-
-
-
-
-
-
 </script>
+
+
+<script>
+
+
+function insertAtCaret(areaId, text) {
+var txtarea = document.getElementById(areaId);
+if (!txtarea) {
+return;
+}
+
+var scrollPos = txtarea.scrollTop;
+var strPos = 0;
+var br = ((txtarea.selectionStart || txtarea.selectionStart == '0') ?
+"ff" : (document.selection ? "ie" : false));
+if (br == "ie") {
+txtarea.focus();
+var range = document.selection.createRange();
+range.moveStart('character', -txtarea.value.length);
+strPos = range.text.length;
+} else if (br == "ff") {
+strPos = txtarea.selectionStart;
+}
+
+var front = (txtarea.value).substring(0, strPos);
+var back = (txtarea.value).substring(strPos, txtarea.value.length);
+txtarea.value = front + text + back;
+strPos = strPos + text.length;
+if (br == "ie") {
+txtarea.focus();
+var ieRange = document.selection.createRange();
+ieRange.moveStart('character', -txtarea.value.length);
+ieRange.moveStart('character', strPos);
+ieRange.moveEnd('character', 0);
+ieRange.select();
+} else if (br == "ff") {
+txtarea.selectionStart = strPos;
+txtarea.selectionEnd = strPos;
+txtarea.focus();
+}
+
+txtarea.scrollTop = scrollPos;
+}
+
+ </script>
 
 
 <body>
@@ -608,90 +642,17 @@ if ($uploadOk == 0) {
                             <textarea rows="12" name="description1" id="description1" class="form-control"><?php echo $description1; ?></textarea>
                           </div>
 
-                          <script>
 
-
-                          function insertAtCaret(areaId, text) {
-  var txtarea = document.getElementById(areaId);
-  if (!txtarea) {
-    return;
-  }
-
-  var scrollPos = txtarea.scrollTop;
-  var strPos = 0;
-  var br = ((txtarea.selectionStart || txtarea.selectionStart == '0') ?
-    "ff" : (document.selection ? "ie" : false));
-  if (br == "ie") {
-    txtarea.focus();
-    var range = document.selection.createRange();
-    range.moveStart('character', -txtarea.value.length);
-    strPos = range.text.length;
-  } else if (br == "ff") {
-    strPos = txtarea.selectionStart;
-  }
-
-  var front = (txtarea.value).substring(0, strPos);
-  var back = (txtarea.value).substring(strPos, txtarea.value.length);
-  txtarea.value = front + text + back;
-  strPos = strPos + text.length;
-  if (br == "ie") {
-    txtarea.focus();
-    var ieRange = document.selection.createRange();
-    ieRange.moveStart('character', -txtarea.value.length);
-    ieRange.moveStart('character', strPos);
-    ieRange.moveEnd('character', 0);
-    ieRange.select();
-  } else if (br == "ff") {
-    txtarea.selectionStart = strPos;
-    txtarea.selectionEnd = strPos;
-    txtarea.focus();
-  }
-
-  txtarea.scrollTop = scrollPos;
-}
-
-                           $("#sautbr").on("click", function() {
-                           typeInTextarea($("#description1"), "<br />")
-                           return false
-                           })
-                           $("#souligner").on("click", function() {
-                             typeInTextarea($("#description1"), "<u>Texte souligné</u>")
-                             return false
-                           })
-                           $("#liste").on("click", function() {
-                             typeInTextarea($("#description1"), "<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>")
-                             return false
-                           })
-                           $("#gras").on("click", function() {
-                             typeInTextarea($("#description1"), "<strong>Texte en gras</strong>")
-                             return false
-                           })
-                           $("#italic").on("click", function() {
-                             typeInTextarea($("#description1"), "<i>Texte en Italic</i>")
-                             return false
-                           })
-                           $("#indice").on("click", function() {
-                             typeInTextarea($("#description1"), "<sub>Texte en Indice</sub>")
-                             return false
-                           })
-
-                           $("#surligner").on("click", function() {
-                             typeInTextarea($("#description1"), "<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>")
-                             return false
-                           })
-
-
-                           </script>
 
                           <center>
-<button class="btn btn-primary btn-round btn-rose" onclick="insertAtCaret('description1', 'text to insert');return false;">TEST MOI </button>
-                            <input type="button" id="sautbr" value="Saut de ligne"/>
-                            <button id="souligner">Souligner</button>
-                            <button id="liste">Liste</button>
-                            <button id="gras">Gras</button>
-                            <button id="italic">Italic</button>
-                            <button id="indice">Indice</button>
-                            <button id="surligner">Surligner</button>
+                            <button class="btn btn-primary btn-round btn-rose" onclick="insertAtCaret('description1', '<br />');return false;">Saut de ligne </button>
+                            <button class="btn btn-primary btn-round btn-rose" onclick="insertAtCaret('description1', '<u>Texte souligné</u>');return false;">Souligner</button>
+                            <button class="btn btn-primary btn-round btn-rose" onclick="insertAtCaret('description1', '<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>');return false;">Liste</button>
+                            <button class="btn btn-primary btn-round btn-rose" onclick="insertAtCaret('description1', '<strong>Texte en gras</strong>');return false;">Texte en gras</button>
+                            <button class="btn btn-primary btn-round btn-rose" onclick="insertAtCaret('description1', '<i>Texte en Italic</i>');return false;">Texte en Italic</button>
+                            <button class="btn btn-primary btn-round btn-rose" onclick="insertAtCaret('description1', '<sub>Texte en Indice</sub>');return false;">Texte en Indice</button>
+                            <button class="btn btn-primary btn-round btn-rose" onclick="insertAtCaret('description1', '<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>');return false;">Texte Surligner</button>
+
                           </center>
 
 
