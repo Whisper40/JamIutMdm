@@ -3534,17 +3534,17 @@ $target_file3 = $target_dirnew."".$slug.".".$imageFileType;
                 <div class="card-content">
                   <div class="form-group label-floating">
                     <label class="control-label">Description</label>
-                    <textarea rows="8" type="text" name="description" value="Titre du status" id="description" class="form-control"></textarea>
+                    <textarea rows="8" type="text" name="description" value="Titre du status" id="description4" class="form-control"></textarea>
                   </div>
                   <center>
 
-                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description', '<br />');return false;">Saut de ligne </button>
-                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description', '<u>Texte souligné</u>');return false;">Souligner</button>
-                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description', '<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>');return false;">Liste</button>
-                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description', '<strong>Texte en gras</strong>');return false;">Gras</button>
-                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description', '<i>Texte en Italic</i>');return false;">Italic</button>
-                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description', '<sub>Texte en Indice</sub>');return false;">Indice</button>
-                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description', '<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>');return false;">Surligner</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description4', '<br />');return false;">Saut de ligne </button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description4', '<u>Texte souligné</u>');return false;">Souligner</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description4', '<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>');return false;">Liste</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description4', '<strong>Texte en gras</strong>');return false;">Gras</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description4', '<i>Texte en Italic</i>');return false;">Italic</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description4', '<sub>Texte en Indice</sub>');return false;">Indice</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description4', '<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>');return false;">Surligner</button>
 
                     <br><br>
                     <button type="submit" name="submitactualite" class="btn btn-primary btn-round btn-rose">Créer une actualité</button>
