@@ -655,7 +655,7 @@ if ($uploadOk == 0) {
                           </div>
                           <center>
 
-                            <button id="sautbr">Saut de ligne</button>
+                            <input type="button" id="sautbr">Saut de ligne/>
                             <button id="souligner">Souligner</button>
                             <button id="liste">Liste</button>
                             <button id="gras">Gras</button>
