@@ -177,10 +177,10 @@
   border-color: #ff9800;
 }
 .slider.slider-danger .noUi-connect, .slider.slider-danger.noUi-connect {
-  background-color: #ad202e;
+  background-color: #f44336;
 }
 .slider.slider-danger .noUi-handle {
-  border-color: #ad202e;
+  border-color: #f44336;
 }
 
 /*
@@ -1606,7 +1606,7 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child:before {
 table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td:first-child:before,
 table.dataTable.dtr-inline.collapsed > tbody > tr.parent > th:first-child:before {
   content: '-';
-  color: #ad202e;
+  color: #f44336;
 }
 table.dataTable.dtr-inline.collapsed > tbody > tr.child td:before {
   display: none;
@@ -2750,7 +2750,7 @@ temporary rendered events).
   box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(255, 152, 0, 0.4);
 }
 .fc-event.event-red {
-  background-color: #ad202e;
+  background-color: #f44336;
   box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(244, 67, 54, 0.4);
 }
 .fc-event.event-rose {
@@ -3833,27 +3833,27 @@ be a descendant of the grid when it is being dragged.
   border-color: #ff9800;
 }
 .wizard-card[data-color="red"] .moving-tab {
-  background-color: #ad202e;
+  background-color: #f44336;
   box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(244, 67, 54, 0.4);
 }
 .wizard-card[data-color="red"] .picture:hover {
-  border-color: #ad202e;
+  border-color: #f44336;
 }
 .wizard-card[data-color="red"] .choice:hover .icon, .wizard-card[data-color="red"] .choice.active .icon {
-  border-color: #ad202e;
-  color: #ad202e;
+  border-color: #f44336;
+  color: #f44336;
 }
 .wizard-card[data-color="red"] .form-group .form-control {
-  background-image: linear-gradient(#ad202e, #ad202e), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#f44336, #f44336), linear-gradient(#D2D2D2, #D2D2D2);
 }
 .wizard-card[data-color="red"] .checkbox input[type=checkbox]:checked + .checkbox-material .check {
-  background-color: #ad202e;
+  background-color: #f44336;
 }
 .wizard-card[data-color="red"] .radio input[type=radio]:checked ~ .check {
-  background-color: #ad202e;
+  background-color: #f44336;
 }
 .wizard-card[data-color="red"] .radio input[type=radio]:checked ~ .circle {
-  border-color: #ad202e;
+  border-color: #f44336;
 }
 .wizard-card[data-color="rose"] .moving-tab {
   background-color: #35bfb1;
@@ -4179,10 +4179,10 @@ be a descendant of the grid when it is being dragged.
 }
 
 .ct-series-b .ct-point, .ct-series-b .ct-line, .ct-series-b .ct-bar, .ct-series-b .ct-slice-donut {
-  stroke: #ad202e;
+  stroke: #f44336;
 }
 .ct-series-b .ct-slice-pie, .ct-series-b .ct-area {
-  fill: #ad202e;
+  fill: #f44336;
 }
 
 .ct-series-c .ct-point, .ct-series-c .ct-line, .ct-series-c .ct-bar, .ct-series-c .ct-slice-donut {
@@ -4718,7 +4718,7 @@ be a descendant of the grid when it is being dragged.
 }
 
 .ct-red {
-  stroke: #ad202e !important;
+  stroke: #f44336 !important;
 }
 
 .ct-white {
@@ -5340,7 +5340,7 @@ h2.title {
 }
 
 .text-danger {
-  color: #ad202e;
+  color: #f44336;
 }
 
 .text-success {
@@ -5663,7 +5663,7 @@ h2.title {
 }
 .sidebar[data-active-color="red"] li.active > a,
 .off-canvas-sidebar[data-active-color="red"] li.active > a {
-  background-color: #ad202e;
+  background-color: #f44336;
   box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(244, 67, 54, 0.4);
 }
 .sidebar[data-active-color="rose"] li.active > a,
@@ -5826,7 +5826,7 @@ h2.title {
     box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(28, 142, 131, 0.4);
   }
   .sidebar-mini .sidebar[data-active-color="red"] .nav li.active > [data-toggle="collapse"] {
-    background-color: #ad202e;
+    background-color: #f44336;
     box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(244, 67, 54, 0.4);
   }
   .sidebar-mini .sidebar[data-active-color="orange"] .nav li.active > [data-toggle="collapse"] {
@@ -6318,7 +6318,7 @@ h2.title {
 .navbar .navbar-nav > li > a.btn.btn-danger.dropdown-toggle, .open >
 .navbar .navbar-nav > li > a.btn.btn-danger.dropdown-toggle:focus, .open >
 .navbar .navbar-nav > li > a.btn.btn-danger.dropdown-toggle:hover {
-  background-color: #ad202e;
+  background-color: #f44336;
   color: #FFFFFF;
 }
 .btn.btn-danger:focus, .btn.btn-danger:active, .btn.btn-danger:hover,
@@ -6357,7 +6357,7 @@ h2.title {
 .btn.btn-danger.btn-simple,
 .navbar .navbar-nav > li > a.btn.btn-danger.btn-simple {
   background-color: transparent;
-  color: #ad202e;
+  color: #f44336;
   box-shadow: none;
 }
 .btn.btn-danger.btn-simple:hover, .btn.btn-danger.btn-simple:focus, .btn.btn-danger.btn-simple:active,
@@ -6365,7 +6365,7 @@ h2.title {
 .navbar .navbar-nav > li > a.btn.btn-danger.btn-simple:focus,
 .navbar .navbar-nav > li > a.btn.btn-danger.btn-simple:active {
   background-color: transparent;
-  color: #ad202e;
+  color: #f44336;
 }
 .btn.btn-rose,
 .navbar .navbar-nav > li > a.btn.btn-rose {
@@ -6845,7 +6845,7 @@ h2.title {
 }
 .btn-group.open > .dropdown-toggle.btn.btn-danger,
 .btn-group-vertical.open > .dropdown-toggle.btn.btn-danger {
-  background-color: #ad202e;
+  background-color: #f44336;
 }
 .btn-group.open > .dropdown-toggle.btn.btn-rose,
 .btn-group-vertical.open > .dropdown-toggle.btn.btn-rose {
@@ -7282,7 +7282,7 @@ output {
   background-color: #ff9800;
 }
 .label.label-danger {
-  background-color: #ad202e;
+  background-color: #f44336;
 }
 .label.label-rose {
   background-color: #35bfb1;
@@ -7371,7 +7371,7 @@ output {
   background-image: linear-gradient(#ff9800, #ff9800), linear-gradient(#D2D2D2, #D2D2D2);
 }
 .form-group.is-focused.form-danger .form-control {
-  background-image: linear-gradient(#ad202e, #ad202e), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#f44336, #f44336), linear-gradient(#D2D2D2, #D2D2D2);
 }
 .form-group.is-focused.form-white .form-control {
   background-image: linear-gradient(#FFFFFF, #FFFFFF), linear-gradient(#D2D2D2, #D2D2D2);
@@ -7397,16 +7397,16 @@ output {
   box-shadow: none;
 }
 .form-group.has-error.is-focused .form-control {
-  background-image: linear-gradient(#ad202e, #ad202e), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#f44336, #f44336), linear-gradient(#D2D2D2, #D2D2D2);
 }
 .form-group.has-error .form-control {
-  background-image: linear-gradient(#ad202e, #ad202e), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#f44336, #f44336), linear-gradient(#D2D2D2, #D2D2D2);
   background-size: 100% 2px, 100% 1px;
   transition-duration: 0.3s;
 }
 .form-group.has-error label.control-label,
 .form-group.has-error .help-block {
-  color: #ad202e;
+  color: #f44336;
 }
 .form-group.has-success .form-control {
   box-shadow: none;
@@ -7720,7 +7720,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
   opacity: 1;
 }
 .has-error .form-control-feedback {
-  color: #ad202e;
+  color: #f44336;
   opacity: 1;
 }
 
@@ -7839,11 +7839,11 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
 }
 
 .form-group.has-error .fileinput .fileinput-preview {
-  color: #ad202e;
+  color: #f44336;
 }
 
 .form-group.has-error .fileinput .thumbnail {
-  border-color: #ad202e;
+  border-color: #f44336;
 }
 
 .form-group.has-success .fileinput .fileinput-preview {
@@ -7959,7 +7959,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
   max-width: 89%;
 }
 .alert.alert-danger i {
-  color: #ad202e;
+  color: #f44336;
 }
 .alert.alert-warning i {
   color: #ff9800;
@@ -8463,7 +8463,7 @@ fieldset[disabled] .form-group.is-focused .radio label {
   background-color: #ff9800;
 }
 .progress .progress-bar.progress-bar-danger {
-  background-color: #ad202e;
+  background-color: #f44336;
 }
 .progress .progress-bar.progress-bar-rose {
   background-color: #35bfb1;
@@ -8663,7 +8663,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   /* Standard syntax */
 }
 .full-page[filter-color="red"].lock-page .form-group .form-control, .full-page[filter-color="danger"].lock-page .form-group .form-control {
-  background-image: linear-gradient(#ad202e, #ad202e), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#f44336, #f44336), linear-gradient(#D2D2D2, #D2D2D2);
 }
 .full-page[filter-color="rose"]:after {
   background: rgba(248, 187, 208, 0.56);
@@ -8840,7 +8840,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   color: #ff9800;
 }
 .register-page .card-signup .info-horizontal .icon.icon-danger {
-  color: #ad202e;
+  color: #f44336;
 }
 .register-page .card-signup .info-horizontal .icon.icon-rose {
   color: #35bfb1;
@@ -8941,7 +8941,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   color: #FFFFFF;
 }
 .bootstrap-tagsinput .tag.tag-danger {
-  background-color: #ad202e;
+  background-color: #f44336;
   color: #FFFFFF;
 }
 .bootstrap-tagsinput .tag.tag-rose {
@@ -9080,7 +9080,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(53, 191, 177, 0.4);
 }
 .timeline > li > .timeline-badge.danger {
-  background-color: #ad202e;
+  background-color: #f44336;
   box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(244, 67, 54, 0.4);
 }
 .timeline > li > .timeline-badge [class^="ti-"],
@@ -9275,8 +9275,8 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 .pagination.pagination-danger > .active > span,
 .pagination.pagination-danger > .active > span:focus,
 .pagination.pagination-danger > .active > span:hover {
-  background-color: #ad202e;
-  border-color: #ad202e;
+  background-color: #f44336;
+  border-color: #f44336;
   box-shadow: 0 4px 5px 0 rgba(244, 67, 54, 0.14), 0 1px 10px 0 rgba(244, 67, 54, 0.12), 0 2px 4px -1px rgba(244, 67, 54, 0.2);
 }
 
@@ -9340,7 +9340,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(255, 152, 0, 0.4);
 }
 .nav-pills.nav-pills-danger > li.active > a, .nav-pills.nav-pills-danger > li.active > a:focus, .nav-pills.nav-pills-danger > li.active > a:hover {
-  background-color: #ad202e;
+  background-color: #f44336;
   box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(255, 152, 0, 0.4);
 }
 .nav-pills.nav-pills-rose > li.active > a, .nav-pills.nav-pills-rose > li.active > a:focus, .nav-pills.nav-pills-rose > li.active > a:hover {
@@ -9457,7 +9457,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   border: 1px solid #FFF;
   right: 10px;
   font-size: 9px;
-  background: #ad202e;
+  background: #f44336;
   color: #FFFFFF;
   min-width: 20px;
   padding: 0px 5px;
@@ -9817,7 +9817,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   color: #ffffff;
 }
 .navbar.navbar-danger {
-  background-color: #ad202e;
+  background-color: #f44336;
   color: #ffffff;
 }
 .navbar.navbar-danger .navbar-form .form-group input.form-control::-moz-placeholder,
@@ -9837,11 +9837,11 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 }
 .navbar.navbar-danger .dropdown-menu li > a:hover, .navbar.navbar-danger .dropdown-menu li > a:focus {
   color: #FFFFFF;
-  background-color: #ad202e;
+  background-color: #f44336;
   box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(244, 67, 54, 0.4);
 }
 .navbar.navbar-danger .dropdown-menu .active > a {
-  background-color: #ad202e;
+  background-color: #f44336;
   color: #ffffff;
   box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(244, 67, 54, 0.4);
 }
@@ -10465,7 +10465,7 @@ footer .btn {
   box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(244, 67, 54, 0.4);
 }
 .card [data-icon-bg-color="red"] i {
-  color: #ad202e;
+  color: #f44336;
 }
 .card [data-background-color="rose"] {
   background: linear-gradient(60deg, #35bfb1, #2cb2a5);
@@ -10656,7 +10656,7 @@ footer .btn {
   color: #ff9800;
 }
 .card-pricing .icon.icon-danger {
-  color: #ad202e;
+  color: #f44336;
 }
 .card-pricing .icon.icon-rose {
   color: #35bfb1;
