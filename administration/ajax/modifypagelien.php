@@ -6,6 +6,7 @@ require_once('../includes/connectBDD.php');
         $nom = $_POST['nom'];
         $lienimage = $_POST['lienimage'];
         $lien = $_POST['lien'];
+        $description = $_POST['description'];
 
         if(!empty($user_id)&&!empty($id)&&!empty($nom)&&!empty($lienimage)&&!empty($lien)&&!empty($description)){
 
