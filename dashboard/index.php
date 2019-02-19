@@ -11,7 +11,7 @@
 <?php
     require_once('includes/navbar.php');
 ?>
-
+  </div>
 <!-- DEBUT DU CADRE -->
 <!-- Cette partie délimitée par début et fin peut etre enlevée , cela concerne tout ce qui se trouve à l'interieur de la page ( cubes + actus ) -->
         <div class="content">
@@ -151,8 +151,8 @@
 
             <?php } ?>
 
-        </div>
 
+    </div>
 </body>
 
 <?php
