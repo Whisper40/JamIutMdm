@@ -52,10 +52,10 @@ function SubmitFormDataModifLiens() {
   var user_id = "<?php echo $_SESSION['admin_id']; ?>";
   var id = "<?php echo $id; ?>";
   var nom = $("#nom").val();
-  var lienutiles = $("#lienutiles").val();
+  var lienimage = $("#lienimage").val();
   var lien = $("#lien").val();
   var description = $("#description").val();
-  $.post("ajax/modifypagelien.php", { user_id: user_id, id: id, nom: nom, liensutiles: liensutiles, lien: lien, description: description},
+  $.post("ajax/modifypagelien.php", { user_id: user_id, id: id, nom: nom, lienimage: lienimage, lien: lien, description: description},
   function(data) {
    $('#results6').html(data);
 
