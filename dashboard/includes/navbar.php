@@ -134,7 +134,7 @@ if($countstatusmembre == '1'){
     </div>
 </div>
 
-
+<div class="main-panel">
     <nav class="navbar navbar-transparent navbar-absolute">
         <div class="container-fluid">
             <div class="navbar-minimize">
