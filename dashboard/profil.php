@@ -173,7 +173,7 @@ foreach($req as $row)
     </div>
 </div>
 </div>
-
+</div>
 </body>
 <?php
     require_once('includes/javascriptdashboard.php');
