@@ -1,15 +1,12 @@
 <?php
-
 require_once('includes/connectBDD.php');
 require_once('includes/checkconnection.php');
 require_once('includes/checkmemberjam.php');
-
 $nompage = "Activitees";
 require_once('includes/head.php');
-
 ?>
-<script src="https://www.paypalobjects.com/api/checkout.js"></script>
 
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
 
 <body>
     <div class="wrapper">
@@ -53,10 +50,10 @@ require_once('includes/head.php');
                                                   </p>
                                               </div>
                                           </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="card-content">
+                                      </div>
+                                  </div>
+                                  <div class="col-sm-4">
+                                      <div class="card-content">
                                           <div class="info info-horizontal">
                                               <div class="icon icon-primary">
                                                   <i class="material-icons">euro_symbol</i>
@@ -68,10 +65,10 @@ require_once('includes/head.php');
                                                   </p>
                                               </div>
                                           </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="card-content">
+                                      </div>
+                                  </div>
+                                  <div class="col-sm-4">
+                                      <div class="card-content">
                                           <div class="info info-horizontal">
                                               <div class="icon icon-info">
                                                   <i class="material-icons">link</i>
@@ -105,21 +102,19 @@ require_once('includes/head.php');
                           <div class="col-md-6">
                               <div class="card">
                                   <div class="card-content">
-                                    <center>
-                                      <h3 class="card-title">Choisir une formule</h3>
-                                    </center>
-                                            <form name="repas" method="POST">
-                                              <div class="card-content">
-                                                <div class="row">
-                                                <div class="col-md-6">
-                                                <div class="info info-horizontal">
-                                                    <div class="description">
-                                                      <center>
-                                                        <h4 class="info-title">Le matériel</h4>
-                                                      </center>
-                                                        <p class="description">
-
-
+                                      <center>
+                                          <h3 class="card-title">Choisir une formule</h3>
+                                      </center>
+                                      <form name="repas" method="POST">
+                                          <div class="card-content">
+                                              <div class="row">
+                                                  <div class="col-md-6">
+                                                      <div class="info info-horizontal">
+                                                          <div class="description">
+                                                              <center>
+                                                                  <h4 class="info-title">Le matériel</h4>
+                                                              </center>
+                                                              <p class="description">
 
                                             <?php
                                               $select0 = $db->prepare("SELECT * FROM activityradio WHERE slug LIKE :activity_slug and type=:materiel");
@@ -135,26 +130,25 @@ require_once('includes/head.php');
                                                 $packname = $s0->packname;
                                                 ?>
 
-                                                <div class="radio">
-                                                  <label>
-                                                    <input type="radio" name="optionmateriel" value="<?php echo $packname; ?>"> <?php echo $packname; ?> (<?php echo $price; ?>€)
-                                                  </label>
-                                                </div>
+                                                                  <div class="radio">
+                                                                      <label>
+                                                                          <input type="radio" name="optionmateriel" value="<?php echo $packname; ?>"> <?php echo $packname; ?> (<?php echo $price; ?>€)
+                                                                      </label>
+                                                                  </div>
 
                                                 <?php } ?>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                              </div>
-                                              <div class="col-md-6">
-                                                <div class="info info-horizontal">
-                                                    <div class="description">
-                                                      <center>
-                                                        <h4 class="info-title">Le repas</h4>
-                                                      </center>
-                                                        <p class="description">
 
-
+                                                              </p>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-md-6">
+                                                      <div class="info info-horizontal">
+                                                          <div class="description">
+                                                              <center>
+                                                                  <h4 class="info-title">Le repas</h4>
+                                                              </center>
+                                                              <p class="description">
 
                                                   <?php
                                                     $select1 = $db->prepare("SELECT * FROM activityradio WHERE slug LIKE :activity_slug and type=:repas");
@@ -171,30 +165,25 @@ require_once('includes/head.php');
                                                       $packname1 = $s1->packname;
                                                       ?>
 
-                                                      <div class="radio">
-                                                        <label>
-                                                          <input type="radio" name="option<?php echo $type1;?>" value="<?php echo $packname1; ?>"> <?php echo $packname1; ?> (<?php echo $price1; ?>€)
-                                                        </label>
-                                                      </div>
+                                                                  <div class="radio">
+                                                                      <label>
+                                                                          <input type="radio" name="option<?php echo $type1;?>" value="<?php echo $packname1; ?>"> <?php echo $packname1; ?> (<?php echo $price1; ?>€)
+                                                                      </label>
+                                                                  </div>
+
                                                       <?php } ?>
-                                                          </p>
+
+                                                              </p>
+                                                          </div>
                                                       </div>
                                                   </div>
-
-                                              </div>
-
-
-
-
-                                              <div class="col-md-6">
-                                                <div class="info info-horizontal">
-                                                    <div class="description">
-                                                      <center>
-                                                        <h4 class="info-title">Options Additionnelles</h4>
-                                                      </center>
-                                                        <p class="description">
-
-
+                                                  <div class="col-md-6">
+                                                      <div class="info info-horizontal">
+                                                          <div class="description">
+                                                              <center>
+                                                                  <h4 class="info-title">Options Additionnelles</h4>
+                                                              </center>
+                                                              <p class="description">
 
                                                   <?php
                                                     $select3 = $db->prepare("SELECT * FROM activityradio WHERE slug LIKE :activity_slug and type=:additionnelles");
@@ -211,25 +200,23 @@ require_once('includes/head.php');
                                                       $packname3 = $s3->packname;
                                                       ?>
 
-                                                      <div class="radio">
-                                                        <label>
-                                                          <input type="radio" name="option<?php echo $type3;?>" value="<?php echo $packname3; ?>"> <?php echo $packname3; ?> (<?php echo $price3; ?>€)
-                                                        </label>
-                                                      </div>
+                                                                  <div class="radio">
+                                                                      <label>
+                                                                          <input type="radio" name="option<?php echo $type3;?>" value="<?php echo $packname3; ?>"> <?php echo $packname3; ?> (<?php echo $price3; ?>€)
+                                                                      </label>
+                                                                  </div>
+
                                                       <?php } ?>
-                                                          </p>
+
+                                                              </p>
+                                                          </div>
                                                       </div>
                                                   </div>
-
                                               </div>
-
-
-
-                                            </div>
-                                      </div>
-                                      <div class="footer text-center">
-                                         <button type="submit" class="btn btn-primary btn-round btn-rose"> Valider mes choix</button>
-                                    </div>
+                                          </div>
+                                          <div class="footer text-center">
+                                              <button type="submit" class="btn btn-primary btn-round btn-rose"> Valider mes choix</button>
+                                          </div>
                                       </form>
                                   </div>
                               </div>
@@ -282,47 +269,48 @@ require_once('includes/head.php');
                             <div class="col-md-6">
                                 <div class="card">
                                     <div class="card-content">
-                                      <center>
-                                        <h3 class="card-title">Validation et Paiement</h3>
-                                      </center>
-                                          <div class="card-content">
-                                              <div class="info info-horizontal">
-                                                  <div class="description">
-                                                    <center>
-                                                    <?php
-                                                    if($countcheck>0){
-                                                    ?>
-                                                    <h4 class="info-title"><font color="red">Tu participe déja à cette activitée</font></h4>
-                                                    <?php
-                                                    }else{
+                                        <center>
+                                            <h3 class="card-title">Validation et Paiement</h3>
+                                        </center>
+                                            <div class="card-content">
+                                                <div class="info info-horizontal">
+                                                    <div class="description">
+                                                        <center>
+                                                            <?php
+                                                            if($countcheck>0){
+                                                            ?>
+                                                            <h4 class="info-title"><font color="red">Tu participe déja à cette activitée</font></h4>
+                                                            <?php
+                                                            }else{
 
-                                                    $total = $prixactivite + $prixmateriel + $prixrepas + $prixadditionnelles;
-                                                    ?>
-                                                      <h4 class="info-title">Prix Total : <?php echo $total;?>€</h4>
-                                                        <?php
-                                                      if($stock>0){
-                                                         ?>
-                                                        <div align="center" id="paypal-button"></div>
-                                                        <?php
-                                                      }else{
-                                                        ?>
-                                                        <h4 class="info-title"><font color="red">Aucune place disponible</font></h4>
-                                                      <?php } } ?>
+                                                            $total = $prixactivite + $prixmateriel + $prixrepas + $prixadditionnelles;
+                                                            ?>
+                                                            <h4 class="info-title">Prix Total : <?php echo $total;?>€</h4>
+                                                            <?php
+                                                            if($stock>0){
+                                                             ?>
+                                                            <div align="center" id="paypal-button"></div>
+                                                            <?php
+                                                            }else{
+                                                            ?>
+                                                            <h4 class="info-title"><font color="red">Aucune place disponible</font></h4>
+                                                            <?php } } ?>
                                                       </center>
                                                   </div>
                                               </div>
                                           </div>
-                                    </div>
-                                </div>
-                            </div>
-                          <?php }  ?>
-                        </div>
-                    </div>
+                                      </div>
+                                  </div>
+                              </div>
 
-                    <?php
+                              <?php }  ?>
+                          </div>
+                      </div>
 
+                                            <?php
                                             //Si ce n'est pas du ski alors on passe à :
-                                            }else if (stripos($activity_slug, 'rugby') != FALSE){ ?>
+                                            }else if (stripos($activity_slug, 'rugby') != FALSE){
+                                            ?>
 
                                               <div class="container-fluid">
                                                   <div class="row">
