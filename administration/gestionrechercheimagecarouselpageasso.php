@@ -33,7 +33,7 @@ if(count($table)>0){
     <tr>
       <td class="text-center">'.$idimg.'</td>
       <td class="text-center">'.$nom.'</td>
-      <td class="text-center"><a href="modifdespages.php?page=association&table=pageasso&action=delete&id='.$idimg.'"><button type="button" class="btn">Supprimer</button></a></td>
+      <td class="text-center"><a href="modifdespages.php?page=association&table=pageasso&action=delete&id='.$idimg.'"><button type="button" class="btn btn-rose btn-round btn-sm">Supprimer</button></a></td>
     </tr>
 
     ';
