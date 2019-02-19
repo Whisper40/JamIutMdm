@@ -153,86 +153,8 @@
 
         </div>
   
-
-<footer class="footer footer-white footer-big">
-  <div class="container">
-
-    <div class="content">
-      <div class="row">
-
-        <div class="col-md-3">
-          <h5>SdediKool</h5>
-          <p>SdediKool vous propose un large pannel de seedbox fonctionnant sur des serveurs taillés pour l'usage de PLEX !<br/><br/>
-          Finit les lags à répetitions, vous serez positionnez sur des serveurs pouvant transcoder plusieurs flux sans problèmes !</p>
-        </div>
-        <div class="col-md-2">
-          <h5>Seedbox</h5>
-          <ul class="links-vertical">
-
-
-
-          </ul>
-        </div>
-        <div class="col-md-2">
-          <h5>VPN</h5>
-          <ul class="links-vertical">
-
-
-          </ul>
-        </div>
-
-        <div class="col-md-2">
-          <h5>Client</h5>
-          <ul class="links-vertical">
-            <li>
-              <a href="panier.php">
-                 Panier
-              </a>
-            </li>
-            <?php if(!isset($_SESSION['user_id'])){?>
-            <li>
-              <a href="connect.php">
-                 Connexion
-              </a>
-            </li>
-            <li>
-              <a href="register.php">
-                Inscription
-              </a>
-            </li>
-            <?php }else{ ?>
-            <li>
-              <a href="dashboard.php">
-                 Mon Compte
-              </a>
-            </li>
-            <li>
-              <a href="disconnect.php">
-                 Deconnexion
-              </a>
-            </li>
-          <?php } ?>
-          </ul>
-        </div>
-        <div class="col-md-3">
-          <h5>Un gage de qualité</h5>
-          <img src="https://static.lexpress.fr/medias_11292/w_640,h_360,c_fill,g_north/v1484755865/comment-le-made-in-france-peut-booster-l-export_5781943.jpg" width="300px"></img>
-        </div>
-      </div>
-    </div>
-    <hr />
-
-
-    <div class="copyright pull-center">
-      Copyright &copy; <script>document.write(new Date().getFullYear())</script> SdediKool
-    </div>
-  </div>
-</footer>
 </body>
 
 <?php
-
-
-
     require_once('includes/javascriptdashboard.php');
 ?>
