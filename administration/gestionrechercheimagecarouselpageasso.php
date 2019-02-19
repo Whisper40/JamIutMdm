@@ -10,50 +10,46 @@ $requete->execute();
 $table=$requete->fetchAll(PDO::FETCH_OBJ);
 
 if(count($table)>0){
-  echo "<h3>".count($table)." images trouvées</h3>";
   echo '
-  <table class="table">
-  <thead>
-  <tr>
-  <th scope="col">Id</th>
-  <th scope="col">Nom</th>
-  <th scope="col">Action</th>
-  </tr>
-  </thead>
-  <tbody>
+
+  <div class="table-responsive">
+    <table class="table">
+        <thead class="text-primary">
+            <th class="text-center">Identifiant</th>
+            <th class="text-center">Nom</th>
+            <th class="text-center">Action</th>
+        </thead>
+        <tbody>
 
   ';
+
   foreach($table as $ligne){
     $idimg=$ligne->id;
     $nom=$ligne->image;
 
 
     echo '
+
     <tr>
-      <th scope="row">'.$idimg.'</th>
-      <td>'.$nom.'</td>
-      <td>
-
-  <a href="modifdespages.php?page=association&table=pageasso&action=delete&id='.$idimg.'">
-  <button type="button" class="btn">Supprimer</button>
-  </a>
-
-      </td>
+      <td class="text-center">'.$idimg.'</td>
+      <td class="text-center">'.$nom.'</td>
+      <td class="text-center"><a href="modifdespages.php?page=association&table=pageasso&action=delete&id='.$idimg.'"><button type="button" class="btn">Supprimer</button></a></td>
     </tr>
 
     ';
 
-
   }
 
   echo '
-</tbody>
+  </tbody>
 </table>
-
+</div>
 
   ';
-}else echo"<p class='rouge'> Pas de résultats</p>";
+}else echo'<center>
+            <h4 class="info-title"><font color="red">Aucun résultats à votre recherche</font></h4>
+           </center>';
 
-
-
-}else echo"<p class='rouge'> Aucun critere de recherche n'a été fournis </p>";
+}else echo'<center>
+            <h4 class="info-title"><font color="red">Aucun critere de recherche n&apos;a été fournis</font></h4>
+           </center>';
