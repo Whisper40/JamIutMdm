@@ -332,7 +332,7 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
 .navbar .navbar-nav > li > a.btn.btn-primary:focus,
 .navbar .navbar-nav > li > a.btn.btn-primary:active,
 .navbar .navbar-nav > li > a.btn.btn-primary:hover {
-  box-shadow: 0 14px 26px -12px rgba(120, 181, 219,0.5), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(120, 181, 219,0.5);
+  box-shadow: 0 14px 26px -12px rgba(44, 178, 165,0.5), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(44, 178, 165,0.5);
 }
 .btn.btn-primary.disabled, .btn.btn-primary.disabled:hover, .btn.btn-primary.disabled:focus, .btn.btn-primary.disabled.focus, .btn.btn-primary.disabled:active, .btn.btn-primary.disabled.active, .btn.btn-primary:disabled, .btn.btn-primary:disabled:hover, .btn.btn-primary:disabled:focus, .btn.btn-primary:disabled.focus, .btn.btn-primary:disabled:active, .btn.btn-primary:disabled.active, .btn.btn-primary[disabled], .btn.btn-primary[disabled]:hover, .btn.btn-primary[disabled]:focus, .btn.btn-primary[disabled].focus, .btn.btn-primary[disabled]:active, .btn.btn-primary[disabled].active, fieldset[disabled] .btn.btn-primary, fieldset[disabled] .btn.btn-primary:hover, fieldset[disabled] .btn.btn-primary:focus, fieldset[disabled] .btn.btn-primary.focus, fieldset[disabled] .btn.btn-primary:active, fieldset[disabled] .btn.btn-primary.active,
 .navbar .navbar-nav > li > a.btn.btn-primary.disabled,
@@ -376,7 +376,7 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
 }
 .btn.btn-info,
 .navbar .navbar-nav > li > a.btn.btn-info {
-  box-shadow: 0 2px 2px 0 rgba(120, 181, 219, 0.14), 0 3px 1px -2px rgba(120, 181, 219, 0.2), 0 1px 5px 0 rgba(120, 181, 219, 0.12);
+  box-shadow: 0 2px 2px 0 rgba(44, 178, 165, 0.14), 0 3px 1px -2px rgba(44, 178, 165, 0.2), 0 1px 5px 0 rgba(44, 178, 165, 0.12);
 }
 .btn.btn-info, .btn.btn-info:hover, .btn.btn-info:focus, .btn.btn-info:active, .btn.btn-info.active, .btn.btn-info:active:focus, .btn.btn-info:active:hover, .btn.btn-info.active:focus, .btn.btn-info.active:hover, .open > .btn.btn-info.dropdown-toggle, .open > .btn.btn-info.dropdown-toggle:focus, .open > .btn.btn-info.dropdown-toggle:hover,
 .navbar .navbar-nav > li > a.btn.btn-info,
@@ -398,7 +398,7 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
 .navbar .navbar-nav > li > a.btn.btn-info:focus,
 .navbar .navbar-nav > li > a.btn.btn-info:active,
 .navbar .navbar-nav > li > a.btn.btn-info:hover {
-  box-shadow: 0 14px 26px -12px rgba(120, 181, 219, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(120, 181, 219, 0.2);
+  box-shadow: 0 14px 26px -12px rgba(44, 178, 165, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(44, 178, 165, 0.2);
 }
 .btn.btn-info.disabled, .btn.btn-info.disabled:hover, .btn.btn-info.disabled:focus, .btn.btn-info.disabled.focus, .btn.btn-info.disabled:active, .btn.btn-info.disabled.active, .btn.btn-info:disabled, .btn.btn-info:disabled:hover, .btn.btn-info:disabled:focus, .btn.btn-info:disabled.focus, .btn.btn-info:disabled:active, .btn.btn-info:disabled.active, .btn.btn-info[disabled], .btn.btn-info[disabled]:hover, .btn.btn-info[disabled]:focus, .btn.btn-info[disabled].focus, .btn.btn-info[disabled]:active, .btn.btn-info[disabled].active, fieldset[disabled] .btn.btn-info, fieldset[disabled] .btn.btn-info:hover, fieldset[disabled] .btn.btn-info:focus, fieldset[disabled] .btn.btn-info.focus, fieldset[disabled] .btn.btn-info:active, fieldset[disabled] .btn.btn-info.active,
 .navbar .navbar-nav > li > a.btn.btn-info.disabled,
@@ -1425,13 +1425,13 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   left: 15px;
 }
 .togglebutton label input[type=checkbox]:checked + .toggle {
-  background-color: rgba(120, 181, 219,0.5);
+  background-color: rgba(44, 178, 165,0.5);
 }
 .togglebutton label input[type=checkbox]:checked + .toggle:after {
   border-color: #2cb2a5;
 }
 .togglebutton label input[type=checkbox]:checked + .toggle:active:after {
-  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(120, 181, 219,0.5);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(44, 178, 165,0.5);
 }
 
 .radio label {
@@ -2218,7 +2218,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
   background-color: #2cb2a5;
   border-color: #2cb2a5;
   color: #FFFFFF;
-  box-shadow: 0 4px 5px 0 rgba(120, 181, 219,0.5), 0 1px 10px 0 rgba(120, 181, 219,0.5), 0 2px 4px -1px rgba(120, 181, 219,0.5);
+  box-shadow: 0 4px 5px 0 rgba(44, 178, 165,0.5), 0 1px 10px 0 rgba(44, 178, 165,0.5), 0 2px 4px -1px rgba(44, 178, 165,0.5);
 }
 .pagination.pagination-info > .active > a, .pagination.pagination-info > .active > a:focus, .pagination.pagination-info > .active > a:hover,
 .pagination.pagination-info > .active > span,
@@ -2226,7 +2226,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
 .pagination.pagination-info > .active > span:hover {
   background-color: #2cb2a5;
   border-color: #2cb2a5;
-  box-shadow: 0 4px 5px 0 rgba(120, 181, 219, 0.14), 0 1px 10px 0 rgba(120, 181, 219, 0.12), 0 2px 4px -1px rgba(120, 181, 219, 0.2);
+  box-shadow: 0 4px 5px 0 rgba(44, 178, 165, 0.14), 0 1px 10px 0 rgba(44, 178, 165, 0.12), 0 2px 4px -1px rgba(44, 178, 165, 0.2);
 }
 .pagination.pagination-success > .active > a, .pagination.pagination-success > .active > a:focus, .pagination.pagination-success > .active > a:hover,
 .pagination.pagination-success > .active > span,
@@ -2292,7 +2292,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
 .nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {
   background-color: #2cb2a5;
   color: #FFFFFF;
-  box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2), 0 13px 24px -11px rgba(120, 181, 219,0.5);
+  box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2), 0 13px 24px -11px rgba(44, 178, 165,0.5);
 }
 .nav-pills:not(.nav-pills-icons) > li > a {
   border-radius: 30px;
@@ -2302,7 +2302,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
 }
 .nav-pills.nav-pills-info > li.active > a, .nav-pills.nav-pills-info > li.active > a:focus, .nav-pills.nav-pills-info > li.active > a:hover {
   background-color: #2cb2a5;
-  box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2), 0 13px 24px -11px rgba(120, 181, 219, 0.6);
+  box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2), 0 13px 24px -11px rgba(44, 178, 165, 0.6);
 }
 .nav-pills.nav-pills-success > li.active > a, .nav-pills.nav-pills-success > li.active > a:focus, .nav-pills.nav-pills-success > li.active > a:hover {
   background-color: #4caf50;
@@ -2318,7 +2318,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
 }
 .nav-pills.nav-pills-rose > li.active > a, .nav-pills.nav-pills-rose > li.active > a:focus, .nav-pills.nav-pills-rose > li.active > a:hover {
   background-color: #2cb2a5;
-  box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2), 0 13px 24px -11px rgba(120, 181, 219, 0.5);
+  box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2), 0 13px 24px -11px rgba(44, 178, 165, 0.5);
 }
 
 .tab-space {
@@ -2547,7 +2547,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
 .navbar.navbar-primary {
   background-color: #2cb2a5;
   color: #ffffff;
-  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(120, 181, 219,0.5);
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(44, 178, 165,0.5);
 }
 .navbar.navbar-primary .navbar-form .form-group input.form-control::-moz-placeholder,
 .navbar.navbar-primary .navbar-form input.form-control::-moz-placeholder {
@@ -2567,7 +2567,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
 .navbar.navbar-primary .dropdown-menu li > a:hover, .navbar.navbar-primary .dropdown-menu li > a:focus {
   color: #FFFFFF;
   background-color: #2cb2a5;
-  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(120, 181, 219,0.5);
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(44, 178, 165,0.5);
 }
 .navbar.navbar-primary .dropdown-menu .active > a {
   background-color: #2cb2a5;
@@ -2611,7 +2611,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
 .navbar.navbar-info {
   background-color: #2cb2a5;
   color: #ffffff;
-  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(120, 181, 219, 0.46);
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(44, 178, 165, 0.46);
 }
 .navbar.navbar-info .navbar-form .form-group input.form-control::-moz-placeholder,
 .navbar.navbar-info .navbar-form input.form-control::-moz-placeholder {
@@ -2631,7 +2631,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
 .navbar.navbar-info .dropdown-menu li > a:hover, .navbar.navbar-info .dropdown-menu li > a:focus {
   color: #FFFFFF;
   background-color: #2cb2a5;
-  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(120, 181, 219, 0.4);
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(44, 178, 165, 0.4);
 }
 .navbar.navbar-info .dropdown-menu .active > a {
   background-color: #2cb2a5;
@@ -2707,7 +2707,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
 .navbar.navbar-rose {
   background-color: #2cb2a5;
   color: #ffffff;
-  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(120, 181, 219, 0.5);
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(44, 178, 165, 0.5);
 }
 .navbar.navbar-rose .navbar-form .form-group input.form-control::-moz-placeholder,
 .navbar.navbar-rose .navbar-form input.form-control::-moz-placeholder {
@@ -2727,7 +2727,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
 .navbar.navbar-rose .dropdown-menu li > a:hover, .navbar.navbar-rose .dropdown-menu li > a:focus {
   color: #FFFFFF;
   background-color: #2cb2a5;
-  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(120, 181, 219, 0.5);
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(44, 178, 165, 0.5);
 }
 .navbar.navbar-rose .dropdown-menu .active > a {
   background-color: #2cb2a5;
@@ -2819,7 +2819,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
   transition: all 150ms linear;
 }
 .dropdown-menu li > a:hover, .dropdown-menu li > a:focus {
-  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(120, 181, 219,0.5);
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(44, 178, 165,0.5);
 }
 .dropdown-menu.dropdown-with-icons li > a {
   padding: 12px 20px 12px 12px;
@@ -3019,10 +3019,10 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
   background-color: #2cb2a5;
 }
 .progress.progress-line-primary {
-  background: rgba(120, 181, 219,0.5);
+  background: rgba(44, 178, 165,0.5);
 }
 .progress.progress-line-info {
-  background: rgba(120, 181, 219, 0.2);
+  background: rgba(44, 178, 165, 0.2);
 }
 .progress.progress-line-success {
   background: rgba(76, 175, 80, 0.2);
@@ -3427,19 +3427,19 @@ h2.title {
   background: linear-gradient(60deg, #ec407a, #c2185b);
 }
 .card .header-primary {
-  box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2), 0 13px 24px -11px rgba(120, 181, 219,0.5);
+  box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2), 0 13px 24px -11px rgba(44, 178, 165,0.5);
 }
 .card .header-danger {
   box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2), 0 13px 24px -11px rgba(244, 67, 54, 0.6);
 }
 .card .header-rose {
-  box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2), 0 13px 24px -11px rgba(120, 181, 219, 0.5);
+  box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2), 0 13px 24px -11px rgba(44, 178, 165, 0.5);
 }
 .card .header-warning {
   box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2), 0 13px 24px -11px rgba(255, 152, 0, 0.6);
 }
 .card .header-info {
-  box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2), 0 13px 24px -11px rgba(120, 181, 219, 0.6);
+  box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2), 0 13px 24px -11px rgba(44, 178, 165, 0.6);
 }
 .card .header-success {
   box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2), 0 13px 24px -11px rgba(76, 175, 80, 0.6);
@@ -4976,7 +4976,7 @@ select[data-dropdownjs][disabled] + .dropdownjs > input[readonly] {
 }
 
 .select2-container--default .select2-results__option--highlighted[aria-selected]:focus, .select2-container--default .select2-results__option--highlighted[aria-selected]:hover, .select2-container--default .select2-results__option--highlighted[aria-selected]:active {
-  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(120, 181, 219,0.5);
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(44, 178, 165,0.5);
   background-color: #2cb2a5;
   color: #FFFFFF;
 }
@@ -6849,7 +6849,7 @@ footer .pull-center {
 .bootstrap-datetimepicker-widget table td.active > div, .bootstrap-datetimepicker-widget table td.active:hover > div {
   background-color: #2cb2a5;
   color: #FFFFFF;
-  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(120, 181, 219,0.5);
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(44, 178, 165,0.5);
 }
 .bootstrap-datetimepicker-widget table td.active.today:before > div {
   border-bottom-color: #FFFFFF;
@@ -7093,7 +7093,7 @@ select.selectpicker {
   outline: 0;
 }
 .bootstrap-select.btn-group .dropdown-menu li a:focus, .bootstrap-select.btn-group .dropdown-menu li a:hover {
-  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(120, 181, 219,0.5);
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(44, 178, 165,0.5);
 }
 
 .bootstrap-select.btn-group .dropdown-menu li a.opt {
