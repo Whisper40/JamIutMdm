@@ -52,10 +52,10 @@ function SubmitFormDataModifLiens() {
   var user_id = "<?php echo $_SESSION['admin_id']; ?>";
   var id = "<?php echo $id; ?>";
   var nom = $("#nom").val();
-  var lienutiles = $("#lienutiles").val();
+  var lienimage = $("#lienimage").val();
   var lien = $("#lien").val();
   var description = $("#description").val();
-  $.post("ajax/modifypagelien.php", { user_id: user_id, id: id, nom: nom, liensutiles: liensutiles, lien: lien, description: description},
+  $.post("ajax/modifypagelien.php", { user_id: user_id, id: id, nom: nom, lienimage: lienimage, lien: lien, description: description},
   function(data) {
    $('#results6').html(data);
 
@@ -274,8 +274,7 @@ if(isset($_GET['deletelien'])){
             <th class="text-center">Type</th>
             <th class="text-left">Nom</th>
             <th class="text-left">Description</th>
-            <th class="text-center">Lien image</th>
-            <th class="text-center">Lien</th>
+            <th class="text-left">Modifier</th>
           </thead>
           <tbody>
       ';
@@ -290,9 +289,9 @@ if(isset($_GET['deletelien'])){
 
         echo '
         <tr>
-          <td class="text-center">'.$nom.'</td>
-          <td class="text-left">'.$slug.'</td>
-          <td class="text-left">'.$lien.'</td>
+          <td class="text-center">'.$slug.'</td>
+          <td class="text-left">'.$nom.'</td>
+          <td class="text-left">'.$description.'</td>
           <td class="text-center">
             <a href="?modiflien='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Modifier</button></a>
             <a href="?deletelien='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Supprimer</button></a>
