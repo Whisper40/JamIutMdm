@@ -152,7 +152,7 @@
             <?php } ?>
 
         </div>
-    </div>
+  
 
 <footer class="footer footer-white footer-big">
   <div class="container">
