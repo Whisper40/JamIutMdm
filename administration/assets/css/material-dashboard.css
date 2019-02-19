@@ -10468,7 +10468,7 @@ footer .btn {
   color: #f44336;
 }
 .card [data-background-color="rose"] {
-  background: linear-gradient(60deg, #ec407a, #d81b60);
+  background: linear-gradient(60deg, #35bfb1, #2cb2a5);
   box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(53, 191, 177, 0.4);
 }
 .card [data-icon-bg-color="rose"] i {
