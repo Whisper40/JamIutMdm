@@ -1107,7 +1107,7 @@ require_once('includes/head.php');
                                     </div>
                                     <center>
                                       <a href="activitees.php?activityname=<?php echo $row['slug'];?>">
-                                    <button class="btn btn-primary btn-round btn-sm">Je participe</button></a>
+                                    <button class="btn btn-rose btn-round btn-sm">Je participe</button></a>
                                     </center>
                                 </div>
                             </div>
