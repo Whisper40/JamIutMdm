@@ -5182,7 +5182,8 @@ if ($uploadOk == 0) {
                       <div class="card-content">
                         <center>
                           <h4> Pour ajouter des images concernant la galerie, c'est ici : </h4>
-                          <a href="https://administration.jam-mdm.fr/ajoutimage.php" target="_blank" class="w3-button w3-black">Ajouter des images</a>
+                          <a href="https://administration.jam-mdm.fr/ajoutimage.php" target="_blank" class="w3-button w3-black"><button type="button" class="btn btn-primary btn-round btn-rose">Ajouter des images</button></a>
+
                         </center>
                       </div>
                     </div>
@@ -5191,6 +5192,7 @@ if ($uploadOk == 0) {
                         <center>
                           <h4> Pour gérer les images concernant la galerie, c'est ici : </h4>
                           <a href="https://administration.jam-mdm.fr/gestionimage.php" target="_blank" class="w3-button w3-black">Gérer les images</a>
+                          <button id="submitFormDataGallerie" onclick="SubmitFormDataGallerie();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
                         </center>
                       </div>
                     </div>
