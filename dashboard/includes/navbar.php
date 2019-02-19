@@ -120,7 +120,7 @@ if($countstatusmembre == '1'){
 
             <li>
                 <a href="https://jam-mdm.fr/">
-                    <i class="material-icons">dns</i>
+                    <i class="material-icons">keyboard_return</i>
                     <p>Retour JAM</p>
                 </a>
             </li>
