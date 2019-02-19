@@ -19,17 +19,7 @@ function RetourIndex(){
   window.location="https://administration.jam-mdm.fr/modifdespages.php"
 }
 
-function typeInTextarea(pasttext, newText) {
-  var start = pasttext.prop("selectionStart")
-  var end = pasttext.prop("selectionEnd")
-  var text = pasttext.val()
-  var before = text.substring(0, start)
-  var after  = text.substring(end, text.length)
-  pasttext.val(before + newText + after)
-  pasttext[0].selectionStart = pasttext[0].selectionEnd = start + newText.length
-  pasttext.focus()
-  return false
-}
+
 
 
 
@@ -508,7 +498,53 @@ if ($uploadOk == 0) {
                               } ?>
 
 
+                                                          <script>
 
+
+                                                          function typeInTextarea(el, newText) {
+                                                            var start = el.prop("selectionStart")
+                                                            var end = el.prop("selectionEnd")
+                                                            var text = el.val()
+                                                            var before = text.substring(0, start)
+                                                            var after  = text.substring(end, text.length)
+                                                            el.val(before + newText + after)
+                                                            el[0].selectionStart = el[0].selectionEnd = start + newText.length
+                                                            el.focus()
+                                                            return false
+                                                          }
+
+                                                           $("#sautbr").on("click", function() {
+                                                           typeInTextarea($("#description1"), "<br />")
+                                                           return false
+                                                           })
+                                                           $("#souligner").on("click", function() {
+                                                             typeInTextarea($("#description1"), "<u>Texte souligné</u>")
+                                                             return false
+                                                           })
+                                                           $("#liste").on("click", function() {
+                                                             typeInTextarea($("#description1"), "<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>")
+                                                             return false
+                                                           })
+                                                           $("#gras").on("click", function() {
+                                                             typeInTextarea($("#description1"), "<strong>Texte en gras</strong>")
+                                                             return false
+                                                           })
+                                                           $("#italic").on("click", function() {
+                                                             typeInTextarea($("#description1"), "<i>Texte en Italic</i>")
+                                                             return false
+                                                           })
+                                                           $("#indice").on("click", function() {
+                                                             typeInTextarea($("#description1"), "<sub>Texte en Indice</sub>")
+                                                             return false
+                                                           })
+
+                                                           $("#surligner").on("click", function() {
+                                                             typeInTextarea($("#description1"), "<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>")
+                                                             return false
+                                                           })
+
+
+                                                           </script>
 
   <div class="content">
       <div class="container-fluid">
@@ -618,22 +654,16 @@ if ($uploadOk == 0) {
                             <textarea rows="12" name="description1" id="description1" class="form-control"><?php echo $description1; ?></textarea>
                           </div>
                           <center>
-                            <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<br />'" type="button" name="sautbr" id="sautbr" value="Saut de ligne" class="btn btn-rose btn-round btn-sm"/>
-                            <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<u>Texte souligné</u>'" type="button" name="souligne" id="souligne" value="Souligner" class="btn btn-rose btn-round btn-sm"/>
-                            <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>'" type="button" name="liste" id="liste" value="Créer une liste" class="btn btn-rose btn-round btn-sm"/>
-                            <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<strong>Texte en gras</strong>'" type="button" name="Gras" id="Gras" value="Gras" class="btn btn-rose btn-round btn-sm"/>
-                            <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<i>Texte en Italic</i>'" type="button" name="Italic" id="Italic" value="Italic" class="btn btn-rose btn-round btn-sm"/>
-                            <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<sub>Texte en Indice</sub>'" type="button" name="Indice" id="Indice" value="Indice" class="btn btn-rose btn-round btn-sm"/>
-                            <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>'" type="button" name="Surligné" id="Surligné" value="Surligné" class="btn btn-rose btn-round btn-sm"/>
-                          </center>
-                          <button id="test0">TEST 0</button>
-<script>
-                          $("#test0").on("click", function() {
-                            typeInTextarea($("description1"), "<i>Texte en Italic</i>")
-                            return false
-                          })
 
-</script>
+                            <button id="sautbr">Saut de ligne</button>
+                            <button id="souligner">Souligner</button>
+                            <button id="liste">Liste</button>
+                            <button id="gras">Gras</button>
+                            <button id="italic">Italic</button>
+                            <button id="indice">Indice</button>
+                            <button id="surligner">Surligner</button>
+                          </center>
+
 
                         </div>
                       </div>
