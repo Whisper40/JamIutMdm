@@ -4346,22 +4346,17 @@ if ($uploadOk == 0) {
           <tr>
             <th scope="row">'.$title.'</th>
             <td>'.$result.'</td>
-<<<<<<< HEAD
             <td class="text-center">'.$stock.'</td>
             <td class="text-center">'.$status.'</td>
             <td class="text-center">
               <a href="?page=activitesvoyages&amp;table=activitesvoyages&amp;modifactivitesvoyages='.$id.'"><button type="button" class="btn">Modifier</button></a>
               <a href="?page=activitesvoyages&amp;table=activitesvoyages&amp;'.$act.'activitesvoyages='.$id.'"><button type="button" class="btn">'.$message.'</button></a>
->>>>>>> 0b6c37fa585c2218e1462346eefd366ad41a5e1e
             ';
             ?>
               <button onclick="demo.showSwal('warningdeleteacti','<?php echo $user_id; ?>','<?php echo $id; ?>')" type="button" class="btn btn-primary btn-round btn-rose">Supprimer</button>
             </td>
           </tr>
-
-
-
-<?php
+          <?php
         }
 
         echo '
