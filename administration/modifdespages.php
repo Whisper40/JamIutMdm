@@ -4307,8 +4307,8 @@ if ($uploadOk == 0) {
           echo '
 
           <tr>
-            <td class="text-center">'.$title.'</td>
-            <td class="text-center">'.$result.'</td>
+            <td>'.$title.'</td>
+            <td>'.$result.'</td>
             <td class="text-center">'.$stock.'</td>
             <td class="text-center">'.$status.'</td>
             <td class="text-center">
@@ -4317,7 +4317,7 @@ if ($uploadOk == 0) {
             ';
 
             ?>
-              <button onclick="demo.showSwal('warningdeleteacti','<?php echo $user_id; ?>','<?php echo $id; ?>')" type="button" class="btn btn-primary btn-round btn-rose">Supprimer</button>
+              <button onclick="demo.showSwal('warningdeleteacti','<?php echo $user_id; ?>','<?php echo $id; ?>')" type="button" class="btn btn-rose btn-round btn-sm">Supprimer</button>
             </td>
           </tr>
           <?php
