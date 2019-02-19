@@ -228,7 +228,7 @@ require_once('includes/head.php');
                                             </div>
                                       </div>
                                       <div class="footer text-center">
-                                         <button type="submit" class="btn btn-primary btn-round"> Valider mes choix</button>
+                                         <button type="submit" class="btn btn-primary btn-round btn-rose"> Valider mes choix</button>
                                     </div>
                                       </form>
                                   </div>
@@ -371,7 +371,7 @@ require_once('includes/head.php');
                                               <div class="col-md-6">
                                                 <br><br><br><br>
                                                 <div class="text-center">
-                                                   <button type="submit" class="btn btn-primary btn-round"> Valider mes choix</button>
+                                                   <button type="submit" class="btn btn-primary btn-round btn-rose"> Valider mes choix</button>
                                               </div>
                                               </div>
                                             </div>
@@ -571,7 +571,7 @@ require_once('includes/head.php');
                                           <div class="col-md-6">
                                             <br><br><br><br><br>
                                             <div class="text-center">
-                                               <button type="submit" class="btn btn-primary btn-round"> Valider mes choix</button>
+                                               <button type="submit" class="btn btn-primary btn-round btn-rose"> Valider mes choix</button>
                                           </div>
                                           </div>
                                         </div>
