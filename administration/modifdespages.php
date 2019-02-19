@@ -19,24 +19,6 @@ function RetourIndex(){
   window.location="https://administration.jam-mdm.fr/modifdespages.php"
 }
 
-function typeInTextarea(pasttext, newText) {
-  var start = pasttext.prop("selectionStart")
-  var end = pasttext.prop("selectionEnd")
-  var text = pasttext.val()
-  var before = text.substring(0, start)
-  var after  = text.substring(end, text.length)
-  pasttext.val(before + newText + after)
-  pasttext[0].selectionStart = pasttext[0].selectionEnd = start + newText.length
-  pasttext.focus()
-  return false
-}
-
-
-
-
-
-
-
 
 
 
@@ -510,8 +492,22 @@ if ($uploadOk == 0) {
 
 
                               <script>
+
+                              function typeInTextarea(pasttext, newText) {
+                                var start = pasttext.prop("selectionStart")
+                                var end = pasttext.prop("selectionEnd")
+                                var text = pasttext.val()
+                                var before = text.substring(0, start)
+                                var after  = text.substring(end, text.length)
+                                pasttext.val(before + newText + after)
+                                pasttext[0].selectionStart = pasttext[0].selectionEnd = start + newText.length
+                                pasttext.focus()
+                                return false
+                              }
+
+
                               $("#sautbr").on("click", function() {
-                              typeInTextarea($("textarea"), "<br />")
+                              typeInTextarea($(document.getElementById('description1').value), "<br />")
                               return false
                               })
                               $("#souligner").on("click", function() {
