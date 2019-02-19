@@ -18,6 +18,28 @@ $sitekey = "LESITEKEY";
 function RetourIndex(){
   window.location="https://administration.jam-mdm.fr/modifdespages.php"
 }
+
+function typeInTextarea(pasttext, newText) {
+  var start = pasttext.prop("selectionStart")
+  var end = pasttext.prop("selectionEnd")
+  var text = pasttext.val()
+  var before = text.substring(0, start)
+  var after  = text.substring(end, text.length)
+  pasttext.val(before + newText + after)
+  pasttext[0].selectionStart = pasttext[0].selectionEnd = start + newText.length
+  pasttext.focus()
+  return false
+}
+
+
+
+
+
+
+
+
+
+
 </script>
 
 
@@ -604,6 +626,14 @@ if ($uploadOk == 0) {
                             <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<sub>Texte en Indice</sub>'" type="button" name="Indice" id="Indice" value="Indice" class="btn btn-rose btn-round btn-sm"/>
                             <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>'" type="button" name="Surligné" id="Surligné" value="Surligné" class="btn btn-rose btn-round btn-sm"/>
                           </center>
+<script>
+                          $("input").on("click", function() {
+                            typeInTextarea($("description1"), "<i>Texte en Italic</i>")
+                            return false
+                          })
+
+</script>
+
                         </div>
                       </div>
                         <div class="col-sm-6">
