@@ -4307,25 +4307,19 @@ if ($uploadOk == 0) {
           echo '
 
           <tr>
-<<<<<<< HEAD
-<<<<<<< HEAD
+
             <td class="text-center">'.$title.'</th>
             <td class="text-center">'.$result.'</td>
-=======
+
             <th scope="row">'.$title.'</th>
             <td>'.$result.'</td>
-<<<<<<< HEAD
->>>>>>> parent of d488ab4... Update modifdespages.php
-=======
-<<<<<<< HEAD
->>>>>>> parent of e226dd7... Update modifdespages.php
+
             <td class="text-center">'.$stock.'</td>
             <td class="text-center">'.$status.'</td>
             <td class="text-center">
               <a href="?page=activitesvoyages&amp;table=activitesvoyages&amp;modifactivitesvoyages='.$id.'"><button type="button" class="btn">Modifier</button></a>
               <a href="?page=activitesvoyages&amp;table=activitesvoyages&amp;'.$act.'activitesvoyages='.$id.'"><button type="button" class="btn">'.$message.'</button></a>
-<<<<<<< HEAD
-=======
+
             <td>'.$title.'</td>
             <td>'.$result.'</td>
             <td class="text-center">'.$stock.'</td>
@@ -4333,10 +4327,7 @@ if ($uploadOk == 0) {
             <td class="text-center">
               <a href="?page=activitesvoyages&amp;table=activitesvoyages&amp;modifactivitesvoyages='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Modifier</button></a>
               <a href="?page=activitesvoyages&amp;table=activitesvoyages&amp;'.$act.'activitesvoyages='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Désactiver</button></a>
->>>>>>> parent of 3146324... Update modifdespages.php
-=======
->>>>>>> 0b6c37fa585c2218e1462346eefd366ad41a5e1e
->>>>>>> parent of e226dd7... Update modifdespages.php
+
             ';
 
             ?>
