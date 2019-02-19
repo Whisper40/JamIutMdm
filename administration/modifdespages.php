@@ -645,14 +645,13 @@ if ($uploadOk == 0) {
 
 
                           <center>
-                            <button class="btn btn-primary btn-round btn-rose" onclick="insertAtCaret('description1', '<br />');return false;">Saut de ligne </button>
-                            <button class="btn btn-primary btn-round btn-rose" onclick="insertAtCaret('description1', '<u>Texte souligné</u>');return false;">Souligner</button>
-                            <button class="btn btn-primary btn-round btn-rose" onclick="insertAtCaret('description1', '<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>');return false;">Liste</button>
-                            <button class="btn btn-primary btn-round btn-rose" onclick="insertAtCaret('description1', '<strong>Texte en gras</strong>');return false;">Texte en gras</button>
-                            <button class="btn btn-primary btn-round btn-rose" onclick="insertAtCaret('description1', '<i>Texte en Italic</i>');return false;">Texte en Italic</button>
-                            <button class="btn btn-primary btn-round btn-rose" onclick="insertAtCaret('description1', '<sub>Texte en Indice</sub>');return false;">Texte en Indice</button>
-                            <button class="btn btn-primary btn-round btn-rose" onclick="insertAtCaret('description1', '<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>');return false;">Texte Surligner</button>
-
+                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<br />');return false;">Saut de ligne </button>
+                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<u>Texte souligné</u>');return false;">Souligner</button>
+                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>');return false;">Liste</button>
+                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<strong>Texte en gras</strong>');return false;">Gras</button>
+                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<i>Texte en Italic</i>');return false;">Italic</button>
+                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<sub>Texte en Indice</sub>');return false;">Indice</button>
+                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>');return false;">Surligner</button>
                           </center>
 
 
@@ -1190,13 +1189,15 @@ if ($uploadOk == 0) {
                                               </div>
                                             </div>
                                             <center>
-                                              <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<br />'" type="button" name="sautbr" id="sautbr" value="Saut de ligne" class="btn btn-rose btn-round btn-sm"/>
-                                              <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<u>Texte souligné</u>'" type="button" name="souligne" id="souligne" value="Souligner" class="btn btn-rose btn-round btn-sm"/>
-                                              <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>'" type="button" name="liste" id="liste" value="Créer une liste" class="btn btn-rose btn-round btn-sm"/>
-                                              <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<strong>Texte en gras</strong>'" type="button" name="Gras" id="Gras" value="Gras" class="btn btn-rose btn-round btn-sm"/>
-                                              <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<i>Texte en Italic</i>'" type="button" name="Italic" id="Italic" value="Italic" class="btn btn-rose btn-round btn-sm"/>
-                                              <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<sub>Texte en Indice</sub>'" type="button" name="Indice" id="Indice" value="Indice" class="btn btn-rose btn-round btn-sm"/>
-                                              <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>'" type="button" name="Surligné" id="Surligné" value="Surligné" class="btn btn-rose btn-round btn-sm"/>
+
+                                                <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<br />');return false;">Saut de ligne </button>
+                                                <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<u>Texte souligné</u>');return false;">Souligner</button>
+                                                <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>');return false;">Liste</button>
+                                                <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<strong>Texte en gras</strong>');return false;">Gras</button>
+                                                <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<i>Texte en Italic</i>');return false;">Italic</button>
+                                                <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<sub>Texte en Indice</sub>');return false;">Indice</button>
+                                                <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>');return false;">Surligner</button>
+
                                             </center>
                                           </div>
                                         <div class="col-sm-6">
@@ -1207,13 +1208,15 @@ if ($uploadOk == 0) {
                                             </div>
                                           </div>
                                           <center>
-                                            <input onclick="document.getElementById('description2').value=document.getElementById('description2').value+'<br />'" type="button" name="sautbr" id="sautbr" value="Saut de ligne" class="btn btn-rose btn-round btn-sm"/>
-                                            <input onclick="document.getElementById('description2').value=document.getElementById('description2').value+'<u>Texte souligné</u>'" type="button" name="souligne" id="souligne" value="Souligner" class="btn btn-rose btn-round btn-sm"/>
-                                            <input onclick="document.getElementById('description2').value=document.getElementById('description2').value+'<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>'" type="button" name="liste" id="liste" value="Créer une liste" class="btn btn-rose btn-round btn-sm"/>
-                                            <input onclick="document.getElementById('description2').value=document.getElementById('description2').value+'<strong>Texte en gras</strong>'" type="button" name="Gras" id="Gras" value="Gras" class="btn btn-rose btn-round btn-sm"/>
-                                            <input onclick="document.getElementById('description2').value=document.getElementById('description2').value+'<i>Texte en Italic</i>'" type="button" name="Italic" id="Italic" value="Italic" class="btn btn-rose btn-round btn-sm"/>
-                                            <input onclick="document.getElementById('description2').value=document.getElementById('description2').value+'<sub>Texte en Indice</sub>'" type="button" name="Indice" id="Indice" value="Indice" class="btn btn-rose btn-round btn-sm"/>
-                                            <input onclick="document.getElementById('description2').value=document.getElementById('description2').value+'<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>'" type="button" name="Surligné" id="Surligné" value="Surligné" class="btn btn-rose btn-round btn-sm"/>
+                                            <center>
+                                              <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<br />');return false;">Saut de ligne </button>
+                                              <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<u>Texte souligné</u>');return false;">Souligner</button>
+                                              <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>');return false;">Liste</button>
+                                              <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<strong>Texte en gras</strong>');return false;">Gras</button>
+                                              <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<i>Texte en Italic</i>');return false;">Italic</button>
+                                              <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<sub>Texte en Indice</sub>');return false;">Indice</button>
+                                              <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>');return false;">Surligner</button>
+                                            </center>
                                           </center>
                                         </div>
                                       </div>
@@ -3534,13 +3537,15 @@ $target_file3 = $target_dirnew."".$slug.".".$imageFileType;
                     <textarea rows="8" type="text" name="description" value="Titre du status" id="description" class="form-control"></textarea>
                   </div>
                   <center>
-                    <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<br />'" type="button" name="sautbr" id="sautbr" value="Saut de ligne" class="btn btn-rose btn-round btn-sm"/>
-                    <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<u>Texte souligné</u>'" type="button" name="souligne" id="souligne" value="Souligner" class="btn btn-rose btn-round btn-sm"/>
-                    <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>'" type="button" name="liste" id="liste" value="Créer une liste" class="btn btn-rose btn-round btn-sm"/>
-                    <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<strong>Texte en gras</strong>'" type="button" name="Gras" id="Gras" value="Gras" class="btn btn-rose btn-round btn-sm"/>
-                    <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<i>Texte en Italic</i>'" type="button" name="Italic" id="Italic" value="Italic" class="btn btn-rose btn-round btn-sm"/>
-                    <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<sub>Texte en Indice</sub>'" type="button" name="Indice" id="Indice" value="Indice" class="btn btn-rose btn-round btn-sm"/>
-                    <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>'" type="button" name="Surligné" id="Surligné" value="Surligné" class="btn btn-rose btn-round btn-sm"/>
+
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<br />');return false;">Saut de ligne </button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<u>Texte souligné</u>');return false;">Souligner</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>');return false;">Liste</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<strong>Texte en gras</strong>');return false;">Gras</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<i>Texte en Italic</i>');return false;">Italic</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<sub>Texte en Indice</sub>');return false;">Indice</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>');return false;">Surligner</button>
+
                     <br><br>
                     <button type="submit" name="submitactualite" class="btn btn-primary btn-round btn-rose">Créer une actualité</button>
                   </center>
@@ -4589,13 +4594,13 @@ if ($uploadOk == 0) {
                       <textarea rows="8" type="text" name="description" value="Description" id="description" class="form-control"></textarea>
                     </div>
                     <center>
-                      <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<br />'" type="button" name="sautbr" id="sautbr" value="Saut de ligne" class="btn btn-rose btn-round btn-sm"/>
-                      <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<u>Texte souligné</u>'" type="button" name="souligne" id="souligne" value="Souligner" class="btn btn-rose btn-round btn-sm"/>
-                      <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>'" type="button" name="liste" id="liste" value="Créer une liste" class="btn btn-rose btn-round btn-sm"/>
-                      <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<strong>Texte en gras</strong>'" type="button" name="Gras" id="Gras" value="Gras" class="btn btn-rose btn-round btn-sm"/>
-                      <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<i>Texte en Italic</i>'" type="button" name="Italic" id="Italic" value="Italic" class="btn btn-rose btn-round btn-sm"/>
-                      <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<sub>Texte en Indice</sub>'" type="button" name="Indice" id="Indice" value="Indice" class="btn btn-rose btn-round btn-sm"/>
-                      <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>'" type="button" name="Surligné" id="Surligné" value="Surligné" class="btn btn-rose btn-round btn-sm"/>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<br />');return false;">Saut de ligne </button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<u>Texte souligné</u>');return false;">Souligner</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>');return false;">Liste</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<strong>Texte en gras</strong>');return false;">Gras</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<i>Texte en Italic</i>');return false;">Italic</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<sub>Texte en Indice</sub>');return false;">Indice</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>');return false;">Surligner</button>
                     </center>
                   </div>
                 </div>
