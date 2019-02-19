@@ -4313,7 +4313,7 @@ if ($uploadOk == 0) {
             <td class="text-center">'.$status.'</td>
             <td class="text-center">
               <a href="?page=activitesvoyages&amp;table=activitesvoyages&amp;modifactivitesvoyages='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Modifier</button></a>
-              <a href="?page=activitesvoyages&amp;table=activitesvoyages&amp;'.$act.'activitesvoyages='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Supprimer</button></a>
+              <a href="?page=activitesvoyages&amp;table=activitesvoyages&amp;'.$act.'activitesvoyages='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Désactiver</button></a>
             ';
 
             ?>
@@ -4528,73 +4528,95 @@ if ($uploadOk == 0) {
 
             } ?>
 
-  <div class="content">
-    <div class="container-fluid">
-        <div class="card">
-            <div class="card-content">
-                <h2 class="card-title text-center">Création d'activité/voyages</h2>
-            <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="card-content">
-                          <div class="form-group label-floating">
-                              <label class="control-label">Titre</label>
-                              <input type="text" class="form-control" value="Titre de l'activité" name="title" id="title">
-                          </div>
-                          <div class="form-group label-floating">
-                              <label class="control-label">Description</label>
-                              <input type="text" name="description" value="Sa description" id="description" class="form-control">
-                          </div>
-
-                        <div class="form-group form-file-upload">
-                            <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
-                            <div class="input-group">
-                                <input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
-                                <span class="input-group-btn input-group-s">
-                                    <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
-                                        <i class="material-icons">layers</i>
-                                    </button>
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="form-group label-floating">
-                        <label class="control-label">Stock</label>
-                        <input type="number" name="stock" value="1" id="stock" class="form-control">
-                        </div>
-
-                        <div class="form-group label-floating">
-                        <label class="control-label">Date (XX/XX/2018 - XX/XX/2019)</label>
-                        <input type="text" name="datesejour" value="29/08/2019" id="datesejour" class="form-control">
-                        </div>
-
-                        <div class="form-group label-floating">
-                        <label class="control-label">Price</label>
-                        <input type="number" name="price" value="1" id="price" class="form-control">
-                        </div>
-
-
-
-                         </div>
-                      </div>
-
-                    <div class="col-sm-12">
-                        <div class="card-content">
-                            <input type="submit" name="submitactivite" value="Crée l'activité!">
-                         </div>
-                      </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="card-content">
+                  <h3 class="card-title">Création d'activités / Voyage</h3>
                 </div>
-              </form>
+              </div>
             </div>
-        </div>
-    </div>
-
-  <div id="results11"> <!-- TRES IMPORTANT -->
-  </div>
-
-
-
-
+            <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="card-content">
+                    <div class="form-group label-floating">
+                        <label class="control-label">Titre de l'actualité</label>
+                        <input type="text" class="form-control" value="Titre de l'activité" name="title" id="title">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="card-content">
+                    <div class="form-group form-file-upload">
+                      <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
+                      <div class="input-group">
+                        <input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
+                        <span class="input-group-btn input-group-s">
+                          <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
+                            <i class="material-icons">layers</i>
+                          </button>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="card-content">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Description</label>
+                      <textarea rows="8" type="text" name="description" value="Description" id="description" class="form-control"></textarea>
+                    </div>
+                    <center>
+                      <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<br />'" type="button" name="sautbr" id="sautbr" value="Saut de ligne" class="btn btn-rose btn-round btn-sm"/>
+                      <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<u>Texte souligné</u>'" type="button" name="souligne" id="souligne" value="Souligner" class="btn btn-rose btn-round btn-sm"/>
+                      <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>'" type="button" name="liste" id="liste" value="Créer une liste" class="btn btn-rose btn-round btn-sm"/>
+                      <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<strong>Texte en gras</strong>'" type="button" name="Gras" id="Gras" value="Gras" class="btn btn-rose btn-round btn-sm"/>
+                      <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<i>Texte en Italic</i>'" type="button" name="Italic" id="Italic" value="Italic" class="btn btn-rose btn-round btn-sm"/>
+                      <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<sub>Texte en Indice</sub>'" type="button" name="Indice" id="Indice" value="Indice" class="btn btn-rose btn-round btn-sm"/>
+                      <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>'" type="button" name="Surligné" id="Surligné" value="Surligné" class="btn btn-rose btn-round btn-sm"/>
+                    </center>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-3">
+                  <div class="card-content">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Stock</label>
+                      <input type="number" name="stock" value="1" id="stock" class="form-control">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="card-content">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Date (XX/XX/2018 - XX/XX/2019)</label>
+                      <input type="text" name="datesejour" value="29/08/2019" id="datesejour" class="form-control">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="card-content">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Price</label>
+                      <input type="number" name="price" value="1" id="price" class="form-control">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="card-content">
+                    <center>
+                      <button type="submit" name="submitactivite" class="btn btn-primary btn-round btn-rose">Créer une activité</button>
+                    </center>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <div id="results11"></div>
 
   <!-- Ajoutd'images au site web (assets)-->
   <?php
