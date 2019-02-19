@@ -684,7 +684,7 @@ if ($uploadOk == 0) {
                            </script>
 
                           <center>
-<a href="#" onclick="insertAtCaret('description1', 'text to insert');return false;">Click Here to Insert</a>
+<button class="btn btn-primary btn-round btn-rose" onclick="insertAtCaret('description1', 'text to insert');return false;">TEST MOI </button>
                             <input type="button" id="sautbr" value="Saut de ligne"/>
                             <button id="souligner">Souligner</button>
                             <button id="liste">Liste</button>
