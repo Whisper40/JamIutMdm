@@ -498,53 +498,7 @@ if ($uploadOk == 0) {
                               } ?>
 
 
-                                                          <script>
 
-
-                                                          function typeInTextarea(el, newText) {
-                                                            var start = el.prop("selectionStart")
-                                                            var end = el.prop("selectionEnd")
-                                                            var text = el.val()
-                                                            var before = text.substring(0, start)
-                                                            var after  = text.substring(end, text.length)
-                                                            el.val(before + newText + after)
-                                                            el[0].selectionStart = el[0].selectionEnd = start + newText.length
-                                                            el.focus()
-                                                            return false
-                                                          }
-
-                                                           $("#sautbr").on("click", function() {
-                                                           typeInTextarea($("#description1"), "<br />")
-                                                           return false
-                                                           })
-                                                           $("#souligner").on("click", function() {
-                                                             typeInTextarea($("#description1"), "<u>Texte souligné</u>")
-                                                             return false
-                                                           })
-                                                           $("#liste").on("click", function() {
-                                                             typeInTextarea($("#description1"), "<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>")
-                                                             return false
-                                                           })
-                                                           $("#gras").on("click", function() {
-                                                             typeInTextarea($("#description1"), "<strong>Texte en gras</strong>")
-                                                             return false
-                                                           })
-                                                           $("#italic").on("click", function() {
-                                                             typeInTextarea($("#description1"), "<i>Texte en Italic</i>")
-                                                             return false
-                                                           })
-                                                           $("#indice").on("click", function() {
-                                                             typeInTextarea($("#description1"), "<sub>Texte en Indice</sub>")
-                                                             return false
-                                                           })
-
-                                                           $("#surligner").on("click", function() {
-                                                             typeInTextarea($("#description1"), "<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>")
-                                                             return false
-                                                           })
-
-
-                                                           </script>
 
   <div class="content">
       <div class="container-fluid">
@@ -653,6 +607,55 @@ if ($uploadOk == 0) {
                             <label class="control-label">Description</label>
                             <textarea rows="12" name="description1" id="description1" class="form-control"><?php echo $description1; ?></textarea>
                           </div>
+
+                          <script>
+
+
+                          function typeInTextarea(el, newText) {
+                            var start = el.prop("selectionStart")
+                            var end = el.prop("selectionEnd")
+                            var text = el.val()
+                            var before = text.substring(0, start)
+                            var after  = text.substring(end, text.length)
+                            el.val(before + newText + after)
+                            el[0].selectionStart = el[0].selectionEnd = start + newText.length
+                            el.focus()
+                            return false
+                          }
+
+                           $("#sautbr").on("click", function() {
+                           typeInTextarea($("#description1"), "<br />")
+                           return false
+                           })
+                           $("#souligner").on("click", function() {
+                             typeInTextarea($("#description1"), "<u>Texte souligné</u>")
+                             return false
+                           })
+                           $("#liste").on("click", function() {
+                             typeInTextarea($("#description1"), "<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>")
+                             return false
+                           })
+                           $("#gras").on("click", function() {
+                             typeInTextarea($("#description1"), "<strong>Texte en gras</strong>")
+                             return false
+                           })
+                           $("#italic").on("click", function() {
+                             typeInTextarea($("#description1"), "<i>Texte en Italic</i>")
+                             return false
+                           })
+                           $("#indice").on("click", function() {
+                             typeInTextarea($("#description1"), "<sub>Texte en Indice</sub>")
+                             return false
+                           })
+
+                           $("#surligner").on("click", function() {
+                             typeInTextarea($("#description1"), "<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>")
+                             return false
+                           })
+
+
+                           </script>
+
                           <center>
 
                             <input type="button" id="sautbr" value="Saut de ligne"/>
