@@ -138,7 +138,8 @@
                                             ?>
                                             <?php echo $s->auteur; ?>
 
-                                          -    <?php echo $s->date; ?>    </small>
+                                          -    <?php echo $s->date; ?>
+                                        </small>
                                     </blockquote>
                                 </div>
                             </div>
@@ -150,6 +151,7 @@
 
             <?php } ?>
 
+        </div>
     </div>
 </body>
 
