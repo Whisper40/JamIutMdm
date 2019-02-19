@@ -4344,8 +4344,8 @@ if ($uploadOk == 0) {
           echo '
 
           <tr>
-            <th scope="row">'.$title.'</th>
-            <td>'.$result.'</td>
+            <td class="text-center">'.$title.'</th>
+            <td class="text-center">'.$result.'</td>
             <td class="text-center">'.$stock.'</td>
             <td class="text-center">'.$status.'</td>
             <td class="text-center">
