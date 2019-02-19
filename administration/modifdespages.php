@@ -4308,8 +4308,13 @@ if ($uploadOk == 0) {
 
           <tr>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <td class="text-center">'.$title.'</th>
             <td class="text-center">'.$result.'</td>
+=======
+            <th scope="row">'.$title.'</th>
+            <td>'.$result.'</td>
+>>>>>>> parent of d488ab4... Update modifdespages.php
             <td class="text-center">'.$stock.'</td>
             <td class="text-center">'.$status.'</td>
             <td class="text-center">
