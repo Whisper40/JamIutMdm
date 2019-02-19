@@ -1721,6 +1721,7 @@ if ($uploadOk == 0) {
                   <div class="card-content">
                     <center>
                       <button id="submitFormDataModifMembre" onclick="SubmitFormDataModifMembre();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                      <button onclick="RetourModifMembre();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                     </center>
                     <br>
                   </div>
@@ -5726,7 +5727,7 @@ if ($uploadOk == 0) {
                     <div class="row">
                       <div class="col-sm-12">
                         <div class="card-content">
-                          <h3 class="card-title">En-tête de page</h3>
+                          <h3 class="card-title">Première page</h3>
                         </div>
                       </div>
                     </div>
@@ -5782,13 +5783,6 @@ if ($uploadOk == 0) {
                     </div>
                   </div>
                   <div id="results23"></div>
-                </div>
-              </div>
-            </div>
-
-
-
-
 
 <!-- Ajoutd'images au site web (assets)-->
 <?php
@@ -5957,98 +5951,70 @@ if ($uploadOk == 0) {
           </script>
 
 
-    <div class="container-fluid">
-        <div class="card">
-            <div class="card-content">
-                <h2 class="card-title text-center">Modification de la page Faire Un Don Paiement</h2>
-
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="card-content">
+                <h3 class="card-title">Seconde page</h3>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="card-content">
                 <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-                              <div class="row">
-                                  <div class="col-sm-6">
-
-                                       <div class="form-group form-file-upload">
-                                           <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
-                                           <div class="input-group">
-                                               <input type="text" readonly="" class="form-control" placeholder="<?php echo $image2; ?>">
-                                               <span class="input-group-btn input-group-s">
-                                                   <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
-                                                       <i class="material-icons">layers</i>
-                                                   </button>
-                                               </span>
-                                           </div>
-                                       </div>
-                                    </div>
-
-                                    <div class="col-sm-12">
-                                        <div class="card-content">
-                                            <input type="submit" name="modifpagedonpaiement" value="Modifier l'image">
-                                         </div>
-                                      </div>
-                              </div>
-                            </form>
-
-
-                <form action="" method="post" id="myForm1" class="contact-form">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="card-content">
-                          <div class="form-group label-floating">
-                              <label class="control-label">Titre de la page</label>
-                              <input type="text" class="form-control" value="<?php echo $pagetitre2; ?>" name="pagetitre2" id="pagetitre2">
-                          </div>
-
-                        <div class="form-group label-floating">
-                        <label class="control-label">Titre</label>
-                        <input type="text" name="titre" value="<?php echo $titre2; ?>" id="titre2" class="form-control">
-                        </div>
-
-                        <div class="form-group label-floating">
-                        <label class="control-label">Description</label>
-                        <input type="text" name="description" value="<?php echo $description2; ?>" id="description2" class="form-control">
-                        </div>
-
-                         </div>
+                  <h3 class="card-title text-center">Image d'Arrière plan</h3>
+                  <br><br><br>
+                  <center>
+                    <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                      <div class="fileinput-new thumbnail">
+                        <img src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/<?php echo $image2; ?>" alt="...">
                       </div>
-
-                    <div class="col-sm-12">
-                        <div class="card-content">
-
-                          <center>
-                          <button id="submitFormDataFaireUnDonPaiement" onclick="SubmitFormDataFaireUnDonPaiement();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
-                          <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
-                          </center>
-                         </div>
+                      <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                      <br><br>
+                      <div>
+                        <span class="btn btn-rose btn-round btn-file">
+                          <span class="fileinput-new">Selection image</span>
+                          <span class="fileinput-exists">Changer</span>
+                          <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
+                        </span>
+                        <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
+                        <button type="submit" name="modifpagedonpaiement" class="btn btn-primary btn-round btn-rose">Modifier l'image</button>
                       </div>
+                    </div>
+                  </center>
+                </form>
+              </div>
+            </div>
+          <div class="col-sm-6">
+            <div class="card-content">
+              <form action="" method="post" id="myForm1" class="contact-form">
+                <h3 class="card-title text-center">Titres de la page</h3>
+                <div class="form-group label-floating">
+                  <label class="control-label">Titre de la page</label>
+                  <input type="text" class="form-control" value="<?php echo $pagetitre2; ?>" name="pagetitre2" id="pagetitre2">
                 </div>
+                <div class="form-group label-floating">
+                  <label class="control-label">Titre</label>
+                  <input type="text" name="titre" value="<?php echo $titre2; ?>" id="titre2" class="form-control">
+                </div>
+                <div class="form-group label-floating">
+                    <label class="control-label">Description</label>
+                    <textarea rows="5" name="description" id="description2" class="form-control"><?php echo $description2; ?></textarea>
+                </div>
+                <br>
+                <center>
+                  <button id="submitFormDataFaireUnDonPaiement" onclick="SubmitFormDataFaireUnDonPaiement();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                </center>
               </form>
             </div>
+          </div>
         </div>
+        <div id="results44"></div>
+      </div>
     </div>
+  </div>
 
- <div id="results44"> <!-- TRES IMPORTANT -->
-</div>
-
-
-
-
-
-<?php
-//Fin modif paiement don
-
-
-
-
-
-
-
-
-
-
-
-
-//Fin modif don
-
-} } ?>
+<?php } } ?>
 
   </div>
 </div>
