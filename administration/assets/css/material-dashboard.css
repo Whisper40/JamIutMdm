@@ -7773,8 +7773,8 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
 }
 
 .fileinput .thumbnail > img {
-  max-height: 100px;
-  max-width: 161px;
+  max-height: 140px;
+  max-width: 200px;
 }
 
 .fileinput .btn {
