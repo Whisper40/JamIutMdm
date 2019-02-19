@@ -87,7 +87,7 @@ if($countstatusmembre == '1'){
         <i class="material-icons"><?php echo $unecat->icon;?></i>
         <p><?php echo $unecat->name;?></p>
     </a>
-</li>
+
 <?php
   }}
 
