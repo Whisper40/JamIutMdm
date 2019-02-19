@@ -11,7 +11,7 @@ require_once('../includes/connectBDD.php');
 
         if(!empty($user_id)&&!empty($nom)&&!empty($description)&&!empty($lienimage)&&!empty($lien)&&!empty($catslug)){
 
-          $insert = $db->prepare("INSERT INTO lienutiles (slug, name) VALUES ('valeur 1', 'valeur 2')");
+          $insert = $db->prepare("INSERT INTO lienutiles (slug, name) VALUES ($catslug, $nom)");
           $insert->execute();
 
 
