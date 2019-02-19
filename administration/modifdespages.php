@@ -1209,13 +1209,13 @@ if ($uploadOk == 0) {
                                     <div class="row">
                                       <div class="col-sm-12">
                                         <div class="card-content">
-                                          <h3 class="card-title">Carousel</h3>
+                                          <h3 class="card-title">Ajouter des photos au Carousel</h3>
                                         </div>
                                       </div>
                                     </div>
                                     <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
                                       <div class="row">
-                                        <div class="col-sm-6">
+                                        <div class="col-sm-9">
                                           <div class="form-group form-file-upload">
                                             <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
                                             <div class="input-group">
@@ -1228,7 +1228,7 @@ if ($uploadOk == 0) {
                                             </div>
                                           </div>
                                         </div>
-                                        <div class="col-sm-6">
+                                        <div class="col-sm-3">
                                           <div class="card-content">
                                             <center>
                                               <button type="submit" name="envoieimageprezassocarousel" class="btn btn-primary btn-round btn-rose">Envoyer les images</button>
@@ -1302,14 +1302,14 @@ if ($uploadOk == 0) {
                                   <div class="row">
                                     <div class="col-sm-12">
                                       <div class="card-content">
-                                        <h3 class="card-title">Carousel</h3>
+                                        <h3 class="card-title">Supprimer des photos du Carousel</h3>
                                       </div>
                                     </div>
                                   </div>
                                   <div class="row">
                                     <div class="col-md-6 col-md-offset-3">
                                       <div class="card-content">
-                                        <input type="text" name="valeur" placeholder="Saisir nom ou la catégorie de la photo à supprimer">
+                                        <input type="text" class="form-control" name="valeur" placeholder="Saisir nom ou la catégorie de la photo à supprimer">
                                       </div>
                                     </div>
                                     <div class="col-sm-12">
