@@ -1168,7 +1168,6 @@ if ($uploadOk == 0) {
                                                 <textarea rows="12" type="text" name="description1" id="description1" class="form-control"><?php echo $description1; ?></textarea>
                                               </div>
                                             </div>
-
                                             <center>
                                               <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<br />'" type="button" name="sautbr" id="sautbr" value="Saut de ligne" class="btn btn-rose btn-round btn-sm"/>
                                               <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<u>Texte souligné</u>'" type="button" name="souligne" id="souligne" value="Souligner" class="btn btn-rose btn-round btn-sm"/>
@@ -1179,8 +1178,6 @@ if ($uploadOk == 0) {
                                               <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>'" type="button" name="Surligné" id="Surligné" value="Surligné" class="btn btn-rose btn-round btn-sm"/>
                                             </center>
                                           </div>
-
-
                                         <div class="col-sm-6">
                                           <div class="card-content">
                                             <div class="form-group label-floating">
@@ -1188,7 +1185,6 @@ if ($uploadOk == 0) {
                                               <textarea rows="12" type="text" name="description2" id="description2" class="form-control"><?php echo $description2; ?></textarea>
                                             </div>
                                           </div>
-
                                           <center>
                                             <input onclick="document.getElementById('description2').value=document.getElementById('description2').value+'<br />'" type="button" name="sautbr" id="sautbr" value="Saut de ligne" class="btn btn-rose btn-round btn-sm"/>
                                             <input onclick="document.getElementById('description2').value=document.getElementById('description2').value+'<u>Texte souligné</u>'" type="button" name="souligne" id="souligne" value="Souligner" class="btn btn-rose btn-round btn-sm"/>
@@ -1199,9 +1195,6 @@ if ($uploadOk == 0) {
                                             <input onclick="document.getElementById('description2').value=document.getElementById('description2').value+'<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>'" type="button" name="Surligné" id="Surligné" value="Surligné" class="btn btn-rose btn-round btn-sm"/>
                                           </center>
                                         </div>
-
-
-
                                       </div>
                                       <div class="row">
                                         <div class="col-sm-12">
@@ -1244,114 +1237,7 @@ if ($uploadOk == 0) {
                                         </div>
                                       </div>
                                     </form>
-
-
-
-
-    <div class="content">
-        <div class="container-fluid">
-            <div class="card">
-                <div class="card-content">
-                    <h2 class="card-title text-center">Modification de la page association</h2>
-
-                    <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-                              <div class="row">
-                                  <div class="col-sm-6">
-
-                                       <div class="form-group form-file-upload">
-                                           <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
-                                           <div class="input-group">
-                                               <input type="text" readonly="" class="form-control" placeholder="<?php echo $image; ?>">
-                                               <span class="input-group-btn input-group-s">
-                                                   <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
-                                                       <i class="material-icons">layers</i>
-                                                   </button>
-                                               </span>
-                                           </div>
-                                       </div>
-                                    </div>
-
-                                    <div class="col-sm-12">
-                                        <div class="card-content">
-                                            <input type="submit" name="envoieimageprezasso" value="Modifier l'image">
-                                         </div>
-                                      </div>
-                              </div>
-                            </form>
-
-<h3> Le Carousel </h3>
-                            <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-                                      <div class="row">
-                                          <div class="col-sm-6">
-
-                                               <div class="form-group form-file-upload">
-                                                   <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
-                                                   <div class="input-group">
-                                                       <input type="text" readonly="" class="form-control" placeholder="Sélectionner les images à importer">
-                                                       <span class="input-group-btn input-group-s">
-                                                           <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
-                                                               <i class="material-icons">layers</i>
-                                                           </button>
-                                                       </span>
-                                                   </div>
-                                               </div>
-                                            </div>
-
-                                            <div class="col-sm-12">
-                                                <div class="card-content">
-                                                    <input type="submit" name="envoieimageprezassocarousel" value="Envoyer les images">
-                                                 </div>
-                                              </div>
-                                      </div>
-                                    </form>
-
-                    <form action="" method="post" id="myForm1" class="contact-form">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="card-content">
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Titre de la page</label>
-                                  <input type="text" class="form-control" value="<?php echo $pagetitre; ?>" name="pagetitre" id="pagetitre">
-                              </div>
-
-
-
-
-
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Titre 1</label>
-                                  <input type="text" class="form-control" value="<?php echo $titre1; ?>" name="titre1" id="titre1">
-                              </div>
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Description 1</label>
-                                  <input type="text" name="description1" value="<?php echo $description1; ?>" id="description1" class="form-control">
-                              </div>
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Description 2</label>
-                                  <input type="text" name="description2" value="<?php echo $description2; ?>" id="description2" class="form-control">
-                              </div>
-                             </div>
-                          </div>
-
-                        <div class="col-sm-12">
-                            <div class="card-content">
-
-                              <center>
-                              <button id="submitFormDataPageAsso" onclick="SubmitFormDataPageAsso();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
-                              <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
-                              </center>
-                             </div>
-                          </div>
-                    </div>
-                  </form>
-                </div>
-            </div>
-        </div>
-
-     <div id="results3"> <!-- TRES IMPORTANT -->
-    </div>
-
-
+                                    <div id="results3"></div>
 
     <script>
     $(document).ready(function(){
@@ -1413,35 +1299,31 @@ if ($uploadOk == 0) {
 
     ?>
 
-    <div class="section section-contact-us text-center">
-      <div class="container">
-        <h2 class="title">Suppression des photos liés au Caroussel !</h2>
-        <p class="description">AUTRE</p>
-        <div class="row">
-          <div class="col-lg-6 text-center col-md-8 ml-auto mr-auto">
-
-          </div>
-        </div>
-      </div>
-    </div>
-
-  <h3> Supprimer :  </h3>
-  <input type='text' name="valeur" placeholder="Saisir son nom ou la catégorie à laquelle elle appartient">
-  <p id='resultat'></p>
-
-  </div>
-
+                                  <div class="row">
+                                    <div class="col-sm-12">
+                                      <div class="card-content">
+                                        <h3 class="card-title">Carousel</h3>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-md-6 col-md-offset-3">
+                                      <div class="card-content">
+                                        <input type="text" name="valeur" placeholder="Saisir nom ou la catégorie de la photo à supprimer">
+                                      </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                      <div class="card-content">
+                                        <p id='resultat'></p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
 
 <?php
-
-
-
-
-
-
-
-
-
 
 }else if ($_GET['page']=='membre'){
 
@@ -1721,7 +1603,7 @@ if ($uploadOk == 0) {
                   <div class="card-content">
                     <center>
                       <button id="submitFormDataModifMembre" onclick="SubmitFormDataModifMembre();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
-                      <button onclick="RetourModifMembre();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
+                      <button onclick="RetourIndex2()();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                     </center>
                     <br>
                   </div>
