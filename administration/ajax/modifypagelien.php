@@ -6,14 +6,15 @@ require_once('../includes/connectBDD.php');
         $nom = $_POST['nom'];
         $lienimage = $_POST['lienimage'];
         $lien = $_POST['lien'];
+        $description = $_POST['description'];
 
-        if(!empty($user_id)&&!empty($id)&&!empty($nom)&&!empty($lienutiles)&&!empty($lien)&&!empty($description)){
+        if(!empty($user_id)&&!empty($id)&&!empty($nom)&&!empty($lienimage)&&!empty($lien)&&!empty($description)){
 
-                $update = $db->prepare("UPDATE lienutiles SET name=:nom, description=:description, liensutiles=:lienutiles, lien:lien WHERE id=:id");
+                $update = $db->prepare("UPDATE lienutiles SET name=:nom, description=:description, lienimage=:lienimage, lien:lien WHERE id=:id");
                 $update->execute(array(
                     "id"=>$id,
                     "nom"=>$nom,
-                    "lienutiles"=>$lienutiles,
+                    "lienimage"=>$lienimage,
                     "lien"=>$lien,
                     "description"=>$description
                     )
