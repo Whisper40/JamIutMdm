@@ -4211,87 +4211,79 @@ if ($uploadOk == 0) {
           } ?>
 
 
-
-
-
-  <div class="content">
-      <div class="container-fluid">
-          <div class="card">
-              <div class="card-content">
-                  <h2 class="card-title text-center">Modification des informations de la page Activités/Voyages</h2>
-
-
-                  <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-                              <div class="row">
-                                  <div class="col-sm-6">
-
-                                       <div class="form-group form-file-upload">
-                                           <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
-                                           <div class="input-group">
-                                               <input type="text" readonly="" class="form-control" placeholder="<?php echo $image; ?>">
-                                               <span class="input-group-btn input-group-s">
-                                                   <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
-                                                       <i class="material-icons">layers</i>
-                                                   </button>
-                                               </span>
-                                           </div>
-                                       </div>
-                                    </div>
-
-                                    <div class="col-sm-12">
-                                        <div class="card-content">
-                                            <input type="submit" name="modifphotopageactivoyages" value="Modifier l'image">
-                                         </div>
-                                      </div>
-                              </div>
-                            </form>
-
-
-
-                  <form action="" method="post" id="myForm1" class="contact-form">
-                  <div class="row">
-                      <div class="col-sm-6">
-                          <div class="card-content">
-
-                            <div class="form-group label-floating">
-                                <label class="control-label">Titre de la page</label>
-                                <input type="text" name="pagetitre" value="<?php echo $pagetitre; ?>" id="pagetitre" class="form-control">
-                            </div>
-
-
-
-                            <div class="form-group label-floating">
-                                <label class="control-label">Titre</label>
-                                <input type="text" name="titre" value="<?php echo $titre; ?>" id="titre" class="form-control">
-                            </div>
-
-                            <div class="form-group label-floating">
-                                <label class="control-label">Description</label>
-                                <input type="text" name="description" value="<?php echo $description; ?>" id="description" class="form-control">
-                            </div>
-                           </div>
-                        </div>
-
+          <div class="content">
+            <div class="container-fluid">
+              <div class="card">
+                <div class="card-content">
+                  <h2 class="card-title text-center">Modification page Activités / Voyage</h2>
+                    <div class="row">
                       <div class="col-sm-12">
-                          <div class="card-content">
-
-                            <center>
-                            <button id="submitFormDataModifActivitesVoyages" onclick="SubmitFormDataModifActivitesVoyages();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
-                            <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
-                            </center>
-                           </div>
+                        <div class="card-content">
+                          <h3 class="card-title">En-tête de page</h3>
                         </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="card-content">
+                          <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+                            <h3 class="card-title text-center">Image d'Arrière plan</h3>
+                            <br><br><br>
+                            <center>
+                              <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                                <div class="fileinput-new thumbnail">
+                                  <img src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/<?php echo $image; ?>" alt="...">
+                                </div>
+                                <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                                <br><br>
+                                <div>
+                                  <span class="btn btn-rose btn-round btn-file">
+                                    <span class="fileinput-new">Selection image</span>
+                                    <span class="fileinput-exists">Changer</span>
+                                    <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
+                                  </span>
+                                  <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
+                                  <button type="submit" name="modifphotopageactivoyages" class="btn btn-primary btn-round btn-rose">Modifier l'image</button>
+                                </div>
+                              </div>
+                            </center>
+                          </form>
+                        </div>
+                      </div>
+                    <div class="col-sm-6">
+                      <div class="card-content">
+                        <form action="" method="post" id="myForm1" class="contact-form">
+                          <h3 class="card-title text-center">Titres de la page</h3>
+                          <div class="form-group label-floating">
+                            <label class="control-label">Titre de la page</label>
+                            <input type="text" name="pagetitre" value="<?php echo $pagetitre; ?>" id="pagetitre" class="form-control">
+                          </div>
+                          <div class="form-group label-floating">
+                            <label class="control-label">Titre</label>
+                            <input type="text" name="titre" value="<?php echo $titre; ?>" id="titre" class="form-control">
+                          </div>
+                          <div class="form-group label-floating">
+                              <label class="control-label">Description</label>
+                              <textarea rows="5" name="description" id="description" class="form-control"><?php echo $description; ?></textarea>
+                          </div>
+                          <br>
+                          <center>
+                            <button id="submitFormDataModifActivitesVoyages" onclick="SubmitFormDataModifActivitesVoyages();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                          </center>
+                        </form>
+                      </div>
+                    </div>
                   </div>
-                </form>
-              </div>
-          </div>
-      </div>
+                  <div id="results18"></div>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="card-content">
+                        <h3 class="card-title">Liste des Activités / Voyages</h3>
+                      </div>
+                    </div>
+                  </div>
 
-   <div id="results18"> <!-- TRES IMPORTANT -->
-  </div>
-  </div>
   <?php
-
 
   //Fin page news actus
   function raccourcirChaine($chaine, $tailleMax)
@@ -4313,22 +4305,20 @@ if ($uploadOk == 0) {
 
       $tableactivitesvoyages = $selectnomactivitesvoyages->fetchAll(PDO::FETCH_OBJ);
       if(count($tableactivitesvoyages)>0){
-
-        echo "<h3>".count($tableactivitesvoyages)." activités trouvés</h3>";
         echo '
-        <table class="table">
-        <thead>
-        <tr>
-        <th scope="col">Titre</th>
-        <th scope="col">Description</th>
-        <th scope="col">Place Restantes</th>
-        <th scope="col">Status</th>
-        <th scope="col">Action</th>
-        </tr>
-        </thead>
-        <tbody>
 
+        <div class="table-responsive">
+          <table class="table">
+            <thead class="text-primary">
+              <th class="text-center">Titre</th>
+              <th class="text-center">Description</th>
+              <th class="text-center">Place Restantes</th>
+              <th class="text-center">Status</th>
+              <th class="text-center">Action</th>
+            </thead>
+            <tbody>
         ';
+
         foreach($tableactivitesvoyages as $ligneactivitesvoyages){
           $id = $ligneactivitesvoyages->id;
           $title = $ligneactivitesvoyages->title;
@@ -4348,38 +4338,31 @@ if ($uploadOk == 0) {
           echo '
 
           <tr>
-            <th scope="row">'.$title.'</th>
+            <td>'.$title.'</td>
             <td>'.$result.'</td>
-            <td>'.$stock.'</td>
-            <td>'.$status.'</td>
-            <td>
-            <a href="?page=activitesvoyages&amp;table=activitesvoyages&amp;modifactivitesvoyages='.$id.'">
-            <button type="button" class="btn">Modifier</button>
-            </a>
-            <a href="?page=activitesvoyages&amp;table=activitesvoyages&amp;'.$act.'activitesvoyages='.$id.'">
-            <button type="button" class="btn">'.$message.'</button>
-            </a>
+            <td class="text-center">'.$stock.'</td>
+            <td class="text-center">'.$status.'</td>
+            <td class="text-center">
+              <a href="?page=activitesvoyages&amp;table=activitesvoyages&amp;modifactivitesvoyages='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Modifier</button></a>
+              <a href="?page=activitesvoyages&amp;table=activitesvoyages&amp;'.$act.'activitesvoyages='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Supprimer</button></a>
             ';
+
             ?>
-              <button onclick="demo.showSwal('warningdeleteacti','<?php echo $user_id; ?>','<?php echo $id; ?>')" type="button" class="btn btn-primary btn-round btn-rose">Supprimer</button>
+              <button onclick="demo.showSwal('warningdeleteacti','<?php echo $user_id; ?>','<?php echo $id; ?>')" type="button" class="btn btn-rose btn-round btn-sm">Supprimer</button>
             </td>
           </tr>
-
-
-
-<?php
+          <?php
         }
 
         echo '
-      </tbody>
+        </tbody>
       </table>
-
-
+    </div>
         ';
+
       }else{
         $error = "Aucune activitée trouvée";
       }
-
 
   //Création membres
   function slugify($text){
