@@ -3520,7 +3520,7 @@ $target_file3 = $target_dirnew."".$slug.".".$imageFileType;
                     <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<i>Texte en Italic</i>'" type="button" name="Italic" id="Italic" value="Italic" class="btn btn-rose btn-round btn-sm"/>
                     <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<sub>Texte en Indice</sub>'" type="button" name="Indice" id="Indice" value="Indice" class="btn btn-rose btn-round btn-sm"/>
                     <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>'" type="button" name="Surligné" id="Surligné" value="Surligné" class="btn btn-rose btn-round btn-sm"/>
-
+                    <br>
                     <button type="submit" name="submitactualite" class="btn btn-primary btn-round btn-rose">Créer une actualité</button>
                   </center>
                 </div>
