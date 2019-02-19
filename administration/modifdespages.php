@@ -4313,7 +4313,7 @@ if ($uploadOk == 0) {
             <td class="text-center">'.$status.'</td>
             <td class="text-center">
               <a href="?page=activitesvoyages&amp;table=activitesvoyages&amp;modifactivitesvoyages='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Modifier</button></a>
-              <a href="?page=activitesvoyages&amp;table=activitesvoyages&amp;'.$act.'activitesvoyages='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Désactiver</button></a>
+              <a href="?page=activitesvoyages&amp;table=activitesvoyages&amp;'.$act.'activitesvoyages='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">'.$message.'</button></a>
 
             ';
 
