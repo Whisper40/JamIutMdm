@@ -1209,13 +1209,13 @@ if ($uploadOk == 0) {
                                           </div>
                                           <center>
                                             <center>
-                                              <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<br />');return false;">Saut de ligne </button>
-                                              <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<u>Texte souligné</u>');return false;">Souligner</button>
-                                              <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>');return false;">Liste</button>
-                                              <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<strong>Texte en gras</strong>');return false;">Gras</button>
-                                              <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<i>Texte en Italic</i>');return false;">Italic</button>
-                                              <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<sub>Texte en Indice</sub>');return false;">Indice</button>
-                                              <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>');return false;">Surligner</button>
+                                              <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<br />');return false;">Saut de ligne </button>
+                                              <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<u>Texte souligné</u>');return false;">Souligner</button>
+                                              <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>');return false;">Liste</button>
+                                              <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<strong>Texte en gras</strong>');return false;">Gras</button>
+                                              <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<i>Texte en Italic</i>');return false;">Italic</button>
+                                              <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<sub>Texte en Indice</sub>');return false;">Indice</button>
+                                              <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>');return false;">Surligner</button>
                                             </center>
                                           </center>
                                         </div>
