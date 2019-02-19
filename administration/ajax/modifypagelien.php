@@ -10,7 +10,7 @@ require_once('../includes/connectBDD.php');
 
         if(!empty($user_id)&&!empty($id)&&!empty($nom)&&!empty($lienimage)&&!empty($lien)&&!empty($description)){
 
-                $update = $db->prepare("UPDATE lienutiles SET name=:nom, description=:description, lienimage=:lienimage, lien:lien WHERE id=:id");
+                $update = $db->prepare("UPDATE lienutiles SET name=:nom, description=:description, lienimage=:lienimage, lien=:lien WHERE id=:id");
                 $update->execute(array(
                     "id"=>$id,
                     "nom"=>$nom,
