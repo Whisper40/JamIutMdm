@@ -611,17 +611,44 @@ if ($uploadOk == 0) {
                           <script>
 
 
-                          function typeInTextarea(el, newText) {
-                            var start = el.prop("selectionStart")
-                            var end = el.prop("selectionEnd")
-                            var text = el.val()
-                            var before = text.substring(0, start)
-                            var after  = text.substring(end, text.length)
-                            el.val(before + newText + after)
-                            el[0].selectionStart = el[0].selectionEnd = start + newText.length
-                            el.focus()
-                            return false
-                          }
+                          function insertAtCaret(areaId, text) {
+  var txtarea = document.getElementById(areaId);
+  if (!txtarea) {
+    return;
+  }
+
+  var scrollPos = txtarea.scrollTop;
+  var strPos = 0;
+  var br = ((txtarea.selectionStart || txtarea.selectionStart == '0') ?
+    "ff" : (document.selection ? "ie" : false));
+  if (br == "ie") {
+    txtarea.focus();
+    var range = document.selection.createRange();
+    range.moveStart('character', -txtarea.value.length);
+    strPos = range.text.length;
+  } else if (br == "ff") {
+    strPos = txtarea.selectionStart;
+  }
+
+  var front = (txtarea.value).substring(0, strPos);
+  var back = (txtarea.value).substring(strPos, txtarea.value.length);
+  txtarea.value = front + text + back;
+  strPos = strPos + text.length;
+  if (br == "ie") {
+    txtarea.focus();
+    var ieRange = document.selection.createRange();
+    ieRange.moveStart('character', -txtarea.value.length);
+    ieRange.moveStart('character', strPos);
+    ieRange.moveEnd('character', 0);
+    ieRange.select();
+  } else if (br == "ff") {
+    txtarea.selectionStart = strPos;
+    txtarea.selectionEnd = strPos;
+    txtarea.focus();
+  }
+
+  txtarea.scrollTop = scrollPos;
+}
 
                            $("#sautbr").on("click", function() {
                            typeInTextarea($("#description1"), "<br />")
@@ -657,7 +684,7 @@ if ($uploadOk == 0) {
                            </script>
 
                           <center>
-
+<a href="#" onclick="insertAtCaret('description1', 'text to insert');return false;">Click Here to Insert</a>
                             <input type="button" id="sautbr" value="Saut de ligne"/>
                             <button id="souligner">Souligner</button>
                             <button id="liste">Liste</button>
