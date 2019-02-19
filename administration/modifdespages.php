@@ -626,8 +626,9 @@ if ($uploadOk == 0) {
                             <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<sub>Texte en Indice</sub>'" type="button" name="Indice" id="Indice" value="Indice" class="btn btn-rose btn-round btn-sm"/>
                             <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>'" type="button" name="Surligné" id="Surligné" value="Surligné" class="btn btn-rose btn-round btn-sm"/>
                           </center>
+                          <button2>TEST 0</button2>
 <script>
-                          $("input").on("click", function() {
+                          $("bouton2").on("click", function() {
                             typeInTextarea($("description1"), "<i>Texte en Italic</i>")
                             return false
                           })
