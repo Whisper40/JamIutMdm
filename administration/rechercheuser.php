@@ -47,7 +47,6 @@ if(count($table)>0){
 
   echo '
   </tbody>
-
 </table>
 </div>
 

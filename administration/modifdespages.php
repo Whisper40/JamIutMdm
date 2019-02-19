@@ -2408,6 +2408,7 @@ function RetourIndex3(){
                     <div class="card-content">
                       <center>
                         <button id="submitFormDataModifStatus" onclick="SubmitFormDataModifStatus();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                        <button onclick="RetourIndex3();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                       </center>
                       <br><br>
                     </div>
@@ -3471,53 +3472,70 @@ $target_file3 = $target_dirnew."".$slug.".".$imageFileType;
           } ?>
 
 
-
-<div class="content">
-    <div class="container-fluid">
-        <div class="card">
-            <div class="card-content">
-                <h2 class="card-title text-center">Création d'actualitée</h2>
-      <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="card-content">
-                          <div class="form-group label-floating">
-                              <label class="control-label">Titre</label>
-                              <input type="text" class="form-control" value="Titre de l'actualité" name="title" id="title">
-                          </div>
-                          <div class="form-group label-floating">
-                              <label class="control-label">Description</label>
-                              <input type="text" name="description" value="Titre du status" id="description" class="form-control">
-                          </div>
-
-                         </div>
-
-                         <div class="form-group form-file-upload">
-                             <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
-                             <div class="input-group">
-                                 <input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
-                                 <span class="input-group-btn input-group-s">
-                                     <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
-                                         <i class="material-icons">layers</i>
-                                     </button>
-                                 </span>
-                             </div>
-                         </div>
-                      </div>
-
-                      <div class="col-sm-12">
-                          <div class="card-content">
-                              <input type="submit" name="submitactualite" value="Créer une actualité !">
-                           </div>
-                        </div>
-                </div>
-              </form>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="card-content">
+                <h3 class="card-title">Création d'actualitée</h3>
+              </div>
             </div>
-        </div>
-    </div>
-
- <div id="results11"> <!-- TRES IMPORTANT -->
-</div>
+          </div>
+          <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="card-content">
+                  <div class="form-group label-floating">
+                      <label class="control-label">Titre de l'actualité</label>
+                      <input type="text" class="form-control" value="Titre de l'actualité" name="title" id="title">
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="card-content">
+                  <div class="form-group form-file-upload">
+                    <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
+                    <div class="input-group">
+                      <input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
+                      <span class="input-group-btn input-group-s">
+                        <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
+                          <i class="material-icons">layers</i>
+                        </button>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="card-content">
+                  <div class="form-group label-floating">
+                    <label class="control-label">Description</label>
+                    <textarea rows="12" type="text" name="description" value="Titre du status" id="description" class="form-control"></textarea>
+                  </div>
+                  <center>
+                    <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<br />'" type="button" name="sautbr" id="sautbr" value="Saut de ligne" class="btn btn-rose btn-round btn-sm"/>
+                    <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<u>Texte souligné</u>'" type="button" name="souligne" id="souligne" value="Souligner" class="btn btn-rose btn-round btn-sm"/>
+                    <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>'" type="button" name="liste" id="liste" value="Créer une liste" class="btn btn-rose btn-round btn-sm"/>
+                    <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<strong>Texte en gras</strong>'" type="button" name="Gras" id="Gras" value="Gras" class="btn btn-rose btn-round btn-sm"/>
+                    <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<i>Texte en Italic</i>'" type="button" name="Italic" id="Italic" value="Italic" class="btn btn-rose btn-round btn-sm"/>
+                    <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<sub>Texte en Indice</sub>'" type="button" name="Indice" id="Indice" value="Indice" class="btn btn-rose btn-round btn-sm"/>
+                    <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>'" type="button" name="Surligné" id="Surligné" value="Surligné" class="btn btn-rose btn-round btn-sm"/>
+                  </center>
+                  <button id="test0">TEST 0</button>
+                  <script>
+                  $("#test0").on("click", function() {
+                    typeInTextarea($("description1"), "<i>Texte en Italic</i>")
+                    return false
+                  })
+                  </script>
+                  <center>
+                    <button type="submit" name="submitactualite" class="btn btn-primary btn-round btn-rose">Créer une actualité</button>
+                  </center>
+                </div>
+              </div>
+            </div>
+          </form>
+          <div id="results11"></div>
 
 <!-- Ajoutd'images au site web (assets)-->
 <?php
