@@ -3485,7 +3485,7 @@ $target_file3 = $target_dirnew."".$slug.".".$imageFileType;
                 <div class="card-content">
                   <div class="form-group label-floating">
                       <label class="control-label">Titre de l'actualité</label>
-                      <input type="text" class="form-control" value="Titre de l'actualité" name="title" id="title">
+                      <input type="text" class="form-control" name="title" id="title">
                   </div>
                 </div>
               </div>
@@ -4321,10 +4321,7 @@ if ($uploadOk == 0) {
               <button onclick="demo.showSwal('warningdeleteacti','<?php echo $user_id; ?>','<?php echo $id; ?>')" type="button" class="btn btn-rose btn-round btn-sm">Supprimer</button>
             </td>
           </tr>
-
-
-
-<?php
+          <?php
         }
 
         echo '
@@ -4357,8 +4354,6 @@ if ($uploadOk == 0) {
 
     return $text;
   }
-
-
 
   if(isset($_POST['submitactivite'])){
 
@@ -4545,7 +4540,7 @@ if ($uploadOk == 0) {
                   <div class="card-content">
                     <div class="form-group label-floating">
                         <label class="control-label">Titre de l'actualité</label>
-                        <input type="text" class="form-control" value="Titre de l'activité" name="title" id="title">
+                        <input type="text" class="form-control" name="title" id="title">
                     </div>
                   </div>
                 </div>
@@ -4585,27 +4580,27 @@ if ($uploadOk == 0) {
                 </div>
               </div>
               <div class="row">
-                <div class="col-sm-3">
+                <div class="col-sm-4">
                   <div class="card-content">
                     <div class="form-group label-floating">
                       <label class="control-label">Stock</label>
-                      <input type="number" name="stock" value="1" id="stock" class="form-control">
+                      <input type="number" name="stock" id="stock" class="form-control">
                     </div>
                   </div>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-4">
                   <div class="card-content">
                     <div class="form-group label-floating">
                       <label class="control-label">Date (XX/XX/2018 - XX/XX/2019)</label>
-                      <input type="text" name="datesejour" value="29/08/2019" id="datesejour" class="form-control">
+                      <input type="text" name="datesejour" id="datesejour" class="form-control">
                     </div>
                   </div>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-4">
                   <div class="card-content">
                     <div class="form-group label-floating">
                       <label class="control-label">Price</label>
-                      <input type="number" name="price" value="1" id="price" class="form-control">
+                      <input type="number" name="price" id="price" class="form-control">
                     </div>
                   </div>
                 </div>
