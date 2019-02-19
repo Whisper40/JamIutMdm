@@ -4,7 +4,7 @@ require_once('../includes/connectBDD.php');
         $user_id = $_POST['user_id'];
         $id = $_POST['id'];
         $nom = $_POST['nom'];
-        $lienutiles = $_POST['lienutiles'];
+        $lienimage = $_POST['lienimage'];
         $lien = $_POST['lien'];
 
         if(!empty($user_id)&&!empty($id)&&!empty($nom)&&!empty($lienutiles)&&!empty($lien)&&!empty($description)){
