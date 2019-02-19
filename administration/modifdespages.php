@@ -19,24 +19,6 @@ function RetourIndex(){
   window.location="https://administration.jam-mdm.fr/modifdespages.php"
 }
 
-function typeInTextarea(pasttext, newText) {
-  var start = pasttext.prop("selectionStart")
-  var end = pasttext.prop("selectionEnd")
-  var text = pasttext.val()
-  var before = text.substring(0, start)
-  var after  = text.substring(end, text.length)
-  pasttext.val(before + newText + after)
-  pasttext[0].selectionStart = pasttext[0].selectionEnd = start + newText.length
-  pasttext.focus()
-  return false
-}
-
-
-
-
-
-
-
 
 
 
@@ -509,6 +491,54 @@ if ($uploadOk == 0) {
 
 
 
+                              <script>
+
+                              function typeInTextarea(pasttext, newText) {
+                                var start = pasttext.prop("selectionStart")
+                                var end = pasttext.prop("selectionEnd")
+                                var text = pasttext.val()
+                                var before = text.substring(0, start)
+                                var after  = text.substring(end, text.length)
+                                pasttext.val(before + newText + after)
+                                pasttext[0].selectionStart = pasttext[0].selectionEnd = start + newText.length
+                                pasttext.focus()
+                                return false
+                              }
+
+
+                              $("#sautbr").on("click", function() {
+                              typeInTextarea($(document.getElementById('description1').value), "<br />")
+                              return false
+                              })
+                              $("#souligner").on("click", function() {
+                                typeInTextarea($("textarea"), "<u>Texte souligné</u>")
+                                return false
+                              })
+                              $("#liste").on("click", function() {
+                                typeInTextarea($("textarea"), "<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>")
+                                return false
+                              })
+                              $("#gras").on("click", function() {
+                                typeInTextarea($("textarea"), "<strong>Texte en gras</strong>")
+                                return false
+                              })
+                              $("#italic").on("click", function() {
+                                typeInTextarea($("textarea"), "<i>Texte en Italic</i>")
+                                return false
+                              })
+                              $("#indice").on("click", function() {
+                                typeInTextarea($("textarea"), "<sub>Texte en Indice</sub>")
+                                return false
+                              })
+
+                              $("#surligner").on("click", function() {
+                                typeInTextarea($("textarea"), "<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>")
+                                return false
+                              })
+
+
+                              </script>
+
 
   <div class="content">
       <div class="container-fluid">
@@ -618,22 +648,19 @@ if ($uploadOk == 0) {
                             <textarea rows="12" name="description1" id="description1" class="form-control"><?php echo $description1; ?></textarea>
                           </div>
                           <center>
-                            <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<br />'" type="button" name="sautbr" id="sautbr" value="Saut de ligne" class="btn btn-rose btn-round btn-sm"/>
-                            <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<u>Texte souligné</u>'" type="button" name="souligne" id="souligne" value="Souligner" class="btn btn-rose btn-round btn-sm"/>
-                            <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>'" type="button" name="liste" id="liste" value="Créer une liste" class="btn btn-rose btn-round btn-sm"/>
-                            <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<strong>Texte en gras</strong>'" type="button" name="Gras" id="Gras" value="Gras" class="btn btn-rose btn-round btn-sm"/>
-                            <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<i>Texte en Italic</i>'" type="button" name="Italic" id="Italic" value="Italic" class="btn btn-rose btn-round btn-sm"/>
-                            <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<sub>Texte en Indice</sub>'" type="button" name="Indice" id="Indice" value="Indice" class="btn btn-rose btn-round btn-sm"/>
-                            <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>'" type="button" name="Surligné" id="Surligné" value="Surligné" class="btn btn-rose btn-round btn-sm"/>
-                          </center>
-                          <button id="test0">TEST 0</button>
-<script>
-                          $("#test0").on("click", function() {
-                            typeInTextarea($("description1"), "<i>Texte en Italic</i>")
-                            return false
-                          })
 
-</script>
+                            <button id="sautbr">Saut de ligne</button>
+                            <button id="souligner">Souligner</button>
+                            <button id="liste">Liste</button>
+                            <button id="gras">Gras</button>
+                            <button id="italic">Italic</button>
+                            <button id="indice">Indice</button>
+                            <button id="surligner">Surligner</button>
+
+                          </center>
+
+
+
 
                         </div>
                       </div>
@@ -4180,79 +4207,87 @@ if ($uploadOk == 0) {
           } ?>
 
 
-          <div class="content">
-            <div class="container-fluid">
-              <div class="card">
-                <div class="card-content">
-                  <h2 class="card-title text-center">Modification page Activités / Voyage</h2>
-                    <div class="row">
-                      <div class="col-sm-12">
-                        <div class="card-content">
-                          <h3 class="card-title">En-tête de page</h3>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-sm-6">
-                        <div class="card-content">
-                          <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-                            <h3 class="card-title text-center">Image d'Arrière plan</h3>
-                            <br><br><br>
-                            <center>
-                              <div class="fileinput fileinput-new text-center" data-provides="fileinput">
-                                <div class="fileinput-new thumbnail">
-                                  <img src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/<?php echo $image; ?>" alt="...">
-                                </div>
-                                <div class="fileinput-preview fileinput-exists thumbnail"></div>
-                                <br><br>
-                                <div>
-                                  <span class="btn btn-rose btn-round btn-file">
-                                    <span class="fileinput-new">Selection image</span>
-                                    <span class="fileinput-exists">Changer</span>
-                                    <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
-                                  </span>
-                                  <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
-                                  <button type="submit" name="modifphotopageactivoyages" class="btn btn-primary btn-round btn-rose">Modifier l'image</button>
-                                </div>
-                              </div>
-                            </center>
-                          </form>
-                        </div>
-                      </div>
-                    <div class="col-sm-6">
-                      <div class="card-content">
-                        <form action="" method="post" id="myForm1" class="contact-form">
-                          <h3 class="card-title text-center">Titres de la page</h3>
-                          <div class="form-group label-floating">
-                            <label class="control-label">Titre de la page</label>
-                            <input type="text" name="pagetitre" value="<?php echo $pagetitre; ?>" id="pagetitre" class="form-control">
-                          </div>
-                          <div class="form-group label-floating">
-                            <label class="control-label">Titre</label>
-                            <input type="text" name="titre" value="<?php echo $titre; ?>" id="titre" class="form-control">
-                          </div>
-                          <div class="form-group label-floating">
-                              <label class="control-label">Description</label>
-                              <textarea rows="5" name="description" id="description" class="form-control"><?php echo $description; ?></textarea>
-                          </div>
-                          <br>
-                          <center>
-                            <button id="submitFormDataModifActivitesVoyages" onclick="SubmitFormDataModifActivitesVoyages();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
-                          </center>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                  <div id="results18"></div>
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <div class="card-content">
-                        <h3 class="card-title">Liste des Activités / Voyages</h3>
-                      </div>
-                    </div>
-                  </div>
 
+
+
+  <div class="content">
+      <div class="container-fluid">
+          <div class="card">
+              <div class="card-content">
+                  <h2 class="card-title text-center">Modification des informations de la page Activités/Voyages</h2>
+
+
+                  <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+                              <div class="row">
+                                  <div class="col-sm-6">
+
+                                       <div class="form-group form-file-upload">
+                                           <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
+                                           <div class="input-group">
+                                               <input type="text" readonly="" class="form-control" placeholder="<?php echo $image; ?>">
+                                               <span class="input-group-btn input-group-s">
+                                                   <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
+                                                       <i class="material-icons">layers</i>
+                                                   </button>
+                                               </span>
+                                           </div>
+                                       </div>
+                                    </div>
+
+                                    <div class="col-sm-12">
+                                        <div class="card-content">
+                                            <input type="submit" name="modifphotopageactivoyages" value="Modifier l'image">
+                                         </div>
+                                      </div>
+                              </div>
+                            </form>
+
+
+
+                  <form action="" method="post" id="myForm1" class="contact-form">
+                  <div class="row">
+                      <div class="col-sm-6">
+                          <div class="card-content">
+
+                            <div class="form-group label-floating">
+                                <label class="control-label">Titre de la page</label>
+                                <input type="text" name="pagetitre" value="<?php echo $pagetitre; ?>" id="pagetitre" class="form-control">
+                            </div>
+
+
+
+                            <div class="form-group label-floating">
+                                <label class="control-label">Titre</label>
+                                <input type="text" name="titre" value="<?php echo $titre; ?>" id="titre" class="form-control">
+                            </div>
+
+                            <div class="form-group label-floating">
+                                <label class="control-label">Description</label>
+                                <input type="text" name="description" value="<?php echo $description; ?>" id="description" class="form-control">
+                            </div>
+                           </div>
+                        </div>
+
+                      <div class="col-sm-12">
+                          <div class="card-content">
+
+                            <center>
+                            <button id="submitFormDataModifActivitesVoyages" onclick="SubmitFormDataModifActivitesVoyages();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                            <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
+                            </center>
+                           </div>
+                        </div>
+                  </div>
+                </form>
+              </div>
+          </div>
+      </div>
+
+   <div id="results18"> <!-- TRES IMPORTANT -->
+  </div>
+  </div>
   <?php
+
 
   //Fin page news actus
   function raccourcirChaine($chaine, $tailleMax)
@@ -4274,20 +4309,22 @@ if ($uploadOk == 0) {
 
       $tableactivitesvoyages = $selectnomactivitesvoyages->fetchAll(PDO::FETCH_OBJ);
       if(count($tableactivitesvoyages)>0){
+
+        echo "<h3>".count($tableactivitesvoyages)." activités trouvés</h3>";
         echo '
+        <table class="table">
+        <thead>
+        <tr>
+        <th scope="col">Titre</th>
+        <th scope="col">Description</th>
+        <th scope="col">Place Restantes</th>
+        <th scope="col">Status</th>
+        <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
 
-        <div class="table-responsive">
-          <table class="table">
-            <thead class="text-primary">
-              <th class="text-center">Titre</th>
-              <th class="text-center">Description</th>
-              <th class="text-center">Place Restantes</th>
-              <th class="text-center">Status</th>
-              <th class="text-center">Action</th>
-            </thead>
-            <tbody>
         ';
-
         foreach($tableactivitesvoyages as $ligneactivitesvoyages){
           $id = $ligneactivitesvoyages->id;
           $title = $ligneactivitesvoyages->title;
@@ -4307,31 +4344,36 @@ if ($uploadOk == 0) {
           echo '
 
           <tr>
-            <td>'.$title.'</td>
+            <th scope="row">'.$title.'</th>
             <td>'.$result.'</td>
+<<<<<<< HEAD
             <td class="text-center">'.$stock.'</td>
             <td class="text-center">'.$status.'</td>
             <td class="text-center">
-              <a href="?page=activitesvoyages&amp;table=activitesvoyages&amp;modifactivitesvoyages='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Modifier</button></a>
-              <a href="?page=activitesvoyages&amp;table=activitesvoyages&amp;'.$act.'activitesvoyages='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Désactiver</button></a>
+              <a href="?page=activitesvoyages&amp;table=activitesvoyages&amp;modifactivitesvoyages='.$id.'"><button type="button" class="btn">Modifier</button></a>
+              <a href="?page=activitesvoyages&amp;table=activitesvoyages&amp;'.$act.'activitesvoyages='.$id.'"><button type="button" class="btn">'.$message.'</button></a>
+>>>>>>> 0b6c37fa585c2218e1462346eefd366ad41a5e1e
             ';
-
             ?>
-              <button onclick="demo.showSwal('warningdeleteacti','<?php echo $user_id; ?>','<?php echo $id; ?>')" type="button" class="btn btn-rose btn-round btn-sm">Supprimer</button>
+              <button onclick="demo.showSwal('warningdeleteacti','<?php echo $user_id; ?>','<?php echo $id; ?>')" type="button" class="btn btn-primary btn-round btn-rose">Supprimer</button>
             </td>
           </tr>
-          <?php
+
+
+
+<?php
         }
 
         echo '
-        </tbody>
+      </tbody>
       </table>
-    </div>
-        ';
 
+
+        ';
       }else{
         $error = "Aucune activitée trouvée";
       }
+
 
   //Création membres
   function slugify($text){
