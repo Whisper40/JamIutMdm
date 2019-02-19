@@ -31,7 +31,7 @@ function RetourIndex(){
     var lien = $("#lien").val();
     var catlien = $("#catlien").val();
 
-    $.post("ajax/createliensutiles.php", { user_id: user_id, nom: nom, catlien: catlien, description: description, lienimage: lienimage, lien: lien},
+    $.post("ajax/createliensutiles.php", { user_id: user_id, nom: nom, description: description, lienimage: lienimage, lien: lien, catlien: catlien},
     function(data) {
      $('#results33').html(data);
 
@@ -51,16 +51,16 @@ function RetourIndex(){
                     <div class="card-content">
                       Sélectionner la catégorie<br><?php
 
-                      $selectliencat=$db->query("SELECT namecat, slug FROM catliensutiles");
+                      $selectliencat=$db->query("SELECT namecat FROM catliensutiles");
                       ?>
 
                       <select name="catlien" id="catlien">
                         <?php
                           while($sa = $selectliencat->fetch(PDO::FETCH_OBJ)){
                             $catlien=$sa->namecat;
-                            $catslug=$sa->slug;
+
                             ?>
-                          <option value="<?php echo $catslug;?>"><?php echo $catlien; ?></option>
+                          <option value="<?php echo $catlien;?>"><?php echo $catlien; ?></option>
                         <?php
                       }
                       ?>
