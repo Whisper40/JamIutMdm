@@ -11,15 +11,10 @@ require_once('../includes/connectBDD.php');
 
         if(!empty($user_id)&&!empty($nom)&&!empty($description)&&!empty($lienimage)&&!empty($lien)&&!empty($catslug)){
 
-          $insert = $db->prepare("INSERT INTO liensutiles (slug, name, description, lienimage, lien) VALUES (:catslug, :nom, :description, :lienimage, :lien)");
-          $insert->execute(array(
-              "catslug"=>'ok',
-              "nom"=>$nom,
-              "description"=>$description,
-              "lienimage"=>$lienimage,
-              "lien"=>$lien
-              )
-          );
+          $insert = $db->prepare("INSERT INTO lienutiles VALUES ('valeur 1', 'valeur 2')");
+          $insert->execute();
+
+
 
                 date_default_timezone_set('Europe/Paris');
                 setlocale(LC_TIME, 'fr_FR.utf8','fra');
