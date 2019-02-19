@@ -3510,7 +3510,7 @@ $target_file3 = $target_dirnew."".$slug.".".$imageFileType;
                 <div class="card-content">
                   <div class="form-group label-floating">
                     <label class="control-label">Description</label>
-                    <textarea rows="12" type="text" name="description" value="Titre du status" id="description" class="form-control"></textarea>
+                    <textarea rows="8" type="text" name="description" value="Titre du status" id="description" class="form-control"></textarea>
                   </div>
                   <center>
                     <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<br />'" type="button" name="sautbr" id="sautbr" value="Saut de ligne" class="btn btn-rose btn-round btn-sm"/>
@@ -3520,15 +3520,7 @@ $target_file3 = $target_dirnew."".$slug.".".$imageFileType;
                     <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<i>Texte en Italic</i>'" type="button" name="Italic" id="Italic" value="Italic" class="btn btn-rose btn-round btn-sm"/>
                     <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<sub>Texte en Indice</sub>'" type="button" name="Indice" id="Indice" value="Indice" class="btn btn-rose btn-round btn-sm"/>
                     <input onclick="document.getElementById('description1').value=document.getElementById('description1').value+'<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>'" type="button" name="Surligné" id="Surligné" value="Surligné" class="btn btn-rose btn-round btn-sm"/>
-                  </center>
-                  <button id="test0">TEST 0</button>
-                  <script>
-                  $("#test0").on("click", function() {
-                    typeInTextarea($("description1"), "<i>Texte en Italic</i>")
-                    return false
-                  })
-                  </script>
-                  <center>
+
                     <button type="submit" name="submitactualite" class="btn btn-primary btn-round btn-rose">Créer une actualité</button>
                   </center>
                 </div>
