@@ -125,14 +125,10 @@ if ($type == 'ski'){
                                          <input type="number" name="pointure" value="<?php echo $pointure; ?>" id="pointure" class="form-control">
                                      </div>
                                      <div class="form-group label-floating">
-                                         <label class="control-label">Votre numéro</label>
+                                         <label class="control-label">Votre numéro de Téléphone</label>
                                          <input type="number" name="tel" value="<?php echo $tel; ?>" id="tel" class="form-control">
                                      </div>
-                                     <div class="form-group label-floating">
-                                         <label class="control-label">Téléphone d'urgence</label>
-                                         <input type="number" name="telurgence" value="<?php echo $telurgence; ?>" id="telurgence" class="form-control">
-                                     </div>
-                                    </div>
+                                   </div>
                                  </div>
                                  <div class="col-sm-6">
                                      <div class="card-content">
@@ -147,6 +143,10 @@ if ($type == 'ski'){
                                        <div class="form-group label-floating">
                                            <label class="control-label">Ville</label>
                                            <input type="text" name="ville" value="<?php echo $ville; ?>" id="ville" class="form-control">
+                                       </div>
+                                       <div class="form-group label-floating">
+                                           <label class="control-label">Numéro de Téléphone d'urgence (à contacter en cas de problèmes)</label>
+                                           <input type="number" name="telurgence" value="<?php echo $telurgence; ?>" id="telurgence" class="form-control">
                                        </div>
                                     </div>
                                </div>
@@ -166,12 +166,9 @@ if ($type == 'ski'){
                        </div>
                    </div>
                </div>
-
-            <div id="results1"> <!-- TRES IMPORTANT -->
-
-
-
-        </div>
+            <div id="results1"></div>
+          </div>
+          
         <?php
 }else{
   ?>
@@ -274,8 +271,9 @@ if ($type == 'ski'){
                          </div>
                      </div>
                  </div>
+                 <div id="results2"></div>
                </div>
-              <div id="results2"></div>
+
 
 
 <?php

@@ -69,7 +69,7 @@ while($unecat = $cat->fetch(PDO::FETCH_OBJ)){
 
             <li>
                 <a href="https://jam-mdm.fr/">
-                    <i class="material-icons">dns</i>
+                    <i class="material-icons">keyboard_return</i>
                     <p>Retour JAM</p>
                 </a>
             </li>
