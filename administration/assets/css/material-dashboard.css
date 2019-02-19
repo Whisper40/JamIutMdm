@@ -2754,7 +2754,7 @@ temporary rendered events).
   box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(244, 67, 54, 0.4);
 }
 .fc-event.event-rose {
-  background-color: #e91e63;
+  background-color: #35bfb1;
   box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(233, 30, 99, 0.4);
 }
 .fc-event.event-default {
@@ -3856,27 +3856,27 @@ be a descendant of the grid when it is being dragged.
   border-color: #f44336;
 }
 .wizard-card[data-color="rose"] .moving-tab {
-  background-color: #e91e63;
+  background-color: #35bfb1;
   box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(233, 30, 99, 0.4);
 }
 .wizard-card[data-color="rose"] .picture:hover {
-  border-color: #e91e63;
+  border-color: #35bfb1;
 }
 .wizard-card[data-color="rose"] .choice:hover .icon, .wizard-card[data-color="rose"] .choice.active .icon {
-  border-color: #e91e63;
-  color: #e91e63;
+  border-color: #35bfb1;
+  color: #35bfb1;
 }
 .wizard-card[data-color="rose"] .form-group .form-control {
-  background-image: linear-gradient(#e91e63, #e91e63), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#35bfb1, #35bfb1), linear-gradient(#D2D2D2, #D2D2D2);
 }
 .wizard-card[data-color="rose"] .checkbox input[type=checkbox]:checked + .checkbox-material .check {
-  background-color: #e91e63;
+  background-color: #35bfb1;
 }
 .wizard-card[data-color="rose"] .radio input[type=radio]:checked ~ .check {
-  background-color: #e91e63;
+  background-color: #35bfb1;
 }
 .wizard-card[data-color="rose"] .radio input[type=radio]:checked ~ .circle {
-  border-color: #e91e63;
+  border-color: #35bfb1;
 }
 .wizard-card .picture input[type="file"] {
   cursor: pointer;
@@ -4726,7 +4726,7 @@ be a descendant of the grid when it is being dragged.
 }
 
 .ct-rose {
-  stroke: #e91e63 !important;
+  stroke: #35bfb1 !important;
 }
 
 /*!
@@ -5352,7 +5352,7 @@ h2.title {
 }
 
 .text-rose {
-  color: #e91e63;
+  color: #35bfb1;
 }
 
 .text-gray {
@@ -5668,7 +5668,7 @@ h2.title {
 }
 .sidebar[data-active-color="rose"] li.active > a,
 .off-canvas-sidebar[data-active-color="rose"] li.active > a {
-  background-color: #e91e63;
+  background-color: #35bfb1;
   box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(233, 30, 99, 0.4);
 }
 .sidebar[data-image]:after, .sidebar.has-image:after,
@@ -5834,7 +5834,7 @@ h2.title {
     box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(255, 152, 0, 0.4);
   }
   .sidebar-mini .sidebar[data-active-color="rose"] .nav li.active > [data-toggle="collapse"] {
-    background-color: #e91e63;
+    background-color: #35bfb1;
     box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(233, 30, 99, 0.4);
   }
   .sidebar-mini .sidebar[data-active-color="blue"] .nav li.active > [data-toggle="collapse"] {
@@ -6384,7 +6384,7 @@ h2.title {
 .navbar .navbar-nav > li > a.btn.btn-rose.dropdown-toggle, .open >
 .navbar .navbar-nav > li > a.btn.btn-rose.dropdown-toggle:focus, .open >
 .navbar .navbar-nav > li > a.btn.btn-rose.dropdown-toggle:hover {
-  background-color: #e91e63;
+  background-color: #35bfb1;
   color: #FFFFFF;
 }
 .btn.btn-rose:focus, .btn.btn-rose:active, .btn.btn-rose:hover,
@@ -6423,7 +6423,7 @@ h2.title {
 .btn.btn-rose.btn-simple,
 .navbar .navbar-nav > li > a.btn.btn-rose.btn-simple {
   background-color: transparent;
-  color: #e91e63;
+  color: #35bfb1;
   box-shadow: none;
 }
 .btn.btn-rose.btn-simple:hover, .btn.btn-rose.btn-simple:focus, .btn.btn-rose.btn-simple:active,
@@ -6431,7 +6431,7 @@ h2.title {
 .navbar .navbar-nav > li > a.btn.btn-rose.btn-simple:focus,
 .navbar .navbar-nav > li > a.btn.btn-rose.btn-simple:active {
   background-color: transparent;
-  color: #e91e63;
+  color: #35bfb1;
 }
 .btn.btn-white, .btn.btn-white:focus, .btn.btn-white:hover,
 .navbar .navbar-nav > li > a.btn.btn-white,
@@ -6849,7 +6849,7 @@ h2.title {
 }
 .btn-group.open > .dropdown-toggle.btn.btn-rose,
 .btn-group-vertical.open > .dropdown-toggle.btn.btn-rose {
-  background-color: #e91e63;
+  background-color: #35bfb1;
 }
 .btn-group .dropdown-menu,
 .btn-group-vertical .dropdown-menu {
@@ -7285,7 +7285,7 @@ output {
   background-color: #f44336;
 }
 .label.label-rose {
-  background-color: #e91e63;
+  background-color: #35bfb1;
 }
 
 .form-control,
@@ -7974,7 +7974,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
   color: #9c27b0;
 }
 .alert.alert-rose i {
-  color: #e91e63;
+  color: #35bfb1;
 }
 .alert.alert-with-icon {
   margin-top: 43px;
@@ -8466,7 +8466,7 @@ fieldset[disabled] .form-group.is-focused .radio label {
   background-color: #f44336;
 }
 .progress .progress-bar.progress-bar-rose {
-  background-color: #e91e63;
+  background-color: #35bfb1;
 }
 .progress.progress-line-primary {
   background: rgba(156, 39, 176, 0.2);
@@ -8678,7 +8678,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   /* Standard syntax */
 }
 .full-page[filter-color="rose"].lock-page .form-group .form-control {
-  background-image: linear-gradient(#e91e63, #e91e63), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#35bfb1, #35bfb1), linear-gradient(#D2D2D2, #D2D2D2);
 }
 .full-page[data-image]:after {
   opacity: .8;
@@ -8781,7 +8781,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   text-align: left;
 }
 .lock-page .card-profile .form-group .form-control {
-  background-image: linear-gradient(#e91e63, #e91e63), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#35bfb1, #35bfb1), linear-gradient(#D2D2D2, #D2D2D2);
 }
 .lock-page .card-profile.with-animation {
   -webkit-transition: all 300ms ease-in;
@@ -8843,7 +8843,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   color: #f44336;
 }
 .register-page .card-signup .info-horizontal .icon.icon-rose {
-  color: #e91e63;
+  color: #35bfb1;
 }
 .register-page .card-signup .info-horizontal .description {
   overflow: hidden;
@@ -8945,7 +8945,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   color: #FFFFFF;
 }
 .bootstrap-tagsinput .tag.tag-rose {
-  background-color: #e91e63;
+  background-color: #35bfb1;
   color: #FFFFFF;
 }
 .bootstrap-tagsinput .tag:hover {
@@ -9193,7 +9193,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   color: #3C4858;
 }
 .panel .panel-heading a:hover, .panel .panel-heading a:active, .panel .panel-heading a[aria-expanded="true"] {
-  color: #e91e63;
+  color: #35bfb1;
 }
 .panel .panel-heading a[aria-expanded="true"] .panel-title > i, .panel .panel-heading a.expanded .panel-title > i {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
@@ -9344,7 +9344,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(255, 152, 0, 0.4);
 }
 .nav-pills.nav-pills-rose > li.active > a, .nav-pills.nav-pills-rose > li.active > a:focus, .nav-pills.nav-pills-rose > li.active > a:hover {
-  background-color: #e91e63;
+  background-color: #35bfb1;
   box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(233, 30, 99, 0.4);
 }
 
@@ -9849,7 +9849,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   color: #ffffff;
 }
 .navbar.navbar-rose {
-  background-color: #e91e63;
+  background-color: #35bfb1;
   color: #ffffff;
 }
 .navbar.navbar-rose .navbar-form .form-group input.form-control::-moz-placeholder,
@@ -9869,11 +9869,11 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 }
 .navbar.navbar-rose .dropdown-menu li > a:hover, .navbar.navbar-rose .dropdown-menu li > a:focus {
   color: #FFFFFF;
-  background-color: #e91e63;
+  background-color: #35bfb1;
   box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(233, 30, 99, 0.4);
 }
 .navbar.navbar-rose .dropdown-menu .active > a {
-  background-color: #e91e63;
+  background-color: #35bfb1;
   color: #ffffff;
   box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(233, 30, 99, 0.4);
 }
@@ -10472,7 +10472,7 @@ footer .btn {
   box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(233, 30, 99, 0.4);
 }
 .card [data-icon-bg-color="rose"] i {
-  color: #e91e63;
+  color: #35bfb1;
 }
 .card [data-header-animation="true"] {
   -webkit-transform: translate3d(0, 0, 0);
@@ -10659,7 +10659,7 @@ footer .btn {
   color: #f44336;
 }
 .card-pricing .icon.icon-rose {
-  color: #e91e63;
+  color: #35bfb1;
 }
 .card-pricing h1 small {
   font-size: 18px;
