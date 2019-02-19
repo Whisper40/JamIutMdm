@@ -2755,7 +2755,7 @@ temporary rendered events).
 }
 .fc-event.event-rose {
   background-color: #35bfb1;
-  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(233, 30, 99, 0.4);
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(53, 191, 177, 0.4);
 }
 .fc-event.event-default {
   background-color: #999999;
@@ -3857,7 +3857,7 @@ be a descendant of the grid when it is being dragged.
 }
 .wizard-card[data-color="rose"] .moving-tab {
   background-color: #35bfb1;
-  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(233, 30, 99, 0.4);
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(53, 191, 177, 0.4);
 }
 .wizard-card[data-color="rose"] .picture:hover {
   border-color: #35bfb1;
@@ -5669,7 +5669,7 @@ h2.title {
 .sidebar[data-active-color="rose"] li.active > a,
 .off-canvas-sidebar[data-active-color="rose"] li.active > a {
   background-color: #35bfb1;
-  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(233, 30, 99, 0.4);
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(53, 191, 177, 0.4);
 }
 .sidebar[data-image]:after, .sidebar.has-image:after,
 .off-canvas-sidebar[data-image]:after,
@@ -5835,7 +5835,7 @@ h2.title {
   }
   .sidebar-mini .sidebar[data-active-color="rose"] .nav li.active > [data-toggle="collapse"] {
     background-color: #35bfb1;
-    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(233, 30, 99, 0.4);
+    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(53, 191, 177, 0.4);
   }
   .sidebar-mini .sidebar[data-active-color="blue"] .nav li.active > [data-toggle="collapse"] {
     background-color: #00bcd4;
@@ -6369,7 +6369,7 @@ h2.title {
 }
 .btn.btn-rose,
 .navbar .navbar-nav > li > a.btn.btn-rose {
-  box-shadow: 0 2px 2px 0 rgba(233, 30, 99, 0.14), 0 3px 1px -2px rgba(233, 30, 99, 0.2), 0 1px 5px 0 rgba(233, 30, 99, 0.12);
+  box-shadow: 0 2px 2px 0 rgba(53, 191, 177, 0.14), 0 3px 1px -2px rgba(53, 191, 177, 0.2), 0 1px 5px 0 rgba(53, 191, 177, 0.12);
 }
 .btn.btn-rose, .btn.btn-rose:hover, .btn.btn-rose:focus, .btn.btn-rose:active, .btn.btn-rose.active, .btn.btn-rose:active:focus, .btn.btn-rose:active:hover, .btn.btn-rose.active:focus, .btn.btn-rose.active:hover, .open > .btn.btn-rose.dropdown-toggle, .open > .btn.btn-rose.dropdown-toggle:focus, .open > .btn.btn-rose.dropdown-toggle:hover,
 .navbar .navbar-nav > li > a.btn.btn-rose,
@@ -6391,7 +6391,7 @@ h2.title {
 .navbar .navbar-nav > li > a.btn.btn-rose:focus,
 .navbar .navbar-nav > li > a.btn.btn-rose:active,
 .navbar .navbar-nav > li > a.btn.btn-rose:hover {
-  box-shadow: 0 14px 26px -12px rgba(233, 30, 99, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(233, 30, 99, 0.2);
+  box-shadow: 0 14px 26px -12px rgba(53, 191, 177, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(53, 191, 177, 0.2);
 }
 .btn.btn-rose.disabled, .btn.btn-rose.disabled:hover, .btn.btn-rose.disabled:focus, .btn.btn-rose.disabled.focus, .btn.btn-rose.disabled:active, .btn.btn-rose.disabled.active, .btn.btn-rose:disabled, .btn.btn-rose:disabled:hover, .btn.btn-rose:disabled:focus, .btn.btn-rose:disabled.focus, .btn.btn-rose:disabled:active, .btn.btn-rose:disabled.active, .btn.btn-rose[disabled], .btn.btn-rose[disabled]:hover, .btn.btn-rose[disabled]:focus, .btn.btn-rose[disabled].focus, .btn.btn-rose[disabled]:active, .btn.btn-rose[disabled].active, fieldset[disabled] .btn.btn-rose, fieldset[disabled] .btn.btn-rose:hover, fieldset[disabled] .btn.btn-rose:focus, fieldset[disabled] .btn.btn-rose.focus, fieldset[disabled] .btn.btn-rose:active, fieldset[disabled] .btn.btn-rose.active,
 .navbar .navbar-nav > li > a.btn.btn-rose.disabled,
@@ -7943,7 +7943,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
   background-color: #eb3573;
   color: #ffffff;
   border-radius: 3px;
-  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(233, 30, 99, 0.4);
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(53, 191, 177, 0.4);
 }
 .alert.alert-rose a, .alert.alert-rose .alert-link {
   color: #ffffff;
@@ -9345,7 +9345,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 }
 .nav-pills.nav-pills-rose > li.active > a, .nav-pills.nav-pills-rose > li.active > a:focus, .nav-pills.nav-pills-rose > li.active > a:hover {
   background-color: #35bfb1;
-  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(233, 30, 99, 0.4);
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(53, 191, 177, 0.4);
 }
 
 .tab-space {
@@ -9870,12 +9870,12 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 .navbar.navbar-rose .dropdown-menu li > a:hover, .navbar.navbar-rose .dropdown-menu li > a:focus {
   color: #FFFFFF;
   background-color: #35bfb1;
-  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(233, 30, 99, 0.4);
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(53, 191, 177, 0.4);
 }
 .navbar.navbar-rose .dropdown-menu .active > a {
   background-color: #35bfb1;
   color: #ffffff;
-  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(233, 30, 99, 0.4);
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(53, 191, 177, 0.4);
 }
 .navbar.navbar-rose .dropdown-menu .active > a:hover, .navbar.navbar-rose .dropdown-menu .active > a:focus {
   color: #ffffff;
@@ -10469,7 +10469,7 @@ footer .btn {
 }
 .card [data-background-color="rose"] {
   background: linear-gradient(60deg, #ec407a, #d81b60);
-  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(233, 30, 99, 0.4);
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(53, 191, 177, 0.4);
 }
 .card [data-icon-bg-color="rose"] i {
   color: #35bfb1;
