@@ -5183,7 +5183,6 @@ if ($uploadOk == 0) {
                         <center>
                           <h3 class="card-title text-center">Ajouter des images concernant la galerie</h3>
                           <a href="https://administration.jam-mdm.fr/ajoutimage.php" target="_blank" class="w3-button w3-black"><button type="button" class="btn btn-primary btn-round btn-rose">Ajouter des images</button></a>
-
                         </center>
                       </div>
                     </div>
@@ -5195,7 +5194,12 @@ if ($uploadOk == 0) {
                         </center>
                       </div>
                     </div>
+                    <br><br>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
 
 <?php
