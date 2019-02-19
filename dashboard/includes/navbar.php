@@ -33,13 +33,14 @@
           <?php
           $cat = $db->query("SELECT * FROM dashboardcat");
           while($unecat = $cat->fetch(PDO::FETCH_OBJ)){
-
-            if($unecat->name == $nompage){
-
             ?>
-            <li class="active">
+            <li
+            <?php
+            if($unecat->name == $nompage){
+            ?>
+            class="active">
             <?php }else{ ?>
-            <li>
+            >
             <?php }
 
           $selectpaiementcotisation = $db->prepare("SELECT * FROM transactions WHERE user_id='$user_id' AND raison='Cotisation Annuelle'");
@@ -83,21 +84,19 @@
           while($uneparticipation = $catparticipe->fetch(PDO::FETCH_OBJ)){
           $nom = $uneparticipation->name;
           ?>
-
+            <li
           <?php
           if($nom == $nompage){
           ?>
-            <li class="active">
+            class="active">
           <?php }else{ ?>
-            <li>
+            >
           <?php } ?>
-
                 <a href="<?php echo $uneparticipation->page;?>">
                     <i class="material-icons"><?php echo $uneparticipation->icon;?></i>
                     <p><?php echo $uneparticipation->name;?></p>
                 </a>
             </li>
-
         <?php } ?>
 
             <li>
@@ -115,6 +114,7 @@
         </ul>
     </div>
 </div>
+
 <div class="main-panel">
     <nav class="navbar navbar-transparent navbar-absolute">
         <div class="container-fluid">
