@@ -151,8 +151,7 @@
 
             <?php } ?>
 
-        </div>
-    </div>
+
 </body>
 
 <?php
