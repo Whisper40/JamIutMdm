@@ -2890,17 +2890,11 @@ function RetourIndex4(){
     <div class="card">
       <div class="card-content">
         <h2 class="card-title text-center">Modification d'une actualités</h2>
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="card-content">
-                <h3 class="card-title">Présentation Principal</h3>
-              </div>
-            </div>
-          </div>
           <form action="" method="post" id="myForm1" class="contact-form">
             <div class="row">
               <div class="col-sm-12">
                 <div class="card-content">
+                  <h3 class="card-title">Présentation Principal</h3>
                   <div class="form-group label-floating">
                       <label class="control-label">Titre</label>
                       <input type="text" class="form-control" value="<?php echo $title; ?>" name="title" id="title">
@@ -2909,12 +2903,22 @@ function RetourIndex4(){
                       <label class="control-label">Description</label>
                       <textarea rows="5" name="description" id="description" class="form-control"><?php echo $description; ?></textarea>
                   </div>
+                  <center>
+                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<br />');return false;">Saut de ligne </button>
+                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<u>Texte souligné</u>');return false;">Souligner</button>
+                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>');return false;">Liste</button>
+                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<strong>Texte en gras</strong>');return false;">Gras</button>
+                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<i>Texte en Italic</i>');return false;">Italic</button>
+                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<sub>Texte en Indice</sub>');return false;">Indice</button>
+                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>');return false;">Surligner</button>
+                  </center>
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col-sm-12">
                 <div class="card-content">
+                  <h3 class="card-title">Présentation Secondaire</h3>
                   <div class="form-group label-floating">
                       <label class="control-label">Titre 2</label>
                       <input type="text" name="title2" value="<?php echo $title2; ?>" id="title2" class="form-control">
@@ -2923,12 +2927,22 @@ function RetourIndex4(){
                       <label class="control-label">Description</label>
                       <textarea rows="5" name="description2" id="description2" class="form-control"><?php echo $description2; ?></textarea>
                   </div>
+                  <center>
+                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<br />');return false;">Saut de ligne </button>
+                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<u>Texte souligné</u>');return false;">Souligner</button>
+                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>');return false;">Liste</button>
+                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<strong>Texte en gras</strong>');return false;">Gras</button>
+                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<i>Texte en Italic</i>');return false;">Italic</button>
+                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<sub>Texte en Indice</sub>');return false;">Indice</button>
+                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>');return false;">Surligner</button>
+                  </center>
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col-sm-12">
                 <div class="card-content">
+                  <h3 class="card-title">Présentation Tertiaire</h3>
                   <div class="form-group label-floating">
                       <label class="control-label">Titre 3</label>
                       <input type="text" name="title3" value="<?php echo $title3; ?>" id="title3" class="form-control">
@@ -2937,6 +2951,15 @@ function RetourIndex4(){
                       <label class="control-label">Description</label>
                       <textarea rows="5" name="description3" id="description3" class="form-control"><?php echo $description3; ?></textarea>
                   </div>
+                  <center>
+                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<br />');return false;">Saut de ligne </button>
+                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<u>Texte souligné</u>');return false;">Souligner</button>
+                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>');return false;">Liste</button>
+                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<strong>Texte en gras</strong>');return false;">Gras</button>
+                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<i>Texte en Italic</i>');return false;">Italic</button>
+                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<sub>Texte en Indice</sub>');return false;">Indice</button>
+                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>');return false;">Surligner</button>
+                  </center>
                   <br>
                   <center>
                       <button id="submitFormDataModifActualite" onclick="SubmitFormDataModifActualite();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
