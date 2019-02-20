@@ -2882,71 +2882,84 @@ function RetourIndex4(){
     });
 
 }
-
 </script>
-    <div class="content">
-        <div class="container-fluid">
-            <div class="card">
-                <div class="card-content">
-                    <h2 class="card-title text-center">Modification de l'actualité</h2>
-                    <form action="" method="post" id="myForm1" class="contact-form">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="card-content">
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Titre</label>
-                                  <input type="text" class="form-control" value="<?php echo $title; ?>" name="title" id="title">
-                              </div>
-
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Description</label>
-                                  <input type="text" name="description" value="<?php echo $description; ?>" id="description" class="form-control">
-                              </div>
-
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Titre 2</label>
-                                  <input type="text" name="title2" value="<?php echo $title2; ?>" id="title2" class="form-control">
-                              </div>
-
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Description 2</label>
-                                  <input type="text" name="description2" value="<?php echo $description2; ?>" id="description2" class="form-control">
-                              </div>
-
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Titre 3</label>
-                                  <input type="text" name="title3" value="<?php echo $title3; ?>" id="title3" class="form-control">
-                              </div>
-
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Description 3</label>
-                                  <input type="text" name="description3" value="<?php echo $description3; ?>" id="description3" class="form-control">
-                              </div>
 
 
-
-                             </div>
-                          </div>
-
-                        <div class="col-sm-12">
-                            <div class="card-content">
-
-                              <center>
-                              <button id="submitFormDataModifActualite" onclick="SubmitFormDataModifActualite();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
-                              <button onclick="RetourIndex4();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
-                              </center>
-                             </div>
-                          </div>
-                    </div>
-                  </form>
-                </div>
+<div class="content">
+  <div class="container-fluid">
+    <div class="card">
+      <div class="card-content">
+        <h2 class="card-title text-center">Modification d'une actualités</h2>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="card-content">
+                <h3 class="card-title">Présentation Principal</h3>
+              </div>
             </div>
+          </div>
+          <form action="" method="post" id="myForm1" class="contact-form">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="card-content">
+                  <div class="form-group label-floating">
+                      <label class="control-label">Titre</label>
+                      <input type="text" class="form-control" value="<?php echo $title; ?>" name="title" id="title">
+                  </div>
+                  <div class="form-group label-floating">
+                      <label class="control-label">Description</label>
+                      <textarea rows="5" name="description" id="description" class="form-control"><?php echo $description; ?></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="card-content">
+                  <div class="form-group label-floating">
+                      <label class="control-label">Titre 2</label>
+                      <input type="text" name="title2" value="<?php echo $title2; ?>" id="title2" class="form-control">
+                  </div>
+                  <div class="form-group label-floating">
+                      <label class="control-label">Description</label>
+                      <textarea rows="5" name="description2" id="description2" class="form-control"><?php echo $description2; ?></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="card-content">
+                  <div class="form-group label-floating">
+                      <label class="control-label">Titre 3</label>
+                      <input type="text" name="title3" value="<?php echo $title3; ?>" id="title3" class="form-control">
+                  </div>
+                  <div class="form-group label-floating">
+                      <label class="control-label">Description</label>
+                      <textarea rows="5" name="description3" id="description3" class="form-control"><?php echo $description3; ?></textarea>
+                  </div>
+                  <br>
+                  <center>
+                      <button id="submitFormDataModifActualite" onclick="SubmitFormDataModifActualite();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                      <button onclick="RetourIndex4();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
+                  </center>
+                </div>
+              </div>
+            </div>
+          </form>
+          <div id="results11"></div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="card-content">
+                <h3 class="card-title">Liste des actualités</h3>
+              </div>
+            </div>
+          </div>
         </div>
-
-     <div id="results11"> <!-- TRES IMPORTANT -->
+      </div>
     </div>
-
   </div>
+
+
   <?php
 
 
