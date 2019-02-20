@@ -124,31 +124,6 @@ function SubmitFormDataModifLiens() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <script>
 
 
@@ -312,20 +287,6 @@ if(isset($_GET['deletelien'])){
     }
 
     ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
