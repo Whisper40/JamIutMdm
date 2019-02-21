@@ -28,7 +28,7 @@ $user_id = $_SESSION['admin_id'];
         <tbody>
           ';
 
-        $selectlogs = $db->prepare("SELECT * FROM logs ORDER BY DESC");
+        $selectlogs = $db->prepare("SELECT * FROM logs ORDER BY id DESC");
         $selectlogs->execute();
         while($s2=$selectlogs->fetch(PDO::FETCH_OBJ)){
           $id=$s2->id;
