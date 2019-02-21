@@ -19,7 +19,7 @@
                         <h2 class="card-title text-center">Félicitations tu es membre de l'association !</h2>
                         <br><br>
                         <div class="row">
-                            <div class="col-sm-6">
+                            <div class="col-sm-12">
                                     <div class="info info-horizontal">
                                         <div class="description">
                                             <center>
@@ -32,7 +32,9 @@
                                         </div>
                                     </div>
                             </div>
-                            <div class="col-sm-6">
+                            </div>
+                            <div class="row">
+                            <div class="col-sm-12">
                                 <div class="card-content">
                                   <br><br>
 
