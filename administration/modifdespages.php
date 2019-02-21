@@ -5,7 +5,6 @@
     require_once('includes/head.php');
     ini_set('display_errors', 1);
     $user_id = $_SESSION['admin_id'];
-
 //Code de génératon du captcha fournie par GOOGLE
 $secret = "LESECRET";
 $sitekey = "LESITEKEY";
@@ -19,19 +18,15 @@ $sitekey = "LESITEKEY";
 function RetourIndex(){
   window.location="https://administration.jam-mdm.fr/modifdespages.php"
 }
-
 </script>
 
 
 <script>
-
-
 function insertAtCaret(areaId, text) {
 var txtarea = document.getElementById(areaId);
 if (!txtarea) {
 return;
 }
-
 var scrollPos = txtarea.scrollTop;
 var strPos = 0;
 var br = ((txtarea.selectionStart || txtarea.selectionStart == '0') ?
@@ -44,7 +39,6 @@ strPos = range.text.length;
 } else if (br == "ff") {
 strPos = txtarea.selectionStart;
 }
-
 var front = (txtarea.value).substring(0, strPos);
 var back = (txtarea.value).substring(strPos, txtarea.value.length);
 txtarea.value = front + text + back;
@@ -61,10 +55,8 @@ txtarea.selectionStart = strPos;
 txtarea.selectionEnd = strPos;
 txtarea.focus();
 }
-
 txtarea.scrollTop = scrollPos;
 }
-
  </script>
 
 
@@ -73,7 +65,6 @@ txtarea.scrollTop = scrollPos;
 
     <?php
     if(isset($_GET['page'])){
-
       if($_GET['page']=='index'){
         $nomsouscat = "Index Site";
       }else if ($_GET['page']=='devenirmembre'){
@@ -97,25 +88,26 @@ txtarea.scrollTop = scrollPos;
       }else if ($_GET['page']=='lienutiles'){
         $nomsouscat = "Lien Utiles";
       }
-
       require_once('includes/navbar.php');
-
     if($_GET['page']=='index'){
-
-if(isset($_GET['messagenotif']) && ($_GET['typedenotif'])){
+if(isset($_GET['messagenotif'])){
       $messagenotif=$_GET['messagenotif'];
-      $typedenotif =$_GET['typedenotif'];
-      ?>
-      <script type="text/javascript">
-          function EnvoieDeLaNotif(){
-              demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $typedenotif ?>');
-            }
-            window.onload=EnvoieDeLaNotif; //Execution
-      </script>
-<?php
+      $type = "warning";
+      if ($messagenotif != "") {
+?>
+
+<script type="text/javascript">
+function fuck(){
+demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>');
 }
+window.onload=fuck;
+</script>
 
 
+
+<?php
+       }
+}
       $table = $_GET['table'];
     ?>
 
@@ -143,14 +135,12 @@ if(isset($_GET['messagenotif']) && ($_GET['typedenotif'])){
  function SubmitFormDataIndex() {
     var user_id = "<?php echo $_SESSION['admin_id']; ?>";
     var id = "<?php echo $id; ?>";
-
     var titre1 = $("#titre1").val();
     var description1 = $("#description1").val();
     var bouton1 = $("#bouton1").val();
     var lienbt1 = $("#lienbt1").val();
     var bouton2 = $("#bouton2").val();
     var lienbt2 = $("#lienbt2").val();
-
     var titre2 = $("#titre2").val();
     var description2 = $("#description2").val();
     var fb = $("#fb").val();
@@ -159,15 +149,12 @@ if(isset($_GET['messagenotif']) && ($_GET['typedenotif'])){
      $('#results1').html(data);
     });
 }
-
-
 </script>
 
 <!-- Ajoutd'images au site web (assets)-->
 <?php
 if(isset($_POST['envoieimagefond'])){
       $target_dir = "../../../JamFichiers/Img/ImagesDuSite";
-
       $original = 'Original';
       if (file_exists($target_dir/$original)) {
         $target_dirnew = "$target_dir/$original/";
@@ -175,7 +162,6 @@ if(isset($_POST['envoieimagefond'])){
         mkdir("$target_dir/$original", 0700);
         $target_dirnew = "$target_dir/$original/";
       }
-
       //Ajout thumb
       $thumb = 'Thumb';
       if (file_exists($target_dir/$thumb)) {
@@ -185,59 +171,40 @@ if(isset($_POST['envoieimagefond'])){
         $target_dirnewthumb = "$target_dir/$thumb/";
       }
       //FIN
-
 $total = count($_FILES['fileToUpload']['name']);
-
 for( $i=0 ; $i < $total ; $i++ ) {
 $target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 // Check if file already exists
 if (file_exists($target_file)) {
-  ?>
-  <script>
-window.location.replace("https://administration.jam-mdm.fr/modifdespages.php?page=index&table=pageindex&typedenotif=warning&messagenotif=Le fichier existe déja");
-  </script>
-  <?php
+    $error = 'Désolé, le fichier existe déja.';
     $uploadOk = 0;
 }
 // Check file size < 2mo
 if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
     $error = 'Désolé, le fichier est trop grand.';
     $uploadOk = 0;
-
 }
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-    ?>
-    <script>
-  window.location.replace("https://administration.jam-mdm.fr/modifdespages.php?page=index&table=pageindex&typedenotif=warning&messagenotif=Le format d'image n'est pas aux normes");
-    </script>
-    <?php
+    $error = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
     $uploadOk = 0;
 }
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-  ?>
-  <script>
-  window.location.replace("https://administration.jam-mdm.fr/modifdespages.php?page=index&table=pageindex&typedenotif=warning&messagenotif=Une erreur est survenue");
-  </script>
-  <?php
+    $error = 'Désolé, une erreur est survenue.';
 // if everything is ok, try to upload file
 } else {
   date_default_timezone_set('Europe/Paris');
   setlocale(LC_TIME, 'fr_FR.utf8','fra');
   $date = strftime('%d:%m:%y %H:%M:%S');
-
   $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
   $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
   $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
-
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
-
+        $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
         $status = '1';
-
-
         $update = $db->prepare("UPDATE pageindex SET img1=:img1");
         $update->execute(array(
             "img1"=>$target_filefile
@@ -255,14 +222,8 @@ if ($uploadOk == 0) {
                             "date"=>$date
                             )
                         );
-
-
-
-
         $img_tmp = $target_dirnew.$target_filefile;
         $fin = $target_dirnewthumb.$target_filefile;
-
-
           //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
             $longueur = 300;
             $largeur = 220;
@@ -292,26 +253,10 @@ if ($uploadOk == 0) {
                             imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
                             imagepng($img_petite,$fin);
                         }
-
-
                 }
-  require('includes/miseajourdusite.php');
-                ?>
-                <script>
-
-                window.location.replace("https://administration.jam-mdm.fr/modifdespages.php?page=index&table=pageindex&typedenotif=success&messagenotif=Le fichier à bien été uploadé");
-                </script>
-                <?php
-
-
     }else {
-      ?>
-      <script>
-      window.location.replace("https://administration.jam-mdm.fr/modifdespages.php?page=index&table=pageindex&typedenotif=warning&messagenotif=Une erreur est survenue");
-      </script>
-      <?php
+        $error = 'Désolé, une erreur est survenue.';
     } } }
-
           } ?>
 
 
@@ -320,7 +265,6 @@ if ($uploadOk == 0) {
           <?php
           if(isset($_POST['envoieimagecentrale'])){
                 $target_dir = "../../../JamFichiers/Img/ImagesDuSite";
-
                 $original = 'Original';
                 if (file_exists($target_dir/$original)) {
                   $target_dirnew = "$target_dir/$original/";
@@ -328,7 +272,6 @@ if ($uploadOk == 0) {
                   mkdir("$target_dir/$original", 0700);
                   $target_dirnew = "$target_dir/$original/";
                 }
-
                 //Ajout thumb
                 $thumb = 'Thumb';
                 if (file_exists($target_dir/$thumb)) {
@@ -338,63 +281,40 @@ if ($uploadOk == 0) {
                   $target_dirnewthumb = "$target_dir/$thumb/";
                 }
                 //FIN
-
           $total = count($_FILES['fileToUpload']['name']);
-
           for( $i=0 ; $i < $total ; $i++ ) {
           $target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
           $uploadOk = 1;
           $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
           // Check if file already exists
           if (file_exists($target_file)) {
-            ?>
-            <script>
-            window.location.replace("https://administration.jam-mdm.fr/modifdespages.php?page=index&table=pageindex&typedenotif=warning&messagenotif=Désolé le fichier existe déja");
-            </script>
-            <?php
+              $error = 'Désolé, le fichier existe déja.';
               $uploadOk = 0;
           }
           // Check file size < 2mo
           if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
-            ?>
-            <script>
-            window.location.replace("https://administration.jam-mdm.fr/modifdespages.php?page=index&table=pageindex&typedenotif=warning&messagenotif=Désolé le fichier est trop grand");
-            </script>
-            <?php
+              $error = 'Désolé, le fichier est trop grand.';
               $uploadOk = 0;
-
           }
           // Allow certain file formats
           if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-            ?>
-            <script>
-            window.location.replace("https://administration.jam-mdm.fr/modifdespages.php?page=index&table=pageindex&typedenotif=warning&messagenotif=Désolé le format n'est pas respecté");
-            </script>
-            <?php
+              $error = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
               $uploadOk = 0;
           }
           // Check if $uploadOk is set to 0 by an error
           if ($uploadOk == 0) {
-            ?>
-            <script>
-            window.location.replace("https://administration.jam-mdm.fr/modifdespages.php?page=index&table=pageindex&typedenotif=warning&messagenotif=Désolé une erreur est survenue");
-            </script>
-            <?php
+              $error = 'Désolé, une erreur est survenue.';
           // if everything is ok, try to upload file
           } else {
             date_default_timezone_set('Europe/Paris');
             setlocale(LC_TIME, 'fr_FR.utf8','fra');
             $date = strftime('%d:%m:%y %H:%M:%S');
-
             $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
             $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
             $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
-
               if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
-
+                  $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
                   $status = '1';
-
-
                   $update = $db->prepare("UPDATE pageindex SET logo1=:logo1");
                   $update->execute(array(
                       "logo1"=>$target_filefile
@@ -412,15 +332,8 @@ if ($uploadOk == 0) {
                                       "date"=>$date
                                       )
                                   );
-
-
-
-
-
                   $img_tmp = $target_dirnew.$target_filefile;
                   $fin = $target_dirnewthumb.$target_filefile;
-
-
                     //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
                       $longueur = 300;
                       $largeur = 220;
@@ -450,21 +363,10 @@ if ($uploadOk == 0) {
                                       imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
                                       imagepng($img_petite,$fin);
                                   }
-
-
                           }
-                          require('includes/miseajourdusite.php');
-                          ?>
-
-                          <script>
-                          window.location.replace("https://administration.jam-mdm.fr/modifdespages.php?page=index&table=pageindex&typedenotif=success&messagenotif=Le fichier a bien été uploadé");
-                          </script>
-                          <?php
-
               }else {
                   $error = 'Désolé, une erreur est survenue.';
               } } }
-
                     } ?>
 
 
@@ -473,7 +375,6 @@ if ($uploadOk == 0) {
                     <?php
                     if(isset($_POST['envoieimagelogo2'])){
                           $target_dir = "../../../JamFichiers/Img/ImagesDuSite";
-
                           $original = 'Original';
                           if (file_exists($target_dir/$original)) {
                             $target_dirnew = "$target_dir/$original/";
@@ -481,7 +382,6 @@ if ($uploadOk == 0) {
                             mkdir("$target_dir/$original", 0700);
                             $target_dirnew = "$target_dir/$original/";
                           }
-
                           //Ajout thumb
                           $thumb = 'Thumb';
                           if (file_exists($target_dir/$thumb)) {
@@ -491,62 +391,40 @@ if ($uploadOk == 0) {
                             $target_dirnewthumb = "$target_dir/$thumb/";
                           }
                           //FIN
-
                     $total = count($_FILES['fileToUpload']['name']);
-
                     for( $i=0 ; $i < $total ; $i++ ) {
                     $target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
                     $uploadOk = 1;
                     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
                     // Check if file already exists
                     if (file_exists($target_file)) {
-                      ?>
-                      <script>
-                      window.location.replace("https://administration.jam-mdm.fr/modifdespages.php?page=index&table=pageindex&typedenotif=warning&messagenotif=Désolé le fichier existe déja");
-                      </script>
-                      <?php                        $uploadOk = 0;
+                        $error = 'Désolé, le fichier existe déja.';
+                        $uploadOk = 0;
                     }
                     // Check file size < 2mo
                     if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
-                      ?>
-                      <script>
-                      window.location.replace("https://administration.jam-mdm.fr/modifdespages.php?page=index&table=pageindex&typedenotif=warning&messagenotif=Le fichier est trop volumineux");
-                      </script>
-                      <?php
+                        $error = 'Désolé, le fichier est trop grand.';
                         $uploadOk = 0;
-
                     }
                     // Allow certain file formats
                     if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-                      ?>
-                      <script>
-                      window.location.replace("https://administration.jam-mdm.fr/modifdespages.php?page=index&table=pageindex&typedenotif=warning&messagenotif=Désolé le format 'n\'est pas aux normes");
-                      </script>
-                      <?php
+                        $error = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
                         $uploadOk = 0;
                     }
                     // Check if $uploadOk is set to 0 by an error
                     if ($uploadOk == 0) {
-                      ?>
-                      <script>
-                      window.location.replace("https://administration.jam-mdm.fr/modifdespages.php?page=index&table=pageindex&typedenotif=warning&messagenotif=Une erreur est survenue");
-                      </script>
-                      <?php
+                        $error = 'Désolé, une erreur est survenue.';
                     // if everything is ok, try to upload file
                     } else {
                       date_default_timezone_set('Europe/Paris');
                       setlocale(LC_TIME, 'fr_FR.utf8','fra');
                       $date = strftime('%d:%m:%y %H:%M:%S');
-
                       $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
                       $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
                       $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
-
                         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
-
+                            $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
                             $status = '1';
-
-
                             $update = $db->prepare("UPDATE pageindex SET logo2=:logo2");
                             $update->execute(array(
                                 "logo2"=>$target_filefile
@@ -555,7 +433,6 @@ if ($uploadOk == 0) {
                             date_default_timezone_set('Europe/Paris');
                             setlocale(LC_TIME, 'fr_FR.utf8','fra');
                             $date = strftime('%d/%m/%Y %H:%M:%S');
-
                             $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
                             $insertlogs->execute(array(
                                                 "user_id"=>$user_id,
@@ -565,15 +442,8 @@ if ($uploadOk == 0) {
                                                 "date"=>$date
                                                 )
                                             );
-
-
-
-
-
                             $img_tmp = $target_dirnew.$target_filefile;
                             $fin = $target_dirnewthumb.$target_filefile;
-
-
                               //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
                                 $longueur = 300;
                                 $largeur = 220;
@@ -603,28 +473,16 @@ if ($uploadOk == 0) {
                                                 imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
                                                 imagepng($img_petite,$fin);
                                             }
-
-
                                     }
-
                                     require('includes/miseajourdusite.php');
                                     ?>
                                     <script>
-                                    window.location.replace("https://administration.jam-mdm.fr/modifdespages.php?page=index&table=pageindex&typedenotif=success&messagenotif=Les modifications ont étés effectués");
+                                    window.location.replace("https://administration.jam-mdm.fr/modifdespages.php?page=index&table=pageindex&messagenotif=succes");
                                     </script>
                                     <?php
-
-
-
-
                         }else {
-                          ?>
-                          <script>
-                          window.location.replace("https://administration.jam-mdm.fr/modifdespages.php?page=index&table=pageindex&typedenotif=warning&messagenotif=Désolé une erreur est survenue");
-                          </script>
-                          <?php
+                            $error = 'Désolé, une erreur est survenue.';
                         } } }
-
                               } ?>
 
 
@@ -827,8 +685,6 @@ if ($uploadOk == 0) {
 <?php
 }else if ($_GET['page']=='devenirmembre'){
   $table = $_GET['table'];
-
-
   ?>
 
     <?php
@@ -840,11 +696,8 @@ if ($uploadOk == 0) {
     $etape1 = $r2->etape1;
     $etape2 = $r2->etape2;
     $etape3 = $r2->etape3;
-
   ?>
   <script>
-
-
    function SubmitFormDataDevenirMembre() {
       var user_id = "<?php echo $_SESSION['admin_id']; ?>";
       var id = "<?php echo $id; ?>";
@@ -852,15 +705,11 @@ if ($uploadOk == 0) {
       var etape1 = $("#etape1").val();
       var etape2 = $("#etape2").val();
       var etape3 = $("#etape3").val();
-
       $.post("ajax/modifypagedevenirmembre.php", { user_id: user_id, id:id, introduction: introduction, etape1: etape1, etape2: etape2, etape3: etape3},
       function(data) {
        $('#results2').html(data);
-
       });
-
   }
-
   </script>
 
     <div class="content">
@@ -910,10 +759,8 @@ if ($uploadOk == 0) {
     </div>
 
 <?php
-
 }else if ($_GET['page']=='association'){
   $table = $_GET['table'];
-
     $selectinfosactuel = $db->prepare("SELECT * from pageasso");
     $selectinfosactuel->execute();
     $r2 = $selectinfosactuel->fetch(PDO::FETCH_OBJ);
@@ -921,7 +768,6 @@ if ($uploadOk == 0) {
     $titre1 = $r2->titre1;
     $description1 = $r2->description1;
     $description2 = $r2->description2;
-
     $selectinfosactuel2 = $db->prepare("SELECT * from photopage where nompage=:nompage");
     $selectinfosactuel2->execute(array(
       "nompage"=>'Présentation association'
@@ -929,7 +775,6 @@ if ($uploadOk == 0) {
     $r3 = $selectinfosactuel2->fetch(PDO::FETCH_OBJ);
     $pagetitre = $r3->pagetitre;
     $image = $r3->image;
-
   ?>
 
   <script>
@@ -938,7 +783,6 @@ if ($uploadOk == 0) {
       var id = "<?php echo $id; ?>";
       var description1 = $("#description1").val();
       var description2 = $("#description2").val();
-
       $.post("ajax/modifypageassociation.php", { user_id: user_id, id: id, description1: description1, description2: description2},
       function(data) {
        $('#results3').html(data);
@@ -952,7 +796,6 @@ if ($uploadOk == 0) {
       var id = "<?php echo $id; ?>";
       var titre1 = $("#titre1").val();
       var pagetitre = $("#pagetitre").val();
-
       $.post("ajax/modifypageassociation2.php", { user_id: user_id, id: id, titre1: titre1, pagetitre: pagetitre},
       function(data) {
        $('#results3').html(data);
@@ -964,7 +807,6 @@ if ($uploadOk == 0) {
             <?php
             if(isset($_POST['envoieimageprezasso'])){
                   $target_dir = "../../../JamFichiers/Img/ImagesDuSite";
-
                   $original = 'Original';
                   if (file_exists($target_dir/$original)) {
                     $target_dirnew = "$target_dir/$original/";
@@ -972,7 +814,6 @@ if ($uploadOk == 0) {
                     mkdir("$target_dir/$original", 0700);
                     $target_dirnew = "$target_dir/$original/";
                   }
-
                   //Ajout thumb
                   $thumb = 'Thumb';
                   if (file_exists($target_dir/$thumb)) {
@@ -982,64 +823,40 @@ if ($uploadOk == 0) {
                     $target_dirnewthumb = "$target_dir/$thumb/";
                   }
                   //FIN
-
             $total = count($_FILES['fileToUpload']['name']);
-
             for( $i=0 ; $i < $total ; $i++ ) {
             $target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
             $uploadOk = 1;
             $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
             // Check if file already exists
             if (file_exists($target_file)) {
-              ?>
-              <script>
-              window.location.replace("https://administration.jam-mdm.fr/modifdespages.php?page=association&table=pageasso&typedenotif=warning&messagenotif=Le fichier existe déja");
-              </script>
-              <?php
-
+                $error = 'Désolé, le fichier existe déja.';
                 $uploadOk = 0;
             }
             // Check file size < 2mo
             if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
-              ?>
-              <script>
-              window.location.replace("https://administration.jam-mdm.fr/modifdespages.php?page=association&table=pageasso&typedenotif=warning&messagenotif=Désolé le fichier est trop grand");
-              </script>
-              <?php
+                $error = 'Désolé, le fichier est trop grand.';
                 $uploadOk = 0;
-
             }
             // Allow certain file formats
             if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-              ?>
-              <script>
-              window.location.replace("https://administration.jam-mdm.fr/modifdespages.php?page=association&table=pageasso&typedenotif=warning&messagenotif=Désolé le format n'est pas aux normes");
-              </script>
-              <?php
+                $error = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
                 $uploadOk = 0;
             }
             // Check if $uploadOk is set to 0 by an error
             if ($uploadOk == 0) {
-              ?>
-              <script>
-              window.location.replace("https://administration.jam-mdm.fr/modifdespages.php?page=association&table=pageasso&typedenotif=warning&messagenotif=Le fichier existe déja");
-              </script>
-              <?php
+                $error = 'Désolé, une erreur est survenue.';
             // if everything is ok, try to upload file
             } else {
               date_default_timezone_set('Europe/Paris');
               setlocale(LC_TIME, 'fr_FR.utf8','fra');
               $date = strftime('%d:%m:%y %H:%M:%S');
-
               $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
               $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
               $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
-
                 if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
-
+                    $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
                     $status = '1';
-
-
                     $update2 = $db->prepare("UPDATE photopage SET image=:image WHERE nompage=:nompage");
                     $update2->execute(array(
                         "nompage"=>'Présentation association',
@@ -1058,12 +875,8 @@ if ($uploadOk == 0) {
                                         "date"=>$date
                                         )
                                     );
-
-
                     $img_tmp = $target_dirnew.$target_filefile;
                     $fin = $target_dirnewthumb.$target_filefile;
-
-
                       //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
                         $longueur = 300;
                         $largeur = 220;
@@ -1094,28 +907,15 @@ if ($uploadOk == 0) {
                                         imagepng($img_petite,$fin);
                                     }
                             }
-
-                            ?>
-                            <script>
-                            window.location.replace("https://administration.jam-mdm.fr/modifdespages.php?page=association&table=pageasso&typedenotif=success&messagenotif=Le fichier a été uploadé");
-                            </script>
-                            <?php
-
                 }else {
-                  ?>
-                  <script>
-                  window.location.replace("https://administration.jam-mdm.fr/modifdespages.php?page=association&table=pageasso&typedenotif=warning&messagenotif=Une erreur est survenue");
-                  </script>
-                  <?php
+                    $error = 'Désolé, une erreur est survenue.';
                 } } }
-
                       } ?>
 
                       <!-- Ajoutd'images au site web (assets)-->
                       <?php
                       if(isset($_POST['envoieimageprezassocarousel'])){
                             $target_dir = "../../../JamFichiers/Img/ImagesDuSite";
-
                             $original = 'Original';
                             if (file_exists($target_dir/$original)) {
                               $target_dirnew = "$target_dir/$original/";
@@ -1123,7 +923,6 @@ if ($uploadOk == 0) {
                               mkdir("$target_dir/$original", 0700);
                               $target_dirnew = "$target_dir/$original/";
                             }
-
                             //Ajout thumb
                             $thumb = 'Thumb';
                             if (file_exists($target_dir/$thumb)) {
@@ -1133,28 +932,20 @@ if ($uploadOk == 0) {
                               $target_dirnewthumb = "$target_dir/$thumb/";
                             }
                             //FIN
-
                       $total = count($_FILES['fileToUpload']['name']);
-
                       for( $i=0 ; $i < $total ; $i++ ) {
                       $target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
                       $uploadOk = 1;
                       $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
                       // Check if file already exists
                       if (file_exists($target_file)) {
-
-                        ?>
-                        <script>
-                        window.location.replace("https://administration.jam-mdm.fr/modifdespages.php?page=index&table=pageindex&typedenotif=warning&messagenotif=Le fichier existe déja");
-                        </script>
-                        <?php
+                          $error = 'Désolé, le fichier existe déja.';
                           $uploadOk = 0;
                       }
                       // Check file size < 2mo
                       if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
                           $error = 'Désolé, le fichier est trop grand.';
                           $uploadOk = 0;
-
                       }
                       // Allow certain file formats
                       if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
@@ -1169,15 +960,12 @@ if ($uploadOk == 0) {
                         date_default_timezone_set('Europe/Paris');
                         setlocale(LC_TIME, 'fr_FR.utf8','fra');
                         $date = strftime('%d:%m:%y %H:%M:%S');
-
                         $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
                         $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
                         $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
-
                           if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
                               $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
                               $status = '1';
-
                               $update2 = $db->prepare("INSERT INTO carousel (slug, image, titreimage) VALUES(:pagetitre, :image, :titreimage)");
                               $update2->execute(array(
                                   "pagetitre"=>"Présentation association",
@@ -1197,12 +985,8 @@ if ($uploadOk == 0) {
                                                   "date"=>$date
                                                   )
                                               );
-
-
-
                               $img_tmp = $target_dirnew.$target_filefile;
                               $fin = $target_dirnewthumb.$target_filefile;
-
                                 //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
                                   $longueur = 300;
                                   $largeur = 220;
@@ -1233,11 +1017,9 @@ if ($uploadOk == 0) {
                                                   imagepng($img_petite,$fin);
                                               }
                                       }
-
                           }else {
                               $error = 'Désolé, une erreur est survenue.';
                           } } }
-
                                 } ?>
 
                                 <div class="content">
@@ -1396,18 +1178,14 @@ if ($uploadOk == 0) {
 
     <script>
     $(document).ready(function(){
-
     var $recherche =$('input[name=valeur]');
     var critere;
     $recherche.keyup(function(){
     critere = $.trim($recherche.val());
     if(critere!=''){
       $.get('gestionrechercheimagecarouselpageasso.php?critere='+critere,function(retour){
-
     $('#resultat').html(retour).fadeIn();
-
     });
-
     }else $('#resultat').empty().fadeOut();
     });
     });
@@ -1417,41 +1195,28 @@ if ($uploadOk == 0) {
     <?php
     if(isset($_GET['action'])){
     if($_GET['action']=='delete'){
-
     $id=$_GET['id'];
     $selectnom = $db->query("SELECT * FROM carousel WHERE id='$id'");
     $rname = $selectnom->fetch(PDO::FETCH_OBJ);
     $valnom = $rname->image;
-
-
     $target_dir = '../../../JamFichiers/Img/ImagesDuSite/Original';
     $target_dirthumb = '../../../JamFichiers/Img/ImagesDuSite/Thumb';
-
-
-
-
     if (file_exists($target_dir)){
     unlink("$target_dir/$valnom");
     $updatedelete = $db->prepare("DELETE FROM carousel WHERE image=:image");
     $updatedelete->execute(array(
       "image"=>$valnom
-
     ));
     unlink("$target_dirthumb/$valnom");
     $succes = "Le fichier.$valnom. à bien été supprimé";
-
     }else{
-
     $error = 'Un problème de répertoire est présent, contacter votre administrateur !';
     }
-
-
     ?>
     <script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=association&table=pageasso"</script>
     <?php
     }
     }
-
     ?>
 
                                   <div class="row">
@@ -1479,12 +1244,8 @@ if ($uploadOk == 0) {
                           </div>
 
 <?php
-
 }else if ($_GET['page']=='membre'){
-
   if(isset($_GET['modifmembre'])){
-
-
 ?>
 <script>
 function RetourIndex2(){
@@ -1494,7 +1255,6 @@ function RetourIndex2(){
 
     <?php
     $user_id = $_GET['modifmembre'];
-
     $selectinfosactuel = $db->prepare("SELECT * from membres where id=:user_id");
     $selectinfosactuel->execute(array(
         "user_id"=>$user_id
@@ -1508,11 +1268,8 @@ function RetourIndex2(){
     $importance = $r2->importance;
     $fonction = $r2->fonction;
     $description = $r2->description;
-
 ?>
 <script>
-
-
  function SubmitFormDataModifMembre() {
     var user_id = "<?php echo $_SESSION['admin_id']; ?>";
     var id = "<?php echo $id; ?>";
@@ -1521,23 +1278,17 @@ function RetourIndex2(){
     var grademembre = $('#grademembre').val();
     var importancegrade = $('#importancegrade').val();
     var fonction = $("#fonction").val();
-
-
     $.post("ajax/modifypagemodifmembre.php", { user_id: user_id, id: id, nom: nom, description: description, grademembre: grademembre, importancegrade: importancegrade, fonction: fonction},
     function(data) {
      $('#results4').html(data);
-
     });
-
 }
-
 </script>
 
 <!-- Ajoutd'images au site web (assets)-->
 <?php
 if(isset($_POST['modifphotomembre'])){
       $target_dir = "../../../JamFichiers/Img/Membres";
-
       $original = 'Original';
       if (file_exists($target_dir/$original)) {
         $target_dirnew = "$target_dir/$original/";
@@ -1545,7 +1296,6 @@ if(isset($_POST['modifphotomembre'])){
         mkdir("$target_dir/$original", 0700);
         $target_dirnew = "$target_dir/$original/";
       }
-
       //Ajout thumb
       $thumb = 'Thumb';
       if (file_exists($target_dir/$thumb)) {
@@ -1555,9 +1305,7 @@ if(isset($_POST['modifphotomembre'])){
         $target_dirnewthumb = "$target_dir/$thumb/";
       }
       //FIN
-
 $total = count($_FILES['fileToUpload']['name']);
-
 for( $i=0 ; $i < $total ; $i++ ) {
 $target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
 $uploadOk = 1;
@@ -1571,7 +1319,6 @@ if (file_exists($target_file)) {
 if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
     $error = 'Désolé, le fichier est trop grand.';
     $uploadOk = 0;
-
 }
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
@@ -1586,11 +1333,9 @@ if ($uploadOk == 0) {
   date_default_timezone_set('Europe/Paris');
   setlocale(LC_TIME, 'fr_FR.utf8','fra');
   $date = strftime('%d:%m:%y %H:%M:%S');
-
   $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
   $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
   $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
-
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
         $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
         $status = '1';
@@ -1601,7 +1346,6 @@ if ($uploadOk == 0) {
             "image"=>$target_filefile
             )
         );
-
         date_default_timezone_set('Europe/Paris');
         setlocale(LC_TIME, 'fr_FR.utf8','fra');
         $date = strftime('%d/%m/%Y %H:%M:%S');
@@ -1614,13 +1358,8 @@ if ($uploadOk == 0) {
                             "date"=>$date
                             )
                         );
-
-
-
         $img_tmp = $target_dirnew.$target_filefile;
         $fin = $target_dirnewthumb.$target_filefile;
-
-
           //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
             $longueur = 300;
             $largeur = 220;
@@ -1650,15 +1389,10 @@ if ($uploadOk == 0) {
                             imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
                             imagepng($img_petite,$fin);
                         }
-
-
                 }
-
-
     }else {
         $error = 'Désolé, une erreur est survenue.';
     } } }
-
           } ?>
 
   <div class="content">
@@ -1772,11 +1506,8 @@ if ($uploadOk == 0) {
   </div>
 
   <?php
-
 }else if(isset($_GET['deletemembre'])){
-
   $user_id = $_GET['deletemembre'];
-
   $selectinfosactuel = $db->prepare("SELECT * from membres where id=:user_id");
   $selectinfosactuel->execute(array(
       "user_id"=>$user_id
@@ -1784,20 +1515,15 @@ if ($uploadOk == 0) {
   );
   $r2 = $selectinfosactuel->fetch(PDO::FETCH_OBJ);
   $valnom = $r2->image;
-
   $target_dir = '../../../JamFichiers/Img/Membres/Original';
   $target_dirthumb = '../../../JamFichiers/Img/Membres/Thumb';
-
-
   if (file_exists($target_dir)){
   unlink("$target_dir/$valnom");
   unlink("$target_dirthumb/$valnom");
   $updatedelete = $db->prepare("DELETE FROM membres WHERE id=:user_id");
   $updatedelete->execute(array(
     "user_id"=>$user_id
-
   ));
-
   $succes = "Le fichier.$valnom. à bien été supprimé";
 ?>
   <script>
@@ -1805,20 +1531,9 @@ if ($uploadOk == 0) {
   </script>
 <?php
   }else{
-
   $error = 'Un problème de répertoire est présent, contacter votre administrateur !';
   }
-
-
-
-
-
-
-
-
-
 }else{
-
 //modif page membre
 ?>
 
@@ -1826,8 +1541,6 @@ if ($uploadOk == 0) {
 
 
 <?php
-
-
 $selectinfosactuel4 = $db->prepare("SELECT * from photopage where nompage=:nompage");
 $selectinfosactuel4->execute(array(
   "nompage"=>'Présentation des membres'
@@ -1836,27 +1549,18 @@ $r4 = $selectinfosactuel4->fetch(PDO::FETCH_OBJ);
 $pagetitre = $r4->pagetitre;
 $image = $r4->image;
 $titre = $r4->titre;
-
-
  ?>
 
  <script>
-
-
   function SubmitFormDataMembre() {
      var user_id = "<?php echo $_SESSION['admin_id']; ?>";
      var pagetitre = $('#pagetitre').val();
      var titre = $("#titre").val();
-
-
      $.post("ajax/modifypagemembre.php", { user_id: user_id, pagetitre: pagetitre, titre: titre},
      function(data) {
       $('#results10').html(data);
-
      });
-
  }
-
  </script>
 
 
@@ -1865,8 +1569,6 @@ $titre = $r4->titre;
  <?php
  if(isset($_POST['envoieimagemembre'])){
        $target_dir = "../../../JamFichiers/Img/ImagesDuSite";
-
-
        $original = 'Original';
        if (file_exists($target_dir/$original)) {
          $target_dirnew = "$target_dir/$original/";
@@ -1874,7 +1576,6 @@ $titre = $r4->titre;
          mkdir("$target_dir/$original", 0700);
          $target_dirnew = "$target_dir/$original/";
        }
-
        //Ajout thumb
        $thumb = 'Thumb';
        if (file_exists($target_dir/$thumb)) {
@@ -1884,9 +1585,7 @@ $titre = $r4->titre;
          $target_dirnewthumb = "$target_dir/$thumb/";
        }
        //FIN
-
  $total = count($_FILES['fileToUpload']['name']);
-
  for( $i=0 ; $i < $total ; $i++ ) {
  $target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
  $uploadOk = 1;
@@ -1900,7 +1599,6 @@ $titre = $r4->titre;
  if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
      $error = 'Désolé, le fichier est trop grand.';
      $uploadOk = 0;
-
  }
  // Allow certain file formats
  if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
@@ -1915,26 +1613,21 @@ $titre = $r4->titre;
    date_default_timezone_set('Europe/Paris');
    setlocale(LC_TIME, 'fr_FR.utf8','fra');
    $date = strftime('%d:%m:%y %H:%M:%S');
-
    $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
    $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
    $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
-
      if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
          $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
          $status = '1';
-
          $update = $db->prepare("UPDATE photopage SET image=:image WHERE nompage=:nompage");
          $update->execute(array(
              "nompage"=>'Présentation des membres',
              "image"=>$target_filefile
              )
          );
-
          date_default_timezone_set('Europe/Paris');
          setlocale(LC_TIME, 'fr_FR.utf8','fra');
          $date = strftime('%d/%m/%Y %H:%M:%S');
-
          $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
          $insertlogs->execute(array(
                              "user_id"=>$user_id,
@@ -1944,12 +1637,8 @@ $titre = $r4->titre;
                              "date"=>$date
                              )
                          );
-
-
          $img_tmp = $target_dirnew.$target_filefile;
          $fin = $target_dirnewthumb.$target_filefile;
-
-
            //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
              $longueur = 300;
              $largeur = 220;
@@ -1979,15 +1668,10 @@ $titre = $r4->titre;
                              imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
                              imagepng($img_petite,$fin);
                          }
-
-
                  }
-
-
      }else {
          $error = 'Désolé, une erreur est survenue.';
      } } }
-
            } ?>
 
 
@@ -2069,14 +1753,11 @@ $titre = $r4->titre;
 
 
 <?php
-
       $selectnom = $db->prepare("SELECT id, image, nom, categorie, importance, fonction, description FROM membres ORDER BY categorie DESC, importance");
       $selectnom->execute();
-
       $table = $selectnom->fetchAll(PDO::FETCH_OBJ);
       if(count($table)>0){
       echo '
-
      <div class="table-responsive">
        <table class="table">
          <thead class="text-primary">
@@ -2086,17 +1767,13 @@ $titre = $r4->titre;
            <th class="text-center">Action</th>
          </thead>
          <tbody>
-
          ';
-
         foreach($table as $ligne){
           $id = $ligne->id;
           $nom = $ligne->nom;
           $image = $ligne->image;
           $fonction = $ligne->fonction;
-
           echo '
-
           <tr>
             <td class="text-center">'.$nom.'</td>
             <td class="text-center">'.$image.'</td>
@@ -2106,25 +1783,17 @@ $titre = $r4->titre;
               <a href="?page=membre&amp;table=membres&amp;deletemembre='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Supprimer</button></a>
             </td>
           </tr>
-
           ';
         }
-
         echo'
-
         </tbody>
       </table>
     </div>
-
     ';
-
       }else{
         $error = "Aucune personne trouvée";
       }
-
-
 //Création membres
-
 ?>
 
 <div class="row">
@@ -2140,15 +1809,11 @@ $titre = $r4->titre;
 <?php
 if(isset($_POST['submitnewmembre'])){
       $target_dir = "../../../JamFichiers/Img/Membres";
-
-
       $nom = $_POST['nom'];
-
       $description = $_POST['description'];
       $grademembre = $_POST['grademembre'];
       $importancegrade = $_POST['importancegrade'];
       $fonction = $_POST['fonction'];
-
       $original = 'Original';
       if (file_exists($target_dir/$original)) {
         $target_dirnew = "$target_dir/$original/";
@@ -2156,7 +1821,6 @@ if(isset($_POST['submitnewmembre'])){
         mkdir("$target_dir/$original", 0700);
         $target_dirnew = "$target_dir/$original/";
       }
-
       //Ajout thumb
       $thumb = 'Thumb';
       if (file_exists($target_dir/$thumb)) {
@@ -2166,9 +1830,7 @@ if(isset($_POST['submitnewmembre'])){
         $target_dirnewthumb = "$target_dir/$thumb/";
       }
       //FIN
-
 $total = count($_FILES['fileToUpload']['name']);
-
 for( $i=0 ; $i < $total ; $i++ ) {
 $target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
 $uploadOk = 1;
@@ -2182,7 +1844,6 @@ if (file_exists($target_file)) {
 if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
     $error = 'Désolé, le fichier est trop grand.';
     $uploadOk = 0;
-
 }
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
@@ -2197,15 +1858,12 @@ if ($uploadOk == 0) {
   date_default_timezone_set('Europe/Paris');
   setlocale(LC_TIME, 'fr_FR.utf8','fra');
   $date = strftime('%d:%m:%y %H:%M:%S');
-
   $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
   $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
   $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
-
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
         $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
         $status = '1';
-
         $insert = $db->prepare("INSERT INTO membres (nom, image, description, categorie, importance, fonction) VALUES (:nom, :image, :description, :grademembre, :importancegrade, :fonction)");
         $insert->execute(array(
             "nom"=>$nom,
@@ -2216,7 +1874,6 @@ if ($uploadOk == 0) {
             "fonction"=>$fonction
             )
         );
-
         date_default_timezone_set('Europe/Paris');
         setlocale(LC_TIME, 'fr_FR.utf8','fra');
         $date = strftime('%d/%m/%Y %H:%M:%S');
@@ -2229,13 +1886,8 @@ if ($uploadOk == 0) {
                             "date"=>$date
                             )
                         );
-
-
-
         $img_tmp = $target_dirnew.$target_filefile;
         $fin = $target_dirnewthumb.$target_filefile;
-
-
           //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
             $longueur = 300;
             $largeur = 220;
@@ -2265,15 +1917,10 @@ if ($uploadOk == 0) {
                             imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
                             imagepng($img_petite,$fin);
                         }
-
-
                 }
-
-
     }else {
         $error = 'Désolé, une erreur est survenue.';
     } } }
-
           } ?>
 
               <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
@@ -2356,11 +2003,8 @@ if ($uploadOk == 0) {
       </div>
 
 <?php
-
 if(isset($_POST['submitphotomembre'])){
-
       $target_dir = "../../../JamFichiers/Img/Membres";
-
       $original = 'Original';
       if (file_exists($target_dir/$original)) {
         $target_dirnew = "$target_dir/$original";
@@ -2368,7 +2012,6 @@ if(isset($_POST['submitphotomembre'])){
         mkdir("$target_dir/$original", 0700);
         $target_dirnew = "$target_dir/$original/";
       }
-
       //Ajout thumb
       $thumb = 'Thumb';
       if (file_exists($target_dir/$thumb)) {
@@ -2378,10 +2021,7 @@ if(isset($_POST['submitphotomembre'])){
         $target_dirnewthumb = "$target_dir/$thumb/";
       }
       //FIN
-
-
 $total = count($_FILES['fileToUpload']['name']);
-
 for( $i=0 ; $i < $total ; $i++ ) {
 $target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
 $uploadOk = 1;
@@ -2395,7 +2035,6 @@ if (file_exists($target_file)) {
 if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
     $error = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " est trop grand ! (max=3Mo)";
     $uploadOk = 0;
-
 }
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
@@ -2405,31 +2044,22 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
 }
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-
 // if everything is ok, try to upload file
 } else {
   date_default_timezone_set('Europe/Paris');
   setlocale(LC_TIME, 'fr_FR.utf8','fra');
   $date = strftime('%d:%m:%y %H:%M:%S');
-
   $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
   $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
   $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
-
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
         $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé";
-
-
         $status = '1';
         date_default_timezone_set('Europe/Paris');
         setlocale(LC_TIME, 'fr_FR.utf8','fra');
         $date = strftime('%d/%m/%Y %H:%M:%S');
-
-
         $img_tmp = $target_dirnew.$target_filefile;
         $fin = $target_dirnewthumb.$target_filefile;
-
-
           //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
             $longueur = 80;
             $largeur = 80;
@@ -2459,21 +2089,14 @@ if ($uploadOk == 0) {
                             imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
                             imagepng($img_petite,$fin);
                         }
-
                 }
-
     }else {
         $error = 'Désolé, une erreur est survenue.';
     } } }
-
           }
 }
-
 }else if ($_GET['page']=='status'){
-
   if(isset($_GET['modifstatus'])){
-
-
 ?>
 <script>
 function RetourIndex2(){
@@ -2483,19 +2106,16 @@ function RetourIndex2(){
 
     <?php
     $id = $_GET['modifstatus'];
-
     $selectinfosactuel = $db->prepare("SELECT * from status where id=:id");
     $selectinfosactuel->execute(array(
         "id"=>$id
         )
     );
     $r2 = $selectinfosactuel->fetch(PDO::FETCH_OBJ);
-
     $article = $r2->article;
     $titre = $r2->titre;
     $soustitre = $r2->soustitre;
     $description = $r2->description;
-
 ?>
 <script>
 function RetourIndex3(){
@@ -2503,8 +2123,6 @@ function RetourIndex3(){
 }
 </script>
 <script>
-
-
  function SubmitFormDataModifStatus() {
     var user_id = "<?php echo $_SESSION['admin_id']; ?>";
     var id = "<?php echo $id; ?>";
@@ -2515,11 +2133,8 @@ function RetourIndex3(){
     $.post("ajax/modifypagestatus.php", { user_id: user_id, id: id, article: article, titre: titre, soustitre: soustitre, description: description},
     function(data) {
      $('#results6').html(data);
-
     });
-
 }
-
 </script>
 
   <div class="content">
@@ -2574,7 +2189,6 @@ function RetourIndex3(){
       </div>
 
   <?php }else{
-
 $selectinfosactuel40 = $db->prepare("SELECT * from photopage where nompage=:nompage");
 $selectinfosactuel40->execute(array(
   "nompage"=>'Statuts'
@@ -2583,33 +2197,22 @@ $r40 = $selectinfosactuel40->fetch(PDO::FETCH_OBJ);
 $pagetitre = $r40->pagetitre;
 $image = $r40->image;
 $titre = $r40->titre;
-
-
  ?>
  <script>
-
-
  function SubmitFormDataStatusPage() {
     var user_id = "<?php echo $_SESSION['admin_id']; ?>";
     var pagetitre = $("#pagetitre").val();
     var titre = $("#titre").val();
-
     $.post("ajax/modifypagestatusinfos.php", { user_id: user_id, pagetitre: pagetitre, titre: titre},
     function(data) {
      $('#results23').html(data);
-
     });
-
  }
  </script>
  <!-- Ajoutd'images au site web (assets)-->
 <?php
-
-
-
 if(isset($_POST['modifphotopagestatus'])){
       $target_dir = "../../../JamFichiers/Img/ImagesDuSite";
-
       $original = 'Original';
       if (file_exists($target_dir/$original)) {
         $target_dirnew = "$target_dir/$original/";
@@ -2617,7 +2220,6 @@ if(isset($_POST['modifphotopagestatus'])){
         mkdir("$target_dir/$original", 0700);
         $target_dirnew = "$target_dir/$original/";
       }
-
       //Ajout thumb
       $thumb = 'Thumb';
       if (file_exists($target_dir/$thumb)) {
@@ -2627,9 +2229,7 @@ if(isset($_POST['modifphotopagestatus'])){
         $target_dirnewthumb = "$target_dir/$thumb/";
       }
       //FIN
-
 $total = count($_FILES['fileToUpload']['name']);
-
 for( $i=0 ; $i < $total ; $i++ ) {
 $target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
 $uploadOk = 1;
@@ -2643,7 +2243,6 @@ if (file_exists($target_file)) {
 if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
     $error = 'Désolé, le fichier est trop grand.';
     $uploadOk = 0;
-
 }
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
@@ -2658,11 +2257,9 @@ if ($uploadOk == 0) {
   date_default_timezone_set('Europe/Paris');
   setlocale(LC_TIME, 'fr_FR.utf8','fra');
   $date = strftime('%d:%m:%y %H:%M:%S');
-
   $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
   $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
   $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
-
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
         $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
         $status = '1';
@@ -2684,12 +2281,8 @@ if ($uploadOk == 0) {
                             "date"=>$date
                             )
                         );
-
-
         $img_tmp = $target_dirnew.$target_filefile;
         $fin = $target_dirnewthumb.$target_filefile;
-
-
           //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
             $longueur = 300;
             $largeur = 220;
@@ -2719,38 +2312,24 @@ if ($uploadOk == 0) {
                             imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
                             imagepng($img_petite,$fin);
                         }
-
-
                 }
-
-
     }else {
         $error = 'Désolé, une erreur est survenue.';
     } } }
-
           }
-
-
           if(isset($_GET['deletestatus'])){
-
             $id = $_GET['deletestatus'];
-
-
             $updatedelete = $db->prepare("DELETE FROM status WHERE id=:id");
             $updatedelete->execute(array(
               "id"=>$id
-
             ));
-
             $succes = "Le status à bien été supprimé";
           ?>
             <script>
               window.location="https://administration.jam-mdm.fr/modifdespages.php?page=status&table=status"
             </script>
           <?php
-
 }
-
           ?>
 
 
@@ -2824,17 +2403,10 @@ if ($uploadOk == 0) {
                   </div>
 
   <?php
-
-
-
-
       $selectnom = $db->prepare("SELECT * FROM status ORDER BY article ASC");
       $selectnom->execute();
-
-
       $table = $selectnom->fetchAll(PDO::FETCH_OBJ);
       if(count($table)>0){
-
         echo '
         <div class="table-responsive">
           <table class="table">
@@ -2846,14 +2418,12 @@ if ($uploadOk == 0) {
             </thead>
             <tbody>
         ';
-
         foreach($table as $ligne){
           $id = $ligne->id;
           $article = $ligne->article;
           $titre = $ligne->titre;
           $soustitre = $ligne->soustitre;
           $description = $ligne->description;
-
           echo '
           <tr>
             <td class="text-center">'.$article.'</td>
@@ -2865,19 +2435,15 @@ if ($uploadOk == 0) {
             </td>
           </tr>
           ';
-
         }
-
         echo '
         </tbody>
       </table>
     </div>
         ';
-
       }else{
         $error = "Aucun status trouvé";
       }
-
 ?>
 
     <div class="row">
@@ -2889,8 +2455,6 @@ if ($uploadOk == 0) {
     </div>
 
 <script>
-
-
 function SubmitFormDataCreateStatus() {
    var user_id = "<?php echo $_SESSION['admin_id']; ?>";
    var article = $("#article").val();
@@ -2900,9 +2464,7 @@ function SubmitFormDataCreateStatus() {
    $.post("ajax/createpagestatus.php", { user_id: user_id, article: article, titrestatus: titrestatus, soustitre: soustitre, description: description},
    function(data) {
     $('#results7').html(data);
-
    });
-
 }
 </script>
 
@@ -2953,12 +2515,8 @@ function SubmitFormDataCreateStatus() {
 <?php
 //FIn Création
 }
-
 }else if ($_GET['page']=='actualite'){
-
   if(isset($_GET['modifactus'])){
-
-
 ?>
 <script>
 function RetourIndex2(){
@@ -2968,14 +2526,12 @@ function RetourIndex2(){
 
     <?php
     $id = $_GET['modifactus'];
-
     $selectinfosactuel = $db->prepare("SELECT * from newsactus where id=:id");
     $selectinfosactuel->execute(array(
         "id"=>$id
         )
     );
     $r2 = $selectinfosactuel->fetch(PDO::FETCH_OBJ);
-
     $title = $r2->title;
     $description = $r2->description;
     $title2 = $r2->title2;
@@ -2990,8 +2546,6 @@ function RetourIndex4(){
 }
 </script>
 <script>
-
-
  function SubmitFormDataModifActualite() {
     var user_id = "<?php echo $_SESSION['admin_id']; ?>";
     var id = "<?php echo $id; ?>";
@@ -3005,9 +2559,7 @@ function RetourIndex4(){
     $.post("ajax/modifyallactualite.php", { user_id: user_id, id: id, title: title, description: description, title2: title2, description2: description2, title3: title3, description3: description3, formatimg: formatimg},
     function(data) {
      $('#results11').html(data);
-
     });
-
 }
 </script>
 
@@ -3111,13 +2663,8 @@ function RetourIndex4(){
 
 
   <?php
-
-
-
-
 }else if(isset($_GET['banactus'])){
   $id = $_GET['banactus'];
-
   $banactu = $db->prepare("UPDATE newsactus SET status=:status where id=:id");
   $banactu->execute(array(
       "status"=>'INACTIVE',
@@ -3127,10 +2674,8 @@ function RetourIndex4(){
   ?>
     <script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=actualite&table=newsactus"</script>
 <?php
-
 }else if(isset($_GET['unbanactus'])){
   $id = $_GET['unbanactus'];
-
   $banactu = $db->prepare("UPDATE newsactus SET status=:status where id=:id");
   $banactu->execute(array(
       "status"=>'ACTIVE',
@@ -3140,35 +2685,25 @@ function RetourIndex4(){
   ?>
     <script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=actualite&table=newsactus"</script>
 <?php
-
 }
-
   else{
-
   //Page newsactus
-
 ?>
 
   <?php
-
-
   $selectinfosactuel9 = $db->prepare("SELECT * from photopage where nompage=:nompage");
   $selectinfosactuel9->execute(array(
       "nompage"=>'Actualité'
       )
   );
   $r9 = $selectinfosactuel9->fetch(PDO::FETCH_OBJ);
-
   $image = $r9->image;
   $pagetitre = $r9->pagetitre;
   $titre = $r9->titre;
   $description = $r9->description;
-
 ?>
 
 <script>
-
-
  function SubmitFormDataModifActus() {
     var user_id = "<?php echo $_SESSION['admin_id']; ?>";
     var titre = $("#titre").val();
@@ -3177,18 +2712,14 @@ function RetourIndex4(){
     $.post("ajax/modifypageactus.php", { user_id: user_id, titre: titre, pagetitre: pagetitre, description: description},
     function(data) {
      $('#results10').html(data);
-
     });
-
 }
-
 </script>
 
 <!-- Ajoutd'images au site web (assets)-->
 <?php
 if(isset($_POST['modifphotopageactu'])){
       $target_dir = "../../../JamFichiers/Img/ImagesDuSite";
-
       $original = 'Original';
       if (file_exists($target_dir/$original)) {
         $target_dirnew = "$target_dir/$original/";
@@ -3196,7 +2727,6 @@ if(isset($_POST['modifphotopageactu'])){
         mkdir("$target_dir/$original", 0700);
         $target_dirnew = "$target_dir/$original/";
       }
-
       //Ajout thumb
       $thumb = 'Thumb';
       if (file_exists($target_dir/$thumb)) {
@@ -3206,9 +2736,7 @@ if(isset($_POST['modifphotopageactu'])){
         $target_dirnewthumb = "$target_dir/$thumb/";
       }
       //FIN
-
 $total = count($_FILES['fileToUpload']['name']);
-
 for( $i=0 ; $i < $total ; $i++ ) {
 $target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
 $uploadOk = 1;
@@ -3222,7 +2750,6 @@ if (file_exists($target_file)) {
 if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
     $error = 'Désolé, le fichier est trop grand.';
     $uploadOk = 0;
-
 }
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
@@ -3237,11 +2764,9 @@ if ($uploadOk == 0) {
   date_default_timezone_set('Europe/Paris');
   setlocale(LC_TIME, 'fr_FR.utf8','fra');
   $date = strftime('%d:%m:%y %H:%M:%S');
-
   $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
   $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
   $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
-
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
         $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
         $status = '1';
@@ -3251,7 +2776,6 @@ if ($uploadOk == 0) {
             "image"=>$target_filefile
             )
         );
-
         date_default_timezone_set('Europe/Paris');
         setlocale(LC_TIME, 'fr_FR.utf8','fra');
         $date = strftime('%d/%m/%Y %H:%M:%S');
@@ -3264,13 +2788,8 @@ if ($uploadOk == 0) {
                             "date"=>$date
                             )
                         );
-
-
-
         $img_tmp = $target_dirnew.$target_filefile;
         $fin = $target_dirnewthumb.$target_filefile;
-
-
           //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
             $longueur = 300;
             $largeur = 220;
@@ -3300,15 +2819,10 @@ if ($uploadOk == 0) {
                             imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
                             imagepng($img_petite,$fin);
                         }
-
-
                 }
-
-
     }else {
         $error = 'Désolé, une erreur est survenue.';
     } } }
-
           } ?>
 
 
@@ -3385,7 +2899,6 @@ if ($uploadOk == 0) {
                   </div>
 
 <?php
-
   //Fin page news actus
   function raccourcirChaine($chaine, $tailleMax)
   {
@@ -3399,16 +2912,11 @@ if ($uploadOk == 0) {
   }
   return $chaine;
   }
-
       $selectnomactus = $db->prepare("SELECT * FROM newsactus ORDER BY id DESC");
       $selectnomactus->execute();
-
-
       $tableactus = $selectnomactus->fetchAll(PDO::FETCH_OBJ);
       if(count($tableactus)>0){
-
         echo '
-
         <div class="table-responsive">
           <table class="table">
             <thead class="text-primary">
@@ -3419,13 +2927,11 @@ if ($uploadOk == 0) {
             </thead>
             <tbody>
         ';
-
         foreach($tableactus as $ligneactus){
           $id = $ligneactus->id;
           $title = $ligneactus->title;
           $description = $ligneactus->description;
           $status = $ligneactus->status;
-
           if($status == 'ACTIVE'){
             $act = 'ban';
             $message = 'Désactiver';
@@ -3433,12 +2939,8 @@ if ($uploadOk == 0) {
             $act = 'unban';
             $message = 'Activer';
           }
-
 $result = raccourcirChaine($description, 80);
-
           echo '
-
-
               <tr>
                 <td class="text-center">'.$title.'</td>
                 <td class="text-center">'.$result.'</td>
@@ -3454,59 +2956,37 @@ $result = raccourcirChaine($description, 80);
               </tr>
           <?php
         }
-
         echo '
             </tbody>
           </table>
         </div>
         ';
-
       }else{
         $error = "Aucune actualitée trouvée";
       }
-
 //Création membres
 function slugify($text){
   $text = preg_replace('~[^\pL\d]+~u', '-', $text);
-
   $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
-
   $text = preg_replace('~[^-\w]+~', '', $text);
-
   $text = trim($text, '-');
-
   $text = preg_replace('~-+~', '-', $text);
-
   $text = strtolower($text);
-
   if (empty($text)) {
     return 'n-a';
   }
-
     return $text;
 }
-
-
 ?>
 
 
 <?php
 //Création actualite
 if(isset($_POST['submitactualite'])){
-
-
   $title = $_POST['title'];
   $description = $_POST['description'];
-
-
-
-
   $slug = slugify($title);
-
-
-
       $target_dir = "../../../JamFichiers/Img/ImagesDuSite";
-
       $original = 'Original';
       if (file_exists($target_dir/$original)) {
         $target_dirnew = "$target_dir/$original/";
@@ -3514,7 +2994,6 @@ if(isset($_POST['submitactualite'])){
         mkdir("$target_dir/$original", 0700);
         $target_dirnew = "$target_dir/$original/";
       }
-
       //Ajout thumb
       $thumb = 'Thumb';
       if (file_exists($target_dir/$thumb)) {
@@ -3524,12 +3003,8 @@ if(isset($_POST['submitactualite'])){
         $target_dirnewthumb = "$target_dir/$thumb/";
       }
       //FIN
-
-
 $total = count($_FILES['fileToUpload']['name']);
-
 for( $i=0 ; $i < $total ; $i++ ) {
-
 $target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -3543,7 +3018,6 @@ if (file_exists($target_file3)) {
 if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
     $error = 'Désolé, le fichier est trop grand.';
     $uploadOk = 0;
-
 }
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
@@ -3558,17 +3032,12 @@ if ($uploadOk == 0) {
   date_default_timezone_set('Europe/Paris');
   setlocale(LC_TIME, 'fr_FR.utf8','fra');
   $date = strftime('%d:%m:%y %H:%M:%S');
-
   $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
   $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
-
   $target_filefile3 = $slug.".".$imageFileType;
-
-
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
         $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
 $target_file3 = $target_dirnew."".$slug.".".$imageFileType;
-
         $insert = $db->prepare("INSERT INTO newsactus (title, slug, description, surname, date, formatimg, status) VALUES(:title, :slug, :description, :surname, :date, :formatimg, :status)");
         $insert->execute(array(
                             "title"=>$title,
@@ -3580,8 +3049,6 @@ $target_file3 = $target_dirnew."".$slug.".".$imageFileType;
                             "status"=>'ACTIVE'
                             )
                         );
-
-
                         date_default_timezone_set('Europe/Paris');
                         setlocale(LC_TIME, 'fr_FR.utf8','fra');
                         $date = strftime('%d/%m/%Y %H:%M:%S');
@@ -3594,15 +3061,9 @@ $target_file3 = $target_dirnew."".$slug.".".$imageFileType;
                                             "date"=>$date
                                             )
                                         );
-
-
         $status = '1';
-
-
         $img_tmp = $target_file3;
         $fin = $target_dirnewthumb.$target_filefile3;
-
-
           //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
             $longueur = 539;
             $largeur = 539;
@@ -3632,30 +3093,20 @@ $target_file3 = $target_dirnew."".$slug.".".$imageFileType;
                             imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
                             imagepng($img_petite,$fin);
                         }
-
-
                 }
-
-
     }else {
         $error = 'Désolé, une erreur est survenue.';
     } } }
-
-
-
     $selectidactu = $db->prepare("SELECT id FROM newsactus WHERE title = :title");
     $selectidactu->execute(array(
         "title"=>$title
         )
     );
-
   $sactu = $selectidactu->fetch(PDO::FETCH_OBJ);
   $idactu = $sactu->id;
-
 ?>
     <script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=actualite&table=newsactus&modifactus=<?php echo $idactu;?>"</script>
 <?php
-
           } ?>
 
 
@@ -3727,20 +3178,14 @@ if(isset($_POST['submitphotoactualite'])){
   if(!isset($titreimage)){
     $uploadOk = 0;
   }
-
-
   $selectinfosactuel12 = $db->prepare("SELECT slug from newsactus where id=:id");
   $selectinfosactuel12->execute(array(
       "id"=>$category
       )
   );
-
   $r12 = $selectinfosactuel12->fetch(PDO::FETCH_OBJ);
-
   $slug = $r12->slug;
-
       $target_dir = "../../../JamFichiers/Img/ImagesDuSite";
-
       $original = 'Original';
       if (file_exists($target_dir/$original)) {
         $target_dirnew = "$target_dir/$original/";
@@ -3748,7 +3193,6 @@ if(isset($_POST['submitphotoactualite'])){
         mkdir("$target_dir/$original", 0700);
         $target_dirnew = "$target_dir/$original/";
       }
-
       //Ajout thumb
       $thumb = 'Thumb';
       if (file_exists($target_dir/$thumb)) {
@@ -3758,10 +3202,7 @@ if(isset($_POST['submitphotoactualite'])){
         $target_dirnewthumb = "$target_dir/$thumb/";
       }
       //FIN
-
-
 $total = count($_FILES['fileToUpload']['name']);
-
 for( $i=0 ; $i < $total ; $i++ ) {
 $target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
 $uploadOk = 1;
@@ -3775,7 +3216,6 @@ if (file_exists($target_file)) {
 if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
     $error = 'Désolé, le fichier est trop grand.';
     $uploadOk = 0;
-
 }
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
@@ -3790,14 +3230,11 @@ if ($uploadOk == 0) {
   date_default_timezone_set('Europe/Paris');
   setlocale(LC_TIME, 'fr_FR.utf8','fra');
   $date = strftime('%d:%m:%y %H:%M:%S');
-
   $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
   $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
   $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
-
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
         $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
-
         $insert = $db->prepare("INSERT INTO carousel (slug, titre, image, titreimage) VALUES (:slug, :souscatactualite, :target_filefile, :titreimage)");
         $insert->execute(array(
             "slug"=>$slug,
@@ -3809,7 +3246,6 @@ if ($uploadOk == 0) {
         date_default_timezone_set('Europe/Paris');
         setlocale(LC_TIME, 'fr_FR.utf8','fra');
         $date = strftime('%d/%m/%Y %H:%M:%S');
-
         $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
         $insertlogs->execute(array(
                             "user_id"=>$user_id,
@@ -3819,16 +3255,9 @@ if ($uploadOk == 0) {
                             "date"=>$date
                             )
                         );
-
-
-
         $status = '1';
-
-
         $img_tmp = $target_dirnew.$target_filefile;
         $fin = $target_dirnewthumb.$target_filefile;
-
-
           //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
             $longueur = 300;
             $largeur = 220;
@@ -3858,15 +3287,10 @@ if ($uploadOk == 0) {
                             imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
                             imagepng($img_petite,$fin);
                         }
-
-
                 }
-
-
     }else {
         $error = 'Désolé, une erreur est survenue.';
     } } }
-
           } ?>
 
 
@@ -3883,7 +3307,6 @@ if ($uploadOk == 0) {
 
 <?php
 $selectcatimages=$db->query("SELECT * FROM newsactus");
-
  ?>
 
         <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
@@ -3942,7 +3365,6 @@ $(".catactualite").change(function()
 {
 var id=$(this).val();
 var post_id = 'id='+ id;
-
 $.ajax
 ({
 type: "POST",
@@ -3954,25 +3376,20 @@ success: function(cities)
 $(".souscatactualite").html(cities);
 }
 });
-
 });
 });
 </script>
 
 <script>
 $(document).ready(function(){
-
 var $recherche =$('input[name=valeur]');
 var critere;
 $recherche.keyup(function(){
   critere = $.trim($recherche.val());
   if(critere!=''){
     $.get('gestionrechercheimageactualite.php?critere='+critere,function(retour){
-
 $('#resultat').html(retour).fadeIn();
-
 });
-
 }else $('#resultat').empty().fadeOut();
 });
 });
@@ -3982,39 +3399,28 @@ $('#resultat').html(retour).fadeIn();
 <?php
 if(isset($_GET['action'])){
 if($_GET['action']=='delete'){
-
 $id=$_GET['id'];
 $selectnom = $db->query("SELECT * FROM carousel WHERE id='$id'");
 $rname = $selectnom->fetch(PDO::FETCH_OBJ);
 $valnom = $rname->image;
-
-
 $target_dir = '../../../JamFichiers/Img/ImagesDuSite/Original';
-
 echo 'Jamesbond';
-
-
 if (file_exists($target_dir)){
   unlink("$target_dir/$valnom");
   $updatedelete = $db->prepare("DELETE FROM carousel WHERE image=:image");
   $updatedelete->execute(array(
     "image"=>$valnom
-
   ));
   $succes = "Le fichier.$valnom. à bien été supprimé";
-
 }else{
   echo 'n extse pas';
   $error = 'Un problème de répertoire est présent, contacter votre administrateur !';
 }
-
-
 ?>
 <script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=actualite&table=newsactus"</script>
 <?php
 }
 }
-
 ?>
 
 
@@ -4039,12 +3445,8 @@ if (file_exists($target_dir)){
 <?php
 //FIn Création
 }
-
 }else if ($_GET['page']=='activitesvoyages'){
-
   if(isset($_GET['modifactivitesvoyages'])){
-
-
   ?>
   <script>
   function RetourIndex2(){
@@ -4054,14 +3456,12 @@ if (file_exists($target_dir)){
 
     <?php
     $id = $_GET['modifactivitesvoyages'];
-
     $selectinfosactuel = $db->prepare("SELECT * from activitesvoyages where id=:id");
     $selectinfosactuel->execute(array(
         "id"=>$id
         )
     );
     $r2 = $selectinfosactuel->fetch(PDO::FETCH_OBJ);
-
     $title = $r2->title;
     $description = $r2->description;
     $title2 = $r2->title2;
@@ -4077,8 +3477,6 @@ if (file_exists($target_dir)){
   }
   </script>
   <script>
-
-
    function SubmitFormDataModifActivite() {
       var user_id = "<?php echo $_SESSION['admin_id']; ?>";
       var id = "<?php echo $id; ?>";
@@ -4093,11 +3491,8 @@ if (file_exists($target_dir)){
       $.post("ajax/modifyallactivity.php", { user_id: user_id, id: id, title: title, description: description, title2: title2, description2: description2, title3: title3, description3: description3, formatimg: formatimg, stock: stock},
       function(data) {
        $('#results11').html(data);
-
       });
-
   }
-
   </script>
     <div class="content">
         <div class="container-fluid">
@@ -4168,13 +3563,8 @@ if (file_exists($target_dir)){
 
   </div>
   <?php
-
-
-
-
 }else if(isset($_GET['banactivitesvoyages'])){
   $id = $_GET['banactivitesvoyages'];
-
   $banacti = $db->prepare("UPDATE activitesvoyages SET status=:status where id=:id");
   $banacti->execute(array(
       "status"=>'INACTIVE',
@@ -4184,10 +3574,8 @@ if (file_exists($target_dir)){
   ?>
     <script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=activitesvoyages&table=activitesvoyages"</script>
 <?php
-
 }else if(isset($_GET['unbanactivitesvoyages'])){
   $id = $_GET['unbanactivitesvoyages'];
-
   $banacti = $db->prepare("UPDATE activitesvoyages SET status=:status where id=:id");
   $banacti->execute(array(
       "status"=>'ACTIVE',
@@ -4197,53 +3585,39 @@ if (file_exists($target_dir)){
   ?>
     <script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=activitesvoyages&table=activitesvoyages"</script>
 <?php
-
 }else{
-
   //Page newsactus
-
   ?>
 
   <?php
-
-
   $selectinfosactuel9 = $db->prepare("SELECT * from photopage where nompage=:nompage");
   $selectinfosactuel9->execute(array(
       "nompage"=>'Activité / Voyage'
       )
   );
   $r9 = $selectinfosactuel9->fetch(PDO::FETCH_OBJ);
-
   $image = $r9->image;
   $pagetitre = $r9->pagetitre;
   $titre = $r9->titre;
   $description = $r9->description;
-
   ?>
   <script>
-
-
    function SubmitFormDataModifActivitesVoyages() {
       var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-
       var titre = $("#titre").val();
       var pagetitre = $("#pagetitre").val();
       var description = $("#description").val();
       $.post("ajax/modifypageactivitesvoyages.php", { user_id: user_id, titre: titre, pagetitre: pagetitre, description: description},
       function(data) {
        $('#results18').html(data);
-
       });
-
   }
-
   </script>
 
   <!-- Ajoutd'images au site web (assets)-->
 <?php
 if(isset($_POST['modifphotopageactivoyages'])){
       $target_dir = "../../../JamFichiers/Img/ImagesDuSite";
-
       $original = 'Original';
       if (file_exists($target_dir/$original)) {
         $target_dirnew = "$target_dir/$original/";
@@ -4251,7 +3625,6 @@ if(isset($_POST['modifphotopageactivoyages'])){
         mkdir("$target_dir/$original", 0700);
         $target_dirnew = "$target_dir/$original/";
       }
-
       //Ajout thumb
       $thumb = 'Thumb';
       if (file_exists($target_dir/$thumb)) {
@@ -4261,9 +3634,7 @@ if(isset($_POST['modifphotopageactivoyages'])){
         $target_dirnewthumb = "$target_dir/$thumb/";
       }
       //FIN
-
 $total = count($_FILES['fileToUpload']['name']);
-
 for( $i=0 ; $i < $total ; $i++ ) {
 $target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
 $uploadOk = 1;
@@ -4277,7 +3648,6 @@ if (file_exists($target_file)) {
 if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
     $error = 'Désolé, le fichier est trop grand.';
     $uploadOk = 0;
-
 }
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
@@ -4292,11 +3662,9 @@ if ($uploadOk == 0) {
   date_default_timezone_set('Europe/Paris');
   setlocale(LC_TIME, 'fr_FR.utf8','fra');
   $date = strftime('%d:%m:%y %H:%M:%S');
-
   $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
   $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
   $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
-
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
         $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
         $status = '1';
@@ -4318,13 +3686,8 @@ if ($uploadOk == 0) {
                             "date"=>$date
                             )
                         );
-
-
-
         $img_tmp = $target_dirnew.$target_filefile;
         $fin = $target_dirnewthumb.$target_filefile;
-
-
           //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
             $longueur = 300;
             $largeur = 220;
@@ -4354,15 +3717,10 @@ if ($uploadOk == 0) {
                             imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
                             imagepng($img_petite,$fin);
                         }
-
-
                 }
-
-
     }else {
         $error = 'Désolé, une erreur est survenue.';
     } } }
-
           } ?>
 
 
@@ -4439,7 +3797,6 @@ if ($uploadOk == 0) {
                   </div>
 
   <?php
-
   //Fin page news actus
   function raccourcirChaine($chaine, $tailleMax)
   {
@@ -4453,15 +3810,11 @@ if ($uploadOk == 0) {
   }
   return $chaine;
   }
-
       $selectnomactivitesvoyages = $db->prepare("SELECT * FROM activitesvoyages ORDER BY id DESC");
       $selectnomactivitesvoyages->execute();
-
-
       $tableactivitesvoyages = $selectnomactivitesvoyages->fetchAll(PDO::FETCH_OBJ);
       if(count($tableactivitesvoyages)>0){
         echo '
-
         <div class="table-responsive">
           <table class="table">
             <thead class="text-primary">
@@ -4473,14 +3826,12 @@ if ($uploadOk == 0) {
             </thead>
             <tbody>
         ';
-
         foreach($tableactivitesvoyages as $ligneactivitesvoyages){
           $id = $ligneactivitesvoyages->id;
           $title = $ligneactivitesvoyages->title;
           $description = $ligneactivitesvoyages->description;
           $status = $ligneactivitesvoyages->status;
           $stock = $ligneactivitesvoyages->stock;
-
           $result = raccourcirChaine($description, 80);
           if($status == 'ACTIVE'){
             $act = 'ban';
@@ -4489,9 +3840,7 @@ if ($uploadOk == 0) {
             $act = 'unban';
             $message = 'Activer';
           }
-
           echo '
-
           <tr>
             <td>'.$title.'</td>
             <td>'.$result.'</td>
@@ -4500,53 +3849,37 @@ if ($uploadOk == 0) {
             <td class="text-center">
               <a href="?page=activitesvoyages&amp;table=activitesvoyages&amp;modifactivitesvoyages='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Modifier</button></a>
               <a href="?page=activitesvoyages&amp;table=activitesvoyages&amp;'.$act.'activitesvoyages='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">'.$message.'</button></a>
-
             ';
-
             ?>
               <button onclick="demo.showSwal('warningdeleteacti','<?php echo $user_id; ?>','<?php echo $id; ?>')" type="button" class="btn btn-rose btn-round btn-sm">Supprimer</button>
             </td>
           </tr>
           <?php
         }
-
         echo '
         </tbody>
       </table>
     </div>
         ';
-
       }else{
         $error = "Aucune activitée trouvée";
       }
-
   //Création membres
   function slugify($text){
   $text = preg_replace('~[^\pL\d]+~u', '-', $text);
-
   $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
-
   $text = preg_replace('~[^-\w]+~', '', $text);
-
   $text = trim($text, '-');
-
   $text = preg_replace('~-+~', '-', $text);
-
   $text = strtolower($text);
-
   if (empty($text)) {
     return 'n-a';
   }
-
     return $text;
   }
-
   if(isset($_POST['submitactivite'])){
-
-
     $title = $_POST['title'];
     $description = $_POST['description'];
-
     $stock = $_POST['stock'];
     $datesejour = $_POST['datesejour'];
     $price = $_POST['price'];
@@ -4556,10 +3889,7 @@ if ($uploadOk == 0) {
     }else{
       $payant = '0';
     }
-
-
         $target_dir = "../../../JamFichiers/Img/ImagesDuSite";
-
         $original = 'Original';
         if (file_exists($target_dir/$original)) {
           $target_dirnew = "$target_dir/$original/";
@@ -4567,7 +3897,6 @@ if ($uploadOk == 0) {
           mkdir("$target_dir/$original", 0700);
           $target_dirnew = "$target_dir/$original/";
         }
-
         //Ajout thumb
         $thumb = 'Thumb';
         if (file_exists($target_dir/$thumb)) {
@@ -4577,10 +3906,7 @@ if ($uploadOk == 0) {
           $target_dirnewthumb = "$target_dir/$thumb/";
         }
         //FIN
-
-
   $total = count($_FILES['fileToUpload']['name']);
-
   for( $i=0 ; $i < $total ; $i++ ) {
   $target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
   $uploadOk = 1;
@@ -4594,7 +3920,6 @@ if ($uploadOk == 0) {
   if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
       $error = 'Désolé, le fichier est trop grand.';
       $uploadOk = 0;
-
   }
   // Allow certain file formats
   if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
@@ -4609,15 +3934,12 @@ if ($uploadOk == 0) {
     date_default_timezone_set('Europe/Paris');
     setlocale(LC_TIME, 'fr_FR.utf8','fra');
     $date = strftime('%d:%m:%y %H:%M:%S');
-
     $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
     $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
     $target_filefile3 = $slug.".".$imageFileType;
     $target_file3 = $target_dirnew."".$slug.".".$imageFileType;
-
       if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
           $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
-
           date_default_timezone_set('Europe/Paris');
           setlocale(LC_TIME, 'fr_FR.utf8','fra');
           $date = strftime('%d/%m/%Y %H:%M:%S');
@@ -4636,9 +3958,6 @@ if ($uploadOk == 0) {
                               "payant"=>$payant
                               )
                           );
-
-
-
           $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
           $insertlogs->execute(array(
                               "user_id"=>$user_id,
@@ -4648,15 +3967,9 @@ if ($uploadOk == 0) {
                               "date"=>$date
                               )
                           );
-
-
-
           $status = '1';
-
           $img_tmp = $target_file3;
           $fin = $target_dirnewthumb.$target_filefile3;
-
-
             //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
               $longueur = 539;
               $largeur = 539;
@@ -4686,30 +3999,20 @@ if ($uploadOk == 0) {
                               imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
                               imagepng($img_petite,$fin);
                           }
-
-
                   }
-
-
       }else {
           $error = 'Désolé, une erreur est survenue.';
       } } }
-
       $selectidacti = $db->prepare("SELECT id FROM activitesvoyages WHERE title=:title");
       $selectidacti->execute(array(
           "title"=>$title
           )
       );
-
       $sacti = $selectidacti->fetch(PDO::FETCH_OBJ);
       $idacti = $sacti->id;
-
-
       ?>
           <script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=activitesvoyages&table=activitesvoyages&modifactivitesvoyages=<?php echo $idacti;?>"</script>
       <?php
-
-
             } ?>
 
             <div class="row">
@@ -4811,20 +4114,14 @@ if ($uploadOk == 0) {
   if(!isset($titreimage)){
     $uploadOk = 0;
   }
-
-
   $selectinfosactuel12 = $db->prepare("SELECT slug from activitesvoyages where id=:id");
   $selectinfosactuel12->execute(array(
       "id"=>$category
       )
   );
-
   $r12 = $selectinfosactuel12->fetch(PDO::FETCH_OBJ);
-
   $slug = $r12->slug;
-
       $target_dir = "../../../JamFichiers/Img/ImagesDuSite";
-
       $original = 'Original';
       if (file_exists($target_dir/$original)) {
         $target_dirnew = "$target_dir/$original/";
@@ -4832,7 +4129,6 @@ if ($uploadOk == 0) {
         mkdir("$target_dir/$original", 0700);
         $target_dirnew = "$target_dir/$original/";
       }
-
       //Ajout thumb
       $thumb = 'Thumb';
       if (file_exists($target_dir/$thumb)) {
@@ -4842,10 +4138,7 @@ if ($uploadOk == 0) {
         $target_dirnewthumb = "$target_dir/$thumb/";
       }
       //FIN
-
-
   $total = count($_FILES['fileToUpload']['name']);
-
   for( $i=0 ; $i < $total ; $i++ ) {
   $target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
   $uploadOk = 1;
@@ -4859,7 +4152,6 @@ if ($uploadOk == 0) {
   if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
     $error = 'Désolé, le fichier est trop grand.';
     $uploadOk = 0;
-
   }
   // Allow certain file formats
   if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
@@ -4874,15 +4166,11 @@ if ($uploadOk == 0) {
   date_default_timezone_set('Europe/Paris');
   setlocale(LC_TIME, 'fr_FR.utf8','fra');
   $date = strftime('%d:%m:%y %H:%M:%S');
-
   $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
   $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
   $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
-
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
         $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
-
-
         $insert = $db->prepare("INSERT INTO carousel (slug, titre, image, titreimage) VALUES (:slug, :souscatactivitevoyage, :target_filefile, :titreimage)");
         $insert->execute(array(
             "slug"=>$slug,
@@ -4891,11 +4179,9 @@ if ($uploadOk == 0) {
             "titreimage"=>$titreimage
             )
         );
-
         date_default_timezone_set('Europe/Paris');
         setlocale(LC_TIME, 'fr_FR.utf8','fra');
         $date = strftime('%d/%m/%Y %H:%M:%S');
-
         $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
         $insertlogs->execute(array(
                             "user_id"=>$user_id,
@@ -4905,15 +4191,9 @@ if ($uploadOk == 0) {
                             "date"=>$date
                             )
                         );
-
-
-
         $status = '1';
-
         $img_tmp = $target_dirnew.$target_filefile;
         $fin = $target_dirnewthumb.$target_filefile;
-
-
           //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
             $longueur = 732;
             $largeur = 541;
@@ -4943,15 +4223,10 @@ if ($uploadOk == 0) {
                             imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
                             imagepng($img_petite,$fin);
                         }
-
-
                 }
-
-
     }else {
         $error = 'Désolé, une erreur est survenue.';
     } } }
-
           } ?>
 
 
@@ -4962,7 +4237,6 @@ if ($uploadOk == 0) {
 
   <?php
   $selectcatactivitesvoyages=$db->query("SELECT * FROM activitesvoyages");
-
   ?>
 
         <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
@@ -4973,9 +4247,7 @@ if ($uploadOk == 0) {
                 while($s = $selectcatactivitesvoyages->fetch(PDO::FETCH_OBJ)){
                   $title = $s->title;
                   $id = $s->id;
-
                 echo '<option value="'.$id.'">'.$title.'</option>';
-
             }
             ?>
 
@@ -5022,7 +4294,6 @@ if ($uploadOk == 0) {
   {
   var id=$(this).val();
   var post_id = 'id='+ id;
-
   $.ajax
   ({
   type: "POST",
@@ -5034,7 +4305,6 @@ if ($uploadOk == 0) {
   $(".souscatactivitevoyage").html(cities);
   }
   });
-
   });
   });
   </script>
@@ -5042,18 +4312,14 @@ if ($uploadOk == 0) {
 
   <script>
   $(document).ready(function(){
-
   var $recherche =$('input[name=valeur]');
   var critere;
   $recherche.keyup(function(){
   critere = $.trim($recherche.val());
   if(critere!=''){
     $.get('gestionrechercheimageactivite.php?critere='+critere,function(retour){
-
   $('#resultat').html(retour).fadeIn();
-
   });
-
   }else $('#resultat').empty().fadeOut();
   });
   });
@@ -5063,41 +4329,28 @@ if ($uploadOk == 0) {
   <?php
   if(isset($_GET['action'])){
   if($_GET['action']=='delete'){
-
   $id=$_GET['id'];
   $selectnom = $db->query("SELECT * FROM carousel WHERE id='$id'");
   $rname = $selectnom->fetch(PDO::FETCH_OBJ);
   $valnom = $rname->image;
-
-
   $target_dir = '../../../JamFichiers/Img/ImagesDuSite/Original';
   $target_dirthumb = '../../../JamFichiers/Img/ImagesDuSite/Thumb';
-
-
-
-
   if (file_exists($target_dir)){
   unlink("$target_dir/$valnom");
   $updatedelete = $db->prepare("DELETE FROM carousel WHERE image=:image");
   $updatedelete->execute(array(
     "image"=>$valnom
-
   ));
   unlink("$target_dirthumb/$valnom");
   $succes = "Le fichier.$valnom. à bien été supprimé";
-
   }else{
-
   $error = 'Un problème de répertoire est présent, contacter votre administrateur !';
   }
-
-
   ?>
   <script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=activitesvoyages&table=activitesvoyages"</script>
   <?php
   }
   }
-
   ?>
 
 
@@ -5122,10 +4375,7 @@ if ($uploadOk == 0) {
   <?php
   //FIn Création
   }
-
 }else if ($_GET['page']=='galerie'){
-
-
 ?>
 <script>
 function RetourIndex(){
@@ -5134,7 +4384,6 @@ function RetourIndex(){
 </script>
   <?php
 //Modif page galerie
-
 ?>
 
 
@@ -5147,12 +4396,8 @@ $r43 = $selectinfosactuel43->fetch(PDO::FETCH_OBJ);
 $pagetitre = $r43->pagetitre;
 $image = $r43->image;
 $titre = $r43->titre;
-
-
 ?>
 <script>
-
-
 function SubmitFormDataGallerie() {
    var user_id = "<?php echo $_SESSION['admin_id']; ?>";
    var pagetitre = $("#pagetitre").val();
@@ -5160,11 +4405,8 @@ function SubmitFormDataGallerie() {
    $.post("ajax/modifypagegallerie.php", { user_id: user_id, pagetitre: pagetitre, titre: titre},
    function(data) {
     $('#results22').html(data);
-
    });
-
 }
-
 </script>
 
 
@@ -5172,7 +4414,6 @@ function SubmitFormDataGallerie() {
 <?php
 if(isset($_POST['modifphotogalerie'])){
       $target_dir = "../../../JamFichiers/Img/ImagesDuSite";
-
       $original = 'Original';
       if (file_exists($target_dir/$original)) {
         $target_dirnew = "$target_dir/$original/";
@@ -5180,7 +4421,6 @@ if(isset($_POST['modifphotogalerie'])){
         mkdir("$target_dir/$original", 0700);
         $target_dirnew = "$target_dir/$original/";
       }
-
       //Ajout thumb
       $thumb = 'Thumb';
       if (file_exists($target_dir/$thumb)) {
@@ -5190,9 +4430,7 @@ if(isset($_POST['modifphotogalerie'])){
         $target_dirnewthumb = "$target_dir/$thumb/";
       }
       //FIN
-
 $total = count($_FILES['fileToUpload']['name']);
-
 for( $i=0 ; $i < $total ; $i++ ) {
 $target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
 $uploadOk = 1;
@@ -5206,7 +4444,6 @@ if (file_exists($target_file)) {
 if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
     $error = 'Désolé, le fichier est trop grand.';
     $uploadOk = 0;
-
 }
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
@@ -5221,11 +4458,9 @@ if ($uploadOk == 0) {
   date_default_timezone_set('Europe/Paris');
   setlocale(LC_TIME, 'fr_FR.utf8','fra');
   $date = strftime('%d:%m:%y %H:%M:%S');
-
   $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
   $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
   $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
-
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
         $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
         $status = '1';
@@ -5247,12 +4482,8 @@ if ($uploadOk == 0) {
                             "date"=>$date
                             )
                         );
-
-
         $img_tmp = $target_dirnew.$target_filefile;
         $fin = $target_dirnewthumb.$target_filefile;
-
-
           //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
             $longueur = 300;
             $largeur = 220;
@@ -5282,15 +4513,10 @@ if ($uploadOk == 0) {
                             imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
                             imagepng($img_petite,$fin);
                         }
-
-
                 }
-
-
     }else {
         $error = 'Désolé, une erreur est survenue.';
     } } }
-
           } ?>
 
 
@@ -5387,12 +4613,8 @@ if ($uploadOk == 0) {
 
 
 <?php
-
 //Fin modif galerie
-
 }else if ($_GET['page']=='nouscontacter'){
-
-
 ?>
 <script>
 function RetourIndex(){
@@ -5401,7 +4623,6 @@ function RetourIndex(){
 </script>
   <?php
 //Modif page galerie
-
 ?>
 
 
@@ -5415,26 +4636,18 @@ $pagetitre = $r44->pagetitre;
 $image = $r44->image;
 $titre = $r44->titre;
 $description = $r44->description;
-
-
 ?>
 <script>
-
-
 function SubmitFormDataContactUs() {
    var user_id = "<?php echo $_SESSION['admin_id']; ?>";
    var pagetitre = $("#pagetitre").val();
    var titre = $("#titre").val();
    var description = $("#description").val();
-
    $.post("ajax/modifypagecontactus.php", { user_id: user_id, pagetitre: pagetitre, titre: titre, description: description},
    function(data) {
     $('#results22').html(data);
-
    });
-
 }
-
 </script>
 
 
@@ -5442,7 +4655,6 @@ function SubmitFormDataContactUs() {
 <?php
 if(isset($_POST['modifphotocontacteznous'])){
       $target_dir = "../../../JamFichiers/Img/ImagesDuSite";
-
       $original = 'Original';
       if (file_exists($target_dir/$original)) {
         $target_dirnew = "$target_dir/$original/";
@@ -5450,7 +4662,6 @@ if(isset($_POST['modifphotocontacteznous'])){
         mkdir("$target_dir/$original", 0700);
         $target_dirnew = "$target_dir/$original/";
       }
-
       //Ajout thumb
       $thumb = 'Thumb';
       if (file_exists($target_dir/$thumb)) {
@@ -5460,9 +4671,7 @@ if(isset($_POST['modifphotocontacteznous'])){
         $target_dirnewthumb = "$target_dir/$thumb/";
       }
       //FIN
-
 $total = count($_FILES['fileToUpload']['name']);
-
 for( $i=0 ; $i < $total ; $i++ ) {
 $target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
 $uploadOk = 1;
@@ -5476,7 +4685,6 @@ if (file_exists($target_file)) {
 if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
     $error = 'Désolé, le fichier est trop grand.';
     $uploadOk = 0;
-
 }
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
@@ -5491,11 +4699,9 @@ if ($uploadOk == 0) {
   date_default_timezone_set('Europe/Paris');
   setlocale(LC_TIME, 'fr_FR.utf8','fra');
   $date = strftime('%d:%m:%y %H:%M:%S');
-
   $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
   $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
   $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
-
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
         $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
         $status = '1';
@@ -5517,13 +4723,8 @@ if ($uploadOk == 0) {
                             "date"=>$date
                             )
                         );
-
-
-
         $img_tmp = $target_dirnew.$target_filefile;
         $fin = $target_dirnewthumb.$target_filefile;
-
-
           //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
             $longueur = 300;
             $largeur = 220;
@@ -5553,11 +4754,7 @@ if ($uploadOk == 0) {
                             imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
                             imagepng($img_petite,$fin);
                         }
-
-
                 }
-
-
     }else {
         $error = 'Désolé, une erreur est survenue.';
     } } } } ?>
@@ -5632,13 +4829,9 @@ if ($uploadOk == 0) {
           </div>
 
 <?php
-
 //Fin modif contactez nous
-
 }else if ($_GET['page']=='faireundon'){
-
 //Modif page faire un don
-
 ?>
 
 
@@ -5652,33 +4845,25 @@ $pagetitre = $r45->pagetitre;
 $image = $r45->image;
 $titre = $r45->titre;
 $description = $r45->description;
-
 ?>
 
 <script>
-
-
 function SubmitFormDataFaireUnDon() {
    var user_id = "<?php echo $_SESSION['admin_id']; ?>";
    var pagetitre = $("#pagetitre").val();
    var titre = $("#titre").val();
    var description = $("#description").val();
-
    $.post("ajax/modifypagefaireundon.php", { user_id: user_id, pagetitre: pagetitre, titre: titre, description: description},
    function(data) {
     $('#results23').html(data);
-
    });
-
 }
-
 </script>
 
 <!-- Ajoutd'images au site web (assets)-->
 <?php
 if(isset($_POST['modifpagedon'])){
       $target_dir = "../../../JamFichiers/Img/ImagesDuSite";
-
       $original = 'Original';
       if (file_exists($target_dir/$original)) {
         $target_dirnew = "$target_dir/$original/";
@@ -5686,7 +4871,6 @@ if(isset($_POST['modifpagedon'])){
         mkdir("$target_dir/$original", 0700);
         $target_dirnew = "$target_dir/$original/";
       }
-
       //Ajout thumb
       $thumb = 'Thumb';
       if (file_exists($target_dir/$thumb)) {
@@ -5696,9 +4880,7 @@ if(isset($_POST['modifpagedon'])){
         $target_dirnewthumb = "$target_dir/$thumb/";
       }
       //FIN
-
 $total = count($_FILES['fileToUpload']['name']);
-
 for( $i=0 ; $i < $total ; $i++ ) {
 $target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
 $uploadOk = 1;
@@ -5712,7 +4894,6 @@ if (file_exists($target_file)) {
 if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
     $error = 'Désolé, le fichier est trop grand.';
     $uploadOk = 0;
-
 }
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
@@ -5727,11 +4908,9 @@ if ($uploadOk == 0) {
   date_default_timezone_set('Europe/Paris');
   setlocale(LC_TIME, 'fr_FR.utf8','fra');
   $date = strftime('%d:%m:%y %H:%M:%S');
-
   $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
   $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
   $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
-
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
         $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
         $status = '1';
@@ -5753,12 +4932,8 @@ if ($uploadOk == 0) {
                             "date"=>$date
                             )
                         );
-
-
         $img_tmp = $target_dirnew.$target_filefile;
         $fin = $target_dirnewthumb.$target_filefile;
-
-
           //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
             $longueur = 300;
             $largeur = 220;
@@ -5788,15 +4963,10 @@ if ($uploadOk == 0) {
                             imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
                             imagepng($img_petite,$fin);
                         }
-
-
                 }
-
-
     }else {
         $error = 'Désolé, une erreur est survenue.';
     } } }
-
           } ?>
 
 
@@ -5869,7 +5039,6 @@ if ($uploadOk == 0) {
 <?php
 if(isset($_POST['modifpagedonpaiement'])){
       $target_dir = "../../../JamFichiers/Img/ImagesDuSite";
-
       $original = 'Original';
       if (file_exists($target_dir/$original)) {
         $target_dirnew = "$target_dir/$original/";
@@ -5877,7 +5046,6 @@ if(isset($_POST['modifpagedonpaiement'])){
         mkdir("$target_dir/$original", 0700);
         $target_dirnew = "$target_dir/$original/";
       }
-
       //Ajout thumb
       $thumb = 'Thumb';
       if (file_exists($target_dir/$thumb)) {
@@ -5887,9 +5055,7 @@ if(isset($_POST['modifpagedonpaiement'])){
         $target_dirnewthumb = "$target_dir/$thumb/";
       }
       //FIN
-
 $total = count($_FILES['fileToUpload']['name']);
-
 for( $i=0 ; $i < $total ; $i++ ) {
 $target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
 $uploadOk = 1;
@@ -5903,7 +5069,6 @@ if (file_exists($target_file)) {
 if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
     $error = 'Désolé, le fichier est trop grand.';
     $uploadOk = 0;
-
 }
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
@@ -5918,11 +5083,9 @@ if ($uploadOk == 0) {
   date_default_timezone_set('Europe/Paris');
   setlocale(LC_TIME, 'fr_FR.utf8','fra');
   $date = strftime('%d:%m:%y %H:%M:%S');
-
   $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
   $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
   $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
-
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
         $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
         $status = '1';
@@ -5935,7 +5098,6 @@ if ($uploadOk == 0) {
         date_default_timezone_set('Europe/Paris');
         setlocale(LC_TIME, 'fr_FR.utf8','fra');
         $date = strftime('%d/%m/%Y %H:%M:%S');
-
         $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
         $insertlogs->execute(array(
                             "user_id"=>$user_id,
@@ -5945,12 +5107,8 @@ if ($uploadOk == 0) {
                             "date"=>$date
                             )
                         );
-
-
         $img_tmp = $target_dirnew.$target_filefile;
         $fin = $target_dirnewthumb.$target_filefile;
-
-
           //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
             $longueur = 300;
             $largeur = 220;
@@ -5980,23 +5138,12 @@ if ($uploadOk == 0) {
                             imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
                             imagepng($img_petite,$fin);
                         }
-
-
                 }
-
-
     }else {
         $error = 'Désolé, une erreur est survenue.';
     } } }
-
           }
-
-
           //Modif page faire un don paiement
-
-
-
-
           $selectinfosactuel462 = $db->prepare("SELECT * from photopage where nompage=:nompage");
           $selectinfosactuel462->execute(array(
             "nompage"=>'Faire un don paiement'
@@ -6006,28 +5153,20 @@ if ($uploadOk == 0) {
           $image2 = $r462->image;
           $titre2 = $r462->titre;
           $description2 = $r462->description;
-
-
           ?>
 
 
           <script>
-
-
           function SubmitFormDataFaireUnDonPaiement() {
              var user_id = "<?php echo $_SESSION['admin_id']; ?>";
              var pagetitre2 = $("#pagetitre2").val();
              var titre2 = $("#titre2").val();
              var description2 = $("#description2").val();
-
              $.post("ajax/modifypagefaireundonpaiement.php", { user_id: user_id, pagetitre2: pagetitre2, titre2: titre2, description2: description2},
              function(data) {
               $('#results44').html(data);
-
              });
-
           }
-
           </script>
 
 
@@ -6109,31 +5248,24 @@ if ($uploadOk == 0) {
 
   <?php
   if(isset($_GET['modiflien'])){
-
-
   ?>
 
 
     <?php
     $id = $_GET['modiflien'];
-
     $selectinfosactuel = $db->prepare("SELECT * from lienutiles where id=:id");
     $selectinfosactuel->execute(array(
         "id"=>$id
         )
     );
     $r2 = $selectinfosactuel->fetch(PDO::FETCH_OBJ);
-
     $nom = $r2->name;
     $lienimage = $r2->lienimage;
     $lien = $r2->lien;
     $description = $r2->description;
-
   ?>
 
   <script>
-
-
   function SubmitFormDataModifLiens() {
     var user_id = "<?php echo $_SESSION['admin_id']; ?>";
     var id = "<?php echo $id; ?>";
@@ -6144,11 +5276,8 @@ if ($uploadOk == 0) {
     $.post("ajax/modifypagelien.php", { user_id: user_id, id: id, nom: nom, lienimage: lienimage, lien: lien, description: description},
     function(data) {
      $('#results6').html(data);
-
     });
-
   }
-
   </script>
 
   <div class="content">
@@ -6203,9 +5332,6 @@ if ($uploadOk == 0) {
       </div>
 
   <?php }else{
-
-
-
     $selectinfosactuel2 = $db->prepare("SELECT * from photopage where nompage=:nompage");
     $selectinfosactuel2->execute(array(
       "nompage"=>'Liens Utiles'
@@ -6219,8 +5345,6 @@ if ($uploadOk == 0) {
 
 
   <script>
-
-
    function TOTO() {
       var user_id = "<?php echo $_SESSION['admin_id']; ?>";
       var nom = $("#nom").val();
@@ -6228,36 +5352,26 @@ if ($uploadOk == 0) {
       var lienimage = $("#lienimage").val();
       var lien = $("#lien").val();
       var catlien = $("#catlien").val();
-
       $.post("ajax/createliensutiles.php", { user_id: user_id, nom: nom, description: description, lienimage: lienimage, lien: lien, catlien: catlien},
       function(data) {
        $('#results33').html(data);
-
       });
-
   }
-
-
-
    function SubmitFormDataPageLiensUtiles2() {
       var user_id = "<?php echo $_SESSION['admin_id']; ?>";
       var titre = $("#titre").val();
       var pagetitre = $("#pagetitre").val();
-
       $.post("ajax/modifylienutiles.php", { user_id: user_id, titre: titre, pagetitre: pagetitre},
       function(data) {
        $('#results83').html(data);
       });
   }
-
-
   </script>
 
   <!-- Ajoutd'images au site web (assets)-->
   <?php
   if(isset($_POST['envoieimagelienutiles'])){
         $target_dir = "../../../JamFichiers/Img/ImagesDuSite";
-
         $original = 'Original';
         if (file_exists($target_dir/$original)) {
           $target_dirnew = "$target_dir/$original/";
@@ -6265,7 +5379,6 @@ if ($uploadOk == 0) {
           mkdir("$target_dir/$original", 0700);
           $target_dirnew = "$target_dir/$original/";
         }
-
         //Ajout thumb
         $thumb = 'Thumb';
         if (file_exists($target_dir/$thumb)) {
@@ -6275,9 +5388,7 @@ if ($uploadOk == 0) {
           $target_dirnewthumb = "$target_dir/$thumb/";
         }
         //FIN
-
   $total = count($_FILES['fileToUpload']['name']);
-
   for( $i=0 ; $i < $total ; $i++ ) {
   $target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
   $uploadOk = 1;
@@ -6291,7 +5402,6 @@ if ($uploadOk == 0) {
   if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
       $error = 'Désolé, le fichier est trop grand.';
       $uploadOk = 0;
-
   }
   // Allow certain file formats
   if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
@@ -6306,16 +5416,12 @@ if ($uploadOk == 0) {
     date_default_timezone_set('Europe/Paris');
     setlocale(LC_TIME, 'fr_FR.utf8','fra');
     $date = strftime('%d:%m:%y %H:%M:%S');
-
     $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
     $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
     $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
-
       if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
           $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
           $status = '1';
-
-
           $update2 = $db->prepare("UPDATE photopage SET image=:image WHERE nompage=:nompage");
           $update2->execute(array(
               "nompage"=>'Liens Utiles',
@@ -6334,13 +5440,8 @@ if ($uploadOk == 0) {
                               "date"=>$date
                               )
                           );
-
-
-
           $img_tmp = $target_dirnew.$target_filefile;
           $fin = $target_dirnewthumb.$target_filefile;
-
-
             //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
               $longueur = 300;
               $largeur = 220;
@@ -6371,11 +5472,9 @@ if ($uploadOk == 0) {
                               imagepng($img_petite,$fin);
                           }
                   }
-
       }else {
           $error = 'Désolé, une erreur est survenue.';
       } } }
-
             } ?>
 
 
@@ -6462,7 +5561,6 @@ if ($uploadOk == 0) {
                   <div class="col-sm-6">
                       <div class="card-content">
                         Sélectionner la catégorie<br><?php
-
                         $selectliencat=$db->query("SELECT namecat FROM catliensutiles");
                         ?>
 
@@ -6470,7 +5568,6 @@ if ($uploadOk == 0) {
                           <?php
                             while($sa = $selectliencat->fetch(PDO::FETCH_OBJ)){
                               $catlien=$sa->namecat;
-
                               ?>
                             <option value="<?php echo $catlien;?>"><?php echo $catlien; ?></option>
                           <?php
@@ -6522,34 +5619,23 @@ if ($uploadOk == 0) {
 
 
   <?php
-
   if(isset($_GET['deletelien'])){
-
     $id = $_GET['deletelien'];
-
-
     $updatedelete = $db->prepare("DELETE FROM lienutiles WHERE id=:id");
     $updatedelete->execute(array(
       "id"=>$id
-
     ));
-
     $succes = "Le lien utile à bien été supprimé";
   ?>
     <script>
       window.location="https://administration.jam-mdm.fr/liensutiles.php"
     </script>
   <?php
-
   }
-
       $selectnom = $db->prepare("SELECT * FROM lienutiles ORDER BY id ASC");
       $selectnom->execute();
-
-
       $table = $selectnom->fetchAll(PDO::FETCH_OBJ);
       if(count($table)>0){
-
         echo '
         <div class="table-responsive">
           <table class="table">
@@ -6561,7 +5647,6 @@ if ($uploadOk == 0) {
             </thead>
             <tbody>
         ';
-
         foreach($table as $ligne){
           $id = $ligne->id;
           $slug = $ligne->slug;
@@ -6569,7 +5654,6 @@ if ($uploadOk == 0) {
           $description = $ligne->description;
           $lienimage = $ligne->lienimage;
           $lien = $ligne->lien;
-
           echo '
           <tr>
             <td class="text-center">'.$slug.'</td>
@@ -6581,19 +5665,15 @@ if ($uploadOk == 0) {
             </td>
           </tr>
           ';
-
         }
-
         echo '
         </tbody>
       </table>
     </div>
         ';
-
       }else{
         $error = "Aucun lien utile trouvé";
       }
-
       ?>
 
 
@@ -6605,27 +5685,8 @@ if ($uploadOk == 0) {
   </div>
 
   <?php
-
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
-
-
-
-
  } ?>
 
   </div>
