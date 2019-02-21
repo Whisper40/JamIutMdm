@@ -1,4 +1,5 @@
 <?php
-$output = shell_exec('updatesite');
-sleep(4);
+sleep(1);
+$output = shell_exec('updateimage');
+sleep(1);
 ?>
