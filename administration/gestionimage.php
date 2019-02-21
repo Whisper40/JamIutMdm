@@ -2,6 +2,8 @@
     require_once('includes/connectBDD.php');
     require_once('includes/checkconnection.php');
     $nompage = "Gestion des images";
+    require_once('includes/head.php');
+
 
 //Code de génératon du captcha fournie par GOOGLE
 $secret = "LESECRET";
