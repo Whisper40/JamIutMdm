@@ -1,8 +1,8 @@
 <?php
     require_once('includes/connectBDD.php');
     require_once('includes/checkconnection.php');
-      require_once('includes/head.php');
-    $nompage = "Nous Contacter";
+    require_once('includes/head.php');
+    $nompage = "Création Membre";
     ini_set('display_errors', 1);
     $user_id = $_SESSION['admin_id'];
     date_default_timezone_set('Europe/Paris');
@@ -13,21 +13,13 @@
 $secret = "LESECRET";
 $sitekey = "LESITEKEY";
 
-
 $valeurcode = mt_rand(1000, 999999);
- ?>
+?>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src='https://www.google.com/recaptcha/api.js'></script>
 
 <script>
-
-
-
-
-
-
-
-
 function SubmitFormDataCreerUnMembre() {
    var user_id = "<?php echo $_SESSION['admin_id']; ?>";
    var nom = $("#nom").val();
@@ -43,9 +35,13 @@ function SubmitFormDataCreerUnMembre() {
 }
 </script>
 
+<body>
+    <div class="wrapper">
 
-<body class="landing-page sidebar-collapse">
-  <div class="wrapper">
+      <?php
+      require_once('includes/navbar.php');
+      ?>
+
     <div class="content">
         <div class="container-fluid">
             <div class="card">
@@ -57,51 +53,56 @@ function SubmitFormDataCreerUnMembre() {
                             <div class="card-content">
                               <div class="form-group label-floating">
                                   <label class="control-label">Nom</label>
-                                  <input type="text" class="form-control" value="Dupont" name="nom" id="nom">
+                                  <input type="text" class="form-control" name="nom" id="nom">
                               </div>
                               <div class="form-group label-floating">
                                   <label class="control-label">Prénom</label>
-                                  <input type="text" name="prenom" value="Pierre" id="prenom" class="form-control">
+                                  <input type="text" name="prenom" id="prenom" class="form-control">
                               </div>
-
-                            <div class="form-group label-floating">
-                            <label class="control-label">Code</label>
-                            <p> <?php echo $valeurcode; ?></p>
+                              <div class="form-group label-floating">
+                                  <label class="control-label">Code</label>
+                                  <p> <?php echo $valeurcode; ?></p>
+                              </div>
+                              <div class="form-group label-floating">
+                                  <label class="control-label">Email</label>
+                                  <input type="email" name="email" id="email" class="form-control">
+                              </div>
+                              <div class="form-group label-floating">
+                                  <label class="control-label">Raison</label>
+                                  <input type="text" name="raison" id="raison" class="form-control">
+                              </div>
                             </div>
-
-
-                            <div class="form-group label-floating">
-                                <label class="control-label">Email</label>
-                                <input type="email" name="email" value="monemail@hotmail.fr" id="email" class="form-control">
-                            </div>
-
-                            <div class="form-group label-floating">
-                            <label class="control-label">Raison</label>
-                            <input type="text" name="raison" value="Ancien étudiant de Mdm" id="raison" class="form-control">
-                            </div>
-
-                             </div>
                           </div>
-
-                        <div class="col-sm-12">
+                          <div class="col-sm-6">
                             <div class="card-content">
-
                               <center>
-                              <button id="submitFormDataCreerUnMembre" onclick="SubmitFormDataCreerUnMembre();" type="button" class="btn btn-primary btn-round btn-rose">Créer</button>
+                                <h3 class="card-title">Annuler sa Participation</h3>
                               </center>
-                             </div>
+                              <div class="info info-horizontal">
+                                <div class="description">
+                                  <center>
+                                     <h4 class="info-title">Ce formulaire vous permet de créée un compte pour une personne externe aux étudiant de luniversité de Mont de Marsan</h4>
+                                  </center>
+                                </div>
+                              </div>
+                            </div>
                           </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-12">
+                            <div class="card-content">
+                              <center>
+                                <button id="submitFormDataCreerUnMembre" onclick="SubmitFormDataCreerUnMembre();" type="button" class="btn btn-primary btn-round btn-rose">Créer</button>
+                              </center>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
                     </div>
-                  </form>
+                    <div id="results23"></div>
+                  </div>
                 </div>
-            </div>
-        </div>
-
-     <div id="results23"> <!-- TRES IMPORTANT -->
-    </div>
-    </div>
-
-
+              </div>
 
   </div>
 </body>

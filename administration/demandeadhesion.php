@@ -338,7 +338,7 @@ if($countid2>'0'){
               <div class="row">
                 <div class="col-sm-12">
                   <div class="card-content">
-                    <h3 class="card-title">paiement en attente de validation</h3>
+                    <h3 class="card-title">Paiement en attente de validation</h3>
                   </div>
                 </div>
               </div>
