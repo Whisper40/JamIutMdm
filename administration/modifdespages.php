@@ -14,6 +14,7 @@ $sitekey = "LESITEKEY";
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src='https://www.google.com/recaptcha/api.js'></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 <script>
 function RetourIndex(){
   window.location="https://administration.jam-mdm.fr/modifdespages.php"
@@ -122,7 +123,7 @@ function fuck(){
 
 Toast.fire({
   type: 'success',
-  title: 'Signed in successfully'
+  title: 'Modification '
 })
 
 }
