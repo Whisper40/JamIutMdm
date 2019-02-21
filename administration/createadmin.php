@@ -2,8 +2,8 @@
     require_once('includes/connectBDD.php');
     require_once('includes/checkconnection.php');
     require_once('includes/checksupreme.php');
-      require_once('includes/head.php');
-    $nompage = "Nous Contacter";
+    require_once('includes/head.php');
+    $nompage = "Création d'admin";
     ini_set('display_errors', 1);
     $user_id = $_SESSION['admin_id'];
     date_default_timezone_set('Europe/Paris');
@@ -13,21 +13,12 @@
 //Code de génératon du captcha fournie par GOOGLE
 $secret = "LESECRET";
 $sitekey = "LESITEKEY";
+?>
 
-
- ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src='https://www.google.com/recaptcha/api.js'></script>
 
 <script>
-
-
-
-
-
-
-
-
 function SubmitFormDataCreerUnAdmin() {
    var user_id = "<?php echo $_SESSION['admin_id']; ?>";
    var nom = $("#nom").val();
@@ -43,8 +34,13 @@ function SubmitFormDataCreerUnAdmin() {
 </script>
 
 
-<body class="landing-page sidebar-collapse">
+<body>
   <div class="wrapper">
+
+    <?php
+    require_once('includes/navbar.php');
+    ?>
+
     <div class="content">
         <div class="container-fluid">
             <div class="card">
@@ -58,25 +54,19 @@ function SubmitFormDataCreerUnAdmin() {
                                   <label class="control-label">Nom</label>
                                   <input type="text" class="form-control" value="Dupont" name="nom" id="nom">
                               </div>
-
-
-
                             <div class="form-group label-floating">
                                 <label class="control-label">Email</label>
                                 <input type="email" name="email" value="monemail@hotmail.fr" id="email" class="form-control">
                             </div>
-
                             <div class="form-group label-floating">
                                 <label class="control-label">Mot de Passe</label>
                                 <input type="text" name="password" value="Mot de Passe" id="password" class="form-control">
                             </div>
-
                             <select name="grade" id="grade">
                             <option value="NORMAL">Sélectionner son grade</option>
                             <option value="NORMAL">NORMAL</option>
                             <option value="SUPREME">SUPREME</option>
                             </select>
-
                              </div>
                           </div>
 
