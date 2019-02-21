@@ -104,7 +104,10 @@ txtarea.scrollTop = scrollPos;
 if(isset($messagenotif)){
       $messagenotif=$_GET['messagenotif'];
       $type = "warning";
-      if ($messagenotif != "") { ?>
+      echo '0';
+      if ($messagenotif != "") {
+        echo '1';
+         ?>
 
         <script>
 
