@@ -1,4 +1,4 @@
 <?php
 $output = shell_exec('updatesite');
-sleep(2);
+sleep(4);
 ?>
