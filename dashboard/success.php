@@ -19,27 +19,26 @@
                         <h2 class="card-title text-center">Félicitations tu es membre de l'association !</h2>
                         <br>
                         <div class="row">
-                          <div class="col-sm-6">
-                            <div class="card-content">
-                              <br><br>
-                              <center>
-                                  <h4 class="card-title">
-                                      Tes document ont été validés ! Ta cotisation a été payé !<br><br>
-                                      Tu es à présent membre et tu peux par concéquent t'inscrire et participer à toute les soirées, activités et voyages organisés par l'association.<br><br>
-                                      Bonne année à toi !
-                                  </h4>
-                              </center>
-                            </div>
-                          </div>
-
                             <div class="col-sm-6">
                                 <div class="card-content">
-                                  <br><br>
+                                <br><br>
+                                    <center>
+                                        <h4 class="card-title">
+                                            Tes document ont été validés ! Ta cotisation a été payé !<br><br>
+                                            Tu es à présent membre et tu peux par concéquent t'inscrire et participer à toute les soirées, activités et voyages organisés par l'association.<br><br>
+                                            Bonne année à toi !
+                                        </h4>
+                                    </center>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="card-content">
+                                    <br><br>
 
-                                  <?php
-                                  $ind = $db->query("SELECT * FROM pageindex");
-                                  $index = $ind->fetch(PDO::FETCH_OBJ);
-                                   ?>
+                                    <?php
+                                    $ind = $db->query("SELECT * FROM pageindex");
+                                    $index = $ind->fetch(PDO::FETCH_OBJ);
+                                    ?>
 
 
                                     <div class="card-image" data-header-animation="false">
@@ -47,8 +46,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <br><br><br>
                         </div>
+                        <br><br><br>
                     </div>
                 </div>
             </div>
