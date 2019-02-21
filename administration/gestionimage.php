@@ -288,46 +288,80 @@ removeDirectory("$target_dir/$thumb/$dossier");
 $selectcatimages=$db->query("SELECT DISTINCT title FROM images");
 
   ?>
-
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="card-content">
+              <h3 class="card-title">Gestion des albums</h3>
+            </div>
+          </div>
+        </div>
          <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-             Sélectionner l'album<br>
-             <select name="catimage">
-               <?php
-                 while($s = $selectcatimages->fetch(PDO::FETCH_OBJ)){
-                   $catimage=$s->title;
-                   ?>
-                 <option value="<?php echo $catimage;?>"><?php echo $catimage; ?></option>
-               <?php
-             }
-             ?>
-
-
-             </select>
-
+           <div class="row">
+             <div class="col-sm-4">
+                <div class="card-content">
+                  <center>
+                    <h3 class="card-title">Création d'un membre</h3>
+                  </center>
+                  <div class="info info-horizontal">
+                    <div class="description">
+                      <center>
+                        <h4 class="info-title">Ce formulaire vous permet de créée un code unique pour une personne externe aux étudiant de l'université de Mont de Marsan. Ce code lui sera envoyé par mail et lui permettra de remplir le formulaired'inscription</h4>
+                      </center>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                 <div class="card-content">
+                   <center>
+                     <h3 class="card-title">Sélectionner l'album</h3>
+                   </center>
+                   <div class="jquerysel">
+                     <select class="selectpicker" data-style="select-with-transition" title="Fonction" data-size="7" id="grademembre" name="grademembre">
+                       <?php
+                         while($s = $selectcatimages->fetch(PDO::FETCH_OBJ)){
+                           $catimage=$s->title;
+                        ?>
+                        <option value="<?php echo $catimage;?>"><?php echo $catimage; ?></option>
+                       <?php } ?>
+                     </select>
+                   </div>
+                 </div>
+               </div>
+               <div class="col-sm-4">
+                 <div class="card-content">
+                    <div class="col-sm-5 checkbox-radios">
+                      <label class="control-label">Action :</label>
+                       <div class="radio">
+                           <label>
+                               <input type="radio" name="optionsRadios" checked="true" value="defaut"> Définir par défaut
+                           </label>
+                       </div>
+                       <div class="radio">
+                           <label>
+                               <input type="radio" name="optionsRadios" value="ban"> Désactiver
+                           </label>
+                       </div>
+                       <div class="radio">
+                           <label>
+                               <input type="radio" name="optionsRadios" value="delete"> Supprimer
+                           </label>
+                       </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
              <div class="row">
-                                               <label class="col-sm-2 label-on-left">Action :</label>
-                                               <div class="col-sm-10">
-                                                   <div class="radio">
-                                                       <label>
-                                                           <input type="radio" name="optionsRadios" checked="true" value="defaut"> Définir par défaut
-                                                       </label>
-                                                   </div>
-                                                   <div class="radio">
-                                                       <label>
-                                                           <input type="radio" name="optionsRadios" value="ban"> Désactiver
-                                                       </label>
-                                                   </div>
-                                                   <div class="radio">
-                                                       <label>
-                                                           <input type="radio" name="optionsRadios" value="delete"> Supprimer
-                                                       </label>
-                                                   </div>
-                                               </div>
-                                           </div>
-
-
-             <input type="submit" name="submit" value="Valider">
-         </form>
+               <div class="col-sm-12">
+                 <div class="card-content">
+                   <center>
+                     <button type="submit" name="submit" class="btn btn-primary btn-round btn-rose">Valider</button>
+                   </center>
+                   <br>
+                 </div>
+               </div>
+             </div>
+           </form>
 
 
 
