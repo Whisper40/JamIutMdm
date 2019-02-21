@@ -102,46 +102,18 @@ txtarea.scrollTop = scrollPos;
 
     if($_GET['page']=='index'){
 
-if(isset($_GET['messagenotif'])){
+if(isset($_GET['messagenotif']) && ($_GET['typedenotif'])){
       $messagenotif=$_GET['messagenotif'];
-      $type = "warning";
-
-      if ($messagenotif != "") {
-
-
-?>
-
-<script type="text/javascript">
-
-function fuck(){
-  const Toast = Swal.mixin({
-  toast: true,
-  position: 'top-end',
-  showConfirmButton: false,
-  timer: 3000
-});
-
-Toast.fire({
-  type: 'success',
-  title: 'Modification '
-})
-
-}
-
-window.onload=fuck;
-</script>
-
-
-
+      $typedenotif =$_GET['typedenotif'];
+      ?>
+      <script type="text/javascript">
+          function EnvoieDeLaNotif(){
+              demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $typedenotif ?>');
+            }
+            window.onload=EnvoieDeLaNotif; //Execution
+      </script>
 <?php
-       }
 }
-
-
-
-
-
-
 
 
       $table = $_GET['table'];
@@ -576,7 +548,7 @@ if ($uploadOk == 0) {
                                     require('includes/miseajourdusite.php');
                                     ?>
                                     <script>
-                                    window.location.replace("https://administration.jam-mdm.fr/modifdespages.php?page=index&table=pageindex&messagenotif=succes");
+                                    window.location.replace("https://administration.jam-mdm.fr/modifdespages.php?page=index&table=pageindex&typedenotif=success&messagenotif=Les modifications ont étés effectués");
                                     </script>
                                     <?php
 
