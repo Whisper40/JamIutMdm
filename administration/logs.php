@@ -5,7 +5,7 @@ require_once('includes/checkconnection.php');
 require_once('includes/checksupreme.php');
 $nompage = "Logs";
 require_once('includes/head.php');
-ini_set('display_errors', 1);
+
 $user_id = $_SESSION['admin_id'];
 ?>
 
@@ -39,7 +39,6 @@ $user_id = $_SESSION['admin_id'];
             "user_id"=>$user_id
           ));
           $s3=$selectusername->fetch(PDO::FETCH_OBJ);
-
           $nom=$s3->username;
           $type=$s2->type;
           $action=$s2->action;
