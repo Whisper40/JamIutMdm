@@ -38,8 +38,9 @@ $user_id = $_SESSION['admin_id'];
           $selectusername->execute(array(
             "user_id"=>$user_id
           ));
+          $s3=$selectusername->fetch(PDO::FETCH_OBJ);
 
-          $nom=$s2->nom;
+          $nom=$s3->username;
           $type=$s2->type;
           $action=$s2->action;
           $page=$s2->page;
