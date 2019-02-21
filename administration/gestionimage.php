@@ -184,15 +184,13 @@ echo 'esquive';
                     </table>
                   </div>
 
-                  <?php
-                 }else{
-                   ?>
+                  <?php }else{?>
+                    
                    <center>
                       <h4 class="info-title"><font color="red">Aucun image n'est actuellement bannie</font></h4>
-                    </center>
-                   <?php
-                 }
-                  ?>
+                  </center>
+
+                  <?php } ?>
 
                 </div>
               </div>
