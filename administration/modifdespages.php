@@ -212,7 +212,7 @@ if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
     ?>
     <script>
-    TITI(okbro);
+  window.location.replace("https://administration.jam-mdm.fr/modifdespages.php?page=index&table=pageindex&typedenotif=success&messagenotif=ok");
     </script>
     <?php
     $uploadOk = 0;
