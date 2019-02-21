@@ -75,6 +75,7 @@ function SubmitFormDataCreerUnMembre() {
                           </div>
                           <div class="col-sm-6">
                             <div class="card-content">
+                              <br><br>
                               <center>
                                 <h3 class="card-title">Création d'un membre</h3>
                               </center>
@@ -92,7 +93,7 @@ function SubmitFormDataCreerUnMembre() {
                           <div class="col-sm-12">
                             <div class="card-content">
                               <center>
-                                <button id="submitFormDataCreerUnMembre" onclick="SubmitFormDataCreerUnMembre();" type="button" class="btn btn-primary btn-round btn-rose">Créer</button>
+                                <button id="submitFormDataCreerUnMembre" onclick="SubmitFormDataCreerUnMembre();" type="button" class="btn btn-primary btn-round btn-rose">Créer un membre</button>
                               </center>
                             </div>
                           </div>
@@ -106,6 +107,7 @@ function SubmitFormDataCreerUnMembre() {
 
   </div>
 </body>
+
 <?php
 require_once('includes/javascript.php');
 ?>
