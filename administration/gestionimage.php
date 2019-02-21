@@ -1,15 +1,16 @@
 <?php
     require_once('includes/connectBDD.php');
     require_once('includes/checkconnection.php');
-    $nompage = "Gestion des images";
+    $nompage = "Gestion des images et albums";
     require_once('includes/head.php');
-
 
 //Code de génératon du captcha fournie par GOOGLE
 $secret = "LESECRET";
 $sitekey = "LESITEKEY";
 ?>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 <style>
 .page-header .page-header-image {
   position: absolute;
@@ -40,7 +41,9 @@ $sitekey = "LESITEKEY";
   background: #FFFFFF;
 }
 </style>
+
 <script src='https://www.google.com/recaptcha/api.js'></script>
+
 <script>
 $(document).ready(function(){
 
