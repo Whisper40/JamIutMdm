@@ -58,15 +58,12 @@ $('#resultat').html(retour).fadeIn();
 });
 </script>
 
-
-
-
-
-
-
-<body class="landing-page sidebar-collapse">
+<body>
   <div class="wrapper">
+
 <?php
+
+    require_once('includes/navbar.php');
 
 if($_GET['action']=='unban'){
 
@@ -117,23 +114,11 @@ echo 'esquive';
 ?>
 <script>window.location="https://administration.jam-mdm.fr/gestionimage.php"</script>
 <?php
-}
+} ?>
 
-    require_once('includes/navbar.php');
 
-    $head = $db->query("SELECT * FROM photopage WHERE nompage = '$nompage'");
-    $pagehead = $head->fetch(PDO::FETCH_OBJ);
-?>
 
-    <div class="page-header page-header-small">
-      <div class="page-header-image" data-parallax="true" style="background-image: url('./assets/img/<?php echo $pagehead->image; ?>');">
-      </div>
-      <div class="content-center">
-        <div class="container">
-          <h1 class="title"><?php echo $pagehead->pagetitre; ?></h1>
-        </div>
-      </div>
-    </div>
+
 
     <?php
 
