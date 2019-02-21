@@ -24,7 +24,7 @@
                                     <div class="info info-horizontal">
                                         <div class="description">
                                             <center>
-                                                <h4 class="card-title"><font color="blue">
+                                                <h4 class="card-title"><font color="green">
                                                     Tes document ont été validés !<br>
                                                     Ta cotisation a été payé !<br>
                                                     Tu es à présent membre et tu peux par concéquent t'inscrire et participer à toute les soirée, activités et voyages organisés par l'association.<br>
