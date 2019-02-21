@@ -169,17 +169,33 @@ if($_GET['action']=='gestionfichier'){
             </div>
           </div>
 
-        <?php } ?>
+          <?php } ?>
 
-
-        <td class="text-center">
-          <button onclick="demo.showSwal('givepaiementaccess','<?php echo $user_id; ?>','<?php echo $_GET['id']; ?>')" type="button" class="btn btn-primary btn-round btn-rose">Confirmer le dossier et autoriser le paiement</button>
-
-        </td>
-        <div id="results28"> <!-- TRES IMPORTANT -->
-        </div>
-        <div id="results29"> <!-- TRES IMPORTANT -->
-        </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="card-content">
+                <h3 class="card-title">Documents en attente de validation</h3>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="card-content">
+                <center>
+                  <h4 class="card-title">En cliquant sur ce bouton je confirme que le dossier est complé et j'autorise le paiement</h4>
+                </center>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="card-content">
+                <center>
+                  <button onclick="demo.showSwal('givepaiementaccess','<?php echo $user_id; ?>','<?php echo $_GET['id']; ?>')" type="button" class="btn btn-primary btn-round btn-rose">Confirmer le dossier et autoriser le paiement</button>
+                </center>
+              </div>
+            </div>
+          </div>
+          <div id="results28"></div>
+          <div id="results29"></div>
 
 <?php
 
@@ -318,16 +334,30 @@ if($countid2>'0'){
 }else if($_GET['action']=='gestionpaiement'){
   $user_id=$_GET['id'];
   ?>
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="card-content">
-                <h3 class="card-title">Contacter la personne par Email</h3>
+
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="card-content">
+                    <h3 class="card-title">paiement en attente de validation</h3>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-            <td class="text-center">
-              <button onclick="demo.showSwal('confirmpaiementaccess','<?php echo $user_id; ?>','<?php echo $_GET['id']; ?>')" type="button" class="btn btn-primary btn-round btn-rose">Confirmer le paiement manuel</button>
-            </td>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="card-content">
+                    <center>
+                      <h4 class="card-title">En cliquant sur ce bouton je confirme que le paiement est été effectué en éspèce au près d'un membre de l'association</h4>
+                    </center>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="card-content">
+                    <center>
+                      <button onclick="demo.showSwal('confirmpaiementaccess','<?php echo $user_id; ?>','<?php echo $_GET['id']; ?>')" type="button" class="btn btn-primary btn-round btn-rose">Confirmer le paiement manuel</button>
+                    </center>
+                  </div>
+                </div>
+              </div>
               <div id="results29"></div>
               <div class="row">
                 <div class="col-sm-12">
