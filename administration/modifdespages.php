@@ -101,11 +101,11 @@ txtarea.scrollTop = scrollPos;
 
     if($_GET['page']=='index'){
 
-
+if(isset($messagenotif)){
       $messagenotif=$_GET['messagenotif'];
       $type = "warning";
       if ($messagenotif != "") { ?><script onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')"</script> <?php }
-
+}
 
 
 
