@@ -2,7 +2,7 @@
     require_once('includes/connectBDD.php');
     require_once('includes/checkconnection.php');
     $nompage = "Gestionaire d'images";
-    require_once('includes/head.php');
+    //require_once('includes/head.php');
 
 //Code de génératon du captcha fournie par GOOGLE
 $secret = "LESECRET";
@@ -119,26 +119,6 @@ echo 'esquive';
 <script>window.location="https://administration.jam-mdm.fr/gestionimage.php"</script>
 <?php
 }
-?>
-
-          <div class="content">
-            <div class="container-fluid">
-              <div class="card">
-                <div class="card-content">
-                  <h2 class="card-title text-center">Gérer les images de la galerie</h2>
-                  <br>
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <div class="card-content">
-                        <h3 class="card-title">Liste des images inactives</h3>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <div class="card-content">
-
-    <?php
 
     $head = $db->query("SELECT * FROM photopage WHERE nompage = '$nompage'");
     $pagehead = $head->fetch(PDO::FETCH_OBJ);
@@ -149,75 +129,76 @@ echo 'esquive';
     if($countbanimg>'0'){
     ?>
 
-                  <div class="table-responsive">
-                    <table class="table">
-                      <thead class="text-primary">
-                        <th class="text-center">Identifiant</th>
-                        <th class="text-center">Nom</th>
-                        <th class="text-center">Catégorie</th>
-                        <th class="text-center">Album Actif</th>
-                        <th class="text-center">Action</th>
-                      </thead>
-                      <tbody>
 
-                        <?php
-                            while($sban=$selectbanimg->fetch(PDO::FETCH_OBJ)){
-                              $idimg = $sban->id;
-                              $file_name = $sban->file_name;
-                              $title = $sban->title;
-                              $albumactif = $sban->albumactif;
-                        ?>
 
-                        <tr>
-                          <td class="text-center"><?php echo $idimg;?></td>
-                          <td class="text-center"><?php echo $file_name;?></td>
-                          <td class="text-center"><?php echo $title;?></td>
-                          <td class="text-center"><?php echo $albumactif;?></td>
-                          <td class="text-center"><a href="?action=unban&amp;id=<?php echo $idimg;?>"><button type="button" class="btn btn-rose btn-round btn-sm">Activer</button></a>
-                                                  <a href="?action=delete&amp;id=<?php echo $idimg;?>"><button type="button" class="btn btn-rose btn-round btn-sm">Supprimer</button></a>
-                          </td>
-                        </tr>
+    <h3> Images inactives </h3>
+    <table class="table">
+<thead>
+  <tr>
+    <th scope="col">Id</th>
+    <th scope="col">Nom</th>
+    <th scope="col">Catégorie</th>
+    <th scope="col">Album Actif</th>
+    <th scope="col">Action</th>
+  </tr>
+</thead>
+<tbody>
+<?php
 
-                        <?php } ?>
 
-                      </tbody>
-                    </table>
-                  </div>
+    while($sban=$selectbanimg->fetch(PDO::FETCH_OBJ)){
+      $idimg = $sban->id;
+      $file_name = $sban->file_name;
+      $title = $sban->title;
+      $albumactif = $sban->albumactif;
+?>
+    <tr>
+      <th scope="row"><?php echo $idimg;?></th>
+      <td><?php echo $file_name;?><td>
+      <td><?php echo $title;?></td>
+      <td><?php echo $albumactif;?></td>
+      <td>
+<a href="?action=unban&amp;id=<?php echo $idimg;?>">
+  <button type="button" class="btn">Activer</button>
+</a>
+<a href="?action=delete&amp;id=<?php echo $idimg;?>">
+  <button type="button" class="btn">Supprimer</button>
+</a>
 
-                  <?php }else{?>
-                    
-                   <center>
-                      <h4 class="info-title"><font color="red">Aucun image n'est actuellement bannie</font></h4>
-                  </center>
+      </td>
+    </tr>
+<?php
+    }
+     ?>
+   </tbody>
+ </table>
 
-                  <?php } ?>
+ <?php
+}else{
+  ?>
+<h3> Aucune image n'est actuellement bannie ! Inchallah </h3>
+  <?php
+}
+ ?>
+    <div class="section section-contact-us text-center">
+      <div class="container">
+        <h2 class="title">AUTRE</h2>
+        <p class="description">AUTRE</p>
+        <div class="row">
+          <div class="col-lg-6 text-center col-md-8 ml-auto mr-auto">
 
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-12">
-                <div class="card-content">
-                  <h3 class="card-title">Desactiver une ou plusieurs images</h3>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6 col-md-offset-3">
-                <div class="card-content">
-                  <input type="text" class="form-control"  name="valeur" placeholder="Recherche par Nom, Identifiant ou Catégorie">
-                </div>
-              </div>
-              <div class="col-sm-12">
-                <div class="card-content">
-                  <p id='resultat'></p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
     </div>
+
+<h3> Bannir une image :  </h3>
+  <input type='text' name="valeur" placeholder="Saisir son nom, id ou email">
+  <p id='resultat'></p>
+<?php
+
+ ?>
+
 
  <?php
 
