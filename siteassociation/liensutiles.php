@@ -67,11 +67,13 @@
     </div>
 
     <?php
-    $asso = $db->prepare("SELECT * FROM lienutiles WHERE slug=:namecat");
-    $asso->execute(array(
+    $asso1 = $db->prepare("SELECT * FROM lienutiles WHERE slug=:namecat");
+    $asso1->execute(array(
       "namecat"=>'Partenaires Culturels'
     ));
-    while($association = $asso->fetch(PDO::FETCH_OBJ)){
+    $count1=$asso1->rowCount();
+    if($count1>0){
+    while($association1 = $asso1->fetch(PDO::FETCH_OBJ)){
       ?>
 
       <div class="section">
@@ -79,7 +81,7 @@
               <h3 class="title">
                 <ul>
                   <li>
-                  <?php echo $association->name; ?>
+                  <?php echo $association1->name; ?>
                   </li>
                 </ul>
               </h3>
@@ -87,7 +89,7 @@
                 <div class="container">
                   <div class="row">
                     <div class="col-md-10 ml-auto mr-auto text-center">
-                      <h5 class="description"><?php echo $association->description; ?></h5>
+                      <h5 class="description"><?php echo $association1->description; ?></h5>
                     </div>
                   </div>
                 </div>
@@ -97,6 +99,7 @@
 
     <?php
         }
+      }
     ?>
 
 
@@ -105,11 +108,13 @@
 
 
     <?php
-    $asso = $db->prepare("SELECT * FROM lienutiles WHERE slug=:namecat");
-    $asso->execute(array(
+    $asso2 = $db->prepare("SELECT * FROM lienutiles WHERE slug=:namecat");
+    $asso2->execute(array(
       "namecat"=>'Associations Montoises'
     ));
-    while($association = $asso->fetch(PDO::FETCH_OBJ)){
+    $count2=$asso2->rowCount();
+    if($count2>0){
+    while($association2 = $asso2->fetch(PDO::FETCH_OBJ)){
       ?>
 
       <div class="section">
@@ -117,7 +122,7 @@
               <h3 class="title">
                 <ul>
                   <li>
-                  <?php echo $association->name; ?>
+                  <?php echo $association2->name; ?>
                   </li>
                 </ul>
               </h3>
@@ -125,7 +130,7 @@
                 <div class="container">
                   <div class="row">
                     <div class="col-md-10 ml-auto mr-auto text-center">
-                      <h5 class="description"><?php echo $association->description; ?></h5>
+                      <h5 class="description"><?php echo $association2->description; ?></h5>
                     </div>
                   </div>
                 </div>
@@ -134,16 +139,18 @@
       </div>
 
     <?php
-        }
+  }}
     ?>
 
 
     <?php
-    $asso = $db->prepare("SELECT * FROM lienutiles WHERE slug=:namecat");
-    $asso->execute(array(
+    $asso3 = $db->prepare("SELECT * FROM lienutiles WHERE slug=:namecat");
+    $asso3->execute(array(
       "namecat"=>'Sécurité'
     ));
-    while($association = $asso->fetch(PDO::FETCH_OBJ)){
+    $count3=$asso3->rowCount();
+    if($count3>0){
+    while($association3 = $asso3->fetch(PDO::FETCH_OBJ)){
       ?>
 
       <div class="section">
@@ -151,7 +158,7 @@
               <h3 class="title">
                 <ul>
                   <li>
-                  <?php echo $association->name; ?>
+                  <?php echo $association3->name; ?>
                   </li>
                 </ul>
               </h3>
@@ -159,7 +166,7 @@
                 <div class="container">
                   <div class="row">
                     <div class="col-md-10 ml-auto mr-auto text-center">
-                      <h5 class="description"><?php echo $association->description; ?></h5>
+                      <h5 class="description"><?php echo $association3->description; ?></h5>
                     </div>
                   </div>
                 </div>
@@ -169,6 +176,7 @@
 
     <?php
         }
+      }
     ?>
 
 
