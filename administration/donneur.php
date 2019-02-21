@@ -32,7 +32,7 @@ $user_id = $_SESSION['admin_id'];
         $selectlogs->execute();
         while($s2=$selectlogs->fetch(PDO::FETCH_OBJ)){
 
-          $nom=$s3->nomprenom;
+          $nom=$s2->nomprenom;
           $adresse=$s2->adresse;
           $email=$s2->email;
           $price=$s2->price;
