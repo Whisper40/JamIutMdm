@@ -82,7 +82,7 @@ function SubmitFormDataCreerUnAdmin() {
                               </div>
                             </div>
                             <div class="jquerysel">
-                              <select class="selectpicker" data-style="select-with-transition" title="Fonction" data-size="7" name="grade" id="grade">
+                              <select class="selectpicker" data-style="select-with-transition" title="Fonction" data-size="4" name="grade" id="grade">
                                 <option disabled>Sélectionner du grade</option>
                                 <option value="NORMAL">Normal</option>
                                 <option value="SUPREME">Suprême</option>
@@ -95,16 +95,13 @@ function SubmitFormDataCreerUnAdmin() {
                         <div class="col-sm-12">
                           <div class="card-content">
                             <center>
-                              <button id="submitFormDataCreerUnAdmin" onclick="SubmitFormDataCreerUnAdmin();" type="button" class="btn btn-primary btn-round btn-rose">Créer</button>
+                              <button id="submitFormDataCreerUnAdmin" onclick="SubmitFormDataCreerUnAdmin();" type="button" class="btn btn-primary btn-round btn-rose">Créer un admin</button>
                             </center>
                            </div>
                         </div>
                       </div>
                     </form>
                     <div id="results23"></div>
-                  </div>
-                </div>
-              </div>
 
 <?php
 if(isset($_GET['action'])){
@@ -206,45 +203,22 @@ if(isset($_GET['action'])){
 
                         <?php  } ?>
 
-                    </tbody>
+                      </tbody>
                     </table>
-                    </div>
+                  </div>
                 </div>
               </div>
             </div>
 
           <?php } ?>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+          </div>
+        </div>
+      </div>
     </div>
-
-
-
   </div>
 </body>
+
 <?php
 require_once('includes/javascript.php');
 ?>
