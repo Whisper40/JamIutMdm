@@ -47,6 +47,7 @@ $user_id = $_SESSION['admin_id'];
           $date=$s2->date;
           echo '
           <tr>
+          <td class="text-center">'.$id.'</td>
           <td class="text-center">'.$nom.'</td>
           <td class="text-center">'.$type.'</td>
           <td class="text-center">'.$action.'</td>
