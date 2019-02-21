@@ -106,10 +106,22 @@ if(isset($_GET['messagenotif'])){
       $type = "warning";
 
       if ($messagenotif != "") {
-        echo 'JEFONCTIONNE';
+        
 
 ?>
-    <test <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
+
+<script type="text/javascript">
+
+function fuck(){
+  demo.showSwal('success-message');
+  demo.showNotification('top','right','<b>Succès</b> - Modification effectuée !');
+}
+
+window.onload=fuck;
+</script>
+
+
+
 <?php
        }
 }
