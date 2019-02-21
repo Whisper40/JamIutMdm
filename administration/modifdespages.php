@@ -118,13 +118,12 @@ function fuck(){
   toast: true,
   position: 'top-end',
   showConfirmButton: false,
-  timer: 3000,
-  width: 10%
+  timer: 3000
 });
 
 Toast.fire({
   type: 'success',
-  title: 'Modification effectué'
+  title: 'Modification '
 })
 
 }
