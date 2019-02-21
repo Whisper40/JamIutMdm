@@ -61,7 +61,7 @@ function SubmitFormDataCreerUnMembre() {
                               </div>
                               <div class="form-group label-floating">
                                   <label class="control-label">Code</label>
-                                  <p> <?php echo $valeurcode; ?></p>
+                                  <input type="text" value="<?php echo $valeurcode; ?>" disabled="" class="form-control">
                               </div>
                               <div class="form-group label-floating">
                                   <label class="control-label">Email</label>
@@ -76,12 +76,12 @@ function SubmitFormDataCreerUnMembre() {
                           <div class="col-sm-6">
                             <div class="card-content">
                               <center>
-                                <h3 class="card-title">Annuler sa Participation</h3>
+                                <h3 class="card-title">Création d'un membre</h3>
                               </center>
                               <div class="info info-horizontal">
                                 <div class="description">
                                   <center>
-                                     <h4 class="info-title">Ce formulaire vous permet de créée un compte pour une personne externe aux étudiant de luniversité de Mont de Marsan</h4>
+                                     <h4 class="info-title">Ce formulaire vous permet de créée un code unique pour une personne externe aux étudiant de l'université de Mont de Marsan. Ce code lui sera envoyé par mail et lui permettra de remplir le formulaired'inscription</h4>
                                   </center>
                                 </div>
                               </div>
