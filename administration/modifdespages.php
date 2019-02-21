@@ -100,6 +100,20 @@ txtarea.scrollTop = scrollPos;
       require_once('includes/navbar.php');
 
     if($_GET['page']=='index'){
+
+
+      $messagenotif=$_GET['messagenotif'];
+      $type = "warning";
+      if ($messagenotif != "") { ?><script onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')"</script> <?php }
+
+
+
+
+
+
+
+
+
       $table = $_GET['table'];
     ?>
 
@@ -530,6 +544,12 @@ if ($uploadOk == 0) {
                                     }
 
                                     require('includes/miseajourdusite.php');
+                                    ?>
+                                    <script>
+                                    window.location.replace("https://administration.jam-mdm.fr/modifdespages.php?page=index&table=pageindex&messagenotif=succes");
+                                    </script>
+                                    <?php
+
 
 
 
