@@ -37,6 +37,7 @@ $user_id = $_SESSION['admin_id'];
           $email=$s2->email;
           $price=$s2->price;
           $message=$s2->message;
+          $date=$s2->date;
           echo '
           <tr>
           <td class="text-center">'.$nom.'</td>
@@ -44,6 +45,7 @@ $user_id = $_SESSION['admin_id'];
           <td class="text-center">'.$email.'</td>
           <td class="text-center">'.$price.'</td>
           <td class="text-center">'.$message.'</td>
+          <td class="text-center">'.$date.'</td>
           </tr>';
         }
 
