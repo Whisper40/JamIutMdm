@@ -24,12 +24,12 @@
                                     <div class="info info-horizontal">
                                         <div class="description">
                                             <center>
-                                                <h3><font color="red">
+                                                <h4 class="card-title"><font color="blue">
                                                     Tes document ont été validés !<br>
                                                     Ta cotisation a été payé !<br>
                                                     Tu es à présent membre et tu peux par concéquent t'inscrire et participer à toute les soirée, activités et voyages organisés par l'association.<br>
                                                     Bonne année à toi !
-                                                </font></h3>
+                                                </font></h4>
                                             </center>
                                         </div>
                                     </div>
