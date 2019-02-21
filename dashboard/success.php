@@ -24,11 +24,12 @@
                                     <div class="info info-horizontal">
                                         <div class="description">
                                             <center>
-                                                <h3>Tes document ont été validés !<br>
-                                                    Ta cotisation a été payé!<br>
+                                                <h3><font color="red">
+                                                    Tes document ont été validés !<br>
+                                                    Ta cotisation a été payé !<br>
                                                     Tu es à présent membre et tu peux par concéquent t'inscrire et participer à toute les soirée, activités et voyages organisés par l'association.<br>
                                                     Bonne année à toi !
-                                                </h3>
+                                                </font></h3>
                                             </center>
                                         </div>
                                     </div>
@@ -36,6 +37,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="card-content">
+                                  <br><br>
 
                                   <?php
                                   $ind = $db->query("SELECT * FROM pageindex");
