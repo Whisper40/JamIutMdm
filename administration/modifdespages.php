@@ -16,8 +16,8 @@ $sitekey = "LESITEKEY";
 <script src='https://www.google.com/recaptcha/api.js'></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 <script>
-function DisplayErrorIndex(){
-  window.location.replace("https://administration.jam-mdm.fr/modifdespages.php?page=index&table=pageindex&typedenotif=warning&messagenotif=Une erreur est survenue");
+function DisplayErrorIndex(message){
+  window.location.replace("https://administration.jam-mdm.fr/modifdespages.php?page=index&table=pageindex&typedenotif=warning&messagenotif='+message'");
 }
 
 
@@ -206,7 +206,7 @@ $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 if (file_exists($target_file)) {
   ?>
 <script>
-DisplayErrorIndex();
+DisplayErrorIndex(okkkkk);
 </script>
 <?php
 
@@ -216,7 +216,7 @@ DisplayErrorIndex();
 if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
   ?>
 <script>
-DisplayErrorIndex();
+DisplayErrorIndex(okkkkk);
 </script>
 <?php
     $uploadOk = 0;
@@ -226,7 +226,7 @@ DisplayErrorIndex();
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
   ?>
 <script>
-DisplayErrorIndex();
+DisplayErrorIndex(okkkkkkkkkkkkk);
 </script>
 <?php
     $uploadOk = 0;
