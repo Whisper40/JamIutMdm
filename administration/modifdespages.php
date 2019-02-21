@@ -16,18 +16,6 @@ $sitekey = "LESITEKEY";
 <script src='https://www.google.com/recaptcha/api.js'></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 <script>
-function DisplayErrorIndex(message){
-  window.location.replace("https://administration.jam-mdm.fr/modifdespages.php?page=index&table=pageindex&typedenotif=warning&messagenotif='+message+'");
-}
-
-
-
-
-
-
-
-
-
 function RetourIndex(){
   window.location="https://administration.jam-mdm.fr/modifdespages.php"
 }
@@ -171,6 +159,13 @@ if(isset($_GET['messagenotif']) && ($_GET['typedenotif'])){
      $('#results1').html(data);
     });
 }
+
+
+function TITI(message){
+
+  window.location.replace("https://administration.jam-mdm.fr/modifdespages.php?page=index&table=pageindex&typedenotif=success&messagenotif="+message);
+
+}
 </script>
 
 <!-- Ajoutd'images au site web (assets)-->
@@ -204,36 +199,31 @@ $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 // Check if file already exists
 if (file_exists($target_file)) {
-  ?>
-<script>
-DisplayErrorIndex(okkkkk);
-</script>
-<?php
-
+    $error = 'Désolé, le fichier existe déja.';
     $uploadOk = 0;
 }
 // Check file size < 2mo
 if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
-  ?>
-<script>
-DisplayErrorIndex(okkkkk);
-</script>
-<?php
+    $error = 'Désolé, le fichier est trop grand.';
     $uploadOk = 0;
 
 }
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-  ?>
-<script>
-DisplayErrorIndex(okkkkkkkkkkkkk);
-</script>
-<?php
+    ?>
+    <script>
+    TITI(okbro);
+    </script>
+    <?php
     $uploadOk = 0;
 }
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-    $error = 'Désolé, une erreur est survenue.';
+  ?>
+  <script>
+  TITI(okbmmmmro);
+  </script>
+  <?php
 // if everything is ok, try to upload file
 } else {
   date_default_timezone_set('Europe/Paris');
@@ -309,11 +299,7 @@ if ($uploadOk == 0) {
 
 
     }else {
-      ?>
-    <script>
-    DisplayErrorIndex();
-    </script>
-    <?php
+        $error = 'Désolé, une erreur est survenue.';
     } } }
 
           } ?>
