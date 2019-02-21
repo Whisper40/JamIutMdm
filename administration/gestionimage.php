@@ -295,6 +295,7 @@ $selectcatimages=$db->query("SELECT DISTINCT title FROM images");
            <div class="row">
              <div class="col-sm-4">
                 <div class="card-content">
+                  <br><br>
                   <div class="info info-horizontal">
                     <div class="description">
                       <center>
