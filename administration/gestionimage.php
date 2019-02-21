@@ -309,6 +309,7 @@ $selectcatimages=$db->query("SELECT DISTINCT title FROM images");
                    <center>
                      <h3 class="card-title">Sélectionner l'album</h3>
                    </center>
+                   <br><br>
                    <div class="jquerysel">
                      <select class="selectpicker" data-style="select-with-transition" title="Fonction" data-size="7" id="grademembre" name="grademembre">
                        <?php
@@ -323,10 +324,10 @@ $selectcatimages=$db->query("SELECT DISTINCT title FROM images");
                </div>
                <div class="col-sm-4">
                  <div class="card-content">
+                   <center>
+                     <h3 class="card-title">Action</h3>
+                   </center>
                        <div class="radio">
-                         <center>
-                           <h3 class="card-title">Action</h3>
-                         </center>
                            <label>
                                <input type="radio" name="optionsRadios" checked="true" value="defaut"> Définir par défaut
                            </label>
