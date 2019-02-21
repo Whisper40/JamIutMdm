@@ -530,7 +530,7 @@ if ($uploadOk == 0) {
                                     }
 
                                     require('includes/miseajourdusite.php');
-                                    sleep(2);
+
 
 
                         }else {
