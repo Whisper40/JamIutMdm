@@ -154,7 +154,7 @@ function SubmitFormDataModifLiens() {
 
 
  function SubmitFormDataPageLiensUtiles2() {
-    var user_id = "<?php echo $_SESSION['admin_id']; ?>";    
+    var user_id = "<?php echo $_SESSION['admin_id']; ?>";
     var titre = $("#titre").val();
     var pagetitre = $("#pagetitre").val();
 
@@ -514,7 +514,13 @@ if(isset($_GET['deletelien'])){
 
 <div id="results33"> <!-- TRES IMPORTANT -->
 </div>
+
 <?php
+
 }
+
+?>
+<?php
+
 require_once('includes/javascript.php');
 ?>
