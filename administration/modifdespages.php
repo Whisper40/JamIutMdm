@@ -114,20 +114,8 @@ if(isset($_GET['messagenotif'])){
 <script type="text/javascript">
 
 function fuck(){
-  const Toast = Swal.mixin({
-  toast: true,
-  position: 'top-end',
-  showConfirmButton: false,
-  timer: 3000
-});
-
-Toast.fire({
-  type: 'success',
-  title: 'Modification '
-})
-
+demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>');
 }
-
 window.onload=fuck;
 </script>
 
