@@ -14,21 +14,20 @@ $requete->execute(array($idimg));
 $table=$requete->fetchAll(PDO::FETCH_OBJ);
 
 if(count($table)>0){
-  echo "<h3>".count($table)." documents trouvés</h3>";
   echo '
-  <table class="table">
-  <thead>
-  <tr>
-  <th scope="col">Id</th>
-  <th scope="col">Nom</th>
-  <th scope="col">Album</th>
-  <th scope="col">Actif</th>
-  <th scope="col">Action</th>
-  </tr>
-  </thead>
-  <tbody>
 
+  <div class="table-responsive">
+    <table class="table">
+        <thead class="text-primary">
+            <th class="text-center">Identifiant</th>
+            <th class="text-center">Nom</th>
+            <th class="text-center">Album</th>
+            <th class="text-center">Actif</th>
+            <th class="text-center">Action</th>
+        </thead>
+        <tbody>
   ';
+
   foreach($table as $ligne){
     $idimg=$ligne->id;
     $file_name=$ligne->file_name;
@@ -36,35 +35,32 @@ if(count($table)>0){
     $actif=$ligne->albumactif;
 
     echo '
-    <tr>
-      <th scope="row">'.$idimg.'</th>
-      <td>'.$file_name.'<td>
-      <td>'.$album.'</td>
-      <td>'.$actif.'</td>
-      <td>
-  <a href="?action=ban&amp;id='.$idimg.'">
-  <button type="button" class="btn">Désactiver</button>
-  </a>
-  <a href="?action=delete&amp;id='.$idimg.'">
-  <button type="button" class="btn">Supprimer</button>
-  </a>
 
+    <tr>
+      <td class="text-center">'.$idimg.'</td>
+      <td class="text-center">'.$file_name.'</td>
+      <td class="text-center">'.$album.'</td>
+      <td class="text-center">'.$actif.'</td>
+      <td class="text-center"><a href="?action=ban&amp;id='.$idimg.'"><button type="button" class="btn btn-rose btn-round btn-sm">Désactiver</button></a>
+                              <a href="?action=delete&amp;id='.$idimg.'"><button type="button" class="btn btn-rose btn-round btn-sm">Supprimer</button></a>
       </td>
     </tr>
-<hr>
+
     ';
-
-
   }
 
   echo '
-</tbody>
-</table>
-
-
+    </tbody>
+  </table>
+</div>
   ';
-}else echo"<p class='rouge'> Pas de résultats</p>";
+  
+}else echo'<center>
+            <h4 class="info-title"><font color="red">Aucun résultats à votre recherche</font></h4>
+           </center>';
 
 
 
-}else echo"<p class='rouge'> Aucun critere de recherche n'a été fournis </p>";
+}else echo'<center>
+            <h4 class="info-title"><font color="red">Aucun critere de recherche n&apos;a été fournis</font></h4>
+           </center>';
