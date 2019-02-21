@@ -44,11 +44,10 @@
                                   $index = $ind->fetch(PDO::FETCH_OBJ);
                                    ?>
 
-                                   <div class="container">
-                                     <div class="content-center brand">
-                                       <img class="n-logo" src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/<?php echo $index->logo1 ?>" alt="">
-                                     </div>
-                                   </div>
+
+                                    <div class="card-image" data-header-animation="true">
+                                        <img class="img" src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/<?php echo $index->logo2 ?>">
+                                    </div>
                                 </div>
                             </div>
                         </div>
