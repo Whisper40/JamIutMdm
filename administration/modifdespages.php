@@ -529,6 +529,8 @@ if ($uploadOk == 0) {
 
                                     }
 
+                                    require('includes/miseajourdusite.php');
+
 
                         }else {
                             $error = 'Désolé, une erreur est survenue.';
