@@ -293,7 +293,7 @@ $selectcatimages=$db->query("SELECT DISTINCT title FROM images");
         </div>
          <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
            <div class="row">
-             <div class="col-sm-3">
+             <div class="col-sm-4">
                 <div class="card-content">
                   <div class="info info-horizontal">
                     <div class="description">
@@ -304,7 +304,7 @@ $selectcatimages=$db->query("SELECT DISTINCT title FROM images");
                   </div>
                 </div>
               </div>
-              <div class="col-sm-5">
+              <div class="col-sm-4">
                  <div class="card-content">
                    <center>
                      <h3 class="card-title">Sélectionner l'album</h3>
@@ -322,7 +322,7 @@ $selectcatimages=$db->query("SELECT DISTINCT title FROM images");
                    </div>
                  </div>
                </div>
-               <div class="col-sm-5">
+               <div class="col-sm-4">
                  <div class="card-content">
                    <center>
                      <h3 class="card-title">Action</h3>
