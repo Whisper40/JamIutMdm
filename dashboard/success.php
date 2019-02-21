@@ -17,14 +17,15 @@
                 <div class="card">
                     <div class="card-content">
                         <h2 class="card-title text-center">Félicitations tu es membre de l'association !</h2>
-                        <br><br>
+                        <br>
                         <div class="row">
                           <div class="col-sm-6">
                             <div class="card-content">
+                              <br>
                               <center>
                                   <h4 class="card-title"><font color="green">
-                                      Tes document ont été validés ! Ta cotisation a été payé !<br>
-                                      Tu es à présent membre et tu peux par concéquent t'inscrire et participer à toute les soirées, activités et voyages organisés par l'association.<br>
+                                      Tes document ont été validés ! Ta cotisation a été payé !<br><br>
+                                      Tu es à présent membre et tu peux par concéquent t'inscrire et participer à toute les soirées, activités et voyages organisés par l'association.<br><br>
                                       Bonne année à toi !
                                   </font></h4>
                               </center>
