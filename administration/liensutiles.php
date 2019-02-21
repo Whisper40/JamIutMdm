@@ -160,7 +160,7 @@ function SubmitFormDataModifLiens() {
 
     $.post("ajax/modifylienutiles.php", { user_id: user_id, titre: titre, pagetitre: pagetitre},
     function(data) {
-     $('#results3').html(data);
+     $('#results83').html(data);
     });
 }
 
@@ -350,6 +350,8 @@ if ($uploadOk == 0) {
     </form>
   </div>
 </div>
+</div>
+<div id="results83"> <!-- TRES IMPORTANT -->
 </div>
 
 
