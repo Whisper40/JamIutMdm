@@ -73,6 +73,9 @@
     ));
     $count1=$asso1->rowCount();
     if($count1>0){
+      ?>
+<h3> Les Partenaires Culturels </h3>
+      <?php
     while($association1 = $asso1->fetch(PDO::FETCH_OBJ)){
       ?>
 
@@ -114,6 +117,9 @@
     ));
     $count2=$asso2->rowCount();
     if($count2>0){
+      ?>
+<h3> Les Associations Montoises </h3>
+      <?php
     while($association2 = $asso2->fetch(PDO::FETCH_OBJ)){
       ?>
 
@@ -150,6 +156,10 @@
     ));
     $count3=$asso3->rowCount();
     if($count3>0){
+
+      ?>
+<h3> Partenaires Sécurité </h3>
+      <?php
     while($association3 = $asso3->fetch(PDO::FETCH_OBJ)){
       ?>
 
