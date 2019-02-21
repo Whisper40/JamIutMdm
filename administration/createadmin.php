@@ -45,15 +45,22 @@ function SubmitFormDataCreerUnAdmin() {
         <div class="container-fluid">
             <div class="card">
                 <div class="card-content">
-                    <h2 class="card-title text-center">Créer un admin</h2>
+                    <h2 class="card-title text-center">Création et gestion des administrateurs</h2>
                     <form action="" method="post" id="myForm1" class="contact-form">
-                    <div class="row">
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <div class="card-content">
+                            <h3 class="card-title">Création d'un compte admin</h3>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
                         <div class="col-sm-6">
-                            <div class="card-content">
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Nom</label>
-                                  <input type="text" class="form-control" value="Dupont" name="nom" id="nom">
-                              </div>
+                          <div class="card-content">
+                            <div class="form-group label-floating">
+                                <label class="control-label">Nom</label>
+                                <input type="text" class="form-control" value="Dupont" name="nom" id="nom">
+                            </div>
                             <div class="form-group label-floating">
                                 <label class="control-label">Email</label>
                                 <input type="email" name="email" value="monemail@hotmail.fr" id="email" class="form-control">
@@ -62,38 +69,42 @@ function SubmitFormDataCreerUnAdmin() {
                                 <label class="control-label">Mot de Passe</label>
                                 <input type="text" name="password" value="Mot de Passe" id="password" class="form-control">
                             </div>
-                            <select name="grade" id="grade">
-                            <option value="NORMAL">Sélectionner son grade</option>
-                            <option value="NORMAL">NORMAL</option>
-                            <option value="SUPREME">SUPREME</option>
-                            </select>
-                             </div>
+                            <div class="jquerysel">
+                              <select class="selectpicker" data-style="select-with-transition" title="Fonction" data-size="7" name="grade" id="grade">
+                                <option disabled>Sélectionner du grade</option>
+                                <option value="NORMAL">Normal</option>
+                                <option value="SUPREME">Suprême</option>
+                              </select>
+                            </div>
                           </div>
-
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="card-content">
+                            <br><br>
+                            <div class="info info-horizontal">
+                              <div class="description">
+                                <center>
+                                  <h4 class="info-title">Ce formulaire permet la création d'un administrateur qui aura en charge la gestion du contenu du site</h4>
+                                </center>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
                         <div class="col-sm-12">
-                            <div class="card-content">
-
-                              <center>
+                          <div class="card-content">
+                            <center>
                               <button id="submitFormDataCreerUnAdmin" onclick="SubmitFormDataCreerUnAdmin();" type="button" class="btn btn-primary btn-round btn-rose">Créer</button>
-                              </center>
-                             </div>
-                          </div>
-                    </div>
-                  </form>
+                            </center>
+                           </div>
+                        </div>
+                      </div>
+                    </form>
+                    <div id="results23"></div>
+                  </div>
                 </div>
-            </div>
-        </div>
-
-     <div id="results23"> <!-- TRES IMPORTANT -->
-    </div>
-
-
-
-
-
-
-
-
+              </div>
 
 <?php
 if(isset($_GET['action'])){
