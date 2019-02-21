@@ -197,30 +197,29 @@ echo 'esquive';
                 </div>
               </div>
             </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="card-content">
+                  <h3 class="card-title">Desactiver une ou plusieurs images</h3>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 col-md-offset-3">
+                <div class="card-content">
+                  <input type="text" class="form-control"  name="valeur" placeholder="Recherche par Nom, Identifiant ou Catégorie">
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <div class="card-content">
+                  <p id='resultat'></p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-
-    <div class="section section-contact-us text-center">
-      <div class="container">
-        <h2 class="title">AUTRE</h2>
-        <p class="description">AUTRE</p>
-        <div class="row">
-          <div class="col-lg-6 text-center col-md-8 ml-auto mr-auto">
-
-          </div>
-        </div>
-      </div>
-    </div>
-
-<h3> Bannir une image :  </h3>
-  <input type='text' name="valeur" placeholder="Saisir son nom, id ou email">
-  <p id='resultat'></p>
-<?php
-
- ?>
-
 
  <?php
 
