@@ -104,11 +104,11 @@ txtarea.scrollTop = scrollPos;
 
 if(isset($_GET['messagenotif']) && ($_GET['typedenotif'])){
       $messagenotif=$_GET['messagenotif'];
-      $typedenotif = $_GET['typedenotif'];
+      $typedenotif =$_GET['typedenotif'];
       ?>
       <script type="text/javascript">
           function EnvoieDeLaNotif(){
-              demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>');
+              demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $typedenotif ?>');
             }
             window.onload=EnvoieDeLaNotif; //Execution
       </script>
