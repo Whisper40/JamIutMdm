@@ -59,15 +59,27 @@ function SubmitFormDataCreerUnAdmin() {
                           <div class="card-content">
                             <div class="form-group label-floating">
                                 <label class="control-label">Nom</label>
-                                <input type="text" class="form-control" value="Dupont" name="nom" id="nom">
+                                <input type="text" class="form-control" name="nom" id="nom">
                             </div>
                             <div class="form-group label-floating">
                                 <label class="control-label">Email</label>
-                                <input type="email" name="email" value="monemail@hotmail.fr" id="email" class="form-control">
+                                <input type="email" name="email" id="email" class="form-control">
                             </div>
                             <div class="form-group label-floating">
                                 <label class="control-label">Mot de Passe</label>
-                                <input type="text" name="password" value="Mot de Passe" id="password" class="form-control">
+                                <input type="text" name="password" id="password" class="form-control">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="card-content">
+                            <br>
+                            <div class="info info-horizontal">
+                              <div class="description">
+                                <center>
+                                  <h4 class="info-title">Choisir un grade à cet admin pour lui accorder des droits</h4>
+                                </center>
+                              </div>
                             </div>
                             <div class="jquerysel">
                               <select class="selectpicker" data-style="select-with-transition" title="Fonction" data-size="7" name="grade" id="grade">
@@ -75,18 +87,6 @@ function SubmitFormDataCreerUnAdmin() {
                                 <option value="NORMAL">Normal</option>
                                 <option value="SUPREME">Suprême</option>
                               </select>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-sm-6">
-                          <div class="card-content">
-                            <br><br>
-                            <div class="info info-horizontal">
-                              <div class="description">
-                                <center>
-                                  <h4 class="info-title">Ce formulaire permet la création d'un administrateur qui aura en charge la gestion du contenu du site</h4>
-                                </center>
-                              </div>
                             </div>
                           </div>
                         </div>
