@@ -17,7 +17,7 @@ $sitekey = "LESITEKEY";
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 <script>
 function DisplayErrorIndex(message){
-  window.location.replace("https://administration.jam-mdm.fr/modifdespages.php?page=index&table=pageindex&typedenotif=warning&messagenotif="+message);
+  window.location.replace("https://administration.jam-mdm.fr/modifdespages.php?page=index&table=pageindex&typedenotif=warning&messagenotif="+message+);
 }
 
 
