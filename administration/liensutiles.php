@@ -156,10 +156,10 @@ function SubmitFormDataModifLiens() {
  function SubmitFormDataPageLiensUtiles2() {
     var user_id = "<?php echo $_SESSION['admin_id']; ?>";
     var id = "<?php echo $id; ?>";
-    var titre1 = $("#titre1").val();
+    var titre = $("#titre").val();
     var pagetitre = $("#pagetitre").val();
 
-    $.post("ajax/modifypagelienutiles.php", { user_id: user_id, id: id, titre1: titre1, pagetitre: pagetitre},
+    $.post("ajax/modifylienutiles.php", { user_id: user_id, id: id, titre: titre, pagetitre: pagetitre},
     function(data) {
      $('#results3').html(data);
     });
@@ -342,7 +342,7 @@ if ($uploadOk == 0) {
       </div>
       <div class="form-group label-floating">
         <label class="control-label">Titre</label>
-        <input type="text" class="form-control" value="<?php echo $titre1; ?>" name="titre1" id="titre1">
+        <input type="text" class="form-control" value="<?php echo $titre; ?>" name="titre" id="titre">
       </div>
       <br>
       <center>
