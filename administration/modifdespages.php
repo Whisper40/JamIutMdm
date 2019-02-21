@@ -529,7 +529,7 @@ if ($uploadOk == 0) {
 
                                     }
 
-                                    require('includes/miseajourdusite.php');
+                                    require('../../../JamFichiers/miseajourdusite.php');
                                     sleep(2);
 
 
