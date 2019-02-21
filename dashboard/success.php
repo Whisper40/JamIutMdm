@@ -20,20 +20,17 @@
                         <br><br>
                         <div class="row">
                             <div class="col-sm-6">
-                                <div class="card-content">
                                     <div class="info info-horizontal">
                                         <div class="description">
                                             <center>
                                                 <h4 class="card-title"><font color="green">
-                                                    Tes document ont été validés !<br>
-                                                    Ta cotisation a été payé !<br>
-                                                    Tu es à présent membre et tu peux par concéquent t'inscrire et participer à toute les soirée, activités et voyages organisés par l'association.<br>
+                                                    Tes document ont été validés ! Ta cotisation a été payé !<br>
+                                                    Tu es à présent membre et tu peux par concéquent t'inscrire et participer à toute les soirées, activités et voyages organisés par l'association.<br>
                                                     Bonne année à toi !
                                                 </font></h4>
                                             </center>
                                         </div>
                                     </div>
-                                </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="card-content">
