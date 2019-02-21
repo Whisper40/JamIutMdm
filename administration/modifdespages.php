@@ -5981,7 +5981,7 @@ if ($uploadOk == 0) {
     </div>
   </div>
 
-<?php }else if ($_GET['page']=='Lien Utiles'){
+<?php }else if ($_GET['page']=='LienUtiles'){
 ?>
 
 
