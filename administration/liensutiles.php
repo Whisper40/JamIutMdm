@@ -154,12 +154,11 @@ function SubmitFormDataModifLiens() {
 
 
  function SubmitFormDataPageLiensUtiles2() {
-    var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-    var id = "<?php echo $id; ?>";
+    var user_id = "<?php echo $_SESSION['admin_id']; ?>";    
     var titre = $("#titre").val();
     var pagetitre = $("#pagetitre").val();
 
-    $.post("ajax/modifylienutiles.php", { user_id: user_id, id: id, titre: titre, pagetitre: pagetitre},
+    $.post("ajax/modifylienutiles.php", { user_id: user_id, titre: titre, pagetitre: pagetitre},
     function(data) {
      $('#results3').html(data);
     });
