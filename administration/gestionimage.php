@@ -1,7 +1,7 @@
 <?php
     require_once('includes/connectBDD.php');
     require_once('includes/checkconnection.php');
-    $nompage = "Nous Contacter";
+    $nompage = "Gestion des images";
 
 //Code de génératon du captcha fournie par GOOGLE
 $secret = "LESECRET";
