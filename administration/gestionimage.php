@@ -208,10 +208,6 @@ echo 'esquive';
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
  <?php
 
@@ -362,10 +358,12 @@ $selectcatimages=$db->query("SELECT DISTINCT title FROM images");
                </div>
              </div>
            </form>
-
-
-
-  </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+</body>
 
   <?php
   require_once('includes/javascript.php');
