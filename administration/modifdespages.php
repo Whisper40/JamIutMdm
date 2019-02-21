@@ -106,15 +106,25 @@ if(isset($_GET['messagenotif'])){
       $type = "warning";
 
       if ($messagenotif != "") {
-        
+
 
 ?>
 
 <script type="text/javascript">
 
 function fuck(){
-  demo.showSwal('success-message');
-  demo.showNotification('top','right','<b>Succès</b> - Modification effectuée !');
+  const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000
+});
+
+Toast.fire({
+  type: 'success',
+  title: 'Signed in successfully'
+})
+
 }
 
 window.onload=fuck;
