@@ -16,21 +16,19 @@
             <div class="container-fluid">
                 <div class="card">
                     <div class="card-content">
-                        <h2 class="card-title text-center">Modification de l'index du site</h2>
+                        <h2 class="card-title text-center">Félicitations tu es membre de l'association !</h2>
+                        <br><br>
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="card-content">
-                                    <center>
-                                        <h3 class="card-title">Félicitations tu es membre de l'association !</h3>
-                                    </center>
                                     <div class="info info-horizontal">
                                         <div class="description">
                                             <center>
-                                                <h4 class="info-title">Tes document ont été validés !<br>
-                                                                        Ta cotisation a été payé!<br>
-                                                                        Tu es à présent membre et tu peux par concéquent t'inscrire et participer à toute les soirée, activités et voyages organisés par l'association.<br>
-                                                                        Bonne année à toi !
-                                                </h4>
+                                                <h3>Tes document ont été validés !<br>
+                                                    Ta cotisation a été payé!<br>
+                                                    Tu es à présent membre et tu peux par concéquent t'inscrire et participer à toute les soirée, activités et voyages organisés par l'association.<br>
+                                                    Bonne année à toi !
+                                                </h3>
                                             </center>
                                         </div>
                                     </div>
@@ -45,7 +43,7 @@
                                    ?>
 
 
-                                    <div class="card-image" data-header-animation="true">
+                                    <div class="card-image" data-header-animation="false">
                                         <img class="img" src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/<?php echo $index->logo2 ?>">
                                     </div>
                                 </div>
