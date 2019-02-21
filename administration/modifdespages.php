@@ -104,19 +104,14 @@ txtarea.scrollTop = scrollPos;
 if(isset($_GET['messagenotif'])){
       $messagenotif=$_GET['messagenotif'];
       $type = "warning";
-      echo 'JENEFONCTIONNEPAS';
+
       if ($messagenotif != "") {
         echo 'JEFONCTIONNE';
-         ?>
 
-        <script>
-
-            demo.showSwal('success-message');
-            demo.showNotification('top','right','<b>Succès</b> - Modification effectuée !');
-
-  			</script>
-
-        <?php }
+?>
+    <test <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
+<?php
+       }
 }
 
 
