@@ -1,16 +1,13 @@
 <?php
     require_once('includes/connectBDD.php');
     require_once('includes/checkconnection.php');
-    $nompage = "Gestionaire d'images";
-    require_once('includes/head.php');
+    $nompage = "Nous Contacter";
 
 //Code de génératon du captcha fournie par GOOGLE
 $secret = "LESECRET";
 $sitekey = "LESITEKEY";
 ?>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
 <style>
 .page-header .page-header-image {
   position: absolute;
@@ -41,7 +38,6 @@ $sitekey = "LESITEKEY";
   background: #FFFFFF;
 }
 </style>
-
 <script src='https://www.google.com/recaptcha/api.js'></script>
 <script>
 $(document).ready(function(){
@@ -62,9 +58,14 @@ $('#resultat').html(retour).fadeIn();
 });
 </script>
 
+
+
+
+
+
+
 <body class="landing-page sidebar-collapse">
   <div class="wrapper">
-
 <?php
 
 if($_GET['action']=='unban'){
@@ -122,6 +123,19 @@ echo 'esquive';
 
     $head = $db->query("SELECT * FROM photopage WHERE nompage = '$nompage'");
     $pagehead = $head->fetch(PDO::FETCH_OBJ);
+?>
+
+    <div class="page-header page-header-small">
+      <div class="page-header-image" data-parallax="true" style="background-image: url('./assets/img/<?php echo $pagehead->image; ?>');">
+      </div>
+      <div class="content-center">
+        <div class="container">
+          <h1 class="title"><?php echo $pagehead->pagetitre; ?></h1>
+        </div>
+      </div>
+    </div>
+
+    <?php
 
     $selectbanimg = $db->prepare("SELECT * FROM images WHERE status='0'");
     $selectbanimg->execute();
