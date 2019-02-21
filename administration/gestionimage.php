@@ -295,13 +295,10 @@ $selectcatimages=$db->query("SELECT DISTINCT title FROM images");
            <div class="row">
              <div class="col-sm-4">
                 <div class="card-content">
-                  <center>
-                    <h3 class="card-title">Création d'un membre</h3>
-                  </center>
                   <div class="info info-horizontal">
                     <div class="description">
                       <center>
-                        <h4 class="info-title">Ce formulaire vous permet de créée un code unique pour une personne externe aux étudiant de l'université de Mont de Marsan. Ce code lui sera envoyé par mail et lui permettra de remplir le formulaired'inscription</h4>
+                        <h4 class="info-title">Selectionner un album dans la liste ci contre et l'action à réaliser sur celui-ci</h4>
                       </center>
                     </div>
                   </div>
@@ -326,9 +323,10 @@ $selectcatimages=$db->query("SELECT DISTINCT title FROM images");
                </div>
                <div class="col-sm-4">
                  <div class="card-content">
-                    <div class="col-sm-5 checkbox-radios">
-                      <label class="control-label">Action :</label>
                        <div class="radio">
+                         <center>
+                           <h3 class="card-title">Action</h3>
+                         </center>
                            <label>
                                <input type="radio" name="optionsRadios" checked="true" value="defaut"> Définir par défaut
                            </label>
@@ -343,7 +341,6 @@ $selectcatimages=$db->query("SELECT DISTINCT title FROM images");
                                <input type="radio" name="optionsRadios" value="delete"> Supprimer
                            </label>
                        </div>
-                    </div>
                   </div>
                 </div>
               </div>
