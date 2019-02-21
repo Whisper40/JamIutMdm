@@ -17,7 +17,7 @@
                 <div class="card">
                     <div class="card-content">
                         <h2 class="card-title text-center">Félicitations tu es membre de l'association !</h2>
-                        <br>
+                        <br><br>
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="card-content">
