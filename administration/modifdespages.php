@@ -213,6 +213,9 @@ if ($uploadOk == 0) {
             "img1"=>$target_filefile
             )
         );
+        date_default_timezone_set('Europe/Paris');
+        setlocale(LC_TIME, 'fr_FR.utf8','fra');
+        $date = strftime('%d/%m/%Y %H:%M:%S');
         $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
         $insertlogs->execute(array(
                             "user_id"=>$user_id,
@@ -225,9 +228,6 @@ if ($uploadOk == 0) {
 
 
 
-        date_default_timezone_set('Europe/Paris');
-        setlocale(LC_TIME, 'fr_FR.utf8','fra');
-        $date = strftime('%Y-%m-%d %H:%M:%S');
 
         $img_tmp = $target_dirnew.$target_filefile;
         $fin = $target_dirnewthumb.$target_filefile;
@@ -343,6 +343,9 @@ if ($uploadOk == 0) {
                       "logo1"=>$target_filefile
                       )
                   );
+                  date_default_timezone_set('Europe/Paris');
+                  setlocale(LC_TIME, 'fr_FR.utf8','fra');
+                  $date = strftime('%d/%m/%Y %H:%M:%S');
                   $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
                   $insertlogs->execute(array(
                                       "user_id"=>$user_id,
@@ -355,9 +358,7 @@ if ($uploadOk == 0) {
 
 
 
-                  date_default_timezone_set('Europe/Paris');
-                  setlocale(LC_TIME, 'fr_FR.utf8','fra');
-                  $date = strftime('%Y-%m-%d %H:%M:%S');
+
 
                   $img_tmp = $target_dirnew.$target_filefile;
                   $fin = $target_dirnewthumb.$target_filefile;
@@ -473,6 +474,10 @@ if ($uploadOk == 0) {
                                 "logo2"=>$target_filefile
                                 )
                             );
+                            date_default_timezone_set('Europe/Paris');
+                            setlocale(LC_TIME, 'fr_FR.utf8','fra');
+                            $date = strftime('%d/%m/%Y %H:%M:%S');
+
                             $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
                             $insertlogs->execute(array(
                                                 "user_id"=>$user_id,
@@ -485,9 +490,7 @@ if ($uploadOk == 0) {
 
 
 
-                            date_default_timezone_set('Europe/Paris');
-                            setlocale(LC_TIME, 'fr_FR.utf8','fra');
-                            $date = strftime('%Y-%m-%d %H:%M:%S');
+
 
                             $img_tmp = $target_dirnew.$target_filefile;
                             $fin = $target_dirnewthumb.$target_filefile;
@@ -935,6 +938,9 @@ if ($uploadOk == 0) {
                         "image"=>$target_filefile
                         )
                     );
+                    date_default_timezone_set('Europe/Paris');
+                    setlocale(LC_TIME, 'fr_FR.utf8','fra');
+                    $date = strftime('%d/%m/%Y %H:%M:%S');
                     $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
                     $insertlogs->execute(array(
                                         "user_id"=>$user_id,
@@ -945,9 +951,6 @@ if ($uploadOk == 0) {
                                         )
                                     );
 
-                    date_default_timezone_set('Europe/Paris');
-                    setlocale(LC_TIME, 'fr_FR.utf8','fra');
-                    $date = strftime('%Y-%m-%d %H:%M:%S');
 
                     $img_tmp = $target_dirnew.$target_filefile;
                     $fin = $target_dirnewthumb.$target_filefile;
@@ -1059,6 +1062,9 @@ if ($uploadOk == 0) {
                                   "titreimage"=>"Association"
                                   )
                               );
+                              date_default_timezone_set('Europe/Paris');
+                              setlocale(LC_TIME, 'fr_FR.utf8','fra');
+                              $date = strftime('%d/%m/%Y %H:%M:%S');
                               $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
                               $insertlogs->execute(array(
                                                   "user_id"=>$user_id,
@@ -1069,9 +1075,7 @@ if ($uploadOk == 0) {
                                                   )
                                               );
 
-                              date_default_timezone_set('Europe/Paris');
-                              setlocale(LC_TIME, 'fr_FR.utf8','fra');
-                              $date = strftime('%Y-%m-%d %H:%M:%S');
+
 
                               $img_tmp = $target_dirnew.$target_filefile;
                               $fin = $target_dirnewthumb.$target_filefile;
@@ -1475,7 +1479,9 @@ if ($uploadOk == 0) {
             )
         );
 
-
+        date_default_timezone_set('Europe/Paris');
+        setlocale(LC_TIME, 'fr_FR.utf8','fra');
+        $date = strftime('%d/%m/%Y %H:%M:%S');
         $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
         $insertlogs->execute(array(
                             "user_id"=>$user_id,
@@ -1486,9 +1492,7 @@ if ($uploadOk == 0) {
                             )
                         );
 
-        date_default_timezone_set('Europe/Paris');
-        setlocale(LC_TIME, 'fr_FR.utf8','fra');
-        $date = strftime('%Y-%m-%d %H:%M:%S');
+
 
         $img_tmp = $target_dirnew.$target_filefile;
         $fin = $target_dirnewthumb.$target_filefile;
@@ -1804,7 +1808,9 @@ $titre = $r4->titre;
              )
          );
 
-
+         date_default_timezone_set('Europe/Paris');
+         setlocale(LC_TIME, 'fr_FR.utf8','fra');
+         $date = strftime('%d/%m/%Y %H:%M:%S');
 
          $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
          $insertlogs->execute(array(
@@ -1816,9 +1822,6 @@ $titre = $r4->titre;
                              )
                          );
 
-         date_default_timezone_set('Europe/Paris');
-         setlocale(LC_TIME, 'fr_FR.utf8','fra');
-         $date = strftime('%Y-%m-%d %H:%M:%S');
 
          $img_tmp = $target_dirnew.$target_filefile;
          $fin = $target_dirnewthumb.$target_filefile;
@@ -2091,7 +2094,9 @@ if ($uploadOk == 0) {
             )
         );
 
-
+        date_default_timezone_set('Europe/Paris');
+        setlocale(LC_TIME, 'fr_FR.utf8','fra');
+        $date = strftime('%d/%m/%Y %H:%M:%S');
         $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
         $insertlogs->execute(array(
                             "user_id"=>$user_id,
@@ -2102,9 +2107,7 @@ if ($uploadOk == 0) {
                             )
                         );
 
-        date_default_timezone_set('Europe/Paris');
-        setlocale(LC_TIME, 'fr_FR.utf8','fra');
-        $date = strftime('%Y-%m-%d %H:%M:%S');
+
 
         $img_tmp = $target_dirnew.$target_filefile;
         $fin = $target_dirnewthumb.$target_filefile;
@@ -2297,7 +2300,7 @@ if ($uploadOk == 0) {
         $status = '1';
         date_default_timezone_set('Europe/Paris');
         setlocale(LC_TIME, 'fr_FR.utf8','fra');
-        $date = strftime('%Y-%m-%d %H:%M:%S');
+        $date = strftime('%d/%m/%Y %H:%M:%S');
 
 
         $img_tmp = $target_dirnew.$target_filefile;
@@ -2546,7 +2549,9 @@ if ($uploadOk == 0) {
             "image"=>$target_filefile
             )
         );
-
+        date_default_timezone_set('Europe/Paris');
+        setlocale(LC_TIME, 'fr_FR.utf8','fra');
+        $date = strftime('%d/%m/%Y %H:%M:%S');
         $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
         $insertlogs->execute(array(
                             "user_id"=>$user_id,
@@ -2557,9 +2562,6 @@ if ($uploadOk == 0) {
                             )
                         );
 
-        date_default_timezone_set('Europe/Paris');
-        setlocale(LC_TIME, 'fr_FR.utf8','fra');
-        $date = strftime('%Y-%m-%d %H:%M:%S');
 
         $img_tmp = $target_dirnew.$target_filefile;
         $fin = $target_dirnewthumb.$target_filefile;
@@ -3127,7 +3129,9 @@ if ($uploadOk == 0) {
             )
         );
 
-
+        date_default_timezone_set('Europe/Paris');
+        setlocale(LC_TIME, 'fr_FR.utf8','fra');
+        $date = strftime('%d/%m/%Y %H:%M:%S');
         $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
         $insertlogs->execute(array(
                             "user_id"=>$user_id,
@@ -3138,9 +3142,7 @@ if ($uploadOk == 0) {
                             )
                         );
 
-        date_default_timezone_set('Europe/Paris');
-        setlocale(LC_TIME, 'fr_FR.utf8','fra');
-        $date = strftime('%Y-%m-%d %H:%M:%S');
+
 
         $img_tmp = $target_dirnew.$target_filefile;
         $fin = $target_dirnewthumb.$target_filefile;
@@ -3457,7 +3459,9 @@ $target_file3 = $target_dirnew."".$slug.".".$imageFileType;
                         );
 
 
-
+                        date_default_timezone_set('Europe/Paris');
+                        setlocale(LC_TIME, 'fr_FR.utf8','fra');
+                        $date = strftime('%d/%m/%Y %H:%M:%S');
                         $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
                         $insertlogs->execute(array(
                                             "user_id"=>$user_id,
@@ -3470,9 +3474,7 @@ $target_file3 = $target_dirnew."".$slug.".".$imageFileType;
 
 
         $status = '1';
-        date_default_timezone_set('Europe/Paris');
-        setlocale(LC_TIME, 'fr_FR.utf8','fra');
-        $date = strftime('%Y-%m-%d %H:%M:%S');
+
 
         $img_tmp = $target_file3;
         $fin = $target_dirnewthumb.$target_filefile3;
@@ -3698,9 +3700,7 @@ if ($uploadOk == 0) {
 
 
         $status = '1';
-        date_default_timezone_set('Europe/Paris');
-        setlocale(LC_TIME, 'fr_FR.utf8','fra');
-        $date = strftime('%Y-%m-%d %H:%M:%S');
+
 
         $img_tmp = $target_dirnew.$target_filefile;
         $fin = $target_dirnewthumb.$target_filefile;
@@ -4183,7 +4183,9 @@ if ($uploadOk == 0) {
             "image"=>$target_filefile
             )
         );
-
+        date_default_timezone_set('Europe/Paris');
+        setlocale(LC_TIME, 'fr_FR.utf8','fra');
+        $date = strftime('%d/%m/%Y %H:%M:%S');
         $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
         $insertlogs->execute(array(
                             "user_id"=>$user_id,
@@ -4195,9 +4197,6 @@ if ($uploadOk == 0) {
                         );
 
 
-        date_default_timezone_set('Europe/Paris');
-        setlocale(LC_TIME, 'fr_FR.utf8','fra');
-        $date = strftime('%Y-%m-%d %H:%M:%S');
 
         $img_tmp = $target_dirnew.$target_filefile;
         $fin = $target_dirnewthumb.$target_filefile;
@@ -4496,7 +4495,9 @@ if ($uploadOk == 0) {
       if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
           $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
 
-
+          date_default_timezone_set('Europe/Paris');
+          setlocale(LC_TIME, 'fr_FR.utf8','fra');
+          $date = strftime('%d/%m/%Y %H:%M:%S');
           $insert = $db->prepare("INSERT INTO activitesvoyages (title, slug, description, surname, date, formatimg, status, stock, datesejour, price, payant) VALUES(:title, :slug, :description, :surname, :date, :formatimg, :status, :stock, :datesejour, :price, :payant)");
           $insert->execute(array(
                               "title"=>$title,
@@ -4528,9 +4529,6 @@ if ($uploadOk == 0) {
 
 
           $status = '1';
-          date_default_timezone_set('Europe/Paris');
-          setlocale(LC_TIME, 'fr_FR.utf8','fra');
-          $date = strftime('%Y-%m-%d %H:%M:%S');
 
           $img_tmp = $target_file3;
           $fin = $target_dirnewthumb.$target_filefile3;
@@ -4775,7 +4773,6 @@ if ($uploadOk == 0) {
         setlocale(LC_TIME, 'fr_FR.utf8','fra');
         $date = strftime('%d/%m/%Y %H:%M:%S');
 
-
         $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
         $insertlogs->execute(array(
                             "user_id"=>$user_id,
@@ -4789,9 +4786,6 @@ if ($uploadOk == 0) {
 
 
         $status = '1';
-        date_default_timezone_set('Europe/Paris');
-        setlocale(LC_TIME, 'fr_FR.utf8','fra');
-        $date = strftime('%Y-%m-%d %H:%M:%S');
 
         $img_tmp = $target_dirnew.$target_filefile;
         $fin = $target_dirnewthumb.$target_filefile;
@@ -5118,7 +5112,9 @@ if ($uploadOk == 0) {
             "image"=>$target_filefile
             )
         );
-
+        date_default_timezone_set('Europe/Paris');
+        setlocale(LC_TIME, 'fr_FR.utf8','fra');
+        $date = strftime('%d/%m/%Y %H:%M:%S');
         $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
         $insertlogs->execute(array(
                             "user_id"=>$user_id,
@@ -5129,9 +5125,6 @@ if ($uploadOk == 0) {
                             )
                         );
 
-        date_default_timezone_set('Europe/Paris');
-        setlocale(LC_TIME, 'fr_FR.utf8','fra');
-        $date = strftime('%Y-%m-%d %H:%M:%S');
 
         $img_tmp = $target_dirnew.$target_filefile;
         $fin = $target_dirnewthumb.$target_filefile;
@@ -5389,7 +5382,9 @@ if ($uploadOk == 0) {
             "image"=>$target_filefile
             )
         );
-
+        date_default_timezone_set('Europe/Paris');
+        setlocale(LC_TIME, 'fr_FR.utf8','fra');
+        $date = strftime('%d/%m/%Y %H:%M:%S');
         $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
         $insertlogs->execute(array(
                             "user_id"=>$user_id,
@@ -5400,9 +5395,7 @@ if ($uploadOk == 0) {
                             )
                         );
 
-        date_default_timezone_set('Europe/Paris');
-        setlocale(LC_TIME, 'fr_FR.utf8','fra');
-        $date = strftime('%Y-%m-%d %H:%M:%S');
+
 
         $img_tmp = $target_dirnew.$target_filefile;
         $fin = $target_dirnewthumb.$target_filefile;
@@ -5625,7 +5618,9 @@ if ($uploadOk == 0) {
             "image"=>$target_filefile
             )
         );
-
+        date_default_timezone_set('Europe/Paris');
+        setlocale(LC_TIME, 'fr_FR.utf8','fra');
+        $date = strftime('%d/%m/%Y %H:%M:%S');
         $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
         $insertlogs->execute(array(
                             "user_id"=>$user_id,
@@ -5636,10 +5631,6 @@ if ($uploadOk == 0) {
                             )
                         );
 
-
-        date_default_timezone_set('Europe/Paris');
-        setlocale(LC_TIME, 'fr_FR.utf8','fra');
-        $date = strftime('%Y-%m-%d %H:%M:%S');
 
         $img_tmp = $target_dirnew.$target_filefile;
         $fin = $target_dirnewthumb.$target_filefile;
@@ -5818,7 +5809,9 @@ if ($uploadOk == 0) {
             "image"=>$target_filefile
             )
         );
-
+        date_default_timezone_set('Europe/Paris');
+        setlocale(LC_TIME, 'fr_FR.utf8','fra');
+        $date = strftime('%d/%m/%Y %H:%M:%S');
 
         $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
         $insertlogs->execute(array(
@@ -5830,9 +5823,6 @@ if ($uploadOk == 0) {
                             )
                         );
 
-        date_default_timezone_set('Europe/Paris');
-        setlocale(LC_TIME, 'fr_FR.utf8','fra');
-        $date = strftime('%Y-%m-%d %H:%M:%S');
 
         $img_tmp = $target_dirnew.$target_filefile;
         $fin = $target_dirnewthumb.$target_filefile;
@@ -6209,6 +6199,9 @@ if ($uploadOk == 0) {
               "image"=>$target_filefile
               )
           );
+          date_default_timezone_set('Europe/Paris');
+          setlocale(LC_TIME, 'fr_FR.utf8','fra');
+          $date = strftime('%d/%m/%Y %H:%M:%S');
           $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
           $insertlogs->execute(array(
                               "user_id"=>$user_id,
@@ -6219,9 +6212,7 @@ if ($uploadOk == 0) {
                               )
                           );
 
-          date_default_timezone_set('Europe/Paris');
-          setlocale(LC_TIME, 'fr_FR.utf8','fra');
-          $date = strftime('%Y-%m-%d %H:%M:%S');
+
 
           $img_tmp = $target_dirnew.$target_filefile;
           $fin = $target_dirnewthumb.$target_filefile;
