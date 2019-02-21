@@ -529,8 +529,8 @@ if ($uploadOk == 0) {
 
                                     }
 
-                                    require('miseajourdusite.php');
-                                    sleep(2);
+                                    require('includes/miseajourdusite.php');
+
 
 
                         }else {
