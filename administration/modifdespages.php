@@ -16,6 +16,18 @@ $sitekey = "LESITEKEY";
 <script src='https://www.google.com/recaptcha/api.js'></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 <script>
+function DisplayErrorIndex(){
+  window.location.replace("https://administration.jam-mdm.fr/modifdespages.php?page=index&table=pageindex&typedenotif=warning&messagenotif=Une erreur est survenue");
+}
+
+
+
+
+
+
+
+
+
 function RetourIndex(){
   window.location="https://administration.jam-mdm.fr/modifdespages.php"
 }
@@ -192,18 +204,31 @@ $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 // Check if file already exists
 if (file_exists($target_file)) {
-    $error = 'Désolé, le fichier existe déja.';
+  ?>
+<script>
+DisplayErrorIndex();
+</script>
+<?php
+
     $uploadOk = 0;
 }
 // Check file size < 2mo
 if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
-    $error = 'Désolé, le fichier est trop grand.';
+  ?>
+<script>
+DisplayErrorIndex();
+</script>
+<?php
     $uploadOk = 0;
 
 }
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-    $error = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+  ?>
+<script>
+DisplayErrorIndex();
+</script>
+<?php
     $uploadOk = 0;
 }
 // Check if $uploadOk is set to 0 by an error
@@ -284,7 +309,11 @@ if ($uploadOk == 0) {
 
 
     }else {
-        $error = 'Désolé, une erreur est survenue.';
+      ?>
+    <script>
+    DisplayErrorIndex();
+    </script>
+    <?php
     } } }
 
           } ?>
@@ -556,7 +585,11 @@ if ($uploadOk == 0) {
 
 
                         }else {
-                            $error = 'Désolé, une erreur est survenue.';
+                          ?>
+                          <script>
+                          window.location.replace("https://administration.jam-mdm.fr/modifdespages.php?page=index&table=pageindex&typedenotif=warning&messagenotif=Désolé une erreur est survenue");
+                          </script>
+                          <?php
                         } } }
 
                               } ?>
