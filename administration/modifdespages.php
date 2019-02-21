@@ -163,7 +163,7 @@ if(isset($_GET['messagenotif']) && ($_GET['typedenotif'])){
 
 function TITI(message){
 
-  window.location.replace("https://administration.jam-mdm.fr/modifdespages.php?page=index&table=pageindex&typedenotif=success&messagenotif="+message);
+  window.location.replace("https://administration.jam-mdm.fr/modifdespages.php?page=index&table=pageindex&typedenotif=success&messagenotif=ok"+message);
 
 }
 </script>
