@@ -177,6 +177,7 @@ $setban->execute();
     </div>
   </div>
 </div>
+</body>
 
   <?php
   require_once('includes/javascript.php');
