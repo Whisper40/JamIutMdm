@@ -520,7 +520,7 @@ if ($uploadOk == 0) {
                     if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
                       ?>
                       <script>
-                      window.location.replace("https://administration.jam-mdm.fr/modifdespages.php?page=index&table=pageindex&typedenotif=warning&messagenotif=Désolé le format est pas aux normes");
+                      window.location.replace("https://administration.jam-mdm.fr/modifdespages.php?page=index&table=pageindex&typedenotif=warning&messagenotif=Désolé le format n\'est pas aux normes");
                       </script>
                       <?php
                         $uploadOk = 0;
