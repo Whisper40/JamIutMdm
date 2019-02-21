@@ -75,7 +75,17 @@
                             </div>
                             <div class="card-content">
                                 <p class="category"> Date de fin d'adhésion</p>
-                                <h4 class="card-title">2019-07-01</h4>
+                                <h4 class="card-title">
+
+                                  <?php
+                                      $selectdatefin = $db->prepare("SELECT datefin FROM annuelle");
+                                      $selectdatefin->execute();
+
+                                    $s2 = $selectdatefin->fetch(PDO::FETCH_OBJ);
+                                    $datefin = $s2->datefin;
+                                    echo $datefin;
+                                          ?>
+                                </h4>
                             </div>
                         </div>
                     </div>
