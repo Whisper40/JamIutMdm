@@ -2,12 +2,12 @@
 require_once('../includes/connectBDD.php');
 
         $user_id = $_POST['user_id'];
-        $id = $_POST['id'];
+
         $titre = $_POST['titre'];
         $pagetitre = $_POST['pagetitre'];
 
 
-        if(!empty($user_id)&&!empty($id)&&!empty($titre)&&!empty($pagetitre)){
+        if(!empty($user_id)&&!empty($titre)&&!empty($pagetitre)){
 
 
 
