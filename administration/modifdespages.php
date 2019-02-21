@@ -106,10 +106,32 @@ if(isset($_GET['messagenotif'])){
       $type = "warning";
 
       if ($messagenotif != "") {
-        echo 'JEFONCTIONNE';
+
 
 ?>
-    <test <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
+
+<script type="text/javascript">
+
+function fuck(){
+  const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000
+});
+
+Toast.fire({
+  type: 'success',
+  title: 'Signed in successfully'
+})
+
+}
+
+window.onload=fuck;
+</script>
+
+
+
 <?php
        }
 }
