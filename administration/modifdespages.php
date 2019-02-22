@@ -59,10 +59,6 @@ txtarea.scrollTop = scrollPos;
 }
  </script>
 
-
-<body>
-    <div class="wrapper">
-
     <?php
     if(isset($_GET['page'])){
       if($_GET['page']=='index'){
@@ -88,7 +84,8 @@ txtarea.scrollTop = scrollPos;
       }else if ($_GET['page']=='lienutiles'){
         $nomsouscat = "Lien Utiles";
       }
-      require_once('includes/navbar.php');
+
+
     if($_GET['page']=='index'){
 if(isset($_GET['messagenotif'])){
       $messagenotif=$_GET['messagenotif'];
@@ -486,7 +483,12 @@ if ($uploadOk == 0) {
                               } ?>
 
 
+<body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
+  <div class="wrapper">
 
+   <?php
+   require_once('includes/navbar.php');
+   ?>
 
   <div class="content">
       <div class="container-fluid">
@@ -711,6 +713,13 @@ if ($uploadOk == 0) {
       });
   }
   </script>
+
+<body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
+  <div class="wrapper">
+
+   <?php
+   require_once('includes/navbar.php');
+   ?>
 
     <div class="content">
         <div class="container-fluid">
@@ -1021,6 +1030,13 @@ if ($uploadOk == 0) {
                               $error = 'Désolé, une erreur est survenue.';
                           } } }
                                 } ?>
+
+                              <body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
+                                <div class="wrapper">
+
+                                 <?php
+                                 require_once('includes/navbar.php');
+                                 ?>
 
                                 <div class="content">
                                   <div class="container-fluid">
@@ -1395,6 +1411,13 @@ if ($uploadOk == 0) {
     } } }
           } ?>
 
+<body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
+  <div class="wrapper">
+
+   <?php
+   require_once('includes/navbar.php');
+   ?>
+
   <div class="content">
     <div class="container-fluid">
       <div class="card">
@@ -1674,7 +1697,12 @@ $titre = $r4->titre;
      } } }
            } ?>
 
+<body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
+ <div class="wrapper">
 
+  <?php
+  require_once('includes/navbar.php');
+  ?>
 
 <div class="content">
   <div class="container-fluid">
@@ -2137,6 +2165,13 @@ function RetourIndex3(){
 }
 </script>
 
+<body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
+  <div class="wrapper">
+
+   <?php
+   require_once('includes/navbar.php');
+   ?>
+
   <div class="content">
     <div class="container-fluid">
       <div class="card">
@@ -2332,6 +2367,12 @@ if ($uploadOk == 0) {
 }
           ?>
 
+        <body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
+          <div class="wrapper">
+
+           <?php
+           require_once('includes/navbar.php');
+           ?>
 
           <div class="content">
             <div class="container-fluid">
@@ -2563,6 +2604,12 @@ function RetourIndex4(){
 }
 </script>
 
+<body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
+  <div class="wrapper">
+
+   <?php
+   require_once('includes/navbar.php');
+   ?>
 
 <div class="content">
   <div class="container-fluid">
@@ -2825,6 +2872,12 @@ if ($uploadOk == 0) {
     } } }
           } ?>
 
+          <body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
+            <div class="wrapper">
+
+             <?php
+             require_once('includes/navbar.php');
+             ?>
 
           <div class="content">
             <div class="container-fluid">
@@ -3494,6 +3547,21 @@ if (file_exists($target_dir)){
       });
   }
   </script>
+
+  <body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
+    <div class="wrapper">
+
+     <?php
+     require_once('includes/navbar.php');
+     ?>
+
+     <body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
+       <div class="wrapper">
+
+        <?php
+        require_once('includes/navbar.php');
+        ?>
+
     <div class="content">
         <div class="container-fluid">
             <div class="card">
@@ -3723,6 +3791,19 @@ if ($uploadOk == 0) {
     } } }
           } ?>
 
+          <body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
+            <div class="wrapper">
+
+             <?php
+             require_once('includes/navbar.php');
+             ?>
+
+             <body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
+               <div class="wrapper">
+
+                <?php
+                require_once('includes/navbar.php');
+                ?>
 
           <div class="content">
             <div class="container-fluid">
@@ -4519,6 +4600,19 @@ if ($uploadOk == 0) {
     } } }
           } ?>
 
+          <body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
+            <div class="wrapper">
+
+             <?php
+             require_once('includes/navbar.php');
+             ?>
+
+             <body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
+               <div class="wrapper">
+
+                <?php
+                require_once('includes/navbar.php');
+                ?>
 
           <div class="content">
             <div class="container-fluid">
@@ -4759,6 +4853,20 @@ if ($uploadOk == 0) {
         $error = 'Désolé, une erreur est survenue.';
     } } } } ?>
 
+    <body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
+      <div class="wrapper">
+
+       <?php
+       require_once('includes/navbar.php');
+       ?>
+
+       <body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
+         <div class="wrapper">
+
+          <?php
+          require_once('includes/navbar.php');
+          ?>
+
           <div class="content">
             <div class="container-fluid">
               <div class="card">
@@ -4969,6 +5077,12 @@ if ($uploadOk == 0) {
     } } }
           } ?>
 
+          <body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
+            <div class="wrapper">
+
+             <?php
+             require_once('includes/navbar.php');
+             ?>
 
           <div class="content">
             <div class="container-fluid">
@@ -5279,6 +5393,13 @@ if ($uploadOk == 0) {
     });
   }
   </script>
+
+  <body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
+    <div class="wrapper">
+
+     <?php
+     require_once('includes/navbar.php');
+     ?>
 
   <div class="content">
     <div class="container-fluid">
