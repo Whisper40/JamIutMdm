@@ -881,11 +881,11 @@ if(isset($error)){
                        <br>
                        <div class="form-group label-floating">
                            <label class="control-label">Nom de la catégorie</label>
-                           <input type="text" class="form-control" placeholder="Nom de la catégorie d'images"  name="nomcategorieimage">
+                           <input type="text" class="form-control" name="nomcategorieimage">
                        </div>
                        <div class="form-group label-floating">
                            <label class="control-label">Nom de l'icon</label>
-                           <input type="text" class="form-control" placeholder="Nom de l'icon"  name="nomicon">
+                           <input type="text" class="form-control" name="nomicon">
                        </div>
                        <div class="form-group form-file-upload">
                            <input type="file" id="fileToUploadCatImage" name="fileToUploadCatImage" multiple="multiple">
@@ -911,11 +911,11 @@ if(isset($error)){
                       <br>
                       <div class="form-group label-floating">
                           <label class="control-label">Nom de la catégorie</label>
-                          <input type="text" class="form-control" placeholder="Nom de la catégorie vidéo"  name="nomcategorievideo">
+                          <input type="text" class="form-control" name="nomcategorievideo">
                       </div>
                       <div class="form-group label-floating">
                           <label class="control-label">Lien vidéo</label>
-                          <input type="text" class="form-control" placeholder="Lien vidéo"  name="liencatvideo">
+                          <input type="text" class="form-control" name="liencatvideo">
                       </div>
                       <div class="form-group form-file-upload">
                           <input type="file" id="fileToUploadCatVideo" name="fileToUploadCatVideo" multiple="multiple">
@@ -933,6 +933,23 @@ if(isset($error)){
                       </center>
                     </div>
                  </form>
+               </div>
+             </div>
+             <div class="row">
+               <div class="col-sm-12">
+                 <div class="card-content">
+                   <h3 class="card-title">Liste des icons pour les categorie d'image</h3>
+                   <div class="iframe-container hidden-sm hidden-xs">
+                       <iframe src="https://design.google.com/icons/">
+                           <p>Your browser does not support iframes.</p>
+                       </iframe>
+                   </div>
+                   <div class="col-md-6 hidden-lg hidden-md text-center">
+                       <h5>The icons are visible on Desktop mode inside an iframe. Since the iframe is not working on Mobile and Tablets please visit the icons on their original page on Google. Check the
+                           <a href="https://design.google.com/icons/" target="_blank">Material Icons</a>
+                       </h5>
+                   </div>
+                 </div>
                </div>
              </div>
 
