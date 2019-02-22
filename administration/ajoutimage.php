@@ -1011,7 +1011,7 @@ if(isset($error)){
                     </div>
                     <div class="form-group label-floating">
                         <label class="control-label">Lien vidéo</label>
-                        <input type="text" class="form-control" placeholder="Lien vidéo (embed)"  name="lienvideo">
+                        <input type="text" class="form-control" name="lienvideo">
                     </div>
                     <div class="form-group form-file-upload">
                         <input type="file" id="fileToUploadVideo" name="fileToUploadVideo" multiple="multiple">
@@ -1031,11 +1031,13 @@ if(isset($error)){
                </form>
              </div>
            </div>
+
+    <!--
          </div>
        </div>
      </div>
    </div>
- </div>
+ </div> -->
 
 
 <!-- Ajoutd'images au site web (assets)-->
