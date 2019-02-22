@@ -940,14 +940,7 @@ if(isset($error)){
                  <div class="card-content">
                    <h3 class="card-title">Liste des icons pour les categorie d'image</h3>
                    <div class="iframe-container hidden-sm hidden-xs">
-                       <iframe src="https://design.google.com/icons/">
-                           <p>Your browser does not support iframes.</p>
-                       </iframe>
-                   </div>
-                   <div class="col-md-6 hidden-lg hidden-md text-center">
-                       <h5>The icons are visible on Desktop mode inside an iframe. Since the iframe is not working on Mobile and Tablets please visit the icons on their original page on Google. Check the
-                           <a href="https://design.google.com/icons/" target="_blank">Material Icons</a>
-                       </h5>
+                       <iframe src="https://design.google.com/icons/"></iframe>
                    </div>
                  </div>
                </div>
