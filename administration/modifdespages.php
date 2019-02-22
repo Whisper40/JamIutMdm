@@ -3645,13 +3645,6 @@ if (file_exists($target_dir)){
   }
   </script>
 
-  <body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
-    <div class="wrapper">
-
-     <?php
-     require_once('includes/navbar.php');
-     ?>
-
      <body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
        <div class="wrapper">
 
