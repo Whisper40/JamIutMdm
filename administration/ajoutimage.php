@@ -873,14 +873,12 @@ if ($uploadOk == 0) {
     } } } }
  ?>
 
- <body>
+ <body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
    <div class="wrapper">
 
- <?php
-
-     require_once('includes/navbar.php');
-
-  ?>
+    <?php
+    require_once('includes/navbar.php');
+    ?>
 
         <div class="content">
          <div class="container-fluid">
