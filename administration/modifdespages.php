@@ -1865,12 +1865,13 @@ $titre = $r4->titre;
       </table>
     </div>
     ';
-      }else{
-        $messagenotif = "Aucune personne trouvée";
-        $type = "warning";
-      }
-//Création membres
-?>
+      }else{ ?>
+
+        <center>
+            <h4 class="info-title"><font color="red">Aucune personne trouvée</font></h4>
+        </center>
+
+      <?php } ?>
 
 <div class="row">
   <div class="col-sm-12">
@@ -2548,11 +2549,14 @@ if ($uploadOk == 0) {
       </table>
     </div>
         ';
-      }else{
-        $messagenotif = "Aucun status trouvé";
-        $type = "warning";
-      }
-?>
+
+      }else{ ?>
+
+        <center>
+            <h4 class="info-title"><font color="red">Aucun status trouvé</font></h4>
+        </center>
+
+      <?php } ?>
 
     <div class="row">
       <div class="col-sm-12">
@@ -3087,10 +3091,15 @@ $result = raccourcirChaine($description, 80);
           </table>
         </div>
         ';
-      }else{
-        $messagenotif = "Aucune actualitée trouvée";
-        $type = "warning";
-      }
+
+      }else{ ?>
+
+        <center>
+            <h4 class="info-title"><font color="red">Aucune actualitée trouvée</font></h4>
+        </center>
+
+      <?php }
+
 //Création membres
 function slugify($text){
   $text = preg_replace('~[^\pL\d]+~u', '-', $text);
@@ -4036,10 +4045,15 @@ if ($uploadOk == 0) {
       </table>
     </div>
         ';
-      }else{
-        $messagenotif = "Aucune activitée trouvée";
-        $type = "warning";
-      }
+
+      }else{ ?>
+
+        <center>
+            <h4 class="info-title"><font color="red">Aucune activitée trouvée</font></h4>
+        </center>
+
+      <?php }
+
   //Création membres
   function slugify($text){
   $text = preg_replace('~[^\pL\d]+~u', '-', $text);
@@ -5932,14 +5946,14 @@ if ($uploadOk == 0) {
       </table>
     </div>
         ';
-      }else{
-        $messagenotif = "Aucun lien utile trouvé";
-        $type = "warning";
-      }
-      ?>
 
+      }else{ ?>
 
+        <center>
+            <h4 class="info-title"><font color="red">Aucun lien utile trouvé</font></h4>
+        </center>
 
+      <?php } ?>
 
   </div>
 
