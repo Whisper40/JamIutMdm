@@ -359,50 +359,7 @@ $selectcatimages=$db->query("SELECT DISTINCT title FROM images");
                  </div>
                </div>
              </div>
-           </form>
-
-           <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-                        Sélectionner l'album<br>
-                        <select name="catimage">
-                          <?php
-                            while($s = $selectcatimages->fetch(PDO::FETCH_OBJ)){
-                              $catimage=$s->title;
-                              ?>
-                            <option value="<?php echo $catimage;?>"><?php echo $catimage; ?></option>
-                          <?php
-                        }
-                        ?>
-
-
-                        </select>
-
-                        <div class="row">
-                                                          <label class="col-sm-2 label-on-left">Action :</label>
-                                                          <div class="col-sm-10">
-                                                              <div class="radio">
-                                                                  <label>
-                                                                      <input type="radio" name="optionsRadios" checked="true" value="defaut"> Définir par défaut
-                                                                  </label>
-                                                              </div>
-                                                              <div class="radio">
-                                                                  <label>
-                                                                      <input type="radio" name="optionsRadios" value="ban"> Désactiver
-                                                                  </label>
-                                                              </div>
-                                                              <div class="radio">
-                                                                  <label>
-                                                                      <input type="radio" name="optionsRadios" value="delete"> Supprimer
-                                                                  </label>
-                                                              </div>
-                                                          </div>
-                                                      </div>
-
-
-                        <input type="submit" name="submit" value="Valider">
-                    </form>
-
-
-
+           </form>     
          </div>
        </div>
      </div>
