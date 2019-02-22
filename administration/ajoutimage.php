@@ -860,72 +860,86 @@ if(isset($error)){
 
  ?>
 
-    <h3> Créer une catégorie d'image </h3>
+        <div class="content">
+         <div class="container-fluid">
+           <div class="card">
+             <div class="card-content">
+               <h2 class="card-title text-center">Ajouter des images et des vidéos à la galerie</h2>
+               <br>
+               <div class="row">
+                 <div class="col-sm-12">
+                   <div class="card-content">
+                     <h3 class="card-title">Création de catégories</h3>
+                   </div>
+                 </div>
+               </div>
+               <div class="row">
+                 <div class="col-sm-6">
+                   <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+                     <div class="card-content">
+                       <h3 class="card-title text-center">Catégorie d'images</h3>
+                       <br>
+                       <div class="form-group label-floating">
+                           <label class="control-label">Nom de la catégorie</label>
+                           <input type="text" class="form-control" placeholder="Nom de la catégorie d'images"  name="nomcategorieimage">
+                       </div>
+                       <div class="form-group label-floating">
+                           <label class="control-label">Nom de l'icon</label>
+                           <input type="text" class="form-control" placeholder="Nom de l'icon"  name="nomicon">
+                       </div>
+                       <div class="form-group form-file-upload">
+                           <input type="file" id="fileToUploadCatImage" name="fileToUploadCatImage" multiple="multiple">
+                           <div class="input-group">
+                               <input type="text" readonly="" class="form-control" placeholder="Insérer la miniature de l'image">
+                               <span class="input-group-btn input-group-s">
+                                   <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
+                                       <i class="material-icons">layers</i>
+                                   </button>
+                               </span>
+                           </div>
+                       </div>
+                       <center>
+                         <button type="submit" name="catphotosubmit" class="btn btn-primary btn-round btn-rose">Créer une catégorie d'image</button>
+                       </center>
+                     </div>
+                  </form>
+                </div>
+                <div class="col-sm-6">
+                  <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+                    <div class="card-content">
+                      <h3 class="card-title text-center">Catégorie de vidéos</h3>
+                      <br>
+                      <div class="form-group label-floating">
+                          <label class="control-label">Nom de la catégorie</label>
+                          <input type="text" class="form-control" placeholder="Nom de la catégorie vidéo"  name="nomcategorievideo">
+                      </div>
+                      <div class="form-group label-floating">
+                          <label class="control-label">Lien vidéo</label>
+                          <input type="text" class="form-control" placeholder="Lien vidéo"  name="liencatvideo">
+                      </div>
+                      <div class="form-group form-file-upload">
+                          <input type="file" id="fileToUploadCatVideo" name="fileToUploadCatVideo" multiple="multiple">
+                          <div class="input-group">
+                              <input type="text" readonly="" class="form-control" placeholder="Insérer la miniature de la vidéo">
+                              <span class="input-group-btn input-group-s">
+                                  <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
+                                      <i class="material-icons">layers</i>
+                                  </button>
+                              </span>
+                          </div>
+                      </div>
+                      <center>
+                        <buttontype="submit" name="catvideosubmit" class="btn btn-primary btn-round btn-rose">Créer une catégorie de vidéo</button>
+                      </center>
+                    </div>
+                 </form>
+               </div>
+             </div>
 
-    <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-
-        <div class="input-group input-lg">
-          <div class="input-group-prepend">
-            <span class="input-group-text">
-              <i class="now-ui-icons users_circle-08"></i>
-            </span>
-          </div>
-          <input type="text" class="form-control" placeholder="Nom de la catégorie d'images"  name="nomcategorieimage">
-          <input type="text" class="form-control" placeholder="Nom de l'icon"  name="nomicon">
-        </div>
-
-        <div class="form-group form-file-upload">
-            <input type="file" id="fileToUploadCatImage" name="fileToUploadCatImage" multiple="multiple">
-            <div class="input-group">
-                <input type="text" readonly="" class="form-control" placeholder="Insérer la miniature de l'image">
-                <span class="input-group-btn input-group-s">
-                    <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
-                        <i class="material-icons">layers</i>
-                    </button>
-                </span>
-            </div>
-        </div>
-
-        <input type="submit" name="catphotosubmit" value="Créer la catégorie d'images !">
-    </form>
 
 
-    <h3> Créer une catégorie de vidéo </h3>
 
-    <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
 
-        <div class="input-group input-lg">
-          <div class="input-group-prepend">
-            <span class="input-group-text">
-              <i class="now-ui-icons users_circle-08"></i>
-            </span>
-          </div>
-          <input type="text" class="form-control" placeholder="Nom de la catégorie vidéo"  name="nomcategorievideo">
-        </div>
-
-        <div class="input-group input-lg">
-          <div class="input-group-prepend">
-            <span class="input-group-text">
-              <i class="now-ui-icons users_circle-08"></i>
-            </span>
-          </div>
-          <input type="text" class="form-control" placeholder="Lien vidéo"  name="liencatvideo">
-        </div>
-
-        <div class="form-group form-file-upload">
-            <input type="file" id="fileToUploadCatVideo" name="fileToUploadCatVideo" multiple="multiple">
-            <div class="input-group">
-                <input type="text" readonly="" class="form-control" placeholder="Insérer la miniature de la vidéo">
-                <span class="input-group-btn input-group-s">
-                    <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
-                        <i class="material-icons">layers</i>
-                    </button>
-                </span>
-            </div>
-        </div>
-
-        <input type="submit" name="catvideosubmit" value="Créer la catégorie vidéo !">
-    </form>
 
 
 
