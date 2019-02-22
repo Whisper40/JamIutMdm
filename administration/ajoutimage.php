@@ -43,6 +43,7 @@ $sitekey = "LESITEKEY";
 </style>
 
 <?php
+$messagenotif = "";
 
 if(isset($_POST['catphotosubmit'])){
   $nomcategorieimage = $_POST['nomcategorieimage'];
@@ -98,12 +99,14 @@ $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 // Check if file already exists
 if (file_exists($target_file)) {
-    $error = 'Désolé, le fichier existe déja.';
+    $messagenotif = 'Désolé, le fichier existe déja.';
+    $type = "warning";
     $uploadOk = 0;
 }
 // Check file size < 2mo
 if ($_FILES["fileToUploadCatImage"]["size"] > 2000000) {
-    $error = 'Désolé, le fichier est trop grand.';
+    $messagenotif = 'Désolé, le fichier est trop grand.';
+    $type = "warning";
     $uploadOk = 0;
 
 }
@@ -111,12 +114,14 @@ if ($_FILES["fileToUploadCatImage"]["size"] > 2000000) {
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
 && $imageFileType != "gif" && $imageFileType != "pdf" && $imageFileType != "zip" && $imageFileType != "rar") {
 
-    $error = 'Désolé, Seuls les formats JPG, PNG, GIF sont autorisés';
+    $messagenotif = 'Désolé, Seuls les formats JPG, PNG, GIF sont autorisés';
+    $type = "warning";
     $uploadOk = 0;
 }
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-    $error = 'Désolé, votre fichier n\'a pas été uploadé.';
+    $messagenotif = 'Désolé, votre fichier n\'a pas été uploadé.';
+    $type = "warning";
 // if everything is ok, try to upload file
 } else {
   date_default_timezone_set('Europe/Paris');
@@ -129,7 +134,8 @@ if ($uploadOk == 0) {
 
     if (move_uploaded_file($_FILES["fileToUploadCatImage"]["tmp_name"], $target_file3)) {
 
-        $succes = "Le fichier ". basename( $_FILES["fileToUploadCatImage"]["name"]). " à bien été uploadé.";
+        $messagenotif = "Le fichier ". basename( $_FILES["fileToUploadCatImage"]["name"]). " à bien été uploadé.";
+        $type = "success";
         $status = '1';
         date_default_timezone_set('Europe/Paris');
         setlocale(LC_TIME, 'fr_FR.utf8','fra');
@@ -247,10 +253,12 @@ if ($uploadOk == 0) {
                       }
 
     }else {
-        $error = 'Désolé, une erreur est survenue';
+        $messagenotif = 'Désolé, une erreur est survenue';
+        $type = "warning";
     } } }else{
 
-      $error = 'Désolé, la catégorie existe déja';
+      $messagenotif = 'Désolé, la catégorie existe déja';
+      $type = "warning";
     }}
 ?>
 
@@ -311,24 +319,28 @@ $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 // Check if file already exists
 if (file_exists($target_file)) {
-$error = 'Désolé, le fichier existe déja.';
+$messagenotif = 'Désolé, le fichier existe déja.';
+$type = "warning";
 $uploadOk = 0;
 }
 // Check file size < 2mo
 if ($_FILES["fileToUploadCatVideo"]["size"] > 2000000) {
-$error = 'Désolé, le fichier est trop grand.';
+$messagenotif = 'Désolé, le fichier est trop grand.';
+$type = "warning";
 $uploadOk = 0;
 
 }
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
 && $imageFileType != "gif" && $imageFileType != "pdf" && $imageFileType != "zip" && $imageFileType != "rar") {
-$error = 'Désolé, les formats autorisé sont JPG, PNG et GIF.';
+$messagenotif = 'Désolé, les formats autorisé sont JPG, PNG et GIF.';
+$type = "warning";
 $uploadOk = 0;
 }
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-$error = 'Désolé, votre fichier n\'a pas été uploadé';
+$messagenotif = 'Désolé, votre fichier n\'a pas été uploadé';
+$type = "warning";
 // if everything is ok, try to upload file
 } else {
 date_default_timezone_set('Europe/Paris');
@@ -341,7 +353,8 @@ $target_file3 = $target_dirnew."".basename($_FILES["fileToUploadCatVideo"]["name
 
 if (move_uploaded_file($_FILES["fileToUploadCatVideo"]["tmp_name"], $target_file3)) {
 
-    $error = 'Le fichier '. basename( $_FILES["fileToUploadCatVideo"]["name"]). ' à bien été uploadé';
+    $messagenotif = 'Le fichier '. basename( $_FILES["fileToUploadCatVideo"]["name"]). ' à bien été uploadé';
+    $type = "warning";
 
     $status = '1';
     date_default_timezone_set('Europe/Paris');
@@ -458,9 +471,11 @@ if (move_uploaded_file($_FILES["fileToUploadCatVideo"]["tmp_name"], $target_file
                   }
 
 }else {
-   $error = 'Désolé, une erreur est survenue durant l\'upload';
+   $messagenotif = 'Désolé, une erreur est survenue durant l\'upload';
+   $type = "warning";
 } } }else{
-  $error = 'Désolé, la catégorie existe déja';
+  $messagenotif = 'Désolé, la catégorie existe déja';
+  $type = "warning";
 
 }}
 
@@ -504,26 +519,30 @@ $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 // Check if file already exists
 if (file_exists($target_file)) {
-    $error = 'Désolé, le fichier existe déja.';
+    $messagenotif = 'Désolé, le fichier existe déja.';
+    $type = "warning";
     $uploadOk = 0;
 }
 
 // Check file size < 2mo
 if ($_FILES["fileToUploadVideo"]["size"] > 2000000) {
-    $error = 'Désolé, le fichier est trop grand.';
+    $messagenotif = 'Désolé, le fichier est trop grand.';
+    $type = "warning";
     $uploadOk = 0;
 
 }
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
 && $imageFileType != "gif" && $imageFileType != "pdf" && $imageFileType != "zip" && $imageFileType != "rar") {
-    $error = 'Désolé, les formats autorisés sont JPG, PNG et GIF.';
+    $messagenotif = 'Désolé, les formats autorisés sont JPG, PNG et GIF.';
+    $type = "warning";
     $uploadOk = 0;
 }
 
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-    $error = 'Désolé, votre fichier n\'a pas été uploadé';
+    $messagenotif = 'Désolé, votre fichier n\'a pas été uploadé';
+    $type = "warning";
 // if everything is ok, try to upload file
 } else {
   date_default_timezone_set('Europe/Paris');
@@ -536,7 +555,8 @@ if ($uploadOk == 0) {
 
     if (move_uploaded_file($_FILES["fileToUploadVideo"]["tmp_name"], $target_file3)) {
 
-        $succes = "Le fichier ". basename( $_FILES["fileToUploadVideo"]["name"]). " à bien été uploadé.";
+        $messagenotif = "Le fichier ". basename( $_FILES["fileToUploadVideo"]["name"]). " à bien été uploadé.";
+        $type = "success";
         $status = '1';
         date_default_timezone_set('Europe/Paris');
         setlocale(LC_TIME, 'fr_FR.utf8','fra');
@@ -648,7 +668,8 @@ if ($uploadOk == 0) {
                       }
 
     }else {
-        $error = 'Désolé, une erreur est survenue.';
+        $messagenotif = 'Désolé, une erreur est survenue.';
+        $type = "warning";
     } } }
 
 if(isset($_POST['submit'])){
@@ -700,24 +721,28 @@ $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 // Check if file already exists
 if (file_exists($target_file)) {
-    $error = 'Désolé, le fichier existe déja.';
+    $messagenotif = 'Désolé, le fichier existe déja.';
+    $type = "warning";
     $uploadOk = 0;
 }
 // Check file size < 2mo
 if ($_FILES["fileToUpload"]["size"][$i] > 2000000) {
-    $error = 'Désolé, le fichier est trop grand.';
+    $messagenotif = 'Désolé, le fichier est trop grand.';
+    $type = "warning";
     $uploadOk = 0;
 
 }
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
 && $imageFileType != "gif" && $imageFileType != "pdf" && $imageFileType != "zip" && $imageFileType != "rar") {
-    $error = 'Désolé, les formats autorisés sont JPG, PNG et GIF.';
+    $messagenotif = 'Désolé, les formats autorisés sont JPG, PNG et GIF.';
+    $type = "warning";
     $uploadOk = 0;
 }
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-    $error = 'Désolé, une erreur est survenue.';
+    $messagenotif = 'Désolé, une erreur est survenue.';
+    $type = "warning";
 // if everything is ok, try to upload file
 } else {
   date_default_timezone_set('Europe/Paris');
@@ -729,7 +754,8 @@ if ($uploadOk == 0) {
   $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
 
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
-        $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+        $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+        $type = "success";
         $status = '1';
         date_default_timezone_set('Europe/Paris');
         setlocale(LC_TIME, 'fr_FR.utf8','fra');
@@ -842,23 +868,19 @@ if ($uploadOk == 0) {
                       }
 
     }else {
-        $error = 'Désolé, une erreur est survenue.';
-    } } } } ?>
-
-<body>
-  <div class="wrapper">
-
-<?php
-
-    require_once('includes/navbar.php');
-
-if(isset($error)){
-  echo $error;
-}else if(isset($succes)){
-  echo $succes;
-}
-
+        $messagenotif = 'Désolé, une erreur est survenue.';
+        $type = "warning";
+    } } } }
  ?>
+
+ <body>
+   <div class="wrapper">
+
+ <?php
+
+     require_once('includes/navbar.php');
+
+  ?>
 
         <div class="content">
          <div class="container-fluid">
