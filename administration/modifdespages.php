@@ -85,6 +85,8 @@ txtarea.scrollTop = scrollPos;
         $nomsouscat = "Lien Utiles";
       }
 
+      $messagenotif = "";
+
 
     if($_GET['page']=='index'){
 if(isset($_GET['messagenotif'])){
@@ -175,22 +177,26 @@ $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 // Check if file already exists
 if (file_exists($target_file)) {
-    $error = 'Désolé, le fichier existe déja.';
+    $messagenotif = 'Désolé, le fichier existe déja.';
+    $type = "warning";
     $uploadOk = 0;
 }
 // Check file size < 2mo
 if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
-    $error = 'Désolé, le fichier est trop grand.';
+    $messagenotif = 'Désolé, le fichier est trop grand.';
+    $type = "warning";
     $uploadOk = 0;
 }
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-    $error = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+    $messagenotif = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+    $type = "warning";
     $uploadOk = 0;
 }
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-    $error = 'Désolé, une erreur est survenue.';
+    $messagenotif = 'Désolé, une erreur est survenue.';
+    $type = "warning";
 // if everything is ok, try to upload file
 } else {
   date_default_timezone_set('Europe/Paris');
@@ -200,7 +206,8 @@ if ($uploadOk == 0) {
   $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
   $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
-        $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+        $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+        $type = "success";
         $status = '1';
         $update = $db->prepare("UPDATE pageindex SET img1=:img1");
         $update->execute(array(
@@ -252,7 +259,8 @@ if ($uploadOk == 0) {
                         }
                 }
     }else {
-        $error = 'Désolé, une erreur est survenue.';
+        $messagenotif = 'Désolé, une erreur est survenue.';
+        $type = "warning";
     } } }
           } ?>
 
@@ -285,22 +293,25 @@ if ($uploadOk == 0) {
           $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
           // Check if file already exists
           if (file_exists($target_file)) {
-              $error = 'Désolé, le fichier existe déja.';
+              $messagenotif = 'Désolé, le fichier existe déja.';
               $uploadOk = 0;
           }
           // Check file size < 2mo
           if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
-              $error = 'Désolé, le fichier est trop grand.';
+              $messagenotif = 'Désolé, le fichier est trop grand.';
+              $type = "warning";
               $uploadOk = 0;
           }
           // Allow certain file formats
           if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-              $error = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+              $messagenotif = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+              $type = "warning";
               $uploadOk = 0;
           }
           // Check if $uploadOk is set to 0 by an error
           if ($uploadOk == 0) {
-              $error = 'Désolé, une erreur est survenue.';
+              $messagenotif = 'Désolé, une erreur est survenue.';
+              $type = "warning";
           // if everything is ok, try to upload file
           } else {
             date_default_timezone_set('Europe/Paris');
@@ -310,7 +321,8 @@ if ($uploadOk == 0) {
             $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
             $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
               if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
-                  $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+                  $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+                  $type = "success";
                   $status = '1';
                   $update = $db->prepare("UPDATE pageindex SET logo1=:logo1");
                   $update->execute(array(
@@ -362,7 +374,8 @@ if ($uploadOk == 0) {
                                   }
                           }
               }else {
-                  $error = 'Désolé, une erreur est survenue.';
+                  $messagenotif = 'Désolé, une erreur est survenue.';
+                  $type = "warning";
               } } }
                     } ?>
 
@@ -395,22 +408,26 @@ if ($uploadOk == 0) {
                     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
                     // Check if file already exists
                     if (file_exists($target_file)) {
-                        $error = 'Désolé, le fichier existe déja.';
+                        $messagenotif = 'Désolé, le fichier existe déja.';
+                        $type = "warning";
                         $uploadOk = 0;
                     }
                     // Check file size < 2mo
                     if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
-                        $error = 'Désolé, le fichier est trop grand.';
+                        $messagenotif = 'Désolé, le fichier est trop grand.';
+                        $type = "warning";
                         $uploadOk = 0;
                     }
                     // Allow certain file formats
                     if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-                        $error = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+                        $messagenotif = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+                        $type = "warning";
                         $uploadOk = 0;
                     }
                     // Check if $uploadOk is set to 0 by an error
                     if ($uploadOk == 0) {
-                        $error = 'Désolé, une erreur est survenue.';
+                        $messagenotif = 'Désolé, une erreur est survenue.';
+                        $type = "warning";
                     // if everything is ok, try to upload file
                     } else {
                       date_default_timezone_set('Europe/Paris');
@@ -420,7 +437,8 @@ if ($uploadOk == 0) {
                       $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
                       $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
                         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
-                            $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+                            $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+                            $type = "success";
                             $status = '1';
                             $update = $db->prepare("UPDATE pageindex SET logo2=:logo2");
                             $update->execute(array(
@@ -478,7 +496,8 @@ if ($uploadOk == 0) {
                                     </script>
                                     <?php
                         }else {
-                            $error = 'Désolé, une erreur est survenue.';
+                            $messagenotif = 'Désolé, une erreur est survenue.';
+                            $type = "warning";
                         } } }
                               } ?>
 
@@ -839,22 +858,26 @@ if ($uploadOk == 0) {
             $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
             // Check if file already exists
             if (file_exists($target_file)) {
-                $error = 'Désolé, le fichier existe déja.';
+                $messagenotif = 'Désolé, le fichier existe déja.';
+                $type = "warning";
                 $uploadOk = 0;
             }
             // Check file size < 2mo
             if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
-                $error = 'Désolé, le fichier est trop grand.';
+                $messagenotif = 'Désolé, le fichier est trop grand.';
+                $type = "warning";
                 $uploadOk = 0;
             }
             // Allow certain file formats
             if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-                $error = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+                $messagenotif = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+                $type = "warning";
                 $uploadOk = 0;
             }
             // Check if $uploadOk is set to 0 by an error
             if ($uploadOk == 0) {
-                $error = 'Désolé, une erreur est survenue.';
+                $messagenotif = 'Désolé, une erreur est survenue.';
+                $type = "warning";
             // if everything is ok, try to upload file
             } else {
               date_default_timezone_set('Europe/Paris');
@@ -864,7 +887,8 @@ if ($uploadOk == 0) {
               $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
               $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
                 if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
-                    $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+                    $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+                    $type = "success";
                     $status = '1';
                     $update2 = $db->prepare("UPDATE photopage SET image=:image WHERE nompage=:nompage");
                     $update2->execute(array(
@@ -917,7 +941,8 @@ if ($uploadOk == 0) {
                                     }
                             }
                 }else {
-                    $error = 'Désolé, une erreur est survenue.';
+                    $messagenotif = 'Désolé, une erreur est survenue.';
+                    $type = "warning";
                 } } }
                       } ?>
 
@@ -948,22 +973,26 @@ if ($uploadOk == 0) {
                       $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
                       // Check if file already exists
                       if (file_exists($target_file)) {
-                          $error = 'Désolé, le fichier existe déja.';
+                          $messagenotif = 'Désolé, le fichier existe déja.';
+                          $type = "warning";
                           $uploadOk = 0;
                       }
                       // Check file size < 2mo
                       if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
-                          $error = 'Désolé, le fichier est trop grand.';
+                          $messagenotif = 'Désolé, le fichier est trop grand.';
+                          $type = "warning";
                           $uploadOk = 0;
                       }
                       // Allow certain file formats
                       if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-                          $error = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+                          $messagenotif = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+                          $type = "warning";
                           $uploadOk = 0;
                       }
                       // Check if $uploadOk is set to 0 by an error
                       if ($uploadOk == 0) {
-                          $error = 'Désolé, une erreur est survenue.';
+                          $messagenotif = 'Désolé, une erreur est survenue.';
+                          $type = "warning";
                       // if everything is ok, try to upload file
                       } else {
                         date_default_timezone_set('Europe/Paris');
@@ -973,7 +1002,8 @@ if ($uploadOk == 0) {
                         $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
                         $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
                           if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
-                              $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+                              $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+                              $type = "success";
                               $status = '1';
                               $update2 = $db->prepare("INSERT INTO carousel (slug, image, titreimage) VALUES(:pagetitre, :image, :titreimage)");
                               $update2->execute(array(
@@ -1027,7 +1057,8 @@ if ($uploadOk == 0) {
                                               }
                                       }
                           }else {
-                              $error = 'Désolé, une erreur est survenue.';
+                              $messagenotif = 'Désolé, une erreur est survenue.';
+                              $type = "warning";
                           } } }
                                 } ?>
 
@@ -1224,9 +1255,11 @@ if ($uploadOk == 0) {
       "image"=>$valnom
     ));
     unlink("$target_dirthumb/$valnom");
-    $succes = "Le fichier.$valnom. à bien été supprimé";
+    $messagenotif = "Le fichier.$valnom. à bien été supprimé";
+    $type = "success";
     }else{
-    $error = 'Un problème de répertoire est présent, contacter votre administrateur !';
+    $messagenotif = 'Un problème de répertoire est présent, contacter votre administrateur !';
+    $type = "warning";
     }
     ?>
     <script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=association&table=pageasso"</script>
@@ -1328,22 +1361,26 @@ $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 // Check if file already exists
 if (file_exists($target_file)) {
-    $error = 'Désolé, le fichier existe déja.';
+    $messagenotif = 'Désolé, le fichier existe déja.';
+    $type = "warning";
     $uploadOk = 0;
 }
 // Check file size < 2mo
 if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
-    $error = 'Désolé, le fichier est trop grand.';
+    $messagenotif = 'Désolé, le fichier est trop grand.';
+    $type = "warning";
     $uploadOk = 0;
 }
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-    $error = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+    $messagenotif = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+    $type = "warning";
     $uploadOk = 0;
 }
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-    $error = 'Désolé, une erreur est survenue.';
+    $messagenotif = 'Désolé, une erreur est survenue.';
+    $type = "warning";
 // if everything is ok, try to upload file
 } else {
   date_default_timezone_set('Europe/Paris');
@@ -1353,7 +1390,8 @@ if ($uploadOk == 0) {
   $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
   $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
-        $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+        $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+        $type = "success";
         $status = '1';
         $idmembre = $_GET['modifmembre'];
         $update = $db->prepare("UPDATE membres SET image=:image WHERE id=:id");
@@ -1407,7 +1445,8 @@ if ($uploadOk == 0) {
                         }
                 }
     }else {
-        $error = 'Désolé, une erreur est survenue.';
+        $messagenotif = 'Désolé, une erreur est survenue.';
+        $type = "warning";
     } } }
           } ?>
 
@@ -1547,14 +1586,16 @@ if ($uploadOk == 0) {
   $updatedelete->execute(array(
     "user_id"=>$user_id
   ));
-  $succes = "Le fichier.$valnom. à bien été supprimé";
+  $messagenotif = "Le fichier.$valnom. à bien été supprimé";
+  $type = "success";
 ?>
   <script>
     window.location="https://administration.jam-mdm.fr/modifdespages.php?page=membre&table=membres"
   </script>
 <?php
   }else{
-  $error = 'Un problème de répertoire est présent, contacter votre administrateur !';
+  $messagenotif = 'Un problème de répertoire est présent, contacter votre administrateur !';
+  $type = "warning";
   }
 }else{
 //modif page membre
@@ -1615,22 +1656,26 @@ $titre = $r4->titre;
  $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
  // Check if file already exists
  if (file_exists($target_file)) {
-     $error = 'Désolé, le fichier existe déja.';
+     $messagenotif = 'Désolé, le fichier existe déja.';
+     $type = "warning";
      $uploadOk = 0;
  }
  // Check file size < 2mo
  if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
-     $error = 'Désolé, le fichier est trop grand.';
+     $messagenotif = 'Désolé, le fichier est trop grand.';
+     $type = "warning";
      $uploadOk = 0;
  }
  // Allow certain file formats
  if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-     $error = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+     $messagenotif = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+     $type = "warning";
      $uploadOk = 0;
  }
  // Check if $uploadOk is set to 0 by an error
  if ($uploadOk == 0) {
-     $error = 'Désolé, une erreur est survenue.';
+     $messagenotif = 'Désolé, une erreur est survenue.';
+     $type = "warning";
  // if everything is ok, try to upload file
  } else {
    date_default_timezone_set('Europe/Paris');
@@ -1640,7 +1685,8 @@ $titre = $r4->titre;
    $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
    $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
      if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
-         $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+         $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+         $type = "success";
          $status = '1';
          $update = $db->prepare("UPDATE photopage SET image=:image WHERE nompage=:nompage");
          $update->execute(array(
@@ -1693,7 +1739,8 @@ $titre = $r4->titre;
                          }
                  }
      }else {
-         $error = 'Désolé, une erreur est survenue.';
+         $messagenotif = 'Désolé, une erreur est survenue.';
+         $type = "warning";
      } } }
            } ?>
 
@@ -1819,7 +1866,8 @@ $titre = $r4->titre;
     </div>
     ';
       }else{
-        $error = "Aucune personne trouvée";
+        $messagenotif = "Aucune personne trouvée";
+        $type = "warning";
       }
 //Création membres
 ?>
@@ -1865,22 +1913,26 @@ $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 // Check if file already exists
 if (file_exists($target_file)) {
-    $error = 'Désolé, le fichier existe déja.';
+    $messagenotif = 'Désolé, le fichier existe déja.';
+    $type = "warning";
     $uploadOk = 0;
 }
 // Check file size < 2mo
 if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
-    $error = 'Désolé, le fichier est trop grand.';
+    $messagenotif = 'Désolé, le fichier est trop grand.';
+    $type = "warning";
     $uploadOk = 0;
 }
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-    $error = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+    $messagenotif = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+    $type = "warning";
     $uploadOk = 0;
 }
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-    $error = 'Désolé, une erreur est survenue.';
+    $messagenotif = 'Désolé, une erreur est survenue.';
+    $type = "warning";
 // if everything is ok, try to upload file
 } else {
   date_default_timezone_set('Europe/Paris');
@@ -1890,7 +1942,8 @@ if ($uploadOk == 0) {
   $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
   $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
-        $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+        $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+        $type = "success";
         $status = '1';
         $insert = $db->prepare("INSERT INTO membres (nom, image, description, categorie, importance, fonction) VALUES (:nom, :image, :description, :grademembre, :importancegrade, :fonction)");
         $insert->execute(array(
@@ -1947,7 +2000,8 @@ if ($uploadOk == 0) {
                         }
                 }
     }else {
-        $error = 'Désolé, une erreur est survenue.';
+        $messagenotif = 'Désolé, une erreur est survenue.';
+        $type = "warning";
     } } }
           } ?>
 
@@ -2056,18 +2110,21 @@ $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 // Check if file already exists
 if (file_exists($target_file)) {
-    $error = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " existe déja !";
+    $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " existe déja !";
+    $type = "warning";
     $uploadOk = 0;
 }
 // Check file size < 2mo
 if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
-    $error = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " est trop grand ! (max=3Mo)";
+    $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " est trop grand ! (max=3Mo)";
+    $type = "warning";
     $uploadOk = 0;
 }
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
 && $imageFileType != "gif") {
-    $error = 'Désolé, les formats autorisés sont JPG, JPEG et PNG';
+    $messagenotif = 'Désolé, les formats autorisés sont JPG, JPEG et PNG';
+    $type = "warning";
     $uploadOk = 0;
 }
 // Check if $uploadOk is set to 0 by an error
@@ -2081,7 +2138,8 @@ if ($uploadOk == 0) {
   $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
   $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
-        $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé";
+        $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé";
+        $type = "success";
         $status = '1';
         date_default_timezone_set('Europe/Paris');
         setlocale(LC_TIME, 'fr_FR.utf8','fra');
@@ -2119,7 +2177,8 @@ if ($uploadOk == 0) {
                         }
                 }
     }else {
-        $error = 'Désolé, une erreur est survenue.';
+        $messagenotif = 'Désolé, une erreur est survenue.';
+        $type = "warning";
     } } }
           }
 }
@@ -2271,22 +2330,26 @@ $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 // Check if file already exists
 if (file_exists($target_file)) {
-    $error = 'Désolé, le fichier existe déja.';
+    $messagenotif = 'Désolé, le fichier existe déja.';
+    $type = "warning";
     $uploadOk = 0;
 }
 // Check file size < 2mo
 if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
-    $error = 'Désolé, le fichier est trop grand.';
+    $messagenotif = 'Désolé, le fichier est trop grand.';
+    $type = "warning";
     $uploadOk = 0;
 }
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-    $error = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+    $messagenotif = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+    $type = "warning";
     $uploadOk = 0;
 }
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-    $error = 'Désolé, une erreur est survenue.';
+    $messagenotif = 'Désolé, une erreur est survenue.';
+    $type = "warning";
 // if everything is ok, try to upload file
 } else {
   date_default_timezone_set('Europe/Paris');
@@ -2296,7 +2359,8 @@ if ($uploadOk == 0) {
   $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
   $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
-        $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+        $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+        $type = "success";
         $status = '1';
         $update = $db->prepare("UPDATE photopage SET image=:image WHERE nompage=:nompage");
         $update->execute(array(
@@ -2349,7 +2413,8 @@ if ($uploadOk == 0) {
                         }
                 }
     }else {
-        $error = 'Désolé, une erreur est survenue.';
+        $messagenotif = 'Désolé, une erreur est survenue.';
+        $type = "warning";
     } } }
           }
           if(isset($_GET['deletestatus'])){
@@ -2358,7 +2423,8 @@ if ($uploadOk == 0) {
             $updatedelete->execute(array(
               "id"=>$id
             ));
-            $succes = "Le status à bien été supprimé";
+            $messagenotif = "Le status à bien été supprimé";
+            $type = "success";
           ?>
             <script>
               window.location="https://administration.jam-mdm.fr/modifdespages.php?page=status&table=status"
@@ -2483,7 +2549,8 @@ if ($uploadOk == 0) {
     </div>
         ';
       }else{
-        $error = "Aucun status trouvé";
+        $messagenotif = "Aucun status trouvé";
+        $type = "warning";
       }
 ?>
 
@@ -2790,22 +2857,26 @@ $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 // Check if file already exists
 if (file_exists($target_file)) {
-    $error = 'Désolé, le fichier existe déja.';
+    $messagenotif = 'Désolé, le fichier existe déja.';
+    $type = "warning";
     $uploadOk = 0;
 }
 // Check file size < 2mo
 if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
-    $error = 'Désolé, le fichier est trop grand.';
+    $messagenotif = 'Désolé, le fichier est trop grand.';
+    $type = "warning";
     $uploadOk = 0;
 }
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-    $error = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+    $messagenotif = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+    $type = "warning";
     $uploadOk = 0;
 }
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-    $error = 'Désolé, une erreur est survenue.';
+    $messagenotif = 'Désolé, une erreur est survenue.';
+    $type = "warning";
 // if everything is ok, try to upload file
 } else {
   date_default_timezone_set('Europe/Paris');
@@ -2815,7 +2886,8 @@ if ($uploadOk == 0) {
   $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
   $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
-        $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+        $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+        $type = "success";
         $status = '1';
         $update = $db->prepare("UPDATE photopage SET image=:image WHERE nompage=:nompage");
         $update->execute(array(
@@ -2868,7 +2940,8 @@ if ($uploadOk == 0) {
                         }
                 }
     }else {
-        $error = 'Désolé, une erreur est survenue.';
+        $messagenotif = 'Désolé, une erreur est survenue.';
+        $type = "warning";
     } } }
           } ?>
 
@@ -3015,7 +3088,8 @@ $result = raccourcirChaine($description, 80);
         </div>
         ';
       }else{
-        $error = "Aucune actualitée trouvée";
+        $messagenotif = "Aucune actualitée trouvée";
+        $type = "warning";
       }
 //Création membres
 function slugify($text){
@@ -3064,22 +3138,26 @@ $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 $target_file3 = $target_dirnew."".$slug.".".$imageFileType;
 // Check if file already exists
 if (file_exists($target_file3)) {
-    $error = 'Désolé, le fichier existe déja.';
+    $messagenotif = 'Désolé, le fichier existe déja.';
+    $type = "warning";
     $uploadOk = 0;
 }
 // Check file size < 2mo
 if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
-    $error = 'Désolé, le fichier est trop grand.';
+    $messagenotif = 'Désolé, le fichier est trop grand.';
+    $type = "warning";
     $uploadOk = 0;
 }
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-    $error = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+    $messagenotif = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+    $type = "warning";
     $uploadOk = 0;
 }
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-    $error = 'Désolé, une erreur est survenue.';
+    $messagenotif = 'Désolé, une erreur est survenue.';
+    $type = "warning";
 // if everything is ok, try to upload file
 } else {
   date_default_timezone_set('Europe/Paris');
@@ -3089,7 +3167,8 @@ if ($uploadOk == 0) {
   $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
   $target_filefile3 = $slug.".".$imageFileType;
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
-        $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+        $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+        $type = "success";
 $target_file3 = $target_dirnew."".$slug.".".$imageFileType;
         $insert = $db->prepare("INSERT INTO newsactus (title, slug, description, surname, date, formatimg, status) VALUES(:title, :slug, :description, :surname, :date, :formatimg, :status)");
         $insert->execute(array(
@@ -3148,7 +3227,8 @@ $target_file3 = $target_dirnew."".$slug.".".$imageFileType;
                         }
                 }
     }else {
-        $error = 'Désolé, une erreur est survenue.';
+        $messagenotif = 'Désolé, une erreur est survenue.';
+        $type = "warning";
     } } }
     $selectidactu = $db->prepare("SELECT id FROM newsactus WHERE title = :title");
     $selectidactu->execute(array(
@@ -3262,22 +3342,26 @@ $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 // Check if file already exists
 if (file_exists($target_file)) {
-    $error = 'Désolé, le fichier existe déja.';
+    $messagenotif = 'Désolé, le fichier existe déja.';
+    $type = "warning";
     $uploadOk = 0;
 }
 // Check file size < 2mo
 if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
-    $error = 'Désolé, le fichier est trop grand.';
+    $messagenotif = 'Désolé, le fichier est trop grand.';
+    $type = "warning";
     $uploadOk = 0;
 }
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-    $error = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+    $messagenotif = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+    $type = "warning";
     $uploadOk = 0;
 }
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-    $error = 'Désolé, une erreur est survenue.';
+    $messagenotif = 'Désolé, une erreur est survenue.';
+    $type = "warning";
 // if everything is ok, try to upload file
 } else {
   date_default_timezone_set('Europe/Paris');
@@ -3287,7 +3371,8 @@ if ($uploadOk == 0) {
   $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
   $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
-        $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+        $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+        $type = "success";
         $insert = $db->prepare("INSERT INTO carousel (slug, titre, image, titreimage) VALUES (:slug, :souscatactualite, :target_filefile, :titreimage)");
         $insert->execute(array(
             "slug"=>$slug,
@@ -3342,7 +3427,8 @@ if ($uploadOk == 0) {
                         }
                 }
     }else {
-        $error = 'Désolé, une erreur est survenue.';
+        $messagenotif = 'Désolé, une erreur est survenue.';
+        $type = "warning";
     } } }
           } ?>
 
@@ -3464,10 +3550,12 @@ if (file_exists($target_dir)){
   $updatedelete->execute(array(
     "image"=>$valnom
   ));
-  $succes = "Le fichier.$valnom. à bien été supprimé";
+  $messagenotif = "Le fichier.$valnom. à bien été supprimé";
+  $type = "success";
 }else{
   echo 'n extse pas';
-  $error = 'Un problème de répertoire est présent, contacter votre administrateur !';
+  $messagenotif = 'Un problème de répertoire est présent, contacter votre administrateur !';
+  $type = "warning";
 }
 ?>
 <script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=actualite&table=newsactus"</script>
@@ -3709,22 +3797,26 @@ $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 // Check if file already exists
 if (file_exists($target_file)) {
-    $error = 'Désolé, le fichier existe déja.';
+    $messagenotif = 'Désolé, le fichier existe déja.';
+    $type = "warning";
     $uploadOk = 0;
 }
 // Check file size < 2mo
 if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
-    $error = 'Désolé, le fichier est trop grand.';
+    $messagenotif = 'Désolé, le fichier est trop grand.';
+    $type = "warning";
     $uploadOk = 0;
 }
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-    $error = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+    $messagenotif = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+    $type = "warning";
     $uploadOk = 0;
 }
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-    $error = 'Désolé, une erreur est survenue.';
+    $messagenotif = 'Désolé, une erreur est survenue.';
+    $type = "warning";
 // if everything is ok, try to upload file
 } else {
   date_default_timezone_set('Europe/Paris');
@@ -3734,7 +3826,8 @@ if ($uploadOk == 0) {
   $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
   $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
-        $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+        $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+        $type = "success";
         $status = '1';
         $update = $db->prepare("UPDATE photopage SET image=:image WHERE nompage=:nompage");
         $update->execute(array(
@@ -3787,7 +3880,8 @@ if ($uploadOk == 0) {
                         }
                 }
     }else {
-        $error = 'Désolé, une erreur est survenue.';
+        $messagenotif = 'Désolé, une erreur est survenue.';
+        $type = "warning";
     } } }
           } ?>
 
@@ -3943,7 +4037,8 @@ if ($uploadOk == 0) {
     </div>
         ';
       }else{
-        $error = "Aucune activitée trouvée";
+        $messagenotif = "Aucune activitée trouvée";
+        $type = "warning";
       }
   //Création membres
   function slugify($text){
@@ -3994,22 +4089,26 @@ if ($uploadOk == 0) {
   $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
   // Check if file already exists
   if (file_exists($target_file)) {
-      $error = 'Désolé, le fichier existe déja.';
+      $messagenotif = 'Désolé, le fichier existe déja.';
+      $type = "warning";
       $uploadOk = 0;
   }
   // Check file size < 2mo
   if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
-      $error = 'Désolé, le fichier est trop grand.';
+      $messagenotif = 'Désolé, le fichier est trop grand.';
+      $type = "warning";
       $uploadOk = 0;
   }
   // Allow certain file formats
   if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-      $error = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+      $messagenotif = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+      $type = "warning";
       $uploadOk = 0;
   }
   // Check if $uploadOk is set to 0 by an error
   if ($uploadOk == 0) {
-      $error = 'Désolé, une erreur est survenue.';
+      $messagenotif = 'Désolé, une erreur est survenue.';
+      $type = "warning";
   // if everything is ok, try to upload file
   } else {
     date_default_timezone_set('Europe/Paris');
@@ -4020,7 +4119,8 @@ if ($uploadOk == 0) {
     $target_filefile3 = $slug.".".$imageFileType;
     $target_file3 = $target_dirnew."".$slug.".".$imageFileType;
       if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
-          $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+          $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+          $type = "success";
           date_default_timezone_set('Europe/Paris');
           setlocale(LC_TIME, 'fr_FR.utf8','fra');
           $date = strftime('%d/%m/%Y %H:%M:%S');
@@ -4082,7 +4182,8 @@ if ($uploadOk == 0) {
                           }
                   }
       }else {
-          $error = 'Désolé, une erreur est survenue.';
+          $messagenotif = 'Désolé, une erreur est survenue.';
+          $type = "warning";
       } } }
       $selectidacti = $db->prepare("SELECT id FROM activitesvoyages WHERE title=:title");
       $selectidacti->execute(array(
@@ -4226,22 +4327,26 @@ if ($uploadOk == 0) {
   $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
   // Check if file already exists
   if (file_exists($target_file)) {
-    $error = 'Désolé, le fichier existe déja.';
+    $messagenotif = 'Désolé, le fichier existe déja.';
+    $type = "warning";
     $uploadOk = 0;
   }
   // Check file size < 2mo
   if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
-    $error = 'Désolé, le fichier est trop grand.';
+    $messagenotif = 'Désolé, le fichier est trop grand.';
+    $type = "warning";
     $uploadOk = 0;
   }
   // Allow certain file formats
   if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-    $error = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+    $messagenotif = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+    $type = "warning";
     $uploadOk = 0;
   }
   // Check if $uploadOk is set to 0 by an error
   if ($uploadOk == 0) {
-    $error = 'Désolé, une erreur est survenue.';
+    $messagenotif = 'Désolé, une erreur est survenue.';
+    $type = "warning";
   // if everything is ok, try to upload file
   } else {
   date_default_timezone_set('Europe/Paris');
@@ -4251,7 +4356,8 @@ if ($uploadOk == 0) {
   $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
   $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
-        $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+        $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+        $type = "success";
         $insert = $db->prepare("INSERT INTO carousel (slug, titre, image, titreimage) VALUES (:slug, :souscatactivitevoyage, :target_filefile, :titreimage)");
         $insert->execute(array(
             "slug"=>$slug,
@@ -4306,7 +4412,8 @@ if ($uploadOk == 0) {
                         }
                 }
     }else {
-        $error = 'Désolé, une erreur est survenue.';
+        $messagenotif = 'Désolé, une erreur est survenue.';
+        $type = "warning";
     } } }
           } ?>
 
@@ -4423,9 +4530,11 @@ if ($uploadOk == 0) {
     "image"=>$valnom
   ));
   unlink("$target_dirthumb/$valnom");
-  $succes = "Le fichier.$valnom. à bien été supprimé";
+  $messagenotif = "Le fichier.$valnom. à bien été supprimé";
+  $type = "success";
   }else{
-  $error = 'Un problème de répertoire est présent, contacter votre administrateur !';
+  $messagenotif = 'Un problème de répertoire est présent, contacter votre administrateur !';
+  $type = "warning";
   }
   ?>
   <script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=activitesvoyages&table=activitesvoyages"</script>
@@ -4518,22 +4627,26 @@ $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 // Check if file already exists
 if (file_exists($target_file)) {
-    $error = 'Désolé, le fichier existe déja.';
+    $messagenotif = 'Désolé, le fichier existe déja.';
+    $type = "warning";
     $uploadOk = 0;
 }
 // Check file size < 2mo
 if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
-    $error = 'Désolé, le fichier est trop grand.';
+    $messagenotif = 'Désolé, le fichier est trop grand.';
+    $type = "warning";
     $uploadOk = 0;
 }
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-    $error = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+    $messagenotif = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+    $type = "warning";
     $uploadOk = 0;
 }
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-    $error = 'Désolé, une erreur est survenue.';
+    $messagenotif = 'Désolé, une erreur est survenue.';
+    $type = "warning";
 // if everything is ok, try to upload file
 } else {
   date_default_timezone_set('Europe/Paris');
@@ -4543,7 +4656,8 @@ if ($uploadOk == 0) {
   $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
   $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
-        $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+        $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+        $type = "success";
         $status = '1';
         $update = $db->prepare("UPDATE photopage SET image=:image WHERE nompage=:nompage");
         $update->execute(array(
@@ -4596,7 +4710,8 @@ if ($uploadOk == 0) {
                         }
                 }
     }else {
-        $error = 'Désolé, une erreur est survenue.';
+        $messagenotif = 'Désolé, une erreur est survenue.';
+        $type = "warning";
     } } }
           } ?>
 
@@ -4772,22 +4887,26 @@ $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 // Check if file already exists
 if (file_exists($target_file)) {
-    $error = 'Désolé, le fichier existe déja.';
+    $messagenotif = 'Désolé, le fichier existe déja.';
+    $type = "warning";
     $uploadOk = 0;
 }
 // Check file size < 2mo
 if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
-    $error = 'Désolé, le fichier est trop grand.';
+    $messagenotif = 'Désolé, le fichier est trop grand.';
+    $type = "warning";
     $uploadOk = 0;
 }
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-    $error = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+    $messagenotif = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+    $type = "warning";
     $uploadOk = 0;
 }
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-    $error = 'Désolé, une erreur est survenue.';
+    $messagenotif = 'Désolé, une erreur est survenue.';
+    $type = "warning";
 // if everything is ok, try to upload file
 } else {
   date_default_timezone_set('Europe/Paris');
@@ -4797,7 +4916,8 @@ if ($uploadOk == 0) {
   $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
   $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
-        $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+        $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+        $type = "success";
         $status = '1';
         $update = $db->prepare("UPDATE photopage SET image=:image WHERE nompage=:nompage");
         $update->execute(array(
@@ -4850,7 +4970,8 @@ if ($uploadOk == 0) {
                         }
                 }
     }else {
-        $error = 'Désolé, une erreur est survenue.';
+        $messagenotif = 'Désolé, une erreur est survenue.';
+        $type = "warning";
     } } } } ?>
 
     <body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
@@ -4995,22 +5116,26 @@ $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 // Check if file already exists
 if (file_exists($target_file)) {
-    $error = 'Désolé, le fichier existe déja.';
+    $messagenotif = 'Désolé, le fichier existe déja.';
+    $type = "warning";
     $uploadOk = 0;
 }
 // Check file size < 2mo
 if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
-    $error = 'Désolé, le fichier est trop grand.';
+    $messagenotif = 'Désolé, le fichier est trop grand.';
+    $type = "warning";
     $uploadOk = 0;
 }
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-    $error = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+    $messagenotif = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+    $type = "warning";
     $uploadOk = 0;
 }
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-    $error = 'Désolé, une erreur est survenue.';
+    $messagenotif = 'Désolé, une erreur est survenue.';
+    $type = "warning";
 // if everything is ok, try to upload file
 } else {
   date_default_timezone_set('Europe/Paris');
@@ -5020,7 +5145,8 @@ if ($uploadOk == 0) {
   $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
   $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
-        $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+        $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+        $type = "success";
         $status = '1';
         $update = $db->prepare("UPDATE photopage SET image=:image WHERE nompage=:nompage");
         $update->execute(array(
@@ -5073,7 +5199,8 @@ if ($uploadOk == 0) {
                         }
                 }
     }else {
-        $error = 'Désolé, une erreur est survenue.';
+        $messagenotif = 'Désolé, une erreur est survenue.';
+        $type = "warning";
     } } }
           } ?>
 
@@ -5176,22 +5303,26 @@ $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 // Check if file already exists
 if (file_exists($target_file)) {
-    $error = 'Désolé, le fichier existe déja.';
+    $messagenotif = 'Désolé, le fichier existe déja.';
+    $type = "warning";
     $uploadOk = 0;
 }
 // Check file size < 2mo
 if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
-    $error = 'Désolé, le fichier est trop grand.';
+    $messagenotif = 'Désolé, le fichier est trop grand.';
+    $type = "warning";
     $uploadOk = 0;
 }
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-    $error = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+    $messagenotif = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+    $type = "warning";
     $uploadOk = 0;
 }
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-    $error = 'Désolé, une erreur est survenue.';
+    $messagenotif = 'Désolé, une erreur est survenue.';
+    $type = "warning";
 // if everything is ok, try to upload file
 } else {
   date_default_timezone_set('Europe/Paris');
@@ -5201,7 +5332,8 @@ if ($uploadOk == 0) {
   $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
   $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
-        $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+        $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+        $type = "success";
         $status = '1';
         $update = $db->prepare("UPDATE photopage SET image=:image WHERE nompage=:nompage");
         $update->execute(array(
@@ -5254,7 +5386,8 @@ if ($uploadOk == 0) {
                         }
                 }
     }else {
-        $error = 'Désolé, une erreur est survenue.';
+        $messagenotif = 'Désolé, une erreur est survenue.';
+        $type = "warning";
     } } }
           }
           //Modif page faire un don paiement
@@ -5516,22 +5649,26 @@ if ($uploadOk == 0) {
   $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
   // Check if file already exists
   if (file_exists($target_file)) {
-      $error = 'Désolé, le fichier existe déja.';
+      $messagenotif = 'Désolé, le fichier existe déja.';
+      $type = "warning";
       $uploadOk = 0;
   }
   // Check file size < 2mo
   if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
-      $error = 'Désolé, le fichier est trop grand.';
+      $messagenotif = 'Désolé, le fichier est trop grand.';
+      $type = "warning";
       $uploadOk = 0;
   }
   // Allow certain file formats
   if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-      $error = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+      $messagenotif = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+      $type = "warning";
       $uploadOk = 0;
   }
   // Check if $uploadOk is set to 0 by an error
   if ($uploadOk == 0) {
-      $error = 'Désolé, une erreur est survenue.';
+      $messagenotif = 'Désolé, une erreur est survenue.';
+      $type = "warning";
   // if everything is ok, try to upload file
   } else {
     date_default_timezone_set('Europe/Paris');
@@ -5541,7 +5678,8 @@ if ($uploadOk == 0) {
     $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
     $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
       if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
-          $succes = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+          $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+          $type = "success";
           $status = '1';
           $update2 = $db->prepare("UPDATE photopage SET image=:image WHERE nompage=:nompage");
           $update2->execute(array(
@@ -5594,7 +5732,8 @@ if ($uploadOk == 0) {
                           }
                   }
       }else {
-          $error = 'Désolé, une erreur est survenue.';
+          $messagenotif = 'Désolé, une erreur est survenue.';
+          $type = "warning";
       } } }
             } ?>
 
@@ -5746,7 +5885,8 @@ if ($uploadOk == 0) {
     $updatedelete->execute(array(
       "id"=>$id
     ));
-    $succes = "Le lien utile à bien été supprimé";
+    $messagenotif = "Le lien utile à bien été supprimé";
+    $type = "success";
   ?>
     <script>
       window.location="https://administration.jam-mdm.fr/liensutiles.php"
@@ -5793,7 +5933,8 @@ if ($uploadOk == 0) {
     </div>
         ';
       }else{
-        $error = "Aucun lien utile trouvé";
+        $messagenotif = "Aucun lien utile trouvé";
+        $type = "warning";
       }
       ?>
 
