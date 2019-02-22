@@ -1,15 +1,16 @@
 <?php
     require_once('includes/connectBDD.php');
     require_once('includes/checkconnection.php');
-    $nompage = "";
+    $nompage = "Ajout Image";
     require_once('includes/head.php');
 
-//TEST ATOM
 //Code de génératon du captcha fournie par GOOGLE
 $secret = "LESECRET";
 $sitekey = "LESITEKEY";
 ?>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 <style>
 .page-header .page-header-image {
   position: absolute;
@@ -41,15 +42,7 @@ $sitekey = "LESITEKEY";
 }
 </style>
 
-
-
 <?php
-
-// NE PAS TOUCHER DE LA LIGNE 47 À 886
-// NE PAS TOUCHER DE LA LIGNE 47 À 886
-// NE PAS TOUCHER DE LA LIGNE 47 À 886
-
-
 
 if(isset($_POST['catphotosubmit'])){
   $nomcategorieimage = $_POST['nomcategorieimage'];
@@ -506,11 +499,6 @@ if(isset($_POST['videosubmit'])){
         $target_dirnewaffiche = "$target_dir/$affiche/$catvideo/";
       }
 
-
-      //FIN
-
-
-
 $target_file = $target_dirnew . basename($_FILES["fileToUploadVideo"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -609,8 +597,6 @@ if ($uploadOk == 0) {
                             //COPIE DE L'IMAGE REDIMENSIONNEE
                             imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
                             imagegif($img_petite,$fin);
-
-
                       }
                 }
 
@@ -658,33 +644,12 @@ if ($uploadOk == 0) {
                                   //COPIE DE L'IMAGE REDIMENSIONNEE
                                   imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$tailleaffiche[0],$tailleaffiche[1]);
                                   imagegif($img_petite,$finaffiche);
-
-
                             }
                       }
 
     }else {
         $error = 'Désolé, une erreur est survenue.';
     } } }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 if(isset($_POST['submit'])){
   $catimage = $_POST['catimage'];
@@ -725,10 +690,7 @@ if(isset($_POST['submit'])){
         mkdir("$target_dir/$affiche/$catimage", 0700);
         $target_dirnewaffiche = "$target_dir/$affiche/$catimage/";
       }
-
-
       //FIN
-
 
 $total = count($_FILES['fileToUpload']['name']);
 
@@ -829,14 +791,8 @@ if ($uploadOk == 0) {
                             //COPIE DE L'IMAGE REDIMENSIONNEE
                             imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
                             imagegif($img_petite,$fin);
-
-
                       }
                 }
-
-
-
-
 
                 //Affiche Grande
                 // Destination
@@ -882,31 +838,20 @@ if ($uploadOk == 0) {
                                   //COPIE DE L'IMAGE REDIMENSIONNEE
                                   imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$tailleaffiche[0],$tailleaffiche[1]);
                                   imagegif($img_petite,$finaffiche);
-
-
                             }
                       }
 
-
-
-
-
-
     }else {
         $error = 'Désolé, une erreur est survenue.';
-    } } }
+    } } } } ?>
 
-          } ?>
-
-
-
-
-
-
-<body class="landing-page sidebar-collapse">
+<body>
   <div class="wrapper">
 
 <?php
+
+    require_once('includes/navbar.php');
+
 if(isset($error)){
   echo $error;
 }else if(isset($succes)){
