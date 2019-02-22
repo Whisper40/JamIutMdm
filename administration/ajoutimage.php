@@ -939,120 +939,103 @@ if(isset($error)){
                <div class="col-sm-12">
                  <div class="card-content">
                    <h3 class="card-title">Liste des icons pour les categorie d'image</h3>
+                   <br><br>
                    <div class="iframe-container hidden-sm hidden-xs">
                        <iframe src="https://design.google.com/icons/"></iframe>
                    </div>
                  </div>
                </div>
              </div>
+             <div class="row">
+               <div class="col-sm-12">
+                 <div class="card-content">
+                   <h3 class="card-title">Ajout d'image et de vidéo</h3>
+                 </div>
+               </div>
+             </div>
+             <div class="row">
+               <div class="col-sm-6">
+                 <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+                   <div class="card-content">
+                     <h3 class="card-title text-center">Ajouter des images</h3>
+                     <br>
+                     <div class="jquerysel">
+                       <select class="selectpicker" data-style="select-with-transition" title="Fonction" data-size="4" name="catimage">
+                          <option disabled>Sélectionner de la catégorie</option>
 
+                          <?php
+                          $selectcatimages=$db->query("SELECT DISTINCT title FROM images");
+                          while($s = $selectcatimages->fetch(PDO::FETCH_OBJ)){
+                          $catimage=$s->title;
+                          ?>
+                          <option value="<?php echo $catimage;?>"><?php echo $catimage; ?></option>
+                          <?php } ?>
 
+                       </select>
+                     </div>
+                     <div class="form-group form-file-upload">
+                         <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
+                         <div class="input-group">
+                             <input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
+                             <span class="input-group-btn input-group-s">
+                                 <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
+                                     <i class="material-icons">layers</i>
+                                 </button>
+                             </span>
+                         </div>
+                     </div>
+                     <center>
+                       <button type="submit" name="submit" class="btn btn-primary btn-round btn-rose">Ajouter les images</button>
+                     </center>
+                   </div>
+                </form>
+              </div>
+              <div class="col-sm-6">
+                <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+                  <div class="card-content">
+                    <h3 class="card-title text-center">Ajouter des vidéos</h3>
+                    <br>
+                    <div class="jquerysel">
+                      <select class="selectpicker" data-style="select-with-transition" title="Fonction" data-size="4" name="catimage">
+                         <option disabled>Sélectionner de la catégorie</option>
 
+                         <?php
+                         $selectcatvideos=$db->query("SELECT DISTINCT title FROM videos");
+                         while($s = $selectcatvideos->fetch(PDO::FETCH_OBJ)){
+                         $catvideo=$s->title;
+                         ?>
+                         <option value="<?php echo $catvideo;?>"><?php echo $catvideo; ?></option>
+                         <?php } ?>
 
-
-
-
-
-
-
-
-
-
-
-
-    <h1>Les formulaires HTML</h1>
-
-
-    <?php
-  $selectcatimages=$db->query("SELECT DISTINCT title FROM images");
-
-     ?>
-
-            <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-                Sélectionner la catégorie de l'image<br>
-                <select name="catimage">
-                  <?php
-                    while($s = $selectcatimages->fetch(PDO::FETCH_OBJ)){
-                      $catimage=$s->title;
-                      ?>
-                    <option value="<?php echo $catimage;?>"><?php echo $catimage; ?></option>
-                  <?php
-                }
-                ?>
-
-
-                </select>
-
-                <div class="form-group form-file-upload">
-                    <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
-                    <div class="input-group">
-                        <input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
-                        <span class="input-group-btn input-group-s">
-                            <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
-                                <i class="material-icons">layers</i>
-                            </button>
-                        </span>
+                      </select>
                     </div>
-                </div>
-
-                <input type="submit" name="submit" value="Envoyer le formulaire image !">
-            </form>
-
-            <hr>
-            <h3> Les vidéos </h3>
-
-
-
-
-
-
-
-
-
-
-
-            <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-                Sélectionner la catégorie de la vidéo<br>
-                <select name="catvideo">
-                  <?php
-                    $selectcatvideos=$db->query("SELECT DISTINCT title FROM videos");
-                    while($s = $selectcatvideos->fetch(PDO::FETCH_OBJ)){
-                      $catvideo=$s->title;
-                      ?>
-                    <option value="<?php echo $catvideo;?>"><?php echo $catvideo; ?></option>
-                  <?php
-                }
-                ?>
-
-
-                </select>
-
-                <div class="input-group input-lg">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">
-                      <i class="now-ui-icons users_circle-08"></i>
-                    </span>
+                    <div class="form-group label-floating">
+                        <label class="control-label">Lien vidéo</label>
+                        <input type="text" class="form-control" placeholder="Lien vidéo (embed)"  name="lienvideo">
+                    </div>
+                    <div class="form-group form-file-upload">
+                        <input type="file" id="fileToUploadVideo" name="fileToUploadVideo" multiple="multiple">
+                        <div class="input-group">
+                            <input type="text" readonly="" class="form-control" placeholder="Insérer la miniature de la vidéo">
+                            <span class="input-group-btn input-group-s">
+                                <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
+                                    <i class="material-icons">layers</i>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                    <center>
+                      <button type="submit" name="videosubmit" class="btn btn-primary btn-round btn-rose">Ajouter la vidéo</button>
+                    </center>
                   </div>
-                  <input type="text" class="form-control" placeholder="Lien vidéo (embed)"  name="lienvideo">
-                </div>
-
-                <div class="form-group form-file-upload">
-                    <input type="file" id="fileToUploadVideo" name="fileToUploadVideo" multiple="multiple">
-                    <div class="input-group">
-                        <input type="text" readonly="" class="form-control" placeholder="Insérer la miniature de la vidéo">
-                        <span class="input-group-btn input-group-s">
-                            <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
-                                <i class="material-icons">layers</i>
-                            </button>
-                        </span>
-                    </div>
-                </div>
-
-                <input type="submit" name="videosubmit" value="Envoyer le formulaire video !">
-            </form>
-
-
-
+               </form>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
 
 
 <!-- Ajoutd'images au site web (assets)-->
@@ -1207,7 +1190,7 @@ if ($uploadOk == 0) {
 
 
   </div>
-
+</body>
   <?php
   require_once('includes/javascript.php');
   ?>
