@@ -315,7 +315,7 @@ $selectcatimages=$db->query("SELECT DISTINCT title FROM images");
                    </center>
                    <br><br>
                    <div class="jquerysel">
-                     <select class="selectpicker" data-style="select-with-transition" title="Fonction" data-size="7" id="grademembre" name="grademembre">
+                     <select class="selectpicker" data-style="select-with-transition" title="Fonction" data-size="7" name="catimage">
                        <?php
                          while($s = $selectcatimages->fetch(PDO::FETCH_OBJ)){
                            $catimage=$s->title;
