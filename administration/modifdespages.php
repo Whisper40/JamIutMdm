@@ -3887,13 +3887,6 @@ if ($uploadOk == 0) {
     } } }
           } ?>
 
-          <body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
-            <div class="wrapper">
-
-             <?php
-             require_once('includes/navbar.php');
-             ?>
-
              <body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
                <div class="wrapper">
 
@@ -4729,13 +4722,6 @@ if ($uploadOk == 0) {
              require_once('includes/navbar.php');
              ?>
 
-             <body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
-               <div class="wrapper">
-
-                <?php
-                require_once('includes/navbar.php');
-                ?>
-
           <div class="content">
             <div class="container-fluid">
               <div class="card">
@@ -4987,13 +4973,6 @@ if ($uploadOk == 0) {
        <?php
        require_once('includes/navbar.php');
        ?>
-
-       <body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
-         <div class="wrapper">
-
-          <?php
-          require_once('includes/navbar.php');
-          ?>
 
           <div class="content">
             <div class="container-fluid">
