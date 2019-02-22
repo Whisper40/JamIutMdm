@@ -941,7 +941,7 @@ if(isset($error)){
                    <h3 class="card-title">Liste des icons pour les categorie d'image</h3>
                    <br><br>
                    <div class="iframe-container hidden-sm hidden-xs">
-                       <iframe src="https://design.google.com/icons/"></iframe>
+                       <iframe src="https://jam-mdm.fr/icons.php"></iframe>
                    </div>
                  </div>
                </div>
