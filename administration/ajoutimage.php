@@ -960,7 +960,7 @@ if(isset($error)){
                      <h3 class="card-title text-center">Ajouter des images</h3>
                      <br>
                      <div class="jquerysel">
-                       <select class="selectpicker" data-style="select-with-transition" title="Fonction" data-size="4" name="catimage">
+                       <select class="selectpicker" data-style="select-with-transition" title="Sélectionner de la catégorie" data-size="4" name="catimage">
                           <option disabled>Sélectionner de la catégorie</option>
 
                           <?php
@@ -976,7 +976,7 @@ if(isset($error)){
                      <div class="form-group form-file-upload">
                          <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
                          <div class="input-group">
-                             <input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
+                             <input type="text" readonly="" class="form-control" placeholder="Insérer les photos à ajouter">
                              <span class="input-group-btn input-group-s">
                                  <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
                                      <i class="material-icons">layers</i>
@@ -996,7 +996,7 @@ if(isset($error)){
                     <h3 class="card-title text-center">Ajouter des vidéos</h3>
                     <br>
                     <div class="jquerysel">
-                      <select class="selectpicker" data-style="select-with-transition" title="Fonction" data-size="4" name="catimage">
+                      <select class="selectpicker" data-style="select-with-transition" title="Sélectionner de la catégorie" data-size="4" name="catimage">
                          <option disabled>Sélectionner de la catégorie</option>
 
                          <?php
