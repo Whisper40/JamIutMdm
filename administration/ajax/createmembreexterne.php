@@ -41,13 +41,7 @@ require_once('../includes/connectBDD.php');
                                    $message = 'MESSAGE A FAIRE';
                                    $subject = '[JAM]'.'[Inscription]';
                                  if($subject&&$email&&$message){
-
-                                       $filename = $_FILES['attachment']['name'];
-                                       $file = $_FILES['attachment']['tmp_name'];
-                                       $content = file_get_contents( $file);
-                                       $content = chunk_split(base64_encode($content));
                                        $uid = md5(uniqid(time()));
-                                       $name = basename($file);
                                        // header
                                        $headers = "From: <".$owner_mail.">\r\n";
                                        $headers .= "MIME-Version: 1.0\r\n";
@@ -59,16 +53,10 @@ require_once('../includes/connectBDD.php');
                                        $nmessage .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
                                        $nmessage .= $message."\r\n\r\n";
                                        $nmessage .= "--".$uid."\r\n";
-                                       $nmessage .= "Content-Type: application/octet-stream; name=\"".$filename."\"\r\n";
-                                       $nmessage .= "Content-Transfer-Encoding: base64\r\n";
-                                       $nmessage .= "Content-Disposition: attachment; filename=\"".$filename."\"\r\n\r\n";
-                                       $nmessage .= $content."\r\n\r\n";
+
                                        $nmessage .= "--".$uid."--";
                                          mail($email,$subject,$nmessage, $headers);
-
-
                                          ?>
-
                                              <script>
                                              demo.showSwal('success-message');
                                              demo.showNotification('top','right','<b>Succès</b> - Modifications effectués !');
