@@ -28,19 +28,47 @@ require_once('../includes/connectBDD.php');
                                     "subscribe"=>$datesystem
                                     )
                                 );
+                                //owner = le mail de la personne
+                                  $priority = '1';
+                                  $owner_mail = 'contact@jam-mdm.fr';
+                                  $message = 'MESSAGE A FAIRE en lui donnant le mail utilise et le mdp';
+                                  $subject = '[JAM]'.'[Administrateur]';
+                                if($subject&&$email&&$message){
+                                      $uid = md5(uniqid(time()));
+                                      // header
+                                      $headers = "From: <".$owner_mail.">\r\n";
+                                      $headers .= "MIME-Version: 1.0\r\n";
+                                      $headers .= 'X-Priotity:'.$priority."\r\n";
+                                      $headers .= "Content-Type: multipart/mixed; boundary=\"".$uid."\"\r\n\r\n";
+                                      // message & attachment
+                                      $nmessage = "--".$uid."\r\n";
+                                      $nmessage .= "Content-type:text/plain; charset=iso-8859-1\r\n";
+                                      $nmessage .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
+                                      $nmessage .= $message."\r\n\r\n";
+                                      $nmessage .= "--".$uid."\r\n";
+
+                                      $nmessage .= "--".$uid."--";
+                                        mail($email,$subject,$nmessage, $headers);
+                                        ?>
+                                            <script>
+                                            demo.showSwal('success-message');
+                                            demo.showNotification('top','right','<b>Succès</b> - Modifications effectués !');
+                                            </script>
+                                            <?php
+                                  }else{
+                                    ?>
+
+                                        <script>
+                                        demo.showSwal('danger-message');
+                                        demo.showNotification('top','right','<b>Erreur</b> - Modifications non effectués en raison de champs vides !');
+                                        </script>
+                                <?php
+                                  }
 
 
 
 
 
-			?>
-			<script>
-
-          demo.showSwal('success-message');
-          demo.showNotification('top','right','<b>Succès</b> - Modification effectuée !');
-
-			</script>
-			<?php
 
 
     }else{
