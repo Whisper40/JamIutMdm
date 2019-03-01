@@ -89,30 +89,8 @@ txtarea.scrollTop = scrollPos;
 
 
     if($_GET['page']=='index'){
-if(isset($_GET['messagenotif'])){
-      $messagenotif=$_GET['messagenotif'];
-      $type = "warning";
-      if ($messagenotif != "") {
-?>
-
-<script type="text/javascript">
-function fuck(){
-demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>');
-}
-window.onload=fuck;
-</script>
-
-
-
-<?php
-       }
-}
       $table = $_GET['table'];
-    ?>
 
-
-
-  <?php
   $selectinfosactuel = $db->prepare("SELECT * from pageindex");
   $selectinfosactuel->execute();
   $r2 = $selectinfosactuel->fetch(PDO::FETCH_OBJ);
@@ -262,6 +240,7 @@ if ($uploadOk == 0) {
         $messagenotif = 'Désolé, une erreur est survenue.';
         $type = "warning";
     } } }
+    require('includes/miseajourdusite.php');
           } ?>
 
 
