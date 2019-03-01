@@ -356,6 +356,7 @@ if ($uploadOk == 0) {
                   $messagenotif = 'Désolé, une erreur est survenue.';
                   $type = "warning";
               } } }
+              require('includes/miseajourdusite.php');
                     } ?>
 
 
@@ -478,6 +479,7 @@ if ($uploadOk == 0) {
                             $messagenotif = 'Désolé, une erreur est survenue.';
                             $type = "warning";
                         } } }
+                        require('includes/miseajourdusite.php');
                               } ?>
 
 
@@ -923,6 +925,7 @@ if ($uploadOk == 0) {
                     $messagenotif = 'Désolé, une erreur est survenue.';
                     $type = "warning";
                 } } }
+                require('includes/miseajourdusite.php');
                       } ?>
 
                       <!-- Ajoutd'images au site web (assets)-->
@@ -1039,6 +1042,7 @@ if ($uploadOk == 0) {
                               $messagenotif = 'Désolé, une erreur est survenue.';
                               $type = "warning";
                           } } }
+                          require('includes/miseajourdusite.php');
                                 } ?>
 
                               <body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
@@ -1427,6 +1431,7 @@ if ($uploadOk == 0) {
         $messagenotif = 'Désolé, une erreur est survenue.';
         $type = "warning";
     } } }
+    require('includes/miseajourdusite.php');
           } ?>
 
 <body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
@@ -1567,6 +1572,7 @@ if ($uploadOk == 0) {
   ));
   $messagenotif = "Le fichier.$valnom. à bien été supprimé";
   $type = "success";
+  require('includes/miseajourdusite.php');
 ?>
   <script>
     window.location="https://administration.jam-mdm.fr/modifdespages.php?page=membre&table=membres"
@@ -1721,6 +1727,7 @@ $titre = $r4->titre;
          $messagenotif = 'Désolé, une erreur est survenue.';
          $type = "warning";
      } } }
+     require('includes/miseajourdusite.php');
            } ?>
 
 <body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
@@ -1983,6 +1990,7 @@ if ($uploadOk == 0) {
         $messagenotif = 'Désolé, une erreur est survenue.';
         $type = "warning";
     } } }
+    require('includes/miseajourdusite.php');
           } ?>
 
               <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
@@ -2160,6 +2168,7 @@ if ($uploadOk == 0) {
         $messagenotif = 'Désolé, une erreur est survenue.';
         $type = "warning";
     } } }
+    require('includes/miseajourdusite.php');
           }
 }
 }else if ($_GET['page']=='status'){
@@ -2396,6 +2405,7 @@ if ($uploadOk == 0) {
         $messagenotif = 'Désolé, une erreur est survenue.';
         $type = "warning";
     } } }
+    require('includes/miseajourdusite.php');
           }
           if(isset($_GET['deletestatus'])){
             $id = $_GET['deletestatus'];
@@ -2926,6 +2936,7 @@ if ($uploadOk == 0) {
         $messagenotif = 'Désolé, une erreur est survenue.';
         $type = "warning";
     } } }
+    require('includes/miseajourdusite.php');
           } ?>
 
           <body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
@@ -3228,6 +3239,7 @@ $target_file3 = $target_dirnew."".$slug.".".$imageFileType;
 ?>
     <script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=actualite&table=newsactus&modifactus=<?php echo $idactu;?>"</script>
 <?php
+require('includes/miseajourdusite.php');
           } ?>
 
 
@@ -3418,6 +3430,7 @@ if ($uploadOk == 0) {
         $messagenotif = 'Désolé, une erreur est survenue.';
         $type = "warning";
     } } }
+    require('includes/miseajourdusite.php');
           } ?>
 
 
@@ -3531,7 +3544,7 @@ $selectnom = $db->query("SELECT * FROM carousel WHERE id='$id'");
 $rname = $selectnom->fetch(PDO::FETCH_OBJ);
 $valnom = $rname->image;
 $target_dir = '../../../JamFichiers/Img/ImagesDuSite/Original';
-echo 'Jamesbond';
+
 if (file_exists($target_dir)){
   unlink("$target_dir/$valnom");
   $updatedelete = $db->prepare("DELETE FROM carousel WHERE image=:image");
@@ -3540,8 +3553,9 @@ if (file_exists($target_dir)){
   ));
   $messagenotif = "Le fichier.$valnom. à bien été supprimé";
   $type = "success";
+  require('includes/miseajourdusite.php');
 }else{
-  echo 'n extse pas';
+
   $messagenotif = 'Un problème de répertoire est présent, contacter votre administrateur !';
   $type = "warning";
 }
@@ -3864,6 +3878,7 @@ if ($uploadOk == 0) {
         $messagenotif = 'Désolé, une erreur est survenue.';
         $type = "warning";
     } } }
+    require('includes/miseajourdusite.php');
           } ?>
 
              <body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
@@ -4174,6 +4189,7 @@ if ($uploadOk == 0) {
       ?>
           <script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=activitesvoyages&table=activitesvoyages&modifactivitesvoyages=<?php echo $idacti;?>"</script>
       <?php
+      require('includes/miseajourdusite.php');
             } ?>
 
             <div class="row">
@@ -4394,6 +4410,7 @@ if ($uploadOk == 0) {
         $messagenotif = 'Désolé, une erreur est survenue.';
         $type = "warning";
     } } }
+    require('includes/miseajourdusite.php');
           } ?>
 
 
@@ -4511,6 +4528,7 @@ if ($uploadOk == 0) {
   unlink("$target_dirthumb/$valnom");
   $messagenotif = "Le fichier.$valnom. à bien été supprimé";
   $type = "success";
+  require('includes/miseajourdusite.php');
   }else{
   $messagenotif = 'Un problème de répertoire est présent, contacter votre administrateur !';
   $type = "warning";
@@ -4692,6 +4710,7 @@ if ($uploadOk == 0) {
         $messagenotif = 'Désolé, une erreur est survenue.';
         $type = "warning";
     } } }
+    require('includes/miseajourdusite.php');
           } ?>
 
           <body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
@@ -4944,7 +4963,9 @@ if ($uploadOk == 0) {
     }else {
         $messagenotif = 'Désolé, une erreur est survenue.';
         $type = "warning";
-    } } } } ?>
+    } } }
+  require('includes/miseajourdusite.php');
+ } ?>
 
     <body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
       <div class="wrapper">
@@ -5167,6 +5188,7 @@ if ($uploadOk == 0) {
         $messagenotif = 'Désolé, une erreur est survenue.';
         $type = "warning";
     } } }
+    require('includes/miseajourdusite.php');
           } ?>
 
           <body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
@@ -5354,6 +5376,7 @@ if ($uploadOk == 0) {
         $messagenotif = 'Désolé, une erreur est survenue.';
         $type = "warning";
     } } }
+    require('includes/miseajourdusite.php');
           }
           //Modif page faire un don paiement
           $selectinfosactuel462 = $db->prepare("SELECT * from photopage where nompage=:nompage");
@@ -5700,6 +5723,7 @@ if ($uploadOk == 0) {
           $messagenotif = 'Désolé, une erreur est survenue.';
           $type = "warning";
       } } }
+      require('includes/miseajourdusite.php');
             } ?>
 
 
