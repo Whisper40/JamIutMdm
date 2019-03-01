@@ -37,6 +37,7 @@ require_once('../includes/connectBDD.php');
 
                                  //owner = le mail de la personne
                                    $priority = '1';
+                                   $owner_mail = 'contact@jam-mdm.fr';
                                    $message = 'MESSAGE A FAIRE';
                                    $subject = '[JAM]'.'[Inscription]';
                                  if($subject&&$email&&$message){
@@ -48,7 +49,7 @@ require_once('../includes/connectBDD.php');
                                        $uid = md5(uniqid(time()));
                                        $name = basename($file);
                                        // header
-                                       $headers = "From: <".$email.">\r\n";
+                                       $headers = "From: <".$owner_mail.">\r\n";
                                        $headers .= "MIME-Version: 1.0\r\n";
                                        $headers .= 'X-Priotity:'.$priority."\r\n";
                                        $headers .= "Content-Type: multipart/mixed; boundary=\"".$uid."\"\r\n\r\n";
@@ -63,7 +64,7 @@ require_once('../includes/connectBDD.php');
                                        $nmessage .= "Content-Disposition: attachment; filename=\"".$filename."\"\r\n\r\n";
                                        $nmessage .= $content."\r\n\r\n";
                                        $nmessage .= "--".$uid."--";
-                                         mail($owner_mail,$subject,$nmessage, $headers);
+                                         mail($email,$subject,$nmessage, $headers);
 
 
                                          ?>
