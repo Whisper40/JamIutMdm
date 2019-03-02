@@ -59,28 +59,24 @@ $newtitle = replaceAccents($title);
     <div class="row">
       <div class="col-sm-12">
         <div class="card-content">
-          <h3 class="card-title">'.$nom.'</h3>
+          <h3 class="card-title">'.$title.'</h3>
         </div>
       </div>
     </div>
     <div class="table-responsive">
       <table class="table">
         <thead class="text-primary">
-          <th>Nom</th>
-          <th>Prénom</th>
-          <th>Adresse</th>
+          <th class="text-center">Nom</th>
+          <th class="text-center">Prénom</th>
+          <th class="text-center">Adresse</th>
           <th class="text-center">Code Postal</th>
-          <th>Ville</th>
-
+          <th class="text-center">Ville</th>
           <th class="text-center">Numéro de Téléphone</th>
           <th class="text-center">Numéro d\'urgence</th>
-
           <th class="text-center">Allergies</th>
-
           <th class="text-center">Poids</th>
           <th class="text-center">Taille</th>
           <th class="text-center">Pointure</th>
-
           <th class="text-center">Option Matériel</th>
           <th class="text-center">Option Repas</th>
           <th class="text-center">Option Casque</th>
@@ -130,16 +126,12 @@ $newtitle = replaceAccents($title);
             <td>'.$adresse.'</td>
             <td class="text-center">'.$codepostal.'</td>
             <td>'.$ville.'</td>
-
             <td class="text-center">'.$tel.'</td>
             <td class="text-center">'.$telurgence.'</td>
-
             <td class="text-center">'.$allergie.'</td>
-
             <td class="text-center">'.$poids.'</td>
             <td class="text-center">'.$taille.'</td>
             <td class="text-center">'.$pointure.'</td>
-
             <td class="text-center">'.$optionmateriel.'</td>
             <td class="text-center">'.$optionrepas.'</td>
             <td class="text-center">'.$optioncasque.'</td>
@@ -152,8 +144,21 @@ $newtitle = replaceAccents($title);
       </table>
     </div>
     ';
-echo '
-    <a href="https://administration.jam-mdm.fr/affichelesparticipantsexport.php?id='.$id.'&amp;slug='.$slug.'&amp;title='.$title.'"> Télécharger le fichier Excel </a>
+echo '<div class="row">
+        <div class="col-sm-9">
+          <div class="card-content">
+            <h3 class="card-title">Exoporter le tableau au format Excel</h3>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card-content">
+            <center>
+              <a href="https://administration.jam-mdm.fr/affichelesparticipantsexport.php?id='.$id.'&amp;slug='.$slug.'&amp;title='.$title.'"><button class="btn btn-primary btn-round btn-rose">Télécharger le tableau</button></a>
+            </center>
+         </div>
+        </div>
+      </div>
+
     ';
   }else if (stripos($title, 'rugby') != FALSE){
     echo '
