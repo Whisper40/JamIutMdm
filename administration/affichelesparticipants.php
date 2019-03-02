@@ -55,7 +55,6 @@ $newtitle = replaceAccents($title);
 
     if (stripos($title, 'ski') != FALSE){
       echo '
-
     <div class="row">
       <div class="col-sm-12">
         <div class="card-content">
@@ -249,13 +248,22 @@ echo '<br>
 
   }else if (stripos($newtitle, 'cinema') != FALSE){
         echo '
-        <div class="table-responsive">
-        <table class="table">
-          <thead class="text-primary">
-            <th class="text-center">Nom</th>
-            <th class="text-center">Prénom</th>
-          </thead>
-          <tbody>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="card-content">
+              <h3 class="card-title">'.$title.'</h3>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="table-responsive">
+            <table class="table">
+              <thead class="text-primary">
+                <th class="text-center">Nom</th>
+                <th class="text-center">Prénom</th>
+              </thead>
+              <tbody>
             ';
         $selectid = $db->prepare("SELECT user_id FROM catparticipe WHERE name=:name");
         $selectid->execute(array(
@@ -280,14 +288,31 @@ echo '<br>
             </tbody>
           </table>
         </div>
+      </div>
+    </div>
+        <div class="row">
+          <div class="col-sm-8">
+          </div>
+          </div>
         ';
-        echo '
-        <a href="https://administration.jam-mdm.fr/affichelesparticipantsexport.php?id='.$id.'&amp;slug='.$slug.'&amp;title='.$title.'"> Télécharger le fichier Excel </a>
+        echo '<br>
+              <div class="row">
+                <div class="col-sm-8">
+                  <center>
+                    <h3 class="card-title">Cliquer sur ce bouton pour télécharger et exporter le tableau au format Excel</h3>
+                  </center>
+                </div>
+                <div class="col-sm-4">
+                  <center>
+                    <a href="https://administration.jam-mdm.fr/affichelesparticipantsexport.php?id='.$id.'&amp;slug='.$slug.'&amp;title='.$title.'"><button class="btn btn-primary btn-round btn-rose">Télécharger le tableau</button></a>
+                  </center>
+                </div>
+              </div>
         ';
+
   }else if (stripos($title, 'sportive') != FALSE){
 
-    echo '
-            <div class="row">
+    echo '  <div class="row">
               <div class="col-sm-12">
                 <div class="card-content">
                   <h3 class="card-title">'.$title.'</h3>
@@ -302,8 +327,8 @@ echo '<br>
                   <th class="text-center">Adresse</th>
                   <th class="text-center">Code Postal</th>
                   <th class="text-center">Ville</th>
-                  <th class="text-center">Téléphone</th>
-                  <th class="text-center">Urgence</th>
+                  <th class="text-center">Numéro de Téléphone</th>
+                  <th class="text-center">Numéro d\'urgence</th>
                 </thead>
                 <tbody>
                 ';
