@@ -162,6 +162,13 @@ echo '<br>
 
   }else if (stripos($title, 'rugby') != FALSE){
     echo '
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card-content">
+          <h3 class="card-title">'.$title.'</h3>
+        </div>
+      </div>
+    </div>
     <div class="table-responsive">
       <table class="table">
         <thead class="text-primary">
@@ -280,18 +287,25 @@ echo '<br>
   }else if (stripos($title, 'sportive') != FALSE){
 
     echo '
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="card-content">
+                  <h3 class="card-title">'.$title.'</h3>
+                </div>
+              </div>
+            </div>
             <div class="table-responsive">
-            <table class="table">
-              <thead class="text-primary">
-                <th class="text-center">Nom</th>
-                <th class="text-center">Prénom</th>
-                <th class="text-center">Adresse</th>
-                <th class="text-center">Code Postal</th>
-                <th class="text-center">Ville</th>
-                <th class="text-center">Télephone</th>
-                <th class="text-center">Urgence</th>
-              </thead>
-              <tbody>
+              <table class="table">
+                <thead class="text-primary">
+                  <th class="text-center">Nom</th>
+                  <th class="text-center">Prénom</th>
+                  <th class="text-center">Adresse</th>
+                  <th class="text-center">Code Postal</th>
+                  <th class="text-center">Ville</th>
+                  <th class="text-center">Téléphone</th>
+                  <th class="text-center">Urgence</th>
+                </thead>
+                <tbody>
                 ';
                 $selectid = $db->prepare("SELECT user_id FROM catparticipe WHERE name=:name");
                 $selectid->execute(array(
@@ -318,19 +332,19 @@ echo '<br>
                     $telurgence=$s2->telurgence;
                     echo '
                     <tr>
-                    <td class="text-center">'.$nom.'</td>
-                    <td class="text-center">'.$prenom.'</td>
-                    <td class="text-center">'.$adresse.'</td>
-                    <td class="text-center">'.$codepostal.'</td>
-                    <td class="text-center">'.$ville.'</td>
-                    <td class="text-center">'.$tel.'</td>
-                    <td class="text-center">'.$telurgence.'</td>
+                      <td class="text-center">'.$nom.'</td>
+                      <td class="text-center">'.$prenom.'</td>
+                      <td class="text-center">'.$adresse.'</td>
+                      <td class="text-center">'.$codepostal.'</td>
+                      <td class="text-center">'.$ville.'</td>
+                      <td class="text-center">'.$tel.'</td>
+                      <td class="text-center">'.$telurgence.'</td>
                     </tr>';
             }
           }
             echo '
-            </tbody>
-            </table>
+                </tbody>
+              </table>
             </div>
             ';
             echo '<br>
@@ -350,6 +364,13 @@ echo '<br>
 
   }else if (stripos($title, 'nettoyage') != FALSE){
         echo '
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="card-content">
+              <h3 class="card-title">'.$title.'</h3>
+            </div>
+          </div>
+        </div>
         <div class="table-responsive">
         <table class="table">
           <thead class="text-primary">
@@ -382,12 +403,29 @@ echo '<br>
         </table>
         </div>
         ';
-        echo '
-        <a href="https://administration.jam-mdm.fr/affichelesparticipantsexport.php?id='.$id.'&amp;slug='.$slug.'&amp;title='.$title.'"> Télécharger le fichier Excel </a>
+        echo '<br>
+              <div class="row">
+                <div class="col-sm-8">
+                  <center>
+                    <h3 class="card-title">Cliquer sur ce bouton pour télécharger et exporter le tableau au format Excel</h3>
+                  </center>
+                </div>
+                <div class="col-sm-4">
+                    <center>
+                    <a href="https://administration.jam-mdm.fr/affichelesparticipantsexport.php?id='.$id.'&amp;slug='.$slug.'&amp;title='.$title.'"><button class="btn btn-primary btn-round btn-rose">Télécharger le tableau</button></a>
+                    </center>
+                </div>
+              </div>
         ';
   }else if (stripos($title, 'orientation') != FALSE){
 
-    echo '
+    echo '  <div class="row">
+              <div class="col-sm-12">
+                <div class="card-content">
+                  <h3 class="card-title">'.$title.'</h3>
+                </div>
+              </div>
+            </div>
             <div class="table-responsive">
             <table class="table">
               <thead class="text-primary">
@@ -396,8 +434,8 @@ echo '<br>
                 <th class="text-center">Adresse</th>
                 <th class="text-center">Code Postal</th>
                 <th class="text-center">Ville</th>
-                <th class="text-center">Télephone</th>
-                <th class="text-center">Urgence</th>
+                <th class="text-center">Numéro de Téléphone</th>
+                <th class="text-center">Numéro d\'urgence</th>
               </thead>
               <tbody>
                 ';
@@ -426,27 +464,40 @@ echo '<br>
                     $telurgence=$s2->telurgence;
                     echo '
                     <tr>
-                    <td class="text-center">'.$nom.'</td>
-                    <td class="text-center">'.$prenom.'</td>
-                    <td class="text-center">'.$adresse.'</td>
-                    <td class="text-center">'.$codepostal.'</td>
-                    <td class="text-center">'.$ville.'</td>
-                    <td class="text-center">'.$tel.'</td>
-                    <td class="text-center">'.$telurgence.'</td>
+                      <td>'.$nom.'</td>
+                      <td>'.$prenom.'</td>
+                      <td>'.$adresse.'</td>
+                      <td class="text-center">'.$codepostal.'</td>
+                      <td>'.$ville.'</td>
+                      <td class="text-center">'.$tel.'</td>
+                      <td class="text-center">'.$telurgence.'</td>
                     </tr>';
             }
           }
             echo '
-            </tbody>
-            </table>
+                </tbody>
+              </table>
             </div>
             ';
-            echo '
-            <a href="https://administration.jam-mdm.fr/affichelesparticipantsexport.php?id='.$id.'&amp;slug='.$slug.'&amp;title='.$title.'"> Télécharger le fichier Excel </a>
+            echo '<br>
+                  <div class="row">
+                    <div class="col-sm-8">
+                      <center>
+                        <h3 class="card-title">Cliquer sur ce bouton pour télécharger et exporter le tableau au format Excel</h3>
+                      </center>
+                    </div>
+                    <div class="col-sm-4">
+                        <center>
+                        <a href="https://administration.jam-mdm.fr/affichelesparticipantsexport.php?id='.$id.'&amp;slug='.$slug.'&amp;title='.$title.'"><button class="btn btn-primary btn-round btn-rose">Télécharger le tableau</button></a>
+                        </center>
+                    </div>
+                  </div>
             ';
 
   }else{
-    echo 'AUCUNE CAT';
+    echo '<center>
+            <h4 class="info-title"><font color="red">Aucun activités ou voyage est en cour d\'organisation</font></h4>
+          </center>';
   }
 }
 }else{
