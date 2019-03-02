@@ -148,7 +148,9 @@ $newtitle = replaceAccents($title);
 echo '<br><br>
       <div class="row">
         <div class="col-sm-8">
-            <h3 class="card-title">Cliquer sur ce bouton pour téléchatger le tableau au format Excel</h3>
+          <center>
+            <h3 class="card-title">Cliquer sur ce bouton pour télécharger et exporter le tableau au format Excel</h3>
+          </center>
         </div>
         <div class="col-sm-4">
             <center>
