@@ -24,19 +24,22 @@ $user_id = $_SESSION['admin_id'];
       <div class="container-fluid">
         <div class="card">
           <div class="card-content">
-            <h2 class="card-title text-center">Banir / Débanir un Utilisateur</h2>
+            <h2 class="card-title text-center">Liste des Donneurs</h2>
             <br>
-            <div class="table-responsive">
-              <table class="table">
-                <thead class="text-primary">
-                  <th>Nom</th>
-                  <th>Adresse</th>
-                  <th class="text-center">Email</th>
-                  <th class="text-center">Valeur du Don</th>
-                  <th class="text-center">Message</th>
-                  <th class="text-center">Date</th>
-                </thead>
-                <tbody>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="card-content">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class="text-primary">
+                        <th>Nom</th>
+                        <th>Adresse</th>
+                        <th class="text-center">Email</th>
+                        <th class="text-center">Valeur du Don</th>
+                        <th class="text-center">Message</th>
+                        <th class="text-center">Date</th>
+                      </thead>
+                      <tbody>
 
         <?php
         $selectlogs = $db->prepare("SELECT * FROM donation ORDER BY id DESC");
@@ -50,19 +53,22 @@ $user_id = $_SESSION['admin_id'];
           $message=$s2->message;
           $date=$s2->date;
           echo '
-                <tr>
-                  <td>'.$nom.'</td>
-                  <td>'.$adresse.'</td>
-                  <td class="text-center">'.$email.'</td>
-                  <td class="text-center">'.$price.'</td>
-                  <td class="text-center">'.$message.'</td>
-                  <td class="text-center">'.$date.'</td>
-                </tr>';
+                      <tr>
+                        <td>'.$nom.'</td>
+                        <td>'.$adresse.'</td>
+                        <td class="text-center">'.$email.'</td>
+                        <td class="text-center">'.$price.'</td>
+                        <td class="text-center">'.$message.'</td>
+                        <td class="text-center">'.$date.'</td>
+                      </tr>';
         }
 
     ?>
-              </tbody>
-            </table>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
