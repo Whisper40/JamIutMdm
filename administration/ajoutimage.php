@@ -2,6 +2,7 @@
     require_once('includes/connectBDD.php');
     require_once('includes/checkconnection.php');
     $nompage = "Ajout Image";
+    $nomsouscat = "";
     require_once('includes/head.php');
 
 //Code de génératon du captcha fournie par GOOGLE

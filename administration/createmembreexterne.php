@@ -3,6 +3,7 @@
     require_once('includes/checkconnection.php');
     require_once('includes/head.php');
     $nompage = "Création Membre";
+    $nomsouscat = "";
     ini_set('display_errors', 1);
     $user_id = $_SESSION['admin_id'];
     date_default_timezone_set('Europe/Paris');

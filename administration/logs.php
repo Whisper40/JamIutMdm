@@ -4,6 +4,7 @@ require_once('includes/connectBDD.php');
 require_once('includes/checkconnection.php');
 require_once('includes/checksupreme.php');
 $nompage = "Logs";
+$nomsouscat = "";
 require_once('includes/head.php');
 
 $user_id = $_SESSION['admin_id'];

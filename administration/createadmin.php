@@ -4,6 +4,7 @@
     require_once('includes/checksupreme.php');
     require_once('includes/head.php');
     $nompage = "Gestion des admins";
+    $nomsouscat = "";
     ini_set('display_errors', 1);
     $user_id = $_SESSION['admin_id'];
     date_default_timezone_set('Europe/Paris');

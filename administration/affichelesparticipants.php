@@ -2,7 +2,8 @@
 //TEST KEVIN
 require_once('includes/connectBDD.php');
 require_once('includes/checkconnection.php');
-$nompage = "Modification Contenu Site";
+$nompage = "Participants activités";
+$nomsouscat = "";
 require_once('includes/head.php');
 ini_set('display_errors', 1);
 $user_id = $_SESSION['admin_id'];
