@@ -150,7 +150,7 @@ echo '<br><br>
         <div class="col-sm-9">
             <h3 class="card-title">Cliquer sur ce bouton pour téléchatger le tableau au format Excel</h3>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-4">
             <center>
               <a href="https://administration.jam-mdm.fr/affichelesparticipantsexport.php?id='.$id.'&amp;slug='.$slug.'&amp;title='.$title.'"><button class="btn btn-primary btn-round btn-rose">Télécharger le tableau</button></a>
             </center>
