@@ -566,28 +566,25 @@ echo '<br>
                       </tr>';
                     }
                     echo '
-                  </tbody>
-                  </table>
+                      </tbody>
+                    </table>
                   </div>
                     ';
-                  }      }
+                  }  }
                     ?>
 
               </div>
             </div>
           </div>
 
-
-
-
-<?php
-} ?>
+    <?php } ?>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
-</div>
-</div>
-</div>
-</div>
-</div>
+
 <?php
 require_once('includes/javascript.php');
 ?>

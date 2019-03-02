@@ -2,7 +2,6 @@
 //TEST KEVIN
 require_once('includes/connectBDD.php');
 require_once('includes/checkconnection.php');
-
 $nompage = "Dons";
 require_once('includes/head.php');
 
@@ -12,22 +11,34 @@ $user_id = $_SESSION['admin_id'];
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src='https://www.google.com/recaptcha/api.js'></script>
 
+<body>
+  <div class="wrapper">
+
 <?php
 
-      echo '
-    <div class="table-responsive">
-      <table class="table">
-        <thead class="text-primary">
-          <th class="text-center">Nom</th>
-          <th class="text-center">Adresse</th>
-          <th class="text-center">Email</th>
-          <th class="text-center">Prix</th>
-          <th class="text-center">Message</th>
-          <th class="text-center">Date</th>
-        </thead>
-        <tbody>
-          ';
+    require_once('includes/navbar.php');
 
+?>
+
+    <div class="content">
+      <div class="container-fluid">
+        <div class="card">
+          <div class="card-content">
+            <h2 class="card-title text-center">Banir / Débanir un Utilisateur</h2>
+            <br>
+            <div class="table-responsive">
+              <table class="table">
+                <thead class="text-primary">
+                  <th>Nom</th>
+                  <th>Adresse</th>
+                  <th class="text-center">Email</th>
+                  <th class="text-center">Valeur du Don</th>
+                  <th class="text-center">Message</th>
+                  <th class="text-center">Date</th>
+                </thead>
+                <tbody>
+
+        <?php
         $selectlogs = $db->prepare("SELECT * FROM donation ORDER BY id DESC");
         $selectlogs->execute();
         while($s2=$selectlogs->fetch(PDO::FETCH_OBJ)){
@@ -39,21 +50,27 @@ $user_id = $_SESSION['admin_id'];
           $message=$s2->message;
           $date=$s2->date;
           echo '
-          <tr>
-          <td class="text-center">'.$nom.'</td>
-          <td class="text-center">'.$adresse.'</td>
-          <td class="text-center">'.$email.'</td>
-          <td class="text-center">'.$price.'</td>
-          <td class="text-center">'.$message.'</td>
-          <td class="text-center">'.$date.'</td>
-          </tr>';
+                <tr>
+                  <td>'.$nom.'</td>
+                  <td>'.$adresse.'</td>
+                  <td class="text-center">'.$email.'</td>
+                  <td class="text-center">'.$price.'</td>
+                  <td class="text-center">'.$message.'</td>
+                  <td class="text-center">'.$date.'</td>
+                </tr>';
         }
 
-    echo '
-  </tbody>
-  </table>
+    ?>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-    ';
+</div>
+</body>
 
+<?php
 require_once('includes/javascript.php');
 ?>
