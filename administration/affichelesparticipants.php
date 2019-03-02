@@ -144,13 +144,15 @@ $newtitle = replaceAccents($title);
       </table>
     </div>
     ';
-echo '<div class="row">
-        <div class="col-sm-9">
+    
+echo '<br><br>
+      <div class="row">
+        <div class="col-sm-8">
           <div class="card-content">
-            <h3 class="card-title">Cliquer sur ce bouton pour téléchatger et exoporter le tableau au format Excel</h3>
+            <h3 class="card-title">Cliquer sur ce bouton pour téléchatger le tableau au format Excel</h3>
           </div>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-4">
           <div class="card-content">
             <center>
               <a href="https://administration.jam-mdm.fr/affichelesparticipantsexport.php?id='.$id.'&amp;slug='.$slug.'&amp;title='.$title.'"><button class="btn btn-primary btn-round btn-rose">Télécharger le tableau</button></a>
@@ -240,7 +242,7 @@ echo '<div class="row">
             </div>
           </div>
     ';
-    
+
   }else if (stripos($newtitle, 'cinema') != FALSE){
         echo '
         <div class="table-responsive">
