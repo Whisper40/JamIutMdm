@@ -291,7 +291,7 @@ echo '<br>
       </div>
 
         ';
-        echo '  <br><br><br>
+        echo '  <br><br>
                 <div class="col-sm-6">
                   <center>
                     <h3 class="card-title">Cliquer sur ce bouton pour télécharger et exporter le tableau au format Excel</h3>
@@ -421,7 +421,7 @@ echo '<br>
           </table>
         </div>
         ';
-        echo '
+        echo '  <br><br>
                 <div class="col-sm-6">
                   <center>
                     <h3 class="card-title">Cliquer sur ce bouton pour télécharger et exporter le tableau au format Excel</h3>
