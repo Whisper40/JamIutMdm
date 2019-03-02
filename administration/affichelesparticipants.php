@@ -17,6 +17,17 @@ $user_id = $_SESSION['admin_id'];
     <?php
     require_once('includes/navbar.php');
 
+  ?>
+
+  <div class="content">
+    <div class="container-fluid">
+      <div class="card">
+        <div class="card-content">
+          <h2 class="card-title text-center">Gestionaire des activités et voyages</h2>
+          <br>
+
+  <?php
+
 if(isset($_GET['action'])){
   if($_GET['action'] == 'afficheactivite'){
     $id = $_GET['id'];
@@ -44,6 +55,14 @@ $newtitle = replaceAccents($title);
 
     if (stripos($title, 'ski') != FALSE){
       echo '
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card-content">
+          <h3 class="card-title">'.$nom.'</h3>
+        </div>
+      </div>
+    </div>
     <div class="table-responsive">
       <table class="table">
         <thead class="text-primary">
@@ -401,12 +420,6 @@ echo '
   $countid = $selectid->rowCount();
   ?>
 
-  <div class="content">
-    <div class="container-fluid">
-      <div class="card">
-        <div class="card-content">
-          <h2 class="card-title text-center">Gestionaire des activités et voyages</h2>
-          <br>
           <div class="row">
             <div class="col-sm-12">
               <div class="card-content">
@@ -426,8 +439,8 @@ echo '
                 <div class="table-responsive">
                   <table class="table">
                     <thead class="text-primary">
-                      <th class="text-center">Titre</th>
-                      <th class="text-center">Date du Séjour</th>
+                      <th>Titre</th>
+                      <th>Date du Séjour</th>
                       <th class="text-center">Prix</th>
                       <th class="text-center">Status</th>
                       <th class="text-center">Voir</th>
@@ -461,17 +474,18 @@ echo '
               </div>
             </div>
           </div>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
+
 
 
 
 <?php
 } ?>
 </body>
+</div>
+</div>
+</div>
+</div>
+</div>
 <?php
 require_once('includes/javascript.php');
 ?>
