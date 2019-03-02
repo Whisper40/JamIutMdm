@@ -145,7 +145,7 @@ $newtitle = replaceAccents($title);
     </div>
     ';
 
-echo '<br><br>
+echo '<br>
       <div class="row">
         <div class="col-sm-8">
           <center>
@@ -225,18 +225,17 @@ echo '<br><br>
     </table>
     </div>
     ';
-    echo '<div class="row">
-            <div class="col-sm-9">
-              <div class="card-content">
-                <h3 class="card-title">Cliquer sur ce bouton pour téléchatger et exoporter le tableau au format Excel</h3>
-              </div>
+    echo '<br>
+          <div class="row">
+            <div class="col-sm-8">
+              <center>
+                <h3 class="card-title">Cliquer sur ce bouton pour télécharger et exporter le tableau au format Excel</h3>
+              </center>
             </div>
-            <div class="col-sm-3">
-              <div class="card-content">
+            <div class="col-sm-4">
                 <center>
                   <a href="https://administration.jam-mdm.fr/affichelesparticipantsexport.php?id='.$id.'&amp;slug='.$slug.'&amp;title='.$title.'"><button class="btn btn-primary btn-round btn-rose">Télécharger le tableau</button></a>
                 </center>
-             </div>
             </div>
           </div>
     ';
