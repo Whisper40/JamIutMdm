@@ -145,12 +145,12 @@ $newtitle = replaceAccents($title);
     </div>
     ';
 echo '<div class="row">
-        <div class="col-sm-9">
+        <div class="col-sm-8">
           <div class="card-content">
-            <h3 class="card-title">Exoporter le tableau au format Excel</h3>
+            <h3 class="card-title">Cliquer sur ce bouton pour téléchatger et exoporter le tableau au format Excel</h3>
           </div>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-4">
           <div class="card-content">
             <center>
               <a href="https://administration.jam-mdm.fr/affichelesparticipantsexport.php?id='.$id.'&amp;slug='.$slug.'&amp;title='.$title.'"><button class="btn btn-primary btn-round btn-rose">Télécharger le tableau</button></a>
@@ -158,23 +158,23 @@ echo '<div class="row">
          </div>
         </div>
       </div>
-
     ';
+
   }else if (stripos($title, 'rugby') != FALSE){
     echo '
     <div class="table-responsive">
-    <table class="table">
-      <thead class="text-primary">
-        <th class="text-center">Nom</th>
-        <th class="text-center">Prénom</th>
-        <th class="text-center">Adresse</th>
-        <th class="text-center">Code Postal</th>
-        <th class="text-center">Ville</th>
-        <th class="text-center">Numéro</th>
-        <th class="text-center">Urgence</th>
-        <th class="text-center">Option Accompagnement</th>
-      </thead>
-      <tbody>
+      <table class="table">
+        <thead class="text-primary">
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Adresse</th>
+          <th class="text-center">Code Postal</th>
+          <th>Ville</th>
+          <th class="text-center">Numéro de Téléphone</th>
+          <th class="text-center">Numéro d\'urgence</th>
+          <th class="text-center">Option Accompagnement</th>
+        </thead>
+        <tbody>
         ';
     $selectid = $db->prepare("SELECT user_id FROM catparticipe WHERE name=:name");
     $selectid->execute(array(
