@@ -24,7 +24,7 @@ $user_id = $_SESSION['admin_id'];
       <div class="container-fluid">
         <div class="card">
           <div class="card-content">
-            <h2 class="card-title text-center">Gestionaire des activités et voyages</h2>
+            <h2 class="card-title text-center">Logs du site</h2>
             <br>
             <div class="table-responsive">
               <table class="table">
