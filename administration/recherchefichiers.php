@@ -13,7 +13,6 @@ $requete->execute(array($iduser));
 $table=$requete->fetchAll(PDO::FETCH_OBJ);
 
 if(count($table)>0){
-  echo "<h3>".count($table)." documents trouvés</h3>";
   foreach($table as $ligne){
     $user_id=$ligne->user_id;
     $nomfichier=$ligne->filename;
@@ -21,8 +20,12 @@ if(count($table)>0){
     $statusfichier=$ligne->status;
     echo 'Le fichier '.$nomfichier.' soumis le '.$datefichier.' à pour status '.$statusfichier.'<hr>';
   }
-}else echo"<p class='rouge'> Pas de résultats</p>";
+}else echo'<center>
+            <h4 class="info-title"><font color="red">Aucun résultats à votre recherche</font></h4>
+           </center>';
 
 
 
-}else echo"<p class='rouge'> Aucun critere de recherche n'a été fournis </p>";
+}else echo'<center>
+            <h4 class="info-title"><font color="red">Aucun critere de recherche n\'a été fournis</font></h4>
+           </center>';

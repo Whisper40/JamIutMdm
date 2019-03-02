@@ -13,22 +13,32 @@ $user_id = $_SESSION['admin_id'];
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src='https://www.google.com/recaptcha/api.js'></script>
 
-<?php
+<body>
+  <div class="wrapper">
 
-      echo '
-    <div class="table-responsive">
-      <table class="table">
-        <thead class="text-primary">
-          <th class="text-center">Identifiant</th>
-          <th class="text-center">Nom</th>
-          <th class="text-center">Type</th>
-          <th class="text-center">Action</th>
-          <th class="text-center">Page</th>
-          <th class="text-center">Date</th>
-        </thead>
-        <tbody>
-          ';
+    <?php
+    require_once('includes/navbar.php');
+    ?>
 
+    <div class="content">
+      <div class="container-fluid">
+        <div class="card">
+          <div class="card-content">
+            <h2 class="card-title text-center">Gestionaire des activités et voyages</h2>
+            <br>
+            <div class="table-responsive">
+              <table class="table">
+                <thead class="text-primary">
+                  <th class="text-center">Identifiant</th>
+                  <th class="text-center">Nom</th>
+                  <th class="text-center">Type</th>
+                  <th class="text-center">Action</th>
+                  <th class="text-center">Page</th>
+                  <th class="text-center">Date</th>
+                </thead>
+                <tbody>
+
+        <?php
         $selectlogs = $db->prepare("SELECT * FROM logs ORDER BY id DESC");
         $selectlogs->execute();
         while($s2=$selectlogs->fetch(PDO::FETCH_OBJ)){
@@ -46,21 +56,27 @@ $user_id = $_SESSION['admin_id'];
           $page=$s2->page;
           $date=$s2->date;
           echo '
-          <tr>
-          <td class="text-center">'.$id.'</td>
-          <td class="text-center">'.$nom.'</td>
-          <td class="text-center">'.$type.'</td>
-          <td class="text-center">'.$action.'</td>
-          <td class="text-center">'.$page.'</td>
-          <td class="text-center">'.$date.'</td>
-          </tr>';
-        }
+                  <tr>
+                    <td class="text-center">'.$id.'</td>
+                    <td class="text-center">'.$nom.'</td>
+                    <td class="text-center">'.$type.'</td>
+                    <td class="text-center">'.$action.'</td>
+                    <td class="text-center">'.$page.'</td>
+                    <td class="text-center">'.$date.'</td>
+                  </tr>';
+                }
 
-    echo '
-  </tbody>
-  </table>
+          ?>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-    ';
+</body>
 
+<?php
 require_once('includes/javascript.php');
 ?>
