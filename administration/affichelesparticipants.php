@@ -420,6 +420,7 @@ echo '<br>
             </tbody>
           </table>
         </div>
+      </div>
         ';
         echo '  <br><br>
                 <div class="col-sm-6">
@@ -556,8 +557,8 @@ echo '<br>
                         $datesejour = $ligne->datesejour;
                         echo '
                       <tr>
-                        <td class="text-center">'.$title.'</td>
-                        <td class="text-center">'.$datesejour.'</td>
+                        <td>'.$title.'</td>
+                        <td>'.$datesejour.'</td>
                         <td class="text-center">'.$price.'</td>
                         <td class="text-center">'.$status.'</td>
                         <td class="text-center"><a href="?action=afficheactivite&amp;id='.$id.'&amp;slug='.$slug.'&amp;title='.$title.'"><button type="button" class="btn btn-rose btn-round btn-sm">Afficher</button></a></td>
