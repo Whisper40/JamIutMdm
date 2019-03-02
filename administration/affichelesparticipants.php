@@ -11,24 +11,18 @@ $user_id = $_SESSION['admin_id'];
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src='https://www.google.com/recaptcha/api.js'></script>
 
+<body>
+  <div class="wrapper">
 
+    <?php
+    require_once('includes/navbar.php');
 
-<?php
 if(isset($_GET['action'])){
   if($_GET['action'] == 'afficheactivite'){
     $id = $_GET['id'];
     $slug = $_GET['slug'];
 
-
-
-
-
-
-
     //SPECIAL
-
-
-
     //FIN
     $selecttitle = $db->prepare("SELECT title FROM activitesvoyages WHERE slug=:slug");
     $selecttitle->execute(array(
@@ -36,7 +30,6 @@ if(isset($_GET['action'])){
     ));
     $srien = $selecttitle->fetch(PDO::FETCH_OBJ);
     $title = $srien->title;
-
 
     function replaceAccents($str) {
 
@@ -48,7 +41,6 @@ if(isset($_GET['action'])){
 }
 
 $newtitle = replaceAccents($title);
-
 
     if (stripos($title, 'ski') != FALSE){
       echo '
@@ -243,14 +235,6 @@ echo '
         ';
   }else if (stripos($title, 'sportive') != FALSE){
 
-
-
-
-
-
-
-
-
     echo '
             <div class="table-responsive">
             <table class="table">
@@ -309,19 +293,6 @@ echo '
             <a href="https://administration.jam-mdm.fr/affichelesparticipantsexport.php?id='.$id.'&amp;slug='.$slug.'&amp;title='.$title.'"> Télécharger le fichier Excel </a>
             ';
 
-
-
-
-
-
-
-
-
-
-
-
-
-
   }else if (stripos($title, 'nettoyage') != FALSE){
         echo '
         <div class="table-responsive">
@@ -360,14 +331,6 @@ echo '
         <a href="https://administration.jam-mdm.fr/affichelesparticipantsexport.php?id='.$id.'&amp;slug='.$slug.'&amp;title='.$title.'"> Télécharger le fichier Excel </a>
         ';
   }else if (stripos($title, 'orientation') != FALSE){
-
-
-
-
-
-
-
-
 
     echo '
             <div class="table-responsive">
@@ -427,29 +390,12 @@ echo '
             <a href="https://administration.jam-mdm.fr/affichelesparticipantsexport.php?id='.$id.'&amp;slug='.$slug.'&amp;title='.$title.'"> Télécharger le fichier Excel </a>
             ';
 
-
-
-
-
-
-
-
-
-
-
-
-
-
   }else{
     echo 'AUCUNE CAT';
   }
 }
 }else{
- ?>
 
-
-
-<?php
   $selectid = $db->prepare("SELECT * FROM activitesvoyages");
   $selectid->execute();
   $countid = $selectid->rowCount();
@@ -459,12 +405,12 @@ echo '
     <div class="container-fluid">
       <div class="card">
         <div class="card-content">
-          <h2 class="card-title text-center">Toutes les activités/voyages</h2>
+          <h2 class="card-title text-center">Gestionaire des activités et voyages</h2>
           <br>
           <div class="row">
             <div class="col-sm-12">
               <div class="card-content">
-                <h3 class="card-title">Toutes les activités/voyages</h3>
+                <h3 class="card-title">Liste des activités et voyages</h3>
               </div>
             </div>
           </div>
@@ -519,9 +465,13 @@ echo '
     </div>
   </div>
 </div>
+</div>
+
 
 
 <?php
-}
+} ?>
+</body>
+<?php
 require_once('includes/javascript.php');
 ?>
