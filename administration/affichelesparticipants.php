@@ -66,17 +66,21 @@ $newtitle = replaceAccents($title);
     <div class="table-responsive">
       <table class="table">
         <thead class="text-primary">
-          <th class="text-center">Nom</th>
-          <th class="text-center">Prénom</th>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Adresse</th>
+          <th class="text-center">Code Postal</th>
+          <th>Ville</th>
+
+          <th class="text-center">Numéro de Téléphone</th>
+          <th class="text-center">Numéro d\'urgence</th>
+
+          <th class="text-center">Allergies</th>
+
           <th class="text-center">Poids</th>
           <th class="text-center">Taille</th>
           <th class="text-center">Pointure</th>
-          <th class="text-center">Allergies</th>
-          <th class="text-center">Adresse</th>
-          <th class="text-center">Code Postal</th>
-          <th class="text-center">Ville</th>
-          <th class="text-center">Numéro</th>
-          <th class="text-center">Urgence</th>
+
           <th class="text-center">Option Matériel</th>
           <th class="text-center">Option Repas</th>
           <th class="text-center">Option Casque</th>
@@ -121,28 +125,32 @@ $newtitle = replaceAccents($title);
           $telurgence=$s2->telurgence;
           echo '
           <tr>
-          <td class="text-center">'.$nom.'</td>
-          <td class="text-center">'.$prenom.'</td>
-          <td class="text-center">'.$poids.'</td>
-          <td class="text-center">'.$taille.'</td>
-          <td class="text-center">'.$pointure.'</td>
-          <td class="text-center">'.$allergie.'</td>
-          <td class="text-center">'.$adresse.'</td>
-          <td class="text-center">'.$codepostal.'</td>
-          <td class="text-center">'.$ville.'</td>
-          <td class="text-center">'.$tel.'</td>
-          <td class="text-center">'.$telurgence.'</td>
-          <td class="text-center">'.$optionmateriel.'</td>
-          <td class="text-center">'.$optionrepas.'</td>
-          <td class="text-center">'.$optioncasque.'</td>
+            <td>'.$nom.'</td>
+            <td>'.$prenom.'</td>
+            <td>'.$adresse.'</td>
+            <td class="text-center">'.$codepostal.'</td>
+            <td>'.$ville.'</td>
+
+            <td class="text-center">'.$tel.'</td>
+            <td class="text-center">'.$telurgence.'</td>
+
+            <td class="text-center">'.$allergie.'</td>
+
+            <td class="text-center">'.$poids.'</td>
+            <td class="text-center">'.$taille.'</td>
+            <td class="text-center">'.$pointure.'</td>
+
+            <td class="text-center">'.$optionmateriel.'</td>
+            <td class="text-center">'.$optionrepas.'</td>
+            <td class="text-center">'.$optioncasque.'</td>
           </tr>';
         }
       }
     }
     echo '
-  </tbody>
-  </table>
-  </div>
+        </tbody>
+      </table>
+    </div>
     ';
 echo '
     <a href="https://administration.jam-mdm.fr/affichelesparticipantsexport.php?id='.$id.'&amp;slug='.$slug.'&amp;title='.$title.'"> Télécharger le fichier Excel </a>
