@@ -148,16 +148,12 @@ $newtitle = replaceAccents($title);
 echo '<br><br>
       <div class="row">
         <div class="col-sm-9">
-          <div class="card-content">
             <h3 class="card-title">Cliquer sur ce bouton pour téléchatger le tableau au format Excel</h3>
-          </div>
         </div>
         <div class="col-sm-3">
-          <div class="card-content">
             <center>
               <a href="https://administration.jam-mdm.fr/affichelesparticipantsexport.php?id='.$id.'&amp;slug='.$slug.'&amp;title='.$title.'"><button class="btn btn-primary btn-round btn-rose">Télécharger le tableau</button></a>
             </center>
-         </div>
         </div>
       </div>
     ';
