@@ -289,21 +289,12 @@ echo '<br>
           </table>
         </div>
       </div>
-    </div>
-        <div class="row">
-          <div class="col-sm-8">
-          </div>
-          </div>
+
         ';
-        echo '<br>
-              <div class="row">
+        echo '
                 <div class="col-sm-8">
                   <center>
                     <h3 class="card-title">Cliquer sur ce bouton pour télécharger et exporter le tableau au format Excel</h3>
-                  </center>
-                </div>
-                <div class="col-sm-4">
-                  <center>
                     <a href="https://administration.jam-mdm.fr/affichelesparticipantsexport.php?id='.$id.'&amp;slug='.$slug.'&amp;title='.$title.'"><button class="btn btn-primary btn-round btn-rose">Télécharger le tableau</button></a>
                   </center>
                 </div>
