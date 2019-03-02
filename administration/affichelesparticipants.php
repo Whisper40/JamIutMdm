@@ -291,7 +291,7 @@ echo '<br>
       </div>
 
         ';
-        echo '
+        echo '  <br><br><br>
                 <div class="col-sm-6">
                   <center>
                     <h3 class="card-title">Cliquer sur ce bouton pour télécharger et exporter le tableau au format Excel</h3>
@@ -387,13 +387,15 @@ echo '<br>
             </div>
           </div>
         </div>
-        <div class="table-responsive">
-        <table class="table">
-          <thead class="text-primary">
-            <th class="text-center">Nom</th>
-            <th class="text-center">Prénom</th>
-          </thead>
-          <tbody>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="table-responsive">
+            <table class="table">
+              <thead class="text-primary">
+                <th class="text-center">Nom</th>
+                <th class="text-center">Prénom</th>
+              </thead>
+              <tbody>
             ';
         $selectid = $db->prepare("SELECT user_id FROM catparticipe WHERE name=:name");
         $selectid->execute(array(
@@ -410,24 +412,19 @@ echo '<br>
         $prenom=$snom->prenom;
             echo '
             <tr>
-            <td class="text-center">'.$nom.'</td>
-            <td class="text-center">'.$prenom.'</td>
+              <td class="text-center">'.$nom.'</td>
+              <td class="text-center">'.$prenom.'</td>
             </tr>';
         }
         echo '
-        </tbody>
-        </table>
+            </tbody>
+          </table>
         </div>
         ';
-        echo '<br>
-              <div class="row">
-                <div class="col-sm-8">
+        echo '
+                <div class="col-sm-6">
                   <center>
                     <h3 class="card-title">Cliquer sur ce bouton pour télécharger et exporter le tableau au format Excel</h3>
-                  </center>
-                </div>
-                <div class="col-sm-4">
-                    <center>
                     <a href="https://administration.jam-mdm.fr/affichelesparticipantsexport.php?id='.$id.'&amp;slug='.$slug.'&amp;title='.$title.'"><button class="btn btn-primary btn-round btn-rose">Télécharger le tableau</button></a>
                     </center>
                 </div>
