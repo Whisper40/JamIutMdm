@@ -165,11 +165,11 @@ echo '<br>
     <div class="table-responsive">
       <table class="table">
         <thead class="text-primary">
-          <th>Nom</th>
-          <th>Prénom</th>
-          <th>Adresse</th>
+          <th class="text-center">Nom</th>
+          <th class="text-center">Prénom</th>
+          <th class="text-center">Adresse</th>
           <th class="text-center">Code Postal</th>
-          <th>Ville</th>
+          <th class="text-center">Ville</th>
           <th class="text-center">Numéro de Téléphone</th>
           <th class="text-center">Numéro d\'urgence</th>
           <th class="text-center">Option Accompagnement</th>
@@ -208,11 +208,11 @@ echo '<br>
         $telurgence=$s2->telurgence;
         echo '
         <tr>
-        <td class="text-center">'.$nom.'</td>
-        <td class="text-center">'.$prenom.'</td>
-        <td class="text-center">'.$adresse.'</td>
+        <td>'.$nom.'</td>
+        <td>'.$prenom.'</td>
+        <td>'.$adresse.'</td>
         <td class="text-center">'.$codepostal.'</td>
-        <td class="text-center">'.$ville.'</td>
+        <td>'.$ville.'</td>
         <td class="text-center">'.$tel.'</td>
         <td class="text-center">'.$telurgence.'</td>
         <td class="text-center">'.$optionaccompagnement.'</td>
@@ -221,8 +221,8 @@ echo '<br>
     }
     }
     echo '
-    </tbody>
-    </table>
+        </tbody>
+      </table>
     </div>
     ';
     echo '<br>
@@ -265,13 +265,13 @@ echo '<br>
         $prenom=$snom->prenom;
             echo '
             <tr>
-            <td class="text-center">'.$nom.'</td>
-            <td class="text-center">'.$prenom.'</td>
+              <td class="text-center">'.$nom.'</td>
+              <td class="text-center">'.$prenom.'</td>
             </tr>';
         }
         echo '
-        </tbody>
-        </table>
+            </tbody>
+          </table>
         </div>
         ';
         echo '
@@ -333,8 +333,19 @@ echo '<br>
             </table>
             </div>
             ';
-            echo '
-            <a href="https://administration.jam-mdm.fr/affichelesparticipantsexport.php?id='.$id.'&amp;slug='.$slug.'&amp;title='.$title.'"> Télécharger le fichier Excel </a>
+            echo '<br>
+                  <div class="row">
+                    <div class="col-sm-8">
+                      <center>
+                        <h3 class="card-title">Cliquer sur ce bouton pour télécharger et exporter le tableau au format Excel</h3>
+                      </center>
+                    </div>
+                    <div class="col-sm-4">
+                        <center>
+                        <a href="https://administration.jam-mdm.fr/affichelesparticipantsexport.php?id='.$id.'&amp;slug='.$slug.'&amp;title='.$title.'"><button class="btn btn-primary btn-round btn-rose">Télécharger le tableau</button></a>
+                        </center>
+                    </div>
+                  </div>
             ';
 
   }else if (stripos($title, 'nettoyage') != FALSE){
