@@ -3016,6 +3016,9 @@ $selectcatimages=$db->query("SELECT * FROM newsactus");
           <script>window.location="http://google.fr"</script>
           <?php
         }else{
+          ?>
+          <script>window.location="http://free.fr"</script>
+          <?php
 
           $messagenotif = 'Un problème de répertoire est présent, contacter votre administrateur !';
           $type = "warning";
