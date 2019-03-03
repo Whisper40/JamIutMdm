@@ -2980,10 +2980,11 @@ $selectcatimages=$db->query("SELECT * FROM newsactus");
         $(document).ready(function(){
         var $recherche =$('input[name=valeur]');
         var critere;
+        var id=<?php echo $id;?>;
         $recherche.keyup(function(){
           critere = $.trim($recherche.val());
           if(critere!=''){
-            $.get('gestionrechercheimageactualite.php?critere='+critere,function(retour){
+            $.get('gestionrechercheimageactualite.php?critere='+critere+'id'=+id,function(retour){
         $('#resultat').html(retour).fadeIn();
         });
         }else $('#resultat').empty().fadeOut();

@@ -4,6 +4,7 @@ require_once('includes/connectBDD.php');
 
 if(isset($_GET['critere'])){
   $critere=$_GET['critere'];
+  $idactu=$_GET['id'];
 
   $select = $db->prepare("SELECT slug FROM newsactus WHERE title LIKE '%$critere%'");
   $select->execute();
@@ -63,7 +64,7 @@ if(count($table)>0){
       <td>'.$titreimage.'</td>
       <td>
 
-  <a href="modifdespages.php?page=actualite&table=newsactus&action=delete&modifactus=&id='.$idimg.'">
+  <a href="modifdespages.php?page=actualite&table=newsactus&action=delete&modifactus='.$idactu.'&id='.$idimg.'">
 
   <button type="button" class="btn">Supprimer</button>
   </a>
