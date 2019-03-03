@@ -3011,6 +3011,10 @@ $selectcatimages=$db->query("SELECT * FROM newsactus");
           $messagenotif = "Le fichier.$valnom. à bien été supprimé";
           $type = "success";
           require('includes/miseajourdusite.php');
+
+          ?>
+          <script>window.location="http://google.fr"</script>
+          <?php
         }else{
 
           $messagenotif = 'Un problème de répertoire est présent, contacter votre administrateur !';
