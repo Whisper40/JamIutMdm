@@ -2980,7 +2980,7 @@ $selectcatimages=$db->query("SELECT * FROM newsactus");
         $(document).ready(function(){
         var $recherche =$('input[name=valeur]');
         var critere;
-        var id=<?php echo $id;?>;
+        var id=<?php echo json_encode($id); ?>;
         $recherche.keyup(function(){
           critere = $.trim($recherche.val());
           if(critere!=''){
