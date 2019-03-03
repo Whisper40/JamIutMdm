@@ -2984,7 +2984,7 @@ $selectcatimages=$db->query("SELECT * FROM newsactus");
         $recherche.keyup(function(){
           critere = $.trim($recherche.val());
           if(critere!=''){
-            $.get('gestionrechercheimageactualite.php?critere='+critere+'id='+id,function(retour){
+            $.get('gestionrechercheimageactualite.php?critere='+critere;'id='+id,function(retour){
         $('#resultat').html(retour).fadeIn();
         });
         }else $('#resultat').empty().fadeOut();
