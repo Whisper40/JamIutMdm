@@ -63,7 +63,7 @@ if(count($table)>0){
       <td>'.$titreimage.'</td>
       <td>
 
-  <a href="modifdespages.php?page=actualite&table=newsactus&action=delete&modifactus=&id='.$idimg.'">
+  <a href="modifdespages.php?page=actualite&table=newsactus&action=delete&modifactus=0&id='.$idimg.'">
 
   <button type="button" class="btn">Supprimer</button>
   </a>
