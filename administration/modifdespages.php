@@ -3003,9 +3003,10 @@ $selectcatimages=$db->query("SELECT * FROM newsactus");
 
         if (file_exists($target_dir)){
           unlink("$target_dir/$valnom");
-          $updatedelete = $db->prepare("DELETE FROM carousel WHERE image=:image");
+          $updatedelete = $db->prepare("DELETE FROM carousel WHERE image=:image and id=:id");
           $updatedelete->execute(array(
-            "image"=>$valnom
+            "image"=>$valnom,
+            "id"=>$id
           ));
           $messagenotif = "Le fichier.$valnom. à bien été supprimé";
           $type = "success";
