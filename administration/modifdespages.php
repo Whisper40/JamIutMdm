@@ -2756,13 +2756,312 @@ function RetourIndex4(){
             </div>
           </form>
           <div id="results11"></div>
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="card-content">
-                <h3 class="card-title">Liste des actualités</h3>
+
+
+<!-- AJOUT KEVIN POUR MODIF PAUL -->
+
+
+<!-- Ajoutd'images au site web (assets)-->
+<?php
+if(isset($_POST['submitphotoactualite'])){
+  $category = $_POST['catactualite'];
+  $souscategory = $_POST['souscatactualite'];
+  $titreimage = $_POST['titreimage'];
+  if(!isset($titreimage)){
+    $uploadOk = 0;
+  }
+  $selectinfosactuel12 = $db->prepare("SELECT slug from newsactus where id=:id");
+  $selectinfosactuel12->execute(array(
+      "id"=>$category
+      )
+  );
+  $r12 = $selectinfosactuel12->fetch(PDO::FETCH_OBJ);
+  $slug = $r12->slug;
+      $target_dir = "../../../JamFichiers/Img/ImagesDuSite";
+      $original = 'Original';
+      if (file_exists($target_dir/$original)) {
+        $target_dirnew = "$target_dir/$original/";
+      }else{
+        mkdir("$target_dir/$original", 0700);
+        $target_dirnew = "$target_dir/$original/";
+      }
+      //Ajout thumb
+      $thumb = 'Thumb';
+      if (file_exists($target_dir/$thumb)) {
+        $target_dirnewthumb = "$target_dir/$thumb/";
+      }else{
+        mkdir("$target_dir/$thumb", 0700);
+        $target_dirnewthumb = "$target_dir/$thumb/";
+      }
+      //FIN
+$total = count($_FILES['fileToUpload']['name']);
+for( $i=0 ; $i < $total ; $i++ ) {
+$target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
+$uploadOk = 1;
+$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+// Check if file already exists
+if (file_exists($target_file)) {
+    $messagenotif = 'Désolé, le fichier existe déja.';
+    $type = "warning";
+    $uploadOk = 0;
+}
+// Check file size < 2mo
+if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
+    $messagenotif = 'Désolé, le fichier est trop grand.';
+    $type = "warning";
+    $uploadOk = 0;
+}
+// Allow certain file formats
+if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
+    $messagenotif = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+    $type = "warning";
+    $uploadOk = 0;
+}
+// Check if $uploadOk is set to 0 by an error
+if ($uploadOk == 0) {
+    $messagenotif = 'Désolé, une erreur est survenue.';
+    $type = "warning";
+// if everything is ok, try to upload file
+} else {
+  date_default_timezone_set('Europe/Paris');
+  setlocale(LC_TIME, 'fr_FR.utf8','fra');
+  $date = strftime('%d:%m:%y %H:%M:%S');
+  $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
+  $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
+  $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
+    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
+        $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+        $type = "success";
+        $insert = $db->prepare("INSERT INTO carousel (slug, titre, image, titreimage) VALUES (:slug, :souscatactualite, :target_filefile, :titreimage)");
+        $insert->execute(array(
+            "slug"=>$slug,
+            "souscatactualite"=>$souscategory,
+            "target_filefile"=>$target_filefile,
+            "titreimage"=>$titreimage
+            )
+        );
+        date_default_timezone_set('Europe/Paris');
+        setlocale(LC_TIME, 'fr_FR.utf8','fra');
+        $date = strftime('%d/%m/%Y %H:%M:%S');
+        $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
+        $insertlogs->execute(array(
+                            "user_id"=>$user_id,
+                            "type"=>'Ajout',
+                            "action"=>'Ajout d\'images aux actualités',
+                            "page"=>'actualitees.php',
+                            "date"=>$date
+                            )
+                        );
+        $status = '1';
+        $img_tmp = $target_dirnew.$target_filefile;
+        $fin = $target_dirnewthumb.$target_filefile;
+          //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
+            $longueur = 300;
+            $largeur = 220;
+            //TAILLE DE L'IMAGE ACTUELLE
+            $taille = getimagesize($img_tmp);
+            //SI LE FICHIER EXISTE
+            if ($taille) {
+                //SI JPG
+                if ($taille['mime']=='image/jpeg' ) {
+                          //OUVERTURE DE L'IMAGE ORIGINALE
+                            $img_big = imagecreatefromjpeg($img_tmp);
+                            $img_new = imagecreate($longueur, $largeur);
+                          //CREATION DE LA MINIATURE
+                            $img_petite = imagecreatetruecolor($longueur, $largeur) or $img_petite = imagecreate($longueur, $largeur);
+                            //COPIE DE L'IMAGE REDIMENSIONNEE
+                            imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
+                            imagejpeg($img_petite,$fin);
+                }
+              //SI PNG
+            else if ($taille['mime']=='image/png' ) {
+                            //OUVERTURE DE L'IMAGE ORIGINALE
+                            $img_big = imagecreatefrompng($img_tmp); // On ouvre l'image d'origine
+                            $img_new = imagecreate($longueur, $largeur);
+                            //CREATION DE LA MINIATURE
+                            $img_petite = imagecreatetruecolor($longueur, $largeur) OR $img_petite = imagecreate($longueur, $largeur);
+                            //COPIE DE L'IMAGE REDIMENSIONNEE
+                            imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
+                            imagepng($img_petite,$fin);
+                        }
+                }
+    }else {
+        $messagenotif = 'Désolé, une erreur est survenue.';
+        $type = "warning";
+    } } }
+    require('includes/miseajourdusite.php');
+          } ?>
+
+
+
+
+
+
+
+
+<!-- TEST -->
+
+<h1>Selectionner la catégorie à laquelle ajouter les photos</h1>
+
+
+<?php
+$selectcatimages=$db->query("SELECT * FROM newsactus");
+ ?>
+
+        <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+            Sélectionner la catégorie d'actualité
+            <select name="catactualite" class="catactualite">
+              <option value="0">Selectionner la catégorie</option>
+              <?php
+                while($s = $selectcatimages->fetch(PDO::FETCH_OBJ)){
+                  $title = $s->title;
+                  $id = $s->id;
+                  echo '<option value="'.$id.'">'.$title.'</option>';
+            }
+            ?>
+          </select></br>
+            Sous Catégorie :
+            <select name="souscatactualite" class="souscatactualite">
+<option>Sélectionner la sous catégorie</option>
+</select>
+
+            <div class="input-group input-lg">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="now-ui-icons users_circle-08"></i>
+                </span>
+              </div>
+              <input type="text" class="form-control" placeholder="Indiquez un nom commun à ces images"  name="titreimage">
+            </div>
+
+            <div class="form-group form-file-upload">
+                <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
+                <div class="input-group">
+                    <input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
+                    <span class="input-group-btn input-group-s">
+                        <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
+                            <i class="material-icons">layers</i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+
+            <input type="submit" name="submitphotoactualite" value="Envoyer les images !">
+        </form>
+
+
+
+        <!-- TEST -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <script type="text/javascript">
+        $(document).ready(function()
+        {
+        $(".catactualite").change(function()
+        {
+        var id=$(this).val();
+        var post_id = 'id='+ id;
+        $.ajax
+        ({
+        type: "POST",
+        url: "rechercheactuspourcarrousel.php",
+        data: post_id,
+        cache: false,
+        success: function(cities)
+        {
+        $(".souscatactualite").html(cities);
+        }
+        });
+        });
+        });
+        </script>
+
+        <script>
+        $(document).ready(function(){
+        var $recherche =$('input[name=valeur]');
+        var critere;
+        $recherche.keyup(function(){
+          critere = $.trim($recherche.val());
+          if(critere!=''){
+            $.get('gestionrechercheimageactualite.php?critere='+critere,function(retour){
+        $('#resultat').html(retour).fadeIn();
+        });
+        }else $('#resultat').empty().fadeOut();
+        });
+        });
+        </script>
+
+
+        <?php
+        if(isset($_GET['action'])){
+        if($_GET['action']=='delete'){
+        $id=$_GET['id'];
+        $selectnom = $db->query("SELECT * FROM carousel WHERE id='$id'");
+        $rname = $selectnom->fetch(PDO::FETCH_OBJ);
+        $valnom = $rname->image;
+        $target_dir = '../../../JamFichiers/Img/ImagesDuSite/Original';
+
+        if (file_exists($target_dir)){
+          unlink("$target_dir/$valnom");
+          $updatedelete = $db->prepare("DELETE FROM carousel WHERE image=:image");
+          $updatedelete->execute(array(
+            "image"=>$valnom
+          ));
+          $messagenotif = "Le fichier.$valnom. à bien été supprimé";
+          $type = "success";
+          require('includes/miseajourdusite.php');
+        }else{
+
+          $messagenotif = 'Un problème de répertoire est présent, contacter votre administrateur !';
+          $type = "warning";
+        }
+        ?>
+        <script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=actualite&table=newsactus"</script>
+        <?php
+        }
+        }
+        ?>
+
+
+            <div class="section section-contact-us text-center">
+              <div class="container">
+                <h2 class="title">Suppression des photos liées au Caroussel ! </h2>
+                <p class="description">AUTRE</p>
+                <div class="row">
+                  <div class="col-lg-6 text-center col-md-8 ml-auto mr-auto">
+
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
+
+        <h3> Supprimer :  </h3>
+          <input type='text' name="valeur" placeholder="Saisir son nom ou la catégorie à laquelle elle appartient">
+          <p id='resultat'></p>
+<!-- FIN AJOUT KEVIN -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         </div>
       </div>
     </div>
@@ -3302,286 +3601,13 @@ require('includes/miseajourdusite.php');
           </form>
           <div id="results11"></div>
 
-<!-- Ajoutd'images au site web (assets)-->
-<?php
-if(isset($_POST['submitphotoactualite'])){
-  $category = $_POST['catactualite'];
-  $souscategory = $_POST['souscatactualite'];
-  $titreimage = $_POST['titreimage'];
-  if(!isset($titreimage)){
-    $uploadOk = 0;
-  }
-  $selectinfosactuel12 = $db->prepare("SELECT slug from newsactus where id=:id");
-  $selectinfosactuel12->execute(array(
-      "id"=>$category
-      )
-  );
-  $r12 = $selectinfosactuel12->fetch(PDO::FETCH_OBJ);
-  $slug = $r12->slug;
-      $target_dir = "../../../JamFichiers/Img/ImagesDuSite";
-      $original = 'Original';
-      if (file_exists($target_dir/$original)) {
-        $target_dirnew = "$target_dir/$original/";
-      }else{
-        mkdir("$target_dir/$original", 0700);
-        $target_dirnew = "$target_dir/$original/";
-      }
-      //Ajout thumb
-      $thumb = 'Thumb';
-      if (file_exists($target_dir/$thumb)) {
-        $target_dirnewthumb = "$target_dir/$thumb/";
-      }else{
-        mkdir("$target_dir/$thumb", 0700);
-        $target_dirnewthumb = "$target_dir/$thumb/";
-      }
-      //FIN
-$total = count($_FILES['fileToUpload']['name']);
-for( $i=0 ; $i < $total ; $i++ ) {
-$target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
-$uploadOk = 1;
-$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-// Check if file already exists
-if (file_exists($target_file)) {
-    $messagenotif = 'Désolé, le fichier existe déja.';
-    $type = "warning";
-    $uploadOk = 0;
-}
-// Check file size < 2mo
-if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
-    $messagenotif = 'Désolé, le fichier est trop grand.';
-    $type = "warning";
-    $uploadOk = 0;
-}
-// Allow certain file formats
-if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-    $messagenotif = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
-    $type = "warning";
-    $uploadOk = 0;
-}
-// Check if $uploadOk is set to 0 by an error
-if ($uploadOk == 0) {
-    $messagenotif = 'Désolé, une erreur est survenue.';
-    $type = "warning";
-// if everything is ok, try to upload file
-} else {
-  date_default_timezone_set('Europe/Paris');
-  setlocale(LC_TIME, 'fr_FR.utf8','fra');
-  $date = strftime('%d:%m:%y %H:%M:%S');
-  $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
-  $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
-  $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
-    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
-        $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
-        $type = "success";
-        $insert = $db->prepare("INSERT INTO carousel (slug, titre, image, titreimage) VALUES (:slug, :souscatactualite, :target_filefile, :titreimage)");
-        $insert->execute(array(
-            "slug"=>$slug,
-            "souscatactualite"=>$souscategory,
-            "target_filefile"=>$target_filefile,
-            "titreimage"=>$titreimage
-            )
-        );
-        date_default_timezone_set('Europe/Paris');
-        setlocale(LC_TIME, 'fr_FR.utf8','fra');
-        $date = strftime('%d/%m/%Y %H:%M:%S');
-        $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
-        $insertlogs->execute(array(
-                            "user_id"=>$user_id,
-                            "type"=>'Ajout',
-                            "action"=>'Ajout d\'images aux actualités',
-                            "page"=>'actualitees.php',
-                            "date"=>$date
-                            )
-                        );
-        $status = '1';
-        $img_tmp = $target_dirnew.$target_filefile;
-        $fin = $target_dirnewthumb.$target_filefile;
-          //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
-            $longueur = 300;
-            $largeur = 220;
-            //TAILLE DE L'IMAGE ACTUELLE
-            $taille = getimagesize($img_tmp);
-            //SI LE FICHIER EXISTE
-            if ($taille) {
-                //SI JPG
-                if ($taille['mime']=='image/jpeg' ) {
-                          //OUVERTURE DE L'IMAGE ORIGINALE
-                            $img_big = imagecreatefromjpeg($img_tmp);
-                            $img_new = imagecreate($longueur, $largeur);
-                          //CREATION DE LA MINIATURE
-                            $img_petite = imagecreatetruecolor($longueur, $largeur) or $img_petite = imagecreate($longueur, $largeur);
-                            //COPIE DE L'IMAGE REDIMENSIONNEE
-                            imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
-                            imagejpeg($img_petite,$fin);
-                }
-              //SI PNG
-            else if ($taille['mime']=='image/png' ) {
-                            //OUVERTURE DE L'IMAGE ORIGINALE
-                            $img_big = imagecreatefrompng($img_tmp); // On ouvre l'image d'origine
-                            $img_new = imagecreate($longueur, $largeur);
-                            //CREATION DE LA MINIATURE
-                            $img_petite = imagecreatetruecolor($longueur, $largeur) OR $img_petite = imagecreate($longueur, $largeur);
-                            //COPIE DE L'IMAGE REDIMENSIONNEE
-                            imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
-                            imagepng($img_petite,$fin);
-                        }
-                }
-    }else {
-        $messagenotif = 'Désolé, une erreur est survenue.';
-        $type = "warning";
-    } } }
-    require('includes/miseajourdusite.php');
-          } ?>
-
-
-
-
-
-
-
-
-<!-- TEST -->
-
-<h1>Selectionner la catégorie à laquelle ajouter les photos</h1>
-
-
-<?php
-$selectcatimages=$db->query("SELECT * FROM newsactus");
- ?>
-
-        <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-            Sélectionner la catégorie d'actualité
-            <select name="catactualite" class="catactualite">
-              <option value="0">Selectionner la catégorie</option>
-              <?php
-                while($s = $selectcatimages->fetch(PDO::FETCH_OBJ)){
-                  $title = $s->title;
-                  $id = $s->id;
-                  echo '<option value="'.$id.'">'.$title.'</option>';
-            }
-            ?>
-          </select></br>
-            Sous Catégorie :
-            <select name="souscatactualite" class="souscatactualite">
-<option>Sélectionner la sous catégorie</option>
-</select>
-
-            <div class="input-group input-lg">
-              <div class="input-group-prepend">
-                <span class="input-group-text">
-                  <i class="now-ui-icons users_circle-08"></i>
-                </span>
-              </div>
-              <input type="text" class="form-control" placeholder="Indiquez un nom commun à ces images"  name="titreimage">
-            </div>
-
-            <div class="form-group form-file-upload">
-                <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
-                <div class="input-group">
-                    <input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
-                    <span class="input-group-btn input-group-s">
-                        <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
-                            <i class="material-icons">layers</i>
-                        </button>
-                    </span>
-                </div>
-            </div>
-
-            <input type="submit" name="submitphotoactualite" value="Envoyer les images !">
-        </form>
 
 
 
 </div>
 
 
-<!-- TEST -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<script type="text/javascript">
-$(document).ready(function()
-{
-$(".catactualite").change(function()
-{
-var id=$(this).val();
-var post_id = 'id='+ id;
-$.ajax
-({
-type: "POST",
-url: "rechercheactuspourcarrousel.php",
-data: post_id,
-cache: false,
-success: function(cities)
-{
-$(".souscatactualite").html(cities);
-}
-});
-});
-});
-</script>
-
-<script>
-$(document).ready(function(){
-var $recherche =$('input[name=valeur]');
-var critere;
-$recherche.keyup(function(){
-  critere = $.trim($recherche.val());
-  if(critere!=''){
-    $.get('gestionrechercheimageactualite.php?critere='+critere,function(retour){
-$('#resultat').html(retour).fadeIn();
-});
-}else $('#resultat').empty().fadeOut();
-});
-});
-</script>
-
-
-<?php
-if(isset($_GET['action'])){
-if($_GET['action']=='delete'){
-$id=$_GET['id'];
-$selectnom = $db->query("SELECT * FROM carousel WHERE id='$id'");
-$rname = $selectnom->fetch(PDO::FETCH_OBJ);
-$valnom = $rname->image;
-$target_dir = '../../../JamFichiers/Img/ImagesDuSite/Original';
-
-if (file_exists($target_dir)){
-  unlink("$target_dir/$valnom");
-  $updatedelete = $db->prepare("DELETE FROM carousel WHERE image=:image");
-  $updatedelete->execute(array(
-    "image"=>$valnom
-  ));
-  $messagenotif = "Le fichier.$valnom. à bien été supprimé";
-  $type = "success";
-  require('includes/miseajourdusite.php');
-}else{
-
-  $messagenotif = 'Un problème de répertoire est présent, contacter votre administrateur !';
-  $type = "warning";
-}
-?>
-<script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=actualite&table=newsactus"</script>
-<?php
-}
-}
-?>
-
-
-    <div class="section section-contact-us text-center">
-      <div class="container">
-        <h2 class="title">Suppression des photos liées au Caroussel ! </h2>
-        <p class="description">AUTRE</p>
-        <div class="row">
-          <div class="col-lg-6 text-center col-md-8 ml-auto mr-auto">
-
-          </div>
-        </div>
-      </div>
-    </div>
-
-<h3> Supprimer :  </h3>
-  <input type='text' name="valeur" placeholder="Saisir son nom ou la catégorie à laquelle elle appartient">
-  <p id='resultat'></p>
 
 
 
