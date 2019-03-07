@@ -49,9 +49,9 @@ if(isset($_GET['critere'])){
 
     echo '
       <tr>
-        <th class="text-center">'.$idimg.'</th>
-        <th class="text-center">'.$nomactvivoyage.'</th>
-        <td class="text-center">'.$categorie.'<td>
+        <td class="text-center">'.$idimg.'</td>
+        <td class="text-center">'.$nomactvivoyage.'</td>
+        <td class="text-center">'.$categorie.'</td>
         <td class="text-center">'.$nom.'</td>
         <td class="text-center">'.$titreimage.'</td>
         <td class="text-center"><a href="modifdespages.php?page=activitesvoyages&table=activitesvoyages&action=delete&modifactivitesvoyages='.$idactivite.'&id='.$idimg.'"><button type="button" class="btn btn-rose btn-round btn-sm">Supprimer</button></a></td>
