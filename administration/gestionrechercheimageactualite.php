@@ -48,8 +48,8 @@ if(isset($_GET['critere'])){
 
     echo '
       <tr>
-        <th class="text-center">'.$idimg.'</th>
-        <th class="text-center">'.$nomacti.'</th>
+        <td class="text-center">'.$idimg.'</td>
+        <td class="text-center">'.$nomacti.'</td>
         <td class="text-center">'.$categorie.'<td>
         <td class="text-center">'.$nom.'</td>
         <td class="text-center">'.$titreimage.'</td>
