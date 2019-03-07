@@ -12,29 +12,25 @@ if(isset($_GET['critere'])){
   $s = $select->fetch(PDO::FETCH_OBJ);
   $nomreel = $s->slug;
 
+  $requete=$db->prepare("SELECT * FROM carousel WHERE slug = '$nomreel' OR image LIKE '%$critere%'");
+  $requete->execute();
+  $table=$requete->fetchAll(PDO::FETCH_OBJ);
 
+  if(count($table)>0){
+    echo '
+    <div class="table-responsive">
+      <table class="table">
+          <thead class="text-primary">
+              <th class="text-center">Identifiant</th>
+              <th class="text-center">Activité/Voyage</th>
+              <th class="text-center">Catégorie</th>
+              <th class="text-center">Nom</th>
+              <th class="text-center">Titre</th>
+              <th class="text-center">Action</th>
+          </thead>
+          <tbody>
+    ';
 
-$requete=$db->prepare("SELECT * FROM carousel WHERE slug = '$nomreel' OR image LIKE '%$critere%'");
-$requete->execute();
-$table=$requete->fetchAll(PDO::FETCH_OBJ);
-
-if(count($table)>0){
-  echo "<h3>".count($table)." images trouvées</h3>";
-  echo '
-  <table class="table">
-  <thead>
-  <tr>
-  <th scope="col">Id</th>
-  <th scope="col">Activité/Voyage</th>
-  <th scope="col">Catégorie</th>
-  <th scope="col">Nom</th>
-  <th scope="col">Titre</th>
-  <th scope="col">Action</th>
-  </tr>
-  </thead>
-  <tbody>
-
-  ';
   foreach($table as $ligne){
     $idimg=$ligne->id;
     $slug=$ligne->slug;
@@ -52,34 +48,27 @@ if(count($table)>0){
     $titreimage=$ligne->titreimage;
 
     echo '
-    <tr>
-      <th scope="row">'.$idimg.'</th>
-      <th scope="row">'.$nomactvivoyage.'</th>
-      <td>'.$categorie.'<td>
-      <td>'.$nom.'</td>
-      <td>'.$titreimage.'</td>
-      <td>
-
-  <a href="modifdespages.php?page=activitesvoyages&table=activitesvoyages&action=delete&modifactivitesvoyages='.$idactivite.'&id='.$idimg.'">
-  <button type="button" class="btn">Supprimer</button>
-  </a>
-
-      </td>
-    </tr>
-
+      <tr>
+        <th class="text-center">'.$idimg.'</th>
+        <th class="text-center">'.$nomactvivoyage.'</th>
+        <td class="text-center">'.$categorie.'<td>
+        <td class="text-center">'.$nom.'</td>
+        <td class="text-center">'.$titreimage.'</td>
+        <td class="text-center"><a href="modifdespages.php?page=activitesvoyages&table=activitesvoyages&action=delete&modifactivitesvoyages='.$idactivite.'&id='.$idimg.'"><button type="button" class="btn btn-rose btn-round btn-sm">Supprimer</button></a></td>
+      </tr>
     ';
-
-
   }
 
-  echo '
-</tbody>
-</table>
-
-
+    echo '
+    </tbody>
+  </table>
+</div>
   ';
-}else echo"<p class='rouge'> Pas de résultats</p>";
 
+}else echo'<center>
+            <h4 class="info-title"><font color="red">Aucun résultats à votre recherche</font></h4>
+           </center>';
 
-
-}else echo"<p class='rouge'> Aucun critere de recherche n'a été fournis </p>";
+}else echo'<center>
+            <h4 class="info-title"><font color="red">Aucun critere de recherche n&apos;a été fournis</font></h4>
+           </center>';

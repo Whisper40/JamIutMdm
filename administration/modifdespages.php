@@ -3041,7 +3041,7 @@ if (file_exists($target_dir)){
           <div class="row">
             <div class="col-md-6 col-md-offset-3">
               <div class="card-content">
-                <input type="text" class="form-control" name="valeur" value="<?php echo $title ?>" placeholder="Saisir nom ou la catégorie de la photo à supprimer">
+                <input type="text" class="form-control" name="valeur" placeholder="Saisir nom ou la catégorie de la photo à supprimer">
               </div>
             </div>
             <div class="col-sm-12">
@@ -3226,12 +3226,12 @@ if ($uploadOk == 0) {
     require('includes/miseajourdusite.php');
           } ?>
 
-          <body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
-            <div class="wrapper">
+      <body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
+        <div class="wrapper">
 
-             <?php
-             require_once('includes/navbar.php');
-             ?>
+         <?php
+         require_once('includes/navbar.php');
+         ?>
 
           <div class="content">
             <div class="container-fluid">
