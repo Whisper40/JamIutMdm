@@ -2794,6 +2794,80 @@ if ($uploadOk == 0) {
     require('includes/miseajourdusite.php');
           } ?>
 
+<!-- TEST -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function()
+{
+$(".catactualite").change(function()
+{
+var id=$(this).val();
+var post_id = 'id='+ id;
+$.ajax
+({
+type: "POST",
+url: "rechercheactuspourcarrousel.php",
+data: post_id,
+cache: false,
+success: function(cities)
+{
+$(".souscatactualite").html(cities);
+}
+});
+});
+});
+</script>
+
+<script>
+$(document).ready(function(){
+var $recherche =$('input[name=valeur]');
+var critere;
+var id=<?php echo json_encode($id); ?>;
+$recherche.keyup(function(){
+  critere = $.trim($recherche.val());
+  if(critere!=''){
+    $.get('gestionrechercheimageactualite.php?critere='+critere+'&id='+id,function(retour){
+$('#resultat').html(retour).fadeIn();
+});
+}else $('#resultat').empty().fadeOut();
+});
+});
+</script>
+
+
+<?php
+if(isset($_GET['action'])){
+if($_GET['action']=='delete'){
+$id=$_GET['id'];
+$selectnom = $db->query("SELECT * FROM carousel WHERE id='$id'");
+$rname = $selectnom->fetch(PDO::FETCH_OBJ);
+$valnom = $rname->image;
+$target_dir = '../../../JamFichiers/Img/ImagesDuSite/Original';
+
+if (file_exists($target_dir)){
+  unlink("$target_dir/$valnom");
+  $updatedelete = $db->prepare("DELETE FROM carousel WHERE image=:image and id=:id");
+  $updatedelete->execute(array(
+    "image"=>$valnom,
+    "id"=>$id
+  ));
+  $messagenotif = "Le fichier.$valnom. à bien été supprimé";
+  $type = "success";
+  require('includes/miseajourdusite.php');
+}else{
+
+  $messagenotif = 'Un problème de répertoire est présent, contacter votre administrateur !';
+  $type = "warning";
+}
+?>
+<script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=actualite&table=newsactus"</script>
+<?php
+}
+}
+?>
+
+
 <body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
   <div class="wrapper">
 
@@ -2903,7 +2977,8 @@ if ($uploadOk == 0) {
                   ?>
 
                   <div class="jquerysel">
-                    <select class="selectpicker" data-style="select-with-transition" title="Sous Catégorie" data-size="7" name="souscatactualite">
+                    <select class="selectpicker" data-style="select-with-transition" title="Catégorie" data-size="7" name="catactualite">
+                      <option disabled>Choisir une categorie</option>
                       <?php
                         while($s = $selectcatimages->fetch(PDO::FETCH_OBJ)){
                           $title = $s->title;
@@ -2916,6 +2991,8 @@ if ($uploadOk == 0) {
 
                   <div class="jquerysel">
                     <select class="selectpicker" data-style="select-with-transition" title="Sous Catégorie" data-size="7" name="souscatactualite">
+                      <option disabled>Choisir une sous-categorie</option>
+
                       <option value="pres">....</option>
                     </select>
                   </div>
@@ -2925,152 +3002,54 @@ if ($uploadOk == 0) {
               <div class="col-sm-6">
                 <div class="card-content">
 
-              <div class="form-group label-floating">
-                <label class="control-label">Nom commun aux images</label>
-                <input type="text" name="titreimage" class="form-control">
-              </div>
-
-
+                  <div class="form-group label-floating">
+                    <label class="control-label">Nom commun aux images</label>
+                    <input type="text" name="titreimage" class="form-control">
                   </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-sm-12">
-                  <div class="card-content">
-                    <div class="form-group form-file-upload">
-                      <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
-                      <div class="input-group">
-                        <input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
-                        <span class="input-group-btn input-group-s">
-                          <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
-                            <i class="material-icons">layers</i>
-                          </button>
-                        </span>
-                      </div>
-                    </div>
-                    <center>
-                      <button type="submit" name="submitphotoactualite" class="btn btn-primary btn-round btn-rose">Envoyer</button>
-                    </center>
-                  </div>
-                </div>
-              </div>
-            </form>
 
-
-
-        <!-- TEST -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-        <script type="text/javascript">
-        $(document).ready(function()
-        {
-        $(".catactualite").change(function()
-        {
-        var id=$(this).val();
-        var post_id = 'id='+ id;
-        $.ajax
-        ({
-        type: "POST",
-        url: "rechercheactuspourcarrousel.php",
-        data: post_id,
-        cache: false,
-        success: function(cities)
-        {
-        $(".souscatactualite").html(cities);
-        }
-        });
-        });
-        });
-        </script>
-
-        <script>
-        $(document).ready(function(){
-        var $recherche =$('input[name=valeur]');
-        var critere;
-        var id=<?php echo json_encode($id); ?>;
-        $recherche.keyup(function(){
-          critere = $.trim($recherche.val());
-          if(critere!=''){
-            $.get('gestionrechercheimageactualite.php?critere='+critere+'&id='+id,function(retour){
-        $('#resultat').html(retour).fadeIn();
-        });
-        }else $('#resultat').empty().fadeOut();
-        });
-        });
-        </script>
-
-
-        <?php
-        if(isset($_GET['action'])){
-        if($_GET['action']=='delete'){
-        $id=$_GET['id'];
-        $selectnom = $db->query("SELECT * FROM carousel WHERE id='$id'");
-        $rname = $selectnom->fetch(PDO::FETCH_OBJ);
-        $valnom = $rname->image;
-        $target_dir = '../../../JamFichiers/Img/ImagesDuSite/Original';
-
-        if (file_exists($target_dir)){
-          unlink("$target_dir/$valnom");
-          $updatedelete = $db->prepare("DELETE FROM carousel WHERE image=:image and id=:id");
-          $updatedelete->execute(array(
-            "image"=>$valnom,
-            "id"=>$id
-          ));
-          $messagenotif = "Le fichier.$valnom. à bien été supprimé";
-          $type = "success";
-          require('includes/miseajourdusite.php');
-        }else{
-
-          $messagenotif = 'Un problème de répertoire est présent, contacter votre administrateur !';
-          $type = "warning";
-        }
-        ?>
-        <script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=actualite&table=newsactus"</script>
-        <?php
-        }
-        }
-        ?>
-
-
-            <div class="section section-contact-us text-center">
-              <div class="container">
-                <h2 class="title">Suppression des photos liées au Caroussel ! </h2>
-                <p class="description">AUTRE</p>
-                <div class="row">
-                  <div class="col-lg-6 text-center col-md-8 ml-auto mr-auto">
-
-                  </div>
                 </div>
               </div>
             </div>
-
-        <h3> Supprimer :  </h3>
-          <input type='text' name="valeur" placeholder="Saisir son nom ou la catégorie à laquelle elle appartient">
-          <p id='resultat'></p>
-<!-- FIN AJOUT KEVIN -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="card-content">
+                  <div class="form-group form-file-upload">
+                    <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
+                    <div class="input-group">
+                      <input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
+                      <span class="input-group-btn input-group-s">
+                        <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
+                          <i class="material-icons">layers</i>
+                        </button>
+                      </span>
+                    </div>
+                  </div>
+                  <center>
+                    <button type="submit" name="submitphotoactualite" class="btn btn-primary btn-round btn-rose">Envoyer</button>
+                  </center>
+                </div>
+              </div>
+            </div>
+          </form>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="card-content">
+                <h3 class="card-title">Supprimer des photos du Carousel</h3>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+              <div class="card-content">
+                <input type="text" class="form-control" name="valeur" value="<?php echo $title ?>" placeholder="Saisir nom ou la catégorie de la photo à supprimer">
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="card-content">
+                <p id='resultat'></p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
