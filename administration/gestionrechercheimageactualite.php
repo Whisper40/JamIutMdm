@@ -50,7 +50,7 @@ if(isset($_GET['critere'])){
       <tr>
         <td class="text-center">'.$idimg.'</td>
         <td class="text-center">'.$nomacti.'</td>
-        <td class="text-center">'.$categorie.'<td>
+        <td class="text-center">'.$categorie.'</td>
         <td class="text-center">'.$nom.'</td>
         <td class="text-center">'.$titreimage.'</td>
         <td class="text-center"><a href="modifdespages.php?page=actualite&table=newsactus&action=delete&modifactus='.$idactu.'&id='.$idimg.'"><button type="button" class="btn btn-rose btn-round btn-sm">Supprimer</button></a></td>
