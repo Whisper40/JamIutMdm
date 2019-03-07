@@ -2884,7 +2884,7 @@ if (file_exists($target_dir)){
             <div class="row">
               <div class="col-sm-12">
                 <div class="card-content">
-                  <h3 class="card-title">Présentation Principal</h3>
+                  <h3 class="card-title">Modification activité : <?php echo $title; ?></h3>
                   <div class="form-group label-floating">
                       <label class="control-label">Titre</label>
                       <input type="text" class="form-control" value="<?php echo $title; ?>" name="title" id="title">
@@ -2908,7 +2908,6 @@ if (file_exists($target_dir)){
             <div class="row">
               <div class="col-sm-12">
                 <div class="card-content">
-                  <h3 class="card-title">Présentation Secondaire</h3>
                   <div class="form-group label-floating">
                       <label class="control-label">Titre 2</label>
                       <input type="text" name="title2" value="<?php echo $title2; ?>" id="title2" class="form-control">
@@ -2932,7 +2931,6 @@ if (file_exists($target_dir)){
             <div class="row">
               <div class="col-sm-12">
                 <div class="card-content">
-                  <h3 class="card-title">Présentation Tertiaire</h3>
                   <div class="form-group label-floating">
                       <label class="control-label">Titre 3</label>
                       <input type="text" name="title3" value="<?php echo $title3; ?>" id="title3" class="form-control">
