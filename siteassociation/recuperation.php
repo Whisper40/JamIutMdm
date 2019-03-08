@@ -48,8 +48,7 @@ if(isset($_POST['recup_submit'],$_POST['recup_mail'])) {
          $header.='From:"JAM - Association MDM"<noreply@jam-mdm.fr>'."\n";
          $header.='Content-Type:text/html; charset="utf-8"'."\n";
          $header.='Content-Transfer-Encoding: 8bit';
-         $message = '
-         <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+         $message = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
          <html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml">
          <head>
@@ -109,55 +108,55 @@ if(isset($_POST['recup_submit'],$_POST['recup_mail'])) {
          		.ie-browser .num12,
          		[owa] .num12,
          		[owa] .block-grid {
-         			width: 720px !important;
+         			width: 700px !important;
          		}
 
          		.ie-browser .mixed-two-up .num4,
          		[owa] .mixed-two-up .num4 {
-         			width: 240px !important;
+         			width: 232px !important;
          		}
 
          		.ie-browser .mixed-two-up .num8,
          		[owa] .mixed-two-up .num8 {
-         			width: 480px !important;
+         			width: 464px !important;
          		}
 
          		.ie-browser .block-grid.two-up .col,
          		[owa] .block-grid.two-up .col {
-         			width: 360px !important;
+         			width: 348px !important;
          		}
 
          		.ie-browser .block-grid.three-up .col,
          		[owa] .block-grid.three-up .col {
-         			width: 360px !important;
+         			width: 348px !important;
          		}
 
          		.ie-browser .block-grid.four-up .col [owa] .block-grid.four-up .col {
-         			width: 180px !important;
+         			width: 174px !important;
          		}
 
          		.ie-browser .block-grid.five-up .col [owa] .block-grid.five-up .col {
-         			width: 144px !important;
+         			width: 140px !important;
          		}
 
          		.ie-browser .block-grid.six-up .col,
          		[owa] .block-grid.six-up .col {
-         			width: 120px !important;
+         			width: 116px !important;
          		}
 
          		.ie-browser .block-grid.seven-up .col,
          		[owa] .block-grid.seven-up .col {
-         			width: 102px !important;
+         			width: 100px !important;
          		}
 
          		.ie-browser .block-grid.eight-up .col,
          		[owa] .block-grid.eight-up .col {
-         			width: 90px !important;
+         			width: 87px !important;
          		}
 
          		.ie-browser .block-grid.nine-up .col,
          		[owa] .block-grid.nine-up .col {
-         			width: 80px !important;
+         			width: 77px !important;
          		}
 
          		.ie-browser .block-grid.ten-up .col,
@@ -176,9 +175,9 @@ if(isset($_POST['recup_submit'],$_POST['recup_mail'])) {
          		}
          	</style>
          <style id="media-query" type="text/css">
-         		@media only screen and (min-width: 740px) {
+         		@media only screen and (min-width: 720px) {
          			.block-grid {
-         				width: 720px !important;
+         				width: 700px !important;
          			}
 
          			.block-grid .col {
@@ -186,71 +185,71 @@ if(isset($_POST['recup_submit'],$_POST['recup_mail'])) {
          			}
 
          			.block-grid .col.num12 {
-         				width: 720px !important;
+         				width: 700px !important;
          			}
 
          			.block-grid.mixed-two-up .col.num3 {
-         				width: 180px !important;
+         				width: 174px !important;
          			}
 
          			.block-grid.mixed-two-up .col.num4 {
-         				width: 240px !important;
+         				width: 232px !important;
          			}
 
          			.block-grid.mixed-two-up .col.num8 {
-         				width: 480px !important;
+         				width: 464px !important;
          			}
 
          			.block-grid.mixed-two-up .col.num9 {
-         				width: 540px !important;
+         				width: 522px !important;
          			}
 
          			.block-grid.two-up .col {
-         				width: 360px !important;
+         				width: 350px !important;
          			}
 
          			.block-grid.three-up .col {
-         				width: 240px !important;
+         				width: 233px !important;
          			}
 
          			.block-grid.four-up .col {
-         				width: 180px !important;
+         				width: 175px !important;
          			}
 
          			.block-grid.five-up .col {
-         				width: 144px !important;
+         				width: 140px !important;
          			}
 
          			.block-grid.six-up .col {
-         				width: 120px !important;
+         				width: 116px !important;
          			}
 
          			.block-grid.seven-up .col {
-         				width: 102px !important;
+         				width: 100px !important;
          			}
 
          			.block-grid.eight-up .col {
-         				width: 90px !important;
+         				width: 87px !important;
          			}
 
          			.block-grid.nine-up .col {
-         				width: 80px !important;
+         				width: 77px !important;
          			}
 
          			.block-grid.ten-up .col {
-         				width: 72px !important;
+         				width: 70px !important;
          			}
 
          			.block-grid.eleven-up .col {
-         				width: 65px !important;
+         				width: 63px !important;
          			}
 
          			.block-grid.twelve-up .col {
-         				width: 60px !important;
+         				width: 58px !important;
          			}
          		}
 
-         		@media (max-width: 740px) {
+         		@media (max-width: 720px) {
 
          			.block-grid,
          			.col {
@@ -322,7 +321,7 @@ if(isset($_POST['recup_submit'],$_POST['recup_mail'])) {
          </head>
          <body class="clean-body" style="margin: 0; padding: 0; -webkit-text-size-adjust: 100%; background-color: #FFFFFF;">
          <style id="media-query-bodytag" type="text/css">
-         @media (max-width: 740px) {
+         @media (max-width: 720px) {
            .block-grid {
              min-width: 320px!important;
              max-width: 100%!important;
@@ -374,35 +373,20 @@ if(isset($_POST['recup_submit'],$_POST['recup_mail'])) {
          <td style="word-break: break-word; vertical-align: top; border-collapse: collapse;" valign="top">
          <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" style="background-color:#FFFFFF"><![endif]-->
          <div style="background-color:#35bfb1;">
-         <div class="block-grid mixed-two-up" style="Margin: 0 auto; min-width: 320px; max-width: 720px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: transparent;;">
+         <div class="block-grid" style="Margin: 0 auto; min-width: 320px; max-width: 700px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: transparent;;">
          <div style="border-collapse: collapse;display: table;width: 100%;background-color:transparent;">
-         <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#35bfb1;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:720px"><tr class="layout-full-width" style="background-color:transparent"><![endif]-->
-         <!--[if (mso)|(IE)]><td align="center" width="180" style="background-color:transparent;width:180px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px;"><![endif]-->
-         <div class="col num3" style="display: table-cell; vertical-align: top; max-width: 320px; min-width: 180px;;">
+         <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#35bfb1;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:700px"><tr class="layout-full-width" style="background-color:transparent"><![endif]-->
+         <!--[if (mso)|(IE)]><td align="center" width="700" style="background-color:transparent;width:700px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top:10px; padding-bottom:10px;"><![endif]-->
+         <div class="col num12" style="min-width: 320px; max-width: 700px; display: table-cell; vertical-align: top;;">
          <div style="width:100% !important;">
          <!--[if (!mso)&(!IE)]><!-->
-         <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;">
+         <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:10px; padding-bottom:10px; padding-right: 10px; padding-left: 10px;">
          <!--<![endif]-->
-         <div align="center" class="img-container center fixedwidth" style="padding-right: 0px;padding-left: 0px;">
-         <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img align="center" alt="Image" border="0" class="center fixedwidth" src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/jam-logo.png" style="outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; clear: both; border: 0; height: auto; float: none; width: 100%; max-width: 117px; display: block;" title="Image" width="117"/>
-         <!--[if mso]></td></tr></table><![endif]-->
-         </div>
-         <!--[if (!mso)&(!IE)]><!-->
-         </div>
-         <!--<![endif]-->
-         </div>
-         </div>
-         <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
-         <!--[if (mso)|(IE)]></td><td align="center" width="540" style="background-color:transparent;width:540px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px;"><![endif]-->
-         <div class="col num9" style="display: table-cell; vertical-align: top; min-width: 320px; max-width: 540px;;">
-         <div style="width:100% !important;">
-         <!--[if (!mso)&(!IE)]><!-->
-         <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;">
-         <!--<![endif]-->
-         <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Arial, sans-serif"><![endif]-->
-         <div style="color:#555555;font-family:\'Open Sans\', Helvetica, Arial, sans-serif;line-height:120%;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
-         <div style="font-size: 12px; line-height: 14px; color: #555555; font-family: \'Open Sans\', Helvetica, Arial, sans-serif;">
-         <p style="font-size: 14px; line-height: 16px; text-align: center; margin: 0;"><span style="color: #ffffff; font-size: 14px; line-height: 16px;"><strong><span style="font-size: 42px; line-height: 50px;">JAM - Jeunesse Associative Montoise</span></strong></span></p>
+         <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top: 0px; padding-bottom: 0px; font-family: Arial, sans-serif"><![endif]-->
+         <div style="color:#555555;font-family:Arial, \'Helvetica Neue\', Helvetica, sans-serif;line-height:120%;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;">
+         <div style="font-size: 12px; line-height: 14px; font-family: Arial, \'Helvetica Neue\', Helvetica, sans-serif; color: #555555;">
+         <p style="font-size: 14px; line-height: 16px; text-align: center; margin: 0;"><span style="color: #ffffff; font-size: 14px; line-height: 16px;"><strong><span style="font-size: 34px; line-height: 40px;">JAM - Jeunesse Associative </span></strong></span></p>
+         <p style="font-size: 14px; line-height: 16px; text-align: center; margin: 0;"><span style="color: #ffffff; font-size: 14px; line-height: 16px;"><strong><span style="font-size: 34px; line-height: 40px;">Montoise</span></strong></span></p>
          </div>
          </div>
          <!--[if mso]></td></tr></table><![endif]-->
@@ -417,11 +401,11 @@ if(isset($_POST['recup_submit'],$_POST['recup_mail'])) {
          </div>
          </div>
          <div style="background-image:url(\'https://d1oco4z2z1fhwp.cloudfront.net/templates/default/286/bg_wave_1.png\');background-position:top center;background-repeat:repeat;background-color:#F4F4F4;">
-         <div class="block-grid" style="Margin: 0 auto; min-width: 320px; max-width: 720px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: transparent;;">
+         <div class="block-grid" style="Margin: 0 auto; min-width: 320px; max-width: 700px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: transparent;;">
          <div style="border-collapse: collapse;display: table;width: 100%;background-color:transparent;">
-         <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-image:url(\'https://d1oco4z2z1fhwp.cloudfront.net/templates/default/286/bg_wave_1.png\');background-position:top center;background-repeat:repeat;background-color:#F4F4F4;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:720px"><tr class="layout-full-width" style="background-color:transparent"><![endif]-->
-         <!--[if (mso)|(IE)]><td align="center" width="720" style="background-color:transparent;width:720px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:0px;"><![endif]-->
-         <div class="col num12" style="min-width: 320px; max-width: 720px; display: table-cell; vertical-align: top;;">
+         <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-image:url(\'https://d1oco4z2z1fhwp.cloudfront.net/templates/default/286/bg_wave_1.png\');background-position:top center;background-repeat:repeat;background-color:#F4F4F4;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:700px"><tr class="layout-full-width" style="background-color:transparent"><![endif]-->
+         <!--[if (mso)|(IE)]><td align="center" width="700" style="background-color:transparent;width:700px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:0px;"><![endif]-->
+         <div class="col num12" style="min-width: 320px; max-width: 700px; display: table-cell; vertical-align: top;;">
          <div style="width:100% !important;">
          <!--[if (!mso)&(!IE)]><!-->
          <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:0px; padding-right: 0px; padding-left: 0px;">
@@ -452,29 +436,29 @@ if(isset($_POST['recup_submit'],$_POST['recup_mail'])) {
          </div>
          </div>
          <div style="background-color:#F4F4F4;">
-         <div class="block-grid" style="Margin: 0 auto; min-width: 320px; max-width: 720px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: transparent;;">
+         <div class="block-grid" style="Margin: 0 auto; min-width: 320px; max-width: 700px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: transparent;;">
          <div style="border-collapse: collapse;display: table;width: 100%;background-color:transparent;">
-         <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F4F4F4;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:720px"><tr class="layout-full-width" style="background-color:transparent"><![endif]-->
-         <!--[if (mso)|(IE)]><td align="center" width="720" style="background-color:transparent;width:720px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px;"><![endif]-->
-         <div class="col num12" style="min-width: 320px; max-width: 720px; display: table-cell; vertical-align: top;;">
+         <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F4F4F4;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:700px"><tr class="layout-full-width" style="background-color:transparent"><![endif]-->
+         <!--[if (mso)|(IE)]><td align="center" width="700" style="background-color:transparent;width:700px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px;"><![endif]-->
+         <div class="col num12" style="min-width: 320px; max-width: 700px; display: table-cell; vertical-align: top;;">
          <div style="width:100% !important;">
          <!--[if (!mso)&(!IE)]><!-->
          <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;">
          <!--<![endif]-->
-         <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 30px; padding-left: 30px; padding-top: 10px; padding-bottom: 0px; font-family: \'Trebuchet MS\', Tahoma, sans-serif"><![endif]-->
-         <div style="color:#555555;font-family:\'Montserrat\', \'Trebuchet MS\', \'Lucida Grande\', \'Lucida Sans Unicode\', \'Lucida Sans\', Tahoma, sans-serif;line-height:120%;padding-top:10px;padding-right:30px;padding-bottom:0px;padding-left:30px;">
-         <div style="font-size: 12px; line-height: 14px; font-family: \'Montserrat\', \'Trebuchet MS\', \'Lucida Grande\', \'Lucida Sans Unicode\', \'Lucida Sans\', Tahoma, sans-serif; color: #555555;">
-         <p style="font-size: 14px; line-height: 50px; margin: 0;"><span style="font-size: 42px;"><strong><span style="line-height: 50px; font-size: 42px;">Bonjours <span style="color: #35bfb1; font-size: 42px; line-height: 50px;">'.$username.'</span>!</span></strong></span></p>
+         <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 30px; padding-left: 30px; padding-top: 10px; padding-bottom: 0px; font-family: Arial, sans-serif"><![endif]-->
+         <div style="color:#555555;font-family:Arial, \'Helvetica Neue\', Helvetica, sans-serif;line-height:120%;padding-top:10px;padding-right:30px;padding-bottom:0px;padding-left:30px;">
+         <div style="font-size: 12px; line-height: 14px; font-family: Arial, \'Helvetica Neue\', Helvetica, sans-serif; color: #555555;">
+         <p style="font-size: 14px; line-height: 16px; margin: 0;"><strong><span style="font-size: 46px; line-height: 55px;"><span style="font-size: 38px; line-height: 45px;">Bonjours Boussard !</span><br/></span></strong></p>
          </div>
          </div>
          <!--[if mso]></td></tr></table><![endif]-->
          <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 30px; padding-left: 30px; padding-top: 15px; padding-bottom: 5px; font-family: Arial, sans-serif"><![endif]-->
-         <div style="color:#555555;font-family:\'Open Sans\', Helvetica, Arial, sans-serif;line-height:150%;padding-top:15px;padding-right:30px;padding-bottom:5px;padding-left:30px;">
-         <div style="line-height: 18px; font-size: 12px; color: #555555; font-family: \'Open Sans\', Helvetica, Arial, sans-serif;">
-         <p style="line-height: 18px; font-size: 12px; margin: 0;"><span style="line-height: 18px; font-size: 12px;"><span style="line-height: 18px; font-size: 12px;"><span style="font-size: 20px; line-height: 30px;"><strong>Nous avons reçu une demande de réinitialisation de votre mot de passe au site de la JAM. Vous trouverez ci dessous le code nécessaire à cette réinitialisation.</strong></span></span></span></p>
-         <p style="font-size: 12px; line-height: 18px; margin: 0;"> </p>
-         <p style="font-size: 12px; line-height: 18px; margin: 0;"><strong><span style="font-size: 12px; line-height: 18px;"><span style="font-size: 20px; line-height: 30px;">Code de réinitialisation : '.$recup_code.'</span></span></strong></p>
-         <p style="font-size: 12px; line-height: 18px; margin: 0;"><br/><strong><span style="font-size: 12px; line-height: 18px;"><span style="font-size: 20px; line-height: 30px;">Vous n’avez pas demandé ce changement ?</span></span></strong><br/><strong><span style="font-size: 12px; line-height: 18px;"><span style="font-size: 20px; line-height: 30px;">Si vous n’avez pas demandé de nouveau mot de passe, <span style="color: #35bfb1; font-size: 20px; line-height: 30px;"><a href="https://jam-mdm.fr/contact.php" rel="noopener" style="text-decoration: underline; color: #35bfb1;" target="_blank">dites-le nous</a></span>.</span></span></strong></p>
+         <div style="color:#555555;font-family:Arial, \'Helvetica Neue\', Helvetica, sans-serif;line-height:150%;padding-top:15px;padding-right:30px;padding-bottom:5px;padding-left:30px;">
+         <div style="font-size: 12px; line-height: 18px; font-family: Arial, \'Helvetica Neue\', Helvetica, sans-serif; color: #555555;">
+         <p style="font-size: 12px; line-height: 21px; text-align: justify; margin: 0;"><span style="font-size: 14px;">Bonjours Boussard !</span><br/><span style="font-size: 14px; line-height: 21px;">Nous avons reçu une demande de réinitialisation de votre mot de passe au site de la JAM. Vous trouverez ci dessous le code nécessaire à cette réinitialisation.</span></p>
+         <p style="font-size: 12px; line-height: 21px; text-align: justify; margin: 0;"><span style="font-size: 14px;"> </span></p>
+         <p style="font-size: 12px; line-height: 21px; text-align: justify; margin: 0;"><span style="font-size: 14px;">Code de réinitialisation : 855328</span></p>
+         <p style="font-size: 12px; line-height: 21px; text-align: justify; margin: 0;"><br/><span style="font-size: 14px;">Vous n’avez pas demandé ce changement ?</span><br/><span style="font-size: 14px; line-height: 21px;">Si vous n’avez pas demandé de nouveau mot de passe, dites-le nous.</span></p>
          </div>
          </div>
          <!--[if mso]></td></tr></table><![endif]-->
@@ -489,19 +473,20 @@ if(isset($_POST['recup_submit'],$_POST['recup_mail'])) {
          </div>
          </div>
          <div style="background-color:#F4F4F4;">
-         <div class="block-grid" style="Margin: 0 auto; min-width: 320px; max-width: 720px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: transparent;;">
+         <div class="block-grid" style="Margin: 0 auto; min-width: 320px; max-width: 700px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: transparent;;">
          <div style="border-collapse: collapse;display: table;width: 100%;background-color:transparent;">
-         <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F4F4F4;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:720px"><tr class="layout-full-width" style="background-color:transparent"><![endif]-->
-         <!--[if (mso)|(IE)]><td align="center" width="720" style="background-color:transparent;width:720px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:25px; padding-bottom:60px;"><![endif]-->
-         <div class="col num12" style="min-width: 320px; max-width: 720px; display: table-cell; vertical-align: top;;">
+         <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F4F4F4;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:700px"><tr class="layout-full-width" style="background-color:transparent"><![endif]-->
+         <!--[if (mso)|(IE)]><td align="center" width="700" style="background-color:transparent;width:700px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:25px; padding-bottom:60px;"><![endif]-->
+         <div class="col num12" style="min-width: 320px; max-width: 700px; display: table-cell; vertical-align: top;;">
          <div style="width:100% !important;">
          <!--[if (!mso)&(!IE)]><!-->
          <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:25px; padding-bottom:60px; padding-right: 0px; padding-left: 0px;">
          <!--<![endif]-->
          <div align="center" class="button-container" style="padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
-         <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;"><tr><td style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://jam-mdm.fr/" style="height:54pt; width:205.5pt; v-text-anchor:middle;" arcsize="13%" stroke="false" fillcolor="#35bfb1"><w:anchorlock/><v:textbox inset="0,0,0,0"><center style="color:#ffffff; font-family:Arial, sans-serif; font-size:26px"><![endif]--><a href="https://jam-mdm.fr/" style="-webkit-text-size-adjust: none; text-decoration: none; display: inline-block; color: #ffffff; background-color: #35bfb1; border-radius: 9px; -webkit-border-radius: 9px; -moz-border-radius: 9px; width: auto; width: auto; border-top: 1px solid #35bfb1; border-right: 1px solid #35bfb1; border-bottom: 1px solid #35bfb1; border-left: 1px solid #35bfb1; padding-top: 10px; padding-bottom: 10px; font-family: \'Open Sans\', Helvetica, Arial, sans-serif; text-align: center; mso-border-alt: none; word-break: keep-all;" target="_blank"><span style="padding-left:45px;padding-right:45px;font-size:26px;display:inline-block;">
-         <span style="font-size: 16px; line-height: 32px;"><span style="font-size: 26px; line-height: 52px;"><strong>Aller sur le site</strong></span></span>
-         </span></a>
+         <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;"><tr><td style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="" style="height:54pt; width:238.5pt; v-text-anchor:middle;" arcsize="13%" stroke="false" fillcolor="#35bfb1"><w:anchorlock/><v:textbox inset="0,0,0,0"><center style="color:#ffffff; font-family:Arial, sans-serif; font-size:26px"><![endif]-->
+         <div style="text-decoration:none;display:inline-block;color:#ffffff;background-color:#35bfb1;border-radius:9px;-webkit-border-radius:9px;-moz-border-radius:9px;width:auto; width:auto;;border-top:1px solid #35bfb1;border-right:1px solid #35bfb1;border-bottom:1px solid #35bfb1;border-left:1px solid #35bfb1;padding-top:10px;padding-bottom:10px;font-family:\'Open Sans\', Helvetica, Arial, sans-serif;text-align:center;mso-border-alt:none;word-break:keep-all;"><span style="padding-left:45px;padding-right:45px;font-size:26px;display:inline-block;">
+         <span style="font-size: 16px; line-height: 32px;"><span style="font-size: 26px; line-height: 52px;"><strong>ALLER SUR LE SITE</strong></span></span>
+         </span></div>
          <!--[if mso]></center></v:textbox></v:roundrect></td></tr></table><![endif]-->
          </div>
          <!--[if (!mso)&(!IE)]><!-->
@@ -515,19 +500,19 @@ if(isset($_POST['recup_submit'],$_POST['recup_mail'])) {
          </div>
          </div>
          <div style="background-color:#F4F4F4;">
-         <div class="block-grid" style="Margin: 0 auto; min-width: 320px; max-width: 720px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: transparent;;">
+         <div class="block-grid" style="Margin: 0 auto; min-width: 320px; max-width: 700px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: transparent;;">
          <div style="border-collapse: collapse;display: table;width: 100%;background-color:transparent;">
-         <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F4F4F4;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:720px"><tr class="layout-full-width" style="background-color:transparent"><![endif]-->
-         <!--[if (mso)|(IE)]><td align="center" width="720" style="background-color:transparent;width:720px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px;"><![endif]-->
-         <div class="col num12" style="min-width: 320px; max-width: 720px; display: table-cell; vertical-align: top;;">
+         <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F4F4F4;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:700px"><tr class="layout-full-width" style="background-color:transparent"><![endif]-->
+         <!--[if (mso)|(IE)]><td align="center" width="700" style="background-color:transparent;width:700px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px;"><![endif]-->
+         <div class="col num12" style="min-width: 320px; max-width: 700px; display: table-cell; vertical-align: top;;">
          <div style="width:100% !important;">
          <!--[if (!mso)&(!IE)]><!-->
          <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;">
          <!--<![endif]-->
-         <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 30px; padding-left: 30px; padding-top: 15px; padding-bottom: 20px; font-family: Arial, sans-serif"><![endif]-->
-         <div style="color:#7C7C7C;font-family:\'Open Sans\', Helvetica, Arial, sans-serif;line-height:150%;padding-top:15px;padding-right:30px;padding-bottom:20px;padding-left:30px;">
-         <div style="font-size: 12px; line-height: 18px; color: #7C7C7C; font-family: \'Open Sans\', Helvetica, Arial, sans-serif;">
-         <p style="font-size: 12px; line-height: 18px; text-align: center; margin: 0;">Ceci est un email automatique, merci de ne pas y répondre. Si vous ne souhaitez plus faire partie de l\'association merci de nous contacter ou si vous rencontrer un probleme merci de nous <span style="font-size: 12px; line-height: 18px;"><a href="https://jam-mdm.fr/contact.php" rel="noopener" style="text-decoration: underline; color: #0068A5;" target="_blank">contacter</a> </span>au plus vite.</p>
+         <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 30px; padding-left: 30px; padding-top: 15px; padding-bottom: 5px; font-family: Arial, sans-serif"><![endif]-->
+         <div style="color:#555555;font-family:\'Open Sans\', Helvetica, Arial, sans-serif;line-height:150%;padding-top:15px;padding-right:30px;padding-bottom:5px;padding-left:30px;">
+         <div style="font-size: 12px; line-height: 18px; color: #555555; font-family: \'Open Sans\', Helvetica, Arial, sans-serif;">
+         <p style="font-size: 12px; line-height: 18px; text-align: center; margin: 0;">Ceci est un email automatique, merci de ne pas y répondre. Si vous ne souhaitez plus faire partie de l\'association merci de nous contacter ou si vous rencontrer un probleme merci de nous contacter au plus vite.</p>
          <p style="font-size: 12px; line-height: 18px; margin: 0;"> </p>
          </div>
          </div>
@@ -543,11 +528,11 @@ if(isset($_POST['recup_submit'],$_POST['recup_mail'])) {
          </div>
          </div>
          <div style="background-image:url(\'https://d1oco4z2z1fhwp.cloudfront.net/templates/default/286/bg_wave_2.png\');background-position:top center;background-repeat:repeat;background-color:#F4F4F4;">
-         <div class="block-grid" style="Margin: 0 auto; min-width: 320px; max-width: 720px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: transparent;;">
+         <div class="block-grid" style="Margin: 0 auto; min-width: 320px; max-width: 700px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: transparent;;">
          <div style="border-collapse: collapse;display: table;width: 100%;background-color:transparent;">
-         <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-image:url(\'https://d1oco4z2z1fhwp.cloudfront.net/templates/default/286/bg_wave_2.png\');background-position:top center;background-repeat:repeat;background-color:#F4F4F4;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:720px"><tr class="layout-full-width" style="background-color:transparent"><![endif]-->
-         <!--[if (mso)|(IE)]><td align="center" width="720" style="background-color:transparent;width:720px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:0px;"><![endif]-->
-         <div class="col num12" style="min-width: 320px; max-width: 720px; display: table-cell; vertical-align: top;;">
+         <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-image:url(\'https://d1oco4z2z1fhwp.cloudfront.net/templates/default/286/bg_wave_2.png\');background-position:top center;background-repeat:repeat;background-color:#F4F4F4;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:700px"><tr class="layout-full-width" style="background-color:transparent"><![endif]-->
+         <!--[if (mso)|(IE)]><td align="center" width="700" style="background-color:transparent;width:700px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:0px;"><![endif]-->
+         <div class="col num12" style="min-width: 320px; max-width: 700px; display: table-cell; vertical-align: top;;">
          <div style="width:100% !important;">
          <!--[if (!mso)&(!IE)]><!-->
          <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:0px; padding-right: 0px; padding-left: 0px;">
@@ -578,19 +563,19 @@ if(isset($_POST['recup_submit'],$_POST['recup_mail'])) {
          </div>
          </div>
          <div style="background-color:#FFFFFF;">
-         <div class="block-grid" style="Margin: 0 auto; min-width: 320px; max-width: 720px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: #FFFFFF;;">
+         <div class="block-grid" style="Margin: 0 auto; min-width: 320px; max-width: 700px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: #FFFFFF;;">
          <div style="border-collapse: collapse;display: table;width: 100%;background-color:#FFFFFF;">
-         <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#FFFFFF;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:720px"><tr class="layout-full-width" style="background-color:#FFFFFF"><![endif]-->
-         <!--[if (mso)|(IE)]><td align="center" width="720" style="background-color:#FFFFFF;width:720px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:15px; padding-bottom:35px;"><![endif]-->
-         <div class="col num12" style="min-width: 320px; max-width: 720px; display: table-cell; vertical-align: top;;">
+         <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#FFFFFF;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:700px"><tr class="layout-full-width" style="background-color:#FFFFFF"><![endif]-->
+         <!--[if (mso)|(IE)]><td align="center" width="700" style="background-color:#FFFFFF;width:700px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:15px; padding-bottom:35px;"><![endif]-->
+         <div class="col num12" style="min-width: 320px; max-width: 700px; display: table-cell; vertical-align: top;;">
          <div style="width:100% !important;">
          <!--[if (!mso)&(!IE)]><!-->
          <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:15px; padding-bottom:35px; padding-right: 0px; padding-left: 0px;">
          <!--<![endif]-->
          <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Arial, sans-serif"><![endif]-->
-         <div style="color:#555555;font-family:\'Open Sans\', Helvetica, Arial, sans-serif;line-height:120%;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
-         <div style="font-size: 12px; line-height: 14px; color: #555555; font-family: \'Open Sans\', Helvetica, Arial, sans-serif;">
-         <p style="font-size: 14px; line-height: 16px; text-align: center; margin: 0;">© 2019, Jam - Jeunesse Associative Montoise - Créée par Paul Boussard et Kévin Perez</p>
+         <div style="color:#838383;font-family:\'Open Sans\', Helvetica, Arial, sans-serif;line-height:150%;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
+         <div style="font-size: 12px; line-height: 18px; color: #838383; font-family: \'Open Sans\', Helvetica, Arial, sans-serif;">
+         <p style="font-size: 12px; line-height: 21px; text-align: center; margin: 0;"><span style="font-size: 14px;">© 2019, Jam - Jeunesse Associative Montoise - Créée par Paul Boussard et Kévin Perez</span></p>
          </div>
          </div>
          <!--[if mso]></td></tr></table><![endif]-->
