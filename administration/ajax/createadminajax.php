@@ -496,7 +496,7 @@ require_once('../includes/connectBDD.php');
                                   <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 30px; padding-left: 30px; padding-top: 15px; padding-bottom: 5px; font-family: Arial, sans-serif"><![endif]-->
                                   <div style="color:#555555;font-family:\'Open Sans\', Helvetica, Arial, sans-serif;line-height:150%;padding-top:15px;padding-right:30px;padding-bottom:5px;padding-left:30px;">
                                   <div style="font-size: 12px; line-height: 18px; color: #555555; font-family: \'Open Sans\', Helvetica, Arial, sans-serif;">
-                                  <p style="font-size: 12px; line-height: 18px; text-align: center; margin: 0;">Ceci est un email automatique, merci de ne pas y répondre. Si vous ne souhaitez plus faire partie de l\'association merci de nous contacter ou si vous rencontrer un problème merci de nous <a href="https://jam-mdm.fr/contact.php" rel="noopener" style="text-decoration: underline; color: #0068A5;" target="_blank">contacter</a> au plus vite.</p>
+                                  <p style="font-size: 12px; line-height: 18px; text-align: center; margin: 0;">Ceci est un email automatique, merci de ne pas y répondre. Si vous ne souhaitez plus faire partie de l\'association ou si vous rencontrer un problème merci de nous <a href="https://jam-mdm.fr/contact.php" rel="noopener" style="text-decoration: underline; color: #0068A5;" target="_blank">contacter</a> au plus vite.</p>
                                   <p style="font-size: 12px; line-height: 18px; margin: 0;"> </p>
                                   </div>
                                   </div>
