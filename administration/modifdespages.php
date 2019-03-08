@@ -3047,6 +3047,7 @@ if (file_exists($target_dir)){
                 <p id='resultat'></p>
               </div>
             </div>
+            <br>
           </div>
         </div>
       </div>
