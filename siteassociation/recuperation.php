@@ -614,8 +614,9 @@ if(isset($_POST['recup_submit'],$_POST['recup_mail'])) {
          </html>
          ';
          mail($recup_mail, "Récupération du mot de passe -Jam-mdm.fr", $message, $header);
-
-            header("Location:https://jam-mdm.fr/recuperation.php?section=code");
+            ?>
+            <script>window.location.replace("https://jam-mdm.fr/recuperation.php?section=code");</script>
+            <?php
          } else {
             $error = "Cette adresse mail n'est pas enregistrée";
          }
@@ -638,7 +639,11 @@ if(isset($_POST['verif_submit'],$_POST['verif_code'])) {
          $up_req = $db->prepare('UPDATE recuperation SET confirme = 1 WHERE email = ?');
          $up_req->execute(array($_SESSION['recup_mail']));
 
-         header('Location:https://jam-mdm.fr/recuperation.php?section=changemdp');
+         ?>
+         <script>window.location.replace("https://jam-mdm.fr/recuperation.php?section=changemdp");</script>
+         <?php
+
+
       }else{
         $error = "Code invalide";
         }
@@ -668,7 +673,10 @@ if(isset($_POST['change_submit'])) {
               $del_req = $db->prepare('DELETE FROM recuperation WHERE email = ?');
               $del_req->execute(array($_SESSION['recup_mail']));
 
-               header('Location:https://jam-mdm.fr/connect.php');
+              ?>
+              <script>window.location.replace("https://jam-mdm.fr/connect.php");</script>
+              <?php
+
              } else {
                $error = " Votre mot de passe doit contenir une majuscule, une minuscule, un chiffre et un symbole";
              }
