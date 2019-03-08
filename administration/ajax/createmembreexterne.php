@@ -608,7 +608,7 @@ require_once('../includes/connectBDD.php');
                                          ?>
                                              <script>
                                              demo.showSwal('success-message');
-                                             demo.showNotification('top','right','Modifications effectuée avec succès !', 'success');
+                                             demo.showNotification('top','right','Un email à bien été envoyé', 'success');
                                              </script>
                                              <?php
                                    }else{

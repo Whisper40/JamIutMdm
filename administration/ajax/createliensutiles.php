@@ -41,7 +41,7 @@ require_once('../includes/connectBDD.php');
 
                     <script>
                     demo.showSwal('success-message');
-                    demo.showNotification('top','right','<b>Succès</b> - Création effectuée !');
+                    demo.showNotification('top','right','Création effectuée avec succès !','success');
                     </script>
 
             <?php
@@ -50,7 +50,7 @@ require_once('../includes/connectBDD.php');
 
                     <script>
                     demo.showSwal('danger-message');
-                    demo.showNotification('top','right','<b>Erreur</b> -Création non effectuée en raison de champs vides !');
+                    demo.showNotification('top','right','Désolé, création non effectuée en raison de champs vides !','warning');
                     </script>
             <?php
             }

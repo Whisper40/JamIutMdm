@@ -30,7 +30,7 @@ require_once('../includes/connectBDD.php');
                     "description1"=>$description1,
                     "bouton1"=>$bouton1,
                     "lienbt1"=>$lienbt1,
-                    "bouton2"=>$bouton2,                    
+                    "bouton2"=>$bouton2,
                     "titre2"=>$titre2,
                     "description2"=>$description2,
                     "fb"=>$fb
@@ -55,7 +55,7 @@ require_once('../includes/connectBDD.php');
 
                     <script>
                     demo.showSwal('success-message');
-                    demo.showNotification('top','right','<b>Succès</b> - Modifications effectuées !');
+                    demo.showNotification('top','right','Modifications effectuées avec succès !','success');
                     </script>
 
             <?php
@@ -64,7 +64,7 @@ require_once('../includes/connectBDD.php');
 
                     <script>
                     demo.showSwal('danger-message');
-                    demo.showNotification('top','right','<b>Erreur</b> - Modification non effectuées en raison de champs vides !');
+                    demo.showNotification('top','right','Désolé, suppression non effectué en raison de champs vides !','warning');
                     </script>
             <?php
             }

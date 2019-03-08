@@ -62,7 +62,7 @@ require_once('../includes/connectBDD.php');
 
                     <script>
                     demo.showSwal('danger-message');
-                    demo.showNotification('top','right','<b>Erreur</b> - Modification non effectuées en raison de champs vides !');
+                    demo.showNotification('top','right','Désolé, modifications non effectuées en raison de champs vides !','warning');
                     </script>
             <?php
             }

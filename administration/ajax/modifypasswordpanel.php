@@ -30,7 +30,7 @@ require_once('../includes/connectBDD.php');
 			<script>
 
           demo.showSwal('success-message');
-          demo.showNotification('top','right','<b>Succès</b> - Modification effectuée !');
+          demo.showNotification('top','right','Modifications effectuées avec succès !','success');
 
 			</script>
 			<?php
@@ -42,7 +42,7 @@ require_once('../includes/connectBDD.php');
 
   <script>
             demo.showSwal('danger-message');
-            demo.showNotification('top','right','<b>Erreur</b> - Modification non effectuée !');
+            demo.showNotification('top','right','Désolé, Modification non effectuée !','warning');
             </script>
 
 
@@ -56,7 +56,7 @@ require_once('../includes/connectBDD.php');
 
 					<script>
                     demo.showSwal('danger-message');
-                    demo.showNotification('top','right','<b>Erreur</b> - Modification non effectuée !');
+                    demo.showNotification('top','right','Désolé, Modification non effectuée !','warning');
                     </script>
 
 

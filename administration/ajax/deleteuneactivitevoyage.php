@@ -132,7 +132,7 @@ require_once('../includes/connectBDD.php');
                                     )
                                 );
                                 ?>
-                                
+
                     <script>
                   window.setTimeout("location=('https://administration.jam-mdm.fr/modifdespages.php?page=activitesvoyages&table=activitesvoyages');",3000);
                 </script>
@@ -142,7 +142,7 @@ require_once('../includes/connectBDD.php');
 
                     <script>
                     demo.showSwal('danger-message');
-                    demo.showNotification('top','right','<b>Erreur</b> - Suppression non effectué en raison de champs vides !');
+                    demo.showNotification('top','right','Désolé, suppression non effectué en raison de champs vides !','warning');
                     </script>
             <?php
             }
