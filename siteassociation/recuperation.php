@@ -48,8 +48,7 @@ if(isset($_POST['recup_submit'],$_POST['recup_mail'])) {
          $header.='From:"JAM - Association MDM"<noreply@jam-mdm.fr>'."\n";
          $header.='Content-Type:text/html; charset="utf-8"'."\n";
          $header.='Content-Transfer-Encoding: 8bit';
-         $message = '
-         <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+         $message = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
          <html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml">
          <head>
@@ -61,6 +60,7 @@ if(isset($_POST['recup_submit'],$_POST['recup_mail'])) {
          <!--<![endif]-->
          <title></title>
          <!--[if !mso]><!-->
+         <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css"/>
          <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css"/>
          <!--<![endif]-->
          <style type="text/css">
@@ -385,8 +385,8 @@ if(isset($_POST['recup_submit'],$_POST['recup_mail'])) {
          <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top: 0px; padding-bottom: 0px; font-family: Arial, sans-serif"><![endif]-->
          <div style="color:#555555;font-family:Arial, \'Helvetica Neue\', Helvetica, sans-serif;line-height:120%;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;">
          <div style="font-size: 12px; line-height: 14px; font-family: Arial, \'Helvetica Neue\', Helvetica, sans-serif; color: #555555;">
-         <p style="font-size: 14px; line-height: 16px; text-align: center; margin: 0;"><span style="color: #ffffff; font-size: 14px; line-height: 16px;"><strong><span style="font-size: 34px; line-height: 40px;"><span style="font-size: 42px; line-height: 50px;">JAM - Jeunesse Associative</span> </span></strong></span></p>
-         <p style="font-size: 14px; line-height: 50px; text-align: center; margin: 0;"><span style="color: #ffffff; font-size: 42px;"><strong><span style="line-height: 50px; font-size: 42px;">Montoise</span></strong></span></p>
+         <p style="font-size: 14px; line-height: 16px; text-align: center; margin: 0;"><span style="color: #ffffff; font-size: 14px; line-height: 16px;"><strong><span style="font-size: 34px; line-height: 40px;">JAM - Jeunesse Associative </span></strong></span></p>
+         <p style="font-size: 14px; line-height: 16px; text-align: center; margin: 0;"><span style="color: #ffffff; font-size: 14px; line-height: 16px;"><strong><span style="font-size: 34px; line-height: 40px;">Montoise</span></strong></span></p>
          </div>
          </div>
          <!--[if mso]></td></tr></table><![endif]-->
@@ -448,18 +448,17 @@ if(isset($_POST['recup_submit'],$_POST['recup_mail'])) {
          <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 30px; padding-left: 30px; padding-top: 10px; padding-bottom: 0px; font-family: Arial, sans-serif"><![endif]-->
          <div style="color:#555555;font-family:Arial, \'Helvetica Neue\', Helvetica, sans-serif;line-height:120%;padding-top:10px;padding-right:30px;padding-bottom:0px;padding-left:30px;">
          <div style="font-size: 12px; line-height: 14px; font-family: Arial, \'Helvetica Neue\', Helvetica, sans-serif; color: #555555;">
-         <p style="font-size: 14px; line-height: 16px; margin: 0;"><strong><span style="font-size: 46px; line-height: 55px;"><span style="font-size: 42px; line-height: 50px;">Bonjours <span style="color: #35bfb1; line-height: 50px; font-size: 42px;">'.$username.'</span> !</span><br/></span></strong></p>
+         <p style="font-size: 14px; line-height: 16px; margin: 0;"><strong><span style="font-size: 46px; line-height: 55px;"><span style="font-size: 38px; line-height: 45px;">Bonjours Boussard !</span><br/></span></strong></p>
          </div>
          </div>
          <!--[if mso]></td></tr></table><![endif]-->
          <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 30px; padding-left: 30px; padding-top: 15px; padding-bottom: 5px; font-family: Arial, sans-serif"><![endif]-->
          <div style="color:#555555;font-family:Arial, \'Helvetica Neue\', Helvetica, sans-serif;line-height:150%;padding-top:15px;padding-right:30px;padding-bottom:5px;padding-left:30px;">
          <div style="font-size: 12px; line-height: 18px; font-family: Arial, \'Helvetica Neue\', Helvetica, sans-serif; color: #555555;">
-         <p style="font-size: 12px; line-height: 24px; text-align: justify; margin: 0;"><span style="font-size: 16px;">Nous avons reçu une demande de réinitialisation de votre mot de passe au site de la JAM. Vous trouverez ci dessous le code nécessaire à cette réinitialisation.</span></p>
-         <p style="font-size: 12px; line-height: 18px; text-align: justify; margin: 0;"> </p>
-         <p style="font-size: 12px; line-height: 24px; text-align: justify; margin: 0;"><span style="font-size: 16px;">Code de réinitialisation : '.$recup_code.'</span></p>
-         <p style="font-size: 12px; line-height: 18px; text-align: justify; margin: 0;"> </p>
-         <p style="font-size: 12px; line-height: 24px; text-align: justify; margin: 0;"><span style="font-size: 16px;">Vous n’avez pas demandé ce changement ?</span><br/><span style="font-size: 16px; line-height: 24px;">Si vous n’avez pas demandé de nouveau mot de passe, <span style="color: #35bfb1; line-height: 24px; font-size: 16px;"><a href="https://jam-mdm.fr/contact.php" rel="noopener" style="text-decoration: underline; color: #35bfb1;" target="_blank">dites-le nous</a></span>.</span></p>
+         <p style="font-size: 12px; line-height: 21px; text-align: justify; margin: 0;"><span style="font-size: 14px;">Bonjours Boussard !</span><br/><span style="font-size: 14px; line-height: 21px;">Nous avons reçu une demande de réinitialisation de votre mot de passe au site de la JAM. Vous trouverez ci dessous le code nécessaire à cette réinitialisation.</span></p>
+         <p style="font-size: 12px; line-height: 21px; text-align: justify; margin: 0;"><span style="font-size: 14px;"> </span></p>
+         <p style="font-size: 12px; line-height: 21px; text-align: justify; margin: 0;"><span style="font-size: 14px;">Code de réinitialisation : 855328</span></p>
+         <p style="font-size: 12px; line-height: 21px; text-align: justify; margin: 0;"><br/><span style="font-size: 14px;">Vous n’avez pas demandé ce changement ?</span><br/><span style="font-size: 14px; line-height: 21px;">Si vous n’avez pas demandé de nouveau mot de passe, dites-le nous.</span></p>
          </div>
          </div>
          <!--[if mso]></td></tr></table><![endif]-->
@@ -477,16 +476,17 @@ if(isset($_POST['recup_submit'],$_POST['recup_mail'])) {
          <div class="block-grid" style="Margin: 0 auto; min-width: 320px; max-width: 700px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: transparent;;">
          <div style="border-collapse: collapse;display: table;width: 100%;background-color:transparent;">
          <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F4F4F4;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:700px"><tr class="layout-full-width" style="background-color:transparent"><![endif]-->
-         <!--[if (mso)|(IE)]><td align="center" width="700" style="background-color:transparent;width:700px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:25px; padding-bottom:30px;"><![endif]-->
+         <!--[if (mso)|(IE)]><td align="center" width="700" style="background-color:transparent;width:700px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:25px; padding-bottom:60px;"><![endif]-->
          <div class="col num12" style="min-width: 320px; max-width: 700px; display: table-cell; vertical-align: top;;">
          <div style="width:100% !important;">
          <!--[if (!mso)&(!IE)]><!-->
-         <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:25px; padding-bottom:30px; padding-right: 0px; padding-left: 0px;">
+         <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:25px; padding-bottom:60px; padding-right: 0px; padding-left: 0px;">
          <!--<![endif]-->
          <div align="center" class="button-container" style="padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
-         <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;"><tr><td style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://jam-mdm.fr/" style="height:54pt; width:238.5pt; v-text-anchor:middle;" arcsize="13%" stroke="false" fillcolor="#35bfb1"><w:anchorlock/><v:textbox inset="0,0,0,0"><center style="color:#ffffff; font-family:Arial, sans-serif; font-size:26px"><![endif]--><a href="https://jam-mdm.fr/" style="-webkit-text-size-adjust: none; text-decoration: none; display: inline-block; color: #ffffff; background-color: #35bfb1; border-radius: 9px; -webkit-border-radius: 9px; -moz-border-radius: 9px; width: auto; width: auto; border-top: 1px solid #35bfb1; border-right: 1px solid #35bfb1; border-bottom: 1px solid #35bfb1; border-left: 1px solid #35bfb1; padding-top: 10px; padding-bottom: 10px; font-family: \'Open Sans\', Helvetica, Arial, sans-serif; text-align: center; mso-border-alt: none; word-break: keep-all;" target="_blank"><span style="padding-left:45px;padding-right:45px;font-size:26px;display:inline-block;">
+         <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;"><tr><td style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="" style="height:54pt; width:238.5pt; v-text-anchor:middle;" arcsize="13%" stroke="false" fillcolor="#35bfb1"><w:anchorlock/><v:textbox inset="0,0,0,0"><center style="color:#ffffff; font-family:Arial, sans-serif; font-size:26px"><![endif]-->
+         <div style="text-decoration:none;display:inline-block;color:#ffffff;background-color:#35bfb1;border-radius:9px;-webkit-border-radius:9px;-moz-border-radius:9px;width:auto; width:auto;;border-top:1px solid #35bfb1;border-right:1px solid #35bfb1;border-bottom:1px solid #35bfb1;border-left:1px solid #35bfb1;padding-top:10px;padding-bottom:10px;font-family:\'Open Sans\', Helvetica, Arial, sans-serif;text-align:center;mso-border-alt:none;word-break:keep-all;"><span style="padding-left:45px;padding-right:45px;font-size:26px;display:inline-block;">
          <span style="font-size: 16px; line-height: 32px;"><span style="font-size: 26px; line-height: 52px;"><strong>ALLER SUR LE SITE</strong></span></span>
-         </span></a>
+         </span></div>
          <!--[if mso]></center></v:textbox></v:roundrect></td></tr></table><![endif]-->
          </div>
          <!--[if (!mso)&(!IE)]><!-->
@@ -512,7 +512,7 @@ if(isset($_POST['recup_submit'],$_POST['recup_mail'])) {
          <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 30px; padding-left: 30px; padding-top: 15px; padding-bottom: 5px; font-family: Arial, sans-serif"><![endif]-->
          <div style="color:#555555;font-family:\'Open Sans\', Helvetica, Arial, sans-serif;line-height:150%;padding-top:15px;padding-right:30px;padding-bottom:5px;padding-left:30px;">
          <div style="font-size: 12px; line-height: 18px; color: #555555; font-family: \'Open Sans\', Helvetica, Arial, sans-serif;">
-         <p style="font-size: 12px; line-height: 18px; text-align: center; margin: 0;">Ceci est un email automatique, merci de ne pas y répondre. Si vous ne souhaitez plus faire partie de l\'association merci de nous contacter ou si vous rencontrer un problème merci de nous <a href="https://jam-mdm.fr/contact.php" rel="noopener" style="text-decoration: underline; color: #0068A5;" target="_blank">contacter</a> au plus vite.</p>
+         <p style="font-size: 12px; line-height: 18px; text-align: center; margin: 0;">Ceci est un email automatique, merci de ne pas y répondre. Si vous ne souhaitez plus faire partie de l\'association merci de nous contacter ou si vous rencontrer un probleme merci de nous contacter au plus vite.</p>
          <p style="font-size: 12px; line-height: 18px; margin: 0;"> </p>
          </div>
          </div>
@@ -599,8 +599,9 @@ if(isset($_POST['recup_submit'],$_POST['recup_mail'])) {
          </html>
          ';
          mail($recup_mail, "Récupération du mot de passe -Jam-mdm.fr", $message, $header);
-
-            header("Location:https://jam-mdm.fr/recuperation.php?section=code");
+            ?>
+            <script>window.location.replace("https://jam-mdm.fr/recuperation.php?section=code");</script>
+            <?php
          } else {
             $error = "Cette adresse mail n'est pas enregistrée";
          }
@@ -623,7 +624,11 @@ if(isset($_POST['verif_submit'],$_POST['verif_code'])) {
          $up_req = $db->prepare('UPDATE recuperation SET confirme = 1 WHERE email = ?');
          $up_req->execute(array($_SESSION['recup_mail']));
 
-         header('Location:https://jam-mdm.fr/recuperation.php?section=changemdp');
+         ?>
+         <script>window.location.replace("https://jam-mdm.fr/recuperation.php?section=changemdp");</script>
+         <?php
+
+
       }else{
         $error = "Code invalide";
         }
@@ -653,7 +658,10 @@ if(isset($_POST['change_submit'])) {
               $del_req = $db->prepare('DELETE FROM recuperation WHERE email = ?');
               $del_req->execute(array($_SESSION['recup_mail']));
 
-               header('Location:https://jam-mdm.fr/connect.php');
+              ?>
+              <script>window.location.replace("https://jam-mdm.fr/connect.php");</script>
+              <?php
+
              } else {
                $error = " Votre mot de passe doit contenir une majuscule, une minuscule, un chiffre et un symbole";
              }
