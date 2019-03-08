@@ -400,10 +400,10 @@ if(isset($_POST['recup_submit'],$_POST['recup_mail'])) {
          </div>
          </div>
          </div>
-         <div style="background-image:url(\'https://d1oco4z2z1fhwp.cloudfront.net/templates/default/286/bg_wave_1.png\');background-position:top center;background-repeat:repeat;background-color:#F4F4F4;">
+         <div style="background-image:url("https://d1oco4z2z1fhwp.cloudfront.net/templates/default/286/bg_wave_1.png");background-position:top center;background-repeat:repeat;background-color:#F4F4F4;">
          <div class="block-grid" style="Margin: 0 auto; min-width: 320px; max-width: 700px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: transparent;;">
          <div style="border-collapse: collapse;display: table;width: 100%;background-color:transparent;">
-         <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-image:url(\'https://d1oco4z2z1fhwp.cloudfront.net/templates/default/286/bg_wave_1.png\');background-position:top center;background-repeat:repeat;background-color:#F4F4F4;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:700px"><tr class="layout-full-width" style="background-color:transparent"><![endif]-->
+         <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-image:url("https://d1oco4z2z1fhwp.cloudfront.net/templates/default/286/bg_wave_1.png");background-position:top center;background-repeat:repeat;background-color:#F4F4F4;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:700px"><tr class="layout-full-width" style="background-color:transparent"><![endif]-->
          <!--[if (mso)|(IE)]><td align="center" width="700" style="background-color:transparent;width:700px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:0px;"><![endif]-->
          <div class="col num12" style="min-width: 320px; max-width: 700px; display: table-cell; vertical-align: top;;">
          <div style="width:100% !important;">
