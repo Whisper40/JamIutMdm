@@ -599,7 +599,7 @@ require_once('../includes/connectBDD.php');
                                         ?>
                                             <script>
                                             demo.showSwal('success-message');
-                                            demo.showNotification('top','right','<b>Succès</b> - Modifications effectués !');
+                                            demo.showNotification('top','right','Modifications effectuée avec succès !', 'success');
                                             </script>
                                             <?php
                                   }else{
@@ -607,7 +607,7 @@ require_once('../includes/connectBDD.php');
 
                                         <script>
                                         demo.showSwal('danger-message');
-                                        demo.showNotification('top','right','<b>Erreur</b> - Modifications non effectués en raison de champs vides !');
+                                        demo.showNotification('top','right','Désolé, modifications non effectués en raison de champs vides !', 'warning');
                                         </script>
                                 <?php
                                   }
