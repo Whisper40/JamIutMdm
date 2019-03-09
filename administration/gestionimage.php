@@ -189,18 +189,15 @@ removeDirectory("$target_dir/$thumb/$dossier");
  $$messagenotif = "Aucune action sélectionnée ";
  $type = "warning";
 }
-
-
 }
-
  ?>
 
 <body>
   <div class="wrapper">
 
-    <?php
-    require_once('includes/navbar.php');
-    ?>
+  <?php
+  require_once('includes/navbar.php');
+  ?>
 
     <div class="content">
       <div class="container-fluid">
@@ -245,133 +242,134 @@ removeDirectory("$target_dir/$thumb/$dossier");
                         $albumactif = $sban->albumactif;
                       ?>
 
-                    <tr>
-                      <td class="text-center"><?php echo $idimg;?></td>
-                      <td class="text-center"><?php echo $file_name;?></td>
-                      <td class="text-center"><?php echo $title;?></td>
-                      <td class="text-center"><?php echo $albumactif;?></td>
-                      <td class="text-center"><a href="?action=unban&amp;id=<?php echo $idimg;?>"><button type="button" class="btn btn-rose btn-round btn-sm">Activer</button></a>
-                                              <a href="?action=delete&amp;id=<?php echo $idimg;?>"><button type="button" class="btn btn-rose btn-round btn-sm">Supprimer</button></a>
-                      </td>
-                    </tr>
+                      <tr>
+                        <td class="text-center"><?php echo $idimg;?></td>
+                        <td class="text-center"><?php echo $file_name;?></td>
+                        <td class="text-center"><?php echo $title;?></td>
+                        <td class="text-center"><?php echo $albumactif;?></td>
+                        <td class="text-center"><a href="?action=unban&amp;id=<?php echo $idimg;?>"><button type="button" class="btn btn-rose btn-round btn-sm">Activer</button></a>
+                                                <a href="?action=delete&amp;id=<?php echo $idimg;?>"><button type="button" class="btn btn-rose btn-round btn-sm">Supprimer</button></a>
+                        </td>
+                      </tr>
 
                     <?php } ?>
 
-                  </tbody>
-                </table>
-              </div>
+                    </tbody>
+                  </table>
+                </div>
 
               <?php }else{?>
 
-              <center>
-                <h4 class="info-title"><font color="red">Aucun image n'est actuellement bannie</font></h4>
-              </center>
+                <center>
+                  <h4 class="info-title"><font color="red">Aucun image n'est actuellement bannie</font></h4>
+                </center>
 
               <?php } ?>
 
+              </div>
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="card-content">
-              <h3 class="card-title">Desactiver une ou plusieurs images</h3>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="card-content">
+                <h3 class="card-title">Desactiver une ou plusieurs images</h3>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6 col-md-offset-3">
-            <div class="card-content">
-              <input type="text" class="form-control"  name="valeur" placeholder="Recherche par Nom, Identifiant ou Catégorie">
+          <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+              <div class="card-content">
+                <input type="text" class="form-control"  name="valeur" placeholder="Recherche par Nom, Identifiant ou Catégorie">
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="card-content">
+                <p id='resultat'></p>
+              </div>
             </div>
           </div>
-          <div class="col-sm-12">
-            <div class="card-content">
-              <p id='resultat'></p>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="card-content">
+                <h3 class="card-title">Gestion des albums</h3>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="card-content">
-              <h3 class="card-title">Gestion des albums</h3>
-            </div>
-          </div>
-        </div>
-         <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-           <div class="row">
-             <div class="col-sm-4">
-                <div class="card-content">
-                  <br><br>
-                  <div class="info info-horizontal">
-                    <div class="description">
-                      <center>
-                        <h4 class="info-title">Selectionner un album dans la liste ci contre et l'action à réaliser sur celui-ci</h4>
-                      </center>
+           <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+             <div class="row">
+               <div class="col-sm-4">
+                  <div class="card-content">
+                    <br><br>
+                    <div class="info info-horizontal">
+                      <div class="description">
+                        <center>
+                          <h4 class="info-title">Selectionner un album dans la liste ci contre et l'action à réaliser sur celui-ci</h4>
+                        </center>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-sm-4">
-                 <div class="card-content">
-                   <center>
-                     <h3 class="card-title">Sélectionner l'album</h3>
-                   </center>
-                   <br><br>
-                   <div class="jquerysel">
-                     <select class="selectpicker" data-style="select-with-transition" title="Fonction" data-size="7" name="catimage">
-                       <?php
-                        $selectcatimages=$db->query("SELECT DISTINCT title FROM images");
-                         while($s = $selectcatimages->fetch(PDO::FETCH_OBJ)){
-                           $catimage=$s->title;
-                        ?>
-                        <option value="<?php echo $catimage;?>"><?php echo $catimage; ?></option>
-                       <?php } ?>
-                     </select>
+                <div class="col-sm-4">
+                   <div class="card-content">
+                     <center>
+                       <h3 class="card-title">Sélectionner l'album</h3>
+                     </center>
+                     <br><br>
+                     <div class="jquerysel">
+                       <select class="selectpicker" data-style="select-with-transition" title="Album" data-size="7" name="catimage">
+                         <option disabled>Choisir un album</option>
+                         <?php
+                          $selectcatimages=$db->query("SELECT DISTINCT title FROM images");
+                           while($s = $selectcatimages->fetch(PDO::FETCH_OBJ)){
+                             $catimage=$s->title;
+                          ?>
+                          <option value="<?php echo $catimage;?>"><?php echo $catimage; ?></option>
+                         <?php } ?>
+                       </select>
+                     </div>
                    </div>
                  </div>
-               </div>
-               <div class="col-sm-4">
-                 <div class="card-content">
-                   <center>
-                     <h3 class="card-title">Action</h3>
+                 <div class="col-sm-4">
+                   <div class="card-content">
+                     <center>
+                       <h3 class="card-title">Action</h3>
                        <div class="radio">
-                           <label>
-                               <input type="radio" name="optionsRadios" checked="true" value="defaut"> Définir par défaut
-                           </label>
+                         <label>
+                           <input type="radio" name="optionsRadios" checked="true" value="defaut"> Définir par défaut
+                         </label>
                        </div>
                        <div class="radio">
-                           <label>
-                               <input type="radio" name="optionsRadios" value="ban"> Désactiver
-                           </label>
+                         <label>
+                           <input type="radio" name="optionsRadios" value="ban"> Désactiver
+                         </label>
                        </div>
                        <div class="radio">
-                           <label>
-                               <input type="radio" name="optionsRadios" value="delete"> Supprimer
-                           </label>
+                         <label>
+                           <input type="radio" name="optionsRadios" value="delete"> Supprimer
+                         </label>
                        </div>
                     </center>
                   </div>
                 </div>
               </div>
-             <div class="row">
-               <div class="col-sm-12">
-                 <div class="card-content">
-                   <center>
-                     <button type="submit" name="submit" class="btn btn-primary btn-round btn-rose">Valider</button>
-                   </center>
-                   <br>
-                 </div>
-               </div>
-             </div>
-           </form>
-         </div>
-       </div>
-     </div>
-   </div>
- </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="card-content">
+                    <center>
+                      <button type="submit" name="submit" class="btn btn-primary btn-round btn-rose">Valider</button>
+                    </center>
+                    <br>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
-  <?php
-  require_once('includes/javascript.php');
-  ?>
+<?php
+require_once('includes/javascript.php');
+?>
