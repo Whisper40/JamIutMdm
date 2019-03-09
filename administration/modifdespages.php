@@ -2794,48 +2794,6 @@ if ($uploadOk == 0) {
     require('includes/miseajourdusite.php');
           } ?>
 
-<!-- TEST -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<script type="text/javascript">
-$(document).ready(function()
-{
-$(".catactualite").change(function()
-{
-var id=$(this).val();
-var post_id = 'id='+ id;
-$.ajax
-({
-type: "POST",
-url: "rechercheactuspourcarrousel.php",
-data: post_id,
-cache: false,
-success: function(cities)
-{
-$(".souscatactualite").html(cities);
-}
-});
-});
-});
-</script>
-
-<script>
-$(document).ready(function(){
-var $recherche =$('input[name=valeur]');
-var critere;
-var id=<?php echo json_encode($id); ?>;
-$recherche.keyup(function(){
-  critere = $.trim($recherche.val());
-  if(critere!=''){
-    $.get('gestionrechercheimageactualite.php?critere='+critere+'&id='+id,function(retour){
-$('#resultat').html(retour).fadeIn();
-});
-}else $('#resultat').empty().fadeOut();
-});
-});
-</script>
-
-
 <?php
 if(isset($_GET['action'])){
 if($_GET['action']=='delete'){
@@ -3029,6 +2987,48 @@ if (file_exists($target_dir)){
               </div>
             </div>
           </form>
+
+          <!-- TEST -->
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+          <script type="text/javascript">
+          $(document).ready(function()
+          {
+          $(".catactualite").change(function()
+          {
+          var id=$(this).val();
+          var post_id = 'id='+ id;
+          $.ajax
+          ({
+          type: "POST",
+          url: "rechercheactuspourcarrousel.php",
+          data: post_id,
+          cache: false,
+          success: function(cities)
+          {
+          $(".souscatactualite").html(cities);
+          }
+          });
+          });
+          });
+          </script>
+
+          <script>
+          $(document).ready(function(){
+          var $recherche =$('input[name=valeur]');
+          var critere;
+          var id=<?php echo json_encode($id); ?>;
+          $recherche.keyup(function(){
+            critere = $.trim($recherche.val());
+            if(critere!=''){
+              $.get('gestionrechercheimageactualite.php?critere='+critere+'&id='+id,function(retour){
+          $('#resultat').html(retour).fadeIn();
+          });
+          }else $('#resultat').empty().fadeOut();
+          });
+          });
+          </script>
+          
           <div class="row">
             <div class="col-sm-12">
               <div class="card-content">
