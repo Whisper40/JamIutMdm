@@ -2949,9 +2949,13 @@ if (file_exists($target_dir)){
                     <select class="selectpicker" data-style="select-with-transition" title="Sous Catégorie" data-size="7" name="souscatactualite">
                       <option disabled>Choisir une sous-categorie</option>
 
-                      <option value="pres">....</option>
                     </select>
                   </div>
+
+                  Sous Catégorie :
+            <select name="souscatactualite" class="souscatactualite">
+<option>Sélectionner la sous catégorie</option>
+</select>
 
                 </div>
               </div>
@@ -3028,7 +3032,7 @@ if (file_exists($target_dir)){
           });
           });
           </script>
-          
+
           <div class="row">
             <div class="col-sm-12">
               <div class="card-content">
