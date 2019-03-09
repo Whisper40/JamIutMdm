@@ -2951,6 +2951,11 @@ if (file_exists($target_dir)){
                     </select>
                   </div>
 
+                  Sous Catégorie :
+            <select name="souscatactualite" class="selectpicker souscatactualite">
+<option>Sélectionner la sous catégorie</option>
+</select>
+
                 </div>
               </div>
               <div class="col-sm-6">
