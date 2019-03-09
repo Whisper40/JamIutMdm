@@ -2945,11 +2945,16 @@ if (file_exists($target_dir)){
                     </select>
                   </div>
 
-                  
-                  <div class="souscatactualite">
+                  <div class="jquerysel">
+                    <select class="selectpicker souscatactualite" data-style="select-with-transition" title="Sous Catégorie" data-size="7" name="souscatactualite">
+                      <option disabled>Choisir une sous categorie</option>
+                    </select>
                   </div>
 
-
+                  Sous Catégorie :
+            <select name="souscatactualite" class="selectpicker souscatactualite">
+<option>Sélectionner la sous catégorie</option>
+</select>
 
                 </div>
               </div>
