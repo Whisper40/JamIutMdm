@@ -2891,10 +2891,6 @@ if (file_exists($target_dir)){
             </form>
             <div id="results11"></div>
             <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.6/dist/css/bootstrap-select.min.css">
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.6/dist/js/bootstrap-select.min.js"></script>
             <div class="row">
               <div class="col-sm-12">
                 <div class="card-content">
@@ -2928,12 +2924,7 @@ if (file_exists($target_dir)){
                         <option disabled>Choisir une sous categorie</option>
                       </select>
                     </div>
--------------------------------------------------------------------------------------
-                    Sous Catégorie :
-                    <select name="souscatactualite" class="selectpicker souscatactualite">
-                      <option>Sélectionner la sous catégorie</option>
-                    </select>
-------------------------------------------------------------------------------------
+
                   </div>
                 </div>
                 <div class="col-sm-6">
