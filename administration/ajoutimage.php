@@ -979,7 +979,7 @@ if ($uploadOk == 0) {
                  <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
                    <div class="card-content">
                      <h3 class="card-title text-center">Ajouter des images</h3>
-                     <br><br><br>
+                     <br><br>
                      <div class="jquerysel">
                        <select class="selectpicker" data-style="select-with-transition" title="Sélectionner de la catégorie" data-size="4" name="catimage">
                           <option disabled>Sélectionner de la catégorie</option>
