@@ -257,7 +257,7 @@ echo '<br>
           </div>
         </div>
         <div class="row">
-          <div class="col-md-4 col-md-offset-4">
+          <div class="col-md-6 col-md-offset-3">
             <div class="table-responsive">
               <table class="table">
                 <thead class="text-primary">
@@ -395,14 +395,14 @@ echo '<br>
           </div>
         </div>
         <div class="row">
-          <div class="col-sm-6">
+          <div class="col-md-6 col-md-offset-3">
             <div class="table-responsive">
-            <table class="table">
-              <thead class="text-primary">
-                <th class="text-center">Nom</th>
-                <th class="text-center">Prénom</th>
-              </thead>
-              <tbody>
+              <table class="table">
+                <thead class="text-primary">
+                  <th class="text-center">Nom</th>
+                  <th class="text-center">Prénom</th>
+                </thead>
+                <tbody>
             ';
         $selectid = $db->prepare("SELECT user_id FROM catparticipe WHERE name=:name");
         $selectid->execute(array(
@@ -418,26 +418,33 @@ echo '<br>
         $nom=$snom->username;
         $prenom=$snom->prenom;
             echo '
-            <tr>
-              <td class="text-center">'.$nom.'</td>
-              <td class="text-center">'.$prenom.'</td>
-            </tr>';
+                  <tr>
+                    <td class="text-center">'.$nom.'</td>
+                    <td class="text-center">'.$prenom.'</td>
+                  </tr>';
         }
         echo '
-            </tbody>
-          </table>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
-      </div>
         ';
         echo '  <br>
-                <div class="col-sm-6">
+              <div class="row">
+                <div class="col-sm-8">
                   <center>
                     <h3 class="card-title">Cliquer sur ce bouton pour télécharger et exporter le tableau au format Excel</h3>
+                  </center>
+                </div>
+                <div class="col-sm-4">
+                    <center>
                     <a href="https://administration.jam-mdm.fr/affichelesparticipantsexport.php?id='.$id.'&amp;slug='.$slug.'&amp;title='.$title.'"><button class="btn btn-primary btn-round btn-rose">Télécharger le tableau</button></a>
                     </center>
                 </div>
               </div>
         ';
+
   }else if (stripos($title, 'orientation') != FALSE){
 
     echo '  <div class="row">
@@ -544,16 +551,16 @@ echo '<br>
                 $table = $selectid->fetchAll(PDO::FETCH_OBJ);
                 if(count($table)>0){
                   echo '
-                <div class="table-responsive">
-                  <table class="table">
-                    <thead class="text-primary">
-                      <th>Titre</th>
-                      <th>Date du Séjour</th>
-                      <th class="text-center">Prix</th>
-                      <th class="text-center">Status</th>
-                      <th class="text-center">Voir</th>
-                    </thead>
-                    <tbody>
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class="text-primary">
+                        <th>Titre</th>
+                        <th>Date du Séjour</th>
+                        <th class="text-center">Prix</th>
+                        <th class="text-center">Status</th>
+                        <th class="text-center">Voir</th>
+                      </thead>
+                      <tbody>
                       ';
                       foreach($table as $ligne){
                         $id = $ligne->id;
@@ -563,13 +570,13 @@ echo '<br>
                         $status = $ligne->status;
                         $datesejour = $ligne->datesejour;
                         echo '
-                      <tr>
-                        <td>'.$title.'</td>
-                        <td>'.$datesejour.'</td>
-                        <td class="text-center">'.$price.'</td>
-                        <td class="text-center">'.$status.'</td>
-                        <td class="text-center"><a href="?action=afficheactivite&amp;id='.$id.'&amp;slug='.$slug.'&amp;title='.$title.'"><button type="button" class="btn btn-rose btn-round btn-sm">Afficher</button></a></td>
-                      </tr>';
+                        <tr>
+                          <td>'.$title.'</td>
+                          <td>'.$datesejour.'</td>
+                          <td class="text-center">'.$price.'</td>
+                          <td class="text-center">'.$status.'</td>
+                          <td class="text-center"><a href="?action=afficheactivite&amp;id='.$id.'&amp;slug='.$slug.'&amp;title='.$title.'"><button type="button" class="btn btn-rose btn-round btn-sm">Afficher</button></a></td>
+                        </tr>';
                     }
                     echo '
                       </tbody>
@@ -579,11 +586,12 @@ echo '<br>
                   }  }
                     ?>
 
+                </div>
               </div>
             </div>
-          </div>
 
-    <?php } ?>
+          <?php } ?>
+
           </div>
         </div>
       </div>
