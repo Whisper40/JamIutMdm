@@ -93,7 +93,7 @@ while($unecat = $cat->fetch(PDO::FETCH_OBJ)){
 					</div>
 					<div class="navbar-header">
             <div class="navbar-brand text-center">
-              <h3 class="title">Dashboard Administrateur - Association JAM</h3>
+              Dashboard Administrateur - Association JAM
               </div>
 					</div>
 			</div>
