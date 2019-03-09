@@ -257,14 +257,14 @@ echo '<br>
           </div>
         </div>
         <div class="row">
-          <div class="col-sm-6">
+          <div class="col-md-4 col-md-offset-4">
             <div class="table-responsive">
-            <table class="table">
-              <thead class="text-primary">
-                <th class="text-center">Nom</th>
-                <th class="text-center">Prénom</th>
-              </thead>
-              <tbody>
+              <table class="table">
+                <thead class="text-primary">
+                  <th class="text-center">Nom</th>
+                  <th class="text-center">Prénom</th>
+                </thead>
+                <tbody>
             ';
         $selectid = $db->prepare("SELECT user_id FROM catparticipe WHERE name=:name");
         $selectid->execute(array(
@@ -280,24 +280,30 @@ echo '<br>
         $nom=$snom->username;
         $prenom=$snom->prenom;
             echo '
-            <tr>
-              <td class="text-center">'.$nom.'</td>
-              <td class="text-center">'.$prenom.'</td>
-            </tr>';
+                <tr>
+                  <td class="text-center">'.$nom.'</td>
+                  <td class="text-center">'.$prenom.'</td>
+                </tr>';
         }
         echo '
-            </tbody>
-          </table>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 
         ';
-        echo '  <br>
-                <div class="col-sm-6">
+        echo ' <br>
+              <div class="row">
+                <div class="col-sm-8">
                   <center>
                     <h3 class="card-title">Cliquer sur ce bouton pour télécharger et exporter le tableau au format Excel</h3>
-                    <a href="https://administration.jam-mdm.fr/affichelesparticipantsexport.php?id='.$id.'&amp;slug='.$slug.'&amp;title='.$title.'"><button class="btn btn-primary btn-round btn-rose">Télécharger le tableau</button></a>
                   </center>
+                </div>
+                <div class="col-sm-4">
+                    <center>
+                    <a href="https://administration.jam-mdm.fr/affichelesparticipantsexport.php?id='.$id.'&amp;slug='.$slug.'&amp;title='.$title.'"><button class="btn btn-primary btn-round btn-rose">Télécharger le tableau</button></a>
+                    </center>
                 </div>
               </div>
         ';
