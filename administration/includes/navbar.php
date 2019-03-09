@@ -11,7 +11,7 @@
     <div class="sidebar-wrapper">
 			<ul class="nav">
 <?php
-$cat = $db->query("SELECT DISTINCT name, page, icon, hastag FROM admincat");
+$cat = $db->query("SELECT DISTINCT order, name, page, icon, hastag FROM admincat ORDER BY order");
 while($unecat = $cat->fetch(PDO::FETCH_OBJ)){
   $nom = $unecat->name;
   $souscat = $db->query("SELECT nomsouscat, slug FROM admincat WHERE name='$nom'");
