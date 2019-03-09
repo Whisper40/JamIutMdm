@@ -962,7 +962,7 @@ if ($uploadOk == 0) {
                    <h3 class="card-title">Liste des icons pour les categorie d'image</h3>
                    <br><br>
                    <div class="iframe-container hidden-sm hidden-xs">
-                       <iframe src="https://jam-mdm.fr/icons.php"></iframe>
+                       <iframe src="https://administration.jam-mdm.fr/icons.php"></iframe>
                    </div>
                  </div>
                </div>
