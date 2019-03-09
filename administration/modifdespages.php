@@ -81,8 +81,8 @@ txtarea.scrollTop = scrollPos;
         $nomsouscat = "Nous contacter";
       }else if ($_GET['page']=='faireundon'){
         $nomsouscat = "Faire un don";
-      /*}else if ($_GET['page']=='lienutiles'){
-        $nomsouscat = "Lien Utiles";*/
+      }else if ($_GET['page']=='lienutiles'){
+        $nomsouscat = "Lien Utiles";
       }
 
       $messagenotif = "";
@@ -5460,9 +5460,7 @@ if ($uploadOk == 0) {
   </div>
 </body>
 
-
-
-<?php /* }else if ($_GET['page']=='lienutiles'){
+<?php }else if ($_GET['page']=='lienutiles'){
 ?>
 
   <script>
@@ -5899,8 +5897,8 @@ if ($uploadOk == 0) {
       </div>
     </div>
   </div>
-</body>
+</body> --->
 
-<?php } } */  }
+<?php } }  }
 require_once('includes/javascript.php');
 ?>
