@@ -2933,7 +2933,7 @@ if (file_exists($target_dir)){
                   ?>
 
                   <div class="jquerysel">
-                    <select class="selectpicker" data-style="select-with-transition" title="Catégorie" data-size="7" name="catactualite">
+                    <select class="selectpicker catactualite" data-style="select-with-transition" title="Catégorie" data-size="7" name="catactualite">
                       <option disabled>Choisir une categorie</option>
                       <?php
                         while($s = $selectcatimages->fetch(PDO::FETCH_OBJ)){
