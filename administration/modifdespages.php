@@ -2890,6 +2890,7 @@ if (file_exists($target_dir)){
               </div>
             </form>
             <div id="results11"></div>
+            <!-- Latest compiled and minified CSS -->
             <div class="row">
               <div class="col-sm-12">
                 <div class="card-content">
@@ -2918,17 +2919,11 @@ if (file_exists($target_dir)){
                         <?php } ?>
                       </select>
                     </div>
-                    <div class="jquerysel">
-                      <select class="selectpicker souscatactualite" data-style="select-with-transition" title="Sous Catégorie" data-size="7" name="souscatactualite">
-                        <option disabled>Choisir une sous categorie</option>
-                      </select>
-                    </div>
--------------------------------------------------------------------------------------
                     Sous Catégorie :
-                    <select name="souscatactualite" class="selectpicker souscatactualite">
-                      <option>Sélectionner la sous catégorie</option>
-                    </select>
-------------------------------------------------------------------------------------
+                    <select name="souscatactualite" class="souscatactualite selectpicker jquerysel" data-style="select-with-transition" data-size="7">
+          <option>Sélectionner la sous catégorie</option>
+          </select>
+
                   </div>
                 </div>
                 <div class="col-sm-6">
