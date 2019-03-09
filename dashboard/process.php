@@ -40,7 +40,7 @@ $optionadditionnelles = $_SESSION['optionadditionnelles'];
 
 
 $pageformulaire = 'formulaire.php?type=ski';
-$icon = 'dns';
+$icon = 'ac_unit';
 
 $insertparticipe = $db->prepare("INSERT INTO participe (user_id, activity_name, date, optionmateriel, optionrepas) VALUES(:user_id , :activity_name , :date , :optionmateriel , :optionrepas)");
 $insertparticipe->execute(array(
@@ -74,7 +74,7 @@ $insertformski->execute(array(
 }else if (stripos($activity_name, 'rugby') != FALSE){
 $optionaccompagnement = $_SESSION['optionaccompagnement'];
 $pageformulaire = 'formulaire.php?type=rugby';
-$icon = 'whatshot';
+$icon = 'map';
 
 
 $insertparticipe2 = $db->prepare("INSERT INTO participe (user_id, activity_name, date, optionaccompagnement) VALUES(:user_id ,:activity_name , :date, :optionaccompagnement)");
@@ -104,7 +104,7 @@ $insertformrugby->execute(array(
 
 }else if (stripos($activity_name, 'cinema') != FALSE){
 $pageformulaire = 'formulaire.php?type=cinema';
-$icon = 'whatshot';
+$icon = 'map';
 
 
 $insertparticipe3 = $db->prepare("INSERT INTO participe (user_id, activity_name, date) VALUES(:user_id , :activity_name ,:date)");

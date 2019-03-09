@@ -590,7 +590,7 @@ require_once('includes/head.php');
                       $stock = $r->stock;
                       $newstock = $stock - '1';
                       $pageformulaire = 'formulaire.php?type=sportive';
-                      $icon = 'dns';
+                      $icon = 'map';
                       $date = strftime('%d/%m/%Y %H:%M:%S');
 
                       $insertinfos = $db->prepare("INSERT INTO participe (user_id, activity_name, date, optionorganisation) VALUES(:user_id , :activity_name , :date, :optionorganisation)");
@@ -730,7 +730,7 @@ require_once('includes/head.php');
                 $stock = $r->stock;
                 $newstock = $stock - '1';
                 $pageformulaire = 'formulaire.php?type=nettoyage';
-                $icon = 'dns';
+                $icon = 'map';
 
 
                 $date = strftime('%d/%m/%Y %H:%M:%S');
@@ -856,7 +856,7 @@ require_once('includes/head.php');
             $stock = $r->stock;
             $newstock = $stock - '1';
             $pageformulaire = 'formulaire.php?type=orientation';
-            $icon = 'dns';
+            $icon = 'map';
             $date = strftime('%d/%m/%Y %H:%M:%S');
             $insertparticipe = $db->prepare("INSERT INTO participe (user_id, activity_name, date) VALUES(:user_id , :activity_name , :date)");
             $insertparticipe->execute(array(
