@@ -9,8 +9,9 @@ require_once('../includes/connectBDD.php');
 
         if(!empty($email)&&!empty($nom)&&!empty($password)&&!empty($grade)){
 
-                 if (preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{10,}$#', $password)){
-
+                 if (preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{5,}$#', $password)){
+//Fonction de remplacement en cas
+// #^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[-+!*$@%_])([-+!*$@%_\w]{8,15})$#
                 date_default_timezone_set('Europe/Paris');
                 setlocale(LC_TIME, 'fr_FR.utf8','fra');
                 $date = strftime('%Y/%m/%d %H:%M:%S');
@@ -441,7 +442,7 @@ require_once('../includes/connectBDD.php');
                                   <p style="font-size: 12px; line-height: 24px; text-align: justify; margin: 0;"><span style="font-size: 16px;">La Jeunesse Associative Montoise vous invite à rejoindre son équipe d\'administrateur de site web. Vous trouverez ci-dessous vos identifiants de connexion :</span></p>
                                   <p style="font-size: 12px; line-height: 18px; text-align: justify; margin: 0;"> </p>
                                   <p style="line-height: 24px; text-align: justify; font-size: 12px; margin: 0;"><span style="background-color: transparent; font-size: 16px;">Identifiant : '.$email.'</span></p>
-                                  <p style="line-height: 24px; text-align: justify; font-size: 12px; margin: 0;"><span style="font-size: 16px; background-color: transparent;">Mot de Passe : '.$param_password.'</span></p>
+                                  <p style="line-height: 24px; text-align: justify; font-size: 12px; margin: 0;"><span style="font-size: 16px; background-color: transparent;">Mot de Passe : '.$password.'</span></p>
                                   <p style="line-height: 18px; text-align: justify; font-size: 12px; margin: 0;"> </p>
                                   <p style="font-size: 12px; line-height: 24px; text-align: justify; margin: 0;"><span style="font-size: 16px;">Vous n’avez pas demandé à devenir administrateur ? Alors,</span><span style="font-size: 16px; line-height: 24px;"> <span style="color: #35bfb1; line-height: 24px; font-size: 16px;"><a href="https://jam-mdm.fr/contact.php" rel="noopener" style="text-decoration: underline; color: #35bfb1;" target="_blank">dites-le nous</a></span>.</span></p>
                                   </div>
@@ -589,7 +590,7 @@ require_once('../includes/connectBDD.php');
                                       $headers = "From: <".$owner_mail.">\r\n";
                                       $headers .= "MIME-Version: 1.0\r\n";
                                       $headers .= 'X-Priotity:'.$priority."\r\n";
-                                      $headers .= "Content-Type: multipart/mixed; boundary=\"".$uid."\"\r\n\r\n";
+                                      $headers .= "Content-Type: text/html\r\n";
                                       // message & attachment
 
 

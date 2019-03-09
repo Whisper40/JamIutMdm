@@ -595,16 +595,11 @@ require_once('../includes/connectBDD.php');
                                        $headers = "From: <".$owner_mail.">\r\n";
                                        $headers .= "MIME-Version: 1.0\r\n";
                                        $headers .= 'X-Priotity:'.$priority."\r\n";
-                                       $headers .= "Content-Type: multipart/mixed; boundary=\"".$uid."\"\r\n\r\n";
-                                       // message & attachment
-                                       $nmessage = "--".$uid."\r\n";
-                                       $nmessage .= "Content-type:text/plain; charset=iso-8859-1\r\n";
-                                       $nmessage .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
-                                       $nmessage .= $message."\r\n\r\n";
-                                       $nmessage .= "--".$uid."\r\n";
+                                       $headers .= "Content-Type: text/html\r\n";
 
-                                       $nmessage .= "--".$uid."--";
-                                         mail($email,$subject,$nmessage, $headers);
+
+
+                                         mail($email,$subject,$message, $headers);
                                          ?>
                                              <script>
                                              demo.showSwal('success-message');
