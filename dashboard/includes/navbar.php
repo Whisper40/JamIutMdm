@@ -28,7 +28,7 @@
     </div>
     <ul class="nav">
     <?php
-    $cat = $db->query("SELECT * FROM dashboardcat");
+    $cat = $db->query("SELECT * FROM dashboardcat ORDER BY ordre");
     while($unecat = $cat->fetch(PDO::FETCH_OBJ)){
     ?><li <?php if($unecat->name == $nompage){ ?>class="active"> <?php }else{ ?>><?php }
 
