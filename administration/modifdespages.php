@@ -2842,7 +2842,7 @@ if (file_exists($target_dir)){
             <div class="row">
               <div class="col-sm-12">
                 <div class="card-content">
-                  <h3 class="card-title">Modification activité : <?php echo $title; ?></h3>
+                  <h3 class="card-title">Modification actualité : <?php echo $title; ?></h3>
                   <div class="form-group label-floating">
                       <label class="control-label">Titre</label>
                       <input type="text" class="form-control" value="<?php echo $title; ?>" name="title" id="title">
@@ -3661,75 +3661,84 @@ require('includes/miseajourdusite.php');
         require_once('includes/navbar.php');
         ?>
 
-    <div class="content">
-        <div class="container-fluid">
+        <div class="content">
+          <div class="container-fluid">
             <div class="card">
-                <div class="card-content">
-                    <h2 class="card-title text-center">Modification de l'activite</h2>
-                    <form action="" method="post" id="myForm1" class="contact-form">
+              <div class="card-content">
+                <h2 class="card-title text-center">Modification d'une activité ou d'un voyage</h2>
+                  <form action="" method="post" id="myForm1" class="contact-form">
                     <div class="row">
-                        <div class="col-sm-6">
-                            <div class="card-content">
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Titre</label>
-                                  <input type="text" class="form-control" value="<?php echo $title; ?>" name="title" id="title">
-                              </div>
-
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Description</label>
-                                  <input type="text" name="description" value="<?php echo $description; ?>" id="description" class="form-control">
-                              </div>
-
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Titre 2</label>
-                                  <input type="text" name="title2" value="<?php echo $title2; ?>" id="title2" class="form-control">
-                              </div>
-
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Description 2</label>
-                                  <input type="text" name="description2" value="<?php echo $description2; ?>" id="description2" class="form-control">
-                              </div>
-
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Titre 3</label>
-                                  <input type="text" name="title3" value="<?php echo $title3; ?>" id="title3" class="form-control">
-                              </div>
-
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Description 3</label>
-                                  <input type="text" name="description3" value="<?php echo $description3; ?>" id="description3" class="form-control">
-                              </div>
-
-
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Stock</label>
-                                  <input type="number" name="stock" value="<?php echo $stock; ?>" id="stock" class="form-control">
-                              </div>
-
-                             </div>
+                      <div class="col-sm-12">
+                        <div class="card-content">
+                          <h3 class="card-title">Modification activité/voyage : <?php echo $title; ?></h3>
+                          <div class="form-group label-floating">
+                              <label class="control-label">Titre</label>
+                              <input type="text" class="form-control" value="<?php echo $title; ?>" name="title" id="title">
                           </div>
-
-                        <div class="col-sm-12">
-                            <div class="card-content">
-
-                              <center>
+                          <div class="form-group label-floating">
+                              <label class="control-label">Description</label>
+                              <textarea rows="5" name="description" id="description" class="form-control"><?php echo $description; ?></textarea>
+                          </div>
+                          <center>
+                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description', '<br />');return false;">Saut de ligne </button>
+                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description', '<u>Texte souligné</u>');return false;">Souligner</button>
+                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description', '<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>');return false;">Liste</button>
+                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description', '<strong>Texte en gras</strong>');return false;">Gras</button>
+                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description', '<i>Texte en Italic</i>');return false;">Italic</button>
+                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description', '<sub>Texte en Indice</sub>');return false;">Indice</button>
+                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description', '<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>');return false;">Surligner</button>
+                          </center>
+                          <br>
+                          <div class="form-group label-floating">
+                              <label class="control-label">Titre 2</label>
+                              <input type="text" name="title2" value="<?php echo $title2; ?>" id="title2" class="form-control">
+                          </div>
+                          <div class="form-group label-floating">
+                              <label class="control-label">Description</label>
+                              <textarea rows="5" name="description2" id="description2" class="form-control"><?php echo $description2; ?></textarea>
+                          </div>
+                          <center>
+                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<br />');return false;">Saut de ligne </button>
+                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<u>Texte souligné</u>');return false;">Souligner</button>
+                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>');return false;">Liste</button>
+                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<strong>Texte en gras</strong>');return false;">Gras</button>
+                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<i>Texte en Italic</i>');return false;">Italic</button>
+                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<sub>Texte en Indice</sub>');return false;">Indice</button>
+                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>');return false;">Surligner</button>
+                          </center>
+                          <br>
+                          <div class="form-group label-floating">
+                              <label class="control-label">Titre 3</label>
+                              <input type="text" name="title3" value="<?php echo $title3; ?>" id="title3" class="form-control">
+                          </div>
+                          <div class="form-group label-floating">
+                              <label class="control-label">Description</label>
+                              <textarea rows="5" name="description3" id="description3" class="form-control"><?php echo $description3; ?></textarea>
+                          </div>
+                          <center>
+                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description3', '<br />');return false;">Saut de ligne </button>
+                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description3', '<u>Texte souligné</u>');return false;">Souligner</button>
+                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description3', '<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>');return false;">Liste</button>
+                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description3', '<strong>Texte en gras</strong>');return false;">Gras</button>
+                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description3', '<i>Texte en Italic</i>');return false;">Italic</button>
+                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description3', '<sub>Texte en Indice</sub>');return false;">Indice</button>
+                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description3', '<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>');return false;">Surligner</button>
+                          </center>
+                          <div class="form-group label-floating">
+                              <label class="control-label">Stock</label>
+                              <input type="number" name="stock" value="<?php echo $stock; ?>" id="stock" class="form-control">
+                          </div>
+                          <br>
+                          <center>
                               <button id="submitFormDataModifActivite" onclick="SubmitFormDataModifActivite();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
                               <button onclick="RetourIndex4();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
-                              </center>
-                             </div>
-                          </div>
+                          </center>
+                        </div>
+                      </div>
                     </div>
                   </form>
-                </div>
-            </div>
-        </div>
+                 <div id="results11"></div>
 
-     <div id="results11"> <!-- TRES IMPORTANT -->
-    </div>
-
-
-
-    <!-- AJOUT KEVIN POUR MODIF PAUL -->
 
     <!-- Ajoutd'images au site web (assets)-->
     <?php
