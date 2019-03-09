@@ -81,8 +81,8 @@ txtarea.scrollTop = scrollPos;
         $nomsouscat = "Nous contacter";
       }else if ($_GET['page']=='faireundon'){
         $nomsouscat = "Faire un don";
-      }else if ($_GET['page']=='lienutiles'){
-        $nomsouscat = "Lien Utiles";
+      /*}else if ($_GET['page']=='lienutiles'){
+        $nomsouscat = "Lien Utiles";*/
       }
 
       $messagenotif = "";
