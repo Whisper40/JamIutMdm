@@ -242,8 +242,6 @@ if ($uploadOk == 0) {
     require('includes/miseajourdusite.php');
           } ?>
 
-
-
           <!-- Ajoutd'images au site web (assets)-->
           <?php
           if(isset($_POST['envoieimagecentrale'])){
@@ -489,199 +487,195 @@ if ($uploadOk == 0) {
    require_once('includes/navbar.php');
    ?>
 
-  <div class="content">
+    <div class="content">
       <div class="container-fluid">
-          <div class="card">
-              <div class="card-content">
-                  <h2 class="card-title text-center">Modification de l'index du site</h2>
-                  <div class="row">
-                    <div class="col-sm-12">
-                        <div class="card-content">
-                          <h3 class="card-title">Images de la page</h3>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-4">
-                      <div class="card-content">
-                        <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-                          <h3 class="card-title text-center">Arrière plan</h3>
-                          <br>
-                          <center>
-                            <div class="fileinput fileinput-new text-center" data-provides="fileinput">
-                              <div class="fileinput-new thumbnail">
-                                <img src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/<?php echo $img1; ?>" alt="...">
-                              </div>
-                              <div class="fileinput-preview fileinput-exists thumbnail"></div>
-                              <br><br>
-                              <div>
-                                <span class="btn btn-rose btn-round btn-file">
-                                  <span class="fileinput-new">Selection image</span>
-                                  <span class="fileinput-exists">Changer</span>
-                                  <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple" />
-                                </span>
-                                <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
-                                <button type="submit" name="envoieimagefond" class="btn btn-primary btn-round btn-rose">Modifier l'image</button>
-                              </div>
-                            </div>
-                          </center>
-                        </form>
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="card-content">
-                        <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-                          <h3 class="card-title text-center">Logo centrale</h3>
-                          <br>
-                          <center>
-                            <div class="fileinput fileinput-new text-center" data-provides="fileinput">
-                              <div class="fileinput-new thumbnail">
-                                <img src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/<?php echo $logo1; ?>" alt="...">
-                              </div>
-                              <div class="fileinput-preview fileinput-exists thumbnail"></div>
-                              <br><br>
-                              <div>
-                                <span class="btn btn-rose btn-round btn-file">
-                                  <span class="fileinput-new">Selection image</span>
-                                  <span class="fileinput-exists">Changer</span>
-                                  <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple" />
-                                </span>
-                                <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
-                                <button type="submit" name="envoieimagecentrale" class="btn btn-primary btn-round btn-rose">Modifier le logo</button>
-                              </div>
-                            </div>
-                          </center>
-                        </form>
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="card-content">
-                        <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-                          <h3 class="card-title text-center">Image Introduction</h3>
-                          <br>
-                          <center>
-                            <div class="fileinput fileinput-new text-center" data-provides="fileinput">
-                              <div class="fileinput-new thumbnail">
-                                <img src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/<?php echo $logo2; ?>" alt="...">
-                              </div>
-                              <div class="fileinput-preview fileinput-exists thumbnail"></div>
-                              <br><br>
-                              <div>
-                                <span class="btn btn-rose btn-round btn-file">
-                                  <span class="fileinput-new">Selection image</span>
-                                  <span class="fileinput-exists">Changer</span>
-                                  <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple" />
-                                </span>
-                                <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
-                                <button type="submit" name="envoieimagelogo2" class="btn btn-primary btn-round btn-rose">Modifier l'image</button>
-                              </div>
-                            </div>
-                          </center>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                  <form action="" method="post" id="myForm1" class="contact-form">
-                    <div class="row">
-                      <div class="col-sm-12">
-                          <div class="card-content">
-                            <h3 class="card-title">Corp de page</h3>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-sm-6">
-                        <div class="card-content">
-                          <div class="form-group label-floating">
-                            <label class="control-label">Description</label>
-                            <textarea rows="12" name="description1" id="description1" class="form-control"><?php echo $description1; ?></textarea>
-                          </div>
-
-
-
-                          <center>
-                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<br />');return false;">Saut de ligne </button>
-                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<u>Texte souligné</u>');return false;">Souligner</button>
-                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>');return false;">Liste</button>
-                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<strong>Texte en gras</strong>');return false;">Gras</button>
-                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<i>Texte en Italic</i>');return false;">Italic</button>
-                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<sub>Texte en Indice</sub>');return false;">Indice</button>
-                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>');return false;">Surligner</button>
-                          </center>
-
-
-                        </div>
-                      </div>
-                        <div class="col-sm-6">
-                            <div class="card-content">
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Titre Principal</label>
-                                  <input type="text" name="titre1" value="<?php echo $titre1; ?>" id="titre1" class="form-control">
-                              </div>
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Bouton Gauche</label>
-                                  <input type="text" name="bouton1" value="<?php echo $bouton1; ?>" id="bouton1" class="form-control">
-                              </div>
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Lien bouton gauche</label>
-                                  <input type="text" name="lienbt1" value="<?php echo $lienbt1; ?>" id="lienbt1" class="form-control">
-                              </div>
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Bouton Droite</label>
-                                  <input type="text" name="bouton2" value="<?php echo $bouton2; ?>" id="bouton2" class="form-control">
-                              </div>
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Lien bouton droite</label>
-                                  <input type="text" name="lienbt2" value="<?php echo $lienbt2; ?>" id="lienbt2" class="form-control">
-                              </div>
-                           </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-sm-12">
-                          <div class="card-content">
-                            <h3 class="card-title">Pied de page</h3>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-sm-6">
-                          <div class="card-content">
-                            <div class="form-group label-floating">
-                                <label class="control-label">Description Secondaire</label>
-                                <textarea rows="5" name="description2" id="description2" class="form-control"><?php echo $description2; ?></textarea>
-                            </div>
-                           </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="card-content">
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Titre Secondaire</label>
-                                  <input type="text" name="titre2" value="<?php echo $titre2; ?>" id="titre2" class="form-control">
-                              </div>
-                              <div class="form-group label-floating">
-                                  <label class="control-label">Lien Facebook</label>
-                                  <input type="text" name="fb" value="<?php echo $fb; ?>" id="fb" class="form-control">
-                              </div>
-                           </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-sm-12">
-                          <div class="card-content">
-                            <center>
-                            <button id="submitFormDataIndex" onclick="SubmitFormDataIndex();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
-                            </center>
-                           </div>
-                        </div>
-                  </div>
-                </form>
+        <div class="card">
+          <div class="card-content">
+            <h2 class="card-title text-center">Modification de l'index du site</h2>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="card-content">
+                  <h3 class="card-title">Images de la page</h3>
+                </div>
               </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="card-content">
+                  <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+                    <h3 class="card-title text-center">Arrière plan</h3>
+                    <br>
+                    <center>
+                      <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                        <div class="fileinput-new thumbnail">
+                          <img src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/<?php echo $img1; ?>" alt="...">
+                        </div>
+                        <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                        <br><br>
+                        <div>
+                          <span class="btn btn-rose btn-round btn-file">
+                            <span class="fileinput-new">Selection image</span>
+                            <span class="fileinput-exists">Changer</span>
+                            <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple" />
+                          </span>
+                          <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
+                          <button type="submit" name="envoieimagefond" class="btn btn-primary btn-round btn-rose">Modifier l'image</button>
+                        </div>
+                      </div>
+                    </center>
+                  </form>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="card-content">
+                  <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+                    <h3 class="card-title text-center">Logo centrale</h3>
+                    <br>
+                    <center>
+                      <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                        <div class="fileinput-new thumbnail">
+                          <img src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/<?php echo $logo1; ?>" alt="...">
+                        </div>
+                        <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                        <br><br>
+                        <div>
+                          <span class="btn btn-rose btn-round btn-file">
+                            <span class="fileinput-new">Selection image</span>
+                            <span class="fileinput-exists">Changer</span>
+                            <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple" />
+                          </span>
+                          <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
+                          <button type="submit" name="envoieimagecentrale" class="btn btn-primary btn-round btn-rose">Modifier le logo</button>
+                        </div>
+                      </div>
+                    </center>
+                  </form>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="card-content">
+                  <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+                    <h3 class="card-title text-center">Image Introduction</h3>
+                    <br>
+                    <center>
+                      <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                        <div class="fileinput-new thumbnail">
+                          <img src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/<?php echo $logo2; ?>" alt="...">
+                        </div>
+                        <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                        <br><br>
+                        <div>
+                          <span class="btn btn-rose btn-round btn-file">
+                            <span class="fileinput-new">Selection image</span>
+                            <span class="fileinput-exists">Changer</span>
+                            <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple" />
+                          </span>
+                          <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
+                          <button type="submit" name="envoieimagelogo2" class="btn btn-primary btn-round btn-rose">Modifier l'image</button>
+                        </div>
+                      </div>
+                    </center>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <form action="" method="post" id="myForm1" class="contact-form">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="card-content">
+                    <h3 class="card-title">Corp de page</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="card-content">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Description</label>
+                      <textarea rows="12" name="description1" id="description1" class="form-control"><?php echo $description1; ?></textarea>
+                    </div>
+                    <center>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<br />');return false;">Saut de ligne </button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<u>Texte souligné</u>');return false;">Souligner</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>');return false;">Liste</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<strong>Texte en gras</strong>');return false;">Gras</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<i>Texte en Italic</i>');return false;">Italic</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<sub>Texte en Indice</sub>');return false;">Indice</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>');return false;">Surligner</button>
+                    </center>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="card-content">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Titre Principal</label>
+                      <input type="text" name="titre1" value="<?php echo $titre1; ?>" id="titre1" class="form-control">
+                    </div>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Bouton Gauche</label>
+                      <input type="text" name="bouton1" value="<?php echo $bouton1; ?>" id="bouton1" class="form-control">
+                    </div>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Lien bouton gauche</label>
+                      <input type="text" name="lienbt1" value="<?php echo $lienbt1; ?>" id="lienbt1" class="form-control">
+                      </div>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Bouton Droite</label>
+                      <input type="text" name="bouton2" value="<?php echo $bouton2; ?>" id="bouton2" class="form-control">
+                    </div>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Lien bouton droite</label>
+                      <input type="text" name="lienbt2" value="<?php echo $lienbt2; ?>" id="lienbt2" class="form-control">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="card-content">
+                    <h3 class="card-title">Pied de page</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="card-content">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Description Secondaire</label>
+                      <textarea rows="5" name="description2" id="description2" class="form-control"><?php echo $description2; ?></textarea>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="card-content">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Titre Secondaire</label>
+                      <input type="text" name="titre2" value="<?php echo $titre2; ?>" id="titre2" class="form-control">
+                    </div>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Lien Facebook</label>
+                      <input type="text" name="fb" value="<?php echo $fb; ?>" id="fb" class="form-control">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="card-content">
+                    <center>
+                      <button id="submitFormDataIndex" onclick="SubmitFormDataIndex();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                    </center>
+                  </div>
+                </div>
+              </div>
+            </form>
           </div>
+        </div>
       </div>
-   <div id="results1"> <!-- TRES IMPORTANT -->
+      <div id="results1"></div>
+    </div>
   </div>
-</div>
+</body>
 
 <?php
 }else if ($_GET['page']=='devenirmembre'){
@@ -721,50 +715,52 @@ if ($uploadOk == 0) {
    ?>
 
     <div class="content">
-        <div class="container-fluid">
-            <div class="card">
-                <div class="card-content">
-                    <h2 class="card-title text-center">Modification de la page devenir membre</h2>
-                    <form action="" method="post" id="myForm1" class="contact-form">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="card-content">
-                                    <h3 class="card-title">Intruduction</h3>
-                                    <br>
-                                    <div class="form-group label-floating">
-                                        <label class="control-label">Introduction</label>
-                                        <textarea rows="4" type="text" class="form-control" name="introduction" id="introduction"><?php echo $introduction; ?></textarea>
-                                    </div>
-                                    <h3 class="card-title">Les Etapes</h3>
-                                    <br>
-                                    <div class="form-group label-floating">
-                                        <label class="control-label">Etape 1</label>
-                                        <textarea rows="4" type="text" name="etape1" id="etape1" class="form-control"><?php echo $etape1; ?></textarea>
-                                    </div>
-                                    <div class="form-group label-floating">
-                                        <label class="control-label">Etape 2</label>
-                                        <textarea rows="4" type="text" name="etape2" id="etape2" class="form-control"><?php echo $etape2; ?></textarea>
-                                    </div>
-                                    <div class="form-group label-floating">
-                                        <label class="control-label">Etape 3</label>
-                                        <textarea rows="4" type="text" name="etape3" id="etape3" class="form-control"><?php echo $etape3; ?></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-12">
-                                <div class="card-content">
-                                    <center>
-                                        <button id="submitFormDataDevenirMembre" onclick="SubmitFormDataDevenirMembre();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
-                                    </center>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
+      <div class="container-fluid">
+        <div class="card">
+          <div class="card-content">
+            <h2 class="card-title text-center">Modification de la page devenir membre</h2>
+            <form action="" method="post" id="myForm1" class="contact-form">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="card-content">
+                    <h3 class="card-title">Intruduction</h3>
+                    <br>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Introduction</label>
+                      <textarea rows="4" type="text" class="form-control" name="introduction" id="introduction"><?php echo $introduction; ?></textarea>
+                    </div>
+                    <h3 class="card-title">Les Etapes</h3>
+                    <br>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Etape 1</label>
+                      <textarea rows="4" type="text" name="etape1" id="etape1" class="form-control"><?php echo $etape1; ?></textarea>
+                    </div>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Etape 2</label>
+                      <textarea rows="4" type="text" name="etape2" id="etape2" class="form-control"><?php echo $etape2; ?></textarea>
+                    </div>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Etape 3</label>
+                      <textarea rows="4" type="text" name="etape3" id="etape3" class="form-control"><?php echo $etape3; ?></textarea>
+                    </div>
+                  </div>
                 </div>
-            </div>
+                <div class="col-sm-12">
+                  <div class="card-content">
+                    <center>
+                      <button id="submitFormDataDevenirMembre" onclick="SubmitFormDataDevenirMembre();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                    </center>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
-        <div id="results2"></div>
+      </div>
+      <div id="results2"></div>
     </div>
+  </div>
+</body>
 
 <?php
 }else if ($_GET['page']=='association'){
@@ -1044,235 +1040,232 @@ if ($uploadOk == 0) {
                           require('includes/miseajourdusite.php');
                                 } ?>
 
-                              <body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
-                                <div class="wrapper">
+                                <?php
+                                if(isset($_GET['action'])){
+                                if($_GET['action']=='delete'){
+                                $id=$_GET['id'];
+                                $selectnom = $db->query("SELECT * FROM carousel WHERE id='$id'");
+                                $rname = $selectnom->fetch(PDO::FETCH_OBJ);
+                                $valnom = $rname->image;
+                                $target_dir = '../../../JamFichiers/Img/ImagesDuSite/Original';
+                                $target_dirthumb = '../../../JamFichiers/Img/ImagesDuSite/Thumb';
+                                if (file_exists($target_dir)){
+                                unlink("$target_dir/$valnom");
+                                $updatedelete = $db->prepare("DELETE FROM carousel WHERE image=:image");
+                                $updatedelete->execute(array(
+                                  "image"=>$valnom
+                                ));
+                                unlink("$target_dirthumb/$valnom");
+                                $messagenotif = "Le fichier.$valnom. à bien été supprimé";
+                                $type = "success";
+                                }else{
+                                $messagenotif = 'Un problème de répertoire est présent, contacter votre administrateur !';
+                                $type = "warning";
+                                }
+                                ?>
+                                <script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=association&table=pageasso"</script>
+                                <?php
+                                }
+                                }
+                                ?>
 
-                                 <?php
-                                 require_once('includes/navbar.php');
-                                 ?>
+<body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
+  <div class="wrapper">
 
-                                <div class="content">
-                                  <div class="container-fluid">
-                                    <div class="card">
-                                      <div class="card-content">
-                                        <h2 class="card-title text-center">Modification page présentation association</h2>
-                                          <div class="row">
-                                            <div class="col-sm-12">
-                                              <div class="card-content">
-                                                <h3 class="card-title">En-tête de page</h3>
-                                              </div>
-                                            </div>
-                                          </div>
-                                          <div class="row">
-                                            <div class="col-sm-6">
-                                              <div class="card-content">
-                                                <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-                                                  <h3 class="card-title text-center">Image d'Arrière plan</h3>
-                                                  <br>
-                                                  <center>
-                                                    <div class="fileinput fileinput-new text-center" data-provides="fileinput">
-                                                      <div class="fileinput-new thumbnail">
-                                                        <img src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/<?php echo $image; ?>" alt="...">
-                                                      </div>
-                                                      <div class="fileinput-preview fileinput-exists thumbnail"></div>
-                                                      <br><br>
-                                                      <div>
-                                                        <span class="btn btn-rose btn-round btn-file">
-                                                          <span class="fileinput-new">Selection image</span>
-                                                          <span class="fileinput-exists">Changer</span>
-                                                          <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple" />
-                                                        </span>
-                                                        <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
-                                                        <button type="submit" name="envoieimageprezasso" class="btn btn-primary btn-round btn-rose">Modifier l'image</button>
-                                                      </div>
-                                                    </div>
-                                                  </center>
-                                                </form>
-                                              </div>
-                                            </div>
-                                          <div class="col-sm-6">
-                                            <div class="card-content">
-                                              <form action="" method="post" id="myForm1" class="contact-form">
-                                                <h3 class="card-title text-center">Titres de la page</h3>
-                                                <br><br>
-                                                <div class="form-group label-floating">
-                                                  <label class="control-label">Titre de la page</label>
-                                                  <input type="text" class="form-control" value="<?php echo $pagetitre; ?>" name="pagetitre" id="pagetitre">
-                                                </div>
-                                                <div class="form-group label-floating">
-                                                  <label class="control-label">Titre</label>
-                                                  <input type="text" class="form-control" value="<?php echo $titre1; ?>" name="titre1" id="titre1">
-                                                </div>
-                                                <br>
-                                                <center>
-                                                  <button id="submitFormDataPageAsso2" onclick="SubmitFormDataPageAsso2();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
-                                                </center>
-                                              </form>
-                                            </div>
-                                          </div>
-                                        </div>
-                                        <div id="results10"></div>
-                                        <div class="row">
-                                          <div class="col-sm-12">
-                                            <div class="card-content">
-                                              <h3 class="card-title">Corps de page</h3>
-                                            </div>
-                                          </div>
-                                        </div>
-                                        <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-                                        <div class="row">
-                                          <div class="col-sm-6">
-                                            <div class="card-content">
-                                              <div class="form-group label-floating">
-                                                <label class="control-label">Description</label>
-                                                <textarea rows="12" type="text" name="description1" id="description1" class="form-control"><?php echo $description1; ?></textarea>
-                                              </div>
-                                            </div>
-                                            <center>
+   <?php
+   require_once('includes/navbar.php');
+   ?>
 
-                                                <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<br />');return false;">Saut de ligne </button>
-                                                <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<u>Texte souligné</u>');return false;">Souligner</button>
-                                                <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>');return false;">Liste</button>
-                                                <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<strong>Texte en gras</strong>');return false;">Gras</button>
-                                                <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<i>Texte en Italic</i>');return false;">Italic</button>
-                                                <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<sub>Texte en Indice</sub>');return false;">Indice</button>
-                                                <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>');return false;">Surligner</button>
+    <div class="content">
+      <div class="container-fluid">
+        <div class="card">
+          <div class="card-content">
+            <h2 class="card-title text-center">Modification page présentation association</h2>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="card-content">
+                  <h3 class="card-title">En-tête de page</h3>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="card-content">
+                  <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+                    <h3 class="card-title text-center">Image d'Arrière plan</h3>
+                    <br>
+                    <center>
+                      <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                        <div class="fileinput-new thumbnail">
+                          <img src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/<?php echo $image; ?>" alt="...">
+                        </div>
+                        <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                        <br><br>
+                        <div>
+                          <span class="btn btn-rose btn-round btn-file">
+                            <span class="fileinput-new">Selection image</span>
+                            <span class="fileinput-exists">Changer</span>
+                            <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple" />
+                          </span>
+                          <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
+                          <button type="submit" name="envoieimageprezasso" class="btn btn-primary btn-round btn-rose">Modifier l'image</button>
+                        </div>
+                      </div>
+                    </center>
+                  </form>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="card-content">
+                  <form action="" method="post" id="myForm1" class="contact-form">
+                    <h3 class="card-title text-center">Titres de la page</h3>
+                    <br><br>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Titre de la page</label>
+                      <input type="text" class="form-control" value="<?php echo $pagetitre; ?>" name="pagetitre" id="pagetitre">
+                    </div>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Titre</label>
+                      <input type="text" class="form-control" value="<?php echo $titre1; ?>" name="titre1" id="titre1">
+                    </div>
+                    <br>
+                    <center>
+                      <button id="submitFormDataPageAsso2" onclick="SubmitFormDataPageAsso2();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                    </center>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div id="results10"></div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="card-content">
+                  <h3 class="card-title">Corps de page</h3>
+                </div>
+              </div>
+            </div>
+            <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="card-content">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Description</label>
+                      <textarea rows="12" type="text" name="description1" id="description1" class="form-control"><?php echo $description1; ?></textarea>
+                    </div>
+                  </div>
+                  <center>
+                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<br />');return false;">Saut de ligne </button>
+                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<u>Texte souligné</u>');return false;">Souligner</button>
+                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>');return false;">Liste</button>
+                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<strong>Texte en gras</strong>');return false;">Gras</button>
+                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<i>Texte en Italic</i>');return false;">Italic</button>
+                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<sub>Texte en Indice</sub>');return false;">Indice</button>
+                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description1', '<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>');return false;">Surligner</button>
+                  </center>
+                </div>
+                <div class="col-sm-6">
+                  <div class="card-content">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Description</label>
+                      <textarea rows="12" type="text" name="description2" id="description2" class="form-control"><?php echo $description2; ?></textarea>
+                    </div>
+                  </div>
+                  <center>
+                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<br />');return false;">Saut de ligne </button>
+                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<u>Texte souligné</u>');return false;">Souligner</button>
+                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>');return false;">Liste</button>
+                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<strong>Texte en gras</strong>');return false;">Gras</button>
+                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<i>Texte en Italic</i>');return false;">Italic</button>
+                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<sub>Texte en Indice</sub>');return false;">Indice</button>
+                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>');return false;">Surligner</button>
+                  </center>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="card-content">
+                    <center>
+                      <button id="submitFormDataPageAsso" onclick="SubmitFormDataPageAsso();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                    </center>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="card-content">
+                  <h3 class="card-title">Ajouter des photos au Carousel</h3>
+                </div>
+              </div>
+            </div>
+            <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+              <div class="row">
+                <div class="col-sm-9">
+                  <div class="card-content">
+                    <div class="form-group form-file-upload">
+                      <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
+                      <div class="input-group">
+                        <input type="text" readonly="" class="form-control" placeholder="Sélectionner les images à importer">
+                        <span class="input-group-btn input-group-s">
+                          <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
+                            <i class="material-icons">layers</i>
+                          </button>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="card-content">
+                    <center>
+                      <button type="submit" name="envoieimageprezassocarousel" class="btn btn-primary btn-round btn-rose">Envoyer les images</button>
+                    </center>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <div id="results3"></div>
 
-                                            </center>
-                                          </div>
-                                        <div class="col-sm-6">
-                                          <div class="card-content">
-                                            <div class="form-group label-floating">
-                                              <label class="control-label">Description</label>
-                                              <textarea rows="12" type="text" name="description2" id="description2" class="form-control"><?php echo $description2; ?></textarea>
-                                            </div>
-                                          </div>
-                                          <center>
-                                            <center>
-                                              <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<br />');return false;">Saut de ligne </button>
-                                              <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<u>Texte souligné</u>');return false;">Souligner</button>
-                                              <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>');return false;">Liste</button>
-                                              <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<strong>Texte en gras</strong>');return false;">Gras</button>
-                                              <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<i>Texte en Italic</i>');return false;">Italic</button>
-                                              <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<sub>Texte en Indice</sub>');return false;">Indice</button>
-                                              <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>');return false;">Surligner</button>
-                                            </center>
-                                          </center>
-                                        </div>
-                                      </div>
-                                      <div class="row">
-                                        <div class="col-sm-12">
-                                          <div class="card-content">
-                                            <center>
-                                              <button id="submitFormDataPageAsso" onclick="SubmitFormDataPageAsso();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
-                                            </center>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </form>
-                                    <div class="row">
-                                      <div class="col-sm-12">
-                                        <div class="card-content">
-                                          <h3 class="card-title">Ajouter des photos au Carousel</h3>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-                                      <div class="row">
-                                        <div class="col-sm-9">
-                                          <div class="card-content">
-                                            <div class="form-group form-file-upload">
-                                              <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
-                                              <div class="input-group">
-                                                <input type="text" readonly="" class="form-control" placeholder="Sélectionner les images à importer">
-                                                <span class="input-group-btn input-group-s">
-                                                  <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
-                                                    <i class="material-icons">layers</i>
-                                                  </button>
-                                                </span>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                        <div class="col-sm-3">
-                                          <div class="card-content">
-                                            <center>
-                                              <button type="submit" name="envoieimageprezassocarousel" class="btn btn-primary btn-round btn-rose">Envoyer les images</button>
-                                            </center>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </form>
-                                    <div id="results3"></div>
+<script>
+$(document).ready(function(){
+var $recherche =$('input[name=valeur]');
+var critere;
+$recherche.keyup(function(){
+critere = $.trim($recherche.val());
+if(critere!=''){
+  $.get('gestionrechercheimagecarouselpageasso.php?critere='+critere,function(retour){
+$('#resultat').html(retour).fadeIn();
+});
+}else $('#resultat').empty().fadeOut();
+});
+});
+</script>
 
-    <script>
-    $(document).ready(function(){
-    var $recherche =$('input[name=valeur]');
-    var critere;
-    $recherche.keyup(function(){
-    critere = $.trim($recherche.val());
-    if(critere!=''){
-      $.get('gestionrechercheimagecarouselpageasso.php?critere='+critere,function(retour){
-    $('#resultat').html(retour).fadeIn();
-    });
-    }else $('#resultat').empty().fadeOut();
-    });
-    });
-    </script>
-
-
-    <?php
-    if(isset($_GET['action'])){
-    if($_GET['action']=='delete'){
-    $id=$_GET['id'];
-    $selectnom = $db->query("SELECT * FROM carousel WHERE id='$id'");
-    $rname = $selectnom->fetch(PDO::FETCH_OBJ);
-    $valnom = $rname->image;
-    $target_dir = '../../../JamFichiers/Img/ImagesDuSite/Original';
-    $target_dirthumb = '../../../JamFichiers/Img/ImagesDuSite/Thumb';
-    if (file_exists($target_dir)){
-    unlink("$target_dir/$valnom");
-    $updatedelete = $db->prepare("DELETE FROM carousel WHERE image=:image");
-    $updatedelete->execute(array(
-      "image"=>$valnom
-    ));
-    unlink("$target_dirthumb/$valnom");
-    $messagenotif = "Le fichier.$valnom. à bien été supprimé";
-    $type = "success";
-    }else{
-    $messagenotif = 'Un problème de répertoire est présent, contacter votre administrateur !';
-    $type = "warning";
-    }
-    ?>
-    <script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=association&table=pageasso"</script>
-    <?php
-    }
-    }
-    ?>
-
-                                  <div class="row">
-                                    <div class="col-sm-12">
-                                      <div class="card-content">
-                                        <h3 class="card-title">Supprimer des photos du Carousel</h3>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="row">
-                                    <div class="col-md-6 col-md-offset-3">
-                                      <div class="card-content">
-                                        <input type="text" class="form-control" name="valeur" placeholder="Saisir nom ou la catégorie de la photo à supprimer">
-                                      </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                      <div class="card-content">
-                                        <p id='resultat'></p>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="card-content">
+                  <h3 class="card-title">Supprimer des photos du Carousel</h3>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 col-md-offset-3">
+                <div class="card-content">
+                  <input type="text" class="form-control" name="valeur" placeholder="Saisir nom ou la catégorie de la photo à supprimer">
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <div class="card-content">
+                  <p id='resultat'></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
 
 <?php
 }else if ($_GET['page']=='membre'){
@@ -1440,14 +1433,14 @@ if ($uploadOk == 0) {
    require_once('includes/navbar.php');
    ?>
 
-  <div class="content">
-    <div class="container-fluid">
-      <div class="card">
-        <div class="card-content">
-          <h2 class="card-title text-center">Modification des informations d'un membre</h2>
-          <br><br>
-          <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-            <div class="row">
+    <div class="content">
+      <div class="container-fluid">
+        <div class="card">
+          <div class="card-content">
+            <h2 class="card-title text-center">Modification des informations d'un membre</h2>
+            <br><br>
+            <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+              <div class="row">
                 <div class="col-sm-5">
                   <div class="card-content">
                     <div class="form-group label-floating">
@@ -1513,22 +1506,22 @@ if ($uploadOk == 0) {
                   <div class="card-content">
                     <br><br>
                     <center>
-                    <div class="fileinput fileinput-new text-center" data-provides="fileinput">
-                      <div class="fileinput-new thumbnail img-circle">
-                        <img src="https://jam-mdm.fr/JamFichiers/Img/Membres/Original/<?php echo $image; ?>" alt="...">
+                      <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                        <div class="fileinput-new thumbnail img-circle">
+                          <img src="https://jam-mdm.fr/JamFichiers/Img/Membres/Original/<?php echo $image; ?>" alt="...">
+                        </div>
+                        <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
+                        <div>
+                          <span class="btn btn-round btn-rose btn-file">
+                            <span class="fileinput-new">Selection Image</span>
+                            <span class="fileinput-exists">Changer</span>
+                            <input  type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple" />
+                          </span>
+                          <br>
+                          <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
+                        </div>
                       </div>
-                      <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
-                      <div>
-                        <span class="btn btn-round btn-rose btn-file">
-                          <span class="fileinput-new">Selection Image</span>
-                          <span class="fileinput-exists">Changer</span>
-                          <input  type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple" />
-                        </span>
-                        <br>
-                        <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
-                      </div>
-                    </div>
-                  </center>
+                    </center>
                   </div>
                 </div>
               </div>
@@ -1546,9 +1539,11 @@ if ($uploadOk == 0) {
             </form>
           </div>
           <div id="results4"></div>
+        </div>
       </div>
     </div>
   </div>
+</body>
 
   <?php
 }else if(isset($_GET['deletemembre'])){
@@ -1583,12 +1578,7 @@ if ($uploadOk == 0) {
   }
 }else{
 //modif page membre
-?>
 
-
-
-
-<?php
 $selectinfosactuel4 = $db->prepare("SELECT * from photopage where nompage=:nompage");
 $selectinfosactuel4->execute(array(
   "nompage"=>'Présentation des membres'
@@ -1610,8 +1600,6 @@ $titre = $r4->titre;
      });
  }
  </script>
-
-
 
  <!-- Ajoutd'images au site web (assets)-->
  <?php
@@ -1729,6 +1717,131 @@ $titre = $r4->titre;
      require('includes/miseajourdusite.php');
            } ?>
 
+           <!-- Ajoutd'images au site web (assets)-->
+           <?php
+           if(isset($_POST['submitnewmembre'])){
+                 $target_dir = "../../../JamFichiers/Img/Membres";
+                 $nom = $_POST['nom'];
+                 $description = $_POST['description'];
+                 $grademembre = $_POST['grademembre'];
+                 $importancegrade = $_POST['importancegrade'];
+                 $fonction = $_POST['fonction'];
+                 $original = 'Original';
+                 if (file_exists($target_dir/$original)) {
+                   $target_dirnew = "$target_dir/$original/";
+                 }else{
+                   mkdir("$target_dir/$original", 0700);
+                   $target_dirnew = "$target_dir/$original/";
+                 }
+                 //Ajout thumb
+                 $thumb = 'Thumb';
+                 if (file_exists($target_dir/$thumb)) {
+                   $target_dirnewthumb = "$target_dir/$thumb/";
+                 }else{
+                   mkdir("$target_dir/$thumb", 0700);
+                   $target_dirnewthumb = "$target_dir/$thumb/";
+                 }
+                 //FIN
+           $total = count($_FILES['fileToUpload']['name']);
+           for( $i=0 ; $i < $total ; $i++ ) {
+           $target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
+           $uploadOk = 1;
+           $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+           // Check if file already exists
+           if (file_exists($target_file)) {
+               $messagenotif = 'Désolé, le fichier existe déja.';
+               $type = "warning";
+               $uploadOk = 0;
+           }
+           // Check file size < 2mo
+           if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
+               $messagenotif = 'Désolé, le fichier est trop grand.';
+               $type = "warning";
+               $uploadOk = 0;
+           }
+           // Allow certain file formats
+           if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
+               $messagenotif = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+               $type = "warning";
+               $uploadOk = 0;
+           }
+           // Check if $uploadOk is set to 0 by an error
+           if ($uploadOk == 0) {
+               $messagenotif = 'Désolé, une erreur est survenue.';
+               $type = "warning";
+           // if everything is ok, try to upload file
+           } else {
+             date_default_timezone_set('Europe/Paris');
+             setlocale(LC_TIME, 'fr_FR.utf8','fra');
+             $date = strftime('%d:%m:%y %H:%M:%S');
+             $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
+             $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
+             $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
+               if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
+                   $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+                   $type = "success";
+                   $status = '1';
+                   $insert = $db->prepare("INSERT INTO membres (nom, image, description, categorie, importance, fonction) VALUES (:nom, :image, :description, :grademembre, :importancegrade, :fonction)");
+                   $insert->execute(array(
+                       "nom"=>$nom,
+                       "image"=>$target_filefile,
+                       "description"=>$description,
+                       "grademembre"=>$grademembre,
+                       "importancegrade"=>$importancegrade,
+                       "fonction"=>$fonction
+                       )
+                   );
+                   date_default_timezone_set('Europe/Paris');
+                   setlocale(LC_TIME, 'fr_FR.utf8','fra');
+                   $date = strftime('%d/%m/%Y %H:%M:%S');
+                   $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
+                   $insertlogs->execute(array(
+                                       "user_id"=>$user_id,
+                                       "type"=>'Ajout',
+                                       "action"=>'Ajout de membres',
+                                       "page"=>'membre.php',
+                                       "date"=>$date
+                                       )
+                                   );
+                   $img_tmp = $target_dirnew.$target_filefile;
+                   $fin = $target_dirnewthumb.$target_filefile;
+                     //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
+                       $longueur = 300;
+                       $largeur = 220;
+                       //TAILLE DE L'IMAGE ACTUELLE
+                       $taille = getimagesize($img_tmp);
+                       //SI LE FICHIER EXISTE
+                       if ($taille) {
+                           //SI JPG
+                           if ($taille['mime']=='image/jpeg' ) {
+                                     //OUVERTURE DE L'IMAGE ORIGINALE
+                                       $img_big = imagecreatefromjpeg($img_tmp);
+                                       $img_new = imagecreate($longueur, $largeur);
+                                     //CREATION DE LA MINIATURE
+                                       $img_petite = imagecreatetruecolor($longueur, $largeur) or $img_petite = imagecreate($longueur, $largeur);
+                                       //COPIE DE L'IMAGE REDIMENSIONNEE
+                                       imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
+                                       imagejpeg($img_petite,$fin);
+                           }
+                         //SI PNG
+                       else if ($taille['mime']=='image/png' ) {
+                                       //OUVERTURE DE L'IMAGE ORIGINALE
+                                       $img_big = imagecreatefrompng($img_tmp); // On ouvre l'image d'origine
+                                       $img_new = imagecreate($longueur, $largeur);
+                                       //CREATION DE LA MINIATURE
+                                       $img_petite = imagecreatetruecolor($longueur, $largeur) OR $img_petite = imagecreate($longueur, $largeur);
+                                       //COPIE DE L'IMAGE REDIMENSIONNEE
+                                       imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
+                                       imagepng($img_petite,$fin);
+                                   }
+                           }
+               }else {
+                   $messagenotif = 'Désolé, une erreur est survenue.';
+                   $type = "warning";
+               } } }
+               require('includes/miseajourdusite.php');
+                     } ?>
+
 <body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
  <div class="wrapper">
 
@@ -1736,81 +1849,74 @@ $titre = $r4->titre;
   require_once('includes/navbar.php');
   ?>
 
-<div class="content">
-  <div class="container-fluid">
-    <div class="card">
-      <div class="card-content">
-        <h2 class="card-title text-center">Modification page présentation membres</h2>
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="card-content">
-                <h3 class="card-title">En-tête de page</h3>
+    <div class="content">
+      <div class="container-fluid">
+        <div class="card">
+          <div class="card-content">
+            <h2 class="card-title text-center">Modification page présentation membres</h2>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="card-content">
+                  <h3 class="card-title">En-tête de page</h3>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="card-content">
-                <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-                  <h3 class="card-title text-center">Image d'Arrière plan</h3>
-                  <br>
-                  <center>
-                    <div class="fileinput fileinput-new text-center" data-provides="fileinput">
-                      <div class="fileinput-new thumbnail">
-                        <img src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/<?php echo $image; ?>" alt="...">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="card-content">
+                  <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+                    <h3 class="card-title text-center">Image d'Arrière plan</h3>
+                    <br>
+                    <center>
+                      <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                        <div class="fileinput-new thumbnail">
+                          <img src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/<?php echo $image; ?>" alt="...">
+                        </div>
+                        <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                        <br><br>
+                        <div>
+                          <span class="btn btn-rose btn-round btn-file">
+                            <span class="fileinput-new">Selection image</span>
+                            <span class="fileinput-exists">Changer</span>
+                            <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple" />
+                          </span>
+                          <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
+                          <button type="submit" name="envoieimagemembre" class="btn btn-primary btn-round btn-rose">Modifier l'image</button>
+                        </div>
                       </div>
-                      <div class="fileinput-preview fileinput-exists thumbnail"></div>
-                      <br><br>
-                      <div>
-                        <span class="btn btn-rose btn-round btn-file">
-                          <span class="fileinput-new">Selection image</span>
-                          <span class="fileinput-exists">Changer</span>
-                          <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple" />
-                        </span>
-                        <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
-                        <button type="submit" name="envoieimagemembre" class="btn btn-primary btn-round btn-rose">Modifier l'image</button>
-                      </div>
+                    </center>
+                  </form>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="card-content">
+                  <form action="" method="post" id="myForm1" class="contact-form">
+                    <h3 class="card-title text-center">Titres de la page</h3>
+                    <br><br>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Titre de la page</label>
+                      <input type="text" class="form-control" value="<?php echo $pagetitre; ?>" name="pagetitre" id="pagetitre">
                     </div>
-                  </center>
-                </form>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Titre</label>
+                      <input type="text" name="titre" value="<?php echo $titre; ?>" id="titre" class="form-control">
+                    </div>
+                    <br>
+                    <center>
+                      <button id="submitFormDataMembre" onclick="SubmitFormDataMembre();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                    </center>
+                  </form>
+                </div>
               </div>
             </div>
-          <div class="col-sm-6">
-            <div class="card-content">
-              <form action="" method="post" id="myForm1" class="contact-form">
-                <h3 class="card-title text-center">Titres de la page</h3>
-                <br><br>
-                <div class="form-group label-floating">
-                  <label class="control-label">Titre de la page</label>
-                  <input type="text" class="form-control" value="<?php echo $pagetitre; ?>" name="pagetitre" id="pagetitre">
+            <div id="results10"></div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="card-content">
+                  <h3 class="card-title">Liste des Membres du Bureau</h3>
                 </div>
-                <div class="form-group label-floating">
-                  <label class="control-label">Titre</label>
-                  <input type="text" name="titre" value="<?php echo $titre; ?>" id="titre" class="form-control">
-                </div>
-                <br>
-                <center>
-                  <button id="submitFormDataMembre" onclick="SubmitFormDataMembre();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
-                </center>
-              </form>
+              </div>
             </div>
-          </div>
-        </div>
-        <div id="results10"></div>
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="card-content">
-              <h3 class="card-title">Liste des Membres du Bureau</h3>
-            </div>
-          </div>
-        </div>
-
-
-
-
-
-
-
 
 <?php
       $selectnom = $db->prepare("SELECT id, image, nom, categorie, importance, fonction, description FROM membres ORDER BY categorie DESC, importance");
@@ -1818,15 +1924,15 @@ $titre = $r4->titre;
       $table = $selectnom->fetchAll(PDO::FETCH_OBJ);
       if(count($table)>0){
       echo '
-     <div class="table-responsive">
-       <table class="table">
-         <thead class="text-primary">
-           <th class="text-center">Nom</th>
-           <th class="text-center">Image</th>
-           <th class="text-center">Fonction</th>
-           <th class="text-center">Action</th>
-         </thead>
-         <tbody>
+            <div class="table-responsive">
+              <table class="table">
+                <thead class="text-primary">
+                  <th class="text-center">Nom</th>
+                  <th class="text-center">Image</th>
+                  <th class="text-center">Fonction</th>
+                  <th class="text-center">Action</th>
+                </thead>
+                <tbody>
          ';
         foreach($table as $ligne){
           $id = $ligne->id;
@@ -1834,242 +1940,116 @@ $titre = $r4->titre;
           $image = $ligne->image;
           $fonction = $ligne->fonction;
           echo '
-          <tr>
-            <td class="text-center">'.$nom.'</td>
-            <td class="text-center">'.$image.'</td>
-            <td class="text-center">'.$fonction.'</td>
-            <td class="text-center">
-              <a href="?page=membre&amp;table=membres&amp;modifmembre='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Modifier</button></a>
-              <a href="?page=membre&amp;table=membres&amp;deletemembre='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Supprimer</button></a>
-            </td>
-          </tr>
+                  <tr>
+                    <td class="text-center">'.$nom.'</td>
+                    <td class="text-center">'.$image.'</td>
+                    <td class="text-center">'.$fonction.'</td>
+                    <td class="text-center">
+                      <a href="?page=membre&amp;table=membres&amp;modifmembre='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Modifier</button></a>
+                      <a href="?page=membre&amp;table=membres&amp;deletemembre='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Supprimer</button></a>
+                    </td>
+                  </tr>
           ';
         }
         echo'
-        </tbody>
-      </table>
-    </div>
+                </tbody>
+              </table>
+            </div>
     ';
       }else{ ?>
 
-        <center>
-            <h4 class="info-title"><font color="red">Aucune personne trouvée</font></h4>
-        </center>
+            <center>
+              <h4 class="info-title"><font color="red">Aucune personne trouvée</font></h4>
+            </center>
 
-      <?php } ?>
+        <?php } ?>
 
-<div class="row">
-  <div class="col-sm-12">
-    <div class="card-content">
-      <h3 class="card-title">Création d'un membre</h3>
-    </div>
-  </div>
-</div>
-
-
-<!-- Ajoutd'images au site web (assets)-->
-<?php
-if(isset($_POST['submitnewmembre'])){
-      $target_dir = "../../../JamFichiers/Img/Membres";
-      $nom = $_POST['nom'];
-      $description = $_POST['description'];
-      $grademembre = $_POST['grademembre'];
-      $importancegrade = $_POST['importancegrade'];
-      $fonction = $_POST['fonction'];
-      $original = 'Original';
-      if (file_exists($target_dir/$original)) {
-        $target_dirnew = "$target_dir/$original/";
-      }else{
-        mkdir("$target_dir/$original", 0700);
-        $target_dirnew = "$target_dir/$original/";
-      }
-      //Ajout thumb
-      $thumb = 'Thumb';
-      if (file_exists($target_dir/$thumb)) {
-        $target_dirnewthumb = "$target_dir/$thumb/";
-      }else{
-        mkdir("$target_dir/$thumb", 0700);
-        $target_dirnewthumb = "$target_dir/$thumb/";
-      }
-      //FIN
-$total = count($_FILES['fileToUpload']['name']);
-for( $i=0 ; $i < $total ; $i++ ) {
-$target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
-$uploadOk = 1;
-$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-// Check if file already exists
-if (file_exists($target_file)) {
-    $messagenotif = 'Désolé, le fichier existe déja.';
-    $type = "warning";
-    $uploadOk = 0;
-}
-// Check file size < 2mo
-if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
-    $messagenotif = 'Désolé, le fichier est trop grand.';
-    $type = "warning";
-    $uploadOk = 0;
-}
-// Allow certain file formats
-if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-    $messagenotif = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
-    $type = "warning";
-    $uploadOk = 0;
-}
-// Check if $uploadOk is set to 0 by an error
-if ($uploadOk == 0) {
-    $messagenotif = 'Désolé, une erreur est survenue.';
-    $type = "warning";
-// if everything is ok, try to upload file
-} else {
-  date_default_timezone_set('Europe/Paris');
-  setlocale(LC_TIME, 'fr_FR.utf8','fra');
-  $date = strftime('%d:%m:%y %H:%M:%S');
-  $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
-  $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
-  $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
-    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
-        $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
-        $type = "success";
-        $status = '1';
-        $insert = $db->prepare("INSERT INTO membres (nom, image, description, categorie, importance, fonction) VALUES (:nom, :image, :description, :grademembre, :importancegrade, :fonction)");
-        $insert->execute(array(
-            "nom"=>$nom,
-            "image"=>$target_filefile,
-            "description"=>$description,
-            "grademembre"=>$grademembre,
-            "importancegrade"=>$importancegrade,
-            "fonction"=>$fonction
-            )
-        );
-        date_default_timezone_set('Europe/Paris');
-        setlocale(LC_TIME, 'fr_FR.utf8','fra');
-        $date = strftime('%d/%m/%Y %H:%M:%S');
-        $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
-        $insertlogs->execute(array(
-                            "user_id"=>$user_id,
-                            "type"=>'Ajout',
-                            "action"=>'Ajout de membres',
-                            "page"=>'membre.php',
-                            "date"=>$date
-                            )
-                        );
-        $img_tmp = $target_dirnew.$target_filefile;
-        $fin = $target_dirnewthumb.$target_filefile;
-          //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
-            $longueur = 300;
-            $largeur = 220;
-            //TAILLE DE L'IMAGE ACTUELLE
-            $taille = getimagesize($img_tmp);
-            //SI LE FICHIER EXISTE
-            if ($taille) {
-                //SI JPG
-                if ($taille['mime']=='image/jpeg' ) {
-                          //OUVERTURE DE L'IMAGE ORIGINALE
-                            $img_big = imagecreatefromjpeg($img_tmp);
-                            $img_new = imagecreate($longueur, $largeur);
-                          //CREATION DE LA MINIATURE
-                            $img_petite = imagecreatetruecolor($longueur, $largeur) or $img_petite = imagecreate($longueur, $largeur);
-                            //COPIE DE L'IMAGE REDIMENSIONNEE
-                            imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
-                            imagejpeg($img_petite,$fin);
-                }
-              //SI PNG
-            else if ($taille['mime']=='image/png' ) {
-                            //OUVERTURE DE L'IMAGE ORIGINALE
-                            $img_big = imagecreatefrompng($img_tmp); // On ouvre l'image d'origine
-                            $img_new = imagecreate($longueur, $largeur);
-                            //CREATION DE LA MINIATURE
-                            $img_petite = imagecreatetruecolor($longueur, $largeur) OR $img_petite = imagecreate($longueur, $largeur);
-                            //COPIE DE L'IMAGE REDIMENSIONNEE
-                            imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
-                            imagepng($img_petite,$fin);
-                        }
-                }
-    }else {
-        $messagenotif = 'Désolé, une erreur est survenue.';
-        $type = "warning";
-    } } }
-    require('includes/miseajourdusite.php');
-          } ?>
-
-              <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-                <div class="row">
-                    <div class="col-sm-5">
-                      <div class="card-content">
-                        <div class="form-group label-floating">
-                          <label class="control-label">Prénom et Nom</label>
-                          <input type="text" class="form-control" name="nom" id="nom">
-                        </div>
-                        <div class="form-group label-floating">
-                          <label class="control-label">Description</label>
-                          <textarea rows="6" type="text" name="description" value="Description du Membre" id="description" class="form-control"></textarea>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="card-content">
-                        <br>
-                        <div class="jquerysel">
-                          <select class="selectpicker" data-style="select-with-transition" title="Fonction" data-size="7" id="grademembre" name="grademembre">
-                            <option value="pres">Présidence</option>
-                            <option value="tres">Secrétaire</option>
-                            <option value="secr">Trésorier</option>
-                            <option value="com">Communication</option>
-                          </select>
-                        </div>
-                        <br>
-                        <div class="jquerysel">
-                          <select class="selectpicker" data-style="select-with-transition" title="Grade" data-size="7" id="importancegrade" name="importancegrade">
-                            <option value="1">Responsable</option>
-                            <option value="2">Vice</option>
-                            <option value="3">Honneur</option>
-                          </select>
-                        </div>
-                        <br>
-                        <div class="form-group label-floating">
-                          <label class="control-label">Nom complet de la Fonction</label>
-                          <input type="text" name="fonction" id="fonction" class="form-control">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-sm-3">
-                      <div class="card-content">
-                        <br><br>
-                        <center>
-                        <div class="fileinput fileinput-new text-center" data-provides="fileinput">
-                          <div class="fileinput-new thumbnail img-circle">
-                            <img src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/placeholder.jpg" alt="...">
-                          </div>
-                          <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
-                          <div>
-                            <span class="btn btn-round btn-rose btn-file">
-                              <span class="fileinput-new">Selection Image</span>
-                              <span class="fileinput-exists">Changer</span>
-                              <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple" />
-                            </span>
-                            <br>
-                            <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
-                          </div>
-                        </div>
-                      </center>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <div class="card-content">
-                        <center>
-                          <button type="submit" name="submitnewmembre" class="btn btn-primary btn-round btn-rose">Créer un membre</button>
-                        </center>
-                      </div>
-                    </div>
-                  </div>
-                </form>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="card-content">
+                  <h3 class="card-title">Création d'un membre</h3>
+                </div>
               </div>
             </div>
+            <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+              <div class="row">
+                <div class="col-sm-5">
+                  <div class="card-content">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Prénom et Nom</label>
+                      <input type="text" class="form-control" name="nom" id="nom">
+                    </div>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Description</label>
+                      <textarea rows="6" type="text" name="description" value="Description du Membre" id="description" class="form-control"></textarea>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="card-content">
+                    <br>
+                    <div class="jquerysel">
+                      <select class="selectpicker" data-style="select-with-transition" title="Fonction" data-size="7" id="grademembre" name="grademembre">
+                        <option value="pres">Présidence</option>
+                        <option value="tres">Secrétaire</option>
+                        <option value="secr">Trésorier</option>
+                        <option value="com">Communication</option>
+                      </select>
+                    </div>
+                    <br>
+                    <div class="jquerysel">
+                      <select class="selectpicker" data-style="select-with-transition" title="Grade" data-size="7" id="importancegrade" name="importancegrade">
+                        <option value="1">Responsable</option>
+                        <option value="2">Vice</option>
+                        <option value="3">Honneur</option>
+                      </select>
+                    </div>
+                    <br>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Nom complet de la Fonction</label>
+                      <input type="text" name="fonction" id="fonction" class="form-control">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="card-content">
+                    <br><br>
+                    <center>
+                      <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                        <div class="fileinput-new thumbnail img-circle">
+                          <img src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/placeholder.jpg" alt="...">
+                        </div>
+                        <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
+                        <div>
+                          <span class="btn btn-round btn-rose btn-file">
+                            <span class="fileinput-new">Selection Image</span>
+                            <span class="fileinput-exists">Changer</span>
+                            <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple" />
+                          </span>
+                          <br>
+                          <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
+                        </div>
+                      </div>
+                    </center>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="card-content">
+                    <center>
+                      <button type="submit" name="submitnewmembre" class="btn btn-primary btn-round btn-rose">Créer un membre</button>
+                    </center>
+                  </div>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</body>
 
 <?php
 if(isset($_POST['submitphotomembre'])){
@@ -2219,56 +2199,58 @@ function RetourIndex3(){
    require_once('includes/navbar.php');
    ?>
 
-  <div class="content">
-    <div class="container-fluid">
-      <div class="card">
-        <div class="card-content">
-          <h2 class="card-title text-center">Modification d'un statuts</h2>
-          <br><br>
+    <div class="content">
+      <div class="container-fluid">
+        <div class="card">
+          <div class="card-content">
+            <h2 class="card-title text-center">Modification d'un statuts</h2>
+            <br><br>
             <form action="" method="post" id="myForm1" class="contact-form">
               <div class="row">
-                  <div class="col-sm-6">
-                    <div class="card-content">
-                      <div class="form-group label-floating">
-                        <label class="control-label">Numéro de l'Article</label>
-                        <input type="text" class="form-control" value="<?php echo $article; ?>" name="article" id="article">
-                      </div>
-                      <div class="form-group label-floating">
-                        <label class="control-label">Titre</label>
-                        <input type="text" name="titrestatus" value="<?php echo $titre; ?>" id="titre" class="form-control">
-                      </div>
-                      <div class="form-group label-floating">
-                        <label class="control-label">Sous Titre (Optionel)</label>
-                        <input type="text" name="soustitre" value="<?php echo $soustitre; ?>" id="soustitre" class="form-control">
-                      </div>
+                <div class="col-sm-6">
+                  <div class="card-content">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Numéro de l'Article</label>
+                      <input type="text" class="form-control" value="<?php echo $article; ?>" name="article" id="article">
                     </div>
-                  </div>
-                  <div class="col-sm-6">
-                    <div class="card-content">
-                      <div class="form-group label-floating">
-                        <label class="control-label">Description</label>
-                        <textarea rows="9" type="text" name="description" value="Description du Status" id="description" class="form-control"><?php echo $description; ?></textarea>
-                      </div>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Titre</label>
+                      <input type="text" name="titrestatus" value="<?php echo $titre; ?>" id="titre" class="form-control">
+                    </div>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Sous Titre (Optionel)</label>
+                      <input type="text" name="soustitre" value="<?php echo $soustitre; ?>" id="soustitre" class="form-control">
                     </div>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col-sm-12">
-                    <div class="card-content">
-                      <center>
-                        <button id="submitFormDataModifStatus" onclick="SubmitFormDataModifStatus();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
-                        <button onclick="RetourIndex3();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
-                      </center>
-                      <br><br>
+                <div class="col-sm-6">
+                  <div class="card-content">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Description</label>
+                      <textarea rows="9" type="text" name="description" value="Description du Status" id="description" class="form-control"><?php echo $description; ?></textarea>
                     </div>
                   </div>
                 </div>
-              </form>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="card-content">
+                    <center>
+                      <button id="submitFormDataModifStatus" onclick="SubmitFormDataModifStatus();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                      <button onclick="RetourIndex3();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
+                    </center>
+                    <br><br>
+                  </div>
+                </div>
+              </div>
+            </form>
             <div id="results6"></div>
-            </div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</body>
 
   <?php }else{
 $selectinfosactuel40 = $db->prepare("SELECT * from photopage where nompage=:nompage");
@@ -2422,81 +2404,81 @@ if ($uploadOk == 0) {
 }
           ?>
 
-        <body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
-          <div class="wrapper">
+<body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
+  <div class="wrapper">
 
-           <?php
-           require_once('includes/navbar.php');
-           ?>
+   <?php
+   require_once('includes/navbar.php');
+   ?>
 
-          <div class="content">
-            <div class="container-fluid">
-              <div class="card">
+    <div class="content">
+      <div class="container-fluid">
+        <div class="card">
+          <div class="card-content">
+            <h2 class="card-title text-center">Modification page statuts</h2>
+            <div class="row">
+              <div class="col-sm-12">
                 <div class="card-content">
-                  <h2 class="card-title text-center">Modification page statuts</h2>
-                    <div class="row">
-                      <div class="col-sm-12">
-                        <div class="card-content">
-                          <h3 class="card-title">En-tête de page</h3>
+                  <h3 class="card-title">En-tête de page</h3>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="card-content">
+                  <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+                    <h3 class="card-title text-center">Image d'Arrière plan</h3>
+                    <br>
+                    <center>
+                      <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                        <div class="fileinput-new thumbnail">
+                          <img src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/<?php echo $image; ?>" alt="...">
+                        </div>
+                        <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                        <br><br>
+                        <div>
+                          <span class="btn btn-rose btn-round btn-file">
+                            <span class="fileinput-new">Selection image</span>
+                            <span class="fileinput-exists">Changer</span>
+                            <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple" />
+                          </span>
+                          <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
+                          <button type="submit" name="modifphotopagestatus" class="btn btn-primary btn-round btn-rose">Modifier l'image</button>
                         </div>
                       </div>
+                    </center>
+                  </form>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="card-content">
+                  <form action="" method="post" id="myForm1" class="contact-form">
+                    <h3 class="card-title text-center">Titres de la page</h3>
+                    <br><br>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Titre de la page</label>
+                      <input type="text" class="form-control" value="<?php echo $pagetitre; ?>" name="pagetitre" id="pagetitre">
                     </div>
-                    <div class="row">
-                      <div class="col-sm-6">
-                        <div class="card-content">
-                          <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-                            <h3 class="card-title text-center">Image d'Arrière plan</h3>
-                            <br>
-                            <center>
-                              <div class="fileinput fileinput-new text-center" data-provides="fileinput">
-                                <div class="fileinput-new thumbnail">
-                                  <img src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/<?php echo $image; ?>" alt="...">
-                                </div>
-                                <div class="fileinput-preview fileinput-exists thumbnail"></div>
-                                <br><br>
-                                <div>
-                                  <span class="btn btn-rose btn-round btn-file">
-                                    <span class="fileinput-new">Selection image</span>
-                                    <span class="fileinput-exists">Changer</span>
-                                    <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple" />
-                                  </span>
-                                  <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
-                                  <button type="submit" name="modifphotopagestatus" class="btn btn-primary btn-round btn-rose">Modifier l'image</button>
-                                </div>
-                              </div>
-                            </center>
-                          </form>
-                        </div>
-                      </div>
-                    <div class="col-sm-6">
-                      <div class="card-content">
-                        <form action="" method="post" id="myForm1" class="contact-form">
-                          <h3 class="card-title text-center">Titres de la page</h3>
-                          <br><br>
-                          <div class="form-group label-floating">
-                            <label class="control-label">Titre de la page</label>
-                            <input type="text" class="form-control" value="<?php echo $pagetitre; ?>" name="pagetitre" id="pagetitre">
-                          </div>
-                          <div class="form-group label-floating">
-                            <label class="control-label">Titre</label>
-                            <input type="text" name="titre" value="<?php echo $titre; ?>" id="titre" class="form-control">
-                          </div>
-                          <br>
-                          <center>
-                            <button id="submitFormDataStatusPage" onclick="SubmitFormDataStatusPage();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
-                          </center>
-                        </form>
-                      </div>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Titre</label>
+                      <input type="text" name="titre" value="<?php echo $titre; ?>" id="titre" class="form-control">
                     </div>
-                  </div>
-                  <div id="results23"></div>
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <div class="card-content">
-                        <h3 class="card-title">Liste des statuts</h3>
-                      </div>
-                    </div>
-                  </div>
+                    <br>
+                    <center>
+                      <button id="submitFormDataStatusPage" onclick="SubmitFormDataStatusPage();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                    </center>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div id="results23"></div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="card-content">
+                  <h3 class="card-title">Liste des statuts</h3>
+                </div>
+              </div>
+            </div>
 
   <?php
       $selectnom = $db->prepare("SELECT * FROM status ORDER BY article ASC");
@@ -2504,15 +2486,15 @@ if ($uploadOk == 0) {
       $table = $selectnom->fetchAll(PDO::FETCH_OBJ);
       if(count($table)>0){
         echo '
-        <div class="table-responsive">
-          <table class="table">
-            <thead class="text-primary">
-              <th class="text-center">Article</th>
-              <th class="text-left">Titre</th>
-              <th class="text-left">Sous titre</th>
-              <th class="text-center">Action</th>
-            </thead>
-            <tbody>
+            <div class="table-responsive">
+              <table class="table">
+                <thead class="text-primary">
+                  <th class="text-center">Article</th>
+                  <th class="text-left">Titre</th>
+                  <th class="text-left">Sous titre</th>
+                  <th class="text-center">Action</th>
+                </thead>
+                <tbody>
         ';
         foreach($table as $ligne){
           $id = $ligne->id;
@@ -2521,38 +2503,38 @@ if ($uploadOk == 0) {
           $soustitre = $ligne->soustitre;
           $description = $ligne->description;
           echo '
-          <tr>
-            <td class="text-center">'.$article.'</td>
-            <td class="text-left">'.$titre.'</td>
-            <td class="text-left">'.$soustitre.'</td>
-            <td class="text-center">
-              <a href="?page=status&amp;table=status&amp;modifstatus='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Modifier</button></a>
-              <a href="?page=status&amp;table=status&amp;deletestatus='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Supprimer</button></a>
-            </td>
-          </tr>
+                  <tr>
+                    <td class="text-center">'.$article.'</td>
+                    <td class="text-left">'.$titre.'</td>
+                    <td class="text-left">'.$soustitre.'</td>
+                    <td class="text-center">
+                      <a href="?page=status&amp;table=status&amp;modifstatus='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Modifier</button></a>
+                      <a href="?page=status&amp;table=status&amp;deletestatus='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Supprimer</button></a>
+                    </td>
+                  </tr>
           ';
         }
         echo '
-        </tbody>
-      </table>
-    </div>
+                </tbody>
+              </table>
+            </div>
         ';
 
       }else{ ?>
 
-        <center>
-            <h4 class="info-title"><font color="red">Aucun status trouvé</font></h4>
-        </center>
+            <center>
+              <h4 class="info-title"><font color="red">Aucun status trouvé</font></h4>
+            </center>
 
       <?php } ?>
 
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="card-content">
-          <h3 class="card-title">Création d'un statuts</h3>
-        </div>
-      </div>
-    </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="card-content">
+                  <h3 class="card-title">Création d'un statuts</h3>
+                </div>
+              </div>
+            </div>
 
 <script>
 function SubmitFormDataCreateStatus() {
@@ -2568,8 +2550,8 @@ function SubmitFormDataCreateStatus() {
 }
 </script>
 
-          <form action="" method="post" id="myForm1" class="contact-form">
-            <div class="row">
+            <form action="" method="post" id="myForm1" class="contact-form">
+              <div class="row">
                 <div class="col-sm-6">
                   <div class="card-content">
                     <div class="form-group label-floating">
@@ -2605,12 +2587,14 @@ function SubmitFormDataCreateStatus() {
                 </div>
               </div>
             </form>
-          <div id="results7"></div>
+            <div id="results7"></div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</body>
+
 
 <?php
 //FIn Création
@@ -2833,230 +2817,218 @@ if (file_exists($target_dir)){
    require_once('includes/navbar.php');
    ?>
 
-<div class="content">
-  <div class="container-fluid">
-    <div class="card">
-      <div class="card-content">
-        <h2 class="card-title text-center">Modification d'une actualités</h2>
-          <form action="" method="post" id="myForm1" class="contact-form">
-            <div class="row">
-              <div class="col-sm-12">
-                <div class="card-content">
-                  <h3 class="card-title">Modification actualité : <?php echo $title; ?></h3>
-                  <div class="form-group label-floating">
+    <div class="content">
+      <div class="container-fluid">
+        <div class="card">
+          <div class="card-content">
+            <h2 class="card-title text-center">Modification d'une actualités</h2>
+            <form action="" method="post" id="myForm1" class="contact-form">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="card-content">
+                    <h3 class="card-title">Modification actualité : <?php echo $title; ?></h3>
+                    <div class="form-group label-floating">
                       <label class="control-label">Titre</label>
                       <input type="text" class="form-control" value="<?php echo $title; ?>" name="title" id="title">
-                  </div>
-                  <div class="form-group label-floating">
+                    </div>
+                    <div class="form-group label-floating">
                       <label class="control-label">Description</label>
                       <textarea rows="5" name="description" id="description" class="form-control"><?php echo $description; ?></textarea>
-                  </div>
-                  <center>
-                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description', '<br />');return false;">Saut de ligne </button>
-                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description', '<u>Texte souligné</u>');return false;">Souligner</button>
-                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description', '<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>');return false;">Liste</button>
-                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description', '<strong>Texte en gras</strong>');return false;">Gras</button>
-                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description', '<i>Texte en Italic</i>');return false;">Italic</button>
-                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description', '<sub>Texte en Indice</sub>');return false;">Indice</button>
-                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description', '<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>');return false;">Surligner</button>
-                  </center>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-12">
-                <div class="card-content">
-                  <div class="form-group label-floating">
+                    </div>
+                    <center>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description', '<br />');return false;">Saut de ligne </button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description', '<u>Texte souligné</u>');return false;">Souligner</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description', '<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>');return false;">Liste</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description', '<strong>Texte en gras</strong>');return false;">Gras</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description', '<i>Texte en Italic</i>');return false;">Italic</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description', '<sub>Texte en Indice</sub>');return false;">Indice</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description', '<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>');return false;">Surligner</button>
+                    </center>
+                    <br>
+                    <div class="form-group label-floating">
                       <label class="control-label">Titre 2</label>
                       <input type="text" name="title2" value="<?php echo $title2; ?>" id="title2" class="form-control">
-                  </div>
-                  <div class="form-group label-floating">
+                    </div>
+                    <div class="form-group label-floating">
                       <label class="control-label">Description</label>
                       <textarea rows="5" name="description2" id="description2" class="form-control"><?php echo $description2; ?></textarea>
-                  </div>
-                  <center>
-                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<br />');return false;">Saut de ligne </button>
-                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<u>Texte souligné</u>');return false;">Souligner</button>
-                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>');return false;">Liste</button>
-                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<strong>Texte en gras</strong>');return false;">Gras</button>
-                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<i>Texte en Italic</i>');return false;">Italic</button>
-                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<sub>Texte en Indice</sub>');return false;">Indice</button>
-                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>');return false;">Surligner</button>
-                  </center>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-12">
-                <div class="card-content">
-                  <div class="form-group label-floating">
+                    </div>
+                    <center>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<br />');return false;">Saut de ligne </button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<u>Texte souligné</u>');return false;">Souligner</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>');return false;">Liste</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<strong>Texte en gras</strong>');return false;">Gras</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<i>Texte en Italic</i>');return false;">Italic</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<sub>Texte en Indice</sub>');return false;">Indice</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>');return false;">Surligner</button>
+                    </center>
+                    <br>
+                    <div class="form-group label-floating">
                       <label class="control-label">Titre 3</label>
                       <input type="text" name="title3" value="<?php echo $title3; ?>" id="title3" class="form-control">
-                  </div>
-                  <div class="form-group label-floating">
+                    </div>
+                    <div class="form-group label-floating">
                       <label class="control-label">Description</label>
                       <textarea rows="5" name="description3" id="description3" class="form-control"><?php echo $description3; ?></textarea>
-                  </div>
-                  <center>
-                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description3', '<br />');return false;">Saut de ligne </button>
-                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description3', '<u>Texte souligné</u>');return false;">Souligner</button>
-                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description3', '<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>');return false;">Liste</button>
-                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description3', '<strong>Texte en gras</strong>');return false;">Gras</button>
-                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description3', '<i>Texte en Italic</i>');return false;">Italic</button>
-                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description3', '<sub>Texte en Indice</sub>');return false;">Indice</button>
-                    <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description3', '<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>');return false;">Surligner</button>
-                  </center>
-                  <br>
-                  <center>
+                    </div>
+                    <center>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description3', '<br />');return false;">Saut de ligne </button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description3', '<u>Texte souligné</u>');return false;">Souligner</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description3', '<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>');return false;">Liste</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description3', '<strong>Texte en gras</strong>');return false;">Gras</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description3', '<i>Texte en Italic</i>');return false;">Italic</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description3', '<sub>Texte en Indice</sub>');return false;">Indice</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description3', '<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>');return false;">Surligner</button>
+                    </center>
+                    <br>
+                    <center>
                       <button id="submitFormDataModifActualite" onclick="SubmitFormDataModifActualite();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
                       <button onclick="RetourIndex4();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
-                  </center>
+                    </center>
+                  </div>
                 </div>
               </div>
-            </div>
-          </form>
-          <div id="results11"></div>
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="card-content">
-                <h3 class="card-title">Ajouter des photos aux Carousels</h3>
-              </div>
-            </div>
-          </div>
-          <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="card-content">
-
-                  <?php
-                  $selectcatimages=$db->query("SELECT * FROM newsactus");
-                  ?>
-
-                  <div class="jquerysel">
-                    <select class="selectpicker catactualite" data-style="select-with-transition" title="Catégorie" data-size="7" name="catactualite">
-                      <option disabled>Choisir une categorie</option>
-                      <?php
-                        while($s = $selectcatimages->fetch(PDO::FETCH_OBJ)){
-                          $title = $s->title;
-                          $id = $s->id;
-                      ?>
-                        <option value="<?php echo $id ?>"><?php echo $title ?></option>';
-                      <?php } ?>
-                    </select>
-                  </div>
-
-                  <div class="jquerysel">
-                    <select class="selectpicker souscatactualite" data-style="select-with-transition" title="Sous Catégorie" data-size="7" name="souscatactualite">
-                      <option disabled>Choisir une sous categorie</option>
-                    </select>
-                  </div>
-
-                  Sous Catégorie :
-            <select name="souscatactualite" class="selectpicker souscatactualite">
-<option>Sélectionner la sous catégorie</option>
-</select>
-
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="card-content">
-
-                  <div class="form-group label-floating">
-                    <label class="control-label">Nom commun aux images</label>
-                    <input type="text" name="titreimage" class="form-control">
-                  </div>
-
-                </div>
-              </div>
-            </div>
+            </form>
+            <div id="results11"></div>
             <div class="row">
               <div class="col-sm-12">
                 <div class="card-content">
-                  <div class="form-group form-file-upload">
-                    <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
-                    <div class="input-group">
-                      <input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
-                      <span class="input-group-btn input-group-s">
-                        <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
-                          <i class="material-icons">layers</i>
-                        </button>
-                      </span>
-                    </div>
-                  </div>
-                  <center>
-                    <button type="submit" name="submitphotoactualite" class="btn btn-primary btn-round btn-rose">Envoyer</button>
-                  </center>
+                  <h3 class="card-title">Ajouter des photos aux Carousels</h3>
                 </div>
               </div>
             </div>
-          </form>
+            <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="card-content">
 
-          <!-- TEST -->
-          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+                    <?php
+                    $selectcatimages=$db->query("SELECT * FROM newsactus");
+                    ?>
 
-          <script type="text/javascript">
-          $(document).ready(function()
-          {
-          $(".catactualite").change(function()
-          {
-          var id=$(this).val();
-          var post_id = 'id='+ id;
-          $.ajax
-          ({
-          type: "POST",
-          url: "rechercheactuspourcarrousel.php",
-          data: post_id,
-          cache: false,
-          success: function(cities)
-          {
-          $(".souscatactualite").html(cities);
-          }
-          });
-          });
-          });
-          </script>
+                    <div class="jquerysel">
+                      <select class="selectpicker catactualite" data-style="select-with-transition" title="Catégorie" data-size="7" name="catactualite">
+                        <option disabled>Choisir une categorie</option>
+                        <?php
+                          while($s = $selectcatimages->fetch(PDO::FETCH_OBJ)){
+                            $title = $s->title;
+                            $id = $s->id;
+                        ?>
+                        <option value="<?php echo $id ?>"><?php echo $title ?></option>';
+                        <?php } ?>
+                      </select>
+                    </div>
+                    <div class="jquerysel">
+                      <select class="selectpicker souscatactualite" data-style="select-with-transition" title="Sous Catégorie" data-size="7" name="souscatactualite">
+                        <option disabled>Choisir une sous categorie</option>
+                      </select>
+                    </div>
+-------------------------------------------------------------------------------------
+                    Sous Catégorie :
+                    <select name="souscatactualite" class="selectpicker souscatactualite">
+                      <option>Sélectionner la sous catégorie</option>
+                    </select>
+------------------------------------------------------------------------------------
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="card-content">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Nom commun aux images</label>
+                      <input type="text" name="titreimage" class="form-control">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="card-content">
+                    <div class="form-group form-file-upload">
+                      <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
+                      <div class="input-group">
+                        <input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
+                        <span class="input-group-btn input-group-s">
+                          <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
+                            <i class="material-icons">layers</i>
+                          </button>
+                        </span>
+                      </div>
+                    </div>
+                    <center>
+                      <button type="submit" name="submitphotoactualite" class="btn btn-primary btn-round btn-rose">Envoyer</button>
+                    </center>
+                  </div>
+                </div>
+              </div>
+            </form>
 
-          <script>
-          $(document).ready(function(){
-          var $recherche =$('input[name=valeur]');
-          var critere;
-          var id=<?php echo json_encode($id); ?>;
-          $recherche.keyup(function(){
-            critere = $.trim($recherche.val());
-            if(critere!=''){
-              $.get('gestionrechercheimageactualite.php?critere='+critere+'&id='+id,function(retour){
-          $('#resultat').html(retour).fadeIn();
-          });
-          }else $('#resultat').empty().fadeOut();
-          });
-          });
-          </script>
+            <!-- TEST -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="card-content">
-                <h3 class="card-title">Supprimer des photos du Carousel</h3>
+            <script type="text/javascript">
+            $(document).ready(function()
+            {
+            $(".catactualite").change(function()
+            {
+            var id=$(this).val();
+            var post_id = 'id='+ id;
+            $.ajax
+            ({
+            type: "POST",
+            url: "rechercheactuspourcarrousel.php",
+            data: post_id,
+            cache: false,
+            success: function(cities)
+            {
+            $(".souscatactualite").html(cities);
+            }
+            });
+            });
+            });
+            </script>
+
+            <script>
+            $(document).ready(function(){
+            var $recherche =$('input[name=valeur]');
+            var critere;
+            var id=<?php echo json_encode($id); ?>;
+            $recherche.keyup(function(){
+              critere = $.trim($recherche.val());
+              if(critere!=''){
+                $.get('gestionrechercheimageactualite.php?critere='+critere+'&id='+id,function(retour){
+            $('#resultat').html(retour).fadeIn();
+            });
+            }else $('#resultat').empty().fadeOut();
+            });
+            });
+            </script>
+
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="card-content">
+                  <h3 class="card-title">Supprimer des photos du Carousel</h3>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-              <div class="card-content">
-                <input type="text" class="form-control" name="valeur" placeholder="Saisir nom ou la catégorie de la photo à supprimer">
+            <div class="row">
+              <div class="col-md-6 col-md-offset-3">
+                <div class="card-content">
+                  <input type="text" class="form-control" name="valeur" placeholder="Saisir nom ou la catégorie de la photo à supprimer">
+                </div>
               </div>
-            </div>
-            <div class="col-sm-12">
-              <div class="card-content">
-                <p id='resultat'></p>
+              <div class="col-sm-12">
+                <div class="card-content">
+                  <p id='resultat'></p>
+                </div>
               </div>
+              <br>
             </div>
-            <br>
           </div>
         </div>
       </div>
     </div>
   </div>
-
+</body>
 
   <?php
 }else if(isset($_GET['banactus'])){
@@ -3228,84 +3200,221 @@ if ($uploadOk == 0) {
     require('includes/miseajourdusite.php');
           } ?>
 
-      <body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
-        <div class="wrapper">
+          <?php
+          //Création actualite
+          if(isset($_POST['submitactualite'])){
+            $title = $_POST['title'];
+            $description = $_POST['description'];
+            $slug = slugify($title);
+                $target_dir = "../../../JamFichiers/Img/ImagesDuSite";
+                $original = 'Original';
+                if (file_exists($target_dir/$original)) {
+                  $target_dirnew = "$target_dir/$original/";
+                }else{
+                  mkdir("$target_dir/$original", 0700);
+                  $target_dirnew = "$target_dir/$original/";
+                }
+                //Ajout thumb
+                $thumb = 'Thumb';
+                if (file_exists($target_dir/$thumb)) {
+                  $target_dirnewthumb = "$target_dir/$thumb/";
+                }else{
+                  mkdir("$target_dir/$thumb", 0700);
+                  $target_dirnewthumb = "$target_dir/$thumb/";
+                }
+                //FIN
+          $total = count($_FILES['fileToUpload']['name']);
+          for( $i=0 ; $i < $total ; $i++ ) {
+          $target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
+          $uploadOk = 1;
+          $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+          $target_file3 = $target_dirnew."".$slug.".".$imageFileType;
+          // Check if file already exists
+          if (file_exists($target_file3)) {
+              $messagenotif = 'Désolé, le fichier existe déja.';
+              $type = "warning";
+              $uploadOk = 0;
+          }
+          // Check file size < 2mo
+          if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
+              $messagenotif = 'Désolé, le fichier est trop grand.';
+              $type = "warning";
+              $uploadOk = 0;
+          }
+          // Allow certain file formats
+          if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
+              $messagenotif = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+              $type = "warning";
+              $uploadOk = 0;
+          }
+          // Check if $uploadOk is set to 0 by an error
+          if ($uploadOk == 0) {
+              $messagenotif = 'Désolé, une erreur est survenue.';
+              $type = "warning";
+          // if everything is ok, try to upload file
+          } else {
+            date_default_timezone_set('Europe/Paris');
+            setlocale(LC_TIME, 'fr_FR.utf8','fra');
+            $date = strftime('%d:%m:%y %H:%M:%S');
+            $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
+            $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
+            $target_filefile3 = $slug.".".$imageFileType;
+              if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
+                  $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+                  $type = "success";
+          $target_file3 = $target_dirnew."".$slug.".".$imageFileType;
+                  $insert = $db->prepare("INSERT INTO newsactus (title, slug, description, surname, date, formatimg, status) VALUES(:title, :slug, :description, :surname, :date, :formatimg, :status)");
+                  $insert->execute(array(
+                                      "title"=>$title,
+                                      "slug"=>$slug,
+                                      "description"=>$description,
+                                      "surname"=>'Actualité',
+                                      "date"=>$date,
+                                      "formatimg"=>$imageFileType,
+                                      "status"=>'ACTIVE'
+                                      )
+                                  );
+                                  date_default_timezone_set('Europe/Paris');
+                                  setlocale(LC_TIME, 'fr_FR.utf8','fra');
+                                  $date = strftime('%d/%m/%Y %H:%M:%S');
+                                  $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
+                                  $insertlogs->execute(array(
+                                                      "user_id"=>$user_id,
+                                                      "type"=>'Ajout',
+                                                      "action"=>'Ajout d\'une actualité',
+                                                      "page"=>'actualitees.php',
+                                                      "date"=>$date
+                                                      )
+                                                  );
+                  $status = '1';
+                  $img_tmp = $target_file3;
+                  $fin = $target_dirnewthumb.$target_filefile3;
+                    //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
+                      $longueur = 539;
+                      $largeur = 539;
+                      //TAILLE DE L'IMAGE ACTUELLE
+                      $taille = getimagesize($img_tmp);
+                      //SI LE FICHIER EXISTE
+                      if ($taille) {
+                          //SI JPG
+                          if ($taille['mime']=='image/jpeg' ) {
+                                    //OUVERTURE DE L'IMAGE ORIGINALE
+                                      $img_big = imagecreatefromjpeg($img_tmp);
+                                      $img_new = imagecreate($longueur, $largeur);
+                                    //CREATION DE LA MINIATURE
+                                      $img_petite = imagecreatetruecolor($longueur, $largeur) or $img_petite = imagecreate($longueur, $largeur);
+                                      //COPIE DE L'IMAGE REDIMENSIONNEE
+                                      imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
+                                      imagejpeg($img_petite,$fin);
+                          }
+                        //SI PNG
+                      else if ($taille['mime']=='image/png' ) {
+                                      //OUVERTURE DE L'IMAGE ORIGINALE
+                                      $img_big = imagecreatefrompng($img_tmp); // On ouvre l'image d'origine
+                                      $img_new = imagecreate($longueur, $largeur);
+                                      //CREATION DE LA MINIATURE
+                                      $img_petite = imagecreatetruecolor($longueur, $largeur) OR $img_petite = imagecreate($longueur, $largeur);
+                                      //COPIE DE L'IMAGE REDIMENSIONNEE
+                                      imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
+                                      imagepng($img_petite,$fin);
+                                  }
+                          }
+              }else {
+                  $messagenotif = 'Désolé, une erreur est survenue.';
+                  $type = "warning";
+              } } }
+              $selectidactu = $db->prepare("SELECT id FROM newsactus WHERE title = :title");
+              $selectidactu->execute(array(
+                  "title"=>$title
+                  )
+              );
+            $sactu = $selectidactu->fetch(PDO::FETCH_OBJ);
+            $idactu = $sactu->id;
+          ?>
+              <script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=actualite&table=newsactus&modifactus=<?php echo $idactu;?>"</script>
+          <?php
+          require('includes/miseajourdusite.php');
+                    } ?>
 
-         <?php
-         require_once('includes/navbar.php');
-         ?>
 
-          <div class="content">
-            <div class="container-fluid">
-              <div class="card">
+<body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
+  <div class="wrapper">
+
+   <?php
+   require_once('includes/navbar.php');
+   ?>
+
+    <div class="content">
+      <div class="container-fluid">
+        <div class="card">
+          <div class="card-content">
+            <h2 class="card-title text-center">Modification page actualités</h2>
+            <div class="row">
+              <div class="col-sm-12">
                 <div class="card-content">
-                  <h2 class="card-title text-center">Modification page actualités</h2>
-                    <div class="row">
-                      <div class="col-sm-12">
-                        <div class="card-content">
-                          <h3 class="card-title">En-tête de page</h3>
+                  <h3 class="card-title">En-tête de page</h3>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="card-content">
+                  <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+                    <h3 class="card-title text-center">Image d'Arrière plan</h3>
+                    <br><br><br>
+                    <center>
+                      <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                        <div class="fileinput-new thumbnail">
+                          <img src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/<?php echo $image; ?>" alt="...">
+                        </div>
+                        <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                        <br><br>
+                        <div>
+                          <span class="btn btn-rose btn-round btn-file">
+                            <span class="fileinput-new">Selection image</span>
+                            <span class="fileinput-exists">Changer</span>
+                            <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
+                          </span>
+                          <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
+                          <button type="submit" name="modifphotopageactu" class="btn btn-primary btn-round btn-rose">Modifier l'image</button>
                         </div>
                       </div>
+                    </center>
+                  </form>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="card-content">
+                  <form action="" method="post" id="myForm1" class="contact-form">
+                    <h3 class="card-title text-center">Titres de la page</h3>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Titre de la page</label>
+                      <input type="text" name="pagetitre" value="<?php echo $pagetitre; ?>" id="pagetitre" class="form-control">
                     </div>
-                    <div class="row">
-                      <div class="col-sm-6">
-                        <div class="card-content">
-                          <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-                            <h3 class="card-title text-center">Image d'Arrière plan</h3>
-                            <br><br><br>
-                            <center>
-                              <div class="fileinput fileinput-new text-center" data-provides="fileinput">
-                                <div class="fileinput-new thumbnail">
-                                  <img src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/<?php echo $image; ?>" alt="...">
-                                </div>
-                                <div class="fileinput-preview fileinput-exists thumbnail"></div>
-                                <br><br>
-                                <div>
-                                  <span class="btn btn-rose btn-round btn-file">
-                                    <span class="fileinput-new">Selection image</span>
-                                    <span class="fileinput-exists">Changer</span>
-                                    <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
-                                  </span>
-                                  <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
-                                  <button type="submit" name="modifphotopageactu" class="btn btn-primary btn-round btn-rose">Modifier l'image</button>
-                                </div>
-                              </div>
-                            </center>
-                          </form>
-                        </div>
-                      </div>
-                    <div class="col-sm-6">
-                      <div class="card-content">
-                        <form action="" method="post" id="myForm1" class="contact-form">
-                          <h3 class="card-title text-center">Titres de la page</h3>
-                          <div class="form-group label-floating">
-                            <label class="control-label">Titre de la page</label>
-                            <input type="text" name="pagetitre" value="<?php echo $pagetitre; ?>" id="pagetitre" class="form-control">
-                          </div>
-                          <div class="form-group label-floating">
-                            <label class="control-label">Titre</label>
-                            <input type="text" name="titre" value="<?php echo $titre; ?>" id="titre" class="form-control">
-                          </div>
-                          <div class="form-group label-floating">
-                              <label class="control-label">Description</label>
-                              <textarea rows="5" name="description" id="description" class="form-control"><?php echo $description; ?></textarea>
-                          </div>
-                          <br>
-                          <center>
-                            <button id="submitFormDataModifActus" onclick="SubmitFormDataModifActus();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
-                          </center>
-                        </form>
-                      </div>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Titre</label>
+                      <input type="text" name="titre" value="<?php echo $titre; ?>" id="titre" class="form-control">
                     </div>
-                  </div>
-                  <div id="results10"></div>
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <div class="card-content">
-                        <h3 class="card-title">Liste des actualités</h3>
-                      </div>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Description</label>
+                      <textarea rows="5" name="description" id="description" class="form-control"><?php echo $description; ?></textarea>
                     </div>
-                  </div>
+                    <br>
+                    <center>
+                      <button id="submitFormDataModifActus" onclick="SubmitFormDataModifActus();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                    </center>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div id="results10"></div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="card-content">
+                  <h3 class="card-title">Liste des actualités</h3>
+                </div>
+              </div>
+            </div>
 
 <?php
   //Fin page news actus
@@ -3326,15 +3435,15 @@ if ($uploadOk == 0) {
       $tableactus = $selectnomactus->fetchAll(PDO::FETCH_OBJ);
       if(count($tableactus)>0){
         echo '
-        <div class="table-responsive">
-          <table class="table">
-            <thead class="text-primary">
-              <th class="text-center">Titre</th>
-              <th class="text-center">Description</th>
-              <th class="text-center">Status</th>
-              <th class="text-center">Action</th>
-            </thead>
-            <tbody>
+            <div class="table-responsive">
+              <table class="table">
+                <thead class="text-primary">
+                  <th class="text-center">Titre</th>
+                  <th class="text-center">Description</th>
+                  <th class="text-center">Status</th>
+                  <th class="text-center">Action</th>
+                </thead>
+                <tbody>
         ';
         foreach($tableactus as $ligneactus){
           $id = $ligneactus->id;
@@ -3350,32 +3459,31 @@ if ($uploadOk == 0) {
           }
 $result = raccourcirChaine($description, 80);
           echo '
-              <tr>
-                <td class="text-center">'.$title.'</td>
-                <td class="text-center">'.$result.'</td>
-                <td class="text-center">'.$status.'</td>
-                <td class="text-center">
-                  <a href="?page=actualite&amp;table=newsactus&amp;modifactus='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Modifier</button></a>
-                  <a href="?page=actualite&amp;table=newsactus&amp;'.$act.'actus='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">'.$message.'</button></a>
+                  <tr>
+                    <td class="text-center">'.$title.'</td>
+                    <td class="text-center">'.$result.'</td>
+                    <td class="text-center">'.$status.'</td>
+                    <td class="text-center">
+                      <a href="?page=actualite&amp;table=newsactus&amp;modifactus='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Modifier</button></a>
+                      <a href="?page=actualite&amp;table=newsactus&amp;'.$act.'actus='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">'.$message.'</button></a>
                   ';
                   ?>
-                  <button onclick="demo.showSwal('warningdeleteactu','<?php echo $user_id; ?>','<?php echo $id; ?>')" type="button" class="btn btn-rose btn-round btn-sm">Supprimer</button>
-
-                </td>
-              </tr>
+                      <button onclick="demo.showSwal('warningdeleteactu','<?php echo $user_id; ?>','<?php echo $id; ?>')" type="button" class="btn btn-rose btn-round btn-sm">Supprimer</button>
+                    </td>
+                  </tr>
           <?php
         }
         echo '
-            </tbody>
-          </table>
-        </div>
+                </tbody>
+              </table>
+            </div>
         ';
 
       }else{ ?>
 
-        <center>
-            <h4 class="info-title"><font color="red">Aucune actualitée trouvée</font></h4>
-        </center>
+            <center>
+              <h4 class="info-title"><font color="red">Aucune actualitée trouvée</font></h4>
+            </center>
 
       <?php }
 
@@ -3394,186 +3502,47 @@ function slugify($text){
 }
 ?>
 
-
-<?php
-//Création actualite
-if(isset($_POST['submitactualite'])){
-  $title = $_POST['title'];
-  $description = $_POST['description'];
-  $slug = slugify($title);
-      $target_dir = "../../../JamFichiers/Img/ImagesDuSite";
-      $original = 'Original';
-      if (file_exists($target_dir/$original)) {
-        $target_dirnew = "$target_dir/$original/";
-      }else{
-        mkdir("$target_dir/$original", 0700);
-        $target_dirnew = "$target_dir/$original/";
-      }
-      //Ajout thumb
-      $thumb = 'Thumb';
-      if (file_exists($target_dir/$thumb)) {
-        $target_dirnewthumb = "$target_dir/$thumb/";
-      }else{
-        mkdir("$target_dir/$thumb", 0700);
-        $target_dirnewthumb = "$target_dir/$thumb/";
-      }
-      //FIN
-$total = count($_FILES['fileToUpload']['name']);
-for( $i=0 ; $i < $total ; $i++ ) {
-$target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
-$uploadOk = 1;
-$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-$target_file3 = $target_dirnew."".$slug.".".$imageFileType;
-// Check if file already exists
-if (file_exists($target_file3)) {
-    $messagenotif = 'Désolé, le fichier existe déja.';
-    $type = "warning";
-    $uploadOk = 0;
-}
-// Check file size < 2mo
-if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
-    $messagenotif = 'Désolé, le fichier est trop grand.';
-    $type = "warning";
-    $uploadOk = 0;
-}
-// Allow certain file formats
-if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-    $messagenotif = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
-    $type = "warning";
-    $uploadOk = 0;
-}
-// Check if $uploadOk is set to 0 by an error
-if ($uploadOk == 0) {
-    $messagenotif = 'Désolé, une erreur est survenue.';
-    $type = "warning";
-// if everything is ok, try to upload file
-} else {
-  date_default_timezone_set('Europe/Paris');
-  setlocale(LC_TIME, 'fr_FR.utf8','fra');
-  $date = strftime('%d:%m:%y %H:%M:%S');
-  $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
-  $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
-  $target_filefile3 = $slug.".".$imageFileType;
-    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
-        $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
-        $type = "success";
-$target_file3 = $target_dirnew."".$slug.".".$imageFileType;
-        $insert = $db->prepare("INSERT INTO newsactus (title, slug, description, surname, date, formatimg, status) VALUES(:title, :slug, :description, :surname, :date, :formatimg, :status)");
-        $insert->execute(array(
-                            "title"=>$title,
-                            "slug"=>$slug,
-                            "description"=>$description,
-                            "surname"=>'Actualité',
-                            "date"=>$date,
-                            "formatimg"=>$imageFileType,
-                            "status"=>'ACTIVE'
-                            )
-                        );
-                        date_default_timezone_set('Europe/Paris');
-                        setlocale(LC_TIME, 'fr_FR.utf8','fra');
-                        $date = strftime('%d/%m/%Y %H:%M:%S');
-                        $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
-                        $insertlogs->execute(array(
-                                            "user_id"=>$user_id,
-                                            "type"=>'Ajout',
-                                            "action"=>'Ajout d\'une actualité',
-                                            "page"=>'actualitees.php',
-                                            "date"=>$date
-                                            )
-                                        );
-        $status = '1';
-        $img_tmp = $target_file3;
-        $fin = $target_dirnewthumb.$target_filefile3;
-          //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
-            $longueur = 539;
-            $largeur = 539;
-            //TAILLE DE L'IMAGE ACTUELLE
-            $taille = getimagesize($img_tmp);
-            //SI LE FICHIER EXISTE
-            if ($taille) {
-                //SI JPG
-                if ($taille['mime']=='image/jpeg' ) {
-                          //OUVERTURE DE L'IMAGE ORIGINALE
-                            $img_big = imagecreatefromjpeg($img_tmp);
-                            $img_new = imagecreate($longueur, $largeur);
-                          //CREATION DE LA MINIATURE
-                            $img_petite = imagecreatetruecolor($longueur, $largeur) or $img_petite = imagecreate($longueur, $largeur);
-                            //COPIE DE L'IMAGE REDIMENSIONNEE
-                            imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
-                            imagejpeg($img_petite,$fin);
-                }
-              //SI PNG
-            else if ($taille['mime']=='image/png' ) {
-                            //OUVERTURE DE L'IMAGE ORIGINALE
-                            $img_big = imagecreatefrompng($img_tmp); // On ouvre l'image d'origine
-                            $img_new = imagecreate($longueur, $largeur);
-                            //CREATION DE LA MINIATURE
-                            $img_petite = imagecreatetruecolor($longueur, $largeur) OR $img_petite = imagecreate($longueur, $largeur);
-                            //COPIE DE L'IMAGE REDIMENSIONNEE
-                            imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
-                            imagepng($img_petite,$fin);
-                        }
-                }
-    }else {
-        $messagenotif = 'Désolé, une erreur est survenue.';
-        $type = "warning";
-    } } }
-    $selectidactu = $db->prepare("SELECT id FROM newsactus WHERE title = :title");
-    $selectidactu->execute(array(
-        "title"=>$title
-        )
-    );
-  $sactu = $selectidactu->fetch(PDO::FETCH_OBJ);
-  $idactu = $sactu->id;
-?>
-    <script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=actualite&table=newsactus&modifactus=<?php echo $idactu;?>"</script>
-<?php
-require('includes/miseajourdusite.php');
-          } ?>
-
-
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="card-content">
-                <h3 class="card-title">Création d'actualitée</h3>
-              </div>
-            </div>
-          </div>
-          <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
             <div class="row">
-              <div class="col-sm-6">
+              <div class="col-sm-12">
                 <div class="card-content">
-                  <div class="form-group label-floating">
-                      <label class="control-label">Titre de l'actualité</label>
-                      <input type="text" class="form-control" name="title" id="title">
-                  </div>
+                  <h3 class="card-title">Création d'actualitée</h3>
                 </div>
               </div>
-              <div class="col-sm-6">
-                <div class="card-content">
-                  <div class="form-group form-file-upload">
-                    <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
-                    <div class="input-group">
-                      <input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
-                      <span class="input-group-btn input-group-s">
-                        <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
-                          <i class="material-icons">layers</i>
-                        </button>
-                      </span>
+            </div>
+            <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="card-content">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Titre de l'actualité</label>
+                      <input type="text" class="form-control" name="title" id="title">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="card-content">
+                    <div class="form-group form-file-upload">
+                      <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
+                      <div class="input-group">
+                        <input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
+                        <span class="input-group-btn input-group-s">
+                          <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
+                            <i class="material-icons">layers</i>
+                          </button>
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-12">
-                <div class="card-content">
-                  <div class="form-group label-floating">
-                    <label class="control-label">Description</label>
-                    <textarea rows="8" type="text" name="description" value="Titre du status" id="description4" class="form-control"></textarea>
-                  </div>
-                  <center>
-
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="card-content">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Description</label>
+                      <textarea rows="8" type="text" name="description" value="Titre du status" id="description4" class="form-control"></textarea>
+                    </div>
+                    <center>
                       <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description4', '<br />');return false;">Saut de ligne </button>
                       <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description4', '<u>Texte souligné</u>');return false;">Souligner</button>
                       <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description4', '<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>');return false;">Liste</button>
@@ -3581,25 +3550,20 @@ require('includes/miseajourdusite.php');
                       <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description4', '<i>Texte en Italic</i>');return false;">Italic</button>
                       <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description4', '<sub>Texte en Indice</sub>');return false;">Indice</button>
                       <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description4', '<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>');return false;">Surligner</button>
-
-                    <br><br>
-                    <button type="submit" name="submitactualite" class="btn btn-primary btn-round btn-rose">Créer une actualité</button>
-                  </center>
+                      <br><br>
+                      <button type="submit" name="submitactualite" class="btn btn-primary btn-round btn-rose">Créer une actualité</button>
+                    </center>
+                  </div>
                 </div>
               </div>
-            </div>
-          </form>
-          <div id="results11"></div>
-
-
-
-
-</div>
-
-
-
-
-
+            </form>
+            <div id="results11"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
 
 <?php
 //FIn Création
@@ -3654,226 +3618,222 @@ require('includes/miseajourdusite.php');
   }
   </script>
 
-     <body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
-       <div class="wrapper">
-
-        <?php
-        require_once('includes/navbar.php');
-        ?>
-
-        <div class="content">
-          <div class="container-fluid">
-            <div class="card">
-              <div class="card-content">
-                <h2 class="card-title text-center">Modification d'une activité ou d'un voyage</h2>
-                  <form action="" method="post" id="myForm1" class="contact-form">
-                    <div class="row">
-                      <div class="col-sm-12">
-                        <div class="card-content">
-                          <h3 class="card-title">Modification activité/voyage : <?php echo $title; ?></h3>
-                          <div class="form-group label-floating">
-                              <label class="control-label">Titre</label>
-                              <input type="text" class="form-control" value="<?php echo $title; ?>" name="title" id="title">
-                          </div>
-                          <div class="form-group label-floating">
-                              <label class="control-label">Description</label>
-                              <textarea rows="5" name="description" id="description" class="form-control"><?php echo $description; ?></textarea>
-                          </div>
-                          <center>
-                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description', '<br />');return false;">Saut de ligne </button>
-                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description', '<u>Texte souligné</u>');return false;">Souligner</button>
-                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description', '<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>');return false;">Liste</button>
-                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description', '<strong>Texte en gras</strong>');return false;">Gras</button>
-                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description', '<i>Texte en Italic</i>');return false;">Italic</button>
-                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description', '<sub>Texte en Indice</sub>');return false;">Indice</button>
-                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description', '<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>');return false;">Surligner</button>
-                          </center>
-                          <br>
-                          <div class="form-group label-floating">
-                              <label class="control-label">Titre 2</label>
-                              <input type="text" name="title2" value="<?php echo $title2; ?>" id="title2" class="form-control">
-                          </div>
-                          <div class="form-group label-floating">
-                              <label class="control-label">Description</label>
-                              <textarea rows="5" name="description2" id="description2" class="form-control"><?php echo $description2; ?></textarea>
-                          </div>
-                          <center>
-                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<br />');return false;">Saut de ligne </button>
-                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<u>Texte souligné</u>');return false;">Souligner</button>
-                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>');return false;">Liste</button>
-                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<strong>Texte en gras</strong>');return false;">Gras</button>
-                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<i>Texte en Italic</i>');return false;">Italic</button>
-                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<sub>Texte en Indice</sub>');return false;">Indice</button>
-                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>');return false;">Surligner</button>
-                          </center>
-                          <br>
-                          <div class="form-group label-floating">
-                              <label class="control-label">Titre 3</label>
-                              <input type="text" name="title3" value="<?php echo $title3; ?>" id="title3" class="form-control">
-                          </div>
-                          <div class="form-group label-floating">
-                              <label class="control-label">Description</label>
-                              <textarea rows="5" name="description3" id="description3" class="form-control"><?php echo $description3; ?></textarea>
-                          </div>
-                          <center>
-                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description3', '<br />');return false;">Saut de ligne </button>
-                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description3', '<u>Texte souligné</u>');return false;">Souligner</button>
-                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description3', '<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>');return false;">Liste</button>
-                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description3', '<strong>Texte en gras</strong>');return false;">Gras</button>
-                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description3', '<i>Texte en Italic</i>');return false;">Italic</button>
-                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description3', '<sub>Texte en Indice</sub>');return false;">Indice</button>
-                            <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description3', '<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>');return false;">Surligner</button>
-                          </center>
-                          <div class="form-group label-floating">
-                              <label class="control-label">Stock</label>
-                              <input type="number" name="stock" value="<?php echo $stock; ?>" id="stock" class="form-control">
-                          </div>
-                          <br>
-                          <center>
-                              <button id="submitFormDataModifActivite" onclick="SubmitFormDataModifActivite();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
-                              <button onclick="RetourIndex4();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
-                          </center>
-                        </div>
-                      </div>
-                    </div>
-                  </form>
-                 <div id="results11"></div>
-
-
-    <!-- Ajoutd'images au site web (assets)-->
-    <?php
-    if(isset($_POST['submitphotoaactivitesvoyagescarousel'])){
-    $category = $_POST['catactivitevoyage'];
-    $souscategory = $_POST['souscatactivitevoyage'];
-    $titreimage = $_POST['titreimage'];
-    if(!isset($titreimage)){
-      $uploadOk = 0;
-    }
-    $selectinfosactuel12 = $db->prepare("SELECT slug from activitesvoyages where id=:id");
-    $selectinfosactuel12->execute(array(
-        "id"=>$category
-        )
-    );
-    $r12 = $selectinfosactuel12->fetch(PDO::FETCH_OBJ);
-    $slug = $r12->slug;
-        $target_dir = "../../../JamFichiers/Img/ImagesDuSite";
-        $original = 'Original';
-        if (file_exists($target_dir/$original)) {
-          $target_dirnew = "$target_dir/$original/";
-        }else{
-          mkdir("$target_dir/$original", 0700);
-          $target_dirnew = "$target_dir/$original/";
-        }
-        //Ajout thumb
-        $thumb = 'Thumb';
-        if (file_exists($target_dir/$thumb)) {
-          $target_dirnewthumb = "$target_dir/$thumb/";
-        }else{
-          mkdir("$target_dir/$thumb", 0700);
-          $target_dirnewthumb = "$target_dir/$thumb/";
-        }
-        //FIN
-    $total = count($_FILES['fileToUpload']['name']);
-    for( $i=0 ; $i < $total ; $i++ ) {
-    $target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
-    $uploadOk = 1;
-    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-    // Check if file already exists
-    if (file_exists($target_file)) {
-      $messagenotif = 'Désolé, le fichier existe déja.';
-      $type = "warning";
-      $uploadOk = 0;
-    }
-    // Check file size < 2mo
-    if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
-      $messagenotif = 'Désolé, le fichier est trop grand.';
-      $type = "warning";
-      $uploadOk = 0;
-    }
-    // Allow certain file formats
-    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-      $messagenotif = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
-      $type = "warning";
-      $uploadOk = 0;
-    }
-    // Check if $uploadOk is set to 0 by an error
-    if ($uploadOk == 0) {
-      $messagenotif = 'Désolé, une erreur est survenue.';
-      $type = "warning";
-    // if everything is ok, try to upload file
-    } else {
-    date_default_timezone_set('Europe/Paris');
-    setlocale(LC_TIME, 'fr_FR.utf8','fra');
-    $date = strftime('%d:%m:%y %H:%M:%S');
-    $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
-    $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
-    $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
-      if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
-          $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
-          $type = "success";
-          $insert = $db->prepare("INSERT INTO carousel (slug, titre, image, titreimage) VALUES (:slug, :souscatactivitevoyage, :target_filefile, :titreimage)");
-          $insert->execute(array(
-              "slug"=>$slug,
-              "souscatactivitevoyage"=>$souscategory,
-              "target_filefile"=>$target_filefile,
-              "titreimage"=>$titreimage
-              )
-          );
-          date_default_timezone_set('Europe/Paris');
-          setlocale(LC_TIME, 'fr_FR.utf8','fra');
-          $date = strftime('%d/%m/%Y %H:%M:%S');
-          $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
-          $insertlogs->execute(array(
-                              "user_id"=>$user_id,
-                              "type"=>'Ajout',
-                              "action"=>'Ajout d\'images aux activités',
-                              "page"=>'activitees.php',
-                              "date"=>$date
-                              )
-                          );
-          $status = '1';
-          $img_tmp = $target_dirnew.$target_filefile;
-          $fin = $target_dirnewthumb.$target_filefile;
-            //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
-              $longueur = 732;
-              $largeur = 541;
-              //TAILLE DE L'IMAGE ACTUELLE
-              $taille = getimagesize($img_tmp);
-              //SI LE FICHIER EXISTE
-              if ($taille) {
-                  //SI JPG
-                  if ($taille['mime']=='image/jpeg' ) {
+  <!-- Ajoutd'images au site web (assets)-->
+  <?php
+  if(isset($_POST['submitphotoaactivitesvoyagescarousel'])){
+  $category = $_POST['catactivitevoyage'];
+  $souscategory = $_POST['souscatactivitevoyage'];
+  $titreimage = $_POST['titreimage'];
+  if(!isset($titreimage)){
+    $uploadOk = 0;
+  }
+  $selectinfosactuel12 = $db->prepare("SELECT slug from activitesvoyages where id=:id");
+  $selectinfosactuel12->execute(array(
+      "id"=>$category
+      )
+  );
+  $r12 = $selectinfosactuel12->fetch(PDO::FETCH_OBJ);
+  $slug = $r12->slug;
+      $target_dir = "../../../JamFichiers/Img/ImagesDuSite";
+      $original = 'Original';
+      if (file_exists($target_dir/$original)) {
+        $target_dirnew = "$target_dir/$original/";
+      }else{
+        mkdir("$target_dir/$original", 0700);
+        $target_dirnew = "$target_dir/$original/";
+      }
+      //Ajout thumb
+      $thumb = 'Thumb';
+      if (file_exists($target_dir/$thumb)) {
+        $target_dirnewthumb = "$target_dir/$thumb/";
+      }else{
+        mkdir("$target_dir/$thumb", 0700);
+        $target_dirnewthumb = "$target_dir/$thumb/";
+      }
+      //FIN
+  $total = count($_FILES['fileToUpload']['name']);
+  for( $i=0 ; $i < $total ; $i++ ) {
+  $target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
+  $uploadOk = 1;
+  $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+  // Check if file already exists
+  if (file_exists($target_file)) {
+    $messagenotif = 'Désolé, le fichier existe déja.';
+    $type = "warning";
+    $uploadOk = 0;
+  }
+  // Check file size < 2mo
+  if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
+    $messagenotif = 'Désolé, le fichier est trop grand.';
+    $type = "warning";
+    $uploadOk = 0;
+  }
+  // Allow certain file formats
+  if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
+    $messagenotif = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+    $type = "warning";
+    $uploadOk = 0;
+  }
+  // Check if $uploadOk is set to 0 by an error
+  if ($uploadOk == 0) {
+    $messagenotif = 'Désolé, une erreur est survenue.';
+    $type = "warning";
+  // if everything is ok, try to upload file
+  } else {
+  date_default_timezone_set('Europe/Paris');
+  setlocale(LC_TIME, 'fr_FR.utf8','fra');
+  $date = strftime('%d:%m:%y %H:%M:%S');
+  $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
+  $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
+  $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
+    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
+        $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+        $type = "success";
+        $insert = $db->prepare("INSERT INTO carousel (slug, titre, image, titreimage) VALUES (:slug, :souscatactivitevoyage, :target_filefile, :titreimage)");
+        $insert->execute(array(
+            "slug"=>$slug,
+            "souscatactivitevoyage"=>$souscategory,
+            "target_filefile"=>$target_filefile,
+            "titreimage"=>$titreimage
+            )
+        );
+        date_default_timezone_set('Europe/Paris');
+        setlocale(LC_TIME, 'fr_FR.utf8','fra');
+        $date = strftime('%d/%m/%Y %H:%M:%S');
+        $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
+        $insertlogs->execute(array(
+                            "user_id"=>$user_id,
+                            "type"=>'Ajout',
+                            "action"=>'Ajout d\'images aux activités',
+                            "page"=>'activitees.php',
+                            "date"=>$date
+                            )
+                        );
+        $status = '1';
+        $img_tmp = $target_dirnew.$target_filefile;
+        $fin = $target_dirnewthumb.$target_filefile;
+          //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
+            $longueur = 732;
+            $largeur = 541;
+            //TAILLE DE L'IMAGE ACTUELLE
+            $taille = getimagesize($img_tmp);
+            //SI LE FICHIER EXISTE
+            if ($taille) {
+                //SI JPG
+                if ($taille['mime']=='image/jpeg' ) {
+                          //OUVERTURE DE L'IMAGE ORIGINALE
+                            $img_big = imagecreatefromjpeg($img_tmp);
+                            $img_new = imagecreate($longueur, $largeur);
+                          //CREATION DE LA MINIATURE
+                            $img_petite = imagecreatetruecolor($longueur, $largeur) or $img_petite = imagecreate($longueur, $largeur);
+                            //COPIE DE L'IMAGE REDIMENSIONNEE
+                            imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
+                            imagejpeg($img_petite,$fin);
+                }
+              //SI PNG
+            else if ($taille['mime']=='image/png' ) {
                             //OUVERTURE DE L'IMAGE ORIGINALE
-                              $img_big = imagecreatefromjpeg($img_tmp);
-                              $img_new = imagecreate($longueur, $largeur);
+                            $img_big = imagecreatefrompng($img_tmp); // On ouvre l'image d'origine
+                            $img_new = imagecreate($longueur, $largeur);
                             //CREATION DE LA MINIATURE
-                              $img_petite = imagecreatetruecolor($longueur, $largeur) or $img_petite = imagecreate($longueur, $largeur);
-                              //COPIE DE L'IMAGE REDIMENSIONNEE
-                              imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
-                              imagejpeg($img_petite,$fin);
-                  }
-                //SI PNG
-              else if ($taille['mime']=='image/png' ) {
-                              //OUVERTURE DE L'IMAGE ORIGINALE
-                              $img_big = imagecreatefrompng($img_tmp); // On ouvre l'image d'origine
-                              $img_new = imagecreate($longueur, $largeur);
-                              //CREATION DE LA MINIATURE
-                              $img_petite = imagecreatetruecolor($longueur, $largeur) OR $img_petite = imagecreate($longueur, $largeur);
-                              //COPIE DE L'IMAGE REDIMENSIONNEE
-                              imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
-                              imagepng($img_petite,$fin);
-                          }
-                  }
-      }else {
-          $messagenotif = 'Désolé, une erreur est survenue.';
-          $type = "warning";
-      } } }
-      require('includes/miseajourdusite.php');
-            } ?>
+                            $img_petite = imagecreatetruecolor($longueur, $largeur) OR $img_petite = imagecreate($longueur, $largeur);
+                            //COPIE DE L'IMAGE REDIMENSIONNEE
+                            imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
+                            imagepng($img_petite,$fin);
+                        }
+                }
+    }else {
+        $messagenotif = 'Désolé, une erreur est survenue.';
+        $type = "warning";
+    } } }
+    require('includes/miseajourdusite.php');
+          } ?>
 
+<body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
+  <div class="wrapper">
 
+  <?php
+  require_once('includes/navbar.php');
+  ?>
 
-
+    <div class="content">
+      <div class="container-fluid">
+        <div class="card">
+          <div class="card-content">
+            <h2 class="card-title text-center">Modification d'une activité ou d'un voyage</h2>
+            <form action="" method="post" id="myForm1" class="contact-form">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="card-content">
+                    <h3 class="card-title">Modification activité/voyage : <?php echo $title; ?></h3>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Titre</label>
+                      <input type="text" class="form-control" value="<?php echo $title; ?>" name="title" id="title">
+                    </div>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Description</label>
+                      <textarea rows="5" name="description" id="description" class="form-control"><?php echo $description; ?></textarea>
+                    </div>
+                    <center>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description', '<br />');return false;">Saut de ligne </button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description', '<u>Texte souligné</u>');return false;">Souligner</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description', '<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>');return false;">Liste</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description', '<strong>Texte en gras</strong>');return false;">Gras</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description', '<i>Texte en Italic</i>');return false;">Italic</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description', '<sub>Texte en Indice</sub>');return false;">Indice</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description', '<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>');return false;">Surligner</button>
+                    </center>
+                    <br>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Titre 2</label>
+                      <input type="text" name="title2" value="<?php echo $title2; ?>" id="title2" class="form-control">
+                    </div>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Description</label>
+                      <textarea rows="5" name="description2" id="description2" class="form-control"><?php echo $description2; ?></textarea>
+                    </div>
+                    <center>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<br />');return false;">Saut de ligne </button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<u>Texte souligné</u>');return false;">Souligner</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>');return false;">Liste</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<strong>Texte en gras</strong>');return false;">Gras</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<i>Texte en Italic</i>');return false;">Italic</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<sub>Texte en Indice</sub>');return false;">Indice</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description2', '<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>');return false;">Surligner</button>
+                    </center>
+                    <br>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Titre 3</label>
+                      <input type="text" name="title3" value="<?php echo $title3; ?>" id="title3" class="form-control">
+                    </div>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Description</label>
+                      <textarea rows="5" name="description3" id="description3" class="form-control"><?php echo $description3; ?></textarea>
+                    </div>
+                    <center>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description3', '<br />');return false;">Saut de ligne </button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description3', '<u>Texte souligné</u>');return false;">Souligner</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description3', '<ul>\n\n<li>Element 1</li>\n<li>Element 2</li>\n\n</ul>');return false;">Liste</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description3', '<strong>Texte en gras</strong>');return false;">Gras</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description3', '<i>Texte en Italic</i>');return false;">Italic</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description3', '<sub>Texte en Indice</sub>');return false;">Indice</button>
+                      <button class="btn btn-rose btn-round btn-sm" onclick="insertAtCaret('description3', '<mark>Texte Surligné</mark>\n\n\n\n<style>\nmark { \nbackground-color: red; <-- couleur surlignage -->\ncolor: black; <-- couleur du texte -->\n}\n</style>');return false;">Surligner</button>
+                    </center>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Stock</label>
+                      <input type="number" name="stock" value="<?php echo $stock; ?>" id="stock" class="form-control">
+                    </div>
+                    <br>
+                    <center>
+                      <button id="submitFormDataModifActivite" onclick="SubmitFormDataModifActivite();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                      <button onclick="RetourIndex4();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
+                    </center>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <div id="results11"></div>
+----------------------------------------------------------------------------------------
     <h1>Selectionner la catégorie à laquelle ajouter les photos</h1>
 
 
@@ -4017,13 +3977,8 @@ require('includes/miseajourdusite.php');
     <p id='resultat'></p>
 
 
+------------------------------------------------------------------------------------------------
 
-
-
-    <!-- FIN AJOUT -->
-
-
-  </div>
   <?php
 }else if(isset($_GET['banactivitesvoyages'])){
   $id = $_GET['banactivitesvoyages'];
@@ -4190,86 +4145,231 @@ if ($uploadOk == 0) {
         $type = "warning";
     } } }
     require('includes/miseajourdusite.php');
-          } ?>
+          }
 
-             <body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
-               <div class="wrapper">
+          if(isset($_POST['submitactivite'])){
+            $title = $_POST['title'];
+            $description = $_POST['description'];
+            $stock = $_POST['stock'];
+            $datesejour = $_POST['datesejour'];
+            $price = $_POST['price'];
+            $slug = slugify($title);
+            if($price>'0'){
+              $payant = '1';
+            }else{
+              $payant = '0';
+            }
+                $target_dir = "../../../JamFichiers/Img/ImagesDuSite";
+                $original = 'Original';
+                if (file_exists($target_dir/$original)) {
+                  $target_dirnew = "$target_dir/$original/";
+                }else{
+                  mkdir("$target_dir/$original", 0700);
+                  $target_dirnew = "$target_dir/$original/";
+                }
+                //Ajout thumb
+                $thumb = 'Thumb';
+                if (file_exists($target_dir/$thumb)) {
+                  $target_dirnewthumb = "$target_dir/$thumb/";
+                }else{
+                  mkdir("$target_dir/$thumb", 0700);
+                  $target_dirnewthumb = "$target_dir/$thumb/";
+                }
+                //FIN
+          $total = count($_FILES['fileToUpload']['name']);
+          for( $i=0 ; $i < $total ; $i++ ) {
+          $target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
+          $uploadOk = 1;
+          $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+          // Check if file already exists
+          if (file_exists($target_file)) {
+              $messagenotif = 'Désolé, le fichier existe déja.';
+              $type = "warning";
+              $uploadOk = 0;
+          }
+          // Check file size < 2mo
+          if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
+              $messagenotif = 'Désolé, le fichier est trop grand.';
+              $type = "warning";
+              $uploadOk = 0;
+          }
+          // Allow certain file formats
+          if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
+              $messagenotif = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+              $type = "warning";
+              $uploadOk = 0;
+          }
+          // Check if $uploadOk is set to 0 by an error
+          if ($uploadOk == 0) {
+              $messagenotif = 'Désolé, une erreur est survenue.';
+              $type = "warning";
+          // if everything is ok, try to upload file
+          } else {
+            date_default_timezone_set('Europe/Paris');
+            setlocale(LC_TIME, 'fr_FR.utf8','fra');
+            $date = strftime('%d:%m:%y %H:%M:%S');
+            $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
+            $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
+            $target_filefile3 = $slug.".".$imageFileType;
+            $target_file3 = $target_dirnew."".$slug.".".$imageFileType;
+              if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
+                  $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+                  $type = "success";
+                  date_default_timezone_set('Europe/Paris');
+                  setlocale(LC_TIME, 'fr_FR.utf8','fra');
+                  $date = strftime('%d/%m/%Y %H:%M:%S');
+                  $insert = $db->prepare("INSERT INTO activitesvoyages (title, slug, description, surname, date, formatimg, status, stock, datesejour, price, payant) VALUES(:title, :slug, :description, :surname, :date, :formatimg, :status, :stock, :datesejour, :price, :payant)");
+                  $insert->execute(array(
+                                      "title"=>$title,
+                                      "slug"=>$slug,
+                                      "description"=>$description,
+                                      "surname"=>'Activités / Voyages',
+                                      "date"=>$date,
+                                      "formatimg"=>$imageFileType,
+                                      "status"=>'ACTIVE',
+                                      "stock"=>$stock,
+                                      "datesejour"=>$datesejour,
+                                      "price"=>$price,
+                                      "payant"=>$payant
+                                      )
+                                  );
+                  $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
+                  $insertlogs->execute(array(
+                                      "user_id"=>$user_id,
+                                      "type"=>'Ajout',
+                                      "action"=>'Ajout d\'une actualité',
+                                      "page"=>'actualitees.php',
+                                      "date"=>$date
+                                      )
+                                  );
+                  $status = '1';
+                  $img_tmp = $target_file3;
+                  $fin = $target_dirnewthumb.$target_filefile3;
+                    //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
+                      $longueur = 539;
+                      $largeur = 539;
+                      //TAILLE DE L'IMAGE ACTUELLE
+                      $taille = getimagesize($img_tmp);
+                      //SI LE FICHIER EXISTE
+                      if ($taille) {
+                          //SI JPG
+                          if ($taille['mime']=='image/jpeg' ) {
+                                    //OUVERTURE DE L'IMAGE ORIGINALE
+                                      $img_big = imagecreatefromjpeg($img_tmp);
+                                      $img_new = imagecreate($longueur, $largeur);
+                                    //CREATION DE LA MINIATURE
+                                      $img_petite = imagecreatetruecolor($longueur, $largeur) or $img_petite = imagecreate($longueur, $largeur);
+                                      //COPIE DE L'IMAGE REDIMENSIONNEE
+                                      imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
+                                      imagejpeg($img_petite,$fin);
+                          }
+                        //SI PNG
+                      else if ($taille['mime']=='image/png' ) {
+                                      //OUVERTURE DE L'IMAGE ORIGINALE
+                                      $img_big = imagecreatefrompng($img_tmp); // On ouvre l'image d'origine
+                                      $img_new = imagecreate($longueur, $largeur);
+                                      //CREATION DE LA MINIATURE
+                                      $img_petite = imagecreatetruecolor($longueur, $largeur) OR $img_petite = imagecreate($longueur, $largeur);
+                                      //COPIE DE L'IMAGE REDIMENSIONNEE
+                                      imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
+                                      imagepng($img_petite,$fin);
+                                  }
+                          }
+              }else {
+                  $messagenotif = 'Désolé, une erreur est survenue.';
+                  $type = "warning";
+              } } }
+              $selectidacti = $db->prepare("SELECT id FROM activitesvoyages WHERE title=:title");
+              $selectidacti->execute(array(
+                  "title"=>$title
+                  )
+              );
+              $sacti = $selectidacti->fetch(PDO::FETCH_OBJ);
+              $idacti = $sacti->id;
+              ?>
+                  <script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=activitesvoyages&table=activitesvoyages&modifactivitesvoyages=<?php echo $idacti;?>"</script>
+              <?php
+              require('includes/miseajourdusite.php');
+                    } ?>
 
-                <?php
-                require_once('includes/navbar.php');
-                ?>
+ <body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
+   <div class="wrapper">
 
-          <div class="content">
-            <div class="container-fluid">
-              <div class="card">
+    <?php
+    require_once('includes/navbar.php');
+    ?>
+
+    <div class="content">
+      <div class="container-fluid">
+        <div class="card">
+          <div class="card-content">
+            <h2 class="card-title text-center">Modification page Activités / Voyage</h2>
+            <div class="row">
+              <div class="col-sm-12">
                 <div class="card-content">
-                  <h2 class="card-title text-center">Modification page Activités / Voyage</h2>
-                    <div class="row">
-                      <div class="col-sm-12">
-                        <div class="card-content">
-                          <h3 class="card-title">En-tête de page</h3>
+                  <h3 class="card-title">En-tête de page</h3>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="card-content">
+                  <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+                    <h3 class="card-title text-center">Image d'Arrière plan</h3>
+                    <br><br><br>
+                    <center>
+                      <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                        <div class="fileinput-new thumbnail">
+                          <img src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/<?php echo $image; ?>" alt="...">
+                        </div>
+                        <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                        <br><br>
+                        <div>
+                          <span class="btn btn-rose btn-round btn-file">
+                            <span class="fileinput-new">Selection image</span>
+                            <span class="fileinput-exists">Changer</span>
+                            <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
+                          </span>
+                          <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
+                          <button type="submit" name="modifphotopageactivoyages" class="btn btn-primary btn-round btn-rose">Modifier l'image</button>
                         </div>
                       </div>
+                    </center>
+                  </form>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="card-content">
+                  <form action="" method="post" id="myForm1" class="contact-form">
+                    <h3 class="card-title text-center">Titres de la page</h3>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Titre de la page</label>
+                      <input type="text" name="pagetitre" value="<?php echo $pagetitre; ?>" id="pagetitre" class="form-control">
                     </div>
-                    <div class="row">
-                      <div class="col-sm-6">
-                        <div class="card-content">
-                          <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-                            <h3 class="card-title text-center">Image d'Arrière plan</h3>
-                            <br><br><br>
-                            <center>
-                              <div class="fileinput fileinput-new text-center" data-provides="fileinput">
-                                <div class="fileinput-new thumbnail">
-                                  <img src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/<?php echo $image; ?>" alt="...">
-                                </div>
-                                <div class="fileinput-preview fileinput-exists thumbnail"></div>
-                                <br><br>
-                                <div>
-                                  <span class="btn btn-rose btn-round btn-file">
-                                    <span class="fileinput-new">Selection image</span>
-                                    <span class="fileinput-exists">Changer</span>
-                                    <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
-                                  </span>
-                                  <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
-                                  <button type="submit" name="modifphotopageactivoyages" class="btn btn-primary btn-round btn-rose">Modifier l'image</button>
-                                </div>
-                              </div>
-                            </center>
-                          </form>
-                        </div>
-                      </div>
-                    <div class="col-sm-6">
-                      <div class="card-content">
-                        <form action="" method="post" id="myForm1" class="contact-form">
-                          <h3 class="card-title text-center">Titres de la page</h3>
-                          <div class="form-group label-floating">
-                            <label class="control-label">Titre de la page</label>
-                            <input type="text" name="pagetitre" value="<?php echo $pagetitre; ?>" id="pagetitre" class="form-control">
-                          </div>
-                          <div class="form-group label-floating">
-                            <label class="control-label">Titre</label>
-                            <input type="text" name="titre" value="<?php echo $titre; ?>" id="titre" class="form-control">
-                          </div>
-                          <div class="form-group label-floating">
-                              <label class="control-label">Description</label>
-                              <textarea rows="5" name="description" id="description" class="form-control"><?php echo $description; ?></textarea>
-                          </div>
-                          <br>
-                          <center>
-                            <button id="submitFormDataModifActivitesVoyages" onclick="SubmitFormDataModifActivitesVoyages();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
-                          </center>
-                        </form>
-                      </div>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Titre</label>
+                      <input type="text" name="titre" value="<?php echo $titre; ?>" id="titre" class="form-control">
                     </div>
-                  </div>
-                  <div id="results18"></div>
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <div class="card-content">
-                        <h3 class="card-title">Liste des Activités / Voyages</h3>
-                      </div>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Description</label>
+                      <textarea rows="5" name="description" id="description" class="form-control"><?php echo $description; ?></textarea>
                     </div>
-                  </div>
+                    <br>
+                    <center>
+                      <button id="submitFormDataModifActivitesVoyages" onclick="SubmitFormDataModifActivitesVoyages();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                    </center>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div id="results18"></div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="card-content">
+                  <h3 class="card-title">Liste des Activités / Voyages</h3>
+                </div>
+              </div>
+            </div>
 
   <?php
   //Fin page news actus
@@ -4290,16 +4390,16 @@ if ($uploadOk == 0) {
       $tableactivitesvoyages = $selectnomactivitesvoyages->fetchAll(PDO::FETCH_OBJ);
       if(count($tableactivitesvoyages)>0){
         echo '
-        <div class="table-responsive">
-          <table class="table">
-            <thead class="text-primary">
-              <th class="text-center">Titre</th>
-              <th class="text-center">Description</th>
-              <th class="text-center">Place Restantes</th>
-              <th class="text-center">Status</th>
-              <th class="text-center">Action</th>
-            </thead>
-            <tbody>
+            <div class="table-responsive">
+              <table class="table">
+                <thead class="text-primary">
+                  <th class="text-center">Titre</th>
+                  <th class="text-center">Description</th>
+                  <th class="text-center">Place Restantes</th>
+                  <th class="text-center">Status</th>
+                  <th class="text-center">Action</th>
+                </thead>
+                <tbody>
         ';
         foreach($tableactivitesvoyages as $ligneactivitesvoyages){
           $id = $ligneactivitesvoyages->id;
@@ -4316,32 +4416,32 @@ if ($uploadOk == 0) {
             $message = 'Activer';
           }
           echo '
-          <tr>
-            <td>'.$title.'</td>
-            <td>'.$result.'</td>
-            <td class="text-center">'.$stock.'</td>
-            <td class="text-center">'.$status.'</td>
-            <td class="text-center">
-              <a href="?page=activitesvoyages&amp;table=activitesvoyages&amp;modifactivitesvoyages='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Modifier</button></a>
-              <a href="?page=activitesvoyages&amp;table=activitesvoyages&amp;'.$act.'activitesvoyages='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">'.$message.'</button></a>
-            ';
-            ?>
-              <button onclick="demo.showSwal('warningdeleteacti','<?php echo $user_id; ?>','<?php echo $id; ?>')" type="button" class="btn btn-rose btn-round btn-sm">Supprimer</button>
-            </td>
-          </tr>
-          <?php
-        }
-        echo '
-        </tbody>
-      </table>
-    </div>
-        ';
+                  <tr>
+                    <td>'.$title.'</td>
+                    <td>'.$result.'</td>
+                    <td class="text-center">'.$stock.'</td>
+                    <td class="text-center">'.$status.'</td>
+                    <td class="text-center">
+                      <a href="?page=activitesvoyages&amp;table=activitesvoyages&amp;modifactivitesvoyages='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Modifier</button></a>
+                      <a href="?page=activitesvoyages&amp;table=activitesvoyages&amp;'.$act.'activitesvoyages='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">'.$message.'</button></a>
+                    ';
+                    ?>
+                      <button onclick="demo.showSwal('warningdeleteacti','<?php echo $user_id; ?>','<?php echo $id; ?>')" type="button" class="btn btn-rose btn-round btn-sm">Supprimer</button>
+                    </td>
+                  </tr>
+                  <?php
+                }
+                echo '
+                </tbody>
+              </table>
+            </div>
+                ';
 
       }else{ ?>
 
-        <center>
-            <h4 class="info-title"><font color="red">Aucune activitée trouvée</font></h4>
-        </center>
+            <center>
+              <h4 class="info-title"><font color="red">Aucune activitée trouvée</font></h4>
+            </center>
 
       <?php }
 
@@ -4358,150 +4458,8 @@ if ($uploadOk == 0) {
   }
     return $text;
   }
-  if(isset($_POST['submitactivite'])){
-    $title = $_POST['title'];
-    $description = $_POST['description'];
-    $stock = $_POST['stock'];
-    $datesejour = $_POST['datesejour'];
-    $price = $_POST['price'];
-    $slug = slugify($title);
-    if($price>'0'){
-      $payant = '1';
-    }else{
-      $payant = '0';
-    }
-        $target_dir = "../../../JamFichiers/Img/ImagesDuSite";
-        $original = 'Original';
-        if (file_exists($target_dir/$original)) {
-          $target_dirnew = "$target_dir/$original/";
-        }else{
-          mkdir("$target_dir/$original", 0700);
-          $target_dirnew = "$target_dir/$original/";
-        }
-        //Ajout thumb
-        $thumb = 'Thumb';
-        if (file_exists($target_dir/$thumb)) {
-          $target_dirnewthumb = "$target_dir/$thumb/";
-        }else{
-          mkdir("$target_dir/$thumb", 0700);
-          $target_dirnewthumb = "$target_dir/$thumb/";
-        }
-        //FIN
-  $total = count($_FILES['fileToUpload']['name']);
-  for( $i=0 ; $i < $total ; $i++ ) {
-  $target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
-  $uploadOk = 1;
-  $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-  // Check if file already exists
-  if (file_exists($target_file)) {
-      $messagenotif = 'Désolé, le fichier existe déja.';
-      $type = "warning";
-      $uploadOk = 0;
-  }
-  // Check file size < 2mo
-  if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
-      $messagenotif = 'Désolé, le fichier est trop grand.';
-      $type = "warning";
-      $uploadOk = 0;
-  }
-  // Allow certain file formats
-  if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-      $messagenotif = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
-      $type = "warning";
-      $uploadOk = 0;
-  }
-  // Check if $uploadOk is set to 0 by an error
-  if ($uploadOk == 0) {
-      $messagenotif = 'Désolé, une erreur est survenue.';
-      $type = "warning";
-  // if everything is ok, try to upload file
-  } else {
-    date_default_timezone_set('Europe/Paris');
-    setlocale(LC_TIME, 'fr_FR.utf8','fra');
-    $date = strftime('%d:%m:%y %H:%M:%S');
-    $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
-    $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
-    $target_filefile3 = $slug.".".$imageFileType;
-    $target_file3 = $target_dirnew."".$slug.".".$imageFileType;
-      if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
-          $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
-          $type = "success";
-          date_default_timezone_set('Europe/Paris');
-          setlocale(LC_TIME, 'fr_FR.utf8','fra');
-          $date = strftime('%d/%m/%Y %H:%M:%S');
-          $insert = $db->prepare("INSERT INTO activitesvoyages (title, slug, description, surname, date, formatimg, status, stock, datesejour, price, payant) VALUES(:title, :slug, :description, :surname, :date, :formatimg, :status, :stock, :datesejour, :price, :payant)");
-          $insert->execute(array(
-                              "title"=>$title,
-                              "slug"=>$slug,
-                              "description"=>$description,
-                              "surname"=>'Activités / Voyages',
-                              "date"=>$date,
-                              "formatimg"=>$imageFileType,
-                              "status"=>'ACTIVE',
-                              "stock"=>$stock,
-                              "datesejour"=>$datesejour,
-                              "price"=>$price,
-                              "payant"=>$payant
-                              )
-                          );
-          $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
-          $insertlogs->execute(array(
-                              "user_id"=>$user_id,
-                              "type"=>'Ajout',
-                              "action"=>'Ajout d\'une actualité',
-                              "page"=>'actualitees.php',
-                              "date"=>$date
-                              )
-                          );
-          $status = '1';
-          $img_tmp = $target_file3;
-          $fin = $target_dirnewthumb.$target_filefile3;
-            //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
-              $longueur = 539;
-              $largeur = 539;
-              //TAILLE DE L'IMAGE ACTUELLE
-              $taille = getimagesize($img_tmp);
-              //SI LE FICHIER EXISTE
-              if ($taille) {
-                  //SI JPG
-                  if ($taille['mime']=='image/jpeg' ) {
-                            //OUVERTURE DE L'IMAGE ORIGINALE
-                              $img_big = imagecreatefromjpeg($img_tmp);
-                              $img_new = imagecreate($longueur, $largeur);
-                            //CREATION DE LA MINIATURE
-                              $img_petite = imagecreatetruecolor($longueur, $largeur) or $img_petite = imagecreate($longueur, $largeur);
-                              //COPIE DE L'IMAGE REDIMENSIONNEE
-                              imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
-                              imagejpeg($img_petite,$fin);
-                  }
-                //SI PNG
-              else if ($taille['mime']=='image/png' ) {
-                              //OUVERTURE DE L'IMAGE ORIGINALE
-                              $img_big = imagecreatefrompng($img_tmp); // On ouvre l'image d'origine
-                              $img_new = imagecreate($longueur, $largeur);
-                              //CREATION DE LA MINIATURE
-                              $img_petite = imagecreatetruecolor($longueur, $largeur) OR $img_petite = imagecreate($longueur, $largeur);
-                              //COPIE DE L'IMAGE REDIMENSIONNEE
-                              imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
-                              imagepng($img_petite,$fin);
-                          }
-                  }
-      }else {
-          $messagenotif = 'Désolé, une erreur est survenue.';
-          $type = "warning";
-      } } }
-      $selectidacti = $db->prepare("SELECT id FROM activitesvoyages WHERE title=:title");
-      $selectidacti->execute(array(
-          "title"=>$title
-          )
-      );
-      $sacti = $selectidacti->fetch(PDO::FETCH_OBJ);
-      $idacti = $sacti->id;
-      ?>
-          <script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=activitesvoyages&table=activitesvoyages&modifactivitesvoyages=<?php echo $idacti;?>"</script>
-      <?php
-      require('includes/miseajourdusite.php');
-            } ?>
+
+?>
 
             <div class="row">
               <div class="col-sm-12">
@@ -4515,8 +4473,8 @@ if ($uploadOk == 0) {
                 <div class="col-sm-6">
                   <div class="card-content">
                     <div class="form-group label-floating">
-                        <label class="control-label">Titre de l'actualité</label>
-                        <input type="text" class="form-control" name="title" id="title">
+                      <label class="control-label">Titre de l'actualité</label>
+                      <input type="text" class="form-control" name="title" id="title">
                     </div>
                   </div>
                 </div>
@@ -4592,10 +4550,12 @@ if ($uploadOk == 0) {
               </div>
             </form>
             <div id="results11"></div>
-
-
-
-
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
 
   <?php
   //FIn Création
@@ -4608,11 +4568,7 @@ function RetourIndex(){
 }
 </script>
   <?php
-//Modif page galerie
-?>
 
-
-<?php
 $selectinfosactuel43 = $db->prepare("SELECT * from photopage where nompage=:nompage");
 $selectinfosactuel43->execute(array(
   "nompage"=>'Galerie'
@@ -4751,103 +4707,105 @@ if ($uploadOk == 0) {
     require('includes/miseajourdusite.php');
           } ?>
 
-          <body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
-            <div class="wrapper">
+<body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
+  <div class="wrapper">
 
-             <?php
-             require_once('includes/navbar.php');
-             ?>
+   <?php
+   require_once('includes/navbar.php');
+   ?>
 
-          <div class="content">
-            <div class="container-fluid">
-              <div class="card">
+    <div class="content">
+      <div class="container-fluid">
+        <div class="card">
+          <div class="card-content">
+            <h2 class="card-title text-center">Modification page Galerie</h2>
+            <div class="row">
+              <div class="col-sm-12">
                 <div class="card-content">
-                  <h2 class="card-title text-center">Modification page Galerie</h2>
-                    <div class="row">
-                      <div class="col-sm-12">
-                        <div class="card-content">
-                          <h3 class="card-title">En-tête de page</h3>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-sm-6">
-                        <div class="card-content">
-                          <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-                            <h3 class="card-title text-center">Image d'Arrière plan</h3>
-                            <br><br><br>
-                            <center>
-                              <div class="fileinput fileinput-new text-center" data-provides="fileinput">
-                                <div class="fileinput-new thumbnail">
-                                  <img src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/<?php echo $image; ?>" alt="...">
-                                </div>
-                                <div class="fileinput-preview fileinput-exists thumbnail"></div>
-                                <br><br>
-                                <div>
-                                  <span class="btn btn-rose btn-round btn-file">
-                                    <span class="fileinput-new">Selection image</span>
-                                    <span class="fileinput-exists">Changer</span>
-                                    <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
-                                  </span>
-                                  <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
-                                  <button type="submit" name="modifphotogalerie" class="btn btn-primary btn-round btn-rose">Modifier l'image</button>
-                                </div>
-                              </div>
-                            </center>
-                          </form>
-                        </div>
-                      </div>
-                    <div class="col-sm-6">
-                      <div class="card-content">
-                        <form action="" method="post" id="myForm1" class="contact-form">
-                          <h3 class="card-title text-center">Titres de la page</h3>
-                          <div class="form-group label-floating">
-                            <label class="control-label">Titre de la page</label>
-                            <input type="text" class="form-control" value="<?php echo $pagetitre; ?>" name="pagetitre" id="pagetitre">
-                          </div>
-                          <div class="form-group label-floating">
-                            <label class="control-label">Titre</label>
-                            <input type="text" name="titre" value="<?php echo $titre;?>" id="titre" class="form-control">
-                          </div>
-                          <br>
-                          <center>
-                            <button id="submitFormDataGallerie" onclick="SubmitFormDataGallerie();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
-                          </center>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                  <div id="results22"></div>
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <div class="card-content">
-                        <h3 class="card-title">Gérer les images</h3>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-6">
-                      <div class="card-content">
-                        <center>
-                          <h3 class="card-title text-center">Ajouter des images concernant la galerie</h3>
-                          <a href="https://administration.jam-mdm.fr/ajoutimage.php" target="_blank" class="w3-button w3-black"><button type="button" class="btn btn-primary btn-round btn-rose">Ajouter des images</button></a>
-                        </center>
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                      <div class="card-content">
-                        <center>
-                          <h3 class="card-title text-center">Gérer les images concernant la galerie</h3>
-                          <a href="https://administration.jam-mdm.fr/gestionimage.php" target="_blank" class="w3-button w3-black"><button type="button" class="btn btn-primary btn-round btn-rose">Gérer les images</button></a>
-                        </center>
-                      </div>
-                    </div>
-                    <br><br>
-                  </div>
+                  <h3 class="card-title">En-tête de page</h3>
                 </div>
               </div>
             </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="card-content">
+                  <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+                    <h3 class="card-title text-center">Image d'Arrière plan</h3>
+                    <br><br><br>
+                    <center>
+                      <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                        <div class="fileinput-new thumbnail">
+                          <img src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/<?php echo $image; ?>" alt="...">
+                        </div>
+                        <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                        <br><br>
+                        <div>
+                          <span class="btn btn-rose btn-round btn-file">
+                            <span class="fileinput-new">Selection image</span>
+                            <span class="fileinput-exists">Changer</span>
+                            <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
+                          </span>
+                          <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
+                          <button type="submit" name="modifphotogalerie" class="btn btn-primary btn-round btn-rose">Modifier l'image</button>
+                        </div>
+                      </div>
+                    </center>
+                  </form>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="card-content">
+                  <form action="" method="post" id="myForm1" class="contact-form">
+                    <h3 class="card-title text-center">Titres de la page</h3>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Titre de la page</label>
+                      <input type="text" class="form-control" value="<?php echo $pagetitre; ?>" name="pagetitre" id="pagetitre">
+                    </div>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Titre</label>
+                      <input type="text" name="titre" value="<?php echo $titre;?>" id="titre" class="form-control">
+                    </div>
+                    <br>
+                    <center>
+                      <button id="submitFormDataGallerie" onclick="SubmitFormDataGallerie();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                    </center>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div id="results22"></div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="card-content">
+                  <h3 class="card-title">Gérer les images</h3>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="card-content">
+                  <center>
+                    <h3 class="card-title text-center">Ajouter des images concernant la galerie</h3>
+                    <a href="https://administration.jam-mdm.fr/ajoutimage.php" target="_blank" class="w3-button w3-black"><button type="button" class="btn btn-primary btn-round btn-rose">Ajouter des images</button></a>
+                  </center>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="card-content">
+                  <center>
+                    <h3 class="card-title text-center">Gérer les images concernant la galerie</h3>
+                    <a href="https://administration.jam-mdm.fr/gestionimage.php" target="_blank" class="w3-button w3-black"><button type="button" class="btn btn-primary btn-round btn-rose">Gérer les images</button></a>
+                  </center>
+                </div>
+              </div>
+              <br><br>
+            </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
 
 
 <?php
@@ -4860,11 +4818,7 @@ function RetourIndex(){
 }
 </script>
   <?php
-//Modif page galerie
-?>
 
-
-<?php
 $selectinfosactuel44 = $db->prepare("SELECT * from photopage where nompage=:nompage");
 $selectinfosactuel44->execute(array(
   "nompage"=>'Nous Contacter'
@@ -5005,90 +4959,89 @@ if ($uploadOk == 0) {
   require('includes/miseajourdusite.php');
  } ?>
 
-    <body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
-      <div class="wrapper">
+<body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
+  <div class="wrapper">
 
-       <?php
-       require_once('includes/navbar.php');
-       ?>
+   <?php
+   require_once('includes/navbar.php');
+   ?>
 
-          <div class="content">
-            <div class="container-fluid">
-              <div class="card">
+    <div class="content">
+      <div class="container-fluid">
+        <div class="card">
+          <div class="card-content">
+            <h2 class="card-title text-center">Modification page nous-contacter</h2>
+            <div class="row">
+              <div class="col-sm-12">
                 <div class="card-content">
-                  <h2 class="card-title text-center">Modification page nous-contacter</h2>
-                    <div class="row">
-                      <div class="col-sm-12">
-                        <div class="card-content">
-                          <h3 class="card-title">En-tête de page</h3>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-sm-6">
-                        <div class="card-content">
-                          <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-                            <h3 class="card-title text-center">Image d'Arrière plan</h3>
-                            <br><br><br>
-                            <center>
-                              <div class="fileinput fileinput-new text-center" data-provides="fileinput">
-                                <div class="fileinput-new thumbnail">
-                                  <img src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/<?php echo $image; ?>" alt="...">
-                                </div>
-                                <div class="fileinput-preview fileinput-exists thumbnail"></div>
-                                <br><br>
-                                <div>
-                                  <span class="btn btn-rose btn-round btn-file">
-                                    <span class="fileinput-new">Selection image</span>
-                                    <span class="fileinput-exists">Changer</span>
-                                    <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
-                                  </span>
-                                  <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
-                                  <button type="submit" name="modifphotocontacteznous" class="btn btn-primary btn-round btn-rose">Modifier l'image</button>
-                                </div>
-                              </div>
-                            </center>
-                          </form>
-                        </div>
-                      </div>
-                    <div class="col-sm-6">
-                      <div class="card-content">
-                        <form action="" method="post" id="myForm1" class="contact-form">
-                          <h3 class="card-title text-center">Titres de la page</h3>
-                          <div class="form-group label-floating">
-                            <label class="control-label">Titre de la page</label>
-                            <input type="text" value="<?php echo $pagetitre; ?>" name="pagetitre" id="pagetitre" class="form-control">
-                          </div>
-                          <div class="form-group label-floating">
-                            <label class="control-label">Titre</label>
-                            <input type="text" name="titre" value="<?php echo $titre; ?>" id="titre" class="form-control">
-                          </div>
-                          <div class="form-group label-floating">
-                              <label class="control-label">Description</label>
-                              <textarea rows="5" name="description" id="description" class="form-control"><?php echo $description; ?></textarea>
-                          </div>
-                          <br>
-                          <center>
-                            <button id="submitFormDataContactUs" onclick="SubmitFormDataContactUs();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
-                          </center>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                  <div id="results22"></div>
+                  <h3 class="card-title">En-tête de page</h3>
                 </div>
               </div>
             </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="card-content">
+                  <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+                    <h3 class="card-title text-center">Image d'Arrière plan</h3>
+                    <br><br><br>
+                    <center>
+                      <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                        <div class="fileinput-new thumbnail">
+                          <img src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/<?php echo $image; ?>" alt="...">
+                        </div>
+                        <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                        <br><br>
+                        <div>
+                          <span class="btn btn-rose btn-round btn-file">
+                            <span class="fileinput-new">Selection image</span>
+                            <span class="fileinput-exists">Changer</span>
+                            <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
+                          </span>
+                          <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
+                          <button type="submit" name="modifphotocontacteznous" class="btn btn-primary btn-round btn-rose">Modifier l'image</button>
+                        </div>
+                      </div>
+                    </center>
+                  </form>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="card-content">
+                  <form action="" method="post" id="myForm1" class="contact-form">
+                    <h3 class="card-title text-center">Titres de la page</h3>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Titre de la page</label>
+                      <input type="text" value="<?php echo $pagetitre; ?>" name="pagetitre" id="pagetitre" class="form-control">
+                    </div>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Titre</label>
+                      <input type="text" name="titre" value="<?php echo $titre; ?>" id="titre" class="form-control">
+                    </div>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Description</label>
+                      <textarea rows="5" name="description" id="description" class="form-control"><?php echo $description; ?></textarea>
+                    </div>
+                    <br>
+                    <center>
+                      <button id="submitFormDataContactUs" onclick="SubmitFormDataContactUs();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                    </center>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div id="results22"></div>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
 
 <?php
 //Fin modif contactez nous
 }else if ($_GET['page']=='faireundon'){
 //Modif page faire un don
-?>
 
-
-<?php
 $selectinfosactuel45 = $db->prepare("SELECT * from photopage where nompage=:nompage");
 $selectinfosactuel45->execute(array(
   "nompage"=>'Faire un don'
@@ -5229,288 +5182,288 @@ if ($uploadOk == 0) {
     require('includes/miseajourdusite.php');
           } ?>
 
-          <body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
-            <div class="wrapper">
+          <!-- Ajoutd'images au site web (assets)-->
+          <?php
+          if(isset($_POST['modifpagedonpaiement'])){
+                $target_dir = "../../../JamFichiers/Img/ImagesDuSite";
+                $original = 'Original';
+                if (file_exists($target_dir/$original)) {
+                  $target_dirnew = "$target_dir/$original/";
+                }else{
+                  mkdir("$target_dir/$original", 0700);
+                  $target_dirnew = "$target_dir/$original/";
+                }
+                //Ajout thumb
+                $thumb = 'Thumb';
+                if (file_exists($target_dir/$thumb)) {
+                  $target_dirnewthumb = "$target_dir/$thumb/";
+                }else{
+                  mkdir("$target_dir/$thumb", 0700);
+                  $target_dirnewthumb = "$target_dir/$thumb/";
+                }
+                //FIN
+          $total = count($_FILES['fileToUpload']['name']);
+          for( $i=0 ; $i < $total ; $i++ ) {
+          $target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
+          $uploadOk = 1;
+          $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+          // Check if file already exists
+          if (file_exists($target_file)) {
+              $messagenotif = 'Désolé, le fichier existe déja.';
+              $type = "warning";
+              $uploadOk = 0;
+          }
+          // Check file size < 2mo
+          if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
+              $messagenotif = 'Désolé, le fichier est trop grand.';
+              $type = "warning";
+              $uploadOk = 0;
+          }
+          // Allow certain file formats
+          if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
+              $messagenotif = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
+              $type = "warning";
+              $uploadOk = 0;
+          }
+          // Check if $uploadOk is set to 0 by an error
+          if ($uploadOk == 0) {
+              $messagenotif = 'Désolé, une erreur est survenue.';
+              $type = "warning";
+          // if everything is ok, try to upload file
+          } else {
+            date_default_timezone_set('Europe/Paris');
+            setlocale(LC_TIME, 'fr_FR.utf8','fra');
+            $date = strftime('%d:%m:%y %H:%M:%S');
+            $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
+            $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
+            $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
+              if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
+                  $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
+                  $type = "success";
+                  $status = '1';
+                  $update = $db->prepare("UPDATE photopage SET image=:image WHERE nompage=:nompage");
+                  $update->execute(array(
+                      "nompage"=>'Faire un don paiement',
+                      "image"=>$target_filefile
+                      )
+                  );
+                  date_default_timezone_set('Europe/Paris');
+                  setlocale(LC_TIME, 'fr_FR.utf8','fra');
+                  $date = strftime('%d/%m/%Y %H:%M:%S');
+                  $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
+                  $insertlogs->execute(array(
+                                      "user_id"=>$user_id,
+                                      "type"=>'Modification',
+                                      "action"=>'Modification page Faire Un Don',
+                                      "page"=>'don.php',
+                                      "date"=>$date
+                                      )
+                                  );
+                  $img_tmp = $target_dirnew.$target_filefile;
+                  $fin = $target_dirnewthumb.$target_filefile;
+                    //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
+                      $longueur = 300;
+                      $largeur = 220;
+                      //TAILLE DE L'IMAGE ACTUELLE
+                      $taille = getimagesize($img_tmp);
+                      //SI LE FICHIER EXISTE
+                      if ($taille) {
+                          //SI JPG
+                          if ($taille['mime']=='image/jpeg' ) {
+                                    //OUVERTURE DE L'IMAGE ORIGINALE
+                                      $img_big = imagecreatefromjpeg($img_tmp);
+                                      $img_new = imagecreate($longueur, $largeur);
+                                    //CREATION DE LA MINIATURE
+                                      $img_petite = imagecreatetruecolor($longueur, $largeur) or $img_petite = imagecreate($longueur, $largeur);
+                                      //COPIE DE L'IMAGE REDIMENSIONNEE
+                                      imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
+                                      imagejpeg($img_petite,$fin);
+                          }
+                        //SI PNG
+                      else if ($taille['mime']=='image/png' ) {
+                                      //OUVERTURE DE L'IMAGE ORIGINALE
+                                      $img_big = imagecreatefrompng($img_tmp); // On ouvre l'image d'origine
+                                      $img_new = imagecreate($longueur, $largeur);
+                                      //CREATION DE LA MINIATURE
+                                      $img_petite = imagecreatetruecolor($longueur, $largeur) OR $img_petite = imagecreate($longueur, $largeur);
+                                      //COPIE DE L'IMAGE REDIMENSIONNEE
+                                      imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
+                                      imagepng($img_petite,$fin);
+                                  }
+                          }
+              }else {
+                  $messagenotif = 'Désolé, une erreur est survenue.';
+                  $type = "warning";
+              } } }
+              require('includes/miseajourdusite.php');
+                    }
+                    //Modif page faire un don paiement
+                    $selectinfosactuel462 = $db->prepare("SELECT * from photopage where nompage=:nompage");
+                    $selectinfosactuel462->execute(array(
+                      "nompage"=>'Faire un don paiement'
+                    ));
+                    $r462 = $selectinfosactuel462->fetch(PDO::FETCH_OBJ);
+                    $pagetitre2 = $r462->pagetitre;
+                    $image2 = $r462->image;
+                    $titre2 = $r462->titre;
+                    $description2 = $r462->description;
+                    ?>
 
-             <?php
-             require_once('includes/navbar.php');
-             ?>
+<body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
+  <div class="wrapper">
 
-          <div class="content">
-            <div class="container-fluid">
-              <div class="card">
+   <?php
+   require_once('includes/navbar.php');
+   ?>
+
+    <div class="content">
+      <div class="container-fluid">
+        <div class="card">
+          <div class="card-content">
+            <h2 class="card-title text-center">Modification page faire un don</h2>
+            <div class="row">
+              <div class="col-sm-12">
                 <div class="card-content">
-                  <h2 class="card-title text-center">Modification page faire un don</h2>
-                    <div class="row">
-                      <div class="col-sm-12">
-                        <div class="card-content">
-                          <h3 class="card-title">Première page</h3>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-sm-6">
-                        <div class="card-content">
-                          <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-                            <h3 class="card-title text-center">Image d'Arrière plan</h3>
-                            <br><br><br>
-                            <center>
-                              <div class="fileinput fileinput-new text-center" data-provides="fileinput">
-                                <div class="fileinput-new thumbnail">
-                                  <img src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/<?php echo $image; ?>" alt="...">
-                                </div>
-                                <div class="fileinput-preview fileinput-exists thumbnail"></div>
-                                <br><br>
-                                <div>
-                                  <span class="btn btn-rose btn-round btn-file">
-                                    <span class="fileinput-new">Selection image</span>
-                                    <span class="fileinput-exists">Changer</span>
-                                    <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
-                                  </span>
-                                  <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
-                                  <button type="submit" name="modifpagedon" class="btn btn-primary btn-round btn-rose">Modifier l'image</button>
-                                </div>
-                              </div>
-                            </center>
-                          </form>
-                        </div>
-                      </div>
-                    <div class="col-sm-6">
-                      <div class="card-content">
-                        <form action="" method="post" id="myForm1" class="contact-form">
-                          <h3 class="card-title text-center">Titres de la page</h3>
-                          <div class="form-group label-floating">
-                            <label class="control-label">Titre de la page</label>
-                            <input type="text"value="<?php echo $pagetitre; ?>" name="pagetitre" id="pagetitre" class="form-control">
-                          </div>
-                          <div class="form-group label-floating">
-                            <label class="control-label">Titre</label>
-                            <input type="text" name="titre" value="<?php echo $titre;?>" id="titre" class="form-control">
-                          </div>
-                          <div class="form-group label-floating">
-                              <label class="control-label">Description</label>
-                              <textarea rows="5" name="description" id="description" class="form-control"><?php echo $description; ?></textarea>
-                          </div>
-                          <br>
-                          <center>
-                            <button id="submitFormDataFaireUnDon" onclick="SubmitFormDataFaireUnDon();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
-                          </center>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                  <div id="results23"></div>
-
-<!-- Ajoutd'images au site web (assets)-->
-<?php
-if(isset($_POST['modifpagedonpaiement'])){
-      $target_dir = "../../../JamFichiers/Img/ImagesDuSite";
-      $original = 'Original';
-      if (file_exists($target_dir/$original)) {
-        $target_dirnew = "$target_dir/$original/";
-      }else{
-        mkdir("$target_dir/$original", 0700);
-        $target_dirnew = "$target_dir/$original/";
-      }
-      //Ajout thumb
-      $thumb = 'Thumb';
-      if (file_exists($target_dir/$thumb)) {
-        $target_dirnewthumb = "$target_dir/$thumb/";
-      }else{
-        mkdir("$target_dir/$thumb", 0700);
-        $target_dirnewthumb = "$target_dir/$thumb/";
-      }
-      //FIN
-$total = count($_FILES['fileToUpload']['name']);
-for( $i=0 ; $i < $total ; $i++ ) {
-$target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
-$uploadOk = 1;
-$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-// Check if file already exists
-if (file_exists($target_file)) {
-    $messagenotif = 'Désolé, le fichier existe déja.';
-    $type = "warning";
-    $uploadOk = 0;
-}
-// Check file size < 2mo
-if ($_FILES["fileToUpload"]["size"][$i] > 3000000) {
-    $messagenotif = 'Désolé, le fichier est trop grand.';
-    $type = "warning";
-    $uploadOk = 0;
-}
-// Allow certain file formats
-if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-    $messagenotif = 'Désolé, les formats autorisés sont JPG, PNG et JPEG.';
-    $type = "warning";
-    $uploadOk = 0;
-}
-// Check if $uploadOk is set to 0 by an error
-if ($uploadOk == 0) {
-    $messagenotif = 'Désolé, une erreur est survenue.';
-    $type = "warning";
-// if everything is ok, try to upload file
-} else {
-  date_default_timezone_set('Europe/Paris');
-  setlocale(LC_TIME, 'fr_FR.utf8','fra');
-  $date = strftime('%d:%m:%y %H:%M:%S');
-  $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
-  $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
-  $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
-    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
-        $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
-        $type = "success";
-        $status = '1';
-        $update = $db->prepare("UPDATE photopage SET image=:image WHERE nompage=:nompage");
-        $update->execute(array(
-            "nompage"=>'Faire un don paiement',
-            "image"=>$target_filefile
-            )
-        );
-        date_default_timezone_set('Europe/Paris');
-        setlocale(LC_TIME, 'fr_FR.utf8','fra');
-        $date = strftime('%d/%m/%Y %H:%M:%S');
-        $insertlogs = $db->prepare("INSERT INTO logs (user_id, type, action, page, date) VALUES(:user_id, :type, :action, :page, :date)");
-        $insertlogs->execute(array(
-                            "user_id"=>$user_id,
-                            "type"=>'Modification',
-                            "action"=>'Modification page Faire Un Don',
-                            "page"=>'don.php',
-                            "date"=>$date
-                            )
-                        );
-        $img_tmp = $target_dirnew.$target_filefile;
-        $fin = $target_dirnewthumb.$target_filefile;
-          //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
-            $longueur = 300;
-            $largeur = 220;
-            //TAILLE DE L'IMAGE ACTUELLE
-            $taille = getimagesize($img_tmp);
-            //SI LE FICHIER EXISTE
-            if ($taille) {
-                //SI JPG
-                if ($taille['mime']=='image/jpeg' ) {
-                          //OUVERTURE DE L'IMAGE ORIGINALE
-                            $img_big = imagecreatefromjpeg($img_tmp);
-                            $img_new = imagecreate($longueur, $largeur);
-                          //CREATION DE LA MINIATURE
-                            $img_petite = imagecreatetruecolor($longueur, $largeur) or $img_petite = imagecreate($longueur, $largeur);
-                            //COPIE DE L'IMAGE REDIMENSIONNEE
-                            imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
-                            imagejpeg($img_petite,$fin);
-                }
-              //SI PNG
-            else if ($taille['mime']=='image/png' ) {
-                            //OUVERTURE DE L'IMAGE ORIGINALE
-                            $img_big = imagecreatefrompng($img_tmp); // On ouvre l'image d'origine
-                            $img_new = imagecreate($longueur, $largeur);
-                            //CREATION DE LA MINIATURE
-                            $img_petite = imagecreatetruecolor($longueur, $largeur) OR $img_petite = imagecreate($longueur, $largeur);
-                            //COPIE DE L'IMAGE REDIMENSIONNEE
-                            imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
-                            imagepng($img_petite,$fin);
-                        }
-                }
-    }else {
-        $messagenotif = 'Désolé, une erreur est survenue.';
-        $type = "warning";
-    } } }
-    require('includes/miseajourdusite.php');
-          }
-          //Modif page faire un don paiement
-          $selectinfosactuel462 = $db->prepare("SELECT * from photopage where nompage=:nompage");
-          $selectinfosactuel462->execute(array(
-            "nompage"=>'Faire un don paiement'
-          ));
-          $r462 = $selectinfosactuel462->fetch(PDO::FETCH_OBJ);
-          $pagetitre2 = $r462->pagetitre;
-          $image2 = $r462->image;
-          $titre2 = $r462->titre;
-          $description2 = $r462->description;
-          ?>
-
-
-          <script>
-          function SubmitFormDataFaireUnDonPaiement() {
-             var user_id = "<?php echo $_SESSION['admin_id']; ?>";
-             var pagetitre2 = $("#pagetitre2").val();
-             var titre2 = $("#titre2").val();
-             var description2 = $("#description2").val();
-             $.post("ajax/modifypagefaireundonpaiement.php", { user_id: user_id, pagetitre2: pagetitre2, titre2: titre2, description2: description2},
-             function(data) {
-              $('#results44').html(data);
-             });
-          }
-          </script>
-
-
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="card-content">
-                <h3 class="card-title">Seconde page</h3>
+                  <h3 class="card-title">Première page</h3>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="card-content">
-                <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-                  <h3 class="card-title text-center">Image d'Arrière plan</h3>
-                  <br><br><br>
-                  <center>
-                    <div class="fileinput fileinput-new text-center" data-provides="fileinput">
-                      <div class="fileinput-new thumbnail">
-                        <img src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/<?php echo $image2; ?>" alt="...">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="card-content">
+                  <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+                    <h3 class="card-title text-center">Image d'Arrière plan</h3>
+                    <br><br><br>
+                    <center>
+                      <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                        <div class="fileinput-new thumbnail">
+                          <img src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/<?php echo $image; ?>" alt="...">
+                        </div>
+                        <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                        <br><br>
+                        <div>
+                          <span class="btn btn-rose btn-round btn-file">
+                            <span class="fileinput-new">Selection image</span>
+                            <span class="fileinput-exists">Changer</span>
+                            <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
+                          </span>
+                          <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
+                          <button type="submit" name="modifpagedon" class="btn btn-primary btn-round btn-rose">Modifier l'image</button>
+                        </div>
                       </div>
-                      <div class="fileinput-preview fileinput-exists thumbnail"></div>
-                      <br><br>
-                      <div>
-                        <span class="btn btn-rose btn-round btn-file">
-                          <span class="fileinput-new">Selection image</span>
-                          <span class="fileinput-exists">Changer</span>
-                          <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
-                        </span>
-                        <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
-                        <button type="submit" name="modifpagedonpaiement" class="btn btn-primary btn-round btn-rose">Modifier l'image</button>
-                      </div>
+                    </center>
+                  </form>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="card-content">
+                  <form action="" method="post" id="myForm1" class="contact-form">
+                    <h3 class="card-title text-center">Titres de la page</h3>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Titre de la page</label>
+                      <input type="text"value="<?php echo $pagetitre; ?>" name="pagetitre" id="pagetitre" class="form-control">
                     </div>
-                  </center>
-                </form>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Titre</label>
+                      <input type="text" name="titre" value="<?php echo $titre;?>" id="titre" class="form-control">
+                    </div>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Description</label>
+                      <textarea rows="5" name="description" id="description" class="form-control"><?php echo $description; ?></textarea>
+                    </div>
+                    <br>
+                    <center>
+                      <button id="submitFormDataFaireUnDon" onclick="SubmitFormDataFaireUnDon();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                    </center>
+                  </form>
+                </div>
               </div>
             </div>
-          <div class="col-sm-6">
-            <div class="card-content">
-              <form action="" method="post" id="myForm1" class="contact-form">
-                <h3 class="card-title text-center">Titres de la page</h3>
-                <div class="form-group label-floating">
-                  <label class="control-label">Titre de la page</label>
-                  <input type="text" class="form-control" value="<?php echo $pagetitre2; ?>" name="pagetitre2" id="pagetitre2">
+            <div id="results23"></div>
+
+            <script>
+            function SubmitFormDataFaireUnDonPaiement() {
+               var user_id = "<?php echo $_SESSION['admin_id']; ?>";
+               var pagetitre2 = $("#pagetitre2").val();
+               var titre2 = $("#titre2").val();
+               var description2 = $("#description2").val();
+               $.post("ajax/modifypagefaireundonpaiement.php", { user_id: user_id, pagetitre2: pagetitre2, titre2: titre2, description2: description2},
+               function(data) {
+                $('#results44').html(data);
+               });
+            }
+            </script>
+
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="card-content">
+                  <h3 class="card-title">Seconde page</h3>
                 </div>
-                <div class="form-group label-floating">
-                  <label class="control-label">Titre</label>
-                  <input type="text" name="titre" value="<?php echo $titre2; ?>" id="titre2" class="form-control">
-                </div>
-                <div class="form-group label-floating">
-                    <label class="control-label">Description</label>
-                    <textarea rows="5" name="description" id="description2" class="form-control"><?php echo $description2; ?></textarea>
-                </div>
-                <br>
-                <center>
-                  <button id="submitFormDataFaireUnDonPaiement" onclick="SubmitFormDataFaireUnDonPaiement();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
-                </center>
-              </form>
+              </div>
             </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="card-content">
+                  <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+                    <h3 class="card-title text-center">Image d'Arrière plan</h3>
+                    <br><br><br>
+                    <center>
+                      <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                        <div class="fileinput-new thumbnail">
+                          <img src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/<?php echo $image2; ?>" alt="...">
+                        </div>
+                        <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                        <br><br>
+                        <div>
+                          <span class="btn btn-rose btn-round btn-file">
+                            <span class="fileinput-new">Selection image</span>
+                            <span class="fileinput-exists">Changer</span>
+                            <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
+                          </span>
+                          <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
+                          <button type="submit" name="modifpagedonpaiement" class="btn btn-primary btn-round btn-rose">Modifier l'image</button>
+                        </div>
+                      </div>
+                    </center>
+                  </form>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="card-content">
+                  <form action="" method="post" id="myForm1" class="contact-form">
+                    <h3 class="card-title text-center">Titres de la page</h3>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Titre de la page</label>
+                      <input type="text" class="form-control" value="<?php echo $pagetitre2; ?>" name="pagetitre2" id="pagetitre2">
+                    </div>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Titre</label>
+                      <input type="text" name="titre" value="<?php echo $titre2; ?>" id="titre2" class="form-control">
+                    </div>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Description</label>
+                      <textarea rows="5" name="description" id="description2" class="form-control"><?php echo $description2; ?></textarea>
+                    </div>
+                    <br>
+                    <center>
+                      <button id="submitFormDataFaireUnDonPaiement" onclick="SubmitFormDataFaireUnDonPaiement();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                    </center>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div id="results44"></div>
           </div>
         </div>
-        <div id="results44"></div>
       </div>
     </div>
   </div>
+</body>
 
-<?php }else if ($_GET['page']=='lienutiles'){
+
+
+<?php /* }else if ($_GET['page']=='lienutiles'){
 ?>
-
-
-
 
   <script>
   function RetourIndex(){
@@ -5518,13 +5471,9 @@ if ($uploadOk == 0) {
   }
   </script>
 
-
   <?php
   if(isset($_GET['modiflien'])){
-  ?>
 
-
-    <?php
     $id = $_GET['modiflien'];
     $selectinfosactuel = $db->prepare("SELECT * from lienutiles where id=:id");
     $selectinfosactuel->execute(array(
@@ -5553,63 +5502,65 @@ if ($uploadOk == 0) {
   }
   </script>
 
-  <body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
-    <div class="wrapper">
+<body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
+  <div class="wrapper">
 
-     <?php
-     require_once('includes/navbar.php');
-     ?>
+   <?php
+   require_once('includes/navbar.php');
+   ?>
 
-  <div class="content">
-    <div class="container-fluid">
-      <div class="card">
-        <div class="card-content">
-          <h2 class="card-title text-center">Modification d'un lien utile</h2>
-          <br><br>
+    <div class="content">
+      <div class="container-fluid">
+        <div class="card">
+          <div class="card-content">
+            <h2 class="card-title text-center">Modification d'un lien utile</h2>
+            <br><br>
             <form action="" method="post" id="myForm1" class="contact-form">
               <div class="row">
-                  <div class="col-sm-6">
-                    <div class="card-content">
-                      <div class="form-group label-floating">
-                        <label class="control-label">Nom</label>
-                        <input type="text" class="form-control" value="<?php echo $nom; ?>" name="nom" id="nom">
-                      </div>
-                      <div class="form-group label-floating">
-                        <label class="control-label">Lien</label>
-                        <input type="text" name="lien" value="<?php echo $lien; ?>" id="lien" class="form-control">
-                      </div>
-                      <div class="form-group label-floating">
-                        <label class="control-label">Lien image</label>
-                        <input type="text" name="lienimage" value="<?php echo $lienimage; ?>" id="lienimage" class="form-control">
-                      </div>
+                <div class="col-sm-6">
+                  <div class="card-content">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Nom</label>
+                      <input type="text" class="form-control" value="<?php echo $nom; ?>" name="nom" id="nom">
                     </div>
-                  </div>
-                  <div class="col-sm-6">
-                    <div class="card-content">
-                      <div class="form-group label-floating">
-                        <label class="control-label">Description</label>
-                        <textarea rows="9" type="text" name="description" value="Description du Status" id="description" class="form-control"><?php echo $description; ?></textarea>
-                      </div>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Lien</label>
+                      <input type="text" name="lien" value="<?php echo $lien; ?>" id="lien" class="form-control">
+                    </div>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Lien image</label>
+                      <input type="text" name="lienimage" value="<?php echo $lienimage; ?>" id="lienimage" class="form-control">
                     </div>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col-sm-12">
-                    <div class="card-content">
-                      <center>
-                        <button id="submitFormDataModifLiens" onclick="SubmitFormDataModifLiens();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
-                        <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
-                      </center>
-                      <br><br>
+                <div class="col-sm-6">
+                  <div class="card-content">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Description</label>
+                      <textarea rows="9" type="text" name="description" value="Description du Status" id="description" class="form-control"><?php echo $description; ?></textarea>
                     </div>
                   </div>
                 </div>
-              </form>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="card-content">
+                    <center>
+                      <button id="submitFormDataModifLiens" onclick="SubmitFormDataModifLiens();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                      <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
+                    </center>
+                    <br><br>
+                  </div>
+                </div>
+              </div>
+            </form>
             <div id="results6"></div>
-            </div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</body>
 
   <?php }else{
     $selectinfosactuel2 = $db->prepare("SELECT * from photopage where nompage=:nompage");
@@ -5621,8 +5572,6 @@ if ($uploadOk == 0) {
     $titre = $r3->titre;
     $image = $r3->image;
    ?>
-
-
 
   <script>
    function TOTO() {
@@ -5648,7 +5597,7 @@ if ($uploadOk == 0) {
   }
   </script>
 
-  <!-- Ajoutd'images au site web (assets)-->
+   Ajoutd'images au site web (assets)
   <?php
   if(isset($_POST['envoieimagelienutiles'])){
         $target_dir = "../../../JamFichiers/Img/ImagesDuSite";
@@ -5764,143 +5713,118 @@ if ($uploadOk == 0) {
       require('includes/miseajourdusite.php');
             } ?>
 
+<body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
+  <div class="wrapper">
 
+   <?php
+   require_once('includes/navbar.php');
+   ?>
 
-
-
-
-
-
-
-
-
-
-
-  <div class="row">
-    <div class="col-sm-6">
-      <div class="card-content">
-        <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-          <h3 class="card-title text-center">Image d'Arrière plan</h3>
-          <br>
-          <center>
-            <div class="fileinput fileinput-new text-center" data-provides="fileinput">
-              <div class="fileinput-new thumbnail">
-                <img src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/<?php echo $image; ?>" alt="...">
-              </div>
-              <div class="fileinput-preview fileinput-exists thumbnail"></div>
-              <br><br>
-              <div>
-                <span class="btn btn-rose btn-round btn-file">
-                  <span class="fileinput-new">Selection image</span>
-                  <span class="fileinput-exists">Changer</span>
-                  <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple" />
-                </span>
-                <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
-                <button type="submit" name="envoieimagelienutiles" class="btn btn-primary btn-round btn-rose">Modifier l'image</button>
-              </div>
-            </div>
-          </center>
-        </form>
-      </div>
-    </div>
-  <div class="col-sm-6">
-    <div class="card-content">
-      <form action="" method="post" id="myForm1" class="contact-form">
-        <h3 class="card-title text-center">Titres de la page</h3>
-        <br><br>
-        <div class="form-group label-floating">
-          <label class="control-label">Titre de la page</label>
-          <input type="text" class="form-control" value="<?php echo $pagetitre; ?>" name="pagetitre" id="pagetitre">
-        </div>
-        <div class="form-group label-floating">
-          <label class="control-label">Titre</label>
-          <input type="text" class="form-control" value="<?php echo $titre; ?>" name="titre" id="titre">
-        </div>
-        <br>
-        <center>
-          <button id="submitFormDataPagelientutiles2" onclick="SubmitFormDataPageLiensUtiles2();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
-        </center>
-      </form>
-    </div>
-  </div>
-  </div>
-  <div id="results83"> <!-- TRES IMPORTANT -->
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <div class="container-fluid">
-      <div class="card">
+    <div class="content">
+      <div class="container-fluid">
+        <div class="card">
           <div class="card-content">
-              <h2 class="card-title text-center">Création de liens utiles</h2>
-              <form action="" method="post" id="myForm1" class="contact-form">
+            <h2 class="card-title text-center">Modification d'un lien utile</h2>
+            <br><br>
+            <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
               <div class="row">
-                  <div class="col-sm-6">
-                      <div class="card-content">
-                        Sélectionner la catégorie<br><?php
-                        $selectliencat=$db->query("SELECT namecat FROM catliensutiles");
-                        ?>
-
-                        <select name="catlien" id="catlien">
-                          <?php
-                            while($sa = $selectliencat->fetch(PDO::FETCH_OBJ)){
-                              $catlien=$sa->namecat;
-                              ?>
-                            <option value="<?php echo $catlien;?>"><?php echo $catlien; ?></option>
-                          <?php
-                        }
-                        ?>
-                        </select>
-
-                       </div>
-
-
-                       <div class="form-group label-floating">
-                           <label class="control-label">Nom</label>
-                           <input type="text" class="form-control" value="" name="nom" id="nom">
-                       </div>
-
-                       <div class="form-group label-floating">
-                           <label class="control-label">Description</label>
-                           <input type="text" class="form-control" value="" name="description" id="description">
-                       </div>
-
-                       <div class="form-group label-floating">
-                           <label class="control-label">Lien de l'image</label>
-                           <input type="text" class="form-control" value="" name="lienimage" id="lienimage">
-                       </div>
-
-                       <div class="form-group label-floating">
-                           <label class="control-label">Lien vers le partenaire</label>
-                           <input type="text" class="form-control" value="" name="lien" id="lien">
-                       </div>
-
+                <div class="col-sm-6">
+                  <div class="card-content">
+                    <h3 class="card-title text-center">Image d'Arrière plan</h3>
+                    <br>
+                    <center>
+                      <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                        <div class="fileinput-new thumbnail">
+                          <img src="https://jam-mdm.fr/JamFichiers/Img/ImagesDuSite/Original/<?php echo $image; ?>" alt="...">
+                        </div>
+                        <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                        <br><br>
+                        <div>
+                          <span class="btn btn-rose btn-round btn-file">
+                            <span class="fileinput-new">Selection image</span>
+                            <span class="fileinput-exists">Changer</span>
+                            <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple" />
+                          </span>
+                          <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
+                          <button type="submit" name="envoieimagelienutiles" class="btn btn-primary btn-round btn-rose">Modifier l'image</button>
+                        </div>
+                      </div>
+                    </center>
+                  </form>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="card-content">
+                  <form action="" method="post" id="myForm1" class="contact-form">
+                    <h3 class="card-title text-center">Titres de la page</h3>
+                    <br><br>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Titre de la page</label>
+                      <input type="text" class="form-control" value="<?php echo $pagetitre; ?>" name="pagetitre" id="pagetitre">
                     </div>
-
-                  <div class="col-sm-12">
-                      <div class="card-content">
-                        <center>
-                          <button id="submitFormDataModifliens" onclick="TOTO();" type="button" class="btn btn-primary btn-round btn-rose">Ajouter</button>
-                        <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
-                        </center>
-                       </div>
+                    <div class="form-group label-floating">
+                      <label class="control-label">Titre</label>
+                      <input type="text" class="form-control" value="<?php echo $titre; ?>" name="titre" id="titre">
                     </div>
+                    <br>
+                    <center>
+                      <button id="submitFormDataPagelientutiles2" onclick="SubmitFormDataPageLiensUtiles2();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                    </center>
+                  </div>
+                </div>
               </div>
             </form>
-          </div>
+            <div id="results83"></div>
+              <div class="container-fluid">
+                <div class="card">
+                  <div class="card-content">
+                    <h2 class="card-title text-center">Création de liens utiles</h2>
+                    <form action="" method="post" id="myForm1" class="contact-form">
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="card-content">
+                            Sélectionner la catégorie<br><?php
+                            $selectliencat=$db->query("SELECT namecat FROM catliensutiles");
+                            ?>
 
-
-      </div>
+                            <select name="catlien" id="catlien">
+                              <?php
+                              while($sa = $selectliencat->fetch(PDO::FETCH_OBJ)){
+                                $catlien=$sa->namecat;
+                              ?>
+                              <option value="<?php echo $catlien;?>"><?php echo $catlien; ?></option>
+                              <?php } ?>
+                            </select>
+                           </div>
+                           <div class="form-group label-floating">
+                             <label class="control-label">Nom</label>
+                             <input type="text" class="form-control" value="" name="nom" id="nom">
+                           </div>
+                           <div class="form-group label-floating">
+                             <label class="control-label">Description</label>
+                             <input type="text" class="form-control" value="" name="description" id="description">
+                           </div>
+                           <div class="form-group label-floating">
+                              <label class="control-label">Lien de l'image</label>
+                             <input type="text" class="form-control" value="" name="lienimage" id="lienimage">
+                           </div>
+                           <div class="form-group label-floating">
+                             <label class="control-label">Lien vers le partenaire</label>
+                             <input type="text" class="form-control" value="" name="lien" id="lien">
+                           </div>
+                         </div>
+                         <div class="col-sm-12">
+                          <div class="card-content">
+                            <center>
+                              <button id="submitFormDataModifliens" onclick="TOTO();" type="button" class="btn btn-primary btn-round btn-rose">Ajouter</button>
+                              <button onclick="RetourIndex();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
+                            </center>
+                         </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
 
 
 
@@ -5925,15 +5849,15 @@ if ($uploadOk == 0) {
       $table = $selectnom->fetchAll(PDO::FETCH_OBJ);
       if(count($table)>0){
         echo '
-        <div class="table-responsive">
-          <table class="table">
-            <thead class="text-primary">
-              <th class="text-center">Type</th>
-              <th class="text-left">Nom</th>
-              <th class="text-left">Description</th>
-              <th class="text-left">Modifier</th>
-            </thead>
-            <tbody>
+              <div class="table-responsive">
+                <table class="table">
+                  <thead class="text-primary">
+                    <th class="text-center">Type</th>
+                    <th class="text-left">Nom</th>
+                    <th class="text-left">Description</th>
+                    <th class="text-left">Modifier</th>
+                  </thead>
+                  <tbody>
         ';
         foreach($table as $ligne){
           $id = $ligne->id;
@@ -5943,44 +5867,40 @@ if ($uploadOk == 0) {
           $lienimage = $ligne->lienimage;
           $lien = $ligne->lien;
           echo '
-          <tr>
-            <td class="text-center">'.$slug.'</td>
-            <td class="text-left">'.$nom.'</td>
-            <td class="text-left">'.$description.'</td>
-            <td class="text-center">
-              <a href="?modiflien='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Modifier</button></a>
-              <a href="?deletelien='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Supprimer</button></a>
-            </td>
-          </tr>
-          ';
-        }
-        echo '
-        </tbody>
-      </table>
-    </div>
-        ';
+                    <tr>
+                      <td class="text-center">'.$slug.'</td>
+                      <td class="text-left">'.$nom.'</td>
+                      <td class="text-left">'.$description.'</td>
+                      <td class="text-center">
+                        <a href="?modiflien='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Modifier</button></a>
+                        <a href="?deletelien='.$id.'"><button type="button" class="btn btn-rose btn-round btn-sm">Supprimer</button></a>
+                      </td>
+                    </tr>
+                    ';
+                  }
+                  echo '
+                  </tbody>
+                </table>
+              </div>
+                  ';
 
       }else{ ?>
 
-        <center>
-            <h4 class="info-title"><font color="red">Aucun lien utile trouvé</font></h4>
-        </center>
+              <center>
+                <h4 class="info-title"><font color="red">Aucun lien utile trouvé</font></h4>
+              </center>
 
       <?php } ?>
 
+            </div>
+            <div id="results33"></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+</body>
 
-  <div id="results33"> <!-- TRES IMPORTANT -->
-  </div>
-
-  <?php
-  }
-}
- } ?>
-
-  </div>
-</div>
-
-  <?php
-  require_once('includes/javascript.php');
-  ?>
+<?php } } */ }
+require_once('includes/javascript.php');
+?>
