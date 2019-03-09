@@ -19,34 +19,28 @@ if($_POST['id']){
 				<div class="jquerysel">
 					<select class="selectpicker" data-style="select-with-transition" title="Sous Catégorie" data-size="7" name="souscatactualite">
 					<?php	echo '<option value="'.$title.'">'.$title.'</option>';?>
-					</select>
-				</div>
+
 				<?php
         if(!empty($title2)){
 
 
-				?>
-								<div class="jquerysel">
-									<select class="selectpicker" data-style="select-with-transition" title="Sous Catégorie" data-size="7" name="souscatactualite">
-									<?php	echo '<option value="'.$title.'">'.$title.'</option>';
+
+
 									echo '<option value="'.$title2.'">'.$title2.'</option>';
-									?>
-									</select>
-								</div>
-								<?php
+
+
         }
         if(!empty($title3)){
-        
-				?>
-								<div class="jquerysel">
-									<select class="selectpicker" data-style="select-with-transition" title="Sous Catégorie" data-size="7" name="souscatactualite">
-									<?php	echo '<option value="'.$title.'">'.$title.'</option>';
-									echo '<option value="'.$title2.'">'.$title2.'</option>';
+
+
+
 									echo '<option value="'.$title3.'">'.$title3.'</option>';
-									?>
-									</select>
-								</div>
-								<?php
+
+
       }
+			?>
+		</select>
+		</div>
+			<?php
 				}
 			}
