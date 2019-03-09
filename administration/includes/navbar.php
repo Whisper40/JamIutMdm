@@ -92,8 +92,8 @@ while($unecat = $cat->fetch(PDO::FETCH_OBJ)){
 							</button>
 					</div>
 					<div class="navbar-header">
-            <div class="header text-center">
-              <h3 class="title">Sweet Alert 2</h3>    
+            <div class="navbar-brand text-center">
+              <h3 class="title">Dashboard Administrateur - Association JAM</h3>
               </div>
 					</div>
 			</div>
