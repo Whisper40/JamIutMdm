@@ -48,7 +48,7 @@ require_once('../includes/connectBDD.php');
                                        $headers = "From: <".$owner_mail.">\r\n";
                                        $headers .= "MIME-Version: 1.0\r\n";
                                        $headers .= 'X-Priotity:'.$priority."\r\n";
-                                       $headers .= "Content-Type: multipart/mixed; boundary=\"".$uid."\"\r\n\r\n";
+                                       $headers .= "Content-Type: text/html\r\n";
 
 
 
