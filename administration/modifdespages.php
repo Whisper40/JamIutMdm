@@ -2890,6 +2890,11 @@ if (file_exists($target_dir)){
               </div>
             </form>
             <div id="results11"></div>
+            <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.6/dist/css/bootstrap-select.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.6/dist/js/bootstrap-select.min.js"></script>
             <div class="row">
               <div class="col-sm-12">
                 <div class="card-content">
@@ -2918,8 +2923,8 @@ if (file_exists($target_dir)){
                         <?php } ?>
                       </select>
                     </div>
-                    <div class="jquerysel">
-                      <select class="selectpicker souscatactualite" data-style="select-with-transition" title="Sous Catégorie" data-size="7" name="souscatactualite">
+                    <div class="selectpicker">
+                      <select class="selectpicker souscatactualite" title="Sous Catégorie" name="souscatactualite">
                         <option disabled>Choisir une sous categorie</option>
                       </select>
                     </div>
