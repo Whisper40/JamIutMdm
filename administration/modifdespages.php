@@ -5901,6 +5901,6 @@ if ($uploadOk == 0) {
   </div>
 </body>
 
-<?php } } */ }
+<?php } } */  }
 require_once('includes/javascript.php');
 ?>
