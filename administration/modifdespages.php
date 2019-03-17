@@ -2988,12 +2988,6 @@ if (file_exists($target_dir)){
               <div class="col-sm-12">
                 <div class="card-content">
                   <p id='resultat'></p>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-12">
-                <div class="card-content">
                   <center>
                     <button onclick="RetourIndex4();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                   </center>
@@ -3937,12 +3931,6 @@ function slugify($text){
               <div class="col-sm-12">
                 <div class="card-content">
                   <p id='resultat'></p>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-12">
-                <div class="card-content">
                   <center>
                     <button onclick="RetourIndex4();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                   </center>
