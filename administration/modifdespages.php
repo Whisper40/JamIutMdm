@@ -2919,6 +2919,37 @@ if (file_exists($target_dir)){
                         <?php } ?>
                       </select>
                     </div>
+
+                    <div class="jquerysel">
+                      <select class="selectpicker souscatactualite" data-style="select-with-transition" title="Catégorie" data-size="7" name="souscatactualite">
+                        <option disabled>Choisir une categorie</option>
+
+                    <?php
+                    if($_POST['id']){
+                    	$id=$_POST['id'];
+                    	if($id==0){
+                    		echo "<option>Séléctionner la sous catégorie</option>";
+                    		}else{
+
+                          $s5=$db->query("SELECT * FROM newsactus where id='$id'");
+                          $row = $s5->fetch(PDO::FETCH_OBJ);
+                          $title = $row->title;
+                          $title2 = $row->title2;
+                          $title3 = $row->title3;
+                    				echo '<option value="'.$title.'">'.$title.'</option>';
+                            if(!empty($title2)){
+                            echo '<option value="'.$title2.'">'.$title2.'</option>';
+                            }
+                            if(!empty($title3)){
+                            echo '<option value="'.$title3.'">'.$title3.'</option>';
+                          }
+                    				}
+                    			}
+                      ?>
+                      </select>
+                    </div>
+
+
                     Sous Catégorie :
                     <select name="souscatactualite" class="souscatactualite selectpicker jquerysel" data-style="select-with-transition" data-size="7">
           <option>Sélectionner la sous catégorie</option>
