@@ -2903,25 +2903,6 @@ if (file_exists($target_dir)){
                 <div class="col-sm-6">
                   <div class="card-content">
 
-                    <?php
-                    $selectcatimages=$db->query("SELECT id FROM newsactus WHERE title='$title'");
-                    while($s = $selectcatimages->fetch(PDO::FETCH_OBJ)){
-                      $id = $s->id;
-                    ?>
-
-                    <div class="jquerysel">
-                      <select class="selectpicker catactualite" data-style="select-with-transition" title="Catégorie" data-size="7" name="catactualite">
-                        <option disabled>Choisir une categorie</option>
-                        <?php
-                          while($s = $selectcatimages->fetch(PDO::FETCH_OBJ)){
-                            $title = $s->title;
-                            $id = $s->id;
-                        ?>
-                        <option value="<?php echo $id ?>"><?php echo $title ?></option>';
-                        <?php } ?>
-                      </select>
-                    </div>
-
                     <div class="jquerysel">
                       <select class="selectpicker souscatactualite" data-style="select-with-transition" title="Catégorie" data-size="7" name="souscatactualite">
                         <option disabled>Choisir une categorie</option>
@@ -2942,12 +2923,6 @@ if (file_exists($target_dir)){
                       ?>
                       </select>
                     </div>
-
-
-                    Sous Catégorie :
-                    <select name="souscatactualite" class="souscatactualite selectpicker jquerysel" data-style="select-with-transition" data-size="7">
-          <option>Sélectionner la sous catégorie</option>
-          </select>
 
                   </div>
                 </div>
