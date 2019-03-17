@@ -2889,7 +2889,6 @@ if (file_exists($target_dir)){
               </div>
             </form>
             <div id="results11"></div>
-            <!-- Latest compiled and minified CSS -->
             <div class="row">
               <div class="col-sm-12">
                 <div class="card-content">
@@ -2991,7 +2990,6 @@ if (file_exists($target_dir)){
                   <p id='resultat'></p>
                 </div>
               </div>
-              <br>
             </div>
             <div class="row">
               <div class="col-sm-12">
@@ -3600,7 +3598,7 @@ function slugify($text){
   <!-- Ajoutd'images au site web (assets)-->
   <?php
   if(isset($_POST['submitphotoaactivitesvoyagescarousel'])){
-  $category = $_POST['catactivitevoyage'];
+  $category = $id;
   $souscategory = $_POST['souscatactivitevoyage'];
   $titreimage = $_POST['titreimage'];
   if(!isset($titreimage)){
@@ -3727,6 +3725,35 @@ function slugify($text){
     } } }
     require('includes/miseajourdusite.php');
           } ?>
+          <?php
+          if(isset($_GET['action'])){
+          if($_GET['action']=='delete'){
+          $id=$_GET['id'];
+          $selectnom = $db->query("SELECT * FROM carousel WHERE id='$id'");
+          $rname = $selectnom->fetch(PDO::FETCH_OBJ);
+          $valnom = $rname->image;
+          $target_dir = '../../../JamFichiers/Img/ImagesDuSite/Original';
+          $target_dirthumb = '../../../JamFichiers/Img/ImagesDuSite/Thumb';
+          if (file_exists($target_dir)){
+          unlink("$target_dir/$valnom");
+          $updatedelete = $db->prepare("DELETE FROM carousel WHERE image=:image");
+          $updatedelete->execute(array(
+            "image"=>$valnom
+          ));
+          unlink("$target_dirthumb/$valnom");
+          $messagenotif = "Le fichier.$valnom. à bien été supprimé";
+          $type = "success";
+          require('includes/miseajourdusite.php');
+          }else{
+          $messagenotif = 'Un problème de répertoire est présent, contacter votre administrateur !';
+          $type = "warning";
+          }
+          ?>
+          <script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=activitesvoyages&table=activitesvoyages"</script>
+          <?php
+          }
+          }
+          ?>
 
 <body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
   <div class="wrapper">
@@ -3805,91 +3832,78 @@ function slugify($text){
                     <br>
                     <center>
                       <button id="submitFormDataModifActivite" onclick="SubmitFormDataModifActivite();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
-                      <button onclick="RetourIndex4();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
                     </center>
                   </div>
                 </div>
               </div>
             </form>
             <div id="results11"></div>
-----------------------------------------------------------------------------------------
-    <h1>Selectionner la catégorie à laquelle ajouter les photos</h1>
-
-
-    <?php
-    $selectcatactivitesvoyages=$db->query("SELECT * FROM activitesvoyages");
-    ?>
-
-          <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-              Sélectionner la catégorie d'activité
-              <select name="catactivitevoyage" class="catactivitevoyage">
-                <option value="0">Selectionner la catégorie</option>
-                <?php
-                  while($s = $selectcatactivitesvoyages->fetch(PDO::FETCH_OBJ)){
-                    $title = $s->title;
-                    $id = $s->id;
-                  echo '<option value="'.$id.'">'.$title.'</option>';
-              }
-              ?>
-
-
-            </select><br>
-            Sous Catégorie :
-            <select name="souscatactivitevoyage" class="souscatactivitevoyage">
-  <option>Sélectionner la sous catégorie</option>
-  </select>
-
-              <div class="input-group input-lg">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">
-                    <i class="now-ui-icons users_circle-08"></i>
-                  </span>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="card-content">
+                  <h3 class="card-title">Ajouter des photos aux Carousels</h3>
                 </div>
-                <input type="text" class="form-control" placeholder="Indiquez un nom commun à ces images"  name="titreimage">
               </div>
-
-              <div class="form-group form-file-upload">
-                  <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
-                  <div class="input-group">
-                      <input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
-                      <span class="input-group-btn input-group-s">
-                          <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
-                              <i class="material-icons">layers</i>
-                          </button>
-                      </span>
+            </div>
+            <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="card-content">
+                    <br>
+                    <div class="jquerysel">
+                      <select class="selectpicker souscatactivitevoyage" data-style="select-with-transition" title="Catégorie" data-size="7" name="souscatactivitevoyage">
+                        <option disabled>Choisir une categorie</option>
+                      <?php
+                      $s5=$db->query("SELECT * FROM activitesvoyages where id='$id'");
+                      $row = $s5->fetch(PDO::FETCH_OBJ);
+                      $title = $row->title;
+                      $title2 = $row->title2;
+                      $title3 = $row->title3;
+                				echo '<option value="'.$title.'">'.$title.'</option>';
+                        if(!empty($title2)){
+                        echo '<option value="'.$title2.'">'.$title2.'</option>';
+                        }
+                        if(!empty($title3)){
+                        echo '<option value="'.$title3.'">'.$title3.'</option>';
+                      }
+                      ?>
+                      </select>
+                    </div>
                   </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="card-content">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Nom commun aux images</label>
+                      <input type="text" class="form-control"  name="titreimage">
+                    </div>
+                  </div>
+                </div>
               </div>
-
-              <input type="submit" name="submitphotoaactivitesvoyagescarousel" value="Envoyer les images !">
-          </form>
-
-    </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="card-content">
+                    <div class="form-group form-file-upload">
+                      <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
+                      <div class="input-group">
+                        <input type="text" readonly="" class="form-control" placeholder="Insérer votre pièce jointe">
+                        <span class="input-group-btn input-group-s">
+                          <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
+                            <i class="material-icons">layers</i>
+                          </button>
+                        </span>
+                      </div>
+                    </div>
+                    <center>
+                      <button type="submit" name="submitphotoaactivitesvoyagescarousel" class="btn btn-primary btn-round btn-rose">Envoyer</button>
+                    </center>
+                  </div>
+                </div>
+              </div>
+            </form>
 
     <!-- TEST -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-    <script type="text/javascript">
-    $(document).ready(function()
-    {
-    $(".catactivitevoyage").change(function()
-    {
-    var id=$(this).val();
-    var post_id = 'id='+ id;
-    $.ajax
-    ({
-    type: "POST",
-    url: "rechercheactivitevoyagepourcarrousel.php",
-    data: post_id,
-    cache: false,
-    success: function(cities)
-    {
-    $(".souscatactivitevoyage").html(cities);
-    }
-    });
-    });
-    });
-    </script>
-
 
     <script>
     $(document).ready(function(){
@@ -3907,56 +3921,40 @@ function slugify($text){
     });
     </script>
 
-
-    <?php
-    if(isset($_GET['action'])){
-    if($_GET['action']=='delete'){
-    $id=$_GET['id'];
-    $selectnom = $db->query("SELECT * FROM carousel WHERE id='$id'");
-    $rname = $selectnom->fetch(PDO::FETCH_OBJ);
-    $valnom = $rname->image;
-    $target_dir = '../../../JamFichiers/Img/ImagesDuSite/Original';
-    $target_dirthumb = '../../../JamFichiers/Img/ImagesDuSite/Thumb';
-    if (file_exists($target_dir)){
-    unlink("$target_dir/$valnom");
-    $updatedelete = $db->prepare("DELETE FROM carousel WHERE image=:image");
-    $updatedelete->execute(array(
-      "image"=>$valnom
-    ));
-    unlink("$target_dirthumb/$valnom");
-    $messagenotif = "Le fichier.$valnom. à bien été supprimé";
-    $type = "success";
-    require('includes/miseajourdusite.php');
-    }else{
-    $messagenotif = 'Un problème de répertoire est présent, contacter votre administrateur !';
-    $type = "warning";
-    }
-    ?>
-    <script>window.location="https://administration.jam-mdm.fr/modifdespages.php?page=activitesvoyages&table=activitesvoyages"</script>
-    <?php
-    }
-    }
-    ?>
-
-
-      <div class="section section-contact-us text-center">
-        <div class="container">
-          <h2 class="title">Suppression des photos liés au Caroussel !</h2>
-          <p class="description">AUTRE</p>
-          <div class="row">
-            <div class="col-lg-6 text-center col-md-8 ml-auto mr-auto">
-
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="card-content">
+                  <h3 class="card-title">Supprimer des photos du Carousel</h3>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 col-md-offset-3">
+                <div class="card-content">
+                  <input type="text" class="form-control" name="valeur" placeholder="Saisir nom ou la catégorie de la photo à supprimer">
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <div class="card-content">
+                  <p id='resultat'></p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="card-content">
+                  <center>
+                    <button onclick="RetourIndex4();" type="button" class="btn btn-primary btn-round btn-rose">Retour</button>
+                  </center>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
-    <h3> Supprimer :  </h3>
-    <input type='text' name="valeur" placeholder="Saisir son nom ou la catégorie à laquelle elle appartient">
-    <p id='resultat'></p>
-
-
-------------------------------------------------------------------------------------------------
+    </div>
+  </div>
+</body>
 
   <?php
 }else if(isset($_GET['banactivitesvoyages'])){
