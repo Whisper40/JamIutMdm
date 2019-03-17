@@ -2650,7 +2650,7 @@ function RetourIndex4(){
 <!-- Ajoutd'images au site web (assets)-->
 <?php
 if(isset($_POST['submitphotoactualite'])){
-  $category = $_POST['catactualite'];
+  $category = $id;
   $souscategory = $_POST['souscatactualite'];
   $titreimage = $_POST['titreimage'];
   if(!isset($titreimage)){
@@ -2904,7 +2904,9 @@ if (file_exists($target_dir)){
                   <div class="card-content">
 
                     <?php
-                    $selectcatimages=$db->query("SELECT * FROM newsactus");
+                    $selectcatimages=$db->query("SELECT id FROM newsactus WHERE title='$title'");
+                    while($s = $selectcatimages->fetch(PDO::FETCH_OBJ)){
+                      $id = $s->id;
                     ?>
 
                     <div class="jquerysel">
@@ -2925,12 +2927,6 @@ if (file_exists($target_dir)){
                         <option disabled>Choisir une categorie</option>
 
                     <?php
-                    if($_POST['id']){
-                    	$id=$_POST['id'];
-                    	if($id==0){
-                    		echo "<option>Séléctionner la sous catégorie</option>";
-                    		}else{
-
                           $s5=$db->query("SELECT * FROM newsactus where id='$id'");
                           $row = $s5->fetch(PDO::FETCH_OBJ);
                           $title = $row->title;
@@ -2942,9 +2938,7 @@ if (file_exists($target_dir)){
                             }
                             if(!empty($title3)){
                             echo '<option value="'.$title3.'">'.$title3.'</option>';
-                          }
-                    				}
-                    			}
+                            }
                       ?>
                       </select>
                     </div>
@@ -2990,28 +2984,6 @@ if (file_exists($target_dir)){
 
             <!-- TEST -->
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-            <script type="text/javascript">
-            $(document).ready(function()
-            {
-            $(".catactualite").change(function()
-            {
-            var id=$(this).val();
-            var post_id = 'id='+ id;
-            $.ajax
-            ({
-            type: "POST",
-            url: "rechercheactuspourcarrousel.php",
-            data: post_id,
-            cache: false,
-            success: function(cities)
-            {
-            $(".souscatactualite").html(cities);
-            }
-            });
-            });
-            });
-            </script>
 
             <script>
             $(document).ready(function(){
