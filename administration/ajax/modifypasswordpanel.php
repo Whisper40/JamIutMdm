@@ -15,10 +15,7 @@ require_once('../includes/connectBDD.php');
                 $date = strftime('%Y/%m/%d %H:%M:%S');
                 $newmdp = $db->prepare("UPDATE admin SET password=:param_password WHERE id='$user_id' and email='$email'");
                 $newmdp->execute(array(
-
-
-                    "param_password"=>$param_password,
-
+                    "param_password"=>$param_password
                     )
                 );
 
