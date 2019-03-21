@@ -105,14 +105,12 @@
 				</button>
 			</div>
 			<div class="navbar-header">
-        <font color="black">
         <button type="button" class="navbar-toggle" data-toggle="collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
         </button>
-      </font>
         <div class="navbar-brand text-center">
           <font color="black">Dashboard Membre - Association JAM</font>
         </div>

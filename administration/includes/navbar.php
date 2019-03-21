@@ -63,6 +63,12 @@
 				</button>
 			</div>
 			<div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
         <div class="navbar-brand text-center">
           <font color="black">Dashboard Administrateur - Association JAM</font>
         </div>
