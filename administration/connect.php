@@ -2,7 +2,7 @@
     require_once('includes/connectBDD.php');
     //require_once('includes/refusebypassconnection.php');
     $nompage = "Connexion administration";
-    ini_set('display_errors', 1);
+
     require_once('connect/includes/head.php');
 
     // START - Récupération du navigateur utilisé :
