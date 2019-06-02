@@ -732,7 +732,7 @@ if ($uploadOk == 0) {
  ?>
 <script>
 
-Dropzone.options.myAwesomeDropzone = { // The camelized version of the ID of the form element
+Dropzone.options.myawesomedropzone = { // The camelized version of the ID of the form element
 
   // The configuration we've talked about above
   autoProcessQueue: false,
@@ -881,17 +881,29 @@ Dropzone.options.myAwesomeDropzone = { // The camelized version of the ID of the
                </div>
              </div>
              <div class="row">
-               <div class="col-sm-6">
-                 <form id="my-awesome-dropzone" class="dropzone">
-  <div class="dropzone-previews"></div> <!-- this is were the previews should be shown. -->
+               <div class="col-md-6">
+       <!-- Dropzone -->
+             <div class="card">
+               <!-- Card header -->
+               <div class="card-header">
+                 <h3 class="mb-0"><?php echo TXT_DASHBOARD_PHOTOPROFIL; ?></h3>
+               </div>
+               <!-- Card body -->
 
-  <!-- Now setup your input fields -->
-  <input type="email" name="username" />
-  <input type="password" name="password" />
 
-  <button type="submit">Submit data and files!</button>
-</form>
-              </div>
+
+
+
+
+             <form action="ajax/addimage.php"
+       class="dropzone"
+       id="myawesomedropzone"></form>
+
+
+
+
+             </div>
+           </div>
 
 
 
