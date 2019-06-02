@@ -823,7 +823,7 @@ if ($uploadOk == 0) {
              </div>
              <div class="row">
                <div class="col-sm-6">
-                 <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
+                 <form action="banuser.php" class="dropzone" id="my-awesome-dropzone">
                    <div class="card-content">
                      <h3 class="card-title text-center">Ajouter des images</h3>
                      <br><br>
@@ -841,10 +841,9 @@ if ($uploadOk == 0) {
 
                        </select>
                      </div>
-                     <form action="banuser.php"
-      class="dropzone"
-      id="my-awesome-dropzone"></form>
+
                      <center>
+                       
                        <button type="submit" name="submit" class="btn btn-primary btn-round btn-rose">Ajouter les images</button>
                      </center>
                    </div>
