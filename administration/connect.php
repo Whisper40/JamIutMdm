@@ -81,7 +81,7 @@ if(!isset($_SESSION['admin_id'])){
               </div>
             </div>
             <div class="card-footer text-center">
-            <a id="submitconnection" onclick="SubmitConnection();" type="button" class="btn btn-primary mt-4">Connexion</a>
+            <a id="submitconnection" onclick="SubmitConnection();" type="button" class="btn btn-primary btn-round btn-lg btn-block">Connexion</a>
               <div class="pull-center">
                 <h6>
                   <a href="https://jam-mdm.fr" class="link">Retour JAM</a>
