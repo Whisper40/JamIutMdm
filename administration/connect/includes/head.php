@@ -22,7 +22,28 @@
   <!-- Les CSS utilisés -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
   <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 
   <link href="connect/assets/css/bootstrap.min.css" rel="stylesheet" />
   <link href="connect/assets/css/now-ui-kit.css?v=1.2.0" rel="stylesheet" />
 </head>
+<script>
+
+function StartNotif(message,type){
+
+
+  var Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  customClass: 'swal-wide',
+  timer: 6000
+});
+
+Toast.fire({
+  type: type,
+  title: '<h4 class="info-title">'+message+'</h4>'
+})
+}
+
+</script>
