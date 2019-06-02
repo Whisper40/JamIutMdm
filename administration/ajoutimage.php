@@ -732,7 +732,7 @@ if ($uploadOk == 0) {
  ?>
 <script>
 
-Dropzone.options.myawesomedropzone = { // The camelized version of the ID of the form element
+    Dropzone.options.myAwesomeDropzone = { // The camelized version of the ID of the form element
 
   // The configuration we've talked about above
   autoProcessQueue: false,
@@ -769,6 +769,7 @@ Dropzone.options.myawesomedropzone = { // The camelized version of the ID of the
   }
 
 }
+
 
 
 </script>
@@ -881,27 +882,34 @@ Dropzone.options.myawesomedropzone = { // The camelized version of the ID of the
                </div>
              </div>
              <div class="row">
-               <div class="col-md-6">
-         <!-- Dropzone -->
-               <div class="card">
-                 <!-- Card header -->
+               <div class="col-sm-6">
+                 <form action='ajax/addimage.php' id="myAwesomeDropzone" class="dropzone">
+                   <div class="dropzone-previews"></div>
+                   <div class="card-content">
+                     <h3 class="card-title text-center">Ajouter des images</h3>
+                     <br><br>
+                     <div class="jquerysel">
+                       <select class="selectpicker" data-style="select-with-transition" title="Sélectionner de la catégorie" data-size="4" name="catimage">
+                          <option disabled>Sélectionner de la catégorie</option>
 
-                 <!-- Card body -->
+                          <?php
+                          $selectcatimages=$db->query("SELECT DISTINCT title FROM images");
+                          while($s = $selectcatimages->fetch(PDO::FETCH_OBJ)){
+                          $catimage=$s->title;
+                          ?>
+                          <option value="<?php echo $catimage;?>"><?php echo $catimage; ?></option>
+                          <?php } ?>
 
+                       </select>
+                     </div>
 
+                     <center>
 
-
-
-
-               <form action="ajax/addimage.php"
-         class="dropzone"
-         id="my-awesome-dropzone"></form>
-
-
-
-
-               </div>
-             </div>
+                       <button type="submit" class="btn btn-primary btn-round btn-rose">Ajouter les images</button>
+                     </center>
+                   </div>
+                </form>
+              </div>
 
 
 
