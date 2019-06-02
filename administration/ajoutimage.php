@@ -883,11 +883,9 @@ Dropzone.options.myawesomedropzone = { // The camelized version of the ID of the
              <div class="row">
                <div class="col-md-6">
        <!-- Dropzone -->
-             <div class="card">
+      
                <!-- Card header -->
-               <div class="card-header">
-                 
-               </div>
+
                <!-- Card body -->
 
 
@@ -902,7 +900,7 @@ Dropzone.options.myawesomedropzone = { // The camelized version of the ID of the
 
 
 
-             </div>
+
            </div>
 
 
