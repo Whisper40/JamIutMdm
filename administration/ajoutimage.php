@@ -200,7 +200,7 @@ if ($uploadOk == 0) {
 
 
                       }
-                      require('miseajourdusite.php');
+                      require('includes/miseajourdusite.php');
                 }
 
 
@@ -251,7 +251,7 @@ if ($uploadOk == 0) {
 
 
                             }
-                            require('miseajourdusite.php');
+                            require('includes/miseajourdusite.php');
                       }
 
     }else {
@@ -420,7 +420,7 @@ if (move_uploaded_file($_FILES["fileToUploadCatVideo"]["tmp_name"], $target_file
 
 
                   }
-                  require('miseajourdusite.php');
+                  require('includes/miseajourdusite.php');
             }
 
 
@@ -471,7 +471,7 @@ if (move_uploaded_file($_FILES["fileToUploadCatVideo"]["tmp_name"], $target_file
 
 
                         }
-                        require('miseajourdusite.php');
+                        require('includes/miseajourdusite.php');
                   }
 
 }else {
@@ -622,7 +622,7 @@ if ($uploadOk == 0) {
                             imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
                             imagegif($img_petite,$fin);
                       }
-                      require('miseajourdusite.php');
+                      require('includes/miseajourdusite.php');
                 }
 
                 //Affiche Grande
@@ -670,7 +670,7 @@ if ($uploadOk == 0) {
                                   imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$tailleaffiche[0],$tailleaffiche[1]);
                                   imagegif($img_petite,$finaffiche);
                             }
-                            require('miseajourdusite.php');
+                            require('includes/miseajourdusite.php');
                       }
 
     }else {
@@ -824,7 +824,7 @@ if ($uploadOk == 0) {
                             imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
                             imagegif($img_petite,$fin);
                       }
-                      require('miseajourdusite.php');
+                      require('includes/miseajourdusite.php');
                 }
 
                 //Affiche Grande
@@ -872,7 +872,7 @@ if ($uploadOk == 0) {
                                   imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$tailleaffiche[0],$tailleaffiche[1]);
                                   imagegif($img_petite,$finaffiche);
                             }
-                            require('miseajourdusite.php');
+                            require('includes/miseajourdusite.php');
                       }
 
     }else {
