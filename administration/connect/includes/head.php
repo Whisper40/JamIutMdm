@@ -29,8 +29,8 @@
 </head>
 <style>
 .swal-wide {
-  height: 100px;
-  width: 200px;
+  height: 50px;
+  width: 100px;
 }
 </style>
 <script>
