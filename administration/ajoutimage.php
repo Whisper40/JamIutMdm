@@ -1,3 +1,5 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
 <?php
     require_once('includes/connectBDD.php');
     require_once('includes/checkconnection.php');
@@ -9,33 +11,7 @@
 $secret = "LESECRET";
 $sitekey = "LESITEKEY";
 ?>
-<script type="text/javascript">
-    $(document).ready(function(){
-        $("#file-submit").click(function(event){
-        event.preventDefault();
-        var formdata = new FormData($(this).parents('form')[0]);
 
-        $.ajax ({
-        type: "POST",
-        url: "ajax/uploadimage.php",
-        dataType : 'json',
-        data: formdata,
-        success: function(data){
-
-            if(data.status){
-                alert(data.status);
-            }else{
-                alert(data.error);
-            }
-        },
-        processData:false,
-        contentType: false,
-        cache: false
-        });
-        return false;
-        })
-    });
-</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <style>
@@ -865,9 +841,9 @@ if ($uploadOk == 0) {
 
                        </select>
                      </div>
-                     <form action="ajax/uploadimage.php"
-       class="dropzone"
-       id="my-awesome-dropzone"></form>
+                     <form action="banuser.php"
+      class="dropzone"
+      id="my-awesome-dropzone"></form>
                      <center>
                        <button type="submit" name="submit" class="btn btn-primary btn-round btn-rose">Ajouter les images</button>
                      </center>
