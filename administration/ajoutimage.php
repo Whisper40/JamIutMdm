@@ -742,15 +742,12 @@ if ($uploadOk == 0) {
 
   // The setting up of the dropzone
   init: function() {
-    var myDropzone = this;
+     var submitButton = document.querySelector("#submit-all")
+         myDropzone = this; // closure
 
-    // First change the button to actually tell Dropzone to process the queue.
-    this.element.querySelector("button[name=submitdata]").addEventListener("click", function(e) {
-      // Make sure that the form isn't actually being sent.
-      e.preventDefault();
-      e.stopPropagation();
-      myDropzone.processQueue();
-    });
+     submitButton.addEventListener("click", function() {
+       myDropzone.processQueue(); // Tell Dropzone to process all queued files.
+     });
 
     // Listen to the sendingmultiple event. In this case, it's the sendingmultiple event instead
     // of the sending event because uploadMultiple is set to true.
@@ -905,7 +902,7 @@ if ($uploadOk == 0) {
 
                      <center>
 
-                       <button type="submit" name="submitdata" class="btn btn-primary btn-round btn-rose">Ajouter les images</button>
+                       <button type="submit" name="submitdata" id="submit-all" class="btn btn-primary btn-round btn-rose">Ajouter les images</button>
                      </center>
                    </div>
                 </form>
