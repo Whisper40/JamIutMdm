@@ -883,7 +883,7 @@ if ($uploadOk == 0) {
              </div>
              <div class="row">
                <div class="col-sm-6">
-                 <form action='ajax/addimage.php' id="my-awesome-dropzone" class="dropzone">
+                 <form action='ajax/addimage.php' id="myAwesomeDropzone" class="dropzone">
                    <div class="dropzone-previews"></div>
                    <div class="card-content">
                      <h3 class="card-title text-center">Ajouter des images</h3>
