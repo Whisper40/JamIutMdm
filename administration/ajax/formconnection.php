@@ -18,7 +18,7 @@ require_once('../includes/connectBDD.php');
                 $user_agent_name = '(navigateur inconnu)';
             }
 
-echo '1';
+
 
               // On demande l'utilisateur avec cet email qui n'est pas bannis et qui n'a pas de tentative de connexion frauduleuses
                 $email = $_POST['email'];
@@ -44,7 +44,7 @@ echo '1';
                             $data = $select->fetch();
                             if(password_verify($password, $data['password'])){
                               //Si le mot de passe correspond à l'email utilisé par la personne alors on définis les variables de sessions
-echo '2';
+
                                 $_SESSION['admin_id'] = $data['id'];
                                 $_SESSION['user_name'] = $data['username'];
                                 $_SESSION['user_email'] = $data['email'];
@@ -67,7 +67,7 @@ echo '2';
                         $test ="teteteteteteete";
 
             // STOP - Historique de connexion au site
-echo '3';
+
             // START - Update last_connexion :
 
                 date_default_timezone_set('Europe/Paris');
@@ -84,7 +84,7 @@ echo '3';
                     )
                 );
 
-echo '3.5';
+
                 $update = $db->prepare("UPDATE admin SET last_connect=:date WHERE id=:id");
                 $update->execute(array(
                     "date"=>$date,
@@ -92,12 +92,12 @@ echo '3.5';
                     )
                 );
 
-echo '4';
+
            ?>
 
 
     <script>
-                         //StartNotif("Connexion OK",'success');
+                         StartNotif("Connexion OK",'success');
 
                          setTimeout(function () {
 //Redirect with JavaScript
