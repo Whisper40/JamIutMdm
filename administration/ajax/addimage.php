@@ -13,8 +13,8 @@ if(isset($user_id)&&!empty($user_id)){
 	$arr_file_types = ['image/png', 'image/jpg', 'image/jpeg'];
 
 
-	if ($_FILES['file']['size'] < 5*MB){
- echo '1';
+
+
 	if (!file_exists('../../../../JamFichiers/Img/ImagesDuSite/Original/')) {
 	    mkdir('Original', 0777);
 	}
@@ -26,7 +26,7 @@ if(isset($user_id)&&!empty($user_id)){
 
 	echo "success";
 	die();
-}}else{
+}else{
 	die();
 }
 ?>
