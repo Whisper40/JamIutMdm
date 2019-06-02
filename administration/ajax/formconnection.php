@@ -56,14 +56,14 @@ require_once('../includes/connectBDD.php');
                         $date = strftime('%d/%m/%Y %H:%M:%S');
                         $datesystem = strftime('%Y-%m-%d');
                         // On ajoute dans la BDD l'ensemble des informations de l'utilisateur qui se connecte, son IP, son navigateur ainsi que la date de connexion de la personne.
-                        $insertinfos = $db->prepare("INSERT INTO histconnexionadmin (admin_id, ip, navigateur, date, datesystem) VALUES(:admin_id, :ip, :navigateur, :date, :datesystem)");
+                        $insertinfos = $db->prepare("INSERT INTO histconnexionadmin (admin_id, ip, navigateur, date) VALUES(:admin_id, :ip, :navigateur, :date)");
                         $insertinfos->execute(array(
 
                             "admin_id"=>$_SESSION['admin_id'],
                             "ip"=>$ip,
                             "navigateur"=>$user_agent_name,
                             "date"=>$date,
-                            "datesystem"=>$datesystem
+
                             )
                         );
 
