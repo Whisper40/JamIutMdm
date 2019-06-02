@@ -58,7 +58,7 @@ $target_file = $target_dirnew . basename($_FILES["file"]["name"]);
       $target_file2 = $target_dirnew."".$date.basename($_FILES["file"]["name"]);
       $target_file3 = $target_dirnew."".basename($_FILES["file"]["name"]);
  echo '3';
-if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file3)) {
+if (move_uploaded_file($_FILES["file"]["tmp_name"][$i], $target_file3)) {
    echo '4';
       $status = '1';
        $insertinfos = $db->prepare("INSERT INTO images (title, albumactif, icon, file_name, uploaded_on, status) VALUES(:title, :albumactif, :icon, :file_name, :date, :status)");
