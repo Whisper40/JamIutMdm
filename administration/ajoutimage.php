@@ -745,7 +745,7 @@ if ($uploadOk == 0) {
     var myDropzone = this;
 
     // First change the button to actually tell Dropzone to process the queue.
-    this.element.querySelector("button[type=submit]").addEventListener("click", function(e) {
+    this.element.querySelector("button[name=submitdata]").addEventListener("click", function(e) {
       // Make sure that the form isn't actually being sent.
       e.preventDefault();
       e.stopPropagation();
@@ -905,7 +905,7 @@ if ($uploadOk == 0) {
 
                      <center>
 
-                       <button type="submit" class="btn btn-primary btn-round btn-rose">Ajouter les images</button>
+                       <button type="submit" name="submitdata" class="btn btn-primary btn-round btn-rose">Ajouter les images</button>
                      </center>
                    </div>
                 </form>
