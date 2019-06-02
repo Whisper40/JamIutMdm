@@ -886,7 +886,7 @@ Dropzone.options.myawesomedropzone = { // The camelized version of the ID of the
              <div class="card">
                <!-- Card header -->
                <div class="card-header">
-                 <h3 class="mb-0"><?php echo TXT_DASHBOARD_PHOTOPROFIL; ?></h3>
+                 
                </div>
                <!-- Card body -->
 
