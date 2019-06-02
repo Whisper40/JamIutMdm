@@ -93,6 +93,19 @@ if(isset($_POST['catphotosubmit'])){
           )
       );
 
+      $actif = $db->prepare("UPDATE images SET albumactif=:albumactif WHERE title=:nomcategorieimage");
+      $actif->execute(array(
+        "albumactif"=>'1',
+        "title"=>$nomcategorieimage
+      ));
+
+      $inactif = $db->prepare("UPDATE images SET albumactif=:albumactif WHERE title <> :nomcategorieimage");
+      $inactif->execute(array(
+        "albumactif"=>'0',
+        "nomcategorieimage"=>$nomcategorieimage
+
+      ));
+
  }else{
       $messagenotif = 'Désolé, la catégorie existe déja';
       $type = "warning";
