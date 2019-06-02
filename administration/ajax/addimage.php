@@ -11,20 +11,21 @@ $user_id = $_SESSION['admin_id'];
 if(isset($user_id)&&!empty($user_id)){
    echo '0';
 	$arr_file_types = ['image/png', 'image/jpg', 'image/jpeg'];
-
-
-
-
+  $total = count($_FILES['file']['name']);
 	if (!file_exists('../../../../JamFichiers/Img/ImagesDuSite/Original/')) {
 	    mkdir('Original', 0777);
 	}
+  for( $i=0 ; $i < $total ; $i++ ) {
+	$imagenouvelle = rand(0, 1000) . $_FILES['file']['name'][$i];
+	if(move_uploaded_file($_FILES['file']['tmp_name'][$i], '../../../../JamFichiers/Img/ImagesDuSite/Original/' . $imagenouvelle)){
+    echo "success";
+  }else{
+    die();
+  }
+}
 
- echo '2';
-	$imagenouvelle = rand(100, 10000) . $_FILES['file']['name'][0];
-	move_uploaded_file($_FILES['file']['tmp_name'][0], '../../../../JamFichiers/Img/ImagesDuSite/Original/' . $imagenouvelle);
 
 
-	echo "success";
 	die();
 }else{
 	die();
