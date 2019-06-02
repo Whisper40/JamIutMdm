@@ -883,25 +883,27 @@ if ($uploadOk == 0) {
              </div>
              <div class="row">
                <div class="col-sm-6">
-                 <form action='ajax/addimage.php' id="myAwesomeDropzone" class="dropzone">
+                 <form action="ajax/addimage.php" id="myAwesomeDropzone" class="dropzone">
+                   <div class="jquerysel">
+                     <select class="selectpicker" data-style="select-with-transition" title="Sélectionner de la catégorie" data-size="4" name="catimage">
+                        <option disabled>Sélectionner de la catégorie</option>
+
+                        <?php
+                        $selectcatimages=$db->query("SELECT DISTINCT title FROM images");
+                        while($s = $selectcatimages->fetch(PDO::FETCH_OBJ)){
+                        $catimage=$s->title;
+                        ?>
+                        <option value="<?php echo $catimage;?>"><?php echo $catimage; ?></option>
+                        <?php } ?>
+
+                     </select>
+                   </div>
+                   
                    <div class="dropzone-previews"></div>
                    <div class="card-content">
                      <h3 class="card-title text-center">Ajouter des images</h3>
                      <br><br>
-                     <div class="jquerysel">
-                       <select class="selectpicker" data-style="select-with-transition" title="Sélectionner de la catégorie" data-size="4" name="catimage">
-                          <option disabled>Sélectionner de la catégorie</option>
 
-                          <?php
-                          $selectcatimages=$db->query("SELECT DISTINCT title FROM images");
-                          while($s = $selectcatimages->fetch(PDO::FETCH_OBJ)){
-                          $catimage=$s->title;
-                          ?>
-                          <option value="<?php echo $catimage;?>"><?php echo $catimage; ?></option>
-                          <?php } ?>
-
-                       </select>
-                     </div>
 
                      <center>
 
