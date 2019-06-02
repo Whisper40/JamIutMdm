@@ -59,6 +59,7 @@ $target_file = $target_dirnew . basename($_FILES["file"]["name"]);
       $target_file3 = $target_dirnew."".basename($_FILES["file"]["name"]);
  echo '3';
 if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file3)) {
+   echo '4';
       $status = '1';
        $insertinfos = $db->prepare("INSERT INTO images (title, albumactif, icon, file_name, uploaded_on, status) VALUES(:title, :albumactif, :icon, :file_name, :date, :status)");
        $insertinfos->execute(array(
@@ -71,7 +72,7 @@ if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file3)) {
            "status"=>$status
            )
        );
-        echo '4';
+        echo '5';
        $db->query("UPDATE images SET albumactif='1' WHERE title='$nomcategorieimage'");
        $db->query("UPDATE images SET albumactif='0' WHERE title <> '$nomcategorieimage'");
 
