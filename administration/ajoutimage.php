@@ -9,7 +9,33 @@
 $secret = "LESECRET";
 $sitekey = "LESITEKEY";
 ?>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#file-submit").click(function(event){
+        event.preventDefault();
+        var formdata = new FormData($(this).parents('form')[0]);
 
+        $.ajax ({
+        type: "POST",
+        url: "ajax/uploadimage.php",
+        dataType : 'json',
+        data: formdata,
+        success: function(data){
+
+            if(data.status){
+                alert(data.status);
+            }else{
+                alert(data.error);
+            }
+        },
+        processData:false,
+        contentType: false,
+        cache: false
+        });
+        return false;
+        })
+    });
+</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <style>
