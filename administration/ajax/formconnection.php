@@ -67,7 +67,7 @@ echo '2';
                         $test ="teteteteteteete";
 
             // STOP - Historique de connexion au site
-
+echo '3';
             // START - Update last_connexion :
 
                 date_default_timezone_set('Europe/Paris');
@@ -93,7 +93,7 @@ echo '2';
                     )
                 );
 
-
+echo '4';
            ?>
 
 
