@@ -37,4 +37,4 @@
 <script src="assets/js2/material-dashboard.js"></script>
 
 <script src="assets/js2/demo.js"></script>
-<script src="assets/js2/dropzone.js"></script>
+<!-- <script src="assets/js2/dropzone.js"></script> -->
