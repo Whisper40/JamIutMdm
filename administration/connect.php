@@ -215,7 +215,7 @@ $db->query("UPDATE admin SET numberofattempts='$newattempts' WHERE email='$email
                     <i class="now-ui-icons ui-1_email-85"></i>
                   </span>
                 </div>
-                <input type="email" name="email" class="form-control" placeholder="Email" value="<?php echo $_POST['email'];?>"/>
+                <input type="email" name="email" class="form-control" placeholder="Email" value="<?php if(isset($_POST['email']){ echo $_POST['email']; }?>"/>
               </div>
               <div class="input-group no-border input-lg">
                 <div class="input-group-prepend">
