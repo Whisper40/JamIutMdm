@@ -739,6 +739,8 @@ if ($uploadOk == 0) {
   uploadMultiple: true,
   parallelUploads: 100,
   maxFiles: 100,
+  parallelUploads: 10,
+  addRemoveLinks: true,
 
   // The setting up of the dropzone
   init: function() {
@@ -900,7 +902,7 @@ if ($uploadOk == 0) {
                    </div>
 
                    <div class="dropzone-previews"></div>
-                   
+
                    <center>
                      <button type="submit" name="submitimages" class="btn btn-primary btn-round btn-rose">Ajouter les images</button>
                    </center>
