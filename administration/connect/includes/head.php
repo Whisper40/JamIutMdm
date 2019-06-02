@@ -27,6 +27,12 @@
   <link href="connect/assets/css/bootstrap.min.css" rel="stylesheet" />
   <link href="connect/assets/css/now-ui-kit.css?v=1.2.0" rel="stylesheet" />
 </head>
+<style>
+.swal-wide {
+  height: 100px;
+  width: 200px;
+}
+</style>
 <script>
 
 function StartNotif(message,type){
