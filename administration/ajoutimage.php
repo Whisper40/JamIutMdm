@@ -10,6 +10,19 @@
 //Code de génératon du captcha fournie par GOOGLE
 $secret = "LESECRET";
 $sitekey = "LESITEKEY";
+
+function slugify($text){
+  $text = preg_replace('~[^\pL\d]+~u', '-', $text);
+  $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+  $text = preg_replace('~[^-\w]+~', '', $text);
+  $text = trim($text, '-');
+  $text = preg_replace('~-+~', '-', $text);
+  $text = strtolower($text);
+  if (empty($text)) {
+    return 'n-a';
+  }
+    return $text;
+}
 ?>
 
 
@@ -49,7 +62,8 @@ $sitekey = "LESITEKEY";
 $messagenotif = "";
 
 if(isset($_POST['catphotosubmit'])){
-  $nomcategorieimage = $_POST['nomcategorieimage'];
+  $nomcategorieimage2 = $_POST['nomcategorieimage'];
+  $nomcategorieimage= slugify($nomcategorieimage2);
   $nomicon = $_POST['nomicon'];
 
   $checkcatimages = $db->prepare("SELECT title FROM images WHERE title = '$nomcategorieimage'");
@@ -741,6 +755,7 @@ if ($uploadOk == 0) {
   maxFiles: 300,
   addRemoveLinks: true,
   maxFilesize: 5,
+  acceptedFiles: ".jpeg,.jpg,.png",
 
   // The setting up of the dropzone
   init: function() {
