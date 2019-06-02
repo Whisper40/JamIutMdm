@@ -45,7 +45,7 @@ require_once('../includes/connectBDD.php');
                             if(password_verify($password, $data['password'])){
                               //Si le mot de passe correspond à l'email utilisé par la personne alors on définis les variables de sessions
 
-                                $_SESSION['user_id'] = $data['id'];
+                                $_SESSION['admin_id'] = $data['id'];
                                 $_SESSION['user_name'] = $data['username'];
                                 $_SESSION['user_email'] = $data['email'];
                                 $_SESSION['langue'] = $lang;
@@ -56,10 +56,10 @@ require_once('../includes/connectBDD.php');
                         $date = strftime('%d/%m/%Y %H:%M:%S');
                         $datesystem = strftime('%Y-%m-%d');
                         // On ajoute dans la BDD l'ensemble des informations de l'utilisateur qui se connecte, son IP, son navigateur ainsi que la date de connexion de la personne.
-                        $insertinfos = $db->prepare("INSERT INTO histconnexionadmin (user_id, ip, navigateur, date, datesystem) VALUES(:user_id, :ip, :navigateur, :date, :datesystem)");
+                        $insertinfos = $db->prepare("INSERT INTO histconnexionadmin (admin_id, ip, navigateur, date, datesystem) VALUES(:admin_id, :ip, :navigateur, :date, :datesystem)");
                         $insertinfos->execute(array(
 
-                            "user_id"=>$_SESSION['user_id'],
+                            "admin_id"=>$_SESSION['admin_id'],
                             "ip"=>$ip,
                             "navigateur"=>$user_agent_name,
                             "date"=>$date,
@@ -75,13 +75,13 @@ require_once('../includes/connectBDD.php');
                 setlocale(LC_TIME, 'fr_FR.utf8','fra');
                 $date = strftime('%d/%m/%Y %H:%M:%S');
                 $datesystem = strftime('%Y-%m-%d');
-                $user_id = $_SESSION['user_id'];
+                $admin_id = $_SESSION['admin_id'];
                 //On réinitialise le nombre de tentatives avec echec.
                 $attempts = 0;
-                $tentative = $db->prepare("UPDATE admin SET numberofattempts=:attempts WHERE id=:user_id");
+                $tentative = $db->prepare("UPDATE admin SET numberofattempts=:attempts WHERE id=:admin_id");
                 $tentative->execute(array(
                     "attempts"=>$attempts,
-                    "user_id"=>$user_id
+                    "admin_id"=>$admin_id
                     )
                 );
 
@@ -90,7 +90,7 @@ require_once('../includes/connectBDD.php');
                 $update->execute(array(
                     "date"=>$date,
                     "datesystem"=>$datesystem,
-                    "id"=>$user_id
+                    "id"=>$admin_id
                     )
                 );
 
