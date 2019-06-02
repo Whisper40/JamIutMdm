@@ -84,7 +84,7 @@ if(isset($_POST['catphotosubmit'])){
       $date = strftime('%Y-%m-%d %H:%M:%S');
       $status = '1';
 
-      $insertinfos = $db->prepare("INSERT INTO images (title, icon, uploaded_on, status) VALUES(:title, :icon; :date, :status)");
+      $insertinfos = $db->prepare("INSERT INTO images (title, icon, uploaded_on, status) VALUES(:title, :icon, :date, :status)");
       $insertinfos->execute(array(
           "title"=>$nomcategorieimage,
           "icon"=>$nomicon,
