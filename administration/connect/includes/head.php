@@ -23,6 +23,8 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
   <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
 
   <link href="connect/assets/css/bootstrap.min.css" rel="stylesheet" />
   <link href="connect/assets/css/now-ui-kit.css?v=1.2.0" rel="stylesheet" />
