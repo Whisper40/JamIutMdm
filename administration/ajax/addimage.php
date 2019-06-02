@@ -21,7 +21,7 @@ if(isset($user_id)&&!empty($user_id)){
 
   $total = count($_FILES['file']['name']);
 
-      $target_dir = "../../../JamFichiers/Photos";
+      $target_dir = "../../../../JamFichiers/Photos";
       $original = 'Original';
       if (file_exists($target_dir/$original/$nomcategorieimage)){
         $target_dirnew = "$target_dir/$original/$nomcategorieimage/";
