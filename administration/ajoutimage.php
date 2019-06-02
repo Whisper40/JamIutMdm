@@ -731,24 +731,47 @@ if ($uploadOk == 0) {
     } } } }
  ?>
 <script>
-<script>
-    Dropzone.options.imagedropzone = {
-        paramName: "file", // The name that will be used to transfer the file
-        maxFilesize: 10, // MB
-        maxFiles: 4,
-        acceptedFiles: ".jpg,.jpeg,.png",
-        addRemoveLinks: true,
-        // Prevents Dropzone from uploading dropped files immediately
-        autoProcessQueue: false,
-        init: function() {
-            var submitButton = document.querySelector("#imagedropzoneSubmit")
-            myDropzone = this; // closure
 
-            submitButton.addEventListener("click", function() {
-                myDropzone.processQueue(); // Tell Dropzone to process all queued files.
-            });
-        }
-    };
+    Dropzone.options.myAwesomeDropzone = { // The camelized version of the ID of the form element
+
+  // The configuration we've talked about above
+  autoProcessQueue: false,
+  uploadMultiple: true,
+  parallelUploads: 100,
+  maxFiles: 100,
+
+  // The setting up of the dropzone
+  init: function() {
+    var myDropzone = this;
+
+    // First change the button to actually tell Dropzone to process the queue.
+    this.element.querySelector("button[type=submit]").addEventListener("click", function(e) {
+      // Make sure that the form isn't actually being sent.
+      e.preventDefault();
+      e.stopPropagation();
+      myDropzone.processQueue();
+    });
+
+    // Listen to the sendingmultiple event. In this case, it's the sendingmultiple event instead
+    // of the sending event because uploadMultiple is set to true.
+    this.on("sendingmultiple", function() {
+      // Gets triggered when the form is actually being sent.
+      // Hide the success button or the complete form.
+    });
+    this.on("successmultiple", function(files, response) {
+      // Gets triggered when the files have successfully been sent.
+      // Redirect user or notify of success.
+    });
+    this.on("errormultiple", function(files, response) {
+      // Gets triggered when there was an error sending the files.
+      // Maybe show form again, and notify user of error
+    });
+  }
+
+}
+
+
+
 </script>
 
 
@@ -825,6 +848,21 @@ if ($uploadOk == 0) {
                  </form>
                </div>
              </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
              <div class="row">
                <div class="col-sm-12">
                  <div class="card-content">
@@ -845,7 +883,8 @@ if ($uploadOk == 0) {
              </div>
              <div class="row">
                <div class="col-sm-6">
-                 <form action='ajax/addimage.php' class="dropzone" id="imagedropzone" name="imagedropzone" method="post" enctype="multipart/form-data">
+                 <form action='ajax/addimage.php' id="my-awesome-dropzone" class="dropzone">
+                   <div class="dropzone-previews"></div>
                    <div class="card-content">
                      <h3 class="card-title text-center">Ajouter des images</h3>
                      <br><br>
@@ -866,11 +905,28 @@ if ($uploadOk == 0) {
 
                      <center>
 
-                       <button type="submit" name="imagedropzoneSubmit" id="imagedropzoneSubmit" class="btn btn-primary btn-round btn-rose">Ajouter les images</button>
+                       <button type="submit" class="btn btn-primary btn-round btn-rose">Ajouter les images</button>
                      </center>
                    </div>
                 </form>
               </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
               <div class="col-sm-6">
                 <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
                   <div class="card-content">
