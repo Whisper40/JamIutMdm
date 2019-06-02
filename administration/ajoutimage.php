@@ -84,9 +84,10 @@ if(isset($_POST['catphotosubmit'])){
       $date = strftime('%Y-%m-%d %H:%M:%S');
       $status = '1';
 
-      $insertinfos = $db->prepare("INSERT INTO images (title, uploaded_on, status) VALUES(:title, :date, :status)");
+      $insertinfos = $db->prepare("INSERT INTO images (title, icon, uploaded_on, status) VALUES(:title, :icon; :date, :status)");
       $insertinfos->execute(array(
           "title"=>$nomcategorieimage,
+          "icon"=>$nomicon,
           "date"=>$date,
           "status"=>$status
           )
@@ -749,7 +750,7 @@ if ($uploadOk == 0) {
                            <label class="control-label">Nom de l'icon</label>
                            <input type="text" class="form-control" name="nomicon">
                        </div>
-                       
+
                        <center>
                          <button type="submit" name="catphotosubmit" class="btn btn-primary btn-round btn-rose">Créer une catégorie d'image</button>
                        </center>
