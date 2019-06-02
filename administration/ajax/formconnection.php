@@ -85,10 +85,9 @@ echo '3';
                 );
 
 echo '3.5';
-                $update = $db->prepare("UPDATE admin SET last_connect=:date, datesystem=:datesystem WHERE id=:id");
+                $update = $db->prepare("UPDATE admin SET last_connect=:date WHERE id=:id");
                 $update->execute(array(
                     "date"=>$date,
-                    "datesystem"=>$datesystem,
                     "id"=>$admin_id
                     )
                 );
