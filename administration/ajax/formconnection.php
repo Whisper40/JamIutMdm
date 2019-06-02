@@ -97,7 +97,7 @@ require_once('../includes/connectBDD.php');
 
 
     <script>
-                         StartNotif("Connexion OK",'success');
+                         StartNotif("Vous êtes maintenant connecté ! Content de vous revoir :) ",'success');
 
                          setTimeout(function () {
 //Redirect with JavaScript
