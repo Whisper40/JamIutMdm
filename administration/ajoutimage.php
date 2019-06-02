@@ -738,9 +738,9 @@ if ($uploadOk == 0) {
   autoProcessQueue: false,
   uploadMultiple: true,
   parallelUploads: 100,
-  maxFiles: 100,
-  parallelUploads: 10,
+  maxFiles: 300,
   addRemoveLinks: true,
+  maxThumbnailFilesize: 5,
 
   // The setting up of the dropzone
   init: function() {

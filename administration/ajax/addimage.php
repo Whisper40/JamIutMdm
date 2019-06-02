@@ -5,12 +5,13 @@ define('KB', 1024);
 define('MB', 1048576);
 define('GB', 1073741824);
 define('TB', 1099511627776);
-
+$test = $_GET['catimage'];
+echo $test;
 $user_id = $_SESSION['admin_id'];
 if(isset($user_id)&&!empty($user_id)){
 	$arr_file_types = ['image/png', 'image/jpg', 'image/jpeg'];
 
-	
+
 	if ($_FILES['file']['size'] < 5*MB){
 
 	if (!file_exists('../../../../JamFichiers/Img/ImagesDuSite/Original')) {
