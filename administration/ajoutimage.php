@@ -882,26 +882,26 @@ Dropzone.options.myawesomedropzone = { // The camelized version of the ID of the
              </div>
              <div class="row">
                <div class="col-md-6">
-       <!-- Dropzone -->
-      
-               <!-- Card header -->
+         <!-- Dropzone -->
+               <div class="card">
+                 <!-- Card header -->
 
-               <!-- Card body -->
-
-
-
-
-
-
-             <form action="ajax/addimage.php"
-       class="dropzone"
-       id="myawesomedropzone"></form>
+                 <!-- Card body -->
 
 
 
 
 
-           </div>
+
+               <form action="ajax/addimage.php"
+         class="dropzone"
+         id="my-awesome-dropzone"></form>
+
+
+
+
+               </div>
+             </div>
 
 
 
