@@ -740,7 +740,7 @@ if ($uploadOk == 0) {
   parallelUploads: 100,
   maxFiles: 300,
   addRemoveLinks: true,
-  maxThumbnailFilesize: 5,
+  maxFilesize: 5,
 
   // The setting up of the dropzone
   init: function() {
