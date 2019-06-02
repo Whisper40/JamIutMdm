@@ -46,9 +46,10 @@ if(isset($user_id)&&!empty($user_id)){
         mkdir("$target_dir/$affiche/$nomcategorieimage", 0700);
         $target_dirnewaffiche = "$target_dir/$affiche/$nomcategorieimage/";
       }
-$target_file = $target_dirnew . basename($_FILES["file"]["name"]);
+
  echo '1';
   for( $i=0 ; $i < $total ; $i++ ) {
+    $target_file = $target_dirnew . basename($_FILES["file"]["name"][$i]);
 	$imagenouvelle = rand(0, 1000) . $_FILES['file']['name'][$i];
  echo '2';
     date_default_timezone_set('Europe/Paris');
@@ -57,6 +58,7 @@ $target_file = $target_dirnew . basename($_FILES["file"]["name"]);
     $target_filefile = basename($_FILES["file"]["name"][$i]);
       $target_file2 = $target_dirnew."".$date.basename($_FILES["file"]["name"][$i]);
       $target_file3 = $target_dirnew."".basename($_FILES["file"]["name"][$i]);
+      echo $target_file3;
  echo '3';
 if (move_uploaded_file($_FILES["file"]["tmp_name"][$i], $target_file3)) {
    echo '4';
