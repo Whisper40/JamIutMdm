@@ -14,7 +14,7 @@ if(isset($user_id)&&!empty($user_id)){
 
 	if ($_FILES['file']['size'] < 5*MB){
 
-	if (!file_exists('../../../../JamFichiers/Img/ImagesDuSite/Original')) {
+	if (!file_exists('../../../../JamFichiers/Img/ImagesDuSite/Original/')) {
 	    mkdir('Original', 0777);
 	}
 
