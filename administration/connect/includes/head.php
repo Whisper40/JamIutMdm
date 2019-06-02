@@ -29,7 +29,7 @@
 </head>
 <style>
 .swal-wide {
-  height: 75px;
+  height: 60px;
 
 }
 </style>
