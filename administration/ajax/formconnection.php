@@ -64,7 +64,8 @@ echo '2';
                             "date"=>$date
                             )
                         );
-echo '3';
+                        $test ="teteteteteteete";
+var_dump($test);
             // STOP - Historique de connexion au site
 
             // START - Update last_connexion :
@@ -83,7 +84,7 @@ echo '3';
                     )
                 );
 
-echo '4';
+var_dump($test);
                 $update = $db->prepare("UPDATE admin SET last_connect=:date, datesystem=:datesystem WHERE id=:id");
                 $update->execute(array(
                     "date"=>$date,
