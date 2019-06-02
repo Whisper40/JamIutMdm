@@ -7,6 +7,14 @@ define('GB', 1073741824);
 define('TB', 1099511627776);
 $nomcategorieimage = $_POST['catimage'];
 
+$selecticon = $db->prepare("SELECT icon FROM images WHERE title=:catimage");
+  $selecticon->execute(array(
+      "catimage"=>$nomcategorieimage
+      )
+  );
+  $ricon = $selecticon->fetch(PDO::FETCH_OBJ);
+  $nomicon = $ricon->icon;
+
 $user_id = $_SESSION['admin_id'];
 if(isset($user_id)&&!empty($user_id)){
    echo '0';
@@ -39,7 +47,7 @@ if(isset($user_id)&&!empty($user_id)){
         $target_dirnewaffiche = "$target_dir/$affiche/$nomcategorieimage/";
       }
 $target_file = $target_dirnew . basename($_FILES["file"]["name"]);
-
+ echo '1';
   for( $i=0 ; $i < $total ; $i++ ) {
 	$imagenouvelle = rand(0, 1000) . $_FILES['file']['name'][$i];
 
@@ -51,7 +59,7 @@ $target_file = $target_dirnew . basename($_FILES["file"]["name"]);
       $target_file3 = $target_dirnew."".basename($_FILES["file"]["name"]);
 
 if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file3)) {
-
+      $status = '1';
        $insertinfos = $db->prepare("INSERT INTO images (title, albumactif, icon, file_name, uploaded_on, status) VALUES(:title, :albumactif, :icon, :file_name, :date, :status)");
        $insertinfos->execute(array(
 
@@ -68,7 +76,7 @@ if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file3)) {
 
 
 
-
+ echo '2';
 
 
 
@@ -118,7 +126,7 @@ if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file3)) {
                           }
                     }
 
-
+ echo '3';
                     //Affiche Grande
                     // Destination
                     $img_tmp = $target_dirnew.$target_filefile;
