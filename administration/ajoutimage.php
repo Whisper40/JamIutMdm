@@ -749,17 +749,7 @@ if ($uploadOk == 0) {
                            <label class="control-label">Nom de l'icon</label>
                            <input type="text" class="form-control" name="nomicon">
                        </div>
-                       <div class="form-group form-file-upload">
-                           <input type="file" id="fileToUploadCatImage" name="fileToUploadCatImage" multiple="multiple">
-                           <div class="input-group">
-                               <input type="text" readonly="" class="form-control" placeholder="Insérer la miniature de l'image">
-                               <span class="input-group-btn input-group-s">
-                                   <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
-                                       <i class="material-icons">layers</i>
-                                   </button>
-                               </span>
-                           </div>
-                       </div>
+                       
                        <center>
                          <button type="submit" name="catphotosubmit" class="btn btn-primary btn-round btn-rose">Créer une catégorie d'image</button>
                        </center>
