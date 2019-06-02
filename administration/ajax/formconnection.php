@@ -65,7 +65,7 @@ echo '2';
                             )
                         );
                         $test ="teteteteteteete";
-var_dump($test);
+
             // STOP - Historique de connexion au site
 
             // START - Update last_connexion :
@@ -84,7 +84,7 @@ var_dump($test);
                     )
                 );
 
-var_dump($test);
+
                 $update = $db->prepare("UPDATE admin SET last_connect=:date, datesystem=:datesystem WHERE id=:id");
                 $update->execute(array(
                     "date"=>$date,
@@ -93,12 +93,12 @@ var_dump($test);
                     )
                 );
 
-echo '5';
+
            ?>
 
 
     <script>
-                         StartNotif("Connexion OK",'success');
+                         //StartNotif("Connexion OK",'success');
 
                          setTimeout(function () {
 //Redirect with JavaScript
