@@ -732,7 +732,7 @@ if ($uploadOk == 0) {
  ?>
 <script>
 
-    Dropzone.options.myAwesomeDropzone = { // The camelized version of the ID of the form element
+Dropzone.options.myAwesomeDropzone = { // The camelized version of the ID of the form element
 
   // The configuration we've talked about above
   autoProcessQueue: false,
@@ -769,7 +769,6 @@ if ($uploadOk == 0) {
   }
 
 }
-
 
 
 </script>
@@ -883,32 +882,15 @@ if ($uploadOk == 0) {
              </div>
              <div class="row">
                <div class="col-sm-6">
-                 <form action='ajax/addimage.php' id="myAwesomeDropzone" class="dropzone">
-                   <div class="dropzone-previews"></div>
-                   <div class="card-content">
-                     <h3 class="card-title text-center">Ajouter des images</h3>
-                     <br><br>
-                     <div class="jquerysel">
-                       <select class="selectpicker" data-style="select-with-transition" title="Sélectionner de la catégorie" data-size="4" name="catimage">
-                          <option disabled>Sélectionner de la catégorie</option>
+                 <form id="my-awesome-dropzone" class="dropzone">
+  <div class="dropzone-previews"></div> <!-- this is were the previews should be shown. -->
 
-                          <?php
-                          $selectcatimages=$db->query("SELECT DISTINCT title FROM images");
-                          while($s = $selectcatimages->fetch(PDO::FETCH_OBJ)){
-                          $catimage=$s->title;
-                          ?>
-                          <option value="<?php echo $catimage;?>"><?php echo $catimage; ?></option>
-                          <?php } ?>
+  <!-- Now setup your input fields -->
+  <input type="email" name="username" />
+  <input type="password" name="password" />
 
-                       </select>
-                     </div>
-
-                     <center>
-
-                       <button type="submit" class="btn btn-primary btn-round btn-rose">Ajouter les images</button>
-                     </center>
-                   </div>
-                </form>
+  <button type="submit">Submit data and files!</button>
+</form>
               </div>
 
 
