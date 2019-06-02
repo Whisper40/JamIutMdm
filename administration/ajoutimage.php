@@ -96,7 +96,7 @@ if(isset($_POST['catphotosubmit'])){
       $actif = $db->prepare("UPDATE images SET albumactif=:albumactif WHERE title=:nomcategorieimage");
       $actif->execute(array(
         "albumactif"=>'1',
-        "title"=>$nomcategorieimage
+        "nomcategorieimage"=>$nomcategorieimage
       ));
 
       $inactif = $db->prepare("UPDATE images SET albumactif=:albumactif WHERE title <> :nomcategorieimage");
