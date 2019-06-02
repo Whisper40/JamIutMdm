@@ -730,7 +730,29 @@ if ($uploadOk == 0) {
         $type = "warning";
     } } } }
  ?>
+<script>
+<script>
+    Dropzone.options.imagedropzone = {
+        paramName: "file", // The name that will be used to transfer the file
+        maxFilesize: 10, // MB
+        maxFiles: 4,
+        acceptedFiles: ".jpg,.jpeg,.png",
+        addRemoveLinks: true,
+        // Prevents Dropzone from uploading dropped files immediately
+        autoProcessQueue: false,
+        init: function() {
+            var submitButton = document.querySelector("#imagedropzoneSubmit")
+            myDropzone = this; // closure
 
+            submitButton.addEventListener("click", function() {
+                myDropzone.processQueue(); // Tell Dropzone to process all queued files.
+            });
+        }
+    };
+</script>
+
+
+</script>
  <body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
    <div class="wrapper">
 
@@ -823,7 +845,7 @@ if ($uploadOk == 0) {
              </div>
              <div class="row">
                <div class="col-sm-6">
-                 <form action="banuser.php" class="dropzone" id="my-awesome-dropzone">
+                 <form action='ajax/addimage.php' class="dropzone" id="imagedropzone" name="imagedropzone" method="post" enctype="multipart/form-data">
                    <div class="card-content">
                      <h3 class="card-title text-center">Ajouter des images</h3>
                      <br><br>
@@ -843,8 +865,8 @@ if ($uploadOk == 0) {
                      </div>
 
                      <center>
-                       
-                       <button type="submit" name="submit" class="btn btn-primary btn-round btn-rose">Ajouter les images</button>
+
+                       <button type="submit" name="imagedropzoneSubmit" id="imagedropzoneSubmit" class="btn btn-primary btn-round btn-rose">Ajouter les images</button>
                      </center>
                    </div>
                 </form>
