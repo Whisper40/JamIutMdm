@@ -5,7 +5,7 @@ define('KB', 1024);
 define('MB', 1048576);
 define('GB', 1073741824);
 define('TB', 1099511627776);
-$test = $_GET['catimage'];
+$test = $_POST['catimage'];
 echo $test;
 echo '1';
 $user_id = $_SESSION['admin_id'];
