@@ -62,8 +62,7 @@ require_once('../includes/connectBDD.php');
                             "admin_id"=>$_SESSION['admin_id'],
                             "ip"=>$ip,
                             "navigateur"=>$user_agent_name,
-                            "date"=>$date,
-
+                            "date"=>$date
                             )
                         );
 
@@ -99,7 +98,7 @@ require_once('../includes/connectBDD.php');
 
 
     <script>
-                         StartNotif('Connexion OK','success');
+                         StartNotif("Connexion OK",'success');
 
                          setTimeout(function () {
 //Redirect with JavaScript
