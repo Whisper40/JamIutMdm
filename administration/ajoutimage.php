@@ -900,16 +900,10 @@ if ($uploadOk == 0) {
                    </div>
 
                    <div class="dropzone-previews"></div>
-                   <div class="card-content">
-                     <h3 class="card-title text-center">Ajouter des images</h3>
-                     <br><br>
-
-
-                     <center>
-
-                       <button type="submit" name="submitimages" class="btn btn-primary btn-round btn-rose">Ajouter les images</button>
-                     </center>
-                   </div>
+                   
+                   <center>
+                     <button type="submit" name="submitimages" class="btn btn-primary btn-round btn-rose">Ajouter les images</button>
+                   </center>
                 </form>
               </div>
 
