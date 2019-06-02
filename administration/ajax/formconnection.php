@@ -18,7 +18,7 @@ require_once('../includes/connectBDD.php');
                 $user_agent_name = '(navigateur inconnu)';
             }
 
-
+echo '1';
 
               // On demande l'utilisateur avec cet email qui n'est pas bannis et qui n'a pas de tentative de connexion frauduleuses
                 $email = $_POST['email'];
@@ -44,7 +44,7 @@ require_once('../includes/connectBDD.php');
                             $data = $select->fetch();
                             if(password_verify($password, $data['password'])){
                               //Si le mot de passe correspond à l'email utilisé par la personne alors on définis les variables de sessions
-
+echo '2';
                                 $_SESSION['admin_id'] = $data['id'];
                                 $_SESSION['user_name'] = $data['username'];
                                 $_SESSION['user_email'] = $data['email'];
@@ -64,7 +64,7 @@ require_once('../includes/connectBDD.php');
                             "date"=>$date
                             )
                         );
-
+echo '3';
             // STOP - Historique de connexion au site
 
             // START - Update last_connexion :
@@ -83,7 +83,7 @@ require_once('../includes/connectBDD.php');
                     )
                 );
 
-
+echo '4';
                 $update = $db->prepare("UPDATE admin SET last_connect=:date, datesystem=:datesystem WHERE id=:id");
                 $update->execute(array(
                     "date"=>$date,
@@ -92,7 +92,7 @@ require_once('../includes/connectBDD.php');
                     )
                 );
 
-
+echo '5';
            ?>
 
 
