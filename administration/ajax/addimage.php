@@ -50,14 +50,14 @@ $target_file = $target_dirnew . basename($_FILES["file"]["name"]);
  echo '1';
   for( $i=0 ; $i < $total ; $i++ ) {
 	$imagenouvelle = rand(0, 1000) . $_FILES['file']['name'][$i];
-
+ echo '2';
     date_default_timezone_set('Europe/Paris');
     setlocale(LC_TIME, 'fr_FR.utf8','fra');
     $date = strftime('%d:%m:%y %H:%M:%S');
     $target_filefile = basename($_FILES["file"]["name"]);
       $target_file2 = $target_dirnew."".$date.basename($_FILES["file"]["name"]);
       $target_file3 = $target_dirnew."".basename($_FILES["file"]["name"]);
-
+ echo '3';
 if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file3)) {
       $status = '1';
        $insertinfos = $db->prepare("INSERT INTO images (title, albumactif, icon, file_name, uploaded_on, status) VALUES(:title, :albumactif, :icon, :file_name, :date, :status)");
@@ -71,12 +71,13 @@ if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file3)) {
            "status"=>$status
            )
        );
+        echo '4';
        $db->query("UPDATE images SET albumactif='1' WHERE title='$nomcategorieimage'");
        $db->query("UPDATE images SET albumactif='0' WHERE title <> '$nomcategorieimage'");
 
 
 
- echo '2';
+ echo '5';
 
 
 
