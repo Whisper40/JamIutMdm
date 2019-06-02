@@ -9,7 +9,8 @@
 $secret = "LESECRET";
 $sitekey = "LESITEKEY";
 ?>
-
+<link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <style>
@@ -839,17 +840,9 @@ if ($uploadOk == 0) {
 
                        </select>
                      </div>
-                     <div class="form-group form-file-upload">
-                         <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
-                         <div class="input-group">
-                             <input type="text" readonly="" class="form-control" placeholder="Insérer les photos à ajouter">
-                             <span class="input-group-btn input-group-s">
-                                 <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
-                                     <i class="material-icons">layers</i>
-                                 </button>
-                             </span>
-                         </div>
-                     </div>
+                     <form action="ajax/uploadimage.php"
+       class="dropzone"
+       id="my-awesome-dropzone"></form>
                      <center>
                        <button type="submit" name="submit" class="btn btn-primary btn-round btn-rose">Ajouter les images</button>
                      </center>
