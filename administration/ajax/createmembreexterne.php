@@ -438,7 +438,7 @@ require_once('../includes/connectBDD.php');
                                    <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 30px; padding-left: 30px; padding-top: 10px; padding-bottom: 0px; font-family: Arial, sans-serif"><![endif]-->
                                    <div style="color:#555555;font-family:Arial, \'Helvetica Neue\', Helvetica, sans-serif;line-height:120%;padding-top:10px;padding-right:30px;padding-bottom:0px;padding-left:30px;">
                                    <div style="font-size: 12px; line-height: 14px; font-family: Arial, \'Helvetica Neue\', Helvetica, sans-serif; color: #555555;">
-                                   <p style="font-size: 14px; line-height: 16px; margin: 0;"><strong><span style="font-size: 46px; line-height: 55px;"><span style="font-size: 42px; line-height: 50px;">Bonjours <span style="color: #35bfb1; line-height: 50px; font-size: 42px;">'.$prenom.'</span> !</span><br/></span></strong></p>
+                                   <p style="font-size: 14px; line-height: 16px; margin: 0;"><strong><span style="font-size: 46px; line-height: 55px;"><span style="font-size: 42px; line-height: 50px;">Bonjour <span style="color: #35bfb1; line-height: 50px; font-size: 42px;">'.$prenom.'</span> !</span><br/></span></strong></p>
                                    </div>
                                    </div>
                                    <!--[if mso]></td></tr></table><![endif]-->
@@ -595,7 +595,7 @@ require_once('../includes/connectBDD.php');
                                        $headers = "From: <".$owner_mail.">\r\n";
                                        $headers .= "MIME-Version: 1.0\r\n";
                                        $headers .= 'X-Priotity:'.$priority."\r\n";
-                                       $headers .= "Content-Type: text/html\r\n";
+                                       $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 
 
 

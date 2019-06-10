@@ -1,9 +1,5 @@
 <?php
-//PAS DE CODE HTML
-//PAS DE CODE HTML
-//PAS DE CODE HTML
-//PAS DE CODE HTML
-//PAS DE CODE HTML
+
 require_once('includes/connectBDD.php');
 require_once('includes/checkconnection.php');
 
@@ -11,7 +7,9 @@ require_once('includes/checkconnection.php');
 $id = $_GET['id'];
 $slug = $_GET['slug'];
 $title = $_GET['title'];
-
+date_default_timezone_set('Europe/Paris');
+setlocale(LC_TIME, 'fr_FR.utf8','fra');
+$date = strftime('%d:%m:%y %H:%M:%S');
 
 function replaceAccents($str) {
 
@@ -26,19 +24,12 @@ $newtitle = replaceAccents($title);
 
 //FIN
 
-if (stripos($title, 'ski') != FALSE){
+if (stripos($title, 'ski') !== FALSE){
 
 header('Content-Type: text/csv; charset=utf-8');
 header("Content-disposition: filename=Tableau-Ski-$date.csv");
 
-date_default_timezone_set('Europe/Paris');
-setlocale(LC_TIME, 'fr_FR.utf8','fra');
-$date = strftime('%d:%m:%y %H:%M:%S');
-
 $tableau = array();
-
-
-
 
 
 
@@ -90,7 +81,7 @@ while($s0=$selectid->fetch(PDO::FETCH_OBJ)){
       $telurgence=$s2->telurgence;
       $regroupement = $codepostal.' '.$ville;
 
-      $tableau[] = array($nom,$prenom,$email,$poids,$taille,$pointure,$allergie,$adresse,$regroupement,$tel,$telurgence,$optionmateriel,$optionrepas,$optioncasque);
+      $tableau[] = array(replaceAccents($nom),replaceAccents($prenom),replaceAccents($email),replaceAccents($poids),replaceAccents($taille),replaceAccents($pointure),replaceAccents($allergie),replaceAccents($adresse),replaceAccents($regroupement),replaceAccents($tel),replaceAccents($telurgence),replaceAccents($optionmateriel),replaceAccents($optionrepas),replaceAccents($optioncasque));
 
 
     }
@@ -111,11 +102,7 @@ foreach ($tableau as $ligne) {
 }
 
 
-}else if (stripos($title, 'rugby') != FALSE){
-
-
-
-
+}else if (stripos($title, 'rugby') !== FALSE){
 
 
 
@@ -123,9 +110,7 @@ foreach ($tableau as $ligne) {
   header('Content-Type: text/csv; charset=utf-8');
   header("Content-disposition: filename=Tableau-Rugby-$date.csv");
 
-  date_default_timezone_set('Europe/Paris');
-  setlocale(LC_TIME, 'fr_FR.utf8','fra');
-  $date = strftime('%d:%m:%y %H:%M:%S');
+
 
   $tableau = array();
 
@@ -196,7 +181,7 @@ foreach ($tableau as $ligne) {
 
 
 
-}else if (stripos($newtitle, 'cinema') != FALSE){
+}else if (stripos($newtitle, 'cinema') !== FALSE){
 
 
 
@@ -205,9 +190,7 @@ foreach ($tableau as $ligne) {
     header('Content-Type: text/csv; charset=utf-8');
     header("Content-disposition: filename=Tableau-Cinema-$date.csv");
 
-    date_default_timezone_set('Europe/Paris');
-    setlocale(LC_TIME, 'fr_FR.utf8','fra');
-    $date = strftime('%d:%m:%y %H:%M:%S');
+
 
     $tableau = array();
 
@@ -257,7 +240,7 @@ foreach ($tableau as $ligne) {
 
 
 
-}else if (stripos($title, 'sportive') != FALSE){
+}else if (stripos($title, 'sportive') !== FALSE){
 
 
 
@@ -265,9 +248,8 @@ foreach ($tableau as $ligne) {
     header('Content-Type: text/csv; charset=utf-8');
     header("Content-disposition: filename=Tableau-Sportive-$date.csv");
 
-    date_default_timezone_set('Europe/Paris');
-    setlocale(LC_TIME, 'fr_FR.utf8','fra');
-    $date = strftime('%d:%m:%y %H:%M:%S');
+
+
 
     $tableau = array();
 
@@ -331,7 +313,7 @@ foreach ($tableau as $ligne) {
 
 
 
-}else if (stripos($title, 'nettoyage') != FALSE){
+}else if (stripos($title, 'nettoyage') !== FALSE){
 
 
 
@@ -340,9 +322,8 @@ foreach ($tableau as $ligne) {
     header('Content-Type: text/csv; charset=utf-8');
     header("Content-disposition: filename=Tableau-Nettoyage-$date.csv");
 
-    date_default_timezone_set('Europe/Paris');
-    setlocale(LC_TIME, 'fr_FR.utf8','fra');
-    $date = strftime('%d:%m:%y %H:%M:%S');
+
+
 
     $tableau = array();
 
@@ -392,18 +373,16 @@ foreach ($tableau as $ligne) {
 
 
 
-}else if (stripos($title, 'orientation') != FALSE){
+}else if (stripos($title, 'orientation') !== FALSE){
 
 
 
 
 
     header('Content-Type: text/csv; charset=utf-8');
-    header("Content-disposition: filename=Tableau-Sportive-$date.csv");
+    header("Content-disposition: filename=Tableau-Orientation-$date.csv");
 
-    date_default_timezone_set('Europe/Paris');
-    setlocale(LC_TIME, 'fr_FR.utf8','fra');
-    $date = strftime('%d:%m:%y %H:%M:%S');
+
 
     $tableau = array();
 

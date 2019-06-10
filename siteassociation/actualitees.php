@@ -104,13 +104,13 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-8 col-md-12">
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <div id="carousel1" class="carousel slide" data-ride="carousel">
               <ol class="carousel-indicators">
                 <?php
                   $indic = 0;
                   while($indic != $nbimage1){
                 ?>
-                <li data-target="#carouselExampleIndicators" data-slide-to="<?php echo $indic ?>"></li>
+                <li data-target="#carousel1" data-slide-to="<?php echo $indic ?>"></li>
                 <?php
                   $indic++;
                   }
@@ -139,10 +139,10 @@
               <?php
                 if($nbimage1 != 1){
               ?>
-              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <a class="carousel-control-prev" href="#carousel1" role="button" data-slide="prev">
                 <i class="now-ui-icons arrows-1_minimal-left"></i>
               </a>
-              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <a class="carousel-control-next" href="#carousel1" role="button" data-slide="next">
                 <i class="now-ui-icons arrows-1_minimal-right"></i>
               </a>
               <?php } ?>
@@ -185,13 +185,13 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-8 col-md-12">
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <div id="carousel2" class="carousel slide" data-ride="carousel">
               <ol class="carousel-indicators">
                 <?php
                   $indic = 0;
                   while($indic != $nbimage2){
                 ?>
-                <li data-target="#carouselExampleIndicators" data-slide-to="<?php echo $indic ?>"></li>
+                <li data-target="#carousel2" data-slide-to="<?php echo $indic ?>"></li>
                 <?php
                   $indic++;
                   }
@@ -220,10 +220,10 @@
               <?php
                 if($nbimage2 != 1){
               ?>
-              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <a class="carousel-control-prev" href="#carousel2" role="button" data-slide="prev">
                 <i class="now-ui-icons arrows-1_minimal-left"></i>
               </a>
-              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <a class="carousel-control-next" href="#carousel2" role="button" data-slide="next">
                 <i class="now-ui-icons arrows-1_minimal-right"></i>
               </a>
               <?php } ?>
@@ -266,13 +266,13 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-8 col-md-12">
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <div id="carousel3" class="carousel slide" data-ride="carousel">
               <ol class="carousel-indicators">
                 <?php
                   $indic = 0;
                   while($indic != $nbimage3){
                 ?>
-                <li data-target="#carouselExampleIndicators" data-slide-to="<?php echo $indic ?>"></li>
+                <li data-target="#carousel3" data-slide-to="<?php echo $indic ?>"></li>
                 <?php
                   $indic++;
                   }
@@ -301,10 +301,10 @@
               <?php
                 if($nbimage3 != 1){
               ?>
-              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <a class="carousel-control-prev" href="#carousel3" role="button" data-slide="prev">
                 <i class="now-ui-icons arrows-1_minimal-left"></i>
               </a>
-              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <a class="carousel-control-next" href="#carousel3" role="button" data-slide="next">
                 <i class="now-ui-icons arrows-1_minimal-right"></i>
               </a>
               <?php } ?>

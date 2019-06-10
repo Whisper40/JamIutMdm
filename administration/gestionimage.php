@@ -94,24 +94,24 @@ $target_dir = '../../../JamFichiers/Photos';
 $original = 'Original';
 $affiche = 'Affiche';
 $thumb = 'Thumb';
-echo 'Jamesbond';
 echo "$target_dir.'/'.$original.'/'.$dossier";
 
 if (file_exists($target_dir.'/'.$original.'/'.$dossier)){
-  echo 'Jesuisrnetré';
   unlink("$target_dir/$original/$dossier/$valnom");
   unlink("$target_dir/$affiche/$dossier/$valnom");
   unlink("$target_dir/$thumb/$dossier/$valnom");
-  echo 'deleted';
+
   $updatedelete = $db->prepare("DELETE FROM images WHERE id=$id");
   $updatedelete->execute();
 
+  require('includes/miseajourdusite.php');
+
 }else{
-  echo 'n extse pas';
-  $$messagenotif = 'Un problème de répertoire est présent, contacter votre administrateur !';
+
+  $messagenotif = 'Un problème de répertoire est présent, contacter votre administrateur !';
   $type = "warning";
 }
-echo 'esquive';
+
 
 ?>
 <script>window.location="https://administration.jam-mdm.fr/gestionimage.php"</script>
@@ -126,6 +126,7 @@ $action = $_POST['optionsRadios'];
 $cat = $_POST['catimage'];
 if($action == 'defaut'){
 
+if(!empty($cat)){
  $insertinfos = $db->prepare("UPDATE images SET albumactif=:albumactif, status=:status WHERE title=:title");
  $insertinfos->execute(array(
      "title"=>$cat,
@@ -134,10 +135,23 @@ if($action == 'defaut'){
      )
  );
 
- $$messagenotif = "L'album à été définis comme album par défaut";
+ $insertinfos2 = $db->prepare("UPDATE images SET albumactif=:albumactif WHERE title <> :title");
+ $insertinfos2->execute(array(
+     "title"=>$cat,
+     "albumactif"=>'0'
+     )
+ );
+
+ $messagenotif = "L'album à été définis comme album par défaut";
  $type = "success";
 
+}else{
+  $messagenotif = "Merci de sélectionner un album...";
+  $type = "warning";
+}
 }else if ($action == 'ban'){
+
+  if(!empty($cat)){
 
  $insertinfos = $db->prepare("UPDATE images SET albumactif=:albumactif, status=:status WHERE title=:title");
  $insertinfos->execute(array(
@@ -147,12 +161,18 @@ if($action == 'defaut'){
      )
  );
 
- $$messagenotif = "L'album à été définis comme album par défaut";
+ $messagenotif = "L'album à été définis comme album par défaut";
  $type = "success";
+
+}else{
+  $messagenotif = "Merci de sélectionner un album...";
+  $type = "warning";
+}
+
 }else if ($action == 'delete'){
 
  $dossier = $cat;
-
+ if(!empty($dossier)){
  $target_dir = '../../../JamFichiers/Photos';
  $original = 'Original';
  $affiche = 'Affiche';
@@ -180,21 +200,33 @@ removeDirectory("$target_dir/$thumb/$dossier");
        )
    );
 
+   $updatedelete2 = $db->prepare("DELETE FROM videos WHERE title=:title");
+   $updatedelete2->execute(array(
+       "title"=>$cat
+       )
+   );
+   $messagenotif = 'Supprimé !';
+   $type = "success";
+
  }else{
-   $$messagenotif = "Le répertoire n\'existe pas ! ";
+   $messagenotif = "Le répertoire n'existe pas ! ";
    $type = "warning";
  }
 
 }else{
- $$messagenotif = "Aucune action sélectionnée ";
+  $messagenotif = "Merci de sélectionner un album...";
+  $type = "warning";
+}
+
+}else{
+ $messagenotif = "Aucune action sélectionnée ";
  $type = "warning";
 }
 }
  ?>
 
-<body>
-  <div class="wrapper">
-
+<body <?php if ($messagenotif != "") { ?> onload="demo.showNotification('top','right','<?php echo $messagenotif ?>','<?php echo $type ?>')" <?php } ?> >
+<div class="wrapper">
   <?php
   require_once('includes/navbar.php');
   ?>
@@ -367,7 +399,6 @@ removeDirectory("$target_dir/$thumb/$dossier");
         </div>
       </div>
     </div>
-  </div>
 </body>
 
 <?php

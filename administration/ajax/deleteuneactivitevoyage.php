@@ -89,7 +89,7 @@ require_once('../includes/connectBDD.php');
                     $del2 = $db->prepare("DELETE FROM formulaireski");
                     $del2->execute();
 
-                    $del6 = $db->prepare("DELETE FROM catparticipe where page=:slug");
+                    $del6 = $db->prepare("DELETE FROM catparticipe where page LIKE :slug");
                     $del6->execute(array(
                       "slug"=>'%ski%'
                     ));
@@ -97,7 +97,7 @@ require_once('../includes/connectBDD.php');
                   $del2 = $db->prepare("DELETE FROM formulairesportive");
                   $del2->execute();
 
-                  $del7 = $db->prepare("DELETE FROM catparticipe where page=:slug");
+                  $del7 = $db->prepare("DELETE FROM catparticipe where page LIKE :slug");
                   $del7->execute(array(
                     "slug"=>'%sportive%'
                   ));
@@ -106,7 +106,7 @@ require_once('../includes/connectBDD.php');
                   $del3 = $db->prepare("DELETE FROM formulairerugby");
                   $del3->execute();
 
-                  $del8 = $db->prepare("DELETE FROM catparticipe where page=:slug");
+                  $del8 = $db->prepare("DELETE FROM catparticipe where page LIKE :slug");
                   $del8->execute(array(
                     "slug"=>'%rugby%'
                   ));
@@ -115,9 +115,29 @@ require_once('../includes/connectBDD.php');
                   $del4 = $db->prepare("DELETE FROM formulaireorientation");
                   $del4->execute();
 
-                  $del9 = $db->prepare("DELETE FROM catparticipe where page=:slug");
+                  $del9 = $db->prepare("DELETE FROM catparticipe where page LIKE :slug");
                   $del9->execute(array(
                     "slug"=>'%orientation%'
+                  ));
+                }else if (stripos($slug, 'cinema') !== FALSE){
+                  $del10 = $db->prepare("DELETE FROM communicationactivite where slug LIKE :slug");
+                  $del10->execute(array(
+                    "slug"=>'%cinema%'
+                  ));
+
+                  $del11 = $db->prepare("DELETE FROM catparticipe where page LIKE :slug");
+                  $del11->execute(array(
+                    "slug"=>'%cinema%'
+                  ));
+                }else if (stripos($slug, 'nettoyage') !== FALSE){
+                  $del11 = $db->prepare("DELETE FROM communicationactivite where slug LIKE :slug");
+                  $del11->execute(array(
+                    "slug"=>'%nettoyage%'
+                  ));
+
+                  $del12 = $db->prepare("DELETE FROM catparticipe where page LIKE :slug");
+                  $del12->execute(array(
+                    "slug"=>'%nettoyage%'
                   ));
                 }
 

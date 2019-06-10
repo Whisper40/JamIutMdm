@@ -6,8 +6,8 @@
 
 
 //Code de génératon du captcha fournie par GOOGLE
-$secret = "LESECRET";
-$sitekey = "LESITEKEY";
+$secret = "6LdcenUUAAAAAEjI0C8juo6_Y55YSGNTgRVeL0gf";
+$sitekey = "6LdcenUUAAAAAD-ZMHJCP-AABqWuPhyMnZE42NKs";
 ?>
 
 <script src='https://www.google.com/recaptcha/api.js'></script>

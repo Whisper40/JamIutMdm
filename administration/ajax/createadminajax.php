@@ -432,7 +432,7 @@ require_once('../includes/connectBDD.php');
                                   <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 30px; padding-left: 30px; padding-top: 10px; padding-bottom: 0px; font-family: Arial, sans-serif"><![endif]-->
                                   <div style="color:#555555;font-family:Arial, \'Helvetica Neue\', Helvetica, sans-serif;line-height:120%;padding-top:10px;padding-right:30px;padding-bottom:0px;padding-left:30px;">
                                   <div style="font-size: 12px; line-height: 14px; font-family: Arial, \'Helvetica Neue\', Helvetica, sans-serif; color: #555555;">
-                                  <p style="font-size: 14px; line-height: 16px; margin: 0;"><strong><span style="font-size: 46px; line-height: 55px;"><span style="font-size: 42px; line-height: 50px;">Bonjours <span style="color: #35bfb1; line-height: 50px; font-size: 42px;">'.$nom.'</span> !</span><br/></span></strong></p>
+                                  <p style="font-size: 14px; line-height: 16px; margin: 0;"><strong><span style="font-size: 46px; line-height: 55px;"><span style="font-size: 42px; line-height: 50px;">Bonjour <span style="color: #35bfb1; line-height: 50px; font-size: 42px;">'.$nom.'</span> !</span><br/></span></strong></p>
                                   </div>
                                   </div>
                                   <!--[if mso]></td></tr></table><![endif]-->
@@ -443,6 +443,7 @@ require_once('../includes/connectBDD.php');
                                   <p style="font-size: 12px; line-height: 18px; text-align: justify; margin: 0;"> </p>
                                   <p style="line-height: 24px; text-align: justify; font-size: 12px; margin: 0;"><span style="background-color: transparent; font-size: 16px;">Identifiant : '.$email.'</span></p>
                                   <p style="line-height: 24px; text-align: justify; font-size: 12px; margin: 0;"><span style="font-size: 16px; background-color: transparent;">Mot de Passe : '.$password.'</span></p>
+                                  <p style="line-height: 24px; text-align: justify; font-size: 12px; margin: 0;"><span style="font-size: 16px; background-color: transparent;">Ce mot de passe vous à été communiqué de manière non sécurisé, merci de le modifier dés que possible afin d\'être maître de votre compte d\'administrateur.</span></p>
                                   <p style="line-height: 18px; text-align: justify; font-size: 12px; margin: 0;"> </p>
                                   <p style="font-size: 12px; line-height: 24px; text-align: justify; margin: 0;"><span style="font-size: 16px;">Vous n’avez pas demandé à devenir administrateur ? Alors,</span><span style="font-size: 16px; line-height: 24px;"> <span style="color: #35bfb1; line-height: 24px; font-size: 16px;"><a href="https://jam-mdm.fr/contact.php" rel="noopener" style="text-decoration: underline; color: #35bfb1;" target="_blank">dites-le nous</a></span>.</span></p>
                                   </div>
@@ -590,7 +591,7 @@ require_once('../includes/connectBDD.php');
                                       $headers = "From: <".$owner_mail.">\r\n";
                                       $headers .= "MIME-Version: 1.0\r\n";
                                       $headers .= 'X-Priotity:'.$priority."\r\n";
-                                      $headers .= "Content-Type: text/html\r\n";
+                                      $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
                                       // message & attachment
 
 

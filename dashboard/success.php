@@ -16,7 +16,7 @@
             <div class="container-fluid">
                 <div class="card">
                     <div class="card-content">
-                        <h2 class="card-title text-center">Félicitations tu es membre de l'association !</h2>
+                        <h2 class="card-title text-center">Félicitations tu es désormais membre de la JAM !</h2>
                         <br><br>
                         <div class="row">
                             <div class="col-sm-6">
@@ -24,9 +24,9 @@
                                 <br><br>
                                     <center>
                                         <h4 class="card-title">
-                                            Tes document ont été validés ! Ta cotisation a été payé !<br><br>
-                                            Tu es à présent membre et tu peux par concéquent t'inscrire et participer à toute les soirées, activités et voyages organisés par l'association.<br><br>
-                                            Bonne année à toi !
+                                            Tes documents ont été validés ! Ta cotisation a été payé !<br><br>
+                                            Tu es à présent membre et tu peux par conséquent t'inscrire et participer à toute les soirées, activités et voyages organisés par l'association.<br><br>
+                                            Que la réussite soit en toi !<br/>N'hésite pas à proposer des activités aux membres de l'équipe JAM.
                                         </h4>
                                     </center>
                                 </div>
@@ -53,8 +53,9 @@
             </div>
         </div>
     </div>
-</body>
+
 
 <?php
-require_once('includes/javascript.php');
+require_once('includes/javascriptdashboard.php');
 ?>
+</body>

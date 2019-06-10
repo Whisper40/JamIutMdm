@@ -83,7 +83,7 @@ function SubmitFormDataCreerUnMembre() {
                               <div class="info info-horizontal">
                                 <div class="description">
                                   <center>
-                                     <h4 class="info-title">Ce formulaire vous permet de créée un code unique pour une personne externe aux étudiant de l'université de Mont de Marsan. Ce code lui sera envoyé par mail et lui permettra de remplir le formulaired'inscription</h4>
+                                     <h4 class="info-title">Ce formulaire vous permet de créer un code unique pour une personne externe aux étudiants de l'université de Mont de Marsan. <br/>Ce code lui sera envoyé par mail et lui permettra de remplir le formulaire d'inscription</h4>
                                   </center>
                                 </div>
                               </div>

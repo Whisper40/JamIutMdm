@@ -6,8 +6,8 @@ require_once('includes/checkdejamembre.php');
 $nompage = "Devenir Membre";
 require_once('includes/head.php');
 
-$secret = "LESECRET";
-$sitekey = "LESITEKEY";
+$secret = "6LdcenUUAAAAAEjI0C8juo6_Y55YSGNTgRVeL0gf";
+$sitekey = "6LdcenUUAAAAAD-ZMHJCP-AABqWuPhyMnZE42NKs";
 ?>
 <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 
@@ -41,6 +41,7 @@ $messagenotif = "";
             }
       $total = count($_FILES['fileToUpload']['name']);
       for( $i=0 ; $i < $total ; $i++ ) {
+
       $target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
       $uploadOk = 1;
       $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -51,16 +52,15 @@ $messagenotif = "";
           $uploadOk = 0;
       }
       // Check file size < 2mo
-      if ($_FILES["fileToUpload"]["size"][$i] > 2000000) {
+      if ($_FILES["fileToUpload"]["size"][$i] > 5000000) {
           $messagenotif = "<b>Erreur : </b>la Taille de votre est supérieur à 2 Mo !";
           $type = "warning";
           $uploadOk = 0;
       }
       // Allow certain file formats
-      if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-      && $imageFileType != "gif" && $imageFileType != "pdf" && $imageFileType != "zip" && $imageFileType != "rar") {
+      if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "pdf") {
 
-          $messagenotif = "<b>Erreur : </b>désolé, seuls les formats JPG, PDF, GIF, ZIP et RAR sont autorisés !";
+          $messagenotif = "<b>Erreur : </b>désolé, seuls les formats JPG, PDF sont autorisés !";
           $type = "warning";
           $uploadOk = 0;
       }
@@ -94,6 +94,12 @@ $messagenotif = "";
                   "status"=>$status
                   )
               );
+
+              $updateusers = $db->prepare("UPDATE users SET status=:status WHERE id=:user_id");
+              $updateusers->execute(array(
+                "status"=>"EN ATTENTE DE VALIDATION",
+                "user_id"=>$user_id
+              ));
           }else {
                $messagenotif = "<b>Erreur : </b>fichiers non uploadés !";
                $type = "warning";

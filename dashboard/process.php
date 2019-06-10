@@ -25,12 +25,26 @@ $selectrealname->execute(array(
     "activity_name"=>$activity_name
     )
 );
-
-
 $r = $selectrealname->fetch(PDO::FETCH_OBJ);
 $realname = $r->title;
 $stock = $r->stock;
 $newstock = $stock - 1;
+
+$selectactivite = $db->prepare("SELECT * from users WHERE id=:user_id");
+$selectactivite->execute(array(
+    "user_id"=>$user_id
+    )
+);
+$ractivite = $selectactivite->fetch(PDO::FETCH_OBJ);
+$countactivite = $ractivite->countactivite;
+$newcountactivite = $countactivite + '1';
+
+$updateactivite = $db->prepare("UPDATE users SET countactivite=:newcountactivite WHERE id=:user_id");
+$updateactivite->execute(array(
+    "user_id"=>$user_id,
+    "newcountactivite"=>$newcountactivite
+    )
+);
 
 //Pour le SKI
 if (stripos($activity_name, 'ski') != FALSE){
@@ -42,7 +56,7 @@ $optionadditionnelles = $_SESSION['optionadditionnelles'];
 $pageformulaire = 'formulaire.php?type=ski';
 $icon = 'ac_unit';
 
-$insertparticipe = $db->prepare("INSERT INTO participe (user_id, activity_name, date, optionmateriel, optionrepas) VALUES(:user_id , :activity_name , :date , :optionmateriel , :optionrepas)");
+$insertparticipe = $db->prepare("INSERT INTO participe (user_id, activity_name, date, optionmateriel, optionrepas, optionadditionnelles) VALUES(:user_id, :activity_name, :date, :optionmateriel, :optionrepas, :optionadditionnelles)");
 $insertparticipe->execute(array(
     "user_id"=>$user_id,
     "activity_name"=>$activity_name,
@@ -77,7 +91,7 @@ $pageformulaire = 'formulaire.php?type=rugby';
 $icon = 'map';
 
 
-$insertparticipe2 = $db->prepare("INSERT INTO participe (user_id, activity_name, date, optionaccompagnement) VALUES(:user_id ,:activity_name , :date, :optionaccompagnement)");
+$insertparticipe2 = $db->prepare("INSERT INTO participe (user_id, activity_name, date, optionaccompagnement) VALUES(:user_id, :activity_name, :date, :optionaccompagnement)");
 $insertparticipe2->execute(array(
     "user_id"=>$user_id,
     "activity_name"=>$activity_name,

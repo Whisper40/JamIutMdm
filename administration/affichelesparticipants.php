@@ -54,7 +54,7 @@ if(isset($_GET['action'])){
 
 $newtitle = replaceAccents($title);
 
-    if (stripos($title, 'ski') != FALSE){
+    if (stripos($title, 'ski') !== FALSE){
       echo '
     <div class="row">
       <div class="col-sm-12">
@@ -160,7 +160,7 @@ echo '<br>
       </div>
     ';
 
-  }else if (stripos($title, 'rugby') != FALSE){
+  }else if (stripos($title, 'rugby') !== FALSE){
     echo '
     <div class="row">
       <div class="col-sm-12">
@@ -247,7 +247,7 @@ echo '<br>
           </div>
     ';
 
-  }else if (stripos($newtitle, 'cinema') != FALSE){
+  }else if (stripos($newtitle, 'cinema') !== FALSE){
         echo '
         <div class="row">
           <div class="col-sm-12">
@@ -308,7 +308,7 @@ echo '<br>
               </div>
         ';
 
-  }else if (stripos($title, 'sportive') != FALSE){
+  }else if (stripos($title, 'sportive') !== FALSE){
 
     echo '  <div class="row">
               <div class="col-sm-12">
@@ -385,7 +385,7 @@ echo '<br>
                   </div>
             ';
 
-  }else if (stripos($title, 'nettoyage') != FALSE){
+  }else if (stripos($title, 'nettoyage') !== FALSE){
         echo '
         <div class="row">
           <div class="col-sm-12">
@@ -445,7 +445,7 @@ echo '<br>
               </div>
         ';
 
-  }else if (stripos($title, 'orientation') != FALSE){
+  }else if (stripos($title, 'orientation') !== FALSE){
 
     echo '  <div class="row">
               <div class="col-sm-12">
@@ -524,7 +524,7 @@ echo '<br>
 
   }else{
     echo '<center>
-            <h4 class="info-title"><font color="red">Aucun activités ou voyage est en cour d\'organisation</font></h4>
+            <h4 class="info-title"><font color="red">Il semblerait qu\'aucun type d\'activités codées n\'ait été trouvé..</font></h4>
           </center>';
   }
 }

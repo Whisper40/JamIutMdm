@@ -63,8 +63,12 @@ $messagenotif = "";
 
 if(isset($_POST['catphotosubmit'])){
   $nomcategorieimage2 = $_POST['nomcategorieimage'];
-  $nomcategorieimage= slugify($nomcategorieimage2);
+
+  $nomcategorieimage=slugify($nomcategorieimage2);
   $nomicon = $_POST['nomicon'];
+
+  if(!empty($nomcategorieimage2)){
+    if(!empty($nomicon)){
 
   $checkcatimages = $db->prepare("SELECT title FROM images WHERE title = '$nomcategorieimage'");
   $checkcatimages->execute();
@@ -82,18 +86,7 @@ if(isset($_POST['catphotosubmit'])){
         mkdir("$target_dir/$original/$nomcategorieimage", 0700);
       }
 
-      //Ajout thumb
-      $thumb = 'Thumb';
-      if (file_exists($target_dir/$thumb/$nomcategorieimage)) {
-      }else{
-        mkdir("$target_dir/$thumb/$nomcategorieimage", 0700);
-      }
 
-      $affiche = 'Affiche';
-      if (file_exists($target_dir/$affiche/$nomcategorieimage)) {
-      }else{
-        mkdir("$target_dir/$affiche/$nomcategorieimage", 0700);
-      }
 
       date_default_timezone_set('Europe/Paris');
       setlocale(LC_TIME, 'fr_FR.utf8','fra');
@@ -105,6 +98,14 @@ if(isset($_POST['catphotosubmit'])){
           "title"=>$nomcategorieimage,
           "icon"=>$nomicon,
           "date"=>$date,
+          "status"=>$status
+          )
+      );
+
+      $insertinfosvideo = $db->prepare("INSERT INTO videos (title, uploaded_on, status) VALUES(:title, :uploaded_on, :status)");
+      $insertinfosvideo->execute(array(
+          "title"=>$nomcategorieimage,
+          "uploaded_on"=>$date,
           "status"=>$status
           )
       );
@@ -122,236 +123,33 @@ if(isset($_POST['catphotosubmit'])){
 
       ));
 
+      $messagenotif = 'Parfait, la catégorie à bien été crée';
+      $type = "success";
+
  }else{
       $messagenotif = 'Désolé, la catégorie existe déja';
       $type = "warning";
-    }}
+    }
+  }else{
+      $messagenotif = 'Le champs est vide...';
+      $type = "warning";
+    }
+  }else{
+      $messagenotif = 'Le champs est vide...';
+      $type = "warning";
+    }
+
+  }
 ?>
 
 
 <?php
 
-if(isset($_POST['catvideosubmit'])){
-$liencatvideo = $_POST['liencatvideo'];
-$catvideo = $_POST['nomcategorievideo'];
-
-$checkcatvideo=$db->prepare("SELECT * FROM videos WHERE title = '$catvideo'");
-$checkcatvideo->execute();
-$countcheckcatvideo = $checkcatvideo->rowCount();
-
-if (is_null($countcheckcatvideo)){
-$countcheckcatvideo = '0';
-
-}
-
-if($countcheckcatvideo == '0'){
-
-
-
-  $target_dir = "../../../JamFichiers/Photos";
-
-  $original = 'Original';
-  if (file_exists($target_dir/$original/$catvideo)){
-    $target_dirnew = "$target_dir/$original/$catvideo/";
-  }else{
-    mkdir("$target_dir/$original/$catvideo", 0700);
-    $target_dirnew = "$target_dir/$original/$catvideo/";
-  }
-
-  //Ajout thumb
-  $thumb = 'Thumb';
-  if (file_exists($target_dir/$thumb/$catvideo)) {
-    $target_dirnewthumb = "$target_dir/$thumb/$catvideo/";
-  }else{
-    mkdir("$target_dir/$thumb/$catvideo", 0700);
-    $target_dirnewthumb = "$target_dir/$thumb/$catvideo/";
-  }
-
-  $affiche = 'Affiche';
-  if (file_exists($target_dir/$affiche/$catvideo)) {
-    $target_dirnewaffiche = "$target_dir/$affiche/$catvideo/";
-  }else{
-    mkdir("$target_dir/$affiche/$catvideo", 0700);
-    $target_dirnewaffiche = "$target_dir/$affiche/$catvideo/";
-  }
-
-
-  //FIN
-
-
-
-$target_file = $target_dirnew . basename($_FILES["fileToUploadCatVideo"]["name"]);
-$uploadOk = 1;
-$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-// Check if file already exists
-if (file_exists($target_file)) {
-$messagenotif = 'Désolé, le fichier existe déja.';
-$type = "warning";
-$uploadOk = 0;
-}
-// Check file size < 2mo
-if ($_FILES["fileToUploadCatVideo"]["size"] > 2000000) {
-$messagenotif = 'Désolé, le fichier est trop grand.';
-$type = "warning";
-$uploadOk = 0;
-
-}
-// Allow certain file formats
-if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-&& $imageFileType != "gif" && $imageFileType != "pdf" && $imageFileType != "zip" && $imageFileType != "rar") {
-$messagenotif = 'Désolé, les formats autorisé sont JPG, PNG et GIF.';
-$type = "warning";
-$uploadOk = 0;
-}
-// Check if $uploadOk is set to 0 by an error
-if ($uploadOk == 0) {
-$messagenotif = 'Désolé, votre fichier n\'a pas été uploadé';
-$type = "warning";
-// if everything is ok, try to upload file
-} else {
-date_default_timezone_set('Europe/Paris');
-setlocale(LC_TIME, 'fr_FR.utf8','fra');
-$date = strftime('%d:%m:%y %H:%M:%S');
-
-$target_filefile = basename($_FILES["fileToUploadCatVideo"]["name"]);
-$target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUploadCatVideo"]["name"]);
-$target_file3 = $target_dirnew."".basename($_FILES["fileToUploadCatVideo"]["name"]);
-
-if (move_uploaded_file($_FILES["fileToUploadCatVideo"]["tmp_name"], $target_file3)) {
-
-    $messagenotif = 'Le fichier '. basename( $_FILES["fileToUploadCatVideo"]["name"]). ' à bien été uploadé';
-    $type = "warning";
-
-    $status = '1';
-    date_default_timezone_set('Europe/Paris');
-    setlocale(LC_TIME, 'fr_FR.utf8','fra');
-    $date = strftime('%Y-%m-%d %H:%M:%S');
-
-    $insertinfos = $db->prepare("INSERT INTO videos (file_nameimage, file_namevideo, title, uploaded_on, status) VALUES(:file_nameimage, :file_namevideo, :title, :date, :status)");
-    $insertinfos->execute(array(
-
-        "file_nameimage"=>$target_filefile,
-        "file_namevideo"=>$liencatvideo,
-        "title"=>$catvideo,
-        "date"=>$date,
-        "status"=>$status
-        )
-    );
-
-    $img_tmp = $target_dirnew.$target_filefile;
-    $fin = $target_dirnewthumb.$target_filefile;
-
-
-      //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
-        $longueur = 300;
-        $largeur = 220;
-        //TAILLE DE L'IMAGE ACTUELLE
-        $taille = getimagesize($img_tmp);
-        //SI LE FICHIER EXISTE
-        if ($taille) {
-            //SI JPG
-            if ($taille['mime']=='image/jpeg' ) {
-                      //OUVERTURE DE L'IMAGE ORIGINALE
-                        $img_big = imagecreatefromjpeg($img_tmp);
-                        $img_new = imagecreate($longueur, $largeur);
-                      //CREATION DE LA MINIATURE
-                        $img_petite = imagecreatetruecolor($longueur, $largeur) or $img_petite = imagecreate($longueur, $largeur);
-                        //COPIE DE L'IMAGE REDIMENSIONNEE
-                        imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
-                        imagejpeg($img_petite,$fin);
-            }
-          //SI PNG
-        else if ($taille['mime']=='image/png' ) {
-                        //OUVERTURE DE L'IMAGE ORIGINALE
-                        $img_big = imagecreatefrompng($img_tmp); // On ouvre l'image d'origine
-                        $img_new = imagecreate($longueur, $largeur);
-                        //CREATION DE LA MINIATURE
-                        $img_petite = imagecreatetruecolor($longueur, $largeur) OR $img_petite = imagecreate($longueur, $largeur);
-                        //COPIE DE L'IMAGE REDIMENSIONNEE
-                        imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
-                        imagepng($img_petite,$fin);
-                    }
-                    // GIF
-          else if ($taille['mime']=='image/gif' ) {
-                        //OUVERTURE DE L'IMAGE ORIGINALE
-                        $img_big = imagecreatefromgif($img_tmp);
-                        $img_new = imagecreate($longueur, $largeur);
-                        //CREATION DE LA MINIATURE
-                        $img_petite = imagecreatetruecolor($longueur, $largeur) or $img_petite = imagecreate($longueur, $largeur);
-                        //COPIE DE L'IMAGE REDIMENSIONNEE
-                        imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
-                        imagegif($img_petite,$fin);
-
-
-                  }
-                  require('includes/miseajourdusite.php');
-            }
-
-
-            //Affiche Grande
-            // Destination
-            $img_tmp = $target_dirnew.$target_filefile;
-            $finaffiche = $target_dirnewaffiche.$target_filefile;
-
-            //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
-              $longueur = 1024;
-              $largeur = 700;
-              //TAILLE DE L'IMAGE ACTUELLE
-              $tailleaffiche = getimagesize($img_tmp);
-              //SI LE FICHIER EXISTE
-              if ($tailleaffiche) {
-                  //SI JPG
-                  if ($tailleaffiche['mime']=='image/jpeg' ) {
-                            //OUVERTURE DE L'IMAGE ORIGINALE
-                              $img_big = imagecreatefromjpeg($img_tmp);
-                              $img_new = imagecreate($longueur, $largeur);
-                            //CREATION DE LA MINIATURE
-                              $img_petite = imagecreatetruecolor($longueur, $largeur) or $img_petite = imagecreate($longueur, $largeur);
-                              //COPIE DE L'IMAGE REDIMENSIONNEE
-                              imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$tailleaffiche[0],$tailleaffiche[1]);
-                              imagejpeg($img_petite,$finaffiche);
-                  }
-                //SI PNG
-              else if ($tailleaffiche['mime']=='image/png' ) {
-                              //OUVERTURE DE L'IMAGE ORIGINALE
-                              $img_big = imagecreatefrompng($img_tmp); // On ouvre l'image d'origine
-                              $img_new = imagecreate($longueur, $largeur);
-                              //CREATION DE LA MINIATURE
-                              $img_petite = imagecreatetruecolor($longueur, $largeur) OR $img_petite = imagecreate($longueur, $largeur);
-                              //COPIE DE L'IMAGE REDIMENSIONNEE
-                              imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$tailleaffiche[0],$tailleaffiche[1]);
-                              imagepng($img_petite,$finaffiche);
-                          }
-                          // GIF
-                else if ($tailleaffiche['mime']=='image/gif' ) {
-                              //OUVERTURE DE L'IMAGE ORIGINALE
-                              $img_big = imagecreatefromgif($img_tmp);
-                              $img_new = imagecreate($longueur, $largeur);
-                              //CREATION DE LA MINIATURE
-                              $img_petite = imagecreatetruecolor($longueur, $largeur) or $img_petite = imagecreate($longueur, $largeur);
-                              //COPIE DE L'IMAGE REDIMENSIONNEE
-                              imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$tailleaffiche[0],$tailleaffiche[1]);
-                              imagegif($img_petite,$finaffiche);
-
-
-                        }
-                        require('includes/miseajourdusite.php');
-                  }
-
-}else {
-   $messagenotif = 'Désolé, une erreur est survenue durant l\'upload';
-   $type = "warning";
-} } }else{
-  $messagenotif = 'Désolé, la catégorie existe déja';
-  $type = "warning";
-
-}}
-
 
 if(isset($_POST['videosubmit'])){
   $lienvideo = $_POST['lienvideo'];
   $catvideo = $_POST['catvideo'];
-
+  if(!empty($lienvideo)&&!empty($catvideo)){
 
       $target_dir = "../../../JamFichiers/Photos";
 
@@ -364,24 +162,6 @@ if(isset($_POST['videosubmit'])){
       }
 
 
-      //Ajout thumb
-      $thumb = 'Thumb';
-      if (file_exists($target_dir/$thumb/$catvideo)) {
-        $target_dirnewthumb = "$target_dir/$thumb/$catvideo/";
-      }else{
-        mkdir("$target_dir/$thumb/$catvideo", 0700);
-        $target_dirnewthumb = "$target_dir/$thumb/$catvideo/";
-      }
-
-
-      $affiche = 'Affiche';
-      if (file_exists($target_dir/$affiche/$catvideo)) {
-        $target_dirnewaffiche = "$target_dir/$affiche/$catvideo/";
-      }else{
-        mkdir("$target_dir/$affiche/$catvideo", 0700);
-        $target_dirnewaffiche = "$target_dir/$affiche/$catvideo/";
-      }
-
 $target_file = $target_dirnew . basename($_FILES["fileToUploadVideo"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -393,7 +173,7 @@ if (file_exists($target_file)) {
 }
 
 // Check file size < 2mo
-if ($_FILES["fileToUploadVideo"]["size"] > 2000000) {
+if ($_FILES["fileToUploadVideo"]["size"] > 5000000) {
     $messagenotif = 'Désolé, le fichier est trop grand.';
     $type = "warning";
     $uploadOk = 0;
@@ -409,7 +189,7 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
 
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-    $messagenotif = 'Désolé, votre fichier n\'a pas été uploadé';
+    $messagenotif = "Désolé, votre fichier n\'a pas été uploadé";
     $type = "warning";
 // if everything is ok, try to upload file
 } else {
@@ -417,9 +197,9 @@ if ($uploadOk == 0) {
   setlocale(LC_TIME, 'fr_FR.utf8','fra');
   $date = strftime('%d:%m:%y %H:%M:%S');
 
-  $target_filefile = basename($_FILES["fileToUploadVideo"]["name"]);
-  $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUploadVideo"]["name"]);
-  $target_file3 = $target_dirnew."".basename($_FILES["fileToUploadVideo"]["name"]);
+  $target_filefile = rand(100, 10000).basename($_FILES["fileToUploadVideo"]["name"]);
+
+  $target_file3 = $target_dirnew.$target_filefile;
 
     if (move_uploaded_file($_FILES["fileToUploadVideo"]["tmp_name"], $target_file3)) {
 
@@ -441,308 +221,17 @@ if ($uploadOk == 0) {
             )
         );
 
-        $img_tmp = $target_dirnew.$target_filefile;
-        $fin = $target_dirnewthumb.$target_filefile;
-
-
-          //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
-            $longueur = 300;
-            $largeur = 220;
-            //TAILLE DE L'IMAGE ACTUELLE
-            $taille = getimagesize($img_tmp);
-            //SI LE FICHIER EXISTE
-            if ($taille) {
-
-                //SI JPG
-                if ($taille['mime']=='image/jpeg' ) {
-                          //OUVERTURE DE L'IMAGE ORIGINALE
-                            $img_big = imagecreatefromjpeg($img_tmp);
-                            $img_new = imagecreate($longueur, $largeur);
-                          //CREATION DE LA MINIATURE
-                            $img_petite = imagecreatetruecolor($longueur, $largeur) or $img_petite = imagecreate($longueur, $largeur);
-                            //COPIE DE L'IMAGE REDIMENSIONNEE
-                            imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
-                            imagejpeg($img_petite,$fin);
-                }
-              //SI PNG
-            else if ($taille['mime']=='image/png' ) {
-                            //OUVERTURE DE L'IMAGE ORIGINALE
-                            $img_big = imagecreatefrompng($img_tmp); // On ouvre l'image d'origine
-                            $img_new = imagecreate($longueur, $largeur);
-                            //CREATION DE LA MINIATURE
-                            $img_petite = imagecreatetruecolor($longueur, $largeur) OR $img_petite = imagecreate($longueur, $largeur);
-                            //COPIE DE L'IMAGE REDIMENSIONNEE
-                            imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
-                            imagepng($img_petite,$fin);
-                        }
-                        // GIF
-              else if ($taille['mime']=='image/gif' ) {
-                            //OUVERTURE DE L'IMAGE ORIGINALE
-                            $img_big = imagecreatefromgif($img_tmp);
-                            $img_new = imagecreate($longueur, $largeur);
-                            //CREATION DE LA MINIATURE
-                            $img_petite = imagecreatetruecolor($longueur, $largeur) or $img_petite = imagecreate($longueur, $largeur);
-                            //COPIE DE L'IMAGE REDIMENSIONNEE
-                            imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
-                            imagegif($img_petite,$fin);
-                      }
-                      require('includes/miseajourdusite.php');
-                }
-
-                //Affiche Grande
-                // Destination
-                $img_tmp = $target_dirnew.$target_filefile;
-                $finaffiche = $target_dirnewaffiche.$target_filefile;
-
-                //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
-                  $longueur = 1024;
-                  $largeur = 700;
-                  //TAILLE DE L'IMAGE ACTUELLE
-                  $tailleaffiche = getimagesize($img_tmp);
-                  //SI LE FICHIER EXISTE
-                  if ($tailleaffiche) {
-                      //SI JPG
-                      if ($tailleaffiche['mime']=='image/jpeg' ) {
-                                //OUVERTURE DE L'IMAGE ORIGINALE
-                                  $img_big = imagecreatefromjpeg($img_tmp);
-                                  $img_new = imagecreate($longueur, $largeur);
-                                //CREATION DE LA MINIATURE
-                                  $img_petite = imagecreatetruecolor($longueur, $largeur) or $img_petite = imagecreate($longueur, $largeur);
-                                  //COPIE DE L'IMAGE REDIMENSIONNEE
-                                  imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$tailleaffiche[0],$tailleaffiche[1]);
-                                  imagejpeg($img_petite,$finaffiche);
-                      }
-                    //SI PNG
-                  else if ($tailleaffiche['mime']=='image/png' ) {
-                                  //OUVERTURE DE L'IMAGE ORIGINALE
-                                  $img_big = imagecreatefrompng($img_tmp); // On ouvre l'image d'origine
-                                  $img_new = imagecreate($longueur, $largeur);
-                                  //CREATION DE LA MINIATURE
-                                  $img_petite = imagecreatetruecolor($longueur, $largeur) OR $img_petite = imagecreate($longueur, $largeur);
-                                  //COPIE DE L'IMAGE REDIMENSIONNEE
-                                  imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$tailleaffiche[0],$tailleaffiche[1]);
-                                  imagepng($img_petite,$finaffiche);
-                              }
-                              // GIF
-                    else if ($tailleaffiche['mime']=='image/gif' ) {
-                                  //OUVERTURE DE L'IMAGE ORIGINALE
-                                  $img_big = imagecreatefromgif($img_tmp);
-                                  $img_new = imagecreate($longueur, $largeur);
-                                  //CREATION DE LA MINIATURE
-                                  $img_petite = imagecreatetruecolor($longueur, $largeur) or $img_petite = imagecreate($longueur, $largeur);
-                                  //COPIE DE L'IMAGE REDIMENSIONNEE
-                                  imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$tailleaffiche[0],$tailleaffiche[1]);
-                                  imagegif($img_petite,$finaffiche);
-                            }
-                            require('includes/miseajourdusite.php');
-                      }
-
+  require('includes/miseajourdusite.php');
     }else {
         $messagenotif = 'Désolé, une erreur est survenue.';
         $type = "warning";
-    } } }
-
-if(isset($_POST['submit'])){
-  $catimage = $_POST['catimage'];
-
-
-  $selecticon = $db->prepare("SELECT icon FROM images WHERE title=:catimage");
-  $selecticon->execute(array(
-      "catimage"=>$catimage
-      )
-  );
-  $ricon = $selecticon->fetch(PDO::FETCH_OBJ);
-  $nomicon = $ricon->icon;
-
-
-      $target_dir = "../../../JamFichiers/Photos";
-
-      $original = 'Original';
-      if (file_exists($target_dir/$original/$catimage)) {
-        $target_dirnew = "$target_dir/$original/$catimage/";
-      }else{
-        mkdir("$target_dir/$original/$catimage", 0700);
-        $target_dirnew = "$target_dir/$original/$catimage/";
-      }
-
-      //Ajout thumb
-      $thumb = 'Thumb';
-      if (file_exists($target_dir/$thumb/$catimage)) {
-        $target_dirnewthumb = "$target_dir/$thumb/$catimage/";
-      }else{
-        mkdir("$target_dir/$thumb/$catimage", 0700);
-        $target_dirnewthumb = "$target_dir/$thumb/$catimage/";
-      }
-
-      $affiche = 'Affiche';
-      if (file_exists($target_dir/$affiche/$catimage)) {
-        $target_dirnewaffiche = "$target_dir/$affiche/$catimage/";
-      }else{
-        mkdir("$target_dir/$affiche/$catimage", 0700);
-        $target_dirnewaffiche = "$target_dir/$affiche/$catimage/";
-      }
-      //FIN
-
-$total = count($_FILES['fileToUpload']['name']);
-
-for( $i=0 ; $i < $total ; $i++ ) {
-$target_file = $target_dirnew . basename($_FILES["fileToUpload"]["name"][$i]);
-$uploadOk = 1;
-$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-// Check if file already exists
-if (file_exists($target_file)) {
-    $messagenotif = 'Désolé, le fichier existe déja.';
+    }
+  }}else{
+    $messagenotif = 'Désolé, les champs sont vides';
     $type = "warning";
-    $uploadOk = 0;
+  }
 }
-// Check file size < 2mo
-if ($_FILES["fileToUpload"]["size"][$i] > 2000000) {
-    $messagenotif = 'Désolé, le fichier est trop grand.';
-    $type = "warning";
-    $uploadOk = 0;
 
-}
-// Allow certain file formats
-if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-&& $imageFileType != "gif" && $imageFileType != "pdf" && $imageFileType != "zip" && $imageFileType != "rar") {
-    $messagenotif = 'Désolé, les formats autorisés sont JPG, PNG et GIF.';
-    $type = "warning";
-    $uploadOk = 0;
-}
-// Check if $uploadOk is set to 0 by an error
-if ($uploadOk == 0) {
-    $messagenotif = 'Désolé, une erreur est survenue.';
-    $type = "warning";
-// if everything is ok, try to upload file
-} else {
-  date_default_timezone_set('Europe/Paris');
-  setlocale(LC_TIME, 'fr_FR.utf8','fra');
-  $date = strftime('%d:%m:%y %H:%M:%S');
-
-  $target_filefile = basename($_FILES["fileToUpload"]["name"][$i]);
-  $target_file2 = $target_dirnew."".$date.basename($_FILES["fileToUpload"]["name"][$i]);
-  $target_file3 = $target_dirnew."".basename($_FILES["fileToUpload"]["name"][$i]);
-
-    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file3)) {
-        $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$i]). " à bien été uploadé.";
-        $type = "success";
-        $status = '1';
-        date_default_timezone_set('Europe/Paris');
-        setlocale(LC_TIME, 'fr_FR.utf8','fra');
-        $date = strftime('%Y-%m-%d %H:%M:%S');
-
-        $insertinfos = $db->prepare("INSERT INTO images (title, albumactif, icon, file_name, uploaded_on, status) VALUES(:title, :albumactif, :icon, :file_name, :date, :status)");
-        $insertinfos->execute(array(
-
-            "title"=>$catimage,
-            "albumactif"=>'1',
-            "icon"=>$nomicon,
-            "file_name"=>$target_filefile,
-            "date"=>$date,
-            "status"=>$status
-            )
-        );
-        $db->query("UPDATE images SET albumactif='1' WHERE title='$catimage'");
-        $db->query("UPDATE images SET albumactif='0' WHERE title <> '$catimage'");
-        $img_tmp = $target_dirnew.$target_filefile;
-        $fin = $target_dirnewthumb.$target_filefile;
-
-
-          //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
-            $longueur = 300;
-            $largeur = 220;
-            //TAILLE DE L'IMAGE ACTUELLE
-            $taille = getimagesize($img_tmp);
-            //SI LE FICHIER EXISTE
-            if ($taille) {
-                //SI JPG
-                if ($taille['mime']=='image/jpeg' ) {
-                          //OUVERTURE DE L'IMAGE ORIGINALE
-                            $img_big = imagecreatefromjpeg($img_tmp);
-                            $img_new = imagecreate($longueur, $largeur);
-                          //CREATION DE LA MINIATURE
-                            $img_petite = imagecreatetruecolor($longueur, $largeur) or $img_petite = imagecreate($longueur, $largeur);
-                            //COPIE DE L'IMAGE REDIMENSIONNEE
-                            imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
-                            imagejpeg($img_petite,$fin);
-                }
-              //SI PNG
-            else if ($taille['mime']=='image/png' ) {
-                            //OUVERTURE DE L'IMAGE ORIGINALE
-                            $img_big = imagecreatefrompng($img_tmp); // On ouvre l'image d'origine
-                            $img_new = imagecreate($longueur, $largeur);
-                            //CREATION DE LA MINIATURE
-                            $img_petite = imagecreatetruecolor($longueur, $largeur) OR $img_petite = imagecreate($longueur, $largeur);
-                            //COPIE DE L'IMAGE REDIMENSIONNEE
-                            imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
-                            imagepng($img_petite,$fin);
-                        }
-                        // GIF
-              else if ($taille['mime']=='image/gif' ) {
-                            //OUVERTURE DE L'IMAGE ORIGINALE
-                            $img_big = imagecreatefromgif($img_tmp);
-                            $img_new = imagecreate($longueur, $largeur);
-                            //CREATION DE LA MINIATURE
-                            $img_petite = imagecreatetruecolor($longueur, $largeur) or $img_petite = imagecreate($longueur, $largeur);
-                            //COPIE DE L'IMAGE REDIMENSIONNEE
-                            imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$taille[0],$taille[1]);
-                            imagegif($img_petite,$fin);
-                      }
-                      require('includes/miseajourdusite.php');
-                }
-
-                //Affiche Grande
-                // Destination
-                $img_tmp = $target_dirnew.$target_filefile;
-                $finaffiche = $target_dirnewaffiche.$target_filefile;
-
-                //TAILLE EN PIXELS DE L'IMAGE REDIMENSIONNEE
-                  $longueur = 1024;
-                  $largeur = 700;
-                  //TAILLE DE L'IMAGE ACTUELLE
-                  $tailleaffiche = getimagesize($img_tmp);
-                  //SI LE FICHIER EXISTE
-                  if ($tailleaffiche) {
-                      //SI JPG
-                      if ($tailleaffiche['mime']=='image/jpeg' ) {
-                                //OUVERTURE DE L'IMAGE ORIGINALE
-                                  $img_big = imagecreatefromjpeg($img_tmp);
-                                  $img_new = imagecreate($longueur, $largeur);
-                                //CREATION DE LA MINIATURE
-                                  $img_petite = imagecreatetruecolor($longueur, $largeur) or $img_petite = imagecreate($longueur, $largeur);
-                                  //COPIE DE L'IMAGE REDIMENSIONNEE
-                                  imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$tailleaffiche[0],$tailleaffiche[1]);
-                                  imagejpeg($img_petite,$finaffiche);
-                      }
-                    //SI PNG
-                  else if ($tailleaffiche['mime']=='image/png' ) {
-                                  //OUVERTURE DE L'IMAGE ORIGINALE
-                                  $img_big = imagecreatefrompng($img_tmp); // On ouvre l'image d'origine
-                                  $img_new = imagecreate($longueur, $largeur);
-                                  //CREATION DE LA MINIATURE
-                                  $img_petite = imagecreatetruecolor($longueur, $largeur) OR $img_petite = imagecreate($longueur, $largeur);
-                                  //COPIE DE L'IMAGE REDIMENSIONNEE
-                                  imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$tailleaffiche[0],$tailleaffiche[1]);
-                                  imagepng($img_petite,$finaffiche);
-                              }
-                              // GIF
-                    else if ($tailleaffiche['mime']=='image/gif' ) {
-                                  //OUVERTURE DE L'IMAGE ORIGINALE
-                                  $img_big = imagecreatefromgif($img_tmp);
-                                  $img_new = imagecreate($longueur, $largeur);
-                                  //CREATION DE LA MINIATURE
-                                  $img_petite = imagecreatetruecolor($longueur, $largeur) or $img_petite = imagecreate($longueur, $largeur);
-                                  //COPIE DE L'IMAGE REDIMENSIONNEE
-                                  imagecopyresampled($img_petite,$img_big,0,0,0,0,$longueur,$largeur,$tailleaffiche[0],$tailleaffiche[1]);
-                                  imagegif($img_petite,$finaffiche);
-                            }
-                            require('includes/miseajourdusite.php');
-                      }
-
-    }else {
-        $messagenotif = 'Désolé, une erreur est survenue.';
-        $type = "warning";
-    } } } }
  ?>
 <script>
 
@@ -814,7 +303,7 @@ if ($uploadOk == 0) {
                  </div>
                </div>
                <div class="row">
-                 <div class="col-sm-6">
+                 <div class="col-md-12">
                    <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
                      <div class="card-content">
                        <h3 class="card-title text-center">Catégorie d'images</h3>
@@ -834,51 +323,7 @@ if ($uploadOk == 0) {
                      </div>
                   </form>
                 </div>
-                <div class="col-sm-6">
-                  <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
-                    <div class="card-content">
-                      <h3 class="card-title text-center">Catégorie de vidéos</h3>
-                      <br>
-                      <div class="form-group label-floating">
-                          <label class="control-label">Nom de la catégorie</label>
-                          <input type="text" class="form-control" name="nomcategorievideo">
-                      </div>
-                      <div class="form-group label-floating">
-                          <label class="control-label">Lien vidéo</label>
-                          <input type="text" class="form-control" name="liencatvideo">
-                      </div>
-                      <div class="form-group form-file-upload">
-                          <input type="file" id="fileToUploadCatVideo" name="fileToUploadCatVideo" multiple="multiple">
-                          <div class="input-group">
-                              <input type="text" readonly="" class="form-control" placeholder="Insérer la miniature de la vidéo">
-                              <span class="input-group-btn input-group-s">
-                                  <button type="button" class="btn btn-just-icon btn-rose btn-round btn-info">
-                                      <i class="material-icons">layers</i>
-                                  </button>
-                              </span>
-                          </div>
-                      </div>
-                      <center>
-                        <buttontype="submit" name="catvideosubmit" class="btn btn-primary btn-round btn-rose">Créer une catégorie de vidéo</button>
-                      </center>
-                    </div>
-                 </form>
-               </div>
              </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
              <div class="row">
                <div class="col-sm-12">
@@ -899,8 +344,9 @@ if ($uploadOk == 0) {
                </div>
              </div>
              <div class="row">
-               <div class="col-sm-6">
+               <div class="col-md-12">
                  <form action="ajax/addimage.php" id="myAwesomeDropzone" class="dropzone">
+                   <div class="card-content">
                    <div class="jquerysel">
                      <select class="selectpicker" data-style="select-with-transition" title="Sélectionner de la catégorie" data-size="4" name="catimage">
                         <option disabled>Sélectionner de la catégorie</option>
@@ -915,40 +361,24 @@ if ($uploadOk == 0) {
 
                      </select>
                    </div>
-
                    <div class="dropzone-previews"></div>
-
                    <center>
                      <button type="submit" name="submitimages" class="btn btn-primary btn-round btn-rose">Ajouter les images</button>
                    </center>
+                 </div>
                 </form>
               </div>
+            </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-              <div class="col-sm-6">
+            <div class="row">
+              <div class="col-md-12">
                 <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
                   <div class="card-content">
                     <h3 class="card-title text-center">Ajouter des vidéos</h3>
                     <br>
                     <div class="jquerysel">
-                      <select class="selectpicker" data-style="select-with-transition" title="Sélectionner de la catégorie" data-size="4" name="catimage">
+                      <select class="selectpicker" data-style="select-with-transition" title="Sélectionner de la catégorie" data-size="4" name="catvideo">
                          <option disabled>Sélectionner de la catégorie</option>
-
                          <?php
                          $selectcatvideos=$db->query("SELECT DISTINCT title FROM videos");
                          while($s = $selectcatvideos->fetch(PDO::FETCH_OBJ)){

@@ -118,7 +118,12 @@
                  <div class="col-md-16 ml-auto mr-auto">
                    <div class="row collections">
                    <?php
-                   $image = $db->query("SELECT * FROM images WHERE title = '$title' and status='1' ORDER BY uploaded_on DESC");
+                   $image = $db->prepare("SELECT * FROM images WHERE title=:title and status=:status and file_name <> :file_name ORDER BY uploaded_on DESC");
+                   $image->execute(array(
+                     "title"=>$title,
+                     "status"=>"1",
+                     "file_name"=>""
+                   ));
                    while($uneimage = $image->fetch(PDO::FETCH_OBJ)){
 
                     $nomfile = $uneimage->file_name;
@@ -127,26 +132,36 @@
                    ?>
                      <div class="col-md-4">
                        <center>
-                         <a class="fancybox-thumb" rel="fancybox-thumb" href="JamFichiers/Photos/Affiche/<?php echo $uneimage->title;?>/<?php echo $uneimage->file_name;?>" title="<?php echo $rest;?>">
-                         <img class="img-raised" src="JamFichiers/Photos/Thumb/<?php echo $uneimage->title;?>/<?php echo $uneimage->file_name;?>" alt="<?php echo $rest;?>" /></a>
+                         <a class="fancybox-thumb" rel="fancybox-thumb" href="JamFichiers/Photos/Original/<?php echo $uneimage->title;?>/<?php echo $uneimage->file_name;?>" title="<?php echo $rest;?>">
+                         <img class="img-raised image-thumb" src="JamFichiers/Photos/Original/<?php echo $uneimage->title;?>/<?php echo $uneimage->file_name;?>" alt="<?php echo $rest;?>" /></a>
                        </center>
                      </div>
                   <?php } ?>
 
                 </div>
               </div>
+              <style>
+              .image-thumb {
+                height: 170px;
+                width: 250px;
+              }
+              </style>
               <h3 class="title">Les Vidéos</h3>
               <div class="col-md-16 ml-auto mr-auto">
                 <div class="row collections">
 
               <?php
-                   $video = $db->query("SELECT * FROM videos WHERE title = '$title' and status='1' ORDER BY uploaded_on DESC");
-                   while($unevideo = $video->fetch(PDO::FETCH_OBJ)){
+                   $video0 = $db->prepare("SELECT * FROM videos WHERE title=:title and status=:status and file_namevideo <> ''");
+                   $video0->execute(array(
+                     "title"=>$title,
+                     "status"=>"1"
+                   ));
+                   while($unevideo0 = $video0->fetch(PDO::FETCH_OBJ)){
                    ?>
                    <div class="col-md-4">
                      <center>
-                       <a class="various fancybox.iframe" href="<?php echo $unevideo->file_namevideo;?>">
-                       <img class="img-raised" src="JamFichiers/Photos/Thumb/<?php echo $unevideo->title;?>/<?php echo $unevideo->file_nameimage;?>" alt="" /></a>
+                       <a class="various fancybox.iframe" href="<?php echo $unevideo0->file_namevideo;?>">
+                       <img class="img-raised image-thumb" src="JamFichiers/Photos/Original/<?php echo $unevideo0->title;?>/<?php echo $unevideo0->file_nameimage;?>" alt="" /></a>
                      </center>
                    </div>
                  <?php } ?>

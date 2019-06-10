@@ -2,6 +2,6 @@
 <?php
 
 if(isset($_SESSION['user_id'])){
-	header('Location: https://jam-mdm.fr/');
+	header('Location: https://dashboard.jam-mdm.fr');
 }
 ?>

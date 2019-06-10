@@ -730,8 +730,13 @@ demo = {
                   $.post("ajax/deleteuneactu.php", { user_id: user_id, id: id},
     function(data) {
      $('#results20').html(data);
-
     });
+
+    setTimeout(function() {
+      window.location.href = "https://administration.jam-mdm.fr/modifdespages.php?page=actualite&table=newsactus";
+    }, 2500);
+    setTimeout();
+
                 }, function(dismiss) {
                   // dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
                   if (dismiss === 'cancel') {
@@ -774,6 +779,11 @@ demo = {
          $('#results21').html(data);
 
         });
+
+        setTimeout(function() {
+          window.location.href = "https://administration.jam-mdm.fr/modifdespages.php?page=activitesvoyages&table=activitesvoyages";
+        }, 2500);
+        setTimeout();
                     }, function(dismiss) {
                       // dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
                       if (dismiss === 'cancel') {

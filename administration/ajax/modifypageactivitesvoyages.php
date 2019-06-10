@@ -8,7 +8,7 @@ require_once('../includes/connectBDD.php');
         $description = $_POST['description'];
 
 
-        if(!empty($user_id)&&!empty($pagetitre)&&!empty($titre)&&!empty($description)){
+        if(!empty($user_id)&&!empty($pagetitre)&&!empty($titre)){
 
                 $update = $db->prepare("UPDATE photopage SET pagetitre=:pagetitre, titre=:titre, description=:description WHERE nompage=:nompage");
                 $update->execute(array(

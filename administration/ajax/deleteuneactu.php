@@ -78,11 +78,7 @@ require_once('../includes/connectBDD.php');
                                                               )
                                                           );
 
-                                                          ?>
-                                                          <script>
-                                                          window.setTimeout("location=('https://administration.jam-mdm.fr/modifdespages.php?page=actualite&table=newsactus');",3000);
-                                                          </script>
-                          <?php
+                                        
 
             }else{
                 ?>

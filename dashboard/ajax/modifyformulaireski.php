@@ -18,7 +18,7 @@ require_once('../includes/connectBDD.php');
 
 
 
-        if(!empty($user_id)&&!empty($poids)&&!empty($taille)&&!empty($pointure)&&!empty($allergie)&&!empty($adresse)&&!empty($codepostal)&&!empty($ville)&&!empty($tel)&&!empty($telurgence)){
+        if(!empty($user_id)&&!empty($poids)&&!empty($taille)&&!empty($pointure)&&!empty($adresse)&&!empty($codepostal)&&!empty($ville)&&!empty($tel)&&!empty($telurgence)){
                 $update = $db->prepare("UPDATE formulaireski SET poids='$poids', taille='$taille', pointure='$pointure', allergie='$allergie', adresse='$adresse', codepostal='$codepostal', ville='$ville', tel='$tel', telurgence='$telurgence' WHERE user_id='$user_id'");
                 $update->execute();
                 ?>

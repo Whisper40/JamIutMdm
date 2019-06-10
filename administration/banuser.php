@@ -99,12 +99,12 @@ $setban->execute();
       <div class="container-fluid">
         <div class="card">
           <div class="card-content">
-            <h2 class="card-title text-center">Banir / Débanir un Utilisateur</h2>
+            <h2 class="card-title text-center">Bannir / Débannir un Utilisateur</h2>
             <br>
             <div class="row">
               <div class="col-sm-12">
                 <div class="card-content">
-                  <h3 class="card-title">Rechercher un utilisateur pour banissemet</h3>
+                  <h3 class="card-title">Rechercher un utilisateur pour le bannir ou le débannir.</h3>
                 </div>
               </div>
             </div>
