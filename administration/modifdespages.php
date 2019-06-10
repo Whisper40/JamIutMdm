@@ -4293,7 +4293,7 @@ if ($uploadOk == 0) {
             $typeactivite = $_POST['typeactivite'];
             $slug = slugify($title);
 
-            if (stripos($slug, $typeactivite) != FALSE){
+            if (stripos($slug, $typeactivite) !== FALSE){
 
 
             $total = count($_FILES['file']['name']);
