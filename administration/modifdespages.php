@@ -1,4 +1,4 @@
-<?php
+﻿<?php
     require_once('includes/connectBDD.php');
     require_once('includes/checkconnection.php');
     $nompage = "Modification Contenu Site";
@@ -1382,12 +1382,27 @@ if ($uploadOk == 0) {
         $type = "success";
         $status = '1';
         $idmembre = $_GET['modifmembre'];
+
+
+        $selectimage = $db->prepare("SELECT image FROM membres WHERE id=:id");
+        $selectimage->execute(array(
+            "id"=>$idmembre
+            )
+        );
+
+        $sa = $selectimage->fetch(PDO::FETCH_OBJ);
+        $image=$sa->image;
+        unlink("$target_dirnew/$image");
+        unlink("$target_dirnewthumb/$image");
+
         $update = $db->prepare("UPDATE membres SET image=:image WHERE id=:id");
         $update->execute(array(
-            "id"=>$id,
+            "id"=>$idmembre,
             "image"=>$target_filefile
             )
         );
+
+
         date_default_timezone_set('Europe/Paris');
         setlocale(LC_TIME, 'fr_FR.utf8','fra');
         $date = strftime('%d/%m/%Y %H:%M:%S');
@@ -1532,6 +1547,7 @@ if ($uploadOk == 0) {
                           </span>
                           <br>
                           <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Annulé</a>
+                          <button type="submit" name="modifphotomembre" class="btn btn-primary btn-round btn-rose">Modifier l'image</button>
                         </div>
                       </div>
                     </center>
