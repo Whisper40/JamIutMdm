@@ -4455,7 +4455,7 @@ if ($uploadOk == 0) {
             }
 
           }else{
-            $messagenotif = 'Attention !! Merci de contacter votre développeur et lui montrer ce problème !';
+            $messagenotif = 'Attention !! Ce type d\'activité n\'existe pas encore ! Merci de corriger ou d\'informer votre développeur !';
             $type = "warning";
           }
                     }
