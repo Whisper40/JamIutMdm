@@ -4294,6 +4294,11 @@ if ($uploadOk == 0) {
             $slug = slugify($title);
 
             if (stripos($slug, $typeactivite) !== FALSE){
+              if (($typeactivite == "sportive") || ($typeactivite == "nettoyage") || ($typeactivite == "orientation")){
+                $payant = '0';
+              }else{
+                $payant = '1';
+              }
 
 
             $total = count($_FILES['file']['name']);
