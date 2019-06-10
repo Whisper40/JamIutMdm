@@ -203,11 +203,21 @@ if ($uploadOk == 0) {
         $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][0]). " à bien été uploadé.";
         $type = "success";
         $status = '1';
+
+        $selectimage = $db->prepare("SELECT img1 FROM pageindex");
+        $selectimage->execute();
+
+        $sa = $selectimage->fetch(PDO::FETCH_OBJ);
+        $img1=$sa->img1;
+        unlink("$target_dirnew/$img1");
+        unlink("$target_dirnewthumb/$img1");
+
         $update = $db->prepare("UPDATE pageindex SET img1=:img1");
         $update->execute(array(
             "img1"=>$target_filefile
             )
         );
+
         date_default_timezone_set('Europe/Paris');
         setlocale(LC_TIME, 'fr_FR.utf8','fra');
         $date = strftime('%d/%m/%Y %H:%M:%S');
@@ -316,6 +326,15 @@ if ($uploadOk == 0) {
                   $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][0]). " à bien été uploadé.";
                   $type = "success";
                   $status = '1';
+
+                  $selectimage = $db->prepare("SELECT logo1 FROM pageindex");
+                  $selectimage->execute();
+
+                  $sa = $selectimage->fetch(PDO::FETCH_OBJ);
+                 $logo1=$sa->logo1;
+                 unlink("$target_dirnew/$logo1");
+                 unlink("$target_dirnewthumb/$logo1");
+
                   $update = $db->prepare("UPDATE pageindex SET logo1=:logo1");
                   $update->execute(array(
                       "logo1"=>$target_filefile
@@ -432,6 +451,15 @@ if ($uploadOk == 0) {
                             $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][0]). " à bien été uploadé.";
                             $type = "success";
                             $status = '1';
+
+                            $selectimage = $db->prepare("SELECT logo2 FROM pageindex");
+                            $selectimage->execute();
+
+                            $sa = $selectimage->fetch(PDO::FETCH_OBJ);
+                            $logo2=$sa->logo2;
+                            unlink("$target_dirnew/$logo2");
+                            unlink("$target_dirnewthumb/$logo2");
+
                             $update = $db->prepare("UPDATE pageindex SET logo2=:logo2");
                             $update->execute(array(
                                 "logo2"=>$target_filefile
@@ -880,6 +908,18 @@ if ($uploadOk == 0) {
                     $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][0]). " à bien été uploadé.";
                     $type = "success";
                     $status = '1';
+
+                    $selectimage = $db->prepare("SELECT image FROM photopage WHERE nompage=:nompage");
+                    $selectimage->execute(array(
+                        "nompage"=>'Présentation association'
+                        )
+                    );
+
+                    $sa = $selectimage->fetch(PDO::FETCH_OBJ);
+                    $image=$sa->image;
+                    unlink("$target_dirnew/$image");
+                    unlink("$target_dirnewthumb/$image");
+
                     $update2 = $db->prepare("UPDATE photopage SET image=:image WHERE nompage=:nompage");
                     $update2->execute(array(
                         "nompage"=>'Présentation association',
@@ -1688,6 +1728,17 @@ $random = rand(10, 10000);
          $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][0]). " à bien été uploadé.";
          $type = "success";
          $status = '1';
+
+        $selectimage = $db->prepare("SELECT image FROM photopage WHERE nompage=:nompage");
+        $selectimage->execute(array(
+            "nompage"=>'Présentation des membres'
+            )
+        );
+        $sa = $selectimage->fetch(PDO::FETCH_OBJ);
+        $image=$sa->image;
+        unlink("$target_dirnew/$image");
+        unlink("$target_dirnewthumb/$image");
+
          $update = $db->prepare("UPDATE photopage SET image=:image WHERE nompage=:nompage");
          $update->execute(array(
              "nompage"=>'Présentation des membres',
@@ -2358,6 +2409,18 @@ if ($uploadOk == 0) {
         $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][0]). " à bien été uploadé.";
         $type = "success";
         $status = '1';
+
+        $selectimage = $db->prepare("SELECT image FROM photopage WHERE nompage=:nompage");
+        $selectimage->execute(array(
+            "nompage"=>'Statuts'
+            )
+        );
+
+        $sa = $selectimage->fetch(PDO::FETCH_OBJ);
+        $image=$sa->image;
+        unlink("$target_dirnew/$image");
+        unlink("$target_dirnewthumb/$image");
+
         $update = $db->prepare("UPDATE photopage SET image=:image WHERE nompage=:nompage");
         $update->execute(array(
             "nompage"=>'Statuts',
@@ -3140,6 +3203,18 @@ if ($uploadOk == 0) {
         $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][0]). " à bien été uploadé.";
         $type = "success";
         $status = '1';
+
+        $selectimage = $db->prepare("SELECT image FROM photopage WHERE nompage=:nompage");
+        $selectimage->execute(array(
+            "nompage"=>"Actualité"
+            )
+        );
+        $sa = $selectimage->fetch(PDO::FETCH_OBJ);
+        $image=$sa->image;
+        unlink("$target_dirnew/$image");
+        unlink("$target_dirnewthumb/$image");
+
+
         $update = $db->prepare("UPDATE photopage SET image=:image WHERE nompage=:nompage");
         $update->execute(array(
             "nompage"=>"Actualité",
@@ -4139,6 +4214,18 @@ if ($uploadOk == 0) {
         $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][0]). " à bien été uploadé.";
         $type = "success";
         $status = '1';
+
+        $selectimage = $db->prepare("SELECT image FROM photopage WHERE nompage=:nompage");
+        $selectimage->execute(array(
+            "nompage"=>'Activité / Voyage'
+            )
+        );
+        $sa = $selectimage->fetch(PDO::FETCH_OBJ);
+        $image=$sa->image;
+        unlink("$target_dirnew/$image");
+        unlink("$target_dirnewthumb/$image");
+
+
         $update = $db->prepare("UPDATE photopage SET image=:image WHERE nompage=:nompage");
         $update->execute(array(
             "nompage"=>'Activité / Voyage',
@@ -4709,6 +4796,19 @@ if ($uploadOk == 0) {
         $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][0]). " à bien été uploadé.";
         $type = "success";
         $status = '1';
+
+        $selectimage = $db->prepare("SELECT image FROM photopage WHERE nompage=:nompage");
+        $selectimage->execute(array(
+            "nompage"=>'Galerie'
+            )
+        );
+
+       $sa = $selectimage->fetch(PDO::FETCH_OBJ);
+       $image=$sa->image;
+       unlink("$target_dirnew/$image");
+       unlink("$target_dirnewthumb/$image");
+
+
         $update = $db->prepare("UPDATE photopage SET image=:image WHERE nompage=:nompage");
         $update->execute(array(
             "nompage"=>'Galerie',
@@ -4960,6 +5060,19 @@ if ($uploadOk == 0) {
         $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][0]). " à bien été uploadé.";
         $type = "success";
         $status = '1';
+
+        $selectimage = $db->prepare("SELECT image FROM photopage WHERE nompage=:nompage");
+        $selectimage->execute(array(
+            "nompage"=>'Nous Contacter'
+            )
+        );
+
+        $sa = $selectimage->fetch(PDO::FETCH_OBJ);
+        $image=$sa->image;
+        unlink("$target_dirnew/$image");
+        unlink("$target_dirnewthumb/$image");
+
+
         $update = $db->prepare("UPDATE photopage SET image=:image WHERE nompage=:nompage");
         $update->execute(array(
             "nompage"=>'Nous Contacter',
@@ -5182,6 +5295,18 @@ if ($uploadOk == 0) {
         $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][0]). " à bien été uploadé.";
         $type = "success";
         $status = '1';
+
+        $selectimage = $db->prepare("SELECT image FROM photopage WHERE nompage=:nompage");
+        $selectimage->execute(array(
+            "nompage"=>'Faire un don'
+            )
+        );
+
+        $sa = $selectimage->fetch(PDO::FETCH_OBJ);
+        $image=$sa->image;
+        unlink("$target_dirnew/$image");
+        unlink("$target_dirnewthumb/$image");
+
         $update = $db->prepare("UPDATE photopage SET image=:image WHERE nompage=:nompage");
         $update->execute(array(
             "nompage"=>'Faire un don',
@@ -5297,6 +5422,17 @@ if ($uploadOk == 0) {
                   $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][0]). " à bien été uploadé.";
                   $type = "success";
                   $status = '1';
+                  $selectimage = $db->prepare("SELECT image FROM photopage WHERE nompage=:nompage");
+                  $selectimage->execute(array(
+                      "nompage"=>'Faire un don paiement'
+                      )
+                  );
+
+                  $sa = $selectimage->fetch(PDO::FETCH_OBJ);
+                   $image=$sa->image;
+                   unlink("$target_dirnew/$image");
+                   unlink("$target_dirnewthumb/$image");
+
                   $update = $db->prepare("UPDATE photopage SET image=:image WHERE nompage=:nompage");
                   $update->execute(array(
                       "nompage"=>'Faire un don paiement',
@@ -5709,6 +5845,18 @@ if ($uploadOk == 0) {
           $messagenotif = "Le fichier ". basename( $_FILES["fileToUpload"]["name"][0]). " à bien été uploadé.";
           $type = "success";
           $status = '1';
+
+          $selectimage = $db->prepare("SELECT image FROM photopage WHERE nompage=:nompage");
+          $selectimage->execute(array(
+            "nompage"=>'Liens Utiles'
+            )
+          );
+
+          $sa = $selectimage->fetch(PDO::FETCH_OBJ);
+          $image=$sa->image;
+          unlink("$target_dirnew/$image");
+          unlink("$target_dirnewthumb/$image");
+
           $update2 = $db->prepare("UPDATE photopage SET image=:image WHERE nompage=:nompage");
           $update2->execute(array(
               "nompage"=>'Liens Utiles',
