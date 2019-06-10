@@ -4290,6 +4290,12 @@ if ($uploadOk == 0) {
             $stock = $_POST['stock'];
             $datesejour = $_POST['datesejour'];
             $price = $_POST['price'];
+            $typeactivite = $_POST['typeactivite'];
+
+
+            if (stripos($title, $typeactivite) != FALSE){
+
+
             $total = count($_FILES['file']['name']);
             $uploadOk = 1;
             if($total == '1'){
@@ -4447,6 +4453,11 @@ if ($uploadOk == 0) {
               $messagenotif = 'Désolé, les champs sont vides';
               $type = "warning";
             }
+
+          }else{
+            $messagenotif = 'Attention !! Merci de contacter votre développeur et lui montrer ce problème !';
+            $type = "warning";
+          }
                     }
            ?>
 
@@ -4626,7 +4637,7 @@ if ($uploadOk == 0) {
                   </div>
                 </div>
                 <div class="col-sm-4">
-                  <div class="card-content">                    
+                  <div class="card-content">
                   <div class="jquerysel">
 
                     <select class="selectpicker" data-style="select-with-transition" title="Type d'activité" data-size="7" id="typeactivite" name="typeactivite">
