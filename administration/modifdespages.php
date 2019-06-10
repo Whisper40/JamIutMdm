@@ -4626,8 +4626,7 @@ if ($uploadOk == 0) {
                   </div>
                 </div>
                 <div class="col-sm-4">
-                  <div class="card-content">
-                    <div class="form-group label-floating">
+                  <div class="card-content">                    
                   <div class="jquerysel">
 
                     <select class="selectpicker" data-style="select-with-transition" title="Type d'activité" data-size="7" id="typeactivite" name="typeactivite">
@@ -4641,7 +4640,7 @@ if ($uploadOk == 0) {
                       <option value="orientation">Journée Orientation</option>
                     </select>
                   </div>
-                </div>
+
                 </div>
                 </div>
                 <div class="col-sm-4">
