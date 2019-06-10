@@ -4291,9 +4291,9 @@ if ($uploadOk == 0) {
             $datesejour = $_POST['datesejour'];
             $price = $_POST['price'];
             $typeactivite = $_POST['typeactivite'];
+            $slug = slugify($title);
 
-
-            if (stripos($title, $typeactivite) != FALSE){
+            if (stripos($slug, $typeactivite) != FALSE){
 
 
             $total = count($_FILES['file']['name']);
@@ -4303,7 +4303,7 @@ if ($uploadOk == 0) {
             }
 
             if(!empty($title)&&!empty($description)&&!empty($stock)&&!empty($datesejour)&&isset($price)){
-            $slug = slugify($title);
+
             if($price>'0'){
               $payant = '1';
             }else{
