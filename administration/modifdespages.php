@@ -4617,7 +4617,7 @@ if ($uploadOk == 0) {
             </div>
             <form  method="POST" class="form-horizontal"  enctype="multipart/form-data">
               <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                   <div class="card-content">
                     <div class="form-group label-floating">
                       <label class="control-label">Titre de l'activité</label>
@@ -4625,7 +4625,22 @@ if ($uploadOk == 0) {
                     </div>
                   </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-4">
+                  <div class="jquerysel">
+                    <select class="selectpicker" data-style="select-with-transition" title="Type d'activité" data-size="7" id="typeactivite" name="typeactivite">
+                      <option value="" disabled>Activités Payantes</option>
+                      <option value="ski">Ski</option>
+                      <option value="rugby">Rugby</option>
+                      <option value="cinema">Cinéma</option>
+                      <option value="" disabled>Activités Gratuites</option>
+                      <option value="sportive">Journée Sportive</option>
+                      <option value="nettoyage">Journée Nettoyage</option>
+                      <option value="orientation">Journée Orientation</option>
+
+                    </select>
+                  </div>
+                </div>
+                <div class="col-sm-4">
                   <div class="card-content">
                     <div class="form-group form-file-upload">
                       <input type="file" id="fileToUpload" name="fileToUpload[]" multiple="multiple">
