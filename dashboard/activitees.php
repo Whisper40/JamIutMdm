@@ -26,6 +26,8 @@ require_once('includes/head.php');
             while($s=$select->fetch(PDO::FETCH_OBJ)){
 
               $lenght=100;
+              $typeactivite = $s->typeactivite;
+              $_SESSION['typeactivite']=$typeactivite;
               $description = $s->description;
               $new_description=substr($description,0,$lenght)."...";
               $description_finale=wordwrap($new_description,50,'<br />', false);
@@ -93,7 +95,7 @@ require_once('includes/head.php');
                   ?>
 
                   <?php
-                  }if (stripos($activity_slug, 'ski') != FALSE){
+                }if ($typeactivite == "ski"){
                     // Si l'activité est du ski alors on affiche ce type de formulaire
                   ?>
 
@@ -309,7 +311,7 @@ require_once('includes/head.php');
 
                                             <?php
                                             //Si ce n'est pas du ski alors on passe à :
-                                            }else if (stripos($activity_slug, 'rugby') != FALSE){
+                                          }else if ($typeactivite == "rugby"){
                                             ?>
 
                                               <div class="container-fluid">
@@ -439,7 +441,7 @@ require_once('includes/head.php');
             <?php
 
 
-          }else if (stripos($activity_slug, 'cinema') != FALSE){
+          }else if ($typeactivite == "cinema"){
 
 
             $activity_name = $_GET['activityname'];
@@ -497,7 +499,7 @@ require_once('includes/head.php');
 
 
             //Fin Cinema
-            }else if (stripos($activity_slug, 'sportive') != FALSE){
+          }else if ($typeactivite == "sportive"){
               $activity_name = $activity_slug;
               $participe = $db->prepare("SELECT * FROM participe where user_id=:user_id and activity_name=:activity_name");
 
@@ -704,7 +706,7 @@ require_once('includes/head.php');
 </div>
 <?php
             //DEBUT NETTOYAGE
-          }else if (stripos($activity_slug, 'nettoyage') != FALSE){
+          }else if ($typeactivite == "nettoyage"){
 
               $activity_name = $activity_slug;
               $participe = $db->prepare("SELECT * FROM participe where user_id=:user_id and activity_name=:activity_name");
@@ -832,7 +834,7 @@ require_once('includes/head.php');
             <?php
           //FIN NETTOYAGE
           //DEBUT JOURNEE COURSE ORIENTATION
-          }else if (stripos($activity_slug, 'orientation') != FALSE){
+        }else if ($typeactivite == "orientation"){
 
           $activity_name = $activity_slug;
           $participe = $db->prepare("SELECT * FROM participe where user_id=:user_id and activity_name=:activity_name");
@@ -963,20 +965,20 @@ require_once('includes/head.php');
               paypal.Button.render({
           <?php
 
-          if (stripos($activity_slug, 'ski') !== FALSE){
+          if ($typeactivite == "ski"){
 
                     $total = $prixactivite + $prixmateriel + $prixrepas;
                     $_SESSION['activity_name'] = $activity_slug;
                     $_SESSION['optionmateriel'] = $optionmaterielform;
                     $_SESSION['optionrepas'] = $optionrepasform;
                     $_SESSION['optionadditionnelles'] = $optionadditionnellesform;
-          }else if (stripos($activity_slug, 'rugby') !== FALSE){
+          }else if ($typeactivite == "rugby"){
 
             $total = $prixactivite + $prixaccompagnement;
             $_SESSION['activity_name'] = $activity_slug;
             $_SESSION['optionaccompagnement'] = $optionaccompagnementform;
 
-          }else if (stripos($activity_slug, 'cinema') !== FALSE){
+          }else if ($typeactivite == "cinema"){
               $_SESSION['activity_name'] = $activity_slug;
               $total = $prixactivite;
           }

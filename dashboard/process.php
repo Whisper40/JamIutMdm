@@ -10,7 +10,7 @@ date_default_timezone_set('Europe/Paris');
 setlocale(LC_TIME, 'fr_FR.utf8','fra');
 $date = strftime('%d/%m/%Y %H:%M:%S');
 $datesystem = strftime('%Y-%m-%d');
-
+$typeactivite=$_SESSION['typeactivite'];
 $transaction_id = $_POST['transaction_id'];
 $price = $_POST['price'];
 $currency_code = $_POST['currency_code'];
@@ -47,7 +47,7 @@ $updateactivite->execute(array(
 );
 
 //Pour le SKI
-if (stripos($activity_name, 'ski') != FALSE){
+if ($typeactivite == "ski"){
 $optionmateriel = $_SESSION['optionmateriel'];
 $optionrepas = $_SESSION['optionrepas'];
 $optionadditionnelles = $_SESSION['optionadditionnelles'];
@@ -85,7 +85,7 @@ $insertformski->execute(array(
 );
 
 // Pour le RUGBY
-}else if (stripos($activity_name, 'rugby') != FALSE){
+}else if ($typeactivite == "rugby"){
 $optionaccompagnement = $_SESSION['optionaccompagnement'];
 $pageformulaire = 'formulaire.php?type=rugby';
 $icon = 'map';
@@ -116,7 +116,7 @@ $insertformrugby->execute(array(
     )
 );
 
-}else if (stripos($activity_name, 'cinema') != FALSE){
+}else if ($typeactivite == "cinema"){
 $pageformulaire = 'formulaire.php?type=cinema';
 $icon = 'map';
 
@@ -170,3 +170,4 @@ unset($_SESSION['optionmateriel']);
 unset($_SESSION['optionadditionnelles']);
 unset($_SESSION['optionrepas']);
 unset($_SESSION['optionaccompagnement']);
+unset($_SESSION['typeactivite']);

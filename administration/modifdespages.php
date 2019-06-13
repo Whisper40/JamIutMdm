@@ -4285,6 +4285,7 @@ if ($uploadOk == 0) {
 
 
           if(isset($_POST['submitactivite'])){
+            $uploadOk = 1;
             $title = $_POST['title'];
             $description = $_POST['description'];
             $stock = $_POST['stock'];
@@ -4298,11 +4299,15 @@ if ($uploadOk == 0) {
                 $payant = '0';
               }else{
                 $payant = '1';
+                if($price == "0"){
+                  $uploadOk = '0';
+                  echo "Merci de relire les règles concernant cette activitée...";
+                }
               }
 
 
             $total = count($_FILES['file']['name']);
-            $uploadOk = 1;
+
             if($total == '1'){
               $uploadOk = '0';
             }
@@ -4378,10 +4383,11 @@ if ($uploadOk == 0) {
                   setlocale(LC_TIME, 'fr_FR.utf8','fra');
                   $date = strftime('%d/%m/%Y %H:%M:%S');
                   $slug2=$random.$slug;
-                  $insert = $db->prepare("INSERT INTO activitesvoyages (title, slug, description, surname, date, formatimg, status, stock, datesejour, price, payant) VALUES(:title, :slug, :description, :surname, :date, :formatimg, :status, :stock, :datesejour, :price, :payant)");
+                  $insert = $db->prepare("INSERT INTO activitesvoyages (title, slug, typeactivite, description, surname, date, formatimg, status, stock, datesejour, price, payant) VALUES(:title, :slug, :typeactivite, :description, :surname, :date, :formatimg, :status, :stock, :datesejour, :price, :payant)");
                   $insert->execute(array(
                                       "title"=>$title,
                                       "slug"=>$slug2,
+                                      "typeactivite"=>$typeactivite,
                                       "description"=>$description,
                                       "surname"=>'Activités / Voyages',
                                       "date"=>$date,
