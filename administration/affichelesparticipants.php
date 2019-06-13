@@ -558,6 +558,7 @@ echo '<br>
                         <th>Date du Séjour</th>
                         <th class="text-center">Prix</th>
                         <th class="text-center">Status</th>
+                        <th class="text-center">Nombre de participants</th>
                         <th class="text-center">Voir</th>
                       </thead>
                       <tbody>
@@ -566,6 +567,14 @@ echo '<br>
                         $id = $ligne->id;
                         $title = $ligne->title;
                         $slug = $ligne->slug;
+
+                        $selectnombreparticipants = $db->prepare("SELECT * FROM activitesvoyages WHERE slug=:slug");
+                        $selectnombreparticipants->execute(array(
+                          "slug"=>$slug
+                        ));
+                        $countnombreparticipants = $selectnombreparticipants->rowCount();
+
+
                         $price = $ligne->price;
                         $status = $ligne->status;
                         $datesejour = $ligne->datesejour;
@@ -575,6 +584,7 @@ echo '<br>
                           <td>'.$datesejour.'</td>
                           <td class="text-center">'.$price.'</td>
                           <td class="text-center">'.$status.'</td>
+                          <td class="text-center">'.$countnombreparticipants.'</td>
                           <td class="text-center"><a href="?action=afficheactivite&amp;id='.$id.'&amp;slug='.$slug.'&amp;title='.$title.'"><button type="button" class="btn btn-rose btn-round btn-sm">Afficher</button></a></td>
                         </tr>';
                     }
