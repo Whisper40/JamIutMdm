@@ -5,7 +5,7 @@ require_once('../includes/connectBDD.php');
         $user_id = $_POST['user_id'];
         $id = $_POST['id'];
 
-        $selectslug = $db->prepare("SELECT slug, formatimg FROM activitesvoyages WHERE id=:id");
+        $selectslug = $db->prepare("SELECT slug, formatimg, typeactivite FROM activitesvoyages WHERE id=:id");
         $selectslug->execute(array(
                             "id"=>$id
                             )
@@ -13,6 +13,7 @@ require_once('../includes/connectBDD.php');
         $s = $selectslug->fetch(PDO::FETCH_OBJ);
         $slug = $s->slug;
         $formatimg = $s->formatimg;
+        $typeactivite = $s->typeactivite;
 
 //A FAIRE//A FAIRE//A FAIRE//A FAIRE//A FAIRE//A FAIRE//A FAIRE//A FAIRE//A FAIRE//A FAIRE
 
@@ -58,9 +59,9 @@ require_once('../includes/connectBDD.php');
 
 
 
-          $deletecarousel = $db->prepare("DELETE FROM carousel WHERE slug=:slug");
+          $deletecarousel = $db->prepare("DELETE FROM carousel WHERE typeactivite=:typeactivite");
           $deletecarousel->execute(array(
-                              "slug"=>$slug
+                              "typeactivite"=>$typeactivite
                               )
                           );
 
@@ -71,9 +72,9 @@ require_once('../includes/connectBDD.php');
           );
 
 
-              $del00 = $db->prepare("DELETE FROM participe WHERE activity_name=:slug");
+              $del00 = $db->prepare("DELETE FROM participe WHERE typeactivite=:typeactivite");
               $del00->execute(array(
-                              "slug"=>$slug
+                              "typeactivite"=>$typeactivite
                             )
               );
 
@@ -84,7 +85,7 @@ require_once('../includes/connectBDD.php');
               );
                 //Suivant l'activité
 
-                if (stripos($slug, 'ski') !== FALSE) {
+                if ($typeactivite == "ski"){
                     //Le texte est present
                     $del2 = $db->prepare("DELETE FROM formulaireski");
                     $del2->execute();
@@ -93,7 +94,7 @@ require_once('../includes/connectBDD.php');
                     $del6->execute(array(
                       "slug"=>'%ski%'
                     ));
-                }else if (stripos($slug, 'sportive') !== FALSE){
+                }else if ($typeactivite == "sportive"){
                   $del2 = $db->prepare("DELETE FROM formulairesportive");
                   $del2->execute();
 
@@ -102,7 +103,7 @@ require_once('../includes/connectBDD.php');
                     "slug"=>'%sportive%'
                   ));
 
-                }else if (stripos($slug, 'rugby') !== FALSE){
+                }else if ($typeactivite == "rugby"){
                   $del3 = $db->prepare("DELETE FROM formulairerugby");
                   $del3->execute();
 
@@ -111,7 +112,7 @@ require_once('../includes/connectBDD.php');
                     "slug"=>'%rugby%'
                   ));
 
-                }else if (stripos($slug, 'orientation') !== FALSE){
+                }else if ($typeactivite == "orientation"){
                   $del4 = $db->prepare("DELETE FROM formulaireorientation");
                   $del4->execute();
 
@@ -119,7 +120,7 @@ require_once('../includes/connectBDD.php');
                   $del9->execute(array(
                     "slug"=>'%orientation%'
                   ));
-                }else if (stripos($slug, 'cinema') !== FALSE){
+                }else if ($typeactivite == "cinema"){
                   $del10 = $db->prepare("DELETE FROM communicationactivite where slug LIKE :slug");
                   $del10->execute(array(
                     "slug"=>'%cinema%'
@@ -129,7 +130,7 @@ require_once('../includes/connectBDD.php');
                   $del11->execute(array(
                     "slug"=>'%cinema%'
                   ));
-                }else if (stripos($slug, 'nettoyage') !== FALSE){
+                }else if ($typeactivite == "nettoyage"){
                   $del11 = $db->prepare("DELETE FROM communicationactivite where slug LIKE :slug");
                   $del11->execute(array(
                     "slug"=>'%nettoyage%'
@@ -138,6 +139,16 @@ require_once('../includes/connectBDD.php');
                   $del12 = $db->prepare("DELETE FROM catparticipe where page LIKE :slug");
                   $del12->execute(array(
                     "slug"=>'%nettoyage%'
+                  ));
+                }else if ($typeactivite == "soireebar"){
+                  $del11 = $db->prepare("DELETE FROM communicationactivite where slug LIKE :slug");
+                  $del11->execute(array(
+                    "slug"=>'%nettoyage%'
+                  ));
+
+                  $del12 = $db->prepare("DELETE FROM catparticipe where page LIKE :slug");
+                  $del12->execute(array(
+                    "slug"=>'%soiree%'
                   ));
                 }
 

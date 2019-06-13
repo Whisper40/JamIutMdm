@@ -4294,7 +4294,7 @@ if ($uploadOk == 0) {
             $typeactivite = $_POST['typeactivite'];
             $slug = slugify($title);
 
-            if (stripos($typeactivite, $slug) !== TRUE){
+
               if (($typeactivite == "sportive") || ($typeactivite == "nettoyage") || ($typeactivite == "orientation") || ($typeactivite == "soireebar")){
                 $payant = '0';
               }else{
@@ -4465,10 +4465,7 @@ if ($uploadOk == 0) {
               $type = "warning";
             }
 
-          }else{
-            $messagenotif = 'Attention !! Ce type d\'activité n\'existe pas encore ! Merci de corriger ou d\'informer votre développeur !';
-            $type = "warning";
-          }
+
                     }
            ?>
 
