@@ -646,9 +646,9 @@ echo '<br>
                         $title = $ligne->title;
                         $slug = $ligne->slug;
 
-                        $selectnombreparticipants = $db->prepare("SELECT * FROM activitesvoyages WHERE typeactivite=:typeactivite");
+                        $selectnombreparticipants = $db->prepare("SELECT * FROM activitesvoyages WHERE slug=:slug");
                         $selectnombreparticipants->execute(array(
-                          "typeactivite"=>$typeactivite
+                          "slug"=>$slug
                         ));
                         $countnombreparticipants = $selectnombreparticipants->rowCount();
 
