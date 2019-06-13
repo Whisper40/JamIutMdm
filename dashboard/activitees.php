@@ -258,9 +258,9 @@ require_once('includes/head.php');
                               //27/11/2018
                           $activity_name = $_GET['activityname'];
 
-                            $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name=:activity_name and user_id=:user_id");
+                            $check = $db->prepare("SELECT user_id FROM participe WHERE typeactivite=:typeactivite and user_id=:user_id");
                             $check->execute(array(
-                                "activity_name"=>$activity_name,
+                                "typeactivite"=>$typeactivite,
                                 "user_id"=>$user_id
                                 )
                             );
@@ -388,9 +388,9 @@ require_once('includes/head.php');
                     if(isset($prixaccompagnement)){
                         $activity_name = $_GET['activityname'];
 
-                            $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name=:activity_name and user_id=:user_id");
+                            $check = $db->prepare("SELECT user_id FROM participe WHERE typeactivite=:typeactivite and user_id=:user_id");
                             $check->execute(array(
-                                "activity_name"=>$activity_name,
+                                "typeactivite"=>$typeactivite,
                                 "user_id"=>$user_id
                                 )
                             );
@@ -446,8 +446,11 @@ require_once('includes/head.php');
 
             $activity_name = $_GET['activityname'];
 
-            $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name='$activity_name' and user_id='$user_id'");
-            $check->execute();
+            $check = $db->prepare("SELECT user_id FROM participe WHERE typeactivite=:typeactivite and user_id=:user_id");
+            $check->execute(array(
+              "typeactivite"=>$typeactivite,
+              "user_id"=>$user_id
+            ));
             $countcheck = $check->rowCount();
 
 ?>
@@ -501,11 +504,11 @@ require_once('includes/head.php');
             //Fin Cinema
           }else if ($typeactivite == "sportive"){
               $activity_name = $activity_slug;
-              $participe = $db->prepare("SELECT * FROM participe where user_id=:user_id and activity_name=:activity_name");
+              $participe = $db->prepare("SELECT * FROM participe where user_id=:user_id and typeactivite=:typeactivite");
 
               $participe->execute(array(
                   "user_id"=>$user_id,
-                  "activity_name"=>$activity_name
+                  "typeactivite"=>$typeactivite
                   )
               );
 
@@ -581,9 +584,9 @@ require_once('includes/head.php');
                                   $optionorganisation = $_SESSION['optionorganisation'];
 
                 $activity_name = $activity_slug;
-                      $selectrealname = $db->prepare("SELECT title,stock from activitesvoyages WHERE slug=:activity_name");
+                      $selectrealname = $db->prepare("SELECT title,stock from activitesvoyages WHERE typeactivite=:typeactivite");
                       $selectrealname->execute(array(
-                          "activity_name"=>$activity_name
+                          "typeactivite"=>$typeactivite
                           )
                       );
 
@@ -595,10 +598,11 @@ require_once('includes/head.php');
                       $icon = 'map';
                       $date = strftime('%d/%m/%Y %H:%M:%S');
 
-                      $insertinfos = $db->prepare("INSERT INTO participe (user_id, activity_name, date, optionorganisation) VALUES(:user_id , :activity_name , :date, :optionorganisation)");
+                      $insertinfos = $db->prepare("INSERT INTO participe (user_id, activity_name, typeactivite, date, optionorganisation) VALUES(:user_id , :activity_name , :typeactivite, :date, :optionorganisation)");
                                       $insertinfos->execute(array(
                                           "user_id"=>$user_id,
                                           "activity_name"=>$activity_name,
+                                          "typeactivite"=>$typeactivite,
                                           "date"=>$date,
                                           "optionorganisation"=>$optionorganisation
                                           )
@@ -618,10 +622,10 @@ require_once('includes/head.php');
                           )
                       );
 
-                      $insertactivitesvoyages = $db->prepare("UPDATE activitesvoyages SET stock=:newstock WHERE slug=:activity_name");
+                      $insertactivitesvoyages = $db->prepare("UPDATE activitesvoyages SET stock=:newstock WHERE typeactivite=:typeactivite");
                       $insertactivitesvoyages->execute(array(
                           "newstock"=>$newstock,
-                          "activity_name"=>$activity_slug
+                          "typeactivite"=>$typeactivite
                           )
                       );
 
@@ -641,9 +645,9 @@ require_once('includes/head.php');
                       $_SESSION['optionorganisation'] = $_POST['optionorganisation'];
                         $activity_name = $_GET['activityname'];
 
-                $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name=:activity_name and user_id=:user_id");
+                $check = $db->prepare("SELECT user_id FROM participe WHERE typeactivite=:typeactivite and user_id=:user_id");
                 $check->execute(array(
-                    "activity_name"=>$activity_name,
+                    "typeactivite"=>$typeactivite,
                     "user_id"=>$user_id
                     )
                 );
@@ -674,9 +678,9 @@ require_once('includes/head.php');
                                 <h4 class="info-title">En cliquant sur ce bouton j'accepte de participer à l'activitée</h4>
                                 <form action="" method="post">
                                   <?php
-                                    $selectstock = $db->prepare("SELECT stock from activitesvoyages WHERE slug=:activity_name");
+                                    $selectstock = $db->prepare("SELECT stock from activitesvoyages WHERE typeactivite=:typeactivite");
                                     $selectstock->execute(array(
-                                        "activity_name"=>$activity_name
+                                        "typeactivite"=>$typeactivite
                                         )
                                     );
 
@@ -709,11 +713,11 @@ require_once('includes/head.php');
           }else if ($typeactivite == "nettoyage"){
 
               $activity_name = $activity_slug;
-              $participe = $db->prepare("SELECT * FROM participe where user_id=:user_id and activity_name=:activity_name");
+              $participe = $db->prepare("SELECT * FROM participe where user_id=:user_id and typeactivite=:typeactivite");
 
               $participe->execute(array(
                   "user_id"=>$user_id,
-                  "activity_name"=>$activity_name
+                  "typeactivite"=>$typeactivite
                   )
               );
 
@@ -722,9 +726,9 @@ require_once('includes/head.php');
               if(!empty($_POST['jeparticipenettoyage'])){
 
                 $activity_name = $activity_slug;
-                $selectrealname = $db->prepare("SELECT title,stock from activitesvoyages WHERE slug=:activity_name");
+                $selectrealname = $db->prepare("SELECT title,stock from activitesvoyages WHERE typeactivite=:typeactivite");
                 $selectrealname->execute(array(
-                    "activity_name"=>$activity_name
+                    "typeactivite"=>$typeactivite
                     )
                 );
                 $r = $selectrealname->fetch(PDO::FETCH_OBJ);
@@ -736,19 +740,20 @@ require_once('includes/head.php');
 
 
                 $date = strftime('%d/%m/%Y %H:%M:%S');
-                $insertparticipation = $db->prepare("INSERT INTO participe (user_id, activity_name, date) VALUES(:user_id , :activity_name , :date)");
+                $insertparticipation = $db->prepare("INSERT INTO participe (user_id, activity_name, typeactivite, date) VALUES(:user_id , :activity_name , :typeactivite, :date)");
                 $insertparticipation->execute(array(
                     "user_id"=>$user_id,
                     "activity_name"=>$activity_name,
+                    "typeactivite"=>$typeactivite,
                     "date"=>$date
                     )
                 );
 
 
-                $updateactivite = $db->prepare("UPDATE activitesvoyages SET stock=:newstock WHERE slug=:activity_name");
+                $updateactivite = $db->prepare("UPDATE activitesvoyages SET stock=:newstock WHERE typeactivite=:typeactivite");
                 $updateactivite->execute(array(
                     "newstock"=>$newstock,
-                    "activity_name"=>$activity_name
+                    "typeactivite"=>$typeactivite
                     )
                 );
 
@@ -771,9 +776,9 @@ require_once('includes/head.php');
 
               $activity_name = $_GET['activityname'];
 
-                            $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name=:activity_name and user_id=:user_id");
+                            $check = $db->prepare("SELECT user_id FROM participe WHERE typeactivite=:typeactivite and user_id=:user_id");
                             $check->execute(array(
-                                "activity_name"=>$activity_name,
+                                "typeactivite"=>$typeactivite,
                                 "user_id"=>$user_id
                                 )
                             );
@@ -803,9 +808,9 @@ require_once('includes/head.php');
                                             <h4 class="info-title">En cliquant sur ce bouton j'accepte de participer à l'activitée</h4>
                                             <?php
                                               $activity_name = $activity_slug;
-                                              $selectstock = $db->prepare("SELECT stock from activitesvoyages WHERE slug=:activity_name");
+                                              $selectstock = $db->prepare("SELECT stock from activitesvoyages WHERE typeactivite=:typeactivite");
                                               $selectstock->execute(array(
-                                                  "activity_name"=>$activity_name
+                                                  "typeactivite"=>$typeactivite
 
                                                   )
                                               );
@@ -837,10 +842,10 @@ require_once('includes/head.php');
         }else if ($typeactivite == "orientation"){
 
           $activity_name = $activity_slug;
-          $participe = $db->prepare("SELECT * FROM participe where user_id=:user_id and activity_name=:activity_name");
+          $participe = $db->prepare("SELECT * FROM participe where user_id=:user_id and typeactivite=:typeactivite");
           $participe->execute(array(
               "user_id"=>$user_id,
-              "activity_name"=>$activity_name
+              "typeactivite"=>$typeactivite
               )
           );
 
@@ -848,9 +853,9 @@ require_once('includes/head.php');
 
           if(!empty($_POST['jeparticipeorientation'])){
             $activity_name = $activity_slug;
-            $selectrealname = $db->prepare("SELECT title,stock from activitesvoyages WHERE slug=:activity_name");
+            $selectrealname = $db->prepare("SELECT title,stock from activitesvoyages WHERE typeactivite=:typeactivite");
             $selectrealname->execute(array(
-                "activity_name"=>$activity_name
+                "typeactivite"=>$typeactivite
                 )
             );
             $r = $selectrealname->fetch(PDO::FETCH_OBJ);
@@ -860,10 +865,11 @@ require_once('includes/head.php');
             $pageformulaire = 'formulaire.php?type=orientation';
             $icon = 'map';
             $date = strftime('%d/%m/%Y %H:%M:%S');
-            $insertparticipe = $db->prepare("INSERT INTO participe (user_id, activity_name, date) VALUES(:user_id , :activity_name , :date)");
+            $insertparticipe = $db->prepare("INSERT INTO participe (user_id, activity_name, typeactivite, date) VALUES(:user_id , :activity_name , :typeactivite, :date)");
             $insertparticipe->execute(array(
                 "user_id"=>$user_id,
                 "activity_name"=>$activity_name,
+                "typeactivite"=>$typeactivite,
                 "date"=>$date
                 )
             );
@@ -883,10 +889,10 @@ require_once('includes/head.php');
                 )
             );
 
-            $updateformulaire = $db->prepare("UPDATE activitesvoyages SET stock=:newstock WHERE slug=:activity_name");
+            $updateformulaire = $db->prepare("UPDATE activitesvoyages SET stock=:newstock WHERE typeactivite=:typeactivite");
             $updateformulaire->execute(array(
                 "newstock"=>$newstock,
-                "activity_name"=>$activity_name
+                "typeactivite"=>$typeactivite
                 )
             );
 
@@ -899,9 +905,9 @@ require_once('includes/head.php');
 
           $activity_name = $_GET['activityname'];
 
-                            $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name=:activity_name and user_id=:user_id");
+                            $check = $db->prepare("SELECT user_id FROM participe WHERE typeactivite=:typeactivite and user_id=:user_id");
                             $check->execute(array(
-                                "activity_name"=>$activity_name,
+                                "typeactivite"=>$typeactivite,
                                 "user_id"=>$user_id
                                 )
                             );
@@ -931,9 +937,9 @@ require_once('includes/head.php');
                                           <h4 class="info-title">En cliquant sur ce bouton j'accepte de participer à l'activitée</h4>
                                         <?php
                                           $activity_name = $activity_slug;
-                                          $selectstock = $db->prepare("SELECT stock from activitesvoyages WHERE slug=:activity_name");
+                                          $selectstock = $db->prepare("SELECT stock from activitesvoyages WHERE typeactivite=:typeactivite");
                                           $selectstock->execute(array(
-                                              "activity_name"=>$activity_name
+                                              "typeactivite"=>$typeactivite
                                               )
                                           );
                                           $rstock = $selectstock->fetch(PDO::FETCH_OBJ);
@@ -961,10 +967,10 @@ require_once('includes/head.php');
         }else if ($typeactivite == "soireebar"){
 
             $activity_name = $activity_slug;
-            $participe = $db->prepare("SELECT * FROM participe where user_id=:user_id and activity_name=:activity_name");
+            $participe = $db->prepare("SELECT * FROM participe where user_id=:user_id and typeactivite=:typeactivite");
             $participe->execute(array(
                 "user_id"=>$user_id,
-                "activity_name"=>$activity_name
+                "typeactivite"=>$typeactivite
                 )
             );
 
@@ -972,9 +978,9 @@ require_once('includes/head.php');
 
             if(!empty($_POST['jeparticipesoireebar'])){
               $activity_name = $activity_slug;
-              $selectrealname = $db->prepare("SELECT title,stock from activitesvoyages WHERE slug=:activity_name");
+              $selectrealname = $db->prepare("SELECT title,stock from activitesvoyages WHERE typeactivite=:typeactivite");
               $selectrealname->execute(array(
-                  "activity_name"=>$activity_name
+                  "typeactivite"=>$typeactivite
                   )
               );
               $r = $selectrealname->fetch(PDO::FETCH_OBJ);
@@ -984,10 +990,11 @@ require_once('includes/head.php');
               $pageformulaire = 'formulaire.php?type=soireebar';
               $icon = 'local_drink';
               $date = strftime('%d/%m/%Y %H:%M:%S');
-              $insertparticipe = $db->prepare("INSERT INTO participe (user_id, activity_name, date) VALUES(:user_id , :activity_name , :date)");
+              $insertparticipe = $db->prepare("INSERT INTO participe (user_id, activity_name, typeactivite, date) VALUES(:user_id , :activity_name , :typeactivite, :date)");
               $insertparticipe->execute(array(
                   "user_id"=>$user_id,
                   "activity_name"=>$activity_name,
+                  "typeactivite"=>$typeactivite,
                   "date"=>$date
                   )
               );
@@ -1007,10 +1014,10 @@ require_once('includes/head.php');
                   )
               );
 
-              $updateformulaire = $db->prepare("UPDATE activitesvoyages SET stock=:newstock WHERE slug=:activity_name");
+              $updateformulaire = $db->prepare("UPDATE activitesvoyages SET stock=:newstock WHERE typeactivite=:typeactivite");
               $updateformulaire->execute(array(
                   "newstock"=>$newstock,
-                  "activity_name"=>$activity_name
+                  "typeactivite"=>$typeactivite
                   )
               );
 
@@ -1023,9 +1030,9 @@ require_once('includes/head.php');
 
             $activity_name = $_GET['activityname'];
 
-                              $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name=:activity_name and user_id=:user_id");
+                              $check = $db->prepare("SELECT user_id FROM participe WHERE typeactivite=:typeactivite and user_id=:user_id");
                               $check->execute(array(
-                                  "activity_name"=>$activity_name,
+                                  "typeactivite"=>$typeactivite,
                                   "user_id"=>$user_id
                                   )
                               );
@@ -1055,9 +1062,9 @@ require_once('includes/head.php');
                                             <h4 class="info-title">En cliquant sur ce bouton j'accepte de participer à l'activitée</h4>
                                           <?php
                                             $activity_name = $activity_slug;
-                                            $selectstock = $db->prepare("SELECT stock from activitesvoyages WHERE slug=:activity_name");
+                                            $selectstock = $db->prepare("SELECT stock from activitesvoyages WHERE typeactivite=:typeactivite");
                                             $selectstock->execute(array(
-                                                "activity_name"=>$activity_name
+                                                "typeactivite"=>$typeactivite
                                                 )
                                             );
                                             $rstock = $selectstock->fetch(PDO::FETCH_OBJ);

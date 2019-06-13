@@ -7,9 +7,9 @@
 if(isset($_GET['type'])){
   $type=$_GET['type'];
   $cattitre = $_GET['type'];
-  $selecttitre = $db->prepare("SELECT title from activitesvoyages WHERE slug LIKE :typeslug");
+  $selecttitre = $db->prepare("SELECT title from activitesvoyages WHERE typeactivite=:typeactivite");
   $selecttitre->execute(array(
-      "typeslug"=>'%'.$cattitre.'%'
+      "typeactivite"=>$type
       )
   );
   $recup = $selecttitre->fetch(PDO::FETCH_OBJ);
@@ -51,8 +51,11 @@ function slugify($text){
           <?php
 $user_id = $_SESSION['user_id'];
 if ($type == 'ski'){
-  $participeski = $db->prepare("SELECT * FROM participe WHERE user_id='$user_id' AND activity_name LIKE '%ski%'");
-  $participeski->execute();
+  $participeski = $db->prepare("SELECT * FROM participe WHERE user_id=:user_id AND typeactivite=:typeactivite");
+  $participeski->execute(array(
+    "user_id"=>$user_id,
+    "typeactivite"=>$type
+  ));
   $countparticipeski = $participeski->rowCount();
   if($countparticipeski>0){
 
@@ -168,7 +171,7 @@ if ($type == 'ski'){
                </div>
             <div id="results1"></div>
           </div>
-          
+
         <?php
 }else{
   ?>
@@ -176,8 +179,11 @@ if ($type == 'ski'){
     <?php
 }}else if ($type == 'rugby'){
 
-  $participerugby = $db->prepare("SELECT * FROM participe WHERE user_id='$user_id' AND activity_name LIKE '%rugby%'");
-  $participerugby->execute();
+  $participerugby = $db->prepare("SELECT * FROM participe WHERE user_id=:user_id AND typeactivite=:typeactivite");
+  $participerugby->execute(array(
+    "user_id"=>$user_id,
+    "typeactivite"=>$type
+  ));
   $countparticiperugby = $participerugby->rowCount();
   if($countparticiperugby>0){
   ?>
@@ -286,8 +292,11 @@ if ($type == 'ski'){
 
 }}else if ($type == 'cinema'){
   $user_id = $_SESSION['user_id'];
-  $participecinema = $db->prepare("SELECT * FROM participe WHERE user_id='$user_id' AND activity_name LIKE '%cinema%'");
-  $participecinema->execute();
+  $participecinema = $db->prepare("SELECT * FROM participe WHERE user_id=:user_id AND typeactivite=:typeactivite");
+  $participecinema->execute(array(
+    "user_id"=>$user_id,
+    "typeactivite"=>$type
+  ));
   $countparticipecinema = $participecinema->rowCount();
   if($countparticipecinema>0){
 
@@ -353,10 +362,10 @@ if ($type == 'ski'){
 <?php
 }}else if ($type == 'nettoyage'){
   $user_id = $_SESSION['user_id'];
-  $participenettoyage = $db->prepare("SELECT * FROM participe WHERE user_id=:user_id AND activity_name LIKE :nettoyage");
+  $participenettoyage = $db->prepare("SELECT * FROM participe WHERE user_id=:user_id AND typeactivite=:typeactivite");
   $participenettoyage->execute(array(
       "user_id"=>$user_id,
-      "nettoyage"=>'%nettoyage%'
+      "typeactivite"=>$type
       )
   );
 
@@ -426,9 +435,9 @@ if ($type == 'ski'){
 <?php
                   if(!empty($_POST['jeneparticipeplusnettoyage'])){
                     $activity_name = 'nettoyage';
-                    $selectrealname = $db->prepare("SELECT title,stock from activitesvoyages WHERE slug LIKE :activity_name");
+                    $selectrealname = $db->prepare("SELECT title,stock from activitesvoyages WHERE typeactivite=:typeactivite");
                     $selectrealname->execute(array(
-                        "activity_name"=>'%'.$activity_name.'%'
+                        "typeactivite"=>$type
                         )
                     );
 
@@ -438,10 +447,10 @@ if ($type == 'ski'){
                     $stock = $r->stock;
                     $newstock = $stock + '1';
 
-                    $deleteparticipe2 = $db->prepare("DELETE FROM participe WHERE user_id=:user_id AND activity_name LIKE :activity_name");
+                    $deleteparticipe2 = $db->prepare("DELETE FROM participe WHERE user_id=:user_id AND typeactivite=:typeactivite");
                     $deleteparticipe2->execute(array(
                         "user_id"=>$user_id,
-                        "activity_name"=>'%'.$activity_name.'%'
+                        "typeactivite"=>$typeactivite
                         )
                     );
 
@@ -452,10 +461,10 @@ if ($type == 'ski'){
                         )
                     );
 
-                    $updateacti2 = $db->prepare("UPDATE activitesvoyages SET stock=:newstock WHERE slug LIKE :activity_name");
+                    $updateacti2 = $db->prepare("UPDATE activitesvoyages SET stock=:newstock WHERE typeactivite=:typeactivite");
                     $updateacti2->execute(array(
                         "newstock"=>$newstock,
-                        "activity_name"=>'%'.$activity_name.'%'
+                        "typeactivite"=>$typeactivite
                         )
                     );
 
@@ -476,8 +485,11 @@ if ($type == 'ski'){
 <?php
 }}else if ($type == 'sportive'){
 
-  $participesportive = $db->prepare("SELECT * FROM participe WHERE user_id='$user_id' AND activity_name LIKE '%sportive%'");
-  $participesportive->execute();
+  $participesportive = $db->prepare("SELECT * FROM participe WHERE user_id=:user_id AND typeactivite=:typeactivite");
+  $participesportive->execute(array(
+    "user_id"=>$user_id,
+    "typeactivite"=>$type
+  ));
   $countparticipesportive = $participesportive->rowCount();
   if($countparticipesportive>0){
 
@@ -588,9 +600,9 @@ if ($type == 'ski'){
 if(!empty($_POST['jeneparticipeplus'])){
   $activity_name = 'sportive';
 
-  $selectrealname = $db->prepare("SELECT title,stock from activitesvoyages WHERE slug LIKE :activity_name");
+  $selectrealname = $db->prepare("SELECT title,stock from activitesvoyages WHERE typeactivite=:typeactivite");
   $selectrealname->execute(array(
-      "activity_name"=>'%'.$activity_name.'%'
+      "typeactivite"=>$type
       )
   );
 
@@ -600,10 +612,10 @@ if(!empty($_POST['jeneparticipeplus'])){
   $stock = $r->stock;
   $newstock = $stock + '1';
 
-  $deleteparticipe = $db->prepare("DELETE FROM participe WHERE user_id=:user_id AND activity_name LIKE :activity_name");
+  $deleteparticipe = $db->prepare("DELETE FROM participe WHERE user_id=:user_id AND typeactivite=:typeactivite");
   $deleteparticipe->execute(array(
       "user_id"=>$user_id,
-      "activity_name"=>'%'.$activity_name.'%'
+      "typeactivite"=>$type
       )
   );
 
@@ -621,10 +633,10 @@ if(!empty($_POST['jeneparticipeplus'])){
   );
 
 
-  $updateacti = $db->prepare("UPDATE activitesvoyages SET stock=:newstock WHERE slug LIKE :activity_name");
+  $updateacti = $db->prepare("UPDATE activitesvoyages SET stock=:newstock WHERE typeactivite=:typeactivite");
   $updateacti->execute(array(
       "newstock"=>$newstock,
-      "activity_name"=>'%'.$activity_name.'%'
+      "typeactivite"=>$type
       )
   );
 
@@ -652,8 +664,11 @@ if(!empty($_POST['jeneparticipeplus'])){
 }}else if ($type == 'orientation'){
 
 
-  $participeorientation = $db->prepare("SELECT * FROM participe WHERE user_id='$user_id' AND activity_name LIKE '%orientation%'");
-  $participeorientation->execute();
+  $participeorientation = $db->prepare("SELECT * FROM participe WHERE user_id=:user_id AND typeactivite=:typeactivite");
+  $participeorientation->execute(array(
+    "user_id"=>$user_id,
+    "typeactivite"=>$type
+  ));
   $countparticipeorientation = $participeorientation->rowCount();
   if($countparticipeorientation>0){
   ?>
@@ -759,9 +774,9 @@ if(!empty($_POST['jeneparticipeplus'])){
                   if(!empty($_POST['jeneparticipeplusorientation'])){
                     $activity_name = 'orientation';
 
-                    $selectrealname = $db->prepare("SELECT title,stock from activitesvoyages WHERE slug LIKE :activity_name");
+                    $selectrealname = $db->prepare("SELECT title,stock from activitesvoyages WHERE typeactivite=:typeactivite");
                     $selectrealname->execute(array(
-                        "activity_name"=>'%'.$activity_name.'%'
+                        "typeactivite"=>$type
                         )
                     );
                     $r = $selectrealname->fetch(PDO::FETCH_OBJ);
@@ -769,10 +784,10 @@ if(!empty($_POST['jeneparticipeplus'])){
                     $stock = $r->stock;
                     $newstock = $stock + '1';
 
-                    $deleteparticipe = $db->prepare("DELETE FROM participe WHERE user_id=:user_id AND activity_name LIKE :activity_name");
+                    $deleteparticipe = $db->prepare("DELETE FROM participe WHERE user_id=:user_id AND typeactivite=:typeactivite");
                     $deleteparticipe->execute(array(
                         "user_id"=>$user_id,
-                        "activity_name"=>'%'.$activity_name.'%'
+                        "typeactivite"=>$type
                         )
                     );
 
@@ -790,10 +805,10 @@ if(!empty($_POST['jeneparticipeplus'])){
                     );
 
 
-                    $updateacti = $db->prepare("UPDATE activitesvoyages SET stock=:newstock WHERE slug LIKE :activity_name");
+                    $updateacti = $db->prepare("UPDATE activitesvoyages SET stock=:newstock WHERE typeactivite=:typeactivite");
                     $updateacti->execute(array(
                         "newstock"=>$newstock,
-                        "activity_name"=>'%'.$activity_name.'%'
+                        "typeactivite"=>$type
                         )
                     );
 
@@ -827,7 +842,205 @@ if(!empty($_POST['jeneparticipeplus'])){
 </body>
 <?php
 
+}  else if ($type == 'soireebar'){
+
+
+    $participesoireebar = $db->prepare("SELECT * FROM participe WHERE user_id=:user_id AND typeactivite=:typeactivite");
+    $participesoireebar->execute(array(
+      "user_id"=>$user_id,
+      "typeactivite"=>$slug
+    ));
+    $countparticipesoireebar = $participesoireebar->rowCount();
+    if($countparticipesoireebar>0){
+    ?>
+              <script>
+
+               function SubmitFormDataOrientation() {
+                 var user_id = "<?php echo $_SESSION['user_id']; ?>";
+                  var adresse = $("#adresse").val();
+                  var codepostal = $("#codepostal").val();
+                  var ville = $("#ville").val();
+                  var tel = $("#tel").val();
+                  var telurgence = $("#telurgence").val();
+                  $.post("ajax/modifyformulairesoireebar.php", { user_id:user_id, adresse: adresse, codepostal: codepostal, ville: ville, tel:tel, telurgence: telurgence},
+                  function(data) {
+                   $('#resultssoireebar').html(data);
+
+                  });
+
+              }
+              </script>
+
+              <?php
+              $selectformulaireremplis = $db->prepare("SELECT * from formulairesoireebar WHERE user_id=:user_id");
+              $selectformulaireremplis->execute(array(
+                  "user_id"=>$user_id
+                  )
+              );
+
+              $r2 = $selectformulaireremplis->fetch(PDO::FETCH_OBJ);
+              $adresse = $r2->adresse;
+              $codepostal = $r2->codepostal;
+              $ville = $r2->ville;
+              $tel= $r2->tel;
+              $telurgence = $r2->telurgence;
+
+               ?>
+
+
+               <div class="content">
+                   <div class="container-fluid">
+                       <div class="card">
+                           <div class="card-content">
+                               <h2 class="card-title text-center"><?php echo $titledelapage; ?></h2>
+                               <div class="row">
+                                 <div class="col-sm-6">
+                                     <div class="card-content">
+                                       <form action="" method="post" id="myForm3" class="contact-form">
+                                           <div class="form-group label-floating">
+                                               <label class="control-label">Adresse</label>
+                                               <input type="text" name="adresse" value="<?php echo $adresse; ?>"id="adresse" class="form-control">
+                                           </div>
+                                           <div class="form-group label-floating">
+                                               <label class="control-label">Code Postal</label>
+                                               <input type="number" name="codepostal" value="<?php echo $codepostal; ?>" id="codepostal" class="form-control">
+                                           </div>
+                                           <div class="form-group label-floating">
+                                               <label class="control-label">Ville</label>
+                                               <input type="text" name="ville" value="<?php echo $ville; ?>" id="ville" class="form-control">
+                                           </div>
+                                           <div class="form-group label-floating">
+                                               <label class="control-label">Téléphone</label>
+                                               <input type="number" name="tel" value="<?php echo $tel; ?>" id="tel" class="form-control">
+                                           </div>
+                                           <div class="form-group label-floating">
+                                               <label class="control-label">Téléphone d'urgence</label>
+                                               <input type="number" name="telurgence" value="<?php echo $telurgence; ?>" id="telurgence" class="form-control">
+                                           </div>
+                                           <center>
+                                             <button id="submitFormDatasoireebar" onclick="SubmitFormDataSoireeBar();" type="button" class="btn btn-primary btn-round btn-rose">Modifier</button>
+                                           </center>
+                                       </form>
+                                       </div>
+                                   </div>
+                                   <div class="col-sm-6">
+                                       <div class="card-content">
+                                         <br><br><br>
+                                         <center>
+                                         <h3 class="card-title">Annuler sa Participation</h3>
+                                         </center>
+                                          <div class="card-content">
+                                              <div class="info info-horizontal">
+                                                  <div class="description">
+                                                      <center>
+                                                      <h4 class="info-title">En cliquant sur ce bouton je renonce à participer à l'activitée</h4>
+                                                      <form action="" method="post">
+                                                      <input type="submit" class="btn btn-primary btn-round btn-rose" id="jeneparticipeplussoireebar" name="jeneparticipeplussoireebar" value="J'annule ma participation">
+                                                      </form>
+                                                      </center>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+
+  <?php
+
+
+                    if(!empty($_POST['jeneparticipeplussoireebar'])){
+                      $activity_name = 'soireebar';
+
+                      $selectrealname = $db->prepare("SELECT title,stock from activitesvoyages WHERE typeactivite=:typeactivite");
+                      $selectrealname->execute(array(
+                          "typeactivite"=>$type
+                          )
+                      );
+                      $r = $selectrealname->fetch(PDO::FETCH_OBJ);
+                      $realname = addslashes($r->title);
+                      $stock = $r->stock;
+                      $newstock = $stock + '1';
+
+                      $deleteparticipe = $db->prepare("DELETE FROM participe WHERE user_id=:user_id AND typeactivite=:typeactivite");
+                      $deleteparticipe->execute(array(
+                          "user_id"=>$user_id,
+                          "typeactivite"=>$type
+                          )
+                      );
+
+                      $deletecatparticipe= $db->prepare("DELETE FROM catparticipe WHERE user_id=:user_id AND name LIKE :realname");
+                      $deletecatparticipe->execute(array(
+                          "user_id"=>$user_id,
+                          "realname"=>'%'.$realname.'%'
+                          )
+                      );
+
+                      $deleteformor = $db->prepare("DELETE FROM formulairesoireebar WHERE user_id=:user_id");
+                      $deleteformor->execute(array(
+                          "user_id"=>$user_id
+                          )
+                      );
+
+
+                      $updateacti = $db->prepare("UPDATE activitesvoyages SET stock=:newstock WHERE typeactivite=:typeactivite");
+                      $updateacti->execute(array(
+                          "newstock"=>$newstock,
+                          "typeactivite"=>$type
+                          )
+                      );
+
+
+                    ?>
+                    <script>
+                        window.location = 'https://dashboard.jam-mdm.fr/activitees.php';
+                    </script>
+                    <?php
+                    }
+                    ?>
+
+                <div id="resultssoireebar"></div>
+
+
+  <?php
+  //FIN ORIENTATION
+
   }else{
+  ?>
+      <script>window.location="https://dashboard.jam-mdm.fr/";</script>
+
+  <?php
+  }
+           ?>
+          </div>
+      </div>
+  </div>
+  </div>
+
+  </body>
+  <?php
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  else{
 ?>
   <script>window.location="https://dashboard.jam-mdm.fr/";</script>
 <?php
