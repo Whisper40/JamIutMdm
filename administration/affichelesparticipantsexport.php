@@ -7,6 +7,7 @@ require_once('includes/checkconnection.php');
 $id = $_GET['id'];
 $slug = $_GET['slug'];
 $title = $_GET['title'];
+$typeactivite = $_GET['typeactivite'];
 date_default_timezone_set('Europe/Paris');
 setlocale(LC_TIME, 'fr_FR.utf8','fra');
 $date = strftime('%d:%m:%y %H:%M:%S');
@@ -24,7 +25,7 @@ $newtitle = replaceAccents($title);
 
 //FIN
 
-if (stripos($title, 'ski') !== FALSE){
+if ($typeactivite == "ski"){
 
 header('Content-Type: text/csv; charset=utf-8');
 header("Content-disposition: filename=Tableau-Ski-$date.csv");
@@ -51,10 +52,10 @@ while($s0=$selectid->fetch(PDO::FETCH_OBJ)){
   $email=$snom->email;
   $prenom=$snom->prenom;
 
-  $selectinfos = $db->prepare("SELECT * FROM participe WHERE user_id=:id and activity_name=:name");
+  $selectinfos = $db->prepare("SELECT * FROM participe WHERE user_id=:id and typeactivite=:typeactivite");
   $selectinfos->execute(array(
     "id"=>$iddelapersonne,
-    "name"=>$slug
+    "typeactivite"=>$typeactivite
   ));
 
   while($s1=$selectinfos->fetch(PDO::FETCH_OBJ)){
@@ -102,7 +103,7 @@ foreach ($tableau as $ligne) {
 }
 
 
-}else if (stripos($title, 'rugby') !== FALSE){
+}else if ($typeactivite == "rugby"){
 
 
 
@@ -134,10 +135,10 @@ foreach ($tableau as $ligne) {
     $email=$snom->email;
     $prenom=$snom->prenom;
 
-    $selectinfos = $db->prepare("SELECT * FROM participe WHERE user_id=:id and activity_name=:name");
+    $selectinfos = $db->prepare("SELECT * FROM participe WHERE user_id=:id and typeactivite=:typeactivite");
     $selectinfos->execute(array(
       "id"=>$iddelapersonne,
-      "name"=>$slug
+      "typeactivite"=>$typeactivite
     ));
 
     while($s1=$selectinfos->fetch(PDO::FETCH_OBJ)){
@@ -181,7 +182,7 @@ foreach ($tableau as $ligne) {
 
 
 
-}else if (stripos($newtitle, 'cinema') !== FALSE){
+}else if ($typeactivite == "cinema"){
 
 
 
@@ -240,7 +241,7 @@ foreach ($tableau as $ligne) {
 
 
 
-}else if (stripos($title, 'sportive') !== FALSE){
+}else if ($typeactivite == "sportive"){
 
 
 
@@ -313,7 +314,7 @@ foreach ($tableau as $ligne) {
 
 
 
-}else if (stripos($title, 'nettoyage') !== FALSE){
+}else if ($typeactivite == "nettoyage"){
 
 
 
@@ -373,7 +374,7 @@ foreach ($tableau as $ligne) {
 
 
 
-}else if (stripos($title, 'orientation') !== FALSE){
+}else if ($typeactivite == "orientation"){
 
 
 
@@ -409,6 +410,79 @@ foreach ($tableau as $ligne) {
 
 
         $selectinfospersonnelles = $db->prepare("SELECT * FROM formulaireorientation WHERE user_id=:id");
+        $selectinfospersonnelles->execute(array(
+          "id"=>$iddelapersonne
+        ));
+
+        while($s2=$selectinfospersonnelles->fetch(PDO::FETCH_OBJ)){
+          $adresse=$s2->adresse;
+          $codepostal=$s2->codepostal;
+          $ville=$s2->ville;
+          $tel=$s2->tel;
+          $telurgence=$s2->telurgence;
+          $regroupement = $codepostal.' '.$ville;
+
+          $tableau[] = array($nom,$prenom,$email,$adresse,$regroupement,$tel,$telurgence);
+
+
+        }
+
+    }
+
+
+    $entete = array("Nom", "Prenom", "Email", "Adresse", "CP", "Telephone", "Telephone Urgence");
+
+
+    $separateur = ";";
+    // Affichage de la ligne de titre, terminée par un retour chariot
+    echo implode($separateur, $entete)."\r\n";
+
+    // Affichage du contenu du tableau
+    foreach ($tableau as $ligne) {
+      echo implode($separateur, $ligne)."\r\n";
+    }
+
+
+
+
+
+
+}else if ($typeactivite == "soireebar"){
+
+
+
+
+
+    header('Content-Type: text/csv; charset=utf-8');
+    header("Content-disposition: filename=Tableau-Soireebar-$date.csv");
+
+
+
+    $tableau = array();
+
+
+
+    $selectid = $db->prepare("SELECT user_id FROM catparticipe WHERE name=:name");
+    $selectid->execute(array(
+      "name"=>$title
+    ));
+    $nbr = $selectid->rowCount();
+
+    while($s0=$selectid->fetch(PDO::FETCH_OBJ)){
+      $iddelapersonne=$s0->user_id;
+
+      $selectnom = $db->prepare("SELECT username, prenom, email FROM users WHERE id=:id");
+      $selectnom->execute(array(
+        "id"=>$iddelapersonne
+      ));
+      $snom=$selectnom->fetch(PDO::FETCH_OBJ);
+      $nom=$snom->username;
+      $email=$snom->email;
+      $prenom=$snom->prenom;
+
+
+
+        $selectinfospersonnelles = $db->prepare("SELECT * FROM formulairesoireebar WHERE user_id=:id");
         $selectinfospersonnelles->execute(array(
           "id"=>$iddelapersonne
         ));
