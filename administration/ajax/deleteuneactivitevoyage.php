@@ -59,9 +59,9 @@ require_once('../includes/connectBDD.php');
 
 
 
-          $deletecarousel = $db->prepare("DELETE FROM carousel WHERE typeactivite=:typeactivite");
+          $deletecarousel = $db->prepare("DELETE FROM carousel WHERE slug=:slug");
           $deletecarousel->execute(array(
-                              "typeactivite"=>$typeactivite
+                              "slug"=>$slug
                               )
                           );
 
