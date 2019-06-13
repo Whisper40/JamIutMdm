@@ -958,7 +958,131 @@ require_once('includes/head.php');
             </div>
           </div>
           <?php
-          }
+        }else if ($typeactivite == "soireebar"){
+
+            $activity_name = $activity_slug;
+            $participe = $db->prepare("SELECT * FROM participe where user_id=:user_id and activity_name=:activity_name");
+            $participe->execute(array(
+                "user_id"=>$user_id,
+                "activity_name"=>$activity_name
+                )
+            );
+
+            $countparticipe = $participe->rowCount();
+
+            if(!empty($_POST['jeparticipesoireebar'])){
+              $activity_name = $activity_slug;
+              $selectrealname = $db->prepare("SELECT title,stock from activitesvoyages WHERE slug=:activity_name");
+              $selectrealname->execute(array(
+                  "activity_name"=>$activity_name
+                  )
+              );
+              $r = $selectrealname->fetch(PDO::FETCH_OBJ);
+              $realname = $r->title;
+              $stock = $r->stock;
+              $newstock = $stock - '1';
+              $pageformulaire = 'formulaire.php?type=soireebar';
+              $icon = 'local_drink';
+              $date = strftime('%d/%m/%Y %H:%M:%S');
+              $insertparticipe = $db->prepare("INSERT INTO participe (user_id, activity_name, date) VALUES(:user_id , :activity_name , :date)");
+              $insertparticipe->execute(array(
+                  "user_id"=>$user_id,
+                  "activity_name"=>$activity_name,
+                  "date"=>$date
+                  )
+              );
+
+              $insertcatparticipe = $db->prepare("INSERT INTO catparticipe (user_id, name, page, icon) VALUES(:user_id, :realname, :pageformulaire, :icon)");
+              $insertcatparticipe->execute(array(
+                  "user_id"=>$user_id,
+                  "realname"=>$realname,
+                  "pageformulaire"=>$pageformulaire,
+                  "icon"=>$icon
+                  )
+              );
+
+              $insertformulaireorientation = $db->prepare("INSERT INTO formulaireorientation (user_id) VALUES(:user_id)");
+              $insertformulaireorientation->execute(array(
+                  "user_id"=>$user_id
+                  )
+              );
+
+              $updateformulaire = $db->prepare("UPDATE activitesvoyages SET stock=:newstock WHERE slug=:activity_name");
+              $updateformulaire->execute(array(
+                  "newstock"=>$newstock,
+                  "activity_name"=>$activity_name
+                  )
+              );
+
+              ?>
+              <script>
+                  window.location = 'https://dashboard.jam-mdm.fr/formulaire.php?type=orientation';
+              </script>
+              <?php
+            }
+
+            $activity_name = $_GET['activityname'];
+
+                              $check = $db->prepare("SELECT user_id FROM participe WHERE activity_name=:activity_name and user_id=:user_id");
+                              $check->execute(array(
+                                  "activity_name"=>$activity_name,
+                                  "user_id"=>$user_id
+                                  )
+                              );
+                              $countcheck = $check->rowCount();
+            ?>
+
+            <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-6 col-md-offset-3">
+                      <div class="card">
+                          <div class="card-content">
+                            <center>
+                              <h3 class="card-title">Participation</h3>
+                            </center>
+                            <form action="" method="post">
+                                <div class="card-content">
+                                    <div class="info info-horizontal">
+                                        <div class="description">
+                                          <center>
+                                            <?php
+                                            if($countcheck>0){
+                                            ?>
+                                            <h4 class="info-title"><font color="red">Tu participe déja à cette activitée</font></h4>
+                                            <?php
+                                            }else{
+                                            ?>
+                                            <h4 class="info-title">En cliquant sur ce bouton j'accepte de participer à l'activitée</h4>
+                                          <?php
+                                            $activity_name = $activity_slug;
+                                            $selectstock = $db->prepare("SELECT stock from activitesvoyages WHERE slug=:activity_name");
+                                            $selectstock->execute(array(
+                                                "activity_name"=>$activity_name
+                                                )
+                                            );
+                                            $rstock = $selectstock->fetch(PDO::FETCH_OBJ);
+                                            $stock = $rstock->stock;
+                                            if($stock>0){
+                                            ?>
+                                            <button type="submit" class="btn btn-primary btn-round" id="jeparticipesoireebar" name="jeparticipesoireebar" value="Je Participe">Je Participe</button>
+                                            <?php
+                                            }else{
+                                            ?>
+                                            <h4 class="info-title"><font color="red">Aucune place disponible</font></h4>
+                                            <?php
+                                            } }
+                                            ?>
+                                            </center>
+                                        </div>
+                                    </div>
+                                </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+            <?php
+            }
           ?>
         </div>
           <script>

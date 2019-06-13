@@ -4295,7 +4295,7 @@ if ($uploadOk == 0) {
             $slug = slugify($title);
 
             if (stripos($slug, $typeactivite) !== FALSE){
-              if (($typeactivite == "sportive") || ($typeactivite == "nettoyage") || ($typeactivite == "orientation")){
+              if (($typeactivite == "sportive") || ($typeactivite == "nettoyage") || ($typeactivite == "orientation") || ($typeactivite == "soireebar")){
                 $payant = '0';
               }else{
                 $payant = '1';
@@ -4660,6 +4660,7 @@ if ($uploadOk == 0) {
                       <option value="sportive">Journée Sportive</option>
                       <option value="nettoyage">Journée Nettoyage</option>
                       <option value="orientation">Journée Orientation</option>
+                      <option value="soireebar">Soirée & Bar</option>
                     </select>
                   </div>
 
