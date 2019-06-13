@@ -663,7 +663,7 @@ echo '<br>
                           <td class="text-center">'.$price.'</td>
                           <td class="text-center">'.$status.'</td>
                           <td class="text-center">'.$countnombreparticipants.'</td>
-                          <td class="text-center"><a href="?action=afficheactivite&amp;id='.$id.'&amp;slug='.$slug.'&amp;title='.$title.'&amp;typeactivite='.$typeactivite.'"><button type="button" class="btn btn-rose btn-round btn-sm">Afficher</button></a></td>
+                          <td class="text-center"><a href="?action=afficheactivite&amp;id='.$id.'&amp;slug='.$slug.'&amp;title='.$title.'"><button type="button" class="btn btn-rose btn-round btn-sm">Afficher</button></a></td>
                         </tr>';
                     }
                     echo '
