@@ -4654,7 +4654,7 @@ if ($uploadOk == 0) {
                       <option value="rugby">Rugby</option>
                       <option value="cinema">Cinéma</option>
                       <option value="" disabled>Activités Gratuites</option>
-                      <option value="sportive">Journée Sportive</option>
+                      <option value="sportive">Journée Sportive & Olympiade</option>
                       <option value="nettoyage">Journée Nettoyage</option>
                       <option value="orientation">Journée Orientation</option>
                       <option value="soireebar">Soirée & Bar</option>
