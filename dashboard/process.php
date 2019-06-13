@@ -20,9 +20,9 @@ $raison = 'Commande activité/voyage';
 $activity_name = $_SESSION['activity_name'];
 
 
-$selectrealname = $db->prepare("SELECT * from activitesvoyages WHERE slug=:activity_name");
+$selectrealname = $db->prepare("SELECT * from activitesvoyages WHERE typeactivite=:typeactivite");
 $selectrealname->execute(array(
-    "activity_name"=>$activity_name
+    "typeactivite"=>$typeactivite
     )
 );
 $r = $selectrealname->fetch(PDO::FETCH_OBJ);
@@ -56,10 +56,11 @@ $optionadditionnelles = $_SESSION['optionadditionnelles'];
 $pageformulaire = 'formulaire.php?type=ski';
 $icon = 'ac_unit';
 
-$insertparticipe = $db->prepare("INSERT INTO participe (user_id, activity_name, date, optionmateriel, optionrepas, optionadditionnelles) VALUES(:user_id, :activity_name, :date, :optionmateriel, :optionrepas, :optionadditionnelles)");
+$insertparticipe = $db->prepare("INSERT INTO participe (user_id, activity_name, typeactivite, date, optionmateriel, optionrepas, optionadditionnelles) VALUES(:user_id, :activity_name, :typeactivite, :date, :optionmateriel, :optionrepas, :optionadditionnelles)");
 $insertparticipe->execute(array(
     "user_id"=>$user_id,
     "activity_name"=>$activity_name,
+    "typeactivite"=>$typeactivite,
     "date"=>$date,
     "optionmateriel"=>$optionmateriel,
     "optionrepas"=>$optionrepas,
@@ -91,10 +92,11 @@ $pageformulaire = 'formulaire.php?type=rugby';
 $icon = 'map';
 
 
-$insertparticipe2 = $db->prepare("INSERT INTO participe (user_id, activity_name, date, optionaccompagnement) VALUES(:user_id, :activity_name, :date, :optionaccompagnement)");
+$insertparticipe2 = $db->prepare("INSERT INTO participe (user_id, activity_name, typeactivite, date, optionaccompagnement) VALUES(:user_id, :activity_name, :typeactivite, :date, :optionaccompagnement)");
 $insertparticipe2->execute(array(
     "user_id"=>$user_id,
     "activity_name"=>$activity_name,
+    "typeactivite"=>$typeactivite,
     "date"=>$date,
     "optionaccompagnement"=>$optionaccompagnement
     )
@@ -121,10 +123,11 @@ $pageformulaire = 'formulaire.php?type=cinema';
 $icon = 'map';
 
 
-$insertparticipe3 = $db->prepare("INSERT INTO participe (user_id, activity_name, date) VALUES(:user_id , :activity_name ,:date)");
+$insertparticipe3 = $db->prepare("INSERT INTO participe (user_id, activity_name, typeactivite, date) VALUES(:user_id , :activity_name , :typeactivite, :date)");
 $insertparticipe3->execute(array(
     "user_id"=>$user_id,
     "activity_name"=>$activity_name,
+    "typeactivite"=>$typeactivite,
     "date"=>$date
     )
 );
@@ -142,10 +145,10 @@ $insertcatparticipe3->execute(array(
 }
 
 
-$updateactiv = $db->prepare("UPDATE activitesvoyages SET stock=:newstock WHERE slug=:activity_name");
+$updateactiv = $db->prepare("UPDATE activitesvoyages SET stock=:newstock WHERE typeactivite=:typeactivite");
 $updateactiv->execute(array(
     "newstock"=>$newstock,
-    "activity_name"=>$activity_name
+    "typeactivite"=>$typeactivite
     )
 );
 
