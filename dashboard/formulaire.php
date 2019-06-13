@@ -842,13 +842,13 @@ if(!empty($_POST['jeneparticipeplus'])){
 </body>
 <?php
 
-}  else if ($type == 'soireebar'){
+} else if($type == "soireebar"){
 
 
     $participesoireebar = $db->prepare("SELECT * FROM participe WHERE user_id=:user_id AND typeactivite=:typeactivite");
     $participesoireebar->execute(array(
       "user_id"=>$user_id,
-      "typeactivite"=>$slug
+      "typeactivite"=>$type
     ));
     $countparticipesoireebar = $participesoireebar->rowCount();
     if($countparticipesoireebar>0){
