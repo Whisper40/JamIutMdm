@@ -1008,7 +1008,7 @@ require_once('includes/head.php');
                   )
               );
 
-              $insertformulaireorientation = $db->prepare("INSERT INTO formulaireorientation (user_id) VALUES(:user_id)");
+              $insertformulaireorientation = $db->prepare("INSERT INTO formulairesoireebar (user_id) VALUES(:user_id)");
               $insertformulaireorientation->execute(array(
                   "user_id"=>$user_id
                   )
