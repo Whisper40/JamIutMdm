@@ -4292,7 +4292,7 @@ if ($uploadOk == 0) {
             $datesejour = $_POST['datesejour'];
             $price = $_POST['price'];
             $typeactivite = $_POST['typeactivite'];
-            $slug = slugify($title);
+            $slug = slugify($title).$typeactivite;
 
 
               if (($typeactivite == "sportive") || ($typeactivite == "nettoyage") || ($typeactivite == "orientation") || ($typeactivite == "soireebar")){
