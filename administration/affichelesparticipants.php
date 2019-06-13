@@ -36,12 +36,13 @@ if(isset($_GET['action'])){
 
     //SPECIAL
     //FIN
-    $selecttitle = $db->prepare("SELECT title FROM activitesvoyages WHERE slug=:slug");
+    $selecttitle = $db->prepare("SELECT title, typeactivite FROM activitesvoyages WHERE slug=:slug");
     $selecttitle->execute(array(
       "slug"=>$slug
     ));
     $srien = $selecttitle->fetch(PDO::FETCH_OBJ);
     $title = $srien->title;
+    $typeactivite = $srien->typeactivite;
 
     function replaceAccents($str) {
 
@@ -54,7 +55,7 @@ if(isset($_GET['action'])){
 
 $newtitle = replaceAccents($title);
 
-    if (stripos($title, 'ski') !== FALSE){
+    if ($typeactivite == "ski"){
       echo '
     <div class="row">
       <div class="col-sm-12">
@@ -96,10 +97,10 @@ $newtitle = replaceAccents($title);
       $snom=$selectnom->fetch(PDO::FETCH_OBJ);
       $nom=$snom->username;
       $prenom=$snom->prenom;
-      $selectinfos = $db->prepare("SELECT * FROM participe WHERE user_id=:id and activity_name=:name");
+      $selectinfos = $db->prepare("SELECT * FROM participe WHERE user_id=:id and typeactivite=:typeactivite");
       $selectinfos->execute(array(
         "id"=>$iddelapersonne,
-        "name"=>$slug
+        "typeactivite"=>$typeactivite
       ));
       while($s1=$selectinfos->fetch(PDO::FETCH_OBJ)){
         $optionmateriel=$s1->optionmateriel;
@@ -160,7 +161,7 @@ echo '<br>
       </div>
     ';
 
-  }else if (stripos($title, 'rugby') !== FALSE){
+  }else if ($typeactivite == "rugby"){
     echo '
     <div class="row">
       <div class="col-sm-12">
@@ -196,10 +197,10 @@ echo '<br>
     $snom=$selectnom->fetch(PDO::FETCH_OBJ);
     $nom=$snom->username;
     $prenom=$snom->prenom;
-    $selectinfos = $db->prepare("SELECT * FROM participe WHERE user_id=:id and activity_name=:name");
+    $selectinfos = $db->prepare("SELECT * FROM participe WHERE user_id=:id and typeactivite=:typeactivite");
     $selectinfos->execute(array(
       "id"=>$iddelapersonne,
-      "name"=>$slug
+      "typeactivite"=>$typeactivite
     ));
     while($s1=$selectinfos->fetch(PDO::FETCH_OBJ)){
       $optionaccompagnement=$s1->optionaccompagnement;
@@ -247,7 +248,7 @@ echo '<br>
           </div>
     ';
 
-  }else if (stripos($newtitle, 'cinema') !== FALSE){
+  }else if ($typeactivite == "cinema"){
         echo '
         <div class="row">
           <div class="col-sm-12">
@@ -308,7 +309,7 @@ echo '<br>
               </div>
         ';
 
-  }else if (stripos($title, 'sportive') !== FALSE){
+  }else if ($typeactivite == "sportive"){
 
     echo '  <div class="row">
               <div class="col-sm-12">
@@ -385,7 +386,7 @@ echo '<br>
                   </div>
             ';
 
-  }else if (stripos($title, 'nettoyage') !== FALSE){
+  }else if ($typeactivite == "nettoyage"){
         echo '
         <div class="row">
           <div class="col-sm-12">
@@ -445,7 +446,7 @@ echo '<br>
               </div>
         ';
 
-  }else if (stripos($title, 'orientation') !== FALSE){
+  }else if ($typeactivite == "orientation"){
 
     echo '  <div class="row">
               <div class="col-sm-12">
@@ -481,6 +482,83 @@ echo '<br>
                 $nom=$snom->username;
                 $prenom=$snom->prenom;
                   $selectinfospersonnelles = $db->prepare("SELECT * FROM formulaireorientation WHERE user_id=:id");
+                  $selectinfospersonnelles->execute(array(
+                    "id"=>$iddelapersonne
+                  ));
+                  while($s2=$selectinfospersonnelles->fetch(PDO::FETCH_OBJ)){
+                    $adresse=$s2->adresse;
+                    $codepostal=$s2->codepostal;
+                    $ville=$s2->ville;
+                    $tel=$s2->tel;
+                    $telurgence=$s2->telurgence;
+                    echo '
+                    <tr>
+                      <td>'.$nom.'</td>
+                      <td>'.$prenom.'</td>
+                      <td>'.$adresse.'</td>
+                      <td class="text-center">'.$codepostal.'</td>
+                      <td>'.$ville.'</td>
+                      <td class="text-center">'.$tel.'</td>
+                      <td class="text-center">'.$telurgence.'</td>
+                    </tr>';
+            }
+          }
+            echo '
+                </tbody>
+              </table>
+            </div>
+            ';
+            echo '<br>
+                  <div class="row">
+                    <div class="col-sm-8">
+                      <center>
+                        <h3 class="card-title">Cliquer sur ce bouton pour télécharger et exporter le tableau au format Excel</h3>
+                      </center>
+                    </div>
+                    <div class="col-sm-4">
+                        <center>
+                        <a href="https://administration.jam-mdm.fr/affichelesparticipantsexport.php?id='.$id.'&amp;slug='.$slug.'&amp;title='.$title.'"><button class="btn btn-primary btn-round btn-rose">Télécharger le tableau</button></a>
+                        </center>
+                    </div>
+                  </div>
+            ';
+
+  }else if ($typeactivite == "soireebar"){
+
+    echo '  <div class="row">
+              <div class="col-sm-12">
+                <div class="card-content">
+                  <h3 class="card-title">'.$title.'</h3>
+                </div>
+              </div>
+            </div>
+            <div class="table-responsive">
+            <table class="table">
+              <thead class="text-primary">
+                <th class="text-center">Nom</th>
+                <th class="text-center">Prénom</th>
+                <th class="text-center">Adresse</th>
+                <th class="text-center">Code Postal</th>
+                <th class="text-center">Ville</th>
+                <th class="text-center">Numéro de Téléphone</th>
+                <th class="text-center">Numéro d\'urgence</th>
+              </thead>
+              <tbody>
+                ';
+                $selectid = $db->prepare("SELECT user_id FROM catparticipe WHERE name=:name");
+                $selectid->execute(array(
+                "name"=>$title
+                ));
+                while($s0=$selectid->fetch(PDO::FETCH_OBJ)){
+                $iddelapersonne=$s0->user_id;
+                $selectnom = $db->prepare("SELECT username, prenom FROM users WHERE id=:id");
+                $selectnom->execute(array(
+                  "id"=>$iddelapersonne
+                ));
+                $snom=$selectnom->fetch(PDO::FETCH_OBJ);
+                $nom=$snom->username;
+                $prenom=$snom->prenom;
+                  $selectinfospersonnelles = $db->prepare("SELECT * FROM formulairesoireebar WHERE user_id=:id");
                   $selectinfospersonnelles->execute(array(
                     "id"=>$iddelapersonne
                   ));
@@ -568,9 +646,9 @@ echo '<br>
                         $title = $ligne->title;
                         $slug = $ligne->slug;
 
-                        $selectnombreparticipants = $db->prepare("SELECT * FROM activitesvoyages WHERE slug=:slug");
+                        $selectnombreparticipants = $db->prepare("SELECT * FROM activitesvoyages WHERE typeactivite=:typeactivite");
                         $selectnombreparticipants->execute(array(
-                          "slug"=>$slug
+                          "typeactivite"=>$typeactivite
                         ));
                         $countnombreparticipants = $selectnombreparticipants->rowCount();
 
