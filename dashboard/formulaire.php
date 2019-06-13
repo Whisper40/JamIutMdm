@@ -855,7 +855,7 @@ if(!empty($_POST['jeneparticipeplus'])){
     ?>
               <script>
 
-               function SubmitFormDataOrientation() {
+               function SubmitFormDataSoireeBar() {
                  var user_id = "<?php echo $_SESSION['user_id']; ?>";
                   var adresse = $("#adresse").val();
                   var codepostal = $("#codepostal").val();
