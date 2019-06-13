@@ -33,16 +33,17 @@ if(isset($_GET['action'])){
   if($_GET['action'] == 'afficheactivite'){
     $id = $_GET['id'];
     $slug = $_GET['slug'];
+    $typeactivite = $_GET['typeactivite'];
 
     //SPECIAL
     //FIN
-    $selecttitle = $db->prepare("SELECT title, typeactivite FROM activitesvoyages WHERE slug=:slug");
+    $selecttitle = $db->prepare("SELECT title, typeactivite FROM activitesvoyages WHERE typeactivite=:typeactivite");
     $selecttitle->execute(array(
-      "slug"=>$slug
+      "typeactivite"=>$typeactivite
     ));
     $srien = $selecttitle->fetch(PDO::FETCH_OBJ);
     $title = $srien->title;
-    $typeactivite = $srien->typeactivite;
+
 
     function replaceAccents($str) {
 
