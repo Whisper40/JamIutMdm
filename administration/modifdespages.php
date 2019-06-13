@@ -4294,7 +4294,7 @@ if ($uploadOk == 0) {
             $typeactivite = $_POST['typeactivite'];
             $slug = slugify($title);
 
-            if (stripos($slug, $typeactivite) !== TRUE){
+            if (stripos($typeactivite, $slug) !== FALSE){
               if (($typeactivite == "sportive") || ($typeactivite == "nettoyage") || ($typeactivite == "orientation") || ($typeactivite == "soireebar")){
                 $payant = '0';
               }else{
