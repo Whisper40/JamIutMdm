@@ -1098,7 +1098,7 @@ require_once('includes/head.php');
 
           if ($typeactivite == "ski"){
 
-                    $total = $prixactivite + $prixmateriel + $prixrepas;
+                    $total = $prixactivite + $prixmateriel + $prixrepas + $prixadditionnelles;
                     $_SESSION['activity_name'] = $activity_slug;
                     $_SESSION['optionmateriel'] = $optionmaterielform;
                     $_SESSION['optionrepas'] = $optionrepasform;
