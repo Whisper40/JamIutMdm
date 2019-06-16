@@ -1208,7 +1208,7 @@ require_once('includes/head.php');
                       $req = $db->query($sql);
                       $req->setFetchMode(PDO::FETCH_ASSOC);
                       foreach($req as $row){
-
+                      $price = $row['price']
 
                       ?>
 
@@ -1223,8 +1223,8 @@ require_once('includes/head.php');
                                     </h3>
                                     <div class="card-description">
                                       <h4><p><?php echo $row['datesejour']; ?><br>
-                                      Prix : <b><?php echo $row['price']; ?>€</b></p></h4>
-                                        <?php $price = $row['price']; ?>
+                                      Prix : <b><?php echo $price; ?>€</b></p></h4>
+
                                     </div>
                                     <center>
                                       <a href="activitees.php?activityname=<?php echo $row['slug'];?>">
