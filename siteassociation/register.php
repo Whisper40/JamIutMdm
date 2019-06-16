@@ -50,6 +50,15 @@ if(!isset($_SESSION['user_id'])){
         $password = htmlspecialchars($_POST['password']);
         $repeatpassword = htmlspecialchars($_POST['repeatpassword']);
         $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
+
+        $checkmail = $db->prepare("SELECT * FROM users WHERE email=:email");
+        $checkmail->execute(array(
+            "email" => $email
+            )
+        );
+        if($checkmail->rowCount()==0){
+
+
         if(isset($username)&&isset($email)&&isset($password)&&isset($repeatpassword)){
           $selectetudiant = $db->prepare("SELECT * FROM etud WHERE nom=:nom and prenom=:prenom and numero=:ine");
           $selectetudiant->execute(array(
@@ -80,6 +89,12 @@ if(!isset($_SESSION['user_id'])){
                     "date"=>$date,
                     "datesystem"=>$datesystem,
                     "subscribe"=>$subscribe
+                    )
+                );
+
+                $deletecode= $db->prepare("DELETE FROM etud WHERE numero=:ine");
+                $deletecode->execute(array(
+                    "ine"=>$ine
                     )
                 );
 
@@ -198,6 +213,25 @@ if(!isset($_SESSION['user_id'])){
                     </button>
                     <center>
                         <b>Attention Alert :</b> Votre inscription n'a pas pu aboutir. Merci de verifier la saisie de tous les champs
+                    </center>
+                </div>
+            </div>
+        </div>
+<?php
+}
+        }else{
+?>
+        <div class="container">
+            <div class="row">
+                <div class="alert alert-warning">
+                    <div class="alert-icon">
+                      <i class="now-ui-icons ui-1_bell-53"></i>
+                    </div>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true"><i class="now-ui-icons ui-1_simple-remove"></i></span>
+                    </button>
+                    <center>
+                        <b>Attention Alert :</b> Votre inscription n'a pas pu aboutir. Le mail est déja utilisé...
                     </center>
                 </div>
             </div>
