@@ -178,7 +178,7 @@
     );
 
     $nbimage2 = $carousel2->rowCount();
-    if($nbimage1 != 0){
+    if($nbimage2 != 0){
     ?>
 
     <div class="section" id="carousel">
