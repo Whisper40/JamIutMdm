@@ -31,7 +31,7 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-6 col-md-12">
-              <h2 class="title"><?php echo $index->titre1 ?></h2>
+              <h2 class="title"><?php echo $index->titre1 ?> test</h2>
               <h5 class="description">
                 <?php echo $index->description1 ?>
               </h5>
