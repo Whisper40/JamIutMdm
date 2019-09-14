@@ -31,12 +31,12 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-6 col-md-12">
-              <h2 class="title"><?php echo $index->titre1 ?> test</h2>
+              <h2 class="title"><?php echo $index->titre1 ?></h2>
               <h5 class="description">
                 <?php echo $index->description1 ?>
               </h5>
               <a href="<?php echo $index->lienbt1 ?>" class="btn btn-primary btn-round btn-lg"><?php echo $index->bouton1 ?></a>
-              <a href="<?php echo $index->lienbt2 ?>" class="btn btn-primary btn-simple btn-round btn-lg"><?php echo $index->bouton2 ?></a>
+              <a href="<?php echo $index->lienbt2 ?>" class="btn btn-primary btn-round btn-lg"><?php echo $index->bouton2 ?></a>
             </div>
             <div class="col-lg-6 col-md-12">
               <div class="container text-center">
