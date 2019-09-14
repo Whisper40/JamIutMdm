@@ -36,7 +36,7 @@
                 <?php echo $index->description1 ?>
               </h5>
               <a href="<?php echo $index->lienbt1 ?>" class="btn btn-primary btn-round btn-lg"><?php echo $index->bouton1 ?></a>
-              <a href="<?php echo $index->lienbt2 ?>" class="btn btn-primary btn-round btn-lg"><?php echo $index->bouton2 ?></a>
+              <a href="<?php echo $index->lienbt2 ?>" class="btn btn-primary btn-simple btn-round btn-lg"><?php echo $index->bouton2 ?></a>
             </div>
             <div class="col-lg-6 col-md-12">
               <div class="container text-center">
