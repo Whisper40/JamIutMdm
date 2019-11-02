@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="navbar-translate">
 			<a class="navbar-brand" href="index.php" rel="tooltip">
-				<img src="JamFichiers/Img/logoHeader.png" alt="JAM" style="height:30px">
+				<img src="JamFichiers/Img/logoHeader.png" alt="JAM" style="height:40px">
 			</a>
 			<button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-bar top-bar"></span>
