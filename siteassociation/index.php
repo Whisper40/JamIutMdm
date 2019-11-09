@@ -41,7 +41,7 @@
             <div class="col-lg-6 col-md-12">
               <div class="container text-center">
                 <br><br><br><br>
-                <img src="JamFichiers/Img/ImagesDuSite/Original/<?php echo $index->logo2 ?>" alt="">
+                <img src="JamFichiers/Img/ImagesDuSite/Original/<?php echo $index->logo2 ?>" style="width:50%;" alt="">
               </div>
             </div>
           </div>
